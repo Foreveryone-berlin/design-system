@@ -1,0 +1,100 @@
+/* Design system tokens and base — from repo root */
+@import "../../css/custom-properties.css";
+@import "../../css/base.css";
+@import "../../css/typography.css";
+
+/* Prototype page layout */
+.ds-page {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--section-padding-y-desktop) var(--section-padding-x-desktop);
+}
+
+.ds-section {
+  margin-bottom: var(--spacing-16);
+}
+
+.ds-section-title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-neutral-900);
+  margin: 0 0 var(--spacing-6);
+  padding-bottom: var(--spacing-2);
+  border-bottom: 2px solid var(--color-neutral-200);
+}
+
+.ds-swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--spacing-4);
+}
+
+.ds-swatch {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  border: 1px solid var(--color-neutral-200);
+}
+
+.ds-swatch-color {
+  height: 80px;
+}
+
+.ds-swatch-label {
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-snug);
+  color: var(--color-neutral-700);
+  background: var(--color-white);
+}
+
+.ds-spacing-demo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-4);
+}
+
+.ds-spacing-box {
+  background: var(--color-primary-50);
+  border: 2px solid var(--color-primary-300);
+  border-radius: var(--radius-sm);
+  color: var(--color-neutral-800);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ds-radius-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-4);
+}
+
+.ds-radius-card {
+  width: 120px;
+  height: 80px;
+  background: var(--color-neutral-100);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-neutral-600);
+}
+
+.ds-intro {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-neutral-700);
+  margin: 0 0 var(--spacing-12);
+  max-width: 60ch;
+}
