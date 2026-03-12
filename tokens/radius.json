@@ -1,0 +1,11 @@
+{
+  "radius": {
+    "sm": { "$value": "4px", "$type": "dimension" },
+    "md": { "$value": "8px", "$type": "dimension" },
+    "lg": { "$value": "16px", "$type": "dimension" },
+    "xl": { "$value": "24px", "$type": "dimension" },
+    "card": { "$value": "16px", "$type": "dimension", "$description": "Workshop cards" },
+    "pill": { "$value": "9999px", "$type": "dimension", "$description": "Buttons and tags" },
+    "circle": { "$value": "50%", "$type": "dimension", "$description": "Icon buttons and avatars" }
+  }
+}

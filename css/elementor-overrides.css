@@ -1,0 +1,50 @@
+/* ==========================================================================
+   ForEveryone Berlin — Elementor Overrides
+   Keep selectors low-specificity and mobile-first.
+   ========================================================================== */
+
+/* Constrain Elementor section content to design-system container width */
+.elementor-section .elementor-container {
+  max-width: var(--container-max-width);
+}
+
+/* Default section rhythm alignment with design-system spacing */
+.elementor-section {
+  padding-block: var(--section-padding-y-mobile);
+  padding-inline: var(--section-padding-x-mobile);
+}
+
+@media (min-width: 768px) {
+  .elementor-section {
+    padding-block: var(--section-padding-y-desktop);
+    padding-inline: var(--section-padding-x-desktop);
+  }
+}
+
+/* Navbar standardization: clean white by default, shadow after scroll state */
+.elementor-location-header {
+  background-color: var(--color-white);
+  transition: box-shadow var(--transition-base), background-color var(--transition-base);
+}
+
+/* WordPress commonly toggles these classes via sticky/header scripts */
+.elementor-location-header.is-scrolled,
+.elementor-location-header.elementor-sticky--active {
+  box-shadow: var(--shadow-sm);
+}
+
+/* Keep form inputs visually aligned with design-system primitives */
+.elementor-field,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  border-radius: var(--radius-md);
+}
+
+/* FAQ accordion icon and link transition consistency */
+.elementor-accordion .elementor-tab-title,
+.elementor-nav-menu a {
+  transition: color var(--transition-fast);
+}

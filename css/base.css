@@ -1,0 +1,52 @@
+/* ==========================================================================
+   ForEveryone Berlin — Base CSS
+   Depends on: css/custom-properties.css
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-neutral-900);
+  background-color: var(--color-white);
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.fe-page-bg-alt {
+  background-color: var(--color-neutral-50);
+}
+
+.fe-page-bg-lavender {
+  background-color: var(--color-secondary-lavender-400);
+}

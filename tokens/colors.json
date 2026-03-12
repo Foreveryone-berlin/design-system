@@ -1,0 +1,80 @@
+{
+  "color": {
+    "primary": {
+      "50": { "$value": "#FFF2EB", "$type": "color", "$description": "Lightest orange tint" },
+      "100": { "$value": "#FFE4D8", "$type": "color", "$description": "Very light orange tint" },
+      "150": { "$value": "#FFD7C4", "$type": "color", "$description": "Light orange tint for subtle surfaces" },
+      "200": { "$value": "#FFCAB0", "$type": "color", "$description": "Light orange tint for soft emphasis" },
+      "300": { "$value": "#FFAF89", "$type": "color", "$description": "Peach - soft CTA background and hover states" },
+      "400": { "$value": "#FF9561", "$type": "color", "$description": "Mid-light orange accent" },
+      "500": { "$value": "#FF7A3A", "$type": "color", "$description": "Orange_main - primary CTA and brand accent" },
+      "600": { "$value": "#CC622E", "$type": "color", "$description": "Primary button hover or pressed state" },
+      "700": { "$value": "#994923", "$type": "color", "$description": "Dark orange emphasis" },
+      "800": { "$value": "#663117", "$type": "color", "$description": "Very dark orange support color" },
+      "900": { "$value": "#33180C", "$type": "color", "$description": "Darkest orange tone" }
+    },
+    "secondary": {
+      "green": {
+        "50": { "$value": "#F8FCF6", "$type": "color", "$description": "Lightest green tint" },
+        "100": { "$value": "#F6FAEE", "$type": "color", "$description": "Very light green tint" },
+        "150": { "$value": "#F2F7E5", "$type": "color", "$description": "Light green tint" },
+        "200": { "$value": "#EEF5DC", "$type": "color", "$description": "Soft green background tone" },
+        "300": { "$value": "#E5F0CB", "$type": "color", "$description": "Muted green highlight" },
+        "400": { "$value": "#DDEBB9", "$type": "color", "$description": "Mid-light green support tone" },
+        "500": { "$value": "#D4E8A8", "$type": "color", "$description": "Green_main - secondary accent and success base" },
+        "600": { "$value": "#AAB686", "$type": "color", "$description": "Darkened green for contrast states" },
+        "700": { "$value": "#7F8A65", "$type": "color", "$description": "Dark green emphasis" },
+        "800": { "$value": "#555C43", "$type": "color", "$description": "Very dark green support color" },
+        "900": { "$value": "#2A2E22", "$type": "color", "$description": "Darkest green tone" }
+      },
+      "blue": {
+        "50": { "$value": "#ECE5FD", "$type": "color", "$description": "Lightest blue-violet tint" },
+        "100": { "$value": "#D9CCF8", "$type": "color", "$description": "Very light blue-violet tint" },
+        "150": { "$value": "#C5B2F3", "$type": "color", "$description": "Light blue-violet tint" },
+        "200": { "$value": "#B299F7", "$type": "color", "$description": "Soft blue-violet accent" },
+        "300": { "$value": "#8B299F", "$type": "color", "$description": "Purple transition tone from audit palette" },
+        "400": { "$value": "#6533EF", "$type": "color", "$description": "Bright blue-violet accent" },
+        "500": { "$value": "#3F00EB", "$type": "color", "$description": "Blue_main - play buttons and key accents" },
+        "600": { "$value": "#3200BC", "$type": "color", "$description": "Dark blue hover or pressed state" },
+        "700": { "$value": "#26008D", "$type": "color", "$description": "Dark blue emphasis" },
+        "800": { "$value": "#19005E", "$type": "color", "$description": "Very dark blue support color" },
+        "900": { "$value": "#0D002F", "$type": "color", "$description": "Darkest blue tone" }
+      },
+      "lavender": {
+        "50": { "$value": "#FBF9FF", "$type": "color", "$description": "Lightest lavender tint" },
+        "100": { "$value": "#F7F3FF", "$type": "color", "$description": "Very light lavender tint" },
+        "150": { "$value": "#F2EEFF", "$type": "color", "$description": "Light lavender tint" },
+        "200": { "$value": "#EEE8FF", "$type": "color", "$description": "Soft lavender surface tone" },
+        "300": { "$value": "#E6DCFF", "$type": "color", "$description": "Muted lavender accent" },
+        "400": { "$value": "#D0D1FF", "$type": "color", "$description": "Lavender_Light - footer and card backgrounds" },
+        "500": { "$value": "#D5C5FF", "$type": "color", "$description": "Lavender_main - secondary brand color" },
+        "600": { "$value": "#AA9ECC", "$type": "color", "$description": "Darkened lavender for contrast states" },
+        "700": { "$value": "#807699", "$type": "color", "$description": "Dark lavender emphasis" },
+        "800": { "$value": "#554F66", "$type": "color", "$description": "Very dark lavender support color" },
+        "900": { "$value": "#2B2733", "$type": "color", "$description": "Darkest lavender tone" }
+      }
+    },
+    "neutral": {
+      "50": { "$value": "#FAFAFA", "$type": "color", "$description": "Lightest neutral for section backgrounds" },
+      "100": { "$value": "#F5F5F5", "$type": "color", "$description": "Very light neutral surface" },
+      "200": { "$value": "#E5E5E5", "$type": "color", "$description": "Light neutral border or divider" },
+      "300": { "$value": "#D4D4D4", "$type": "color", "$description": "Neutral border default" },
+      "400": { "$value": "#A3A3A3", "$type": "color", "$description": "Neutral placeholder or subdued text" },
+      "500": { "$value": "#737373", "$type": "color", "$description": "Neutral mid-tone for secondary text" },
+      "600": { "$value": "#525252", "$type": "color", "$description": "Neutral dark support text" },
+      "700": { "$value": "#404040", "$type": "color", "$description": "Neutral dark emphasis" },
+      "800": { "$value": "#262626", "$type": "color", "$description": "Very dark neutral" },
+      "900": { "$value": "#1E1E1E", "$type": "color", "$description": "Neutral_main - default text color" },
+      "1000": { "$value": "#0A0A0A", "$type": "color", "$description": "Darkest neutral, aligns with base black" }
+    },
+    "status": {
+      "error": { "$value": "#DC2626", "$type": "color", "$description": "Form error state - confirm against live site validation styling" },
+      "success": { "$value": "#D4E8A8", "$type": "color", "$description": "References green_main for success" },
+      "warning": { "$value": "#FFAF89", "$type": "color", "$description": "References peach for warning emphasis" }
+    },
+    "base": {
+      "white": { "$value": "#FFFFFF", "$type": "color", "$description": "Base white" },
+      "black": { "$value": "#0A0A0A", "$type": "color", "$description": "Base black" }
+    }
+  }
+}

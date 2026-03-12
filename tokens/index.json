@@ -1,0 +1,11 @@
+{
+  "$description": "Master token index for design-system build script",
+  "imports": [
+    "./colors.json",
+    "./typography.json",
+    "./spacing.json",
+    "./radius.json",
+    "./shadows.json",
+    "./motion.json"
+  ]
+}

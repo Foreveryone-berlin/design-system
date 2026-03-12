@@ -1,0 +1,13 @@
+---
+description: Git workflow rules
+globs: ["**/*"]
+alwaysApply: true
+---
+
+- Branch from `develop`, never from `main`
+- Branch naming: feature/*, fix/*, docs/*, chore/*
+- Commit messages follow Conventional Commits spec
+- Always update CHANGELOG.md under [Unreleased] when changing tokens or CSS
+- Never commit directly to `main` or `develop`
+- PR descriptions must use the PR template
+- Tag releases on `main` with semver: v1.0.0

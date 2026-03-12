@@ -1,0 +1,34 @@
+{
+  "font": {
+    "family": {
+      "heading": { "$value": "'Filson Pro', sans-serif", "$type": "fontFamily" },
+      "accent": { "$value": "'Young Serif', serif", "$type": "fontFamily" },
+      "body": { "$value": "'Filson Pro', sans-serif", "$type": "fontFamily" }
+    },
+    "weight": {
+      "regular": { "$value": "400", "$type": "fontWeight" },
+      "medium": { "$value": "500", "$type": "fontWeight" },
+      "bold": { "$value": "700", "$type": "fontWeight" },
+      "black": { "$value": "900", "$type": "fontWeight" }
+    },
+    "size": {
+      "xs": { "$value": "0.75rem", "$type": "dimension", "$description": "12px - tags, labels" },
+      "sm": { "$value": "0.875rem", "$type": "dimension" },
+      "base": { "$value": "1rem", "$type": "dimension", "$description": "16px - body, inputs, buttons" },
+      "lg": { "$value": "1.125rem", "$type": "dimension" },
+      "xl": { "$value": "1.25rem", "$type": "dimension", "$description": "20px - H3" },
+      "2xl": { "$value": "1.5rem", "$type": "dimension" },
+      "3xl": { "$value": "3rem", "$type": "dimension", "$description": "48px - H2 section headers" },
+      "4xl": { "$value": "5.25rem", "$type": "dimension", "$description": "84px - H1 hero" }
+    },
+    "lineHeight": {
+      "tight": { "$value": "0.8", "$type": "number", "$description": "80% - H1" },
+      "snug": { "$value": "1.0", "$type": "number", "$description": "100% - H2, H3, tags, labels" },
+      "normal": { "$value": "1.4", "$type": "number", "$description": "140% - body, inputs, buttons" }
+    },
+    "letterSpacing": {
+      "tight": { "$value": "-0.02em", "$type": "dimension", "$description": "-2% - headings" },
+      "normal": { "$value": "0em", "$type": "dimension", "$description": "0% - body and UI" }
+    }
+  }
+}

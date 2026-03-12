@@ -1,0 +1,9 @@
+{
+  "motion": {
+    "transition": {
+      "fast": { "$value": "150ms ease", "$type": "duration" },
+      "base": { "$value": "250ms ease", "$type": "duration" },
+      "slow": { "$value": "400ms ease", "$type": "duration" }
+    }
+  }
+}
