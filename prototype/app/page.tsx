@@ -1,3 +1,12 @@
+import {
+  hero as heroCopy,
+  mission as missionCopy,
+  stats as statsCopy,
+  designSystemIntro,
+  futureSiteUrl,
+} from "@/content/site-copy";
+import packageJson from "@/package.json";
+
 const colorSwatches = [
   { token: "primary-50", var: "var(--color-primary-50)" },
   { token: "primary-300", var: "var(--color-primary-300)" },
@@ -42,20 +51,90 @@ const radiusScale = [
   { token: "pill", var: "var(--radius-pill)" },
 ];
 
+const shadowTokens = [
+  { token: "sm", var: "var(--shadow-sm)" },
+  { token: "md", var: "var(--shadow-md)" },
+  { token: "lg", var: "var(--shadow-lg)" },
+  { token: "card", var: "var(--shadow-card)" },
+];
+
 export default function Home() {
+  const version = packageJson.version;
+
   return (
     <main className="ds-page">
-      <h1 className="ds-hero-title">
-        ForEveryone
-        <br />
-        <span className="ds-hero-accent">Design System</span>
-      </h1>
-      <p className="ds-intro">
-        Prototype v0.2.0, future design.foreveryone.berlin. Basics first, then
-        radius/shadows/motion, then components. Light design only.
-      </p>
+      {/* Hero with copy + image */}
+      <section className="ds-hero-with-image">
+        <div>
+          <h1 className="ds-hero-title">
+            {heroCopy.headline.split(" ")[0]}
+            <br />
+            <span className="ds-hero-accent">
+              {heroCopy.headline.split(" ").slice(1).join(" ")}
+            </span>
+          </h1>
+          <span className="ds-hero-version">v{version}</span>
+          <p className="ds-intro">{heroCopy.tagline}</p>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "var(--spacing-4)",
+              marginTop: "var(--spacing-4)",
+            }}
+          >
+            <a href="#tokens" className="ds-btn ds-btn--primary">
+              {heroCopy.ctaPrimary}
+            </a>
+            <a href="#components" className="ds-btn ds-btn--secondary">
+              {heroCopy.ctaSecondary}
+            </a>
+          </div>
+        </div>
+        <div className="ds-hero-image-wrap">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/hero.png"
+            alt=""
+            width={335}
+            height={231}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        </div>
+      </section>
 
-      <section className="ds-section">
+      {/* Intro: mission + design system */}
+      <p className="ds-intro">
+        {designSystemIntro} In the future, it will live at{" "}
+        <a
+          href={futureSiteUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "var(--color-secondary-blue-500)" }}
+        >
+          {futureSiteUrl}
+        </a>
+        .
+      </p>
+      <section className="ds-section" aria-labelledby="mission-heading">
+        <h2 id="mission-heading" className="ds-section-title">
+          {missionCopy.title}
+        </h2>
+        <p className="fe-body">{missionCopy.bodyLine1}</p>
+        <p className="fe-body">{missionCopy.bodyLine2}</p>
+      </section>
+
+      {/* Stats strip */}
+      <section className="ds-stats" aria-label="Design system at a glance">
+        {statsCopy.map((stat) => (
+          <div key={stat.label} className="ds-stat">
+            <p className="ds-stat-value">{stat.value}</p>
+            <p className="ds-stat-label">{stat.label}</p>
+          </div>
+        ))}
+      </section>
+
+      <section id="tokens" className="ds-section">
         <h2 className="ds-section-title">Colors</h2>
         <div className="ds-swatch-grid">
           {colorSwatches.map(({ token, var: cssVar }) => (
@@ -94,7 +173,8 @@ export default function Home() {
           <div>
             <div className="fe-label">Body</div>
             <p className="fe-body">
-              Body text uses Filson Pro at base size with normal line height.
+              Body text uses design system tokens. Filson Pro at base size with
+              normal line height.
             </p>
           </div>
           <div>
@@ -131,28 +211,50 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <p className="fe-body" style={{ marginTop: "var(--spacing-6)" }}>
-          Shadows: <code>--shadow-sm</code>, <code>--shadow-md</code>,{" "}
-          <code>--shadow-lg</code>, <code>--shadow-card</code>
+        <div
+          className="ds-radius-demo"
+          style={{ marginTop: "var(--spacing-4)" }}
+        >
+          <div className="ds-radius-circle-demo" title="circle">
+            ●
+          </div>
+          <span className="fe-body" style={{ alignSelf: "center" }}>
+            circle (icon/avatar)
+          </span>
+        </div>
+        <p className="fe-body" style={{ marginTop: "var(--spacing-4)" }}>
+          Shadows:
         </p>
+        <div className="ds-shadow-demo">
+          {shadowTokens.map(({ token, var: cssVar }) => (
+            <div
+              key={token}
+              className="ds-shadow-box"
+              style={{ boxShadow: cssVar }}
+            >
+              {token}
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="ds-section">
         <h2 className="ds-section-title">Motion</h2>
-        <p className="fe-body">
+        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
           Transitions: <code>--transition-fast</code> (150ms),{" "}
           <code>--transition-base</code> (250ms), <code>--transition-slow</code>{" "}
-          (400ms)
+          (400ms). Hover the card:
         </p>
+        <div className="ds-motion-demo-card">Hover me</div>
       </section>
 
-      <section className="ds-section">
+      <section id="components" className="ds-section">
         <h2 className="ds-section-title">Buttons</h2>
         <div
           style={{ display: "flex", flexWrap: "wrap", gap: "var(--spacing-4)" }}
         >
           <button type="button" className="ds-btn ds-btn--primary">
-            Primary (blue CTA)
+            Primary
           </button>
           <button type="button" className="ds-btn ds-btn--orange">
             Orange
@@ -192,6 +294,39 @@ export default function Home() {
             <p className="ds-card-body">
               Transitions use --transition-base for hover.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="ds-section">
+        <h2 className="ds-section-title">Icons</h2>
+        <div className="ds-icon-demo">
+          <div className="ds-icon-item">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/favicon.svg" alt="" width={24} height={24} aria-hidden />
+            <span>Favicon</span>
+          </div>
+          <div className="ds-icon-item">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/icons/arrow-right.svg"
+              alt=""
+              width={24}
+              height={24}
+              aria-hidden
+            />
+            <span>Arrow right</span>
+          </div>
+          <div className="ds-icon-item">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/icons/external-link.svg"
+              alt=""
+              width={24}
+              height={24}
+              aria-hidden
+            />
+            <span>External link</span>
           </div>
         </div>
       </section>
@@ -241,6 +376,22 @@ export default function Home() {
           Typography and spacing come from the design system.
         </blockquote>
       </section>
+
+      {/* Wave section */}
+      <section className="ds-wave-section" aria-hidden>
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M0 80 Q300 20 600 80 T1200 80 V120 H0 Z" />
+        </svg>
+      </section>
+
+      <footer className="ds-footer">
+        <p className="ds-footer-version">Design System v{version}</p>
+        <p style={{ margin: 0 }}>design.foreveryone.berlin</p>
+      </footer>
     </main>
   );
 }
