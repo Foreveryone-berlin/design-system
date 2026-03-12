@@ -45,13 +45,14 @@ const radiusScale = [
 export default function Home() {
   return (
     <main className="ds-page">
-      <h1 className="fe-h1">
-        ForEveryone <span className="fe-h1--accent">Design System</span>
+      <h1 className="ds-hero-title">
+        ForEveryone
+        <br />
+        <span className="ds-hero-accent">Design System</span>
       </h1>
       <p className="ds-intro">
-        Prototype v0.2.0 — future design.foreveryone.berlin. This page showcases
-        colors, typography, spacing, radius, shadows, and motion from the
-        token-driven CSS.
+        Prototype v0.2.0, future design.foreveryone.berlin. Basics first, then
+        radius/shadows/motion, then components. Light design only.
       </p>
 
       <section className="ds-section">
@@ -143,6 +144,102 @@ export default function Home() {
           <code>--transition-base</code> (250ms), <code>--transition-slow</code>{" "}
           (400ms)
         </p>
+      </section>
+
+      <section className="ds-section">
+        <h2 className="ds-section-title">Buttons</h2>
+        <div
+          style={{ display: "flex", flexWrap: "wrap", gap: "var(--spacing-4)" }}
+        >
+          <button type="button" className="ds-btn ds-btn--primary">
+            Primary (blue CTA)
+          </button>
+          <button type="button" className="ds-btn ds-btn--orange">
+            Orange
+          </button>
+          <button type="button" className="ds-btn ds-btn--secondary">
+            Secondary
+          </button>
+          <button type="button" className="ds-btn ds-btn--outline">
+            Outline
+          </button>
+        </div>
+      </section>
+
+      <section className="ds-section">
+        <h2 className="ds-section-title">Cards</h2>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+            gap: "var(--spacing-6)",
+          }}
+        >
+          <div className="ds-card">
+            <h3 className="ds-card-title">Card title</h3>
+            <p className="ds-card-body">
+              Card body text using tokens. Hover for shadow change.
+            </p>
+          </div>
+          <div className="ds-card">
+            <h3 className="ds-card-title">Another card</h3>
+            <p className="ds-card-body">
+              Radius and shadow from design tokens. Consistent spacing.
+            </p>
+          </div>
+          <div className="ds-card">
+            <h3 className="ds-card-title">Third card</h3>
+            <p className="ds-card-body">
+              Transitions use --transition-base for hover.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="ds-section">
+        <h2 className="ds-section-title">Form elements</h2>
+        <div
+          style={{
+            maxWidth: "20rem",
+            display: "flex",
+            flexDirection: "column",
+            gap: "var(--spacing-4)",
+          }}
+        >
+          <label className="ds-label" htmlFor="ds-input-demo">
+            Label
+          </label>
+          <input
+            id="ds-input-demo"
+            type="text"
+            className="ds-input"
+            placeholder="Placeholder text"
+            aria-label="Demo input"
+          />
+          <input
+            type="email"
+            className="ds-input"
+            placeholder="Email"
+            aria-label="Email"
+          />
+        </div>
+      </section>
+
+      <section className="ds-section">
+        <h2 className="ds-section-title">Chips / tags</h2>
+        <div className="ds-chip-grid">
+          <span className="ds-chip">Tag one</span>
+          <span className="ds-chip">Tag two</span>
+          <span className="ds-chip">Design tokens</span>
+          <span className="ds-chip">Light only</span>
+        </div>
+      </section>
+
+      <section className="ds-section">
+        <h2 className="ds-section-title">Blockquote</h2>
+        <blockquote className="ds-quote">
+          Typography and spacing come from the design system.
+        </blockquote>
       </section>
     </main>
   );
