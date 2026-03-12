@@ -69,7 +69,7 @@ Elementor and WordPress official docs used for this setup: [docs/official-refere
 
 ## Git Workflow
 
-- `main`: protected, release-ready
+- `main`: default branch (repo setting), protected, release-ready
 - `develop`: integration branch
 - Branch from `develop` using:
   - `feature/*`

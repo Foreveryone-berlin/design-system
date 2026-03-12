@@ -1,23 +1,30 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
-Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
-Versioning: [Semantic Versioning](https://semver.org/)
-
 ## [Unreleased]
+
+## [0.3.0] - 2026-03-12
+
+### Added
+
+- `docs/pr-and-merge-workflow.md`: run pr-and-merge script locally (workflow is manual-only).
+
+### Changed
+
+- Workflow `pr-and-merge.yml`: trigger `workflow_dispatch` only (no push) so CI does not need PR-create permission.
+- README & contributing: document that `main` is the default branch.
+- GitHub release v0.2.0 set as latest on releases page.
 
 ## [0.2.0] - 2026-03-12
 
 ### Added
 
-- Design system prototype (Next.js, React, TypeScript) in `prototype/` for future design.foreveryone.berlin: light-only layout, token-driven colors/typography/spacing/radius/shadows/motion, buttons (blue CTA + orange), cards, form elements, chips, blockquote; hero headline with clamp(); Google Fonts (Outfit) in place of Filson Pro for prototype only
-- Script `scripts/pr-and-merge.sh`: push branch, create PR into develop with PR template body, merge (idempotent); supports solo-dev workflow
-- GitHub Action `.github/workflows/pr-and-merge.yml`: on push to branches other than develop/main, create PR into develop and merge automatically
-- Cursor rule (git.mdc): when user asks to merge current branch into develop, run `scripts/pr-and-merge.sh`
+- Design system prototype in `prototype/` (Next.js, React, TypeScript): tokens, buttons, cards, form, chips, blockquote; hero with clamp(); Outfit font.
+- `scripts/pr-and-merge.sh`: push, create PR into develop (template body), merge. Idempotent.
+- Workflow `pr-and-merge.yml` (manual trigger). Cursor rule: “merge this branch into develop” → run script.
 
 ### Changed
 
-- PR body in pr-and-merge script now follows `.github/PULL_REQUEST_TEMPLATE.md` (token impact, Elementor, Figma, tested, CHANGELOG checkboxes)
+- PR body in script follows `.github/PULL_REQUEST_TEMPLATE.md`.
 
 ## [0.1.0] - 2026-03-12
 
