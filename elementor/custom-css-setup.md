@@ -40,99 +40,98 @@ If enqueueing is not available yet, open **Elementor > Site Settings > Custom CS
    ========================================================================== */
 
 :root {
-
   /* ── Colors: Primary (Orange) ─────────────────────────────────────────── */
-  --color-primary-50:   #FFF2EB;
-  --color-primary-300:  #FFAF89;
-  --color-primary-500:  #FF7A3A;  /* Orange_main */
-  --color-primary-600:  #CC622E;
-  --color-primary-900:  #33180C;
+  --color-primary-50: #fff2eb;
+  --color-primary-300: #ffaf89;
+  --color-primary-500: #ff7a3a; /* Orange_main */
+  --color-primary-600: #cc622e;
+  --color-primary-900: #33180c;
 
   /* ── Colors: Secondary ───────────────────────────────────────────────── */
-  --color-secondary-blue-400:     #6533EF;
-  --color-secondary-blue-500:     #3F00EB;  /* Blue_main */
-  --color-secondary-lavender-400: #D0D1FF;  /* footer/card bg */
-  --color-secondary-lavender-500: #D5C5FF;
-  --color-secondary-green-500:    #D4E8A8;  /* Green_main */
+  --color-secondary-blue-400: #6533ef;
+  --color-secondary-blue-500: #3f00eb; /* Blue_main */
+  --color-secondary-lavender-400: #d0d1ff; /* footer/card bg */
+  --color-secondary-lavender-500: #d5c5ff;
+  --color-secondary-green-500: #d4e8a8; /* Green_main */
 
   /* ── Colors: Neutral ─────────────────────────────────────────────────── */
-  --color-neutral-50:   #FAFAFA;
-  --color-neutral-100:  #F5F5F5;
-  --color-neutral-200:  #E5E5E5;
-  --color-neutral-300:  #D4D4D4;
-  --color-neutral-400:  #A3A3A3;
-  --color-neutral-500:  #737373;
-  --color-neutral-600:  #525252;
-  --color-neutral-700:  #404040;
-  --color-neutral-800:  #262626;
-  --color-neutral-900:  #1E1E1E;  /* Neutral_main — default text */
-  --color-neutral-1000: #0A0A0A;
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #1e1e1e; /* Neutral_main — default text */
+  --color-neutral-1000: #0a0a0a;
 
   /* ── Colors: Status ──────────────────────────────────────────────────── */
-  --color-status-error:   #DC2626;
-  --color-status-success: #D4E8A8;
-  --color-status-warning: #FFAF89;
+  --color-status-error: #dc2626;
+  --color-status-success: #d4e8a8;
+  --color-status-warning: #ffaf89;
 
   /* ── Colors: Base ────────────────────────────────────────────────────── */
-  --color-white: #FFFFFF;
-  --color-black: #0A0A0A;
+  --color-white: #ffffff;
+  --color-black: #0a0a0a;
 
   /* ── Typography: Font Families ───────────────────────────────────────── */
-  --font-family-heading: 'Filson Pro', sans-serif;
-  --font-family-accent:  'Young Serif', serif;
-  --font-family-body:    'Filson Pro', sans-serif;
+  --font-family-heading: "Filson Pro", sans-serif;
+  --font-family-accent: "Young Serif", serif;
+  --font-family-body: "Filson Pro", sans-serif;
 
   /* ── Typography: Font Weights ────────────────────────────────────────── */
   --font-weight-regular: 400;
-  --font-weight-medium:  500;
-  --font-weight-bold:    700;
-  --font-weight-black:   900;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
 
   /* ── Typography: Font Sizes ──────────────────────────────────────────── */
-  --font-size-xs:   0.75rem;   /* 12px — tags, labels */
-  --font-size-sm:   0.875rem;  /* 14px */
-  --font-size-base: 1rem;      /* 16px — body, inputs, buttons */
-  --font-size-xl:   1.25rem;   /* 20px — H3 */
-  --font-size-3xl:  3rem;      /* 48px — H2 section headers */
-  --font-size-4xl:  5.25rem;   /* 84px — H1 hero */
+  --font-size-xs: 0.75rem; /* 12px — tags, labels */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px — body, inputs, buttons */
+  --font-size-xl: 1.25rem; /* 20px — H3 */
+  --font-size-3xl: 3rem; /* 48px — H2 section headers */
+  --font-size-4xl: 5.25rem; /* 84px — H1 hero */
 
   /* ── Typography: Line Heights ────────────────────────────────────────── */
-  --line-height-tight:  0.8;   /* H1 */
-  --line-height-snug:   1.0;   /* H2, H3, tags */
-  --line-height-normal: 1.4;   /* body, inputs, buttons */
+  --line-height-tight: 0.8; /* H1 */
+  --line-height-snug: 1; /* H2, H3, tags */
+  --line-height-normal: 1.4; /* body, inputs, buttons */
 
   /* ── Typography: Letter Spacing ──────────────────────────────────────── */
-  --letter-spacing-tight:  -0.02em;  /* headings */
-  --letter-spacing-normal:  0em;     /* body/UI */
+  --letter-spacing-tight: -0.02em; /* headings */
+  --letter-spacing-normal: 0em; /* body/UI */
 
   /* ── Spacing ─────────────────────────────────────────────────────────── */
-  --spacing-1:  0.25rem;   /* 4px  */
-  --spacing-2:  0.5rem;    /* 8px  */
-  --spacing-3:  0.75rem;   /* 12px */
-  --spacing-4:  1rem;      /* 16px */
-  --spacing-5:  1.25rem;   /* 20px */
-  --spacing-6:  1.5rem;    /* 24px */
-  --spacing-8:  2rem;      /* 32px */
-  --spacing-10: 2.5rem;    /* 40px */
-  --spacing-12: 3rem;      /* 48px */
-  --spacing-16: 4rem;      /* 64px */
-  --spacing-20: 5rem;      /* 80px */
-  --spacing-24: 6rem;      /* 96px */
+  --spacing-1: 0.25rem; /* 4px  */
+  --spacing-2: 0.5rem; /* 8px  */
+  --spacing-3: 0.75rem; /* 12px */
+  --spacing-4: 1rem; /* 16px */
+  --spacing-5: 1.25rem; /* 20px */
+  --spacing-6: 1.5rem; /* 24px */
+  --spacing-8: 2rem; /* 32px */
+  --spacing-10: 2.5rem; /* 40px */
+  --spacing-12: 3rem; /* 48px */
+  --spacing-16: 4rem; /* 64px */
+  --spacing-20: 5rem; /* 80px */
+  --spacing-24: 6rem; /* 96px */
 
   /* ── Border Radius ───────────────────────────────────────────────────── */
-  --radius-sm:     4px;
-  --radius-md:     8px;
-  --radius-lg:     16px;
-  --radius-xl:     24px;
-  --radius-card:   16px;   /* workshop cards */
-  --radius-pill:   9999px; /* buttons, tags */
-  --radius-circle: 50%;    /* icon buttons, avatar blobs */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-card: 16px; /* workshop cards */
+  --radius-pill: 9999px; /* buttons, tags */
+  --radius-circle: 50%; /* icon buttons, avatar blobs */
 
   /* ── Shadows ─────────────────────────────────────────────────────────── */
-  --shadow-sm:   0 1px 3px rgba(0,0,0,0.06);
-  --shadow-md:   0 4px 12px rgba(0,0,0,0.08);
-  --shadow-lg:   0 8px 24px rgba(0,0,0,0.12);
-  --shadow-card: 0 2px 8px rgba(0,0,0,0.08);  /* workshop card */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08); /* workshop card */
 
   /* ── Motion ──────────────────────────────────────────────────────────── */
   --transition-fast: 150ms ease;
@@ -141,10 +140,10 @@ If enqueueing is not available yet, open **Elementor > Site Settings > Custom CS
 
   /* ── Layout ──────────────────────────────────────────────────────────── */
   --container-max-width: 1280px;
-  --section-padding-y-desktop: var(--spacing-20);  /* 80px */
-  --section-padding-y-mobile:  var(--spacing-12);  /* 48px */
+  --section-padding-y-desktop: var(--spacing-20); /* 80px */
+  --section-padding-y-mobile: var(--spacing-12); /* 48px */
   --section-padding-x-desktop: var(--spacing-8);
-  --section-padding-x-mobile:  var(--spacing-4);
+  --section-padding-x-mobile: var(--spacing-4);
 }
 ```
 

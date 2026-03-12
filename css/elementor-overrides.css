@@ -24,7 +24,9 @@
 /* Navbar standardization: clean white by default, shadow after scroll state */
 .elementor-location-header {
   background-color: var(--color-white);
-  transition: box-shadow var(--transition-base), background-color var(--transition-base);
+  transition:
+    box-shadow var(--transition-base),
+    background-color var(--transition-base);
 }
 
 /* WordPress commonly toggles these classes via sticky/header scripts */

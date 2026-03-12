@@ -63,6 +63,10 @@ Use Tokens Studio in Figma to mirror token sets and export/sync JSON:
 - Global fonts mapping: [`elementor/global-fonts.md`](elementor/global-fonts.md)
 - Custom CSS + enqueue setup: [`elementor/custom-css-setup.md`](elementor/custom-css-setup.md)
 
+## Official References
+
+Elementor and WordPress official docs used for this setup: [docs/official-references.md](docs/official-references.md) (Global Settings, Global Colors/Fonts, Custom CSS, child themes, `wp_enqueue_style`).
+
 ## Git Workflow
 
 - `main`: protected, release-ready
@@ -74,6 +78,10 @@ Use Tokens Studio in Figma to mirror token sets and export/sync JSON:
   - `chore/*`
 - Use Conventional Commits.
 - Merge `develop` -> `main` for release and tag semver versions.
+
+## Skills & Workflows
+
+Repeatable workflows (token updates, Elementor mapping, releases): [docs/skills/](docs/skills/).
 
 ## Contributing
 
