@@ -1,12 +1,10 @@
-# On push to a feature branch (not develop/main), create a PR into develop and merge it.
-# Solo-dev workflow: push triggers PR + auto-merge so others see the history without manual steps.
+# Create a PR into develop and merge it. Manual trigger only (workflow_dispatch).
+# Push trigger removed: the repo cannot grant "Allow GitHub Actions to create and approve
+# pull requests", so the script would fail in CI. Use it locally instead: bash scripts/pr-and-merge.sh
 name: PR and merge into develop
 
 on:
-  push:
-    branches-ignore:
-      - develop
-      - main
+  workflow_dispatch:
 
 jobs:
   pr-and-merge:
