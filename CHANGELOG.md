@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+## [0.3.1] - 2026-03-12
+
+### Fixed
+
+- Prototype: hydration error when Cursor browser (or extensions) inject `data-cursor-ref` into the DOM; added `suppressHydrationWarning` on layout root.
+
+### Added
+
+- README: prototype section with how to run and open the design system app.
+
 ## [0.3.0] - 2026-03-12
 
 ### Added

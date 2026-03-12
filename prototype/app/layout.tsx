@@ -21,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`ds-light-only ${outfit.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`ds-light-only ${outfit.variable}`} suppressHydrationWarning>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

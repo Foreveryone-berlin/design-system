@@ -42,6 +42,14 @@ foreveryone-design-system/
 4. Confirm output:
    - `css/custom-properties.css` was regenerated.
 
+## Design system prototype
+
+A Next.js app in `prototype/` previews the tokens and components (future design.foreveryone.berlin). To run it:
+
+1. From repo root, build token CSS: `node scripts/build-css.js`
+2. `cd prototype && npm install && npm run dev`
+3. Open [http://localhost:3000](http://localhost:3000) (or the port Next.js prints). In Cursor, you can ask the agent to “open the prototype in the Cursor browser” to view it there.
+
 ## How Tokens Work
 
 1. Token values live in `tokens/*.json`.
