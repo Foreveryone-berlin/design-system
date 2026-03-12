@@ -1,4 +1,5 @@
 # Cursor Plan Mode Prompt — ForEveryone Berlin Design System
+
 > Model: claude-opus-4-6 | Mode: Plan | Use this as your full project brief before touching any file.
 
 ---
@@ -29,86 +30,92 @@ The audit has already been completed from Figma screenshots and page PDFs provid
 ### 1A — COLOR TOKENS (from Figma Colors page)
 
 #### Neutral
-| Token name | Hex |
-|---|---|
-| color.neutral.50 | #FAFAFA |
-| color.neutral.100 | #F5F5F5 |
-| color.neutral.200 | #E5E5E5 |
-| color.neutral.300 | #D4D4D4 |
-| color.neutral.400 | #A3A3A3 |
-| color.neutral.500 | #737373 |
-| color.neutral.600 | #525252 |
-| color.neutral.700 | #404040 |
-| color.neutral.800 | #262626 |
-| color.neutral.900 | #1E1E1E ← **Neutral_main** |
-| color.neutral.1000 | #0A0A0A |
+
+| Token name         | Hex                        |
+| ------------------ | -------------------------- |
+| color.neutral.50   | #FAFAFA                    |
+| color.neutral.100  | #F5F5F5                    |
+| color.neutral.200  | #E5E5E5                    |
+| color.neutral.300  | #D4D4D4                    |
+| color.neutral.400  | #A3A3A3                    |
+| color.neutral.500  | #737373                    |
+| color.neutral.600  | #525252                    |
+| color.neutral.700  | #404040                    |
+| color.neutral.800  | #262626                    |
+| color.neutral.900  | #1E1E1E ← **Neutral_main** |
+| color.neutral.1000 | #0A0A0A                    |
 
 #### Primary — Orange
-| Token name | Hex | Note |
-|---|---|---|
-| color.primary.50 | #FFF2EB | |
-| color.primary.100 | #FFE4D8 | |
-| color.primary.150 | #FFD7C4 | |
-| color.primary.200 | #FFCAB0 | |
-| color.primary.300 | #FFAF89 | ← Peach |
-| color.primary.400 | #FF9561 | |
+
+| Token name        | Hex     | Note              |
+| ----------------- | ------- | ----------------- |
+| color.primary.50  | #FFF2EB |                   |
+| color.primary.100 | #FFE4D8 |                   |
+| color.primary.150 | #FFD7C4 |                   |
+| color.primary.200 | #FFCAB0 |                   |
+| color.primary.300 | #FFAF89 | ← Peach           |
+| color.primary.400 | #FF9561 |                   |
 | color.primary.500 | #FF7A3A | ← **Orange_main** |
-| color.primary.600 | #CC622E | |
-| color.primary.700 | #994923 | |
-| color.primary.800 | #663117 | |
-| color.primary.900 | #33180C | |
+| color.primary.600 | #CC622E |                   |
+| color.primary.700 | #994923 |                   |
+| color.primary.800 | #663117 |                   |
+| color.primary.900 | #33180C |                   |
 
 #### Secondary — Green
-| Token name | Hex | Note |
-|---|---|---|
-| color.secondary.green.50 | #F8FCF6 | |
-| color.secondary.green.100 | #F6FAEE | |
-| color.secondary.green.150 | #F2F7E5 | |
-| color.secondary.green.200 | #EEF5DC | |
-| color.secondary.green.300 | #E5F0CB | |
-| color.secondary.green.400 | #DDEBB9 | |
+
+| Token name                | Hex     | Note             |
+| ------------------------- | ------- | ---------------- |
+| color.secondary.green.50  | #F8FCF6 |                  |
+| color.secondary.green.100 | #F6FAEE |                  |
+| color.secondary.green.150 | #F2F7E5 |                  |
+| color.secondary.green.200 | #EEF5DC |                  |
+| color.secondary.green.300 | #E5F0CB |                  |
+| color.secondary.green.400 | #DDEBB9 |                  |
 | color.secondary.green.500 | #D4E8A8 | ← **Green_main** |
-| color.secondary.green.600 | #AAB686 | |
-| color.secondary.green.700 | #7F8A65 | |
-| color.secondary.green.800 | #555C43 | |
-| color.secondary.green.900 | #2A2E22 | |
+| color.secondary.green.600 | #AAB686 |                  |
+| color.secondary.green.700 | #7F8A65 |                  |
+| color.secondary.green.800 | #555C43 |                  |
+| color.secondary.green.900 | #2A2E22 |                  |
 
 #### Secondary — Blue
-| Token name | Hex | Note |
-|---|---|---|
-| color.secondary.blue.50 | #ECE5FD | |
-| color.secondary.blue.100 | #D9CCF8 | |
-| color.secondary.blue.150 | #C5B2F3 | |
-| color.secondary.blue.200 | #B299F7 | |
-| color.secondary.blue.300 | #8B299F | |
-| color.secondary.blue.400 | #6533EF | |
+
+| Token name               | Hex     | Note            |
+| ------------------------ | ------- | --------------- |
+| color.secondary.blue.50  | #ECE5FD |                 |
+| color.secondary.blue.100 | #D9CCF8 |                 |
+| color.secondary.blue.150 | #C5B2F3 |                 |
+| color.secondary.blue.200 | #B299F7 |                 |
+| color.secondary.blue.300 | #8B299F |                 |
+| color.secondary.blue.400 | #6533EF |                 |
 | color.secondary.blue.500 | #3F00EB | ← **Blue_main** |
-| color.secondary.blue.600 | #3200BC | |
-| color.secondary.blue.700 | #26008D | |
-| color.secondary.blue.800 | #19005E | |
-| color.secondary.blue.900 | #0D002F | |
+| color.secondary.blue.600 | #3200BC |                 |
+| color.secondary.blue.700 | #26008D |                 |
+| color.secondary.blue.800 | #19005E |                 |
+| color.secondary.blue.900 | #0D002F |                 |
 
 #### Secondary — Lavender/Purple
-| Token name | Hex | Note |
-|---|---|---|
-| color.secondary.lavender.50 | #FBF9FF | |
-| color.secondary.lavender.100 | #F7F3FF | |
-| color.secondary.lavender.150 | #F2EEFF | |
-| color.secondary.lavender.200 | #EEE8FF | |
-| color.secondary.lavender.300 | #E6DCFF | |
+
+| Token name                   | Hex     | Note                 |
+| ---------------------------- | ------- | -------------------- |
+| color.secondary.lavender.50  | #FBF9FF |                      |
+| color.secondary.lavender.100 | #F7F3FF |                      |
+| color.secondary.lavender.150 | #F2EEFF |                      |
+| color.secondary.lavender.200 | #EEE8FF |                      |
+| color.secondary.lavender.300 | #E6DCFF |                      |
 | color.secondary.lavender.400 | #D0D1FF | ← **Lavender_Light** |
-| color.secondary.lavender.500 | #D5C5FF | ← **Lavender_main** |
-| color.secondary.lavender.600 | #AA9ECC | |
-| color.secondary.lavender.700 | #807699 | |
-| color.secondary.lavender.800 | #554F66 | |
-| color.secondary.lavender.900 | #2B2733 | |
+| color.secondary.lavender.500 | #D5C5FF | ← **Lavender_main**  |
+| color.secondary.lavender.600 | #AA9ECC |                      |
+| color.secondary.lavender.700 | #807699 |                      |
+| color.secondary.lavender.800 | #554F66 |                      |
+| color.secondary.lavender.900 | #2B2733 |                      |
 
 #### Semantic / Status
-| Token name | Hex | Note |
-|---|---|---|
-| color.status.error | #FBF9FF | (Error 50 — use for bg; actual error red visible in components) |
-| color.status.success | #F7F3FF | (Success 100) |
-| color.status.warning | #F2EEFF | (Warning 150) |
+
+| Token name           | Hex     | Note                                                            |
+| -------------------- | ------- | --------------------------------------------------------------- |
+| color.status.error   | #FBF9FF | (Error 50 — use for bg; actual error red visible in components) |
+| color.status.success | #F7F3FF | (Success 100)                                                   |
+| color.status.warning | #F2EEFF | (Warning 150)                                                   |
 
 > ⚠️ The status swatches in Figma show very light tints at the 50/100/150 level. Cross-check against the input error state in components (red border visible on input fields) — that red is approximately `#E53E3E`. Confirm against live site form validation styles and update `color.status.error.default` accordingly.
 
@@ -117,24 +124,25 @@ The audit has already been completed from Figma screenshots and page PDFs provid
 ### 1B — TYPOGRAPHY TOKENS (from Figma Typography Guidelines page)
 
 **Font families:**
+
 - Heading / Display: `Filson Pro` (primary), `Young Serif` (accent/additional)
 - Body / UI: `Filson Pro`
 
 > Note: Filson Pro is a commercial font. Confirm it is loaded via WordPress (likely @font-face in child theme or a font plugin). Young Serif is available on Google Fonts.
 
-| Token name | Font | Size (px) | Size (rem) | Weight | Line-height | Letter-spacing |
-|---|---|---|---|---|---|---|
-| typography.h1.main | Filson Pro | 84 | 5.25rem | Black (900) | 80% | -2% |
-| typography.h1.additional | Young Serif | 84 | 5.25rem | Black (900) | 80% | -2% |
-| typography.h2.default | Filson Pro | 48 | 3rem | Bold (700) | 100% | -2% |
-| typography.h3.default | Filson Pro | 20 | 1.25rem | Bold (700) | 100% | -2% |
-| typography.h3.additional | Young Serif | 20 | 1.25rem | Bold (700) | 100% | -2% |
-| typography.body.regular | Filson Pro | 16 | 1rem | Regular (400) | 140% | 0% |
-| typography.body.medium | Filson Pro | 16 | 1rem | Medium (500) | 140% | 0% |
-| typography.input.default | Filson Pro | 16 | 1rem | Regular (400) | 140% | 0% |
-| typography.button.default | Filson Pro | 16 | 1rem | Medium (500) | 140% | 0% |
-| typography.tag.default | Filson Pro | 12 | 0.75rem | Medium (500) | 100% | 0% |
-| typography.label.default | Filson Pro | 12 | 0.75rem | Regular (400) | 100% | 0% |
+| Token name                | Font        | Size (px) | Size (rem) | Weight        | Line-height | Letter-spacing |
+| ------------------------- | ----------- | --------- | ---------- | ------------- | ----------- | -------------- |
+| typography.h1.main        | Filson Pro  | 84        | 5.25rem    | Black (900)   | 80%         | -2%            |
+| typography.h1.additional  | Young Serif | 84        | 5.25rem    | Black (900)   | 80%         | -2%            |
+| typography.h2.default     | Filson Pro  | 48        | 3rem       | Bold (700)    | 100%        | -2%            |
+| typography.h3.default     | Filson Pro  | 20        | 1.25rem    | Bold (700)    | 100%        | -2%            |
+| typography.h3.additional  | Young Serif | 20        | 1.25rem    | Bold (700)    | 100%        | -2%            |
+| typography.body.regular   | Filson Pro  | 16        | 1rem       | Regular (400) | 140%        | 0%             |
+| typography.body.medium    | Filson Pro  | 16        | 1rem       | Medium (500)  | 140%        | 0%             |
+| typography.input.default  | Filson Pro  | 16        | 1rem       | Regular (400) | 140%        | 0%             |
+| typography.button.default | Filson Pro  | 16        | 1rem       | Medium (500)  | 140%        | 0%             |
+| typography.tag.default    | Filson Pro  | 12        | 0.75rem    | Medium (500)  | 100%        | 0%             |
+| typography.label.default  | Filson Pro  | 12        | 0.75rem    | Regular (400) | 100%        | 0%             |
 
 ---
 
@@ -143,6 +151,7 @@ The audit has already been completed from Figma screenshots and page PDFs provid
 These components exist in Figma and must have corresponding CSS utility classes and Elementor documentation:
 
 **Buttons:**
+
 - `Primary_button` — filled orange (`color.primary.500`), white text, rounded-full, states: default / hover (darker orange) / focused (border) / disabled (opacity)
 - `Secondary_button` — outlined, orange border + text, transparent bg, same states
 - `Icon_button` — circle, orange fill, icon white, 4 states
@@ -150,25 +159,31 @@ These components exist in Figma and must have corresponding CSS utility classes 
 - `Play_button` — circle, blue fill (`color.secondary.blue.500`), play icon white
 
 **Navigation:**
+
 - `Header/footer Item` — text link with chevron, hover shows orange underline
 
 **Filter tags / Category pills:**
+
 - `Icon_button` (tag variant) — pill shape, text labels: "Balance and Wellness", "Movement", "Arts and Crafts", "Expression", "Music"
 - States: default (white/light), hover, active (orange fill), focused
 
 **Cards:**
+
 - `Workshop_card` — white card, rounded corners, image top, category tag badge (top-right), date + time row, title (bold), description, price + CTA button
 - `card-benefit` — lavender bg (`color.secondary.lavender.400`), title + description + orange illustrated icon
 - `Card-get-involved` — lavender bg, title + description + orange illustrated icon
 
 **Form inputs:**
+
 - `Input-field` — states: default (light border), hover (slightly darker), active/focused (orange border), disabled (greyed), error (red border + error message below)
 - Labels above inputs, placeholder text inside
 
 **FAQ accordion:**
+
 - `FAQ_item` — default (collapsed, + icon), hover, active (expanded, − icon, answer text visible)
 
 **Dropdowns:**
+
 - `Dropdown-item` and `Dropdown` — text + arrow icon, hover state shows orange text
 
 **Footer links / Nav items** — text with arrow icons
@@ -186,6 +201,7 @@ From reviewing Contact, About, EU Project, and Homepage popup pages:
 **Hero sections:** Large H1 split across two lines (Filson Pro + Young Serif alternating for emphasis), subtitle body text, 1–2 CTA buttons, organic blob-shaped image right.
 
 **Background colors used across sections:**
+
 - White `#FFFFFF`
 - Light grey `color.neutral.50` (#FAFAFA) — alternating section bg
 - Lavender `color.secondary.lavender.400` (#D0D1FF) — footer background, some card backgrounds
@@ -198,6 +214,7 @@ From reviewing Contact, About, EU Project, and Homepage popup pages:
 **Blob/organic shape image masks:** Circular or amoeba-shaped image containers (CSS `border-radius` with high values or SVG clip-path). Used consistently for hero and section imagery.
 
 **Spacing observations:**
+
 - Section padding: ~80–100px vertical on desktop, ~40–60px on mobile
 - Card gap: ~24px
 - Content max-width: approximately 1200–1280px centered
@@ -307,6 +324,7 @@ foreveryone-design-system/
 ## PHASE 3 — TOKEN SYSTEM
 
 ### Format
+
 Use **W3C Design Token Community Group** format (JSON). All token values below are pre-filled from the Phase 1 audit. Use them exactly.
 
 **`tokens/colors.json`** — write this file with all values from Phase 1A, structured like:
@@ -315,42 +333,94 @@ Use **W3C Design Token Community Group** format (JSON). All token values below a
 {
   "color": {
     "primary": {
-      "50":  { "$value": "#FFF2EB", "$type": "color", "$description": "Lightest orange tint" },
-      "300": { "$value": "#FFAF89", "$type": "color", "$description": "Peach — soft CTA bg, hover states" },
-      "500": { "$value": "#FF7A3A", "$type": "color", "$description": "Orange_main — primary CTA, brand accent" },
-      "600": { "$value": "#CC622E", "$type": "color", "$description": "Button hover/pressed state" },
-      "900": { "$value": "#33180C", "$type": "color", "$description": "Darkest orange" }
+      "50": {
+        "$value": "#FFF2EB",
+        "$type": "color",
+        "$description": "Lightest orange tint"
+      },
+      "300": {
+        "$value": "#FFAF89",
+        "$type": "color",
+        "$description": "Peach — soft CTA bg, hover states"
+      },
+      "500": {
+        "$value": "#FF7A3A",
+        "$type": "color",
+        "$description": "Orange_main — primary CTA, brand accent"
+      },
+      "600": {
+        "$value": "#CC622E",
+        "$type": "color",
+        "$description": "Button hover/pressed state"
+      },
+      "900": {
+        "$value": "#33180C",
+        "$type": "color",
+        "$description": "Darkest orange"
+      }
     },
     "secondary": {
       "blue": {
         "400": { "$value": "#6533EF", "$type": "color" },
-        "500": { "$value": "#3F00EB", "$type": "color", "$description": "Blue_main — play buttons, accents" }
+        "500": {
+          "$value": "#3F00EB",
+          "$type": "color",
+          "$description": "Blue_main — play buttons, accents"
+        }
       },
       "lavender": {
-        "400": { "$value": "#D0D1FF", "$type": "color", "$description": "Lavender_Light — footer bg, card bg" },
-        "500": { "$value": "#D5C5FF", "$type": "color", "$description": "Lavender_main" }
+        "400": {
+          "$value": "#D0D1FF",
+          "$type": "color",
+          "$description": "Lavender_Light — footer bg, card bg"
+        },
+        "500": {
+          "$value": "#D5C5FF",
+          "$type": "color",
+          "$description": "Lavender_main"
+        }
       },
       "green": {
-        "500": { "$value": "#D4E8A8", "$type": "color", "$description": "Green_main — secondary accent" }
+        "500": {
+          "$value": "#D4E8A8",
+          "$type": "color",
+          "$description": "Green_main — secondary accent"
+        }
       }
     },
     "neutral": {
-      "50":   { "$value": "#FAFAFA", "$type": "color" },
-      "100":  { "$value": "#F5F5F5", "$type": "color" },
-      "200":  { "$value": "#E5E5E5", "$type": "color" },
-      "300":  { "$value": "#D4D4D4", "$type": "color" },
-      "400":  { "$value": "#A3A3A3", "$type": "color" },
-      "500":  { "$value": "#737373", "$type": "color" },
-      "600":  { "$value": "#525252", "$type": "color" },
-      "700":  { "$value": "#404040", "$type": "color" },
-      "800":  { "$value": "#262626", "$type": "color" },
-      "900":  { "$value": "#1E1E1E", "$type": "color", "$description": "Neutral_main — default text color" },
+      "50": { "$value": "#FAFAFA", "$type": "color" },
+      "100": { "$value": "#F5F5F5", "$type": "color" },
+      "200": { "$value": "#E5E5E5", "$type": "color" },
+      "300": { "$value": "#D4D4D4", "$type": "color" },
+      "400": { "$value": "#A3A3A3", "$type": "color" },
+      "500": { "$value": "#737373", "$type": "color" },
+      "600": { "$value": "#525252", "$type": "color" },
+      "700": { "$value": "#404040", "$type": "color" },
+      "800": { "$value": "#262626", "$type": "color" },
+      "900": {
+        "$value": "#1E1E1E",
+        "$type": "color",
+        "$description": "Neutral_main — default text color"
+      },
       "1000": { "$value": "#0A0A0A", "$type": "color" }
     },
     "status": {
-      "error":   { "$value": "#DC2626", "$type": "color", "$description": "Form error state — confirm against live site" },
-      "success": { "$value": "#D4E8A8", "$type": "color", "$description": "References green_main" },
-      "warning": { "$value": "#FFAF89", "$type": "color", "$description": "References peach" }
+      "error": {
+        "$value": "#DC2626",
+        "$type": "color",
+        "$description": "Form error state — confirm against live site"
+      },
+      "success": {
+        "$value": "#D4E8A8",
+        "$type": "color",
+        "$description": "References green_main"
+      },
+      "warning": {
+        "$value": "#FFAF89",
+        "$type": "color",
+        "$description": "References peach"
+      }
     },
     "base": {
       "white": { "$value": "#FFFFFF", "$type": "color" },
@@ -366,45 +436,90 @@ Use **W3C Design Token Community Group** format (JSON). All token values below a
 {
   "font": {
     "family": {
-      "heading": { "$value": "'Filson Pro', sans-serif", "$type": "fontFamily" },
-      "accent":  { "$value": "'Young Serif', serif",    "$type": "fontFamily" },
-      "body":    { "$value": "'Filson Pro', sans-serif", "$type": "fontFamily" }
+      "heading": {
+        "$value": "'Filson Pro', sans-serif",
+        "$type": "fontFamily"
+      },
+      "accent": { "$value": "'Young Serif', serif", "$type": "fontFamily" },
+      "body": { "$value": "'Filson Pro', sans-serif", "$type": "fontFamily" }
     },
     "weight": {
       "regular": { "$value": "400", "$type": "fontWeight" },
-      "medium":  { "$value": "500", "$type": "fontWeight" },
-      "bold":    { "$value": "700", "$type": "fontWeight" },
-      "black":   { "$value": "900", "$type": "fontWeight" }
+      "medium": { "$value": "500", "$type": "fontWeight" },
+      "bold": { "$value": "700", "$type": "fontWeight" },
+      "black": { "$value": "900", "$type": "fontWeight" }
     },
     "size": {
-      "xs":   { "$value": "0.75rem",  "$type": "dimension", "$description": "12px — tags, labels" },
-      "sm":   { "$value": "0.875rem", "$type": "dimension" },
-      "base": { "$value": "1rem",     "$type": "dimension", "$description": "16px — body, inputs, buttons" },
-      "lg":   { "$value": "1.125rem", "$type": "dimension" },
-      "xl":   { "$value": "1.25rem",  "$type": "dimension", "$description": "20px — H3" },
-      "2xl":  { "$value": "1.5rem",   "$type": "dimension" },
-      "3xl":  { "$value": "3rem",     "$type": "dimension", "$description": "48px — H2 section headers" },
-      "4xl":  { "$value": "5.25rem",  "$type": "dimension", "$description": "84px — H1 hero" }
+      "xs": {
+        "$value": "0.75rem",
+        "$type": "dimension",
+        "$description": "12px — tags, labels"
+      },
+      "sm": { "$value": "0.875rem", "$type": "dimension" },
+      "base": {
+        "$value": "1rem",
+        "$type": "dimension",
+        "$description": "16px — body, inputs, buttons"
+      },
+      "lg": { "$value": "1.125rem", "$type": "dimension" },
+      "xl": {
+        "$value": "1.25rem",
+        "$type": "dimension",
+        "$description": "20px — H3"
+      },
+      "2xl": { "$value": "1.5rem", "$type": "dimension" },
+      "3xl": {
+        "$value": "3rem",
+        "$type": "dimension",
+        "$description": "48px — H2 section headers"
+      },
+      "4xl": {
+        "$value": "5.25rem",
+        "$type": "dimension",
+        "$description": "84px — H1 hero"
+      }
     },
     "lineHeight": {
-      "tight":  { "$value": "0.8",  "$type": "number", "$description": "80% — H1" },
-      "snug":   { "$value": "1.0",  "$type": "number", "$description": "100% — H2, H3, tags, labels" },
-      "normal": { "$value": "1.4",  "$type": "number", "$description": "140% — body, inputs, buttons" }
+      "tight": {
+        "$value": "0.8",
+        "$type": "number",
+        "$description": "80% — H1"
+      },
+      "snug": {
+        "$value": "1.0",
+        "$type": "number",
+        "$description": "100% — H2, H3, tags, labels"
+      },
+      "normal": {
+        "$value": "1.4",
+        "$type": "number",
+        "$description": "140% — body, inputs, buttons"
+      }
     },
     "letterSpacing": {
-      "tight":  { "$value": "-0.02em", "$type": "dimension", "$description": "-2% — headings" },
-      "normal": { "$value": "0em",     "$type": "dimension", "$description": "0% — body and UI" }
+      "tight": {
+        "$value": "-0.02em",
+        "$type": "dimension",
+        "$description": "-2% — headings"
+      },
+      "normal": {
+        "$value": "0em",
+        "$type": "dimension",
+        "$description": "0% — body and UI"
+      }
     }
   }
 }
 ```
 
 ### Naming Convention
+
 `{category}.{tier}.{variant}` — e.g., `color.primary.500`, `font.size.xl`, `spacing.lg`
 
 Never use descriptive names like `orange` or `big`. Always use semantic or scale names.
 
 ### CSS Custom Properties Output
+
 The `scripts/build-css.js` script must output `css/custom-properties.css`. The expected output is pre-defined below — the build script must produce exactly this:
 
 ```css
@@ -415,99 +530,98 @@ The `scripts/build-css.js` script must output `css/custom-properties.css`. The e
    ========================================================================== */
 
 :root {
-
   /* ── Colors: Primary (Orange) ─────────────────────────────────────────── */
-  --color-primary-50:   #FFF2EB;
-  --color-primary-300:  #FFAF89;
-  --color-primary-500:  #FF7A3A;  /* Orange_main */
-  --color-primary-600:  #CC622E;
-  --color-primary-900:  #33180C;
+  --color-primary-50: #fff2eb;
+  --color-primary-300: #ffaf89;
+  --color-primary-500: #ff7a3a; /* Orange_main */
+  --color-primary-600: #cc622e;
+  --color-primary-900: #33180c;
 
   /* ── Colors: Secondary ───────────────────────────────────────────────── */
-  --color-secondary-blue-400:     #6533EF;
-  --color-secondary-blue-500:     #3F00EB;  /* Blue_main */
-  --color-secondary-lavender-400: #D0D1FF;  /* footer/card bg */
-  --color-secondary-lavender-500: #D5C5FF;
-  --color-secondary-green-500:    #D4E8A8;  /* Green_main */
+  --color-secondary-blue-400: #6533ef;
+  --color-secondary-blue-500: #3f00eb; /* Blue_main */
+  --color-secondary-lavender-400: #d0d1ff; /* footer/card bg */
+  --color-secondary-lavender-500: #d5c5ff;
+  --color-secondary-green-500: #d4e8a8; /* Green_main */
 
   /* ── Colors: Neutral ─────────────────────────────────────────────────── */
-  --color-neutral-50:   #FAFAFA;
-  --color-neutral-100:  #F5F5F5;
-  --color-neutral-200:  #E5E5E5;
-  --color-neutral-300:  #D4D4D4;
-  --color-neutral-400:  #A3A3A3;
-  --color-neutral-500:  #737373;
-  --color-neutral-600:  #525252;
-  --color-neutral-700:  #404040;
-  --color-neutral-800:  #262626;
-  --color-neutral-900:  #1E1E1E;  /* Neutral_main — default text */
-  --color-neutral-1000: #0A0A0A;
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #1e1e1e; /* Neutral_main — default text */
+  --color-neutral-1000: #0a0a0a;
 
   /* ── Colors: Status ──────────────────────────────────────────────────── */
-  --color-status-error:   #DC2626;
-  --color-status-success: #D4E8A8;
-  --color-status-warning: #FFAF89;
+  --color-status-error: #dc2626;
+  --color-status-success: #d4e8a8;
+  --color-status-warning: #ffaf89;
 
   /* ── Colors: Base ────────────────────────────────────────────────────── */
-  --color-white: #FFFFFF;
-  --color-black: #0A0A0A;
+  --color-white: #ffffff;
+  --color-black: #0a0a0a;
 
   /* ── Typography: Font Families ───────────────────────────────────────── */
-  --font-family-heading: 'Filson Pro', sans-serif;
-  --font-family-accent:  'Young Serif', serif;
-  --font-family-body:    'Filson Pro', sans-serif;
+  --font-family-heading: "Filson Pro", sans-serif;
+  --font-family-accent: "Young Serif", serif;
+  --font-family-body: "Filson Pro", sans-serif;
 
   /* ── Typography: Font Weights ────────────────────────────────────────── */
   --font-weight-regular: 400;
-  --font-weight-medium:  500;
-  --font-weight-bold:    700;
-  --font-weight-black:   900;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
 
   /* ── Typography: Font Sizes ──────────────────────────────────────────── */
-  --font-size-xs:   0.75rem;   /* 12px — tags, labels */
-  --font-size-sm:   0.875rem;  /* 14px */
-  --font-size-base: 1rem;      /* 16px — body, inputs, buttons */
-  --font-size-xl:   1.25rem;   /* 20px — H3 */
-  --font-size-3xl:  3rem;      /* 48px — H2 section headers */
-  --font-size-4xl:  5.25rem;   /* 84px — H1 hero */
+  --font-size-xs: 0.75rem; /* 12px — tags, labels */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px — body, inputs, buttons */
+  --font-size-xl: 1.25rem; /* 20px — H3 */
+  --font-size-3xl: 3rem; /* 48px — H2 section headers */
+  --font-size-4xl: 5.25rem; /* 84px — H1 hero */
 
   /* ── Typography: Line Heights ────────────────────────────────────────── */
-  --line-height-tight:  0.8;   /* H1 */
-  --line-height-snug:   1.0;   /* H2, H3, tags */
-  --line-height-normal: 1.4;   /* body, inputs, buttons */
+  --line-height-tight: 0.8; /* H1 */
+  --line-height-snug: 1; /* H2, H3, tags */
+  --line-height-normal: 1.4; /* body, inputs, buttons */
 
   /* ── Typography: Letter Spacing ──────────────────────────────────────── */
-  --letter-spacing-tight:  -0.02em;  /* headings */
-  --letter-spacing-normal:  0em;     /* body/UI */
+  --letter-spacing-tight: -0.02em; /* headings */
+  --letter-spacing-normal: 0em; /* body/UI */
 
   /* ── Spacing ─────────────────────────────────────────────────────────── */
-  --spacing-1:  0.25rem;   /* 4px  */
-  --spacing-2:  0.5rem;    /* 8px  */
-  --spacing-3:  0.75rem;   /* 12px */
-  --spacing-4:  1rem;      /* 16px */
-  --spacing-5:  1.25rem;   /* 20px */
-  --spacing-6:  1.5rem;    /* 24px */
-  --spacing-8:  2rem;      /* 32px */
-  --spacing-10: 2.5rem;    /* 40px */
-  --spacing-12: 3rem;      /* 48px */
-  --spacing-16: 4rem;      /* 64px */
-  --spacing-20: 5rem;      /* 80px */
-  --spacing-24: 6rem;      /* 96px */
+  --spacing-1: 0.25rem; /* 4px  */
+  --spacing-2: 0.5rem; /* 8px  */
+  --spacing-3: 0.75rem; /* 12px */
+  --spacing-4: 1rem; /* 16px */
+  --spacing-5: 1.25rem; /* 20px */
+  --spacing-6: 1.5rem; /* 24px */
+  --spacing-8: 2rem; /* 32px */
+  --spacing-10: 2.5rem; /* 40px */
+  --spacing-12: 3rem; /* 48px */
+  --spacing-16: 4rem; /* 64px */
+  --spacing-20: 5rem; /* 80px */
+  --spacing-24: 6rem; /* 96px */
 
   /* ── Border Radius ───────────────────────────────────────────────────── */
-  --radius-sm:     4px;
-  --radius-md:     8px;
-  --radius-lg:     16px;
-  --radius-xl:     24px;
-  --radius-card:   16px;   /* workshop cards */
-  --radius-pill:   9999px; /* buttons, tags */
-  --radius-circle: 50%;    /* icon buttons, avatar blobs */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-card: 16px; /* workshop cards */
+  --radius-pill: 9999px; /* buttons, tags */
+  --radius-circle: 50%; /* icon buttons, avatar blobs */
 
   /* ── Shadows ─────────────────────────────────────────────────────────── */
-  --shadow-sm:   0 1px 3px rgba(0,0,0,0.06);
-  --shadow-md:   0 4px 12px rgba(0,0,0,0.08);
-  --shadow-lg:   0 8px 24px rgba(0,0,0,0.12);
-  --shadow-card: 0 2px 8px rgba(0,0,0,0.08);  /* workshop card */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08); /* workshop card */
 
   /* ── Motion ──────────────────────────────────────────────────────────── */
   --transition-fast: 150ms ease;
@@ -516,15 +630,17 @@ The `scripts/build-css.js` script must output `css/custom-properties.css`. The e
 
   /* ── Layout ──────────────────────────────────────────────────────────── */
   --container-max-width: 1280px;
-  --section-padding-y-desktop: var(--spacing-20);  /* 80px */
-  --section-padding-y-mobile:  var(--spacing-12);  /* 48px */
+  --section-padding-y-desktop: var(--spacing-20); /* 80px */
+  --section-padding-y-mobile: var(--spacing-12); /* 48px */
   --section-padding-x-desktop: var(--spacing-8);
-  --section-padding-x-mobile:  var(--spacing-4);
+  --section-padding-x-mobile: var(--spacing-4);
 }
 ```
 
 ### Elementor Integration
+
 Since Elementor Global Colors don't use CSS vars natively:
+
 - Document exactly which Elementor Global Color slot maps to which token (in `elementor/global-colors.md`) — use the mapping table from Phase 1F
 - Load `custom-properties.css` via WordPress child theme `functions.php` using `wp_enqueue_style()`
 - Provide snippet for child theme `style.css` that imports it
@@ -562,10 +678,24 @@ Write the following into `css/typography.css`:
   line-height: var(--line-height-snug);
   letter-spacing: var(--letter-spacing-tight);
 }
-.fe-body { font-size: var(--font-size-base); font-weight: var(--font-weight-regular); line-height: var(--line-height-normal); }
-.fe-body--medium { font-weight: var(--font-weight-medium); }
-.fe-label { font-size: var(--font-size-xs); font-weight: var(--font-weight-regular); line-height: var(--line-height-snug); }
-.fe-tag   { font-size: var(--font-size-xs); font-weight: var(--font-weight-medium);  line-height: var(--line-height-snug); }
+.fe-body {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+}
+.fe-body--medium {
+  font-weight: var(--font-weight-medium);
+}
+.fe-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-snug);
+}
+.fe-tag {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-snug);
+}
 ```
 
 Write the following into `css/utilities.css` (buttons and key UI patterns):
@@ -586,12 +716,22 @@ Write the following into `css/utilities.css` (buttons and key UI patterns):
   border: 2px solid transparent;
   border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: background-color var(--transition-base), transform var(--transition-fast);
+  transition:
+    background-color var(--transition-base),
+    transform var(--transition-fast);
   text-decoration: none;
 }
-.fe-btn-primary:hover  { background-color: var(--color-primary-600); }
-.fe-btn-primary:focus  { outline: 3px solid var(--color-primary-300); outline-offset: 2px; }
-.fe-btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+.fe-btn-primary:hover {
+  background-color: var(--color-primary-600);
+}
+.fe-btn-primary:focus {
+  outline: 3px solid var(--color-primary-300);
+  outline-offset: 2px;
+}
+.fe-btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
 
 /* Secondary Button */
 .fe-btn-secondary {
@@ -607,11 +747,18 @@ Write the following into `css/utilities.css` (buttons and key UI patterns):
   border: 2px solid var(--color-primary-500);
   border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: background-color var(--transition-base), color var(--transition-base);
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base);
   text-decoration: none;
 }
-.fe-btn-secondary:hover { background-color: var(--color-primary-50); }
-.fe-btn-secondary:focus { outline: 3px solid var(--color-primary-300); outline-offset: 2px; }
+.fe-btn-secondary:hover {
+  background-color: var(--color-primary-50);
+}
+.fe-btn-secondary:focus {
+  outline: 3px solid var(--color-primary-300);
+  outline-offset: 2px;
+}
 
 /* Category / Filter Tag */
 .fe-tag-pill {
@@ -623,12 +770,21 @@ Write the following into `css/utilities.css` (buttons and key UI patterns):
   font-weight: var(--font-weight-medium);
   background-color: var(--color-neutral-100);
   color: var(--color-neutral-700);
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
   cursor: pointer;
   border: 1px solid var(--color-neutral-200);
 }
-.fe-tag-pill:hover  { background-color: var(--color-primary-50); color: var(--color-primary-600); }
-.fe-tag-pill.active { background-color: var(--color-primary-500); color: var(--color-white); border-color: var(--color-primary-500); }
+.fe-tag-pill:hover {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-600);
+}
+.fe-tag-pill.active {
+  background-color: var(--color-primary-500);
+  color: var(--color-white);
+  border-color: var(--color-primary-500);
+}
 
 /* Workshop Card */
 .fe-card {
@@ -636,9 +792,14 @@ Write the following into `css/utilities.css` (buttons and key UI patterns):
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
   overflow: hidden;
-  transition: box-shadow var(--transition-base), transform var(--transition-base);
+  transition:
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
 }
-.fe-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.fe-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
 
 /* Benefit / Get-involved Card */
 .fe-card-benefit {
@@ -659,14 +820,27 @@ Write the following into `css/utilities.css` (buttons and key UI patterns):
   background: var(--color-white);
   border: 1px solid var(--color-neutral-300);
   border-radius: var(--radius-md);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
   outline: none;
 }
-.fe-input::placeholder { color: var(--color-neutral-400); }
-.fe-input:hover  { border-color: var(--color-neutral-500); }
-.fe-input:focus  { border-color: var(--color-primary-500); box-shadow: 0 0 0 3px rgba(255,122,58,0.15); }
-.fe-input--error { border-color: var(--color-status-error); }
-.fe-input--error:focus { box-shadow: 0 0 0 3px rgba(220,38,38,0.15); }
+.fe-input::placeholder {
+  color: var(--color-neutral-400);
+}
+.fe-input:hover {
+  border-color: var(--color-neutral-500);
+}
+.fe-input:focus {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px rgba(255, 122, 58, 0.15);
+}
+.fe-input--error {
+  border-color: var(--color-status-error);
+}
+.fe-input--error:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
 
 /* Section wrapper */
 .fe-section {
@@ -690,17 +864,21 @@ Write the following into `css/utilities.css` (buttons and key UI patterns):
 ## PHASE 4 — FIGMA ↔ REPO SYNC
 
 ### Strategy
+
 Use **Tokens Studio for Figma** (free plugin) to:
+
 1. Define variables in Figma matching our token JSON structure
 2. Export/sync to this repo via GitHub integration OR manual JSON export
 
 ### Document in `figma/sync-guide.md`:
+
 - Plugin setup steps
 - How variable groups in Figma map to our token files
 - Sync frequency expectation (Figma is source of truth for design decisions; repo is source of truth for implementation)
 - What to do when Figma and repo diverge
 
 ### Variable naming in Figma
+
 Must mirror the token naming: `color/brand/primary`, `spacing/lg`, etc. (Figma uses `/` as separator).
 
 ---
@@ -708,6 +886,7 @@ Must mirror the token naming: `color/brand/primary`, `spacing/lg`, etc. (Figma u
 ## PHASE 5 — GIT WORKFLOW
 
 ### Branch Strategy
+
 Initialize with these branches:
 
 ```text
@@ -719,6 +898,7 @@ docs/*      → documentation only (e.g., docs/update-contributing-guide)
 ```
 
 ### Rules
+
 - `main` is protected. No direct pushes. Ever.
 - All work branches off `develop`.
 - PRs to `develop` require at least one review.
@@ -731,6 +911,7 @@ docs/*      → documentation only (e.g., docs/update-contributing-guide)
   - `refactor: rename token tier from "accent" to "secondary"`
 
 ### Initialize repo with:
+
 ```bash
 git init
 git checkout -b main
@@ -741,6 +922,7 @@ git checkout -b develop
 ```
 
 ### `.github/PULL_REQUEST_TEMPLATE.md` should include:
+
 - What changed
 - Token impact (new/modified/removed tokens)
 - Elementor action required? (yes/no — if yes, what)
@@ -755,6 +937,7 @@ git checkout -b develop
 Create these four Cursor rule files:
 
 ### `.cursor/rules/general.mdc`
+
 ```markdown
 ---
 description: General rules for the ForEveryone design system repo
@@ -772,6 +955,7 @@ alwaysApply: true
 ```
 
 ### `.cursor/rules/tokens.mdc`
+
 ```markdown
 ---
 description: Rules for working with design tokens
@@ -789,6 +973,7 @@ alwaysApply: false
 ```
 
 ### `.cursor/rules/css.mdc`
+
 ```markdown
 ---
 description: Rules for CSS files in the design system
@@ -806,6 +991,7 @@ alwaysApply: false
 ```
 
 ### `.cursor/rules/git.mdc`
+
 ```markdown
 ---
 description: Git workflow rules
@@ -814,7 +1000,7 @@ alwaysApply: true
 ---
 
 - Branch from `develop`, never from `main`
-- Branch naming: feature/*, fix/*, docs/*, chore/*
+- Branch naming: feature/_, fix/_, docs/_, chore/_
 - Commit messages follow Conventional Commits spec
 - Always update CHANGELOG.md under [Unreleased] when changing tokens or CSS
 - Never commit directly to `main` or `develop`
@@ -855,7 +1041,9 @@ Versioning: [Semantic Versioning](https://semver.org/)
 ## [Unreleased]
 
 ## [0.1.0] - YYYY-MM-DD
+
 ### Added
+
 - Initial design system scaffold
 - Token files: colors, typography, spacing, radius, shadows, motion
 - CSS build script

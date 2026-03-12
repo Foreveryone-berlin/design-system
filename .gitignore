@@ -4,3 +4,6 @@ node_modules/
 # OS
 .DS_Store
 Thumbs.db
+
+# Cursor local planning artifacts
+.cursor/plans/

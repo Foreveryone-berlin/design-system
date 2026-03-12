@@ -13,12 +13,22 @@
   border: 2px solid transparent;
   border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: background-color var(--transition-base), transform var(--transition-fast);
+  transition:
+    background-color var(--transition-base),
+    transform var(--transition-fast);
   text-decoration: none;
 }
-.fe-btn-primary:hover  { background-color: var(--color-primary-600); }
-.fe-btn-primary:focus  { outline: 3px solid var(--color-primary-300); outline-offset: 2px; }
-.fe-btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+.fe-btn-primary:hover {
+  background-color: var(--color-primary-600);
+}
+.fe-btn-primary:focus {
+  outline: 3px solid var(--color-primary-300);
+  outline-offset: 2px;
+}
+.fe-btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
 
 /* Secondary Button */
 .fe-btn-secondary {
@@ -34,11 +44,18 @@
   border: 2px solid var(--color-primary-500);
   border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: background-color var(--transition-base), color var(--transition-base);
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base);
   text-decoration: none;
 }
-.fe-btn-secondary:hover { background-color: var(--color-primary-50); }
-.fe-btn-secondary:focus { outline: 3px solid var(--color-primary-300); outline-offset: 2px; }
+.fe-btn-secondary:hover {
+  background-color: var(--color-primary-50);
+}
+.fe-btn-secondary:focus {
+  outline: 3px solid var(--color-primary-300);
+  outline-offset: 2px;
+}
 
 /* Category / Filter Tag */
 .fe-tag-pill {
@@ -50,12 +67,21 @@
   font-weight: var(--font-weight-medium);
   background-color: var(--color-neutral-100);
   color: var(--color-neutral-700);
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
   cursor: pointer;
   border: 1px solid var(--color-neutral-200);
 }
-.fe-tag-pill:hover  { background-color: var(--color-primary-50); color: var(--color-primary-600); }
-.fe-tag-pill.active { background-color: var(--color-primary-500); color: var(--color-white); border-color: var(--color-primary-500); }
+.fe-tag-pill:hover {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-600);
+}
+.fe-tag-pill.active {
+  background-color: var(--color-primary-500);
+  color: var(--color-white);
+  border-color: var(--color-primary-500);
+}
 
 /* Workshop Card */
 .fe-card {
@@ -63,9 +89,14 @@
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
   overflow: hidden;
-  transition: box-shadow var(--transition-base), transform var(--transition-base);
+  transition:
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
 }
-.fe-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.fe-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
 
 /* Benefit / Get-involved Card */
 .fe-card-benefit {
@@ -86,14 +117,27 @@
   background: var(--color-white);
   border: 1px solid var(--color-neutral-300);
   border-radius: var(--radius-md);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
   outline: none;
 }
-.fe-input::placeholder { color: var(--color-neutral-400); }
-.fe-input:hover  { border-color: var(--color-neutral-500); }
-.fe-input:focus  { border-color: var(--color-primary-500); box-shadow: 0 0 0 3px rgba(255,122,58,0.15); }
-.fe-input--error { border-color: var(--color-status-error); }
-.fe-input--error:focus { box-shadow: 0 0 0 3px rgba(220,38,38,0.15); }
+.fe-input::placeholder {
+  color: var(--color-neutral-400);
+}
+.fe-input:hover {
+  border-color: var(--color-neutral-500);
+}
+.fe-input:focus {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px rgba(255, 122, 58, 0.15);
+}
+.fe-input--error {
+  border-color: var(--color-status-error);
+}
+.fe-input--error:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
 
 /* Section wrapper */
 .fe-section {
