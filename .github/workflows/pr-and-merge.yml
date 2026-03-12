@@ -1,0 +1,25 @@
+# On push to a feature branch (not develop/main), create a PR into develop and merge it.
+# Solo-dev workflow: push triggers PR + auto-merge so others see the history without manual steps.
+name: PR and merge into develop
+
+on:
+  push:
+    branches-ignore:
+      - develop
+      - main
+
+jobs:
+  pr-and-merge:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create PR and merge into develop
+        run: bash scripts/pr-and-merge.sh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
