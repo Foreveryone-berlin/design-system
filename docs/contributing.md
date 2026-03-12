@@ -8,16 +8,13 @@ For step-by-step workflows (token updates, Elementor mapping, releases), see [do
 
 ## Workflow
 
-1. Branch from `develop` (never from `main`).
-2. Use naming:
-   - `feature/*`
-   - `fix/*`
-   - `docs/*`
-   - `chore/*`
-3. Make focused changes.
-4. Run `node scripts/build-css.js` if tokens changed.
-5. Update `CHANGELOG.md` under `[Unreleased]`.
-6. Open a pull request using `.github/PULL_REQUEST_TEMPLATE.md`.
+1. The repository’s default branch is `main`.
+2. Branch from `develop` (never from `main`).
+3. Use naming: `feature/*`, `fix/*`, `docs/*`, `chore/*`.
+4. Make focused changes.
+5. Run `node scripts/build-css.js` if tokens changed.
+6. Update `CHANGELOG.md` under `[Unreleased]`.
+7. Open a pull request using `.github/PULL_REQUEST_TEMPLATE.md`.
 
 ## Commit Messages
 
