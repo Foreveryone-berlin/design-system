@@ -1,6 +1,6 @@
 ## What changed
 
-- 
+-
 
 ## Token impact
 
@@ -11,7 +11,7 @@
 
 Details:
 
-- 
+-
 
 ## Elementor action required?
 
@@ -20,7 +20,7 @@ Details:
 
 If yes, what needs to be updated in Elementor?
 
-- 
+-
 
 ## Figma updated?
 

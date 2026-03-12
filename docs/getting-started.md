@@ -39,3 +39,7 @@ Welcome to the ForEveryone Berlin design system repository.
 - Designers: define visual decisions in Figma and sync token changes.
 - Developers: implement and document token consumption.
 - Elementor editors: use mapped Global Colors/Fonts and avoid ad-hoc values.
+
+## Official References
+
+For Elementor and WordPress official documentation (Global Settings, Global Colors/Fonts, Custom CSS, child themes, enqueue), see [official-references.md](official-references.md).

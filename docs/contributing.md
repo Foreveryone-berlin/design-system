@@ -2,6 +2,10 @@
 
 Thanks for contributing to the ForEveryone Berlin design system.
 
+## Skills & Workflows
+
+For step-by-step workflows (token updates, Elementor mapping, releases), see [docs/skills/](skills/).
+
 ## Workflow
 
 1. Branch from `develop` (never from `main`).
@@ -39,3 +43,7 @@ Use Conventional Commits:
 - No direct font-family literals outside token variables.
 - New tokens include `$description`.
 - Docs remain aligned with implementation.
+
+## Official References
+
+Elementor/WordPress docs: [docs/official-references.md](official-references.md).

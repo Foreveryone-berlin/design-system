@@ -25,7 +25,21 @@
   line-height: var(--line-height-snug);
   letter-spacing: var(--letter-spacing-tight);
 }
-.fe-body { font-size: var(--font-size-base); font-weight: var(--font-weight-regular); line-height: var(--line-height-normal); }
-.fe-body--medium { font-weight: var(--font-weight-medium); }
-.fe-label { font-size: var(--font-size-xs); font-weight: var(--font-weight-regular); line-height: var(--line-height-snug); }
-.fe-tag   { font-size: var(--font-size-xs); font-weight: var(--font-weight-medium);  line-height: var(--line-height-snug); }
+.fe-body {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+}
+.fe-body--medium {
+  font-weight: var(--font-weight-medium);
+}
+.fe-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-snug);
+}
+.fe-tag {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-snug);
+}
