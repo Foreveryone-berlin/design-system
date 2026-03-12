@@ -1,6 +1,10 @@
 # Design system prototype
 
-Next.js (React, TypeScript) app that showcases the ForEveryone Berlin design tokens. Future home: **design.foreveryone.berlin**.
+Next.js (React, TypeScript) app that showcases the For Everyone Berlin design tokens and components. Future home: **design.foreveryone.berlin** (v0.4.0+).
+
+- **Copy and imagery** are sourced from [foreveryone.berlin](https://foreveryone.berlin) for the prototype; see `content/site-copy.ts` and `public/images/ASSETS.md`.
+- **Favicon** and **icons** live in `public/favicon.svg` and `public/icons/`.
+- **Footer** shows the design system version (semver from `package.json`).
 
 ## Run locally
 

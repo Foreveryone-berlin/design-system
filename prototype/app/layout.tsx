@@ -10,9 +10,10 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "ForEveryone Design System",
+  title: "ForEveryone Design System | design.foreveryone.berlin",
   description:
-    "Design system prototype for ForEveryone Berlin — future design.foreveryone.berlin",
+    "Design system for For Everyone Berlin — tokens, components, and patterns. Future home of design.foreveryone.berlin.",
+  icons: { icon: "/favicon.svg" },
 };
 
 export default function RootLayout({
@@ -21,7 +22,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`ds-light-only ${outfit.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`ds-light-only ${outfit.variable}`}
+      suppressHydrationWarning
+    >
       <body suppressHydrationWarning>{children}</body>
     </html>
   );

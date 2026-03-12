@@ -1,54 +1,48 @@
 # Changelog
 
-## [Unreleased]
+## [0.4.0] - 2026-03-12
+
+### Added
+
+- Prototype: site copy module, hero + mission + stats; `public/` (favicon, icons, images/ASSETS.md).
+- Prototype: hero with image, stats strip, radius/shadow/motion demos, icons section, wave section, footer with semver; layout metadata + favicon.
+
+### Changed
+
+- Prototype: copy refocused on design system; agnostic stats (24, 8, 12+, 3); hero uses `<img>`, future-site link; hero image styling simplified (no blob/outline); page order and README.
 
 ## [0.3.1] - 2026-03-12
 
 ### Fixed
 
-- Prototype: hydration error when Cursor browser (or extensions) inject `data-cursor-ref` into the DOM; added `suppressHydrationWarning` on layout root.
+- Prototype: hydration error from Cursor injecting `data-cursor-ref`; `suppressHydrationWarning` on layout root.
 
 ### Added
 
-- README: prototype section with how to run and open the design system app.
+- README: prototype run instructions.
 
 ## [0.3.0] - 2026-03-12
 
 ### Added
 
-- `docs/pr-and-merge-workflow.md`: run pr-and-merge script locally (workflow is manual-only).
+- `docs/pr-and-merge-workflow.md`; workflow manual-only.
 
 ### Changed
 
-- Workflow `pr-and-merge.yml`: trigger `workflow_dispatch` only (no push) so CI does not need PR-create permission.
-- README & contributing: document that `main` is the default branch.
-- GitHub release v0.2.0 set as latest on releases page.
+- `pr-and-merge.yml`: `workflow_dispatch` only; README/contributing note `main` default branch; v0.2.0 set latest release.
 
 ## [0.2.0] - 2026-03-12
 
 ### Added
 
-- Design system prototype in `prototype/` (Next.js, React, TypeScript): tokens, buttons, cards, form, chips, blockquote; hero with clamp(); Outfit font.
-- `scripts/pr-and-merge.sh`: push, create PR into develop (template body), merge. Idempotent.
-- Workflow `pr-and-merge.yml` (manual trigger). Cursor rule: “merge this branch into develop” → run script.
+- Prototype in `prototype/` (Next.js, tokens, buttons, cards, form, chips, blockquote, hero, Outfit); `scripts/pr-and-merge.sh` and workflow; Cursor rule for merge-to-develop.
 
 ### Changed
 
-- PR body in script follows `.github/PULL_REQUEST_TEMPLATE.md`.
+- PR body in script uses template.
 
 ## [0.1.0] - 2026-03-12
 
 ### Added
 
-- Initial design system scaffold for ForEveryone Berlin (WordPress + Elementor Pro)
-- Token files (W3C DTCG format): colors, typography, spacing, radius, shadows, motion; master index at `tokens/index.json`
-- CSS build script (`scripts/build-css.js`) generating `css/custom-properties.css` from tokens
-- CSS layers: `base.css`, `typography.css`, `utilities.css`, `elementor-overrides.css` using design tokens
-- Elementor integration documentation: global colors, global fonts, custom CSS setup and child-theme enqueue
-- Figma sync guide and token export instructions (Tokens Studio)
-- Git workflow and branch strategy; PR template in `.github/PULL_REQUEST_TEMPLATE.md`
-- Cursor AI rules: `.cursor/rules/` (general, tokens, css, git)
-- Contribution and onboarding docs: `docs/contributing.md`, `docs/getting-started.md`, `docs/token-naming.md`
-- Architecture decision record: `docs/decisions/001-token-format.md`
-- Canonical project brief: `docs/cursor-plan-prompt.md`
-- Excluded `.cursor/plans/` from version control via `.gitignore`
+- Design system scaffold (WordPress + Elementor): tokens (W3C DTCG), `scripts/build-css.js`, CSS layers, Elementor docs, Figma sync guide, Git/PR template, `.cursor/rules/`, contributing/getting-started/token-naming, ADR 001, cursor-plan-prompt, `.gitignore` for `.cursor/plans/`.
