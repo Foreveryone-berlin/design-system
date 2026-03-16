@@ -11,6 +11,12 @@
     "12": { "$value": "3rem", "$type": "dimension", "$description": "48px" },
     "16": { "$value": "4rem", "$type": "dimension", "$description": "64px" },
     "20": { "$value": "5rem", "$type": "dimension", "$description": "80px" },
-    "24": { "$value": "6rem", "$type": "dimension", "$description": "96px" }
+    "24": { "$value": "6rem", "$type": "dimension", "$description": "96px" },
+    "14": { "$value": "3.5rem", "$type": "dimension", "$description": "56px" },
+    "18": { "$value": "4.5rem", "$type": "dimension", "$description": "72px" },
+    "22": { "$value": "5.5rem", "$type": "dimension", "$description": "88px" },
+    "26": { "$value": "6.5rem", "$type": "dimension", "$description": "104px" },
+    "30": { "$value": "7.5rem", "$type": "dimension", "$description": "120px" },
+    "32": { "$value": "8rem", "$type": "dimension", "$description": "128px" }
   }
 }
