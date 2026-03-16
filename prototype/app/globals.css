@@ -2,6 +2,7 @@
 @import "../../css/custom-properties.css";
 @import "../../css/base.css";
 @import "../../css/typography.css";
+@import "../../css/utilities.css";
 
 /* Prototype: light design only, Google Fonts (similar to Filson Pro / Young Serif) */
 .ds-light-only,
@@ -81,6 +82,24 @@
   margin: 0 0 var(--spacing-4);
   padding-bottom: var(--spacing-2);
   border-bottom: 2px solid var(--color-neutral-200);
+}
+
+.ds-subsection-title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-neutral-800);
+  margin: var(--spacing-8) 0 var(--spacing-3);
+}
+
+.ds-palette-group {
+  margin-bottom: var(--spacing-6);
+}
+.ds-palette-group-title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-neutral-600);
+  margin: 0 0 var(--spacing-2);
 }
 
 .ds-swatch-grid {
