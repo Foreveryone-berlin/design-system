@@ -1,5 +1,12 @@
 # Changelog
 
+## [Unreleased]
+
+### Added
+
+- LICENSE file (CC BY-NC 4.0 International).
+- README: license section.
+
 ## [0.5.1] - 2026-03-16
 
 ### Fixed
