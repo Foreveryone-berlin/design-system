@@ -381,6 +381,9 @@
   background-color: var(--color-primary-500);
   color: var(--color-white);
 }
+.fe-faq-item.is-active {
+  background-color: var(--color-primary-500);
+}
 .fe-faq-item__content {
   padding: 0 var(--spacing-5) var(--spacing-4);
   font-size: var(--font-size-sm);
