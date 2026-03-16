@@ -95,6 +95,10 @@ Repeatable workflows (token updates, Elementor mapping, releases): [docs/skills/
 
 See [`docs/contributing.md`](docs/contributing.md) for contribution workflow, commit conventions, and PR expectations.
 
+## License
+
+This work is licensed under [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/). See [LICENSE](LICENSE) for the full text.
+
 ## Changelog
 
 Project history is tracked in [`CHANGELOG.md`](CHANGELOG.md) using Keep a Changelog format.
