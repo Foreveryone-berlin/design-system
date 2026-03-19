@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
+import Navigation from "./_components/Navigation";
+import MobileNav from "./_components/MobileNav";
+import packageJson from "@/package.json";
 
 const outfit = Outfit({
   weight: ["400", "500", "700", "900"],
@@ -21,13 +24,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const version = packageJson.version;
+
   return (
     <html
       lang="en"
       className={`ds-light-only ${outfit.variable}`}
       suppressHydrationWarning
     >
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        <MobileNav />
+        <div className="ds-layout">
+          <Navigation />
+          <div className="ds-main-area">
+            <main className="ds-page">{children}</main>
+            <footer className="ds-footer">
+              <p className="ds-footer-version">Design System v{version}</p>
+              <p style={{ margin: 0 }}>design.foreveryone.berlin</p>
+            </footer>
+          </div>
+        </div>
+      </body>
     </html>
   );
 }
