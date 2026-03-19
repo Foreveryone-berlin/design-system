@@ -1,4 +1,4 @@
-/* Design system tokens and base — from repo root */
+/* Design system tokens and base -- from repo root */
 @import "../../css/custom-properties.css";
 @import "../../css/base.css";
 @import "../../css/typography.css";
@@ -18,6 +18,10 @@
   --font-family-body: var(--font-outfit, "Outfit"), sans-serif;
 }
 
+.ds-light-only body {
+  margin: 0;
+}
+
 #tokens,
 #components {
   scroll-margin-top: var(--spacing-8);
@@ -27,7 +31,232 @@
   text-decoration: none;
 }
 
-/* Hero headline: fluid size, no serif — “Design System” uses same font, CTA-style color */
+/* ---- Layout: sidebar + main ---- */
+.ds-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.ds-main-area {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ds-main-area .ds-page {
+  flex: 1;
+}
+
+.ds-main-area .ds-footer {
+  margin-top: auto;
+}
+
+/* ---- Sidebar ---- */
+.ds-sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background: var(--color-neutral-50);
+  border-right: 1px solid var(--color-neutral-200);
+  padding: var(--spacing-6) 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.ds-sidebar__header {
+  padding: 0 var(--spacing-6) var(--spacing-6);
+  border-bottom: 1px solid var(--color-neutral-200);
+  margin-bottom: var(--spacing-4);
+}
+
+.ds-sidebar__logo {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  color: var(--color-neutral-900);
+  text-decoration: none;
+  display: block;
+}
+
+.ds-sidebar__logo:hover {
+  color: var(--color-primary-500);
+}
+
+.ds-sidebar__badge {
+  display: inline-block;
+  margin-top: var(--spacing-1);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-neutral-500);
+}
+
+.ds-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  padding: 0 var(--spacing-3);
+}
+
+.ds-sidebar__link {
+  display: block;
+  padding: var(--spacing-2) var(--spacing-3);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-neutral-700);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.ds-sidebar__link:hover {
+  background: var(--color-neutral-100);
+  color: var(--color-neutral-900);
+}
+
+.ds-sidebar__link.is-active {
+  background: var(--color-primary-50);
+  color: var(--color-primary-600);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ---- Mobile nav ---- */
+.ds-mobile-header {
+  display: none;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-200);
+  padding: var(--spacing-3) var(--spacing-4);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ds-mobile-header__logo {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+  color: var(--color-neutral-900);
+  text-decoration: none;
+}
+
+.ds-mobile-header__toggle {
+  background: none;
+  border: none;
+  font-size: var(--font-size-xl);
+  cursor: pointer;
+  color: var(--color-neutral-700);
+  padding: var(--spacing-1);
+}
+
+.ds-mobile-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-200);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-2) 0;
+}
+
+.ds-mobile-nav__link {
+  display: block;
+  padding: var(--spacing-3) var(--spacing-6);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-neutral-700);
+  text-decoration: none;
+  transition: background-color var(--transition-fast);
+}
+
+.ds-mobile-nav__link:hover {
+  background: var(--color-neutral-50);
+}
+
+.ds-mobile-nav__link.is-active {
+  color: var(--color-primary-600);
+  font-weight: var(--font-weight-bold);
+}
+
+@media (max-width: 47.99rem) {
+  .ds-sidebar {
+    display: none;
+  }
+  .ds-mobile-header {
+    display: flex;
+  }
+}
+
+/* ---- Page title ---- */
+.ds-page-title {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-black);
+  font-size: clamp(1.5rem, 3vw + 0.5rem, 2rem);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-neutral-900);
+  margin: 0 0 var(--spacing-4);
+}
+
+/* ---- Overview cards grid ---- */
+.ds-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--spacing-6);
+}
+
+.ds-overview-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-neutral-200);
+  padding: var(--spacing-6);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+
+.ds-overview-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.ds-overview-card__title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-neutral-900);
+  margin: 0 0 var(--spacing-2);
+}
+
+.ds-overview-card__desc {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-neutral-600);
+  margin: 0 0 var(--spacing-4);
+  flex: 1;
+}
+
+.ds-overview-card__link {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-secondary-blue-500);
+}
+
+/* Hero headline: fluid size, no serif */
 .ds-hero-title {
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-black);
@@ -56,7 +285,7 @@
   margin-bottom: var(--spacing-4);
 }
 
-/* Prototype page layout — scaled to match foreveryone.berlin density */
+/* Prototype page layout */
 .ds-page {
   max-width: var(--container-max-width);
   margin: 0 auto;
@@ -415,7 +644,7 @@ a.ds-btn {
 /* Footer with semver */
 .ds-footer {
   margin-top: var(--spacing-10);
-  padding-top: var(--spacing-6);
+  padding: var(--spacing-6) var(--section-padding-x-desktop);
   border-top: 1px solid var(--color-neutral-200);
   font-size: var(--font-size-sm);
   color: var(--color-neutral-500);
