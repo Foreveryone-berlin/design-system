@@ -16,6 +16,8 @@
 ### Added
 
 - Tokens page: CSS custom-property code blocks with PrismJS syntax highlighting for every section (colors, typography, spacing, radius/shadows, motion).
+- Components: testimonial card — centered quote-mark style with orange `""` marks and bold attribution, matching live-site design.
+- Components: popup — simplified "Get in touch" form modal using native `<dialog>` with blurred backdrop, Name/Email row, Message textarea, and Send button. Escape/backdrop click to close.
 
 ## [0.6.0] - 2026-03-20
 
