@@ -7,6 +7,18 @@
 - LICENSE file (CC BY-NC 4.0 International).
 - README: license section.
 
+## [0.7.0] - 2026-03-20
+
+### Added
+
+- Tokens page: PrismJS syntax-highlighted code blocks for every token section.
+- Components: testimonial card (centered quote marks, attribution).
+- Components: popup modal (`<dialog>`, simplified contact form, blurred backdrop).
+
+### Fixed
+
+- Tokens page: restored hero-style headline from v0.5.x.
+
 ## [0.6.0] - 2026-03-20
 
 ### Added
