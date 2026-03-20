@@ -101,7 +101,7 @@ export default function Popup() {
               />
             </div>
 
-            <button type="submit" className="fe-btn-primary fe-popup__submit">
+            <button type="submit" className="ds-btn ds-btn--primary fe-popup__submit">
               Send
             </button>
           </form>
