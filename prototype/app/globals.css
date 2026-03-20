@@ -719,3 +719,170 @@ a.ds-btn {
   color: var(--color-white);
   font-size: var(--font-size-xs);
 }
+
+/* ---- Code blocks (PrismJS) ---- */
+.ds-code-block {
+  margin-top: var(--spacing-6);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  line-height: 1.6;
+  overflow-x: auto;
+  max-height: 24rem;
+  border: 1px solid var(--color-neutral-200);
+}
+
+.ds-code-block code {
+  font-family: "Fira Code", "JetBrains Mono", "SF Mono", Consolas, monospace;
+}
+
+/* ---- Testimonial card (centered, quote-mark style) ---- */
+.fe-testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--spacing-6);
+}
+
+.fe-testimonial {
+  margin: 0;
+  padding: var(--spacing-8) var(--spacing-6);
+  background: var(--color-neutral-50);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-card);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.fe-testimonial__marks {
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--color-primary-500);
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-black);
+  letter-spacing: 0.1em;
+}
+
+.fe-testimonial__quote {
+  margin: 0;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-neutral-800);
+  max-width: 48ch;
+}
+
+.fe-testimonial__attribution {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-neutral-900);
+}
+
+/* ---- Popup (dialog modal) ---- */
+.fe-popup {
+  border: none;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  max-width: 520px;
+  width: calc(100% - var(--spacing-8));
+  padding: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.fe-popup::backdrop {
+  background: rgba(10, 10, 10, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.fe-popup__content {
+  position: relative;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-6);
+  animation: fe-popup-enter 0.25s ease-out;
+}
+
+@keyframes fe-popup-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.fe-popup__close {
+  position: absolute;
+  top: var(--spacing-3);
+  right: var(--spacing-3);
+  background: none;
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xl);
+  line-height: 1;
+  color: var(--color-neutral-500);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.fe-popup__close:hover {
+  color: var(--color-neutral-900);
+  border-color: var(--color-neutral-400);
+}
+
+.fe-popup__close:focus-visible {
+  outline: 2px solid var(--color-secondary-blue-500);
+  outline-offset: 2px;
+}
+
+.fe-popup__title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-neutral-900);
+  margin: 0 0 var(--spacing-6);
+}
+
+.fe-popup__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.fe-popup__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4);
+}
+
+@media (max-width: 30rem) {
+  .fe-popup__row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fe-popup__required {
+  color: var(--color-status-error);
+}
+
+.fe-popup__textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.fe-popup__submit {
+  align-self: flex-start;
+}
