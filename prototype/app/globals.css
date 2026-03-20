@@ -719,3 +719,18 @@ a.ds-btn {
   color: var(--color-white);
   font-size: var(--font-size-xs);
 }
+
+/* ---- Code blocks (PrismJS) ---- */
+.ds-code-block {
+  margin-top: var(--spacing-6);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  line-height: 1.6;
+  overflow-x: auto;
+  max-height: 24rem;
+  border: 1px solid var(--color-neutral-200);
+}
+
+.ds-code-block code {
+  font-family: "Fira Code", "JetBrains Mono", "SF Mono", Consolas, monospace;
+}
