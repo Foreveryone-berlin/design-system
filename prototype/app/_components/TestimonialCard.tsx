@@ -1,18 +1,18 @@
 const testimonials = [
   {
     quote:
-      "Roxana from For Everyone ran a workshop for our team at Give Something Back to Berlin and it was great! We had the space to express ourselves freely and create authentic bonds as a team. Roxana facilitated the conversation that led to exploring our strength in collaborating with each other and establishing a self support system within the organisation. I fully recommend Roxana as a facilitator and workshop leader. You\u2019d benefit a lot from her expertise!",
-    attribution: "Workshop member from the NGO Hejmo",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel sapien a nulla fermentum tincidunt. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada. Nulla facilisi etiam dignissim diam quis enim lobortis scelerisque.",
+    attribution: "Jane Doe \u2014 Placeholder Role",
   },
   {
     quote:
-      "The pottery workshop was the most relaxing afternoon I\u2019ve had in Berlin. I came alone and left with three new friends and a wonky mug I absolutely love.",
-    attribution: "Sarah M. \u2014 Workshop Participant",
+      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    attribution: "John Smith \u2014 Placeholder Role",
   },
   {
     quote:
-      "As someone new to Berlin, ForEveryone gave me a community before I even had furniture. The cooking events are my favourite \u2014 real people, real conversations, real food.",
-    attribution: "Tom\u00e1s R. \u2014 Regular Attendee",
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+    attribution: "Alex Johnson \u2014 Placeholder Role",
   },
 ];
 
