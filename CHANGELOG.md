@@ -7,6 +7,16 @@
 - LICENSE file (CC BY-NC 4.0 International).
 - README: license section.
 
+## [0.6.1] - 2026-03-20
+
+### Fixed
+
+- Tokens page: restore hero-style headline ("Design Tokens") matching v0.5.x visual weight.
+
+### Added
+
+- Tokens page: CSS custom-property code blocks with PrismJS syntax highlighting for every section (colors, typography, spacing, radius/shadows, motion).
+
 ## [0.6.0] - 2026-03-20
 
 ### Added
