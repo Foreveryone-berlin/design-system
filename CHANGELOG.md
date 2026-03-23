@@ -22,15 +22,19 @@
 
 - **Feat** `noindex, nofollow` meta on all prototype pages.
 - **Feat** `robots.txt` AI bot block list via [ai-robots-txt](https://github.com/ai-robots-txt/ai.robots.txt).
+- **Feat** Interactive header pattern: animated hamburger, slide-down mobile nav, desktop dropdown sub-menus.
+- **Feat** View transitions (fade-in) between pages.
+- **Enhance** Homepage: third CTA "View Patterns".
 - **Fix** Color tokens: replaced placeholder scales with actual site palette (~24 named colors).
-- **Build** `build-css.js`: emits flat named color properties.
+- **Fix** Tokens page: color swatches reordered light→dark, brand trio pinned first.
 - **Fix** Play button: shrunk to 3rem (48px).
 - **Fix** Color swatch grid: fluid responsive columns.
 - **Fix** Footer pattern: stacking newsletter + bottom bar on narrow screens.
 - **Fix** Site footer: mobile-safe padding.
+- **Fix** Responsive: header stacks at 1300px, header shadow, compact newsletter input.
 - **Fix** CodeBlock hydration mismatch: `language-*` class and `tabIndex` set at render.
 - **Docs** Elementor global-colors doc rewritten with new token names.
-- **Docs** LICENSE (CC BY-NC 4.0 International) and README license section.
+- **Docs** CHANGELOG rewritten with tag-label format.
 
 ## [0.7.0] - 2026-03-20
 
