@@ -1,76 +1,30 @@
 import CodeBlock from "../_components/CodeBlock";
 
-const steps = [
-  "50",
-  "100",
-  "150",
-  "200",
-  "300",
-  "400",
-  "500",
-  "600",
-  "700",
-  "800",
-  "900",
-];
-
-const colorPaletteGroups = [
-  { name: "Primary (Orange)", prefix: "primary", path: "primary" },
-  {
-    name: "Secondary Green",
-    prefix: "secondary-green",
-    path: "secondary-green",
-  },
-  { name: "Secondary Blue", prefix: "secondary-blue", path: "secondary-blue" },
-  {
-    name: "Secondary Lavender",
-    prefix: "secondary-lavender",
-    path: "secondary-lavender",
-  },
-  {
-    name: "Neutral",
-    prefix: "neutral",
-    path: "neutral",
-    steps: [
-      "50",
-      "100",
-      "200",
-      "300",
-      "400",
-      "500",
-      "600",
-      "700",
-      "800",
-      "900",
-      "1000",
-    ],
-  },
-];
-
 const colorSwatches = [
-  { token: "primary-50", var: "var(--color-primary-50)" },
-  { token: "primary-300", var: "var(--color-primary-300)" },
-  { token: "primary-500", var: "var(--color-primary-500)" },
-  { token: "primary-600", var: "var(--color-primary-600)" },
-  { token: "primary-900", var: "var(--color-primary-900)" },
-  { token: "secondary-blue-400", var: "var(--color-secondary-blue-400)" },
-  { token: "secondary-blue-500", var: "var(--color-secondary-blue-500)" },
-  {
-    token: "secondary-lavender-400",
-    var: "var(--color-secondary-lavender-400)",
-  },
-  {
-    token: "secondary-lavender-500",
-    var: "var(--color-secondary-lavender-500)",
-  },
-  { token: "secondary-green-500", var: "var(--color-secondary-green-500)" },
-  { token: "neutral-50", var: "var(--color-neutral-50)" },
-  { token: "neutral-200", var: "var(--color-neutral-200)" },
-  { token: "neutral-500", var: "var(--color-neutral-500)" },
-  { token: "neutral-900", var: "var(--color-neutral-900)" },
-  { token: "status-error", var: "var(--color-status-error)" },
+  { token: "brand-primary", var: "var(--color-brand-primary)" },
+  { token: "brand-secondary", var: "var(--color-brand-secondary)" },
+  { token: "brand-dark", var: "var(--color-brand-dark)" },
+  { token: "white", var: "var(--color-white)" },
+  { token: "very-light-gray", var: "var(--color-very-light-gray)" },
+  { token: "theme-5", var: "var(--color-theme-5)" },
+  { token: "accent", var: "var(--color-accent)" },
+  { token: "light-green", var: "var(--color-light-green)" },
+  { token: "theme-7", var: "var(--color-theme-7)" },
+  { token: "light-orange", var: "var(--color-light-orange)" },
+  { token: "light-gray", var: "var(--color-light-gray)" },
+  { token: "light-purple", var: "var(--color-light-purple)" },
   { token: "status-success", var: "var(--color-status-success)" },
   { token: "status-warning", var: "var(--color-status-warning)" },
+  { token: "pink", var: "var(--color-pink)" },
+  { token: "purple", var: "var(--color-purple)" },
+  { token: "focus-button", var: "var(--color-focus-button)" },
+  { token: "status-error", var: "var(--color-status-error)" },
+  { token: "teal", var: "var(--color-teal)" },
+  { token: "theme-1", var: "var(--color-theme-1)" },
+  { token: "theme-4", var: "var(--color-theme-4)" },
+  { token: "theme-8", var: "var(--color-theme-8)" },
+  { token: "theme-2", var: "var(--color-theme-2)" },
+  { token: "black", var: "var(--color-black)" },
 ];
 
 const spacingScale = [
@@ -103,35 +57,39 @@ const shadowTokens = [
   { token: "card", var: "var(--shadow-card)" },
 ];
 
-const colorCode = `/* Primary (Orange) */
---color-primary-50: #FFF2EB;
---color-primary-100: #FFE4D8;
---color-primary-300: #FFAF89;
---color-primary-500: #FF7A3A;
---color-primary-600: #CC622E;
---color-primary-900: #33180C;
+const colorCode = `/* Brand */
+--color-brand-primary: #FF7A3A;
+--color-brand-secondary: #3F00EB;
+--color-brand-dark: #404040;
+--color-accent: #F1F1EA;
+--color-focus-button: #CC622E;
 
-/* Secondary Blue */
---color-secondary-blue-400: #6533EF;
---color-secondary-blue-500: #3F00EB;
+/* Tints & Accents */
+--color-light-purple: #D9CCFB;
+--color-light-green: #F1F7E5;
+--color-light-orange: #FFD7C4;
+--color-pink: #F39EBC;
+--color-teal: #03C9D3;
+--color-purple: #DA83DA;
+--color-very-light-gray: #F7F7F7;
+--color-light-gray: #D9D9D9;
 
-/* Secondary Lavender */
---color-secondary-lavender-400: #D0D1FF;
---color-secondary-lavender-500: #D5C5FF;
-
-/* Secondary Green */
---color-secondary-green-500: #D4E8A8;
-
-/* Neutral */
---color-neutral-50: #FAFAFA;
---color-neutral-200: #E5E5E5;
---color-neutral-500: #737373;
---color-neutral-900: #1E1E1E;
+/* Theme (Elementor) */
+--color-theme-1: #0170B9;
+--color-theme-2: #3A3A3A;
+--color-theme-4: #4B4F58;
+--color-theme-5: #F5F5F5;
+--color-theme-7: #E5E5E5;
+--color-theme-8: #424242;
 
 /* Status */
 --color-status-error: #DC2626;
 --color-status-success: #D4E8A8;
---color-status-warning: #FFAF89;`;
+--color-status-warning: #FFAF89;
+
+/* Base */
+--color-white: #FFFFFF;
+--color-black: #0A0A0A;`;
 
 const typographyCode = `/* Font Families */
 --font-family-heading: 'Filson Pro', sans-serif;
@@ -223,25 +181,6 @@ export default function TokensPage() {
             </div>
           ))}
         </div>
-        <h3 className="ds-subsection-title">Full palette (50–900)</h3>
-        {colorPaletteGroups.map((group) => (
-          <div key={group.path} className="ds-palette-group">
-            <h4 className="ds-palette-group-title">{group.name}</h4>
-            <div className="ds-swatch-grid">
-              {(group.steps ?? steps).map((step) => (
-                <div key={step} className="ds-swatch">
-                  <div
-                    className="ds-swatch-color"
-                    style={{
-                      backgroundColor: `var(--color-${group.prefix}-${step})`,
-                    }}
-                  />
-                  <div className="ds-swatch-label">{step}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
         <CodeBlock code={colorCode} />
       </section>
 
