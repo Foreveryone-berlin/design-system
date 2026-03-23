@@ -50,38 +50,38 @@ select {
   font-family: var(--font-family-body);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
-  color: var(--color-neutral-900);
+  color: var(--color-theme-2);
   transition:
     color var(--transition-fast),
     background-color var(--transition-fast);
 }
 .elementor-accordion .elementor-tab-title:hover {
-  background-color: var(--color-neutral-100);
+  background-color: var(--color-theme-5);
 }
 .elementor-accordion .elementor-tab-content {
   font-size: var(--font-size-sm);
-  color: var(--color-neutral-700);
+  color: var(--color-brand-dark);
 }
 .elementor-accordion .elementor-tab-title.elementor-active {
-  background-color: var(--color-primary-500);
+  background-color: var(--color-brand-primary);
   color: var(--color-white);
 }
 .elementor-accordion .elementor-tab-content.elementor-active {
-  color: var(--color-neutral-700);
+  color: var(--color-brand-dark);
 }
 
 /* Nav menu: align with .fe-nav-link states */
 .elementor-nav-menu a {
   font-family: var(--font-family-body);
   font-size: var(--font-size-base);
-  color: var(--color-neutral-900);
+  color: var(--color-theme-2);
   transition: color var(--transition-fast);
 }
 .elementor-nav-menu a:hover {
-  color: var(--color-primary-500);
+  color: var(--color-brand-primary);
 }
 .elementor-nav-menu a:focus {
-  color: var(--color-primary-500);
+  color: var(--color-brand-primary);
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
@@ -90,7 +90,7 @@ select {
 .elementor-widget-form .elementor-field-group label {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
-  color: var(--color-neutral-700);
+  color: var(--color-brand-dark);
 }
 .elementor-widget-form .elementor-field-group {
   margin-bottom: var(--spacing-4);
