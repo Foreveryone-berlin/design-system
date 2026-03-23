@@ -1,97 +1,84 @@
 # Changelog
 
-## [Unreleased]
+**Label legend**
 
-### Added
+| Tag         | Description                           |
+| ----------- | ------------------------------------- |
+| **Build**   | build/deps                            |
+| **Chore**   | maintenance                           |
+| **CI**      | pipelines                             |
+| **Docs**    | documentation                         |
+| **Enhance** | improvement to existing feature       |
+| **Feat**    | new capability                        |
+| **Fix**     | bug fix                               |
+| **Perf**    | performance                           |
+| **Revert**  | rollback                              |
+| **Privacy** | privacy & crawl control               |
+| **Sec**     | security                              |
+| **Style**   | formatting                            |
+| —           | append **(WIP)** for work in progress |
 
-- LICENSE file (CC BY-NC 4.0 International).
-- README: license section.
+## [0.8.0] - 2026-03-23
+
+- **Feat** `noindex, nofollow` meta on all prototype pages.
+- **Feat** `robots.txt` AI bot block list via [ai-robots-txt](https://github.com/ai-robots-txt/ai.robots.txt).
+- **Fix** Color tokens: replaced placeholder scales with actual site palette (~24 named colors).
+- **Build** `build-css.js`: emits flat named color properties.
+- **Fix** Play button: shrunk to 3rem (48px).
+- **Fix** Color swatch grid: fluid responsive columns.
+- **Fix** Footer pattern: stacking newsletter + bottom bar on narrow screens.
+- **Fix** Site footer: mobile-safe padding.
+- **Fix** CodeBlock hydration mismatch: `language-*` class and `tabIndex` set at render.
+- **Docs** Elementor global-colors doc rewritten with new token names.
+- **Docs** LICENSE (CC BY-NC 4.0 International) and README license section.
 
 ## [0.7.0] - 2026-03-20
 
-### Added
-
-- Tokens page: PrismJS syntax-highlighted code blocks for every token section.
-- Components: testimonial card (centered quote marks, attribution).
-- Components: popup modal (`<dialog>`, simplified contact form, blurred backdrop).
-
-### Fixed
-
-- Tokens page: restored hero-style headline from v0.5.x.
+- **Feat** Tokens page: PrismJS syntax-highlighted code blocks.
+- **Feat** Testimonial card component (centered quote marks, attribution).
+- **Feat** Popup modal (`<dialog>`, contact form, blurred backdrop).
+- **Fix** Tokens page: restored hero-style headline from v0.5.x.
 
 ## [0.6.0] - 2026-03-20
 
-### Added
-
-- Multi-page structure: split single-page prototype into `/` (overview), `/tokens`, `/components`, `/patterns`.
-- Sidebar navigation (desktop, sticky) with active-state highlighting.
-- Mobile hamburger navigation (< 768px) with dropdown menu.
-- Shared layout with persistent nav and footer across all pages.
-- Overview page with hero, stats strip, and card grid linking to sub-pages.
+- **Feat** Multi-page structure: `/`, `/tokens`, `/components`, `/patterns`.
+- **Feat** Sidebar nav (desktop, sticky) with active-state highlighting.
+- **Feat** Mobile hamburger nav (<768px) with dropdown.
+- **Feat** Shared layout with persistent nav and footer.
+- **Feat** Overview page: hero, stats strip, card grid.
 
 ## [0.5.1] - 2026-03-16
 
-### Fixed
-
-- FAQ accordion: active item content area now has primary-500 background so white text is visible (was white-on-white).
+- **Fix** FAQ accordion: primary background on active item so text is visible.
 
 ## [0.5.0] - 2026-03-16
 
-### Added
-
-- Tokens: spacing 14, 18, 22, 26, 30, 32 (56px–128px, 8pt grid).
-- Build: `build-css.js` emits full color scales (primary 50–900, secondary green/blue/lavender 50–900), all spacing tokens, and font-size lg/2xl.
-- CSS: `.fe-icon-btn`, `.fe-play-btn`; `.fe-faq-item` (accordion); `.fe-dropdown`, `.fe-dropdown-item`; `.fe-nav-link`; `.fe-header` (desktop + mobile); `.fe-footer` (grid, newsletter, social, legal); `.fe-card-badge`, `.fe-card-category`, `.fe-card-meta`, `.fe-card-price`, `.fe-card-get-involved`; `.fe-tag-pill--green`, `--orange`, `--lavender`, `--blue`; `.fe-input-group`, `.fe-input:disabled`, `.fe-input-error-msg`.
-- Elementor overrides: accordion (`.elementor-accordion`), nav menu (`.elementor-nav-menu a`), form labels (`.elementor-widget-form .elementor-field-group`).
-- Prototype: full color palette (50–900 by family), icon buttons + play button, FAQ accordion demo, header/footer demos, workshop card (badge, category, meta, price), category tag variants, input states (default, error, disabled), dropdown and card benefit/get-involved demos; `utilities.css` import.
-
-### Changed
-
-- `css/custom-properties.css`: regenerated with full color and spacing output.
+- **Feat** Extended spacing tokens (14–32, 8pt grid).
+- **Feat** Icon/play buttons, FAQ accordion, dropdown, header/footer, workshop card, category tags, input states, card benefit/get-involved.
+- **Build** `build-css.js`: full color scales + spacing + font-size output.
+- **Feat** Elementor overrides: accordion, nav menu, form labels.
 
 ## [0.4.0] - 2026-03-12
 
-### Added
-
-- Prototype: site copy module, hero + mission + stats; `public/` (favicon, icons, images/ASSETS.md).
-- Prototype: hero with image, stats strip, radius/shadow/motion demos, icons section, wave section, footer with semver; layout metadata + favicon.
-
-### Changed
-
-- Prototype: copy refocused on design system; agnostic stats (24, 8, 12+, 3); hero uses `<img>`, future-site link; hero image styling simplified (no blob/outline); page order and README.
+- **Feat** Site copy module, hero + mission + stats, public assets.
+- **Feat** Hero with image, radius/shadow/motion demos, icons, wave section, footer with semver.
+- **Enhance** Copy refocused on design system; agnostic stats; simplified hero image.
 
 ## [0.3.1] - 2026-03-12
 
-### Fixed
-
-- Prototype: hydration error from Cursor injecting `data-cursor-ref`; `suppressHydrationWarning` on layout root.
-
-### Added
-
-- README: prototype run instructions.
+- **Fix** Hydration error from Cursor `data-cursor-ref` injection; `suppressHydrationWarning` on layout root.
+- **Docs** README: prototype run instructions.
 
 ## [0.3.0] - 2026-03-12
 
-### Added
-
-- `docs/pr-and-merge-workflow.md`; workflow manual-only.
-
-### Changed
-
-- `pr-and-merge.yml`: `workflow_dispatch` only; README/contributing note `main` default branch; v0.2.0 set latest release.
+- **Docs** `docs/pr-and-merge-workflow.md`.
+- **CI** `pr-and-merge.yml`: `workflow_dispatch` only; `main` default branch.
 
 ## [0.2.0] - 2026-03-12
 
-### Added
-
-- Prototype in `prototype/` (Next.js, tokens, buttons, cards, form, chips, blockquote, hero, Outfit); `scripts/pr-and-merge.sh` and workflow; Cursor rule for merge-to-develop.
-
-### Changed
-
-- PR body in script uses template.
+- **Feat** Prototype scaffold (Next.js, tokens, buttons, cards, form, chips, blockquote, hero, Outfit).
+- **CI** `scripts/pr-and-merge.sh` and workflow; Cursor merge-to-develop rule.
 
 ## [0.1.0] - 2026-03-12
 
-### Added
-
-- Design system scaffold (WordPress + Elementor): tokens (W3C DTCG), `scripts/build-css.js`, CSS layers, Elementor docs, Figma sync guide, Git/PR template, `.cursor/rules/`, contributing/getting-started/token-naming, ADR 001, cursor-plan-prompt, `.gitignore` for `.cursor/plans/`.
+- **Feat** Design system scaffold (WordPress + Elementor): W3C DTCG tokens, `build-css.js`, CSS layers, Elementor docs, Figma sync guide, Git/PR template, contributing guides, ADR 001.
