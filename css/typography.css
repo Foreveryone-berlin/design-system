@@ -5,11 +5,11 @@
   font-weight: var(--font-weight-black);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-tight);
-  color: var(--color-neutral-900);
+  color: var(--color-theme-2);
 }
 .fe-h1--accent {
   font-family: var(--font-family-accent);
-  color: var(--color-primary-500);
+  color: var(--color-brand-primary);
 }
 .fe-h2 {
   font-family: var(--font-family-heading);

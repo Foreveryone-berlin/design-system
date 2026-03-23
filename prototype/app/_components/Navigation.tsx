@@ -14,7 +14,7 @@ export default function Navigation() {
   const pathname = usePathname();
 
   return (
-    <aside className="ds-sidebar">
+    <aside className="ds-sidebar" suppressHydrationWarning>
       <div className="ds-sidebar__header">
         <Link href="/" className="ds-sidebar__logo">
           ForEveryone

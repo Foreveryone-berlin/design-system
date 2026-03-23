@@ -20,7 +20,7 @@ body {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-normal);
-  color: var(--color-neutral-900);
+  color: var(--color-theme-2);
   background-color: var(--color-white);
 }
 
@@ -44,9 +44,9 @@ textarea {
 }
 
 .fe-page-bg-alt {
-  background-color: var(--color-neutral-50);
+  background-color: var(--color-theme-5);
 }
 
 .fe-page-bg-lavender {
-  background-color: var(--color-secondary-lavender-400);
+  background-color: var(--color-light-purple);
 }
