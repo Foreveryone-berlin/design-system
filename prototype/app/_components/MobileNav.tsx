@@ -16,7 +16,7 @@ export default function MobileNav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="ds-mobile-header">
+    <header className="ds-mobile-header" suppressHydrationWarning>
       <Link href="/" className="ds-mobile-header__logo">
         ForEveryone
       </Link>

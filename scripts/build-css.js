@@ -60,20 +60,28 @@ function loadAllTokens() {
   return merged;
 }
 
-const PRIMARY_STEPS = [
-  "50",
-  "100",
-  "150",
-  "200",
-  "300",
-  "400",
-  "500",
-  "600",
-  "700",
-  "800",
-  "900",
+const FLAT_COLOR_KEYS = [
+  "brand-primary",
+  "brand-secondary",
+  "brand-dark",
+  "accent",
+  "focus-button",
+  "light-purple",
+  "light-green",
+  "light-orange",
+  "pink",
+  "teal",
+  "purple",
+  "very-light-gray",
+  "light-gray",
+  "theme-1",
+  "theme-2",
+  "theme-4",
+  "theme-5",
+  "theme-7",
+  "theme-8",
 ];
-const SECONDARY_FAMILIES = ["green", "blue", "lavender"];
+
 const SPACING_KEYS = [
   "1",
   "2",
@@ -95,43 +103,12 @@ const SPACING_KEYS = [
   "32",
 ];
 
-function emitColorScale(tokens, category, subCategory) {
-  const path = subCategory
-    ? `color.${category}.${subCategory}`
-    : `color.${category}`;
-  const prefix = subCategory
-    ? `--color-${category}-${subCategory}`
-    : `--color-${category}`;
-  return PRIMARY_STEPS.map(
-    (step) =>
-      `  ${prefix}-${step}: ${getTokenValue(tokens, `${path}.${step}`)};`,
-  ).join("\n");
-}
-
 function buildCss(tokens) {
-  const primaryCss = emitColorScale(tokens, "primary");
-  const neutralKeys = [
-    "50",
-    "100",
-    "200",
-    "300",
-    "400",
-    "500",
-    "600",
-    "700",
-    "800",
-    "900",
-    "1000",
-  ];
-  const neutralCss = neutralKeys
-    .map(
-      (step) =>
-        `  --color-neutral-${step}: ${getTokenValue(tokens, `color.neutral.${step}`)};`,
-    )
-    .join("\n");
-  const secondaryCss = SECONDARY_FAMILIES.map((family) =>
-    emitColorScale(tokens, "secondary", family),
-  ).join("\n\n");
+  const colorCss = FLAT_COLOR_KEYS.map(
+    (key) =>
+      `  --color-${key}: ${getTokenValue(tokens, `color.${key}`)};`,
+  ).join("\n");
+
   const spacingCss = SPACING_KEYS.map(
     (key) => `  --spacing-${key}: ${getTokenValue(tokens, `spacing.${key}`)};`,
   ).join("\n");
@@ -144,14 +121,8 @@ function buildCss(tokens) {
 
 :root {
 
-  /* ── Colors: Primary (Orange) ─────────────────────────────────────────── */
-${primaryCss}
-
-  /* ── Colors: Secondary (Green, Blue, Lavender) ──────────────────────────── */
-${secondaryCss}
-
-  /* ── Colors: Neutral ─────────────────────────────────────────────────── */
-${neutralCss}
+  /* ── Colors: Brand ─────────────────────────────────────────────────────── */
+${colorCss}
 
   /* ── Colors: Status ──────────────────────────────────────────────────── */
   --color-status-error:   ${getTokenValue(tokens, "color.status.error")};
