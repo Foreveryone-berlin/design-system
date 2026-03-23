@@ -38,6 +38,9 @@ export default function Home() {
             <Link href="/components" className="ds-btn ds-btn--secondary">
               {heroCopy.ctaSecondary}
             </Link>
+            <Link href="/patterns" className="ds-btn ds-btn--secondary">
+              View patterns
+            </Link>
           </div>
         </div>
         <div className="ds-hero-image-wrap">
@@ -58,7 +61,7 @@ export default function Home() {
           href={futureSiteUrl}
           target="_blank"
           rel="noopener noreferrer"
-          style={{ color: "var(--color-secondary-blue-500)" }}
+          style={{ color: "var(--color-brand-secondary)" }}
         >
           {futureSiteUrl}
         </a>
@@ -99,7 +102,9 @@ export default function Home() {
               Buttons, inputs, cards, tags, accordion, and other interactive
               elements.
             </p>
-            <span className="ds-overview-card__link">View components &rarr;</span>
+            <span className="ds-overview-card__link">
+              View components &rarr;
+            </span>
           </Link>
           <Link href="/patterns" className="ds-overview-card">
             <h3 className="ds-overview-card__title">Patterns</h3>
