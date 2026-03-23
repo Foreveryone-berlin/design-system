@@ -19,7 +19,7 @@ export default function CodeBlock({
   }, [code]);
 
   return (
-    <pre className="ds-code-block">
+    <pre className={`ds-code-block language-${language}`} tabIndex={0}>
       <code ref={ref} className={`language-${language}`}>
         {code}
       </code>
