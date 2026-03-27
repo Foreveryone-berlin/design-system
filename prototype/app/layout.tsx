@@ -14,10 +14,35 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://design.foreveryone.berlin"),
   title: "ForEveryone Design System | design.foreveryone.berlin",
   description:
     "Design system for For Everyone Berlin — tokens, components, and patterns. Future home of design.foreveryone.berlin.",
-  icons: { icon: "/favicon.svg" },
+  icons: {
+    icon: [{ url: "/favicon.png", type: "image/png" }],
+    apple: [{ url: "/apple-touch-icon.png", type: "image/png" }],
+    shortcut: [{ url: "/favicon.png", type: "image/png" }],
+  },
+  openGraph: {
+    title: "ForEveryone Design System | design.foreveryone.berlin",
+    description:
+      "Design tokens, components, and patterns for the ForEveryone digital experience.",
+    images: [
+      {
+        url: "/images/social-preview.png",
+        width: 335,
+        height: 231,
+        alt: "ForEveryone Design System preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ForEveryone Design System | design.foreveryone.berlin",
+    description:
+      "Design tokens, components, and patterns for the ForEveryone digital experience.",
+    images: ["/images/social-preview.png"],
+  },
   robots: "noindex, nofollow",
 };
 
