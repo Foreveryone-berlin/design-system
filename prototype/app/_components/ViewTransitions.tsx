@@ -13,6 +13,14 @@ export default function ViewTransitions() {
       return;
     }
 
+    /* Firefox: forced reflow + animation restart on route change causes visible flicker */
+    if (
+      typeof navigator !== "undefined" &&
+      navigator.userAgent.includes("Firefox")
+    ) {
+      return;
+    }
+
     const page = document.querySelector<HTMLElement>(".ds-page");
     if (!page) return;
 
