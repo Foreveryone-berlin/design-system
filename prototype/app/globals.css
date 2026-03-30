@@ -1,3 +1,9 @@
+/* Design system tokens and base -- from repo root */
+@import "../../css/custom-properties.css";
+@import "../../css/base.css";
+@import "../../css/typography.css";
+@import "../../css/utilities.css";
+
 /* ---- View Transitions (page-level fade + slide) ---- */
 @keyframes vt-fade-in {
   from {
@@ -11,14 +17,8 @@
 }
 
 .vt-fade-in {
-  animation: vt-fade-in 0.25s ease-out both;
+  animation: vt-fade-in var(--transition-slow) both;
 }
-
-/* Design system tokens and base -- from repo root */
-@import "../../css/custom-properties.css";
-@import "../../css/base.css";
-@import "../../css/typography.css";
-@import "../../css/utilities.css";
 
 /* Prototype: light design only, Google Fonts (similar to Filson Pro / Young Serif) */
 .ds-light-only,
@@ -32,6 +32,10 @@
   scroll-behavior: smooth;
   --font-family-heading: var(--font-outfit, "Outfit"), sans-serif;
   --font-family-body: var(--font-outfit, "Outfit"), sans-serif;
+  /* Calmer motion than default tokens (prototype-only) */
+  --transition-fast: 220ms ease;
+  --transition-base: 400ms ease;
+  --transition-slow: 600ms ease;
 }
 
 .ds-light-only body {
@@ -70,6 +74,20 @@
   margin-top: auto;
 }
 
+/* Prototype: slower header / mobile nav motion (matches calmer --transition-*) */
+.ds-light-only .fe-hamburger__line {
+  transition:
+    transform var(--transition-base),
+    opacity var(--transition-base);
+}
+
+.ds-light-only .fe-header__mobile-nav {
+  transition:
+    max-height var(--transition-slow),
+    opacity var(--transition-base),
+    padding var(--transition-slow);
+}
+
 /* ---- Sidebar ---- */
 .ds-sidebar {
   width: 240px;
@@ -90,12 +108,17 @@
 }
 
 .ds-sidebar__logo {
-  font-family: var(--font-family-heading);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-lg);
+  display: inline-flex;
+  align-items: center;
   color: var(--color-theme-2);
   text-decoration: none;
+  min-width: 0;
+}
+
+.ds-sidebar__logo img {
   display: block;
+  height: 22px;
+  width: auto;
 }
 
 .ds-sidebar__logo:hover {
@@ -156,11 +179,17 @@
 }
 
 .ds-mobile-header__logo {
-  font-family: var(--font-family-heading);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-base);
+  display: inline-flex;
+  align-items: center;
   color: var(--color-theme-2);
   text-decoration: none;
+  min-width: 0;
+}
+
+.ds-mobile-header__logo img {
+  display: block;
+  height: 22px;
+  width: auto;
 }
 
 .ds-mobile-header__toggle {
@@ -309,6 +338,7 @@
   margin: 0 auto;
   padding: var(--spacing-8) var(--section-padding-x-mobile);
   min-height: 100vh;
+  min-width: 0;
   overflow-x: clip;
 }
 
@@ -324,18 +354,14 @@
   overflow: hidden;
 }
 
-.ds-section pre,
-.ds-section code {
-  max-width: 100%;
-}
-
-.ds-section pre {
-  overflow-x: auto;
-  box-sizing: border-box;
-}
-
 .ds-intro + .ds-section {
   margin-top: var(--spacing-8);
+}
+
+/* Patterns page: make footer demo feel like a contained card */
+#footer-pattern .fe-footer {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
 }
 
 .ds-section-title {
@@ -487,6 +513,16 @@
 
 a.ds-btn {
   text-decoration: none;
+}
+
+.ds-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.ds-btn:focus-visible {
+  outline: 3px solid var(--color-light-orange);
+  outline-offset: 2px;
 }
 
 .ds-btn--primary {
@@ -785,20 +821,34 @@ a.ds-btn {
 }
 
 /* ---- Code blocks (PrismJS) ---- */
-.ds-code-block {
+/* Prism theme sets white-space:pre + word-break:normal, which forces intrinsic
+   width from the longest line and widens the viewport on mobile. Override so
+   tokens wrap; prose line breaks from the source are still preserved (pre-wrap). */
+pre.ds-code-block[class*="language-"] {
   margin-top: var(--spacing-6);
   border-radius: var(--radius-md);
   font-size: var(--font-size-xs);
   line-height: 1.6;
-  overflow-x: auto;
+  min-width: 0;
   max-width: 100%;
   width: 100%;
   box-sizing: border-box;
   max-height: 24rem;
   border: 1px solid var(--color-theme-7);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  overflow-x: auto;
 }
 
-.ds-code-block code {
+pre.ds-code-block[class*="language-"] code[class*="language-"] {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  word-spacing: normal;
   font-family: "Fira Code", "JetBrains Mono", "SF Mono", Consolas, monospace;
 }
 
@@ -861,8 +911,6 @@ a.ds-btn {
 
 .fe-popup::backdrop {
   background: rgba(10, 10, 10, 0.55);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
 }
 
 .fe-popup__content {
@@ -870,7 +918,7 @@ a.ds-btn {
   background: var(--color-white);
   border-radius: var(--radius-xl);
   padding: var(--spacing-6);
-  animation: fe-popup-enter 0.25s ease-out;
+  animation: fe-popup-enter var(--transition-base);
 }
 
 @keyframes fe-popup-enter {
