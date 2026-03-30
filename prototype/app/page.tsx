@@ -24,24 +24,6 @@ export default function Home() {
           </h1>
           <span className="ds-hero-version">v{version}</span>
           <p className="ds-intro">{heroCopy.tagline}</p>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "var(--spacing-4)",
-              marginTop: "var(--spacing-4)",
-            }}
-          >
-            <Link href="/tokens" className="ds-btn ds-btn--primary">
-              {heroCopy.ctaPrimary}
-            </Link>
-            <Link href="/components" className="ds-btn ds-btn--secondary">
-              {heroCopy.ctaSecondary}
-            </Link>
-            <Link href="/patterns" className="ds-btn ds-btn--secondary">
-              View patterns
-            </Link>
-          </div>
         </div>
         <div className="ds-hero-image-wrap">
           {/* eslint-disable-next-line @next/next/no-img-element */}
