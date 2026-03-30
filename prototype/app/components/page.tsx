@@ -153,11 +153,11 @@ export default function ComponentsPage() {
             <img
               src="/favicon.svg"
               alt=""
-              width={24}
-              height={24}
+              width={32}
+              height={32}
               aria-hidden="true"
             />
-            <span>Favicon</span>
+            <span>Favicon (site)</span>
           </div>
           <div className="ds-icon-item">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -233,21 +233,6 @@ export default function ComponentsPage() {
               aria-label="Disabled"
             />
           </div>
-        </div>
-      </section>
-
-      <section id="dropdown" className="ds-section">
-        <h2 className="ds-section-title">Dropdown</h2>
-        <div className="fe-dropdown" style={{ width: "14rem" }}>
-          <a href="#about" className="fe-dropdown-item">
-            About us <span aria-hidden="true">&rarr;</span>
-          </a>
-          <a href="#team" className="fe-dropdown-item">
-            Meet The Team <span aria-hidden="true">&rarr;</span>
-          </a>
-          <a href="#blog" className="fe-dropdown-item">
-            Blog <span aria-hidden="true">&rarr;</span>
-          </a>
         </div>
       </section>
 
