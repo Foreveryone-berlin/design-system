@@ -22,6 +22,9 @@
   background-color: var(--color-focus-button);
 }
 .fe-btn-primary:focus {
+  outline: none;
+}
+.fe-btn-primary:focus-visible {
   outline: 3px solid var(--color-light-orange);
   outline-offset: 2px;
 }
@@ -53,6 +56,9 @@
   background-color: var(--color-light-orange);
 }
 .fe-btn-secondary:focus {
+  outline: none;
+}
+.fe-btn-secondary:focus-visible {
   outline: 3px solid var(--color-light-orange);
   outline-offset: 2px;
 }
@@ -81,6 +87,9 @@
   color: var(--color-white);
 }
 .fe-icon-btn:focus {
+  outline: none;
+}
+.fe-icon-btn:focus-visible {
   outline: 3px solid var(--color-light-orange);
   outline-offset: 2px;
 }
@@ -110,6 +119,9 @@
   background-color: var(--color-brand-secondary);
 }
 .fe-play-btn:focus {
+  outline: none;
+}
+.fe-play-btn:focus-visible {
   outline: 3px solid var(--color-light-purple);
   outline-offset: 2px;
 }
@@ -242,14 +254,14 @@
 
 /* Benefit / Get-involved Card */
 .fe-card-benefit {
-  background: var(--color-light-purple);
+  background: var(--color-light-green);
   border-radius: var(--radius-lg);
   padding: var(--spacing-6);
 }
 
 /* Card Get Involved */
 .fe-card-get-involved {
-  background: var(--color-light-purple);
+  background: var(--color-light-green);
   border-radius: var(--radius-lg);
   padding: var(--spacing-6);
   display: flex;
@@ -378,11 +390,11 @@
 }
 .fe-faq-item.is-active .fe-faq-item__trigger,
 .fe-faq-item.is-active:hover .fe-faq-item__trigger {
-  background-color: var(--color-brand-primary);
-  color: var(--color-white);
+  background-color: var(--color-theme-5);
+  color: var(--color-theme-2);
 }
 .fe-faq-item.is-active {
-  background-color: var(--color-brand-primary);
+  background-color: var(--color-white);
 }
 .fe-faq-item__content {
   padding: 0 var(--spacing-5) var(--spacing-4);
@@ -395,7 +407,7 @@
 }
 .fe-faq-item.is-active .fe-faq-item__content {
   display: block;
-  color: var(--color-white);
+  color: var(--color-brand-dark);
 }
 
 /* Dropdown */

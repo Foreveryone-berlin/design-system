@@ -5,6 +5,13 @@
 - **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**
 - **(WIP)** — append when in progress
 
+## [0.9.1] - 2026-03-30
+
+- **Feat**: Prototype: replace header/sidebar text branding with ForEveryone logo.
+- **Enhance**: Prototype: calmer transitions; remove hero CTAs; improve demo polish (icons, footer pattern radius).
+- **Fix**: Prototype: disable route fade replay on Firefox to avoid flicker; prevent tokens code blocks from forcing horizontal scroll on mobile; remove popup backdrop blur.
+- **Style**: CSS: button focus ring only on keyboard (`:focus-visible`); accordion active state uses gray theme; benefit/get-involved cards use light green.
+
 ## [0.9.0] - 2026-03-27
 
 - **Feat**: Deployment with Vercel.

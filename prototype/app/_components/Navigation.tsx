@@ -17,7 +17,13 @@ export default function Navigation() {
     <aside className="ds-sidebar" suppressHydrationWarning>
       <div className="ds-sidebar__header">
         <Link href="/" className="ds-sidebar__logo">
-          ForEveryone
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/foreveryone-logo.png"
+            alt="ForEveryone"
+            width={120}
+            height={22}
+          />
         </Link>
         <span className="ds-sidebar__badge">Design System</span>
       </div>
