@@ -18,7 +18,13 @@ export default function MobileNav() {
   return (
     <header className="ds-mobile-header" suppressHydrationWarning>
       <Link href="/" className="ds-mobile-header__logo">
-        ForEveryone
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/foreveryone-logo.png"
+          alt="ForEveryone"
+          width={120}
+          height={22}
+        />
       </Link>
       <button
         type="button"
