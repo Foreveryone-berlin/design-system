@@ -18,13 +18,21 @@ This repository defines shared design foundations so designers, developers, and 
 
 ```text
 foreveryone-design-system/
+├── AGENTS.md                     # Mirror: retrieval index + pins (tools that only read repo root)
+├── CLAUDE.md                     # Claude Code entry (pins + key docs; full index in docs/AGENTS.md)
+├── .codex/
+│   └── AGENTS.md                 # OpenAI Codex precedence shim
+├── .claude/
+│   └── rules/                    # Claude Code rules (mirrors .cursor/rules)
 ├── .cursor/
-│   └── rules/                    # AI desktop rules
+│   └── rules/                    # Cursor IDE rules (.mdc)
+├── docs/                         # AGENTS.md, agents/, audit, onboarding, ADRs, skills, …
+│   ├── AGENTS.md                 # Canonical agent narrative + full docs index
+│   └── agents/                   # Cross-tool agent contract + README
 ├── tokens/                       # Source-of-truth token JSON files
 ├── css/                          # Generated vars + implementation CSS
 ├── elementor/                    # Elementor mapping and setup docs
 ├── figma/                        # Figma sync instructions
-├── docs/                         # Audit, onboarding, conventions, ADRs
 ├── scripts/                      # Build scripts
 ├── .github/                      # PR template
 ├── README.md
@@ -70,6 +78,7 @@ Use Tokens Studio in Figma to mirror token sets and export/sync JSON:
 - Global colors mapping: [`elementor/global-colors.md`](elementor/global-colors.md)
 - Global fonts mapping: [`elementor/global-fonts.md`](elementor/global-fonts.md)
 - Custom CSS + enqueue setup: [`elementor/custom-css-setup.md`](elementor/custom-css-setup.md)
+- Visual styles (icons, blobs, photography): [`docs/visual-styles.md`](docs/visual-styles.md)
 
 ## Official References
 
@@ -87,6 +96,14 @@ Elementor and WordPress official docs used for this setup: [docs/official-refere
 - Use Conventional Commits.
 - Merge `develop` -> `main` for release and tag semver versions.
 
+## AI coding assistants
+
+- **Canonical context:** [docs/AGENTS.md](docs/AGENTS.md) (full documentation index and domain rules).
+- **Repo root [AGENTS.md](AGENTS.md):** duplicate index for tools that only auto-load root `AGENTS.md` (see [Vercel note on AGENTS.md](https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals)).
+- **OpenAI Codex:** root `AGENTS.md` plus [.codex/AGENTS.md](.codex/AGENTS.md) (precedence order inside that file).
+- **Anthropic Claude Code:** [CLAUDE.md](CLAUDE.md) at session start; [.claude/rules/](.claude/rules/) for topic reminders; Cursor uses [.cursor/rules/](.cursor/rules/).
+- **Portable contract:** [docs/agents/agent-contract.md](docs/agents/agent-contract.md); **runtime / risk:** [docs/agents/runtime-policy.md](docs/agents/runtime-policy.md) (same idea as **parcellab-website** agent docs).
+
 ## Skills & Workflows
 
 Repeatable workflows (token updates, Elementor mapping, releases): [docs/skills/](docs/skills/).
@@ -97,7 +114,12 @@ See [`docs/contributing.md`](docs/contributing.md) for contribution workflow, co
 
 ## License
 
-This work is licensed under [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/). See [LICENSE](LICENSE) for the full text.
+Licensing is split by content type:
+
+- **Software** (`scripts/`, `prototype/`): **MIT** — see the **MIT License** section in [LICENSE](LICENSE).
+- **Design system** (`tokens/`, `css/`, `figma/`, `elementor/`, `docs/`, root documentation including `AGENTS.md` / `CLAUDE.md`, `.codex/`, and `.claude/` / `.cursor/` rules): **CC BY-NC 4.0** — [human-readable summary](https://creativecommons.org/licenses/by-nc/4.0/); full legal text under **Creative Commons Attribution-NonCommercial 4.0 International** in [LICENSE](LICENSE).
+
+All terms live in that single file (dual licensing — apply the section that matches what you reuse).
 
 ## Changelog
 
