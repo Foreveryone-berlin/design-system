@@ -1,13 +1,9 @@
----
-description: Git workflow rules
-globs: ["**/*"]
-alwaysApply: true
----
+# Git workflow (mirrors `.cursor/rules/git.mdc`)
 
 - Branch from `develop`, never from `main`
 - Branch naming: feature/*, fix/*, docs/*, chore/*
 - Commit messages follow Conventional Commits spec
-- Always update CHANGELOG.md under the current in-flight version section (e.g. `## [0.10.0] - Unreleased`) when changing tokens or CSS
+- Always update `CHANGELOG.md` under the current in-flight version section (e.g. `## [0.10.0] - Unreleased`) when changing tokens or CSS
 - Never commit directly to `main` or `develop`
 - PR descriptions must use the PR template
 - Tag releases on `main` with semver: v1.0.0

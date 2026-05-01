@@ -14,14 +14,14 @@ Elementor reference: <https://elementor.com/help/theme-style-global-settings/>
 
 - **Global 1 — Brand Secondary** -> `color.brand-secondary` -> `#3F00EB`
 - **Global 2 — Brand Primary** -> `color.brand-primary` -> `#FF7A3A`
-- **Global 3 — Brand Dark** -> `color.brand-dark` -> `#404040`
-- **Global 4 — Accent** -> `color.accent` -> `#F1F1EA`
+- **Global 3 — Brand Dark** -> `color.brand-dark` -> `#1E1E1E` (Charcoal)
+- **Global 4 — Accent** -> `color.accent` -> `#FDFCF7` (Warm white)
 
 ## Custom Color Slot Mapping
 
 - **Custom 1 — Focus Button** -> `color.focus-button` -> `#CC622E`
-- **Custom 2 — Light Purple** -> `color.light-purple` -> `#D9CCFB`
-- **Custom 3 — Light Green** -> `color.light-green` -> `#F1F7E5`
+- **Custom 2 — Light Purple** -> `color.light-purple` -> `#D5C5FF` (Lavender)
+- **Custom 3 — Light Green** -> `color.light-green` -> `#D4E6A8` (Lime green)
 - **Custom 4 — Light Orange** -> `color.light-orange` -> `#FFD7C4`
 - **Custom 5 — Pink** -> `color.pink` -> `#F39EBC`
 - **Custom 6 — Teal** -> `color.teal` -> `#03C9D3`
@@ -29,18 +29,26 @@ Elementor reference: <https://elementor.com/help/theme-style-global-settings/>
 - **Custom 8 — Very Light Gray** -> `color.very-light-gray` -> `#F7F7F7`
 - **Custom 9 — Light Gray** -> `color.light-gray` -> `#D9D9D9`
 
+### Additional token (Elementor UI)
+
+Add a **Custom** or **Global** swatch in Elementor if your plan allows more slots:
+
+- **Soft Lavender** -> `color.soft-lavender` -> `#E5DCFF` — large readable lavender backgrounds (social/layout); pair with Charcoal text.
+
+Until that slot exists in Elementor, the value still ships in `css/custom-properties.css` as `--color-soft-lavender` for the child theme / custom CSS.
+
 ## WordPress / Elementor Theme Colors
 
 These are the Astra/Elementor theme-level colors used by the site:
 
 - **Theme Color 1** -> `color.theme-1` -> `#0170B9`
-- **Theme Color 2** -> `color.theme-2` -> `#3A3A3A`
-- **Theme Color 3** -> `#3A3A3A` (duplicate of Theme 2)
+- **Theme Color 2** -> `color.theme-2` -> `#1E1E1E` (Charcoal-aligned)
+- **Theme Color 3** -> `#1E1E1E` (duplicate of Theme 2 / Charcoal)
 - **Theme Color 4** -> `color.theme-4` -> `#4B4F58`
 - **Theme Color 5** -> `color.theme-5` -> `#F5F5F5`
 - **Theme Color 6** -> `#FFFFFF` (same as `color.base.white`)
 - **Theme Color 7** -> `color.theme-7` -> `#E5E5E5`
-- **Theme Color 8** -> `color.theme-8` -> `#424242`
+- **Theme Color 8** -> `color.theme-8` -> `#1E1E1E` (Charcoal-aligned)
 
 ## Step-by-Step Setup
 
@@ -50,8 +58,9 @@ These are the Astra/Elementor theme-level colors used by the site:
 4. Save changes.
 5. Open one page in Elementor editor and verify:
    - Buttons use **Brand Primary** and **Focus Button** for hover.
-   - Text defaults to **Brand Dark** or **Theme Color 2**.
-   - Light sections use **Theme Color 5** or **Accent**.
+   - Text defaults to **Brand Dark** or **Theme Color 2** (Charcoal).
+   - Light sections use **Theme Color 5** or **Accent** (Warm white).
+   - **Brand Secondary** panels use **white** text.
    - Error states use `#DC2626` (status-error).
 
 ## Screenshot Checklist (for editors)
@@ -65,3 +74,4 @@ These are the Astra/Elementor theme-level colors used by the site:
 - Elementor stores these values in database options, not in CSS variables.
 - This mapping must stay aligned with `tokens/colors.json`.
 - If token values change, update both Elementor Global Colors and `CHANGELOG.md`.
+- Brand palette audit: [`docs/color-audit-2026.md`](../docs/color-audit-2026.md).

@@ -67,6 +67,7 @@ const FLAT_COLOR_KEYS = [
   "accent",
   "focus-button",
   "light-purple",
+  "soft-lavender",
   "light-green",
   "light-orange",
   "pink",
@@ -179,7 +180,8 @@ ${spacingCss}
   --shadow-sm:   ${getTokenValue(tokens, "shadow.sm")};
   --shadow-md:   ${getTokenValue(tokens, "shadow.md")};
   --shadow-lg:   ${getTokenValue(tokens, "shadow.lg")};
-  --shadow-card: ${getTokenValue(tokens, "shadow.card")};  /* workshop card */
+  --shadow-card:   ${getTokenValue(tokens, "shadow.card")};  /* workshop card */
+  --shadow-header: ${getTokenValue(tokens, "shadow.header")};
 
   /* ── Motion ──────────────────────────────────────────────────────────── */
   --transition-fast: ${getTokenValue(tokens, "motion.transition.fast")};

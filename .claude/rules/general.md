@@ -1,8 +1,4 @@
----
-description: General rules for the ForEveryone design system repo
-globs: ["**/*"]
-alwaysApply: true
----
+# General (mirrors `.cursor/rules/general.mdc`)
 
 - This is a WordPress/Elementor design system repo for ForEveryone Berlin (https://foreveryone.berlin/)
 - Canonical long-form agent context: `docs/AGENTS.md`; root `AGENTS.md` mirrors the retrieval index for tools that only load repo-root `AGENTS.md`

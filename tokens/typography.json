@@ -1,9 +1,9 @@
 {
   "font": {
     "family": {
-      "heading": { "$value": "'Filson Pro', sans-serif", "$type": "fontFamily" },
+      "heading": { "$value": "'FilsonPro', sans-serif", "$type": "fontFamily" },
       "accent": { "$value": "'Young Serif', serif", "$type": "fontFamily" },
-      "body": { "$value": "'Filson Pro', sans-serif", "$type": "fontFamily" }
+      "body": { "$value": "'FilsonPro', sans-serif", "$type": "fontFamily" }
     },
     "weight": {
       "regular": { "$value": "400", "$type": "fontWeight" },

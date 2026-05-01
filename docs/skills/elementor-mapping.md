@@ -12,10 +12,11 @@ Keep Elementor Global Colors and Global Fonts aligned with this repo’s tokens.
 1. **Check the mapping tables** in this repo:
    - [elementor/global-colors.md](../../elementor/global-colors.md)
    - [elementor/global-fonts.md](../../elementor/global-fonts.md)
-2. **In WordPress**: go to **Elementor → Site Settings → Global Colors** (or **Global Fonts**).
-3. **Set each slot** to the hex value or font/size/weight from the mapping table.
-4. **Ensure token CSS is loaded**: either enqueue `css/custom-properties.css` from the child theme (see [elementor/custom-css-setup.md](../../elementor/custom-css-setup.md)) or paste the `:root` block into Elementor Custom CSS as fallback.
-5. **Verify** in the editor: buttons, headings, and body text use the expected colors and fonts.
+2. **Icon / layout classes**: When using HTML or Button widgets with DS classes (e.g. `.fe-icon-btn`, `.fe-icon-btn--filled-brand`), see [docs/visual-styles.md](../visual-styles.md) and [elementor/custom-css-setup.md](../../elementor/custom-css-setup.md).
+3. **In WordPress**: go to **Elementor → Site Settings → Global Colors** (or **Global Fonts**).
+4. **Set each slot** to the hex value or font/size/weight from the mapping table.
+5. **Ensure token CSS is loaded**: either enqueue `css/custom-properties.css` from the child theme (see [elementor/custom-css-setup.md](../../elementor/custom-css-setup.md)) or paste the `:root` block into Elementor Custom CSS as fallback.
+6. **Verify** in the editor: buttons, headings, and body text use the expected colors and fonts.
 
 ## Official docs
 

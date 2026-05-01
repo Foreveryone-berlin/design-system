@@ -50,3 +50,7 @@ textarea {
 .fe-page-bg-lavender {
   background-color: var(--color-light-purple);
 }
+
+.fe-page-bg-soft-lavender {
+  background-color: var(--color-soft-lavender);
+}

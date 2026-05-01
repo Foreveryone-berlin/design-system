@@ -1,9 +1,9 @@
 {
   "motion": {
     "transition": {
-      "fast": { "$value": "150ms ease", "$type": "duration" },
-      "base": { "$value": "250ms ease", "$type": "duration" },
-      "slow": { "$value": "400ms ease", "$type": "duration" }
+      "fast": { "$value": "150ms ease", "$type": "duration", "$description": "Snap interactions (button hover, focus ring)" },
+      "base": { "$value": "250ms ease", "$type": "duration", "$description": "Default UI transitions (accordions, dropdowns)" },
+      "slow": { "$value": "400ms ease", "$type": "duration", "$description": "Page-level fades and large surface motion" }
     }
   }
 }

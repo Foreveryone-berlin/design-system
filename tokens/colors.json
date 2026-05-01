@@ -1,12 +1,13 @@
 {
   "color": {
-    "brand-primary": { "$value": "#FF7A3A", "$type": "color", "$description": "Brand Primary — primary CTA and brand accent (Elementor Global 2)" },
-    "brand-secondary": { "$value": "#3F00EB", "$type": "color", "$description": "Brand Secondary — play buttons and key accents (Elementor Global 1)" },
-    "brand-dark": { "$value": "#404040", "$type": "color", "$description": "Brand Secondary dark — default text and dark UI (Elementor Global 3)" },
-    "accent": { "$value": "#F1F1EA", "$type": "color", "$description": "Accent — warm off-white for subtle surfaces (Elementor Global 4)" },
+    "brand-primary": { "$value": "#FF7A3A", "$type": "color", "$description": "Brand orange (palette). Web: primary CTA / Elementor Global 2. Brand guide: decorative-only in some print/slide contexts—do not use as full-page background or in logo." },
+    "brand-secondary": { "$value": "#3F00EB", "$type": "color", "$description": "Brand blue (palette). Special announcements and alerts; always pair with white text (#FFF). Elementor Global 1." },
+    "brand-dark": { "$value": "#1E1E1E", "$type": "color", "$description": "Charcoal (palette)—primary text on light backgrounds. Elementor Global 3." },
+    "accent": { "$value": "#FDFCF7", "$type": "color", "$description": "Warm white (palette)—text-heavy content backgrounds; pair with Charcoal text. Elementor Global 4." },
     "focus-button": { "$value": "#CC622E", "$type": "color", "$description": "Focus Button — primary button hover/pressed state (Elementor Custom 1)" },
-    "light-purple": { "$value": "#D9CCFB", "$type": "color", "$description": "Light Purple — footer backgrounds, card surfaces (Elementor Custom 2)" },
-    "light-green": { "$value": "#F1F7E5", "$type": "color", "$description": "Light Green — success-tinted surface (Elementor Custom 3)" },
+    "light-purple": { "$value": "#D5C5FF", "$type": "color", "$description": "Lavender (palette)—decorative: blobs, icons, accents, borders; prefer Soft Lavender for large readable backgrounds. Elementor Custom 2." },
+    "soft-lavender": { "$value": "#E5DCFF", "$type": "color", "$description": "Soft lavender (palette)—social/layout backgrounds; pair with Charcoal text. Map in Elementor as an additional Custom Color if available." },
+    "light-green": { "$value": "#D4E6A8", "$type": "color", "$description": "Lime green (palette)—title/key layout backgrounds; pair with Charcoal; decorative accents. Elementor Custom 3." },
     "light-orange": { "$value": "#FFD7C4", "$type": "color", "$description": "Light Orange — soft CTA background, hover tint (Elementor Custom 4)" },
     "pink": { "$value": "#F39EBC", "$type": "color", "$description": "Pink — decorative accent (Elementor Custom 5)" },
     "teal": { "$value": "#03C9D3", "$type": "color", "$description": "Teal — decorative accent (Elementor Custom 6)" },
@@ -14,14 +15,14 @@
     "very-light-gray": { "$value": "#F7F7F7", "$type": "color", "$description": "Very Light Gray — light section backgrounds (Elementor Custom 8)" },
     "light-gray": { "$value": "#D9D9D9", "$type": "color", "$description": "Light Gray — borders, dividers (Elementor Custom 9)" },
     "theme-1": { "$value": "#0170B9", "$type": "color", "$description": "Theme Color 1 — WordPress/Elementor theme blue (Theme slot 1)" },
-    "theme-2": { "$value": "#3A3A3A", "$type": "color", "$description": "Theme Color 2 — dark text (Theme slot 2)" },
+    "theme-2": { "$value": "#1E1E1E", "$type": "color", "$description": "Charcoal-aligned — primary body text (Theme slot 2); matches palette Charcoal." },
     "theme-4": { "$value": "#4B4F58", "$type": "color", "$description": "Theme Color 4 — mid-dark UI text (Theme slot 4)" },
     "theme-5": { "$value": "#F5F5F5", "$type": "color", "$description": "Theme Color 5 — light neutral surface (Theme slot 5)" },
     "theme-7": { "$value": "#E5E5E5", "$type": "color", "$description": "Theme Color 7 — neutral border/divider (Theme slot 7)" },
-    "theme-8": { "$value": "#424242", "$type": "color", "$description": "Theme Color 8 — dark support text (Theme slot 8)" },
+    "theme-8": { "$value": "#1E1E1E", "$type": "color", "$description": "Theme Color 8 — support text; aligned to Charcoal (Theme slot 8)" },
     "status": {
       "error": { "$value": "#DC2626", "$type": "color", "$description": "Form error state" },
-      "success": { "$value": "#D4E8A8", "$type": "color", "$description": "Success indicator" },
+      "success": { "$value": "#D4E6A8", "$type": "color", "$description": "Success / lime accent (palette-aligned)" },
       "warning": { "$value": "#FFAF89", "$type": "color", "$description": "Warning emphasis" }
     },
     "base": {
