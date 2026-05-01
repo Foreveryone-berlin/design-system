@@ -13,6 +13,7 @@ const colorSwatches = [
   { token: "light-orange", var: "var(--color-light-orange)" },
   { token: "light-gray", var: "var(--color-light-gray)" },
   { token: "light-purple", var: "var(--color-light-purple)" },
+  { token: "soft-lavender", var: "var(--color-soft-lavender)" },
   { token: "status-success", var: "var(--color-status-success)" },
   { token: "status-warning", var: "var(--color-status-warning)" },
   { token: "pink", var: "var(--color-pink)" },
@@ -60,13 +61,14 @@ const shadowTokens = [
 const colorCode = `/* Brand */
 --color-brand-primary: #FF7A3A;
 --color-brand-secondary: #3F00EB;
---color-brand-dark: #404040;
---color-accent: #F1F1EA;
+--color-brand-dark: #1E1E1E;
+--color-accent: #FDFCF7;
 --color-focus-button: #CC622E;
 
 /* Tints & Accents */
---color-light-purple: #D9CCFB;
---color-light-green: #F1F7E5;
+--color-light-purple: #D5C5FF;
+--color-soft-lavender: #E5DCFF;
+--color-light-green: #D4E6A8;
 --color-light-orange: #FFD7C4;
 --color-pink: #F39EBC;
 --color-teal: #03C9D3;
@@ -76,15 +78,15 @@ const colorCode = `/* Brand */
 
 /* Theme (Elementor) */
 --color-theme-1: #0170B9;
---color-theme-2: #3A3A3A;
+--color-theme-2: #1E1E1E;
 --color-theme-4: #4B4F58;
 --color-theme-5: #F5F5F5;
 --color-theme-7: #E5E5E5;
---color-theme-8: #424242;
+--color-theme-8: #1E1E1E;
 
 /* Status */
 --color-status-error: #DC2626;
---color-status-success: #D4E8A8;
+--color-status-success: #D4E6A8;
 --color-status-warning: #FFAF89;
 
 /* Base */

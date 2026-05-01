@@ -2,6 +2,8 @@
 
 > Model: claude-opus-4-6 | Mode: Plan | Use this as your full project brief before touching any file.
 
+> **Archive notice (2026):** Token tables in this prompt predate the brand 7-color migration. Current canonical sources: [`docs/color-audit-2026.md`](color-audit-2026.md), [`tokens/colors.json`](../tokens/colors.json), and [`elementor/global-colors.md`](../elementor/global-colors.md). Use this prompt for project framing only; defer to current files for token values.
+
 ---
 
 ## CONTEXT: WHO WE ARE

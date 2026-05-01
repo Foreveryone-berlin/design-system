@@ -147,6 +147,15 @@ If enqueueing is not available yet, open **Elementor > Site Settings > Custom CS
 }
 ```
 
+## Icon button classes
+
+The child theme should load `css/utilities.css` (or a bundle that includes it) so Elementor **HTML** or **Button** widgets can use:
+
+- **`.fe-icon-btn`** — neutral circular icon control (e.g. social); orange on hover.
+- **`.fe-icon-btn--filled-brand`** — **filled orange** circular control for **category / functional** icons per the brand visual styles; white glyph via `currentColor`.
+
+See [docs/visual-styles.md](../docs/visual-styles.md). Place the SVG inside the widget with `fill="currentColor"` (and `aria-hidden="true"` if the button has an `aria-label`).
+
 ## Validation Checklist
 
 1. Run `node scripts/build-css.js`.

@@ -1,64 +1,20 @@
-# Agents (foreveryone-design-system)
+# Agents — ForEveryone Berlin design system
 
-Canonical narrative + tables: **[docs/AGENTS.md](docs/AGENTS.md)**.
+Canonical narrative, documentation index, and domain rules for this repository.
 
-The blocks below are duplicated here so tools that only read repo-root `AGENTS.md`
-still get the retrieval index and stack pin (see
-[Vercel: AGENTS.md vs skills](https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals)).
+**Repo root [`AGENTS.md`](../AGENTS.md)** duplicates the retrieval index and condensed rules for tools that only read `AGENTS.md` at the repository root (see [Vercel: AGENTS.md vs skills](https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals)).
 
-## What this repo is
+**Coding agents:** [OpenAI Codex](https://developers.openai.com/codex/) loads repo guidance via root [`AGENTS.md`](../AGENTS.md) and [`.codex/AGENTS.md`](../.codex/AGENTS.md) (precedence there). [Claude Code](https://code.claude.com/docs) reads [`CLAUDE.md`](../CLAUDE.md) at session start. Cursor uses [`.cursor/rules/`](../.cursor/rules/). Path-scoped Markdown rules: [`.claude/rules/`](../.claude/rules/). **Update this file** when changing shared narrative; then refresh the root mirror + `CLAUDE.md` “Key docs” / pins if needed.
 
-Design system for [foreveryone.berlin](https://foreveryone.berlin/) — WordPress + Elementor Pro + child theme + tokens and CSS **in this repo**. Figma = visual source of truth; this repo = implementation source of truth. Includes a **Next.js prototype** under `prototype/` (preview only).
+Portable task contract: [agents/agent-contract.md](agents/agent-contract.md).
 
-## Stack pin
-
-```text
-[Stack] WordPress+Elementor (production site) | W3C DTCG tokens JSON | CSS var(--*) in authored layers | Next.js prototype
-[Mistakes] hand-edit custom-properties.css | raw hex/font in authored CSS | skip CHANGELOG on tokens/css changes | branch from `main` instead of `develop`
-```
-
-## Commands (repo root unless noted)
-
-| Task | Command |
-| --- | --- |
-| Regenerate `css/custom-properties.css` from tokens | `node scripts/build-css.js` |
-| Prototype dev server | `cd prototype && npm install && npm run dev` |
-| Solo merge current branch to `develop` | `bash scripts/pr-and-merge.sh` |
-
-## Git and PR rules (summary)
-
-- Branch from **`develop`**, never `main`. Names: `feature/*`, `fix/*`, `docs/*`, `chore/*`.
-- Conventional Commits. PRs use `.github/PULL_REQUEST_TEMPLATE.md`.
-- **Solo ship to develop:** when the user asks to merge / ship to develop / open PR and merge, run `bash scripts/pr-and-merge.sh` (see `docs/pr-and-merge-workflow.md`).
-- **Changelog:** any `tokens/` or `css/` change → update the current in-flight section in `CHANGELOG.md` (e.g. `## [0.10.0] - Unreleased`).
-
-Full detail: [docs/AGENTS.md](docs/AGENTS.md), [docs/agents/agent-contract.md](docs/agents/agent-contract.md).
-
-## Key docs
-
-| Topic | File |
-| --- | --- |
-| Full agent index + domain | [docs/AGENTS.md](docs/AGENTS.md) |
-| Cross-tool contract | [docs/agents/agent-contract.md](docs/agents/agent-contract.md) |
-| Runtime / risk policy | [docs/agents/runtime-policy.md](docs/agents/runtime-policy.md) |
-| Agent file map | [docs/agents/README.md](docs/agents/README.md) |
-| Codex precedence shim | [.codex/AGENTS.md](.codex/AGENTS.md) |
-| PR / merge workflow | [docs/pr-and-merge-workflow.md](docs/pr-and-merge-workflow.md) |
-| Token update skill | [docs/skills/token-update.md](docs/skills/token-update.md) |
-| Cursor rules | [.cursor/rules/](.cursor/rules/) |
-
-## Retrieval-led reasoning
-
-**IMPORTANT:** Prefer retrieval-led reasoning over pre-training-led reasoning for
-any design-system, token, CSS, Elementor, Figma, or prototype (Next.js) tasks. Use the index below to open the right files instead of guessing.
-
-**Coding agents:** [OpenAI Codex](https://developers.openai.com/codex/) uses this file plus [.codex/AGENTS.md](.codex/AGENTS.md) (precedence there). [Claude Code](https://code.claude.com/docs) reads [CLAUDE.md](CLAUDE.md). Path-scoped rules: [.claude/rules/](.claude/rules/) (Markdown); Cursor: [.cursor/rules/](.cursor/rules/) (`.mdc`).
+**IMPORTANT: Prefer retrieval-led reasoning over pre-training-led reasoning** for any design-system, token, CSS, Elementor, Figma, or prototype (Next.js) tasks. Open the indexed files below instead of guessing APIs, token paths, or Elementor behavior.
 
 ---
 
 ## [ForEveryone Design System Docs Index]
 
-Paths are repo-relative from project root.
+Paths are repo-relative from project root unless noted.
 
 |root:{README.md,CHANGELOG.md,AGENTS.md,CLAUDE.md}
 |docs:{AGENTS.md,audit.md,color-audit-2026.md,contributing.md,cursor-plan-prompt.md,getting-started.md,official-references.md,pr-and-merge-workflow.md,token-naming.md,validation.md,visual-styles.md}
@@ -81,6 +37,16 @@ Paths are repo-relative from project root.
 
 ---
 
+## Commands
+
+| Task | Command |
+| --- | --- |
+| Regenerate CSS custom properties from tokens | `node scripts/build-css.js` (repo root) |
+| Prototype dev server | `cd prototype && npm install && npm run dev` |
+| Solo merge current branch to `develop` (PR + merge via `gh`) | `bash scripts/pr-and-merge.sh` (repo root) |
+
+---
+
 ## Condensed domain knowledge (read full files when editing)
 
 **Token pipeline:** `tokens/*.json` (W3C DTCG: only `$value`, `$type`, `$description` per token) → run `node scripts/build-css.js` → regenerates `css/custom-properties.css` (`:root` vars). Never hand-edit `custom-properties.css`.
@@ -97,7 +63,7 @@ Paths are repo-relative from project root.
 
 **Changelog:** Any change under `tokens/` or `css/` requires a `CHANGELOG.md` update under the current in-flight version section (e.g. `## [0.10.0] - Unreleased`) (per project rules).
 
-**Git:** Branch from `develop` (not `main`). Conventional Commits. PRs use `.github/PULL_REQUEST_TEMPLATE.md`. Solo merge to develop: `bash scripts/pr-and-merge.sh` from repo root.
+**Git:** Branch from `develop` (not `main`). Conventional Commits. PRs use `.github/PULL_REQUEST_TEMPLATE.md`. Solo merge to develop: `bash scripts/pr-and-merge.sh` from repo root. Detail: `docs/pr-and-merge-workflow.md`.
 
 **Workflows:** Token changes → `docs/skills/token-update.md`. Elementor sync → `docs/skills/elementor-mapping.md`. Release → `docs/skills/release.md`.
 

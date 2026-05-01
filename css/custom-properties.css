@@ -9,11 +9,12 @@
   /* ── Colors: Brand ─────────────────────────────────────────────────────── */
   --color-brand-primary: #FF7A3A;
   --color-brand-secondary: #3F00EB;
-  --color-brand-dark: #404040;
-  --color-accent: #F1F1EA;
+  --color-brand-dark: #1E1E1E;
+  --color-accent: #FDFCF7;
   --color-focus-button: #CC622E;
-  --color-light-purple: #D9CCFB;
-  --color-light-green: #F1F7E5;
+  --color-light-purple: #D5C5FF;
+  --color-soft-lavender: #E5DCFF;
+  --color-light-green: #D4E6A8;
   --color-light-orange: #FFD7C4;
   --color-pink: #F39EBC;
   --color-teal: #03C9D3;
@@ -21,15 +22,15 @@
   --color-very-light-gray: #F7F7F7;
   --color-light-gray: #D9D9D9;
   --color-theme-1: #0170B9;
-  --color-theme-2: #3A3A3A;
+  --color-theme-2: #1E1E1E;
   --color-theme-4: #4B4F58;
   --color-theme-5: #F5F5F5;
   --color-theme-7: #E5E5E5;
-  --color-theme-8: #424242;
+  --color-theme-8: #1E1E1E;
 
   /* ── Colors: Status ──────────────────────────────────────────────────── */
   --color-status-error:   #DC2626;
-  --color-status-success: #D4E8A8;
+  --color-status-success: #D4E6A8;
   --color-status-warning: #FFAF89;
 
   /* ── Colors: Base ────────────────────────────────────────────────────── */
@@ -37,9 +38,9 @@
   --color-black: #0A0A0A;
 
   /* ── Typography: Font Families ───────────────────────────────────────── */
-  --font-family-heading: 'Filson Pro', sans-serif;
+  --font-family-heading: 'FilsonPro', sans-serif;
   --font-family-accent:  'Young Serif', serif;
-  --font-family-body:    'Filson Pro', sans-serif;
+  --font-family-body:    'FilsonPro', sans-serif;
 
   /* ── Typography: Font Weights ────────────────────────────────────────── */
   --font-weight-regular: 400;
@@ -99,7 +100,8 @@
   --shadow-sm:   0 1px 3px rgba(0,0,0,0.06);
   --shadow-md:   0 4px 12px rgba(0,0,0,0.08);
   --shadow-lg:   0 8px 24px rgba(0,0,0,0.12);
-  --shadow-card: 0 2px 8px rgba(0,0,0,0.08);  /* workshop card */
+  --shadow-card:   0 2px 8px rgba(0,0,0,0.08);  /* workshop card */
+  --shadow-header: 0 2px 12px rgba(0,0,0,0.1);
 
   /* ── Motion ──────────────────────────────────────────────────────────── */
   --transition-fast: 150ms ease;
