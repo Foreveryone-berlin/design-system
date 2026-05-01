@@ -56,6 +56,7 @@ const shadowTokens = [
   { token: "md", var: "var(--shadow-md)" },
   { token: "lg", var: "var(--shadow-lg)" },
   { token: "card", var: "var(--shadow-card)" },
+  { token: "header", var: "var(--shadow-header)" },
 ];
 
 const colorCode = `/* Brand */
@@ -94,9 +95,9 @@ const colorCode = `/* Brand */
 --color-black: #0A0A0A;`;
 
 const typographyCode = `/* Font Families */
---font-family-heading: 'Filson Pro', sans-serif;
+--font-family-heading: 'FilsonPro', sans-serif;
 --font-family-accent: 'Young Serif', serif;
---font-family-body: 'Filson Pro', sans-serif;
+--font-family-body: 'FilsonPro', sans-serif;
 
 /* Font Weights */
 --font-weight-regular: 400;
@@ -149,7 +150,8 @@ const radiusShadowCode = `/* Border Radius */
 --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
 --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
 --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
---shadow-card: 0 2px 8px rgba(0,0,0,0.08);`;
+--shadow-card: 0 2px 8px rgba(0,0,0,0.08);
+--shadow-header: 0 2px 12px rgba(0,0,0,0.1);`;
 
 const motionCode = `/* Motion / Transitions */
 --transition-fast: 150ms ease;
@@ -210,7 +212,7 @@ export default function TokensPage() {
           <div>
             <div className="fe-label">Body</div>
             <p className="fe-body">
-              Body text uses design system tokens. Filson Pro at base size with
+              Body text uses design system tokens. FilsonPro at base size with
               normal line height.
             </p>
           </div>
