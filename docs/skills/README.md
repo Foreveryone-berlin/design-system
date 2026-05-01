@@ -1,6 +1,6 @@
 # Project Skills & Workflows
 
-Repeatable workflows for maintaining the ForEveryone Berlin design system.
+Repeatable workflows for maintaining the ForEveryone Berlin design system. Agent / tool context and doc index: [AGENTS.md](../AGENTS.md).
 
 | Workflow | Description |
 |----------|-------------|
