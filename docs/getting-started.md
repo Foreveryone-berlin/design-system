@@ -34,6 +34,10 @@ Welcome to the ForEveryone Berlin design system repository.
 3. Consume variables in `css/*.css` and WordPress/Elementor styles.
 4. Update docs and `CHANGELOG.md` for any token or style changes.
 
+## Brand visual styles
+
+High-level rules for **icons** (line vs filled, social vs category), **blob shapes**, and **photography** in masks — with links to CSS utilities — live in [visual-styles.md](visual-styles.md). Figma stays authoritative for exact shapes and crops.
+
 ## Team Roles
 
 - Designers: define visual decisions in Figma and sync token changes.

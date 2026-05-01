@@ -358,6 +358,12 @@
   margin-top: var(--spacing-8);
 }
 
+/* Patterns page: header demo needs visible overflow so the dropdown menu
+   isn't clipped by the section's overflow:hidden. */
+#header-pattern {
+  overflow: visible;
+}
+
 /* Patterns page: make footer demo feel like a contained card */
 #footer-pattern .fe-footer {
   border-radius: var(--radius-xl);
@@ -714,7 +720,7 @@ a.ds-btn {
 
 /* Wave section */
 .ds-wave-section {
-  background: var(--color-light-purple);
+  background: var(--color-soft-lavender);
   padding: var(--spacing-10) var(--section-padding-x-mobile);
   margin-left: calc(-1 * var(--section-padding-x-mobile));
   margin-right: calc(-1 * var(--section-padding-x-mobile));
@@ -732,7 +738,7 @@ a.ds-btn {
   display: block;
   width: 100%;
   height: auto;
-  fill: var(--color-light-purple);
+  fill: var(--color-soft-lavender);
 }
 
 /* Footer with semver */

@@ -5,6 +5,17 @@
 - **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**
 - **(WIP)** — append when in progress
 
+## [0.10.0] - Unreleased
+
+- **Fix**: Brand palette aligned to 7-color guide (Charcoal `#1E1E1E`, Warm white `#FDFCF7`, Lime `#D4E6A8`, Lavender `#D5C5FF`, new Soft lavender `#E5DCFF`); Elementor mapping updated.
+- **Fix**: Typography tokens: rename Filson family value from `'Filson Pro'` to `'FilsonPro'` to match the production webfont.
+- **Fix**: CSS: input focus rings use `color-mix()`; site header uses new `shadow.header` token; no raw values left in authored CSS.
+- **Fix**: Patterns page: header dropdown no longer clipped by `.ds-section` overflow.
+- **Feat**: New tokens — `shadow.header`, `color.soft-lavender`; `.fe-icon-btn--filled-brand` utility.
+- **Style**: Footer and prototype wave use soft lavender; footer divider uses neutral border token.
+- **Docs**: AI agent layout (canonical `docs/AGENTS.md`, root mirror, `CLAUDE.md`, `.codex/`, `docs/agents/`, `.claude/rules`); single root `LICENSE` (MIT + CC BY-NC 4.0); `docs/visual-styles.md`; `docs/color-audit-2026.md`; archive banners on `docs/audit.md` + `docs/cursor-plan-prompt.md`.
+- **Docs**: `tokens/radius.json` and `tokens/motion.json`: `$description` on all entries; Cursor/Claude rule parity tweaks.
+
 ## [0.9.1] - 2026-03-30
 
 - **Feat**: Prototype: replace header/sidebar text branding with ForEveryone logo.
