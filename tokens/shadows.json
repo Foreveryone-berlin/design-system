@@ -3,6 +3,7 @@
     "sm": { "$value": "0 1px 3px rgba(0,0,0,0.06)", "$type": "string" },
     "md": { "$value": "0 4px 12px rgba(0,0,0,0.08)", "$type": "string" },
     "lg": { "$value": "0 8px 24px rgba(0,0,0,0.12)", "$type": "string" },
-    "card": { "$value": "0 2px 8px rgba(0,0,0,0.08)", "$type": "string", "$description": "Workshop card shadow" }
+    "card": { "$value": "0 2px 8px rgba(0,0,0,0.08)", "$type": "string", "$description": "Workshop card shadow" },
+    "header": { "$value": "0 2px 12px rgba(0,0,0,0.1)", "$type": "string", "$description": "Site header drop shadow" }
   }
 }

@@ -9,6 +9,7 @@ Elementor reference: <https://elementor.com/help/view-and-edit-global-fonts/>
 - `Filson Pro` must be loaded by the WordPress theme or a font plugin.
 - `Young Serif` can be loaded via Google Fonts.
 - If `Filson Pro` is unavailable, heading and body rendering will fall back to sans-serif and must be treated as a configuration issue.
+- **CSS family-name string:** the production webfont on foreveryone.berlin registers itself as `'FilsonPro'` (no space). Authored CSS in `css/` and `tokens/typography.json` use that exact string so `font-family` matches the loaded face. The human-readable typeface name "Filson Pro" is kept in this doc and the Elementor UI for editor discoverability only.
 
 ## Global Font Slot Mapping
 

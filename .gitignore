@@ -9,3 +9,10 @@ Thumbs.db
 .cursor/plans/
 
 .vercel
+.vercel-inspect.json
+
+# Claude Code local-only memory (optional)
+CLAUDE.local.md
+
+# Claude Code per-machine permissions (do not commit)
+.claude/settings.local.json

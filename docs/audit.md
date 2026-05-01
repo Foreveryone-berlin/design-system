@@ -1,5 +1,7 @@
 # ForEveryone Berlin Design Audit
 
+> **Archive notice (2026):** Hex values below predate the brand 7-color migration. Current canonical sources: [`docs/color-audit-2026.md`](color-audit-2026.md), [`tokens/colors.json`](../tokens/colors.json), and [`elementor/global-colors.md`](../elementor/global-colors.md). Treat this file as the original Phase 1 ground truth, not a present-day reference.
+
 This audit is based on the pre-extracted Phase 1 dataset from the project brief. Token values in this document are treated as locked ground truth for implementation in this repository.
 
 ## Project Context
