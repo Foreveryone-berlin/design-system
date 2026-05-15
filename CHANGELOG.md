@@ -5,16 +5,26 @@
 - **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**
 - **(WIP)** — append when in progress
 
-## [0.10.0] - Unreleased
+## [0.11.0] - Unreleased
 
+- **Feat**: Prototype: redirect `fe-design-system.vercel.app` → `https://design.foreveryone.berlin` via `prototype/vercel.json` (301, host-based, path-preserving).
+- **Feat**: New tokens, `shadow.header`, `color.soft-lavender`; `.fe-icon-btn--filled-brand` utility.
+- **Enhance**: Open Graph / Twitter card image replaced with content-aligned community café photo at 1200×630 (1.91:1, mozjpeg q82, ~143 KB); switched extension to `.jpg`; descriptive `alt` added.
+- **Enhance**: Homepage hero image replaced with blob-masked community café photo; descriptive `alt` added (was empty); intrinsic `width`/`height` updated to 1090×1094 to remove layout shift.
 - **Fix**: Brand palette aligned to 7-color guide (Charcoal `#1E1E1E`, Warm white `#FDFCF7`, Lime `#D4E6A8`, Lavender `#D5C5FF`, new Soft lavender `#E5DCFF`); Elementor mapping updated.
 - **Fix**: Typography tokens: rename Filson family value from `'Filson Pro'` to `'FilsonPro'` to match the production webfont.
 - **Fix**: CSS: input focus rings use `color-mix()`; site header uses new `shadow.header` token; no raw values left in authored CSS.
 - **Fix**: Patterns page: header dropdown no longer clipped by `.ds-section` overflow.
-- **Feat**: New tokens — `shadow.header`, `color.soft-lavender`; `.fe-icon-btn--filled-brand` utility.
 - **Style**: Footer and prototype wave use soft lavender; footer divider uses neutral border token.
 - **Docs**: AI agent layout (canonical `docs/AGENTS.md`, root mirror, `CLAUDE.md`, `.codex/`, `docs/agents/`, `.claude/rules`); single root `LICENSE` (MIT + CC BY-NC 4.0); `docs/visual-styles.md`; `docs/color-audit-2026.md`; archive banners on `docs/audit.md` + `docs/cursor-plan-prompt.md`.
 - **Docs**: `tokens/radius.json` and `tokens/motion.json`: `$description` on all entries; Cursor/Claude rule parity tweaks.
+- **Chore**: Ignore Vercel CLI artifacts at repo root (`.vercel/` in root `.gitignore`).
+- **Chore**: Prototype: `next.config.ts` sets `poweredByHeader: false` and image formats to AVIF + WebP.
+- **Build**: Root `package.json` with `build` / `test` / `prototype:*` script aliases.
+- **Test**: `scripts/build-css.test.js` validates DTCG shape (`$value`/`$type`) on every token leaf and smoke-checks generated `css/custom-properties.css` (header banner, `:root` block, 21 required custom properties). 103 assertions, dependency-free.
+- **CI**: `.github/workflows/ci.yml` runs token build + test (with drift check on `css/custom-properties.css`) and prototype `next build` on PRs and pushes to `develop` / `main`.
+- **Docs**: `docs/prototype-deploy.md` documents the Vercel project, the `vercel.json` redirect, and the lifecycle for removing the legacy `.vercel.app` URL. Cross-linked from `docs/skills/release.md` and `docs/visual-styles.md`.
+- **Docs**: README points at the live `design.foreveryone.berlin` and references the deploy doc.
 
 ## [0.9.1] - 2026-03-30
 
