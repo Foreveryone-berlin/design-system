@@ -7,8 +7,8 @@ Images in this folder are for **design system prototype use only** (design.forev
 - **Production:** Final assets for the live site should be sourced from the main site or asset pipeline.
 
 **Current assets:**
-- `hero.png` — hero section image (downloaded from foreveryone.berlin homepage / og:image).
-- `social-preview.png` — social share image used in `openGraph` and `twitter` metadata.
+- `hero.png` — homepage hero, blob-masked photograph of people at the ForEveryone community café (1090×1094 PNG).
+- `social-preview.jpg` — Open Graph / Twitter card image, community café photograph cropped to 1200×630 (1.91:1) per OG best practice, mozjpeg q82.
 
 **Current icons:**
 - `../favicon.png` — site favicon synced from foreveryone.berlin.

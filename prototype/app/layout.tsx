@@ -29,10 +29,10 @@ export const metadata: Metadata = {
       "Design tokens, components, and patterns for the ForEveryone digital experience.",
     images: [
       {
-        url: "/images/social-preview.png",
-        width: 335,
-        height: 231,
-        alt: "ForEveryone Design System preview",
+        url: "/images/social-preview.jpg",
+        width: 1200,
+        height: 630,
+        alt: "People gathered around a wooden table in the ForEveryone community café, with paintings on the wall and natural light through tall windows.",
       },
     ],
   },
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "ForEveryone Design System | design.foreveryone.berlin",
     description:
       "Design tokens, components, and patterns for the ForEveryone digital experience.",
-    images: ["/images/social-preview.png"],
+    images: ["/images/social-preview.jpg"],
   },
   robots: "noindex, nofollow",
 };
