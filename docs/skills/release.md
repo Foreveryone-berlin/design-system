@@ -38,7 +38,17 @@ Ship a version from `develop` to `main` and tag it (e.g. v0.1.0).
    git push origin v0.1.0
    ```
 
-7. **Optional**
+7. **Verify production after deploy**
+   - Confirm Vercel has deployed the `main` commit to `design.foreveryone.berlin`.
+   - Verify the `.vercel.app` → official domain 301 (see [prototype-deploy.md](../prototype-deploy.md)):
+     ```bash
+     curl -sI -H "Host: fe-design-system.vercel.app" \
+       https://fe-design-system.vercel.app/ | grep -i "^location\|^HTTP"
+     ```
+     Expect `HTTP/2 301` and `location: https://design.foreveryone.berlin/`.
+   - Re-fetch og tags on the official domain and run them through the Facebook Sharing Debugger and the Twitter Card Validator. Expect `og:image` 1200×630 (under 1 MB) and a non-empty `alt`.
+
+8. **Optional**
    - Create a GitHub Release from the tag and paste in the relevant CHANGELOG section.
 
 ## Branch rules
