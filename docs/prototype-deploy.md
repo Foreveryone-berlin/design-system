@@ -23,16 +23,22 @@ Defined in `prototype/vercel.json`:
 {
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "fe-design-system.vercel.app" }],
+      "destination": "https://design.foreveryone.berlin/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
-      "has": [
-        { "type": "host", "value": "fe-design-system.vercel.app" }
-      ],
+      "has": [{ "type": "host", "value": "fe-design-system.vercel.app" }],
       "destination": "https://design.foreveryone.berlin/:path*",
       "permanent": true
     }
   ]
 }
 ```
+
+The explicit `source: "/"` rule is intentional: Vercel's `/:path*` pattern did not fire for the literal root path (`/`) in initial testing, while sub-paths (`/tokens`, `/components`, etc.) redirected correctly. The dedicated root rule guarantees 301 coverage for the homepage.
 
 Properties:
 
