@@ -5,7 +5,7 @@
 - **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**
 - **(WIP)** — append when in progress
 
-## [0.11.0] - Unreleased
+## [0.11.0] - 2026-05-15
 
 - **Feat**: Prototype: redirect `fe-design-system.vercel.app` → `https://design.foreveryone.berlin` via `prototype/vercel.json` (301, host-based, path-preserving).
 - **Feat**: New tokens, `shadow.header`, `color.soft-lavender`; `.fe-icon-btn--filled-brand` utility.
