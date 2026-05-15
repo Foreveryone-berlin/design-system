@@ -52,7 +52,7 @@ foreveryone-design-system/
 
 ## Design system prototype
 
-A Next.js app in `prototype/` previews the tokens and components (future design.foreveryone.berlin). To run it:
+A Next.js app in `prototype/` previews the tokens and components. Live at [design.foreveryone.berlin](https://design.foreveryone.berlin) (the legacy `fe-design-system.vercel.app` URL 301-redirects there; see [docs/prototype-deploy.md](docs/prototype-deploy.md)). To run it locally:
 
 1. From repo root, build token CSS: `node scripts/build-css.js`
 2. `cd prototype && npm install && npm run dev`
