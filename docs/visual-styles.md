@@ -34,6 +34,7 @@ When placing images inside blob or rounded masks:
 - Prefer **dynamic, engaging** shots and **diverse** groups where relevant to the story.
 - Avoid crops that **cut off** people awkwardly or leave **large empty** areas inside the mask.
 - These are **content** guidelines for editors and designers — not enforced in CSS.
+- **Prototype assets:** photographs and social previews used by `design.foreveryone.berlin` are tracked in [`prototype/public/images/ASSETS.md`](../prototype/public/images/ASSETS.md) (hero, Open Graph card, etc.).
 
 ## CSS quick reference
 
