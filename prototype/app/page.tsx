@@ -29,9 +29,9 @@ export default function Home() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/images/hero.png"
-            alt=""
-            width={335}
-            height={231}
+            alt="Three people sit and chat at a wooden table in the ForEveryone community café, lit by afternoon sun."
+            width={1090}
+            height={1094}
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </div>
