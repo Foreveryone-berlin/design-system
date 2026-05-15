@@ -16,3 +16,5 @@ CLAUDE.local.md
 
 # Claude Code per-machine permissions (do not commit)
 .claude/settings.local.json
+
+.vercel
