@@ -5,6 +5,42 @@
 - **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**
 - **(WIP)** — append when in progress
 
+## [0.12.0] - 2026-05-21
+
+Brand-guide alignment release. Implements the 2026 Quick Brand Guidelines (Ver 2.0, April 2026): orange is now decorative-only, Filson Pro italic is first-class, Young Serif is print-only, filled category icons are formalised, and a small approved-combinations matrix is published. No raw hex values changed — only role reassignments — so tokens remain backwards compatible.
+
+- **Feat**: Tokens: add semantic aliases — `color.background-default|soft|title|alert`, `color.accent-icon|border` — and emit `--color-background-*` / `--color-accent-*` CSS variables. Use these instead of raw brand colors for backgrounds and accents.
+- **Feat**: Tokens: typography `font.weight.italic` added (style, not weight; pairs with `font-style: italic`). New `.fe-em` utility for publication names / artwork titles / emphasis.
+- **Feat**: Filled category icon system — `painting.svg`, `pottery.svg`, `wellness.svg`, `language.svg` under `prototype/public/icons/categories/`, plus `CategoryIcon` React component (`stroke="currentColor"`, inherits orange/white styling from `.fe-card-category__icon`).
+- **Feat**: Patterns page: new "Approved color combinations" section renders the five valid bg ⇄ text pairs plus the disallowed orange-as-background case.
+- **Fix**: `.fe-btn-primary` restyled — Soft Lavender background + Charcoal text + 2px orange decorative border. Eliminates orange-bg + white-text contrast violation flagged by the brand guide.
+- **Fix**: `.fe-tag-pill.active` switched to Lime Green background + Charcoal text.
+- **Fix**: `.fe-card-badge` switched to Warm White background + Charcoal text + orange border (no more white-on-orange).
+- **Fix**: `.fe-card-category` restyled as a filled-icon chip (Warm White surface, Charcoal label, orange icon shape with white glyph).
+- **Fix**: Elementor accordion active tab — Soft Lavender background + Charcoal text.
+- **Fix**: `.ds-btn--orange` demo button — Warm White surface + Charcoal text + orange inset border (kept as a swatch, no longer a CTA).
+- **Fix**: `.fe-h1--accent` no longer pulls in `--font-family-accent` (Young Serif is print-only); keeps the brand-orange tint on the primary heading family.
+- **Fix**: Filled-icon utilities (`.fe-icon-btn:hover`, `.fe-icon-btn--filled-brand`) now reference `--color-accent-icon` instead of raw `--color-brand-primary` so future grep guards stay clean.
+- **Docs**: New `docs/logo-usage.md` — X measurement, 1X safe zone, 32 px / 8 mm min sizes, white-on-orange exception (social profiles + print covers, no text).
+- **Docs**: `docs/color-audit-2026.md` — append approved background ⇄ text combinations matrix with token aliases.
+- **Docs**: `docs/visual-styles.md` — category icon set + `CategoryIcon` component cross-link, logo-usage cross-link.
+- **Docs**: `elementor/global-colors.md` — Global 2 (Orange) marked DECORATIVE ONLY with the white-logo-on-orange exception spelled out for editors.
+- **Docs**: `docs/AGENTS.md` index updated with `logo-usage.md`.
+- **Chore**: `tokens/colors.json` `brand-primary` description rewritten to spell out the decorative-only rule and the only allowed orange-background exception.
+- **Chore**: `tokens/typography.json` — all weight tokens and family tokens carry full `$description` covering brand-guide intent (regular, italic style, medium, bold, black; Filson Pro digital+print, Young Serif print-only).
+- **Build**: `scripts/build-css.js` emits the new semantic color + italic-weight variables and warns inline that `--font-family-accent` is print-only.
+
+### Migration notes
+
+- `.fe-btn-primary` looks materially different (Soft Lavender vs orange). The WordPress child theme on `foreveryone.berlin` is a separate rollout — this design system can ship 0.12.0 first; align the live site in a follow-up.
+- Authored CSS should now reference `--color-background-*` / `--color-accent-*` for backgrounds and accents. Raw `var(--color-brand-primary)` background uses will be flagged by `grep -nE 'background[^:]*:\s*var\(--color-brand-primary\)'`.
+
+### Known follow-ups (out of scope for 0.12.0)
+
+- Webfont hosting for Filson Pro Regular / Italic / Medium / Bold (prototype still uses Outfit as fallback).
+- Replace placeholder category SVGs with bespoke brand-aligned glyphs.
+- Dedicated stacked + standalone logo SVG variants per `docs/logo-usage.md`.
+
 ## [0.11.1] - 2026-05-21
 
 - **Enhance**: Prototype: header demo nav aligned to production menu (Workshops, EU Projects with 3 sub-items, About Us with 3 sub-items, Cafe, Blog, Contact).

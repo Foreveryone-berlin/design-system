@@ -33,7 +33,24 @@ Official **7-color brand table** (design guide) cross-checked against [`tokens/c
 
 - Charcoal text on warm white, lime, soft lavender backgrounds.
 - White (`#FFF`) on Blue for alerts/special panels.
-- Review any **orange-on-white** utility (CTAs) — not in the short brand list but standard web pattern; `utilities.css` keeps white text on primary buttons.
+- **Orange is decorative only as of May 2026.** Orange-as-background with white text is now disallowed; previous primary CTA style is replaced in 0.12.0 (Soft Lavender bg + Charcoal text + orange border).
+
+## Approved background ⇄ text combinations (May 2026)
+
+Source: 2026 Quick Brand Guidelines, Ver 2.0. Codified as semantic tokens in `tokens/colors.json` (`background-default|soft|title|alert`, `accent-icon|border`) and surfaced as CSS variables `--color-background-*`, `--color-accent-*`.
+
+| Background           | Text       | Token alias                    | Use                                    |
+|----------------------|------------|--------------------------------|----------------------------------------|
+| Warm White `#FDFCF7` | Charcoal   | `--color-background-default`   | Text-heavy content                     |
+| Soft Lavender `#E5DCFF` | Charcoal | `--color-background-soft`     | Cards, decorative content blocks       |
+| Lime Green `#D4E6A8` | Charcoal   | `--color-background-title`     | Title areas only                       |
+| Blue `#3F00EB`       | White      | `--color-background-alert`     | Special announcements / alerts         |
+| Charcoal `#1E1E1E`   | Warm White | `--color-brand-dark` + `--color-accent` | Dark sections (rare)         |
+
+**Disallowed:** Orange `#FF7A3A` as background with white text (low contrast).
+Orange + Charcoal is allowed only inside small filled-icon glyphs (orange shape, white glyph) or as decorative accent borders — never as a section or button background containing text.
+
+Live demo: `/patterns#color-combinations` in the prototype renders the five valid pairs and the disallowed orange-background case for editor reference.
 
 ## Follow-up for editors
 
