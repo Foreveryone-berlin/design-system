@@ -43,5 +43,3 @@ export const ctas = {
 
 export const designSystemIntro =
   "This page showcases the design system. Use the sections below to inspect tokens and components.";
-
-export const futureSiteUrl = "https://design.foreveryone.berlin" as const;
