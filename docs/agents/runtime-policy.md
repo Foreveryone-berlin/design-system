@@ -20,7 +20,7 @@ The human can set:
 - **Mode B — Balanced:** allowlist `node scripts/build-css.js`, `npm run *` inside `prototype/`, `git diff` / `status` / `log` for this repo.
 - **Mode C — Fast loop (local only):** broader auto-run only on a **disposable** branch with no secrets in the working tree.
 
-Cloud agents (Cursor Cloud, Codex cloud, Claude cloud, etc.) should assume **Mode A** unless the user states otherwise.
+Cloud agents (Cursor agent cloud, Claude cloud, etc.) should assume **Mode A** unless the user states otherwise.
 
 ## When broad auto-run is inappropriate
 

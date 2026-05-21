@@ -28,6 +28,16 @@
   --color-theme-7: #E5E5E5;
   --color-theme-8: #1E1E1E;
 
+  /* ── Colors: Semantic (2026 brand guide) ─────────────────────────────── */
+  /* Use these instead of raw brand colors for backgrounds and accents.    */
+  /* --color-brand-primary (orange) is DECORATIVE ONLY — never a bg.       */
+  --color-background-default: #FDFCF7;
+  --color-background-soft: #E5DCFF;
+  --color-background-title: #D4E6A8;
+  --color-background-alert: #3F00EB;
+  --color-accent-icon: #FF7A3A;
+  --color-accent-border: #FF7A3A;
+
   /* ── Colors: Status ──────────────────────────────────────────────────── */
   --color-status-error:   #DC2626;
   --color-status-success: #D4E6A8;
@@ -39,11 +49,13 @@
 
   /* ── Typography: Font Families ───────────────────────────────────────── */
   --font-family-heading: 'FilsonPro', sans-serif;
+  /* PRINT-ONLY. Do not reference --font-family-accent from digital surfaces. */
   --font-family-accent:  'Young Serif', serif;
   --font-family-body:    'FilsonPro', sans-serif;
 
   /* ── Typography: Font Weights ────────────────────────────────────────── */
   --font-weight-regular: 400;
+  --font-weight-italic:  400;  /* STYLE: pair with font-style: italic */
   --font-weight-medium:  500;
   --font-weight-bold:    700;
   --font-weight-black:   900;

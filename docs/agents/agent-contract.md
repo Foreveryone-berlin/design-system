@@ -1,6 +1,6 @@
 # Agent contract — ForEveryone Berlin design system
 
-Portable rules for AI agents (Cursor, Codex, Claude Code, and similar). Cursor rules under [`.cursor/rules/`](../../.cursor/rules/) stay quick enforceable reminders; this file is the narrative contract.
+Portable rules for AI agents (Cursor agent, Claude Code, and similar). Cursor path-scoped reminders under [`.cursor/rules/`](../../.cursor/rules/) stay quick enforceable reminders; this file is the narrative contract.
 
 ## Product context
 
@@ -38,6 +38,6 @@ Portable rules for AI agents (Cursor, Codex, Claude Code, and similar). Cursor r
 - **Canonical narrative:** [`docs/AGENTS.md`](../AGENTS.md).
 - **Root mirror:** [`AGENTS.md`](../../AGENTS.md) (retrieval index + condensed rules for tools that only read repo root).
 - **Claude Code:** [`CLAUDE.md`](../../CLAUDE.md).
-- **Codex layering:** [`.codex/AGENTS.md`](../../.codex/AGENTS.md).
+- **Cursor agent layering:** [`.cursor/AGENTS.md`](../../.cursor/AGENTS.md) (with path-scoped reminders in [`.cursor/rules/`](../../.cursor/rules/)).
 
 Keep root `AGENTS.md`, `CLAUDE.md` pins, and this contract aligned when you change team-wide behavior.
