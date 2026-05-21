@@ -12,28 +12,34 @@ Brand-guide alignment release. Implements the 2026 Quick Brand Guidelines (Ver 2
 - **Feat**: Tokens: add semantic aliases — `color.background-default|soft|title|alert`, `color.accent-icon|border` — and emit `--color-background-*` / `--color-accent-*` CSS variables. Use these instead of raw brand colors for backgrounds and accents.
 - **Feat**: Tokens: typography `font.weight.italic` added (style, not weight; pairs with `font-style: italic`). New `.fe-em` utility for publication names / artwork titles / emphasis.
 - **Feat**: Filled category icon system — `painting.svg`, `pottery.svg`, `wellness.svg`, `language.svg` under `prototype/public/icons/categories/`, plus `CategoryIcon` React component (`stroke="currentColor"`, inherits orange/white styling from `.fe-card-category__icon`).
-- **Feat**: Patterns page: new "Approved color combinations" section renders the five valid bg ⇄ text pairs plus the disallowed orange-as-background case.
-- **Fix**: `.fe-btn-primary` restyled — Soft Lavender background + Charcoal text + 2px orange decorative border. Eliminates orange-bg + white-text contrast violation flagged by the brand guide.
+- **Feat**: Tokens page: new "Approved color combinations" section (`/tokens#color-combinations`) renders the five valid bg ⇄ text pairs plus the disallowed orange-as-background case.
+- **Enhance**: Footer pattern — "For Everyone" promoted to a full-width bold brand line above the grid; "Explore", "Support", "Contact" column titles upgraded from `fe-label` (xs) to a dedicated `.fe-footer__column-title` (lg, medium weight). Mobile keeps the same heading scale and adds breathing room below the brand line. Footer legal: `Terms` → `Impressum`.
+- **Enhance**: Header demo nav — dropdown triggers ("EU Projects", "About Us") use a thin SVG chevron (`.fe-nav-chevron`) that rotates 180° when open, replacing the filled-triangle glyphs.
+- **Enhance**: Header demo nav — desktop dropdown panel restyled: offset `var(--spacing-3)` below its trigger, panel width set by its longest item (`width: max-content`, capped at 320px), Light Orange (`--color-light-orange`) background, no border, items render at `--color-theme-4` (softer mid-dark) at rest and switch to Brand Orange (`--color-brand-primary`) + white text on hover/focus, and Focus Button (`--color-focus-button`) darker orange on `:active`.
+- **Enhance**: Header demo nav — mobile menu items now render full-bleed, centered, regular weight (not bold), separated by faint dividers; an expanded dropdown trigger gets a Light Orange background bar and its sub-items continue the same inline vertical stack (no indent, Charcoal text matching the top-level items). "Book a Workshop" CTA stretches with the panel.
+- **Enhance**: Home "Explore the system" cards (`.ds-overview-card`) — hover state adds Light Orange (`--color-light-orange`) background alongside the existing lift + shadow.
+- **Fix**: `.fe-nav-link` (and Elementor `.elementor-nav-menu a`) drop the focus underline in favor of a keyboard-only `:focus-visible` outline. Mouse-focused nav items no longer render an underline. Hover / focus color stays Charcoal (`--color-theme-2`) — no color shift on mouse over. Keyboard `:focus-visible` still draws a brand-secondary outline.
+- **Enhance**: Workshop card — adds a 1px Light Gray (`--color-light-gray`) border at rest so the card edge reads on every side without leaning on the shadow token (shadow unchanged). Patterns page `#workshop-card` section switched to `overflow: visible` with padding so the drop-shadow renders on every side instead of being clipped.
 - **Fix**: `.fe-tag-pill.active` switched to Lime Green background + Charcoal text.
 - **Fix**: `.fe-card-badge` switched to Warm White background + Charcoal text + orange border (no more white-on-orange).
 - **Fix**: `.fe-card-category` restyled as a filled-icon chip (Warm White surface, Charcoal label, orange icon shape with white glyph).
 - **Fix**: Elementor accordion active tab — Soft Lavender background + Charcoal text.
-- **Fix**: `.ds-btn--orange` demo button — Warm White surface + Charcoal text + orange inset border (kept as a swatch, no longer a CTA).
 - **Fix**: `.fe-h1--accent` no longer pulls in `--font-family-accent` (Young Serif is print-only); keeps the brand-orange tint on the primary heading family.
+- **Chore**: `.fe-btn-primary` and `.ds-btn--orange` keep their pre-0.12.0 visual treatment (Orange background + white text). The brand-guide contrast rule is acknowledged but the live CTAs remain orange until a future release defines a replacement we are happy with in the wild.
 - **Fix**: Filled-icon utilities (`.fe-icon-btn:hover`, `.fe-icon-btn--filled-brand`) now reference `--color-accent-icon` instead of raw `--color-brand-primary` so future grep guards stay clean.
 - **Docs**: New `docs/logo-usage.md` — X measurement, 1X safe zone, 32 px / 8 mm min sizes, white-on-orange exception (social profiles + print covers, no text).
 - **Docs**: `docs/color-audit-2026.md` — append approved background ⇄ text combinations matrix with token aliases.
 - **Docs**: `docs/visual-styles.md` — category icon set + `CategoryIcon` component cross-link, logo-usage cross-link.
 - **Docs**: `elementor/global-colors.md` — Global 2 (Orange) marked DECORATIVE ONLY with the white-logo-on-orange exception spelled out for editors.
 - **Docs**: `docs/AGENTS.md` index updated with `logo-usage.md`.
+- **Docs**: Drop OpenAI Codex support (`.codex/AGENTS.md` removed) and add Cursor agent support — new `.cursor/AGENTS.md` precedence shim, root `AGENTS.md` / `docs/AGENTS.md` / `docs/agents/README.md` / `docs/agents/agent-contract.md` / `docs/agents/runtime-policy.md` / `README.md` all re-pointed at the Cursor agent layering. `.cursor/rules/*.mdc` still hosts path-scoped reminders unchanged.
 - **Chore**: `tokens/colors.json` `brand-primary` description rewritten to spell out the decorative-only rule and the only allowed orange-background exception.
 - **Chore**: `tokens/typography.json` — all weight tokens and family tokens carry full `$description` covering brand-guide intent (regular, italic style, medium, bold, black; Filson Pro digital+print, Young Serif print-only).
 - **Build**: `scripts/build-css.js` emits the new semantic color + italic-weight variables and warns inline that `--font-family-accent` is print-only.
 
 ### Migration notes
 
-- `.fe-btn-primary` looks materially different (Soft Lavender vs orange). The WordPress child theme on `foreveryone.berlin` is a separate rollout — this design system can ship 0.12.0 first; align the live site in a follow-up.
-- Authored CSS should now reference `--color-background-*` / `--color-accent-*` for backgrounds and accents. Raw `var(--color-brand-primary)` background uses will be flagged by `grep -nE 'background[^:]*:\s*var\(--color-brand-primary\)'`.
+- Authored CSS should now reference `--color-background-*` / `--color-accent-*` for backgrounds and accents. Raw `var(--color-brand-primary)` background uses are intentionally retained for `.fe-btn-primary` and `.ds-btn--orange` (live CTA visual unchanged in this release).
 
 ### Known follow-ups (out of scope for 0.12.0)
 

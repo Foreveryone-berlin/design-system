@@ -50,7 +50,7 @@ Source: 2026 Quick Brand Guidelines, Ver 2.0. Codified as semantic tokens in `to
 **Disallowed:** Orange `#FF7A3A` as background with white text (low contrast).
 Orange + Charcoal is allowed only inside small filled-icon glyphs (orange shape, white glyph) or as decorative accent borders — never as a section or button background containing text.
 
-Live demo: `/patterns#color-combinations` in the prototype renders the five valid pairs and the disallowed orange-background case for editor reference.
+Live demo: `/tokens#color-combinations` in the prototype renders the five valid pairs and the disallowed orange-background case for editor reference.
 
 ## Follow-up for editors
 

@@ -77,13 +77,14 @@ select {
   color: var(--color-theme-2);
   transition: color var(--transition-fast);
 }
-.elementor-nav-menu a:hover {
-  color: var(--color-brand-primary);
-}
+.elementor-nav-menu a:hover,
 .elementor-nav-menu a:focus {
-  color: var(--color-brand-primary);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
+  color: var(--color-theme-2);
+}
+.elementor-nav-menu a:focus-visible {
+  outline: 2px solid var(--color-brand-secondary);
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 /* Form labels: align with .fe-input-group */
