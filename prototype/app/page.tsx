@@ -3,7 +3,6 @@ import {
   mission as missionCopy,
   stats as statsCopy,
   designSystemIntro,
-  futureSiteUrl,
 } from "@/content/site-copy";
 import packageJson from "@/package.json";
 import Link from "next/link";
@@ -28,7 +27,7 @@ export default function Home() {
         <div className="ds-hero-image-wrap">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/hero.png"
+            src="/images/community-cafe.png"
             alt="Three people sit and chat at a wooden table in the ForEveryone community café, lit by afternoon sun."
             width={1090}
             height={1094}
@@ -37,18 +36,7 @@ export default function Home() {
         </div>
       </section>
 
-      <p className="ds-intro">
-        {designSystemIntro} In the future, it will live at{" "}
-        <a
-          href={futureSiteUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: "var(--color-brand-secondary)" }}
-        >
-          {futureSiteUrl}
-        </a>
-        .
-      </p>
+      <p className="ds-intro">{designSystemIntro}</p>
 
       <section className="ds-section" aria-labelledby="mission-heading">
         <h2 id="mission-heading" className="ds-section-title">
