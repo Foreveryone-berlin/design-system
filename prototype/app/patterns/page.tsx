@@ -29,12 +29,10 @@ export default function PatternsPage() {
         <h2 className="ds-section-title">Footer</h2>
         <footer className="fe-footer">
           <div className="fe-footer__inner">
+            <p className="fe-footer__brand">For Everyone</p>
             <div className="fe-footer__grid">
               <div className="fe-footer__column">
-                <div style={{ fontWeight: "var(--font-weight-bold)", marginBottom: "var(--spacing-4)" }}>
-                  For Everyone
-                </div>
-                <p className="fe-label" style={{ marginBottom: "var(--spacing-2)" }}>Explore</p>
+                <p className="fe-footer__column-title">Explore</p>
                 <ul>
                   <li><a href="#w" className="fe-nav-link">Workshops</a></li>
                   <li><a href="#a" className="fe-nav-link">About Us</a></li>
@@ -44,7 +42,7 @@ export default function PatternsPage() {
                 </ul>
               </div>
               <div className="fe-footer__column">
-                <p className="fe-label" style={{ marginBottom: "var(--spacing-2)" }}>Support</p>
+                <p className="fe-footer__column-title">Support</p>
                 <ul>
                   <li><a href="#g" className="fe-nav-link">Get Involved</a></li>
                   <li><a href="#p" className="fe-nav-link">Partner with Us</a></li>
@@ -52,7 +50,7 @@ export default function PatternsPage() {
                 </ul>
               </div>
               <div className="fe-footer__column">
-                <p className="fe-label" style={{ marginBottom: "var(--spacing-2)" }}>Contact</p>
+                <p className="fe-footer__column-title">Contact</p>
                 <p className="fe-body" style={{ margin: 0, fontSize: "var(--font-size-sm)" }}>
                   info@wellbeing4everyone.com
                 </p>
@@ -74,7 +72,7 @@ export default function PatternsPage() {
               <span>&copy; 2025 ForEveryone. All rights reserved.</span>
               <div className="fe-footer__legal">
                 <a href="#privacy">Privacy</a>
-                <a href="#terms">Terms</a>
+                <a href="#impressum">Impressum</a>
               </div>
             </div>
           </div>
@@ -118,87 +116,6 @@ export default function PatternsPage() {
               <span className="fe-card-price__amount">From &euro;10</span>
               <a href="#book" className="fe-btn-primary">Book Now &rarr;</a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="color-combinations" className="ds-section">
-        <h2 className="ds-section-title">Approved color combinations</h2>
-        <p
-          className="fe-body"
-          style={{
-            marginBottom: "var(--spacing-4)",
-            fontSize: "var(--font-size-sm)",
-            color: "var(--color-theme-8)",
-          }}
-        >
-          Background ⇄ text pairs allowed by the 2026 brand guide. Orange is
-          decorative only — never use it as a background containing text.
-        </p>
-        <div className="ds-combos">
-          <div
-            className="ds-combo"
-            style={{
-              background: "var(--color-background-default)",
-              color: "var(--color-brand-dark)",
-            }}
-          >
-            <strong>Warm White</strong>
-            <span>Charcoal text — text-heavy content</span>
-          </div>
-          <div
-            className="ds-combo"
-            style={{
-              background: "var(--color-background-soft)",
-              color: "var(--color-brand-dark)",
-            }}
-          >
-            <strong>Soft Lavender</strong>
-            <span>Charcoal text — cards, decorative blocks</span>
-          </div>
-          <div
-            className="ds-combo"
-            style={{
-              background: "var(--color-background-title)",
-              color: "var(--color-brand-dark)",
-            }}
-          >
-            <strong>Lime Green</strong>
-            <span>Charcoal text — title areas</span>
-          </div>
-          <div
-            className="ds-combo"
-            style={{
-              background: "var(--color-background-alert)",
-              color: "var(--color-white)",
-            }}
-          >
-            <strong>Blue</strong>
-            <span>White text — announcements / alerts only</span>
-          </div>
-          <div
-            className="ds-combo"
-            style={{
-              background: "var(--color-brand-dark)",
-              color: "var(--color-accent)",
-            }}
-          >
-            <strong>Charcoal</strong>
-            <span>Warm White text — dark sections (rare)</span>
-          </div>
-          <div
-            className="ds-combo ds-combo--disallowed"
-            style={{
-              background: "var(--color-background-default)",
-              color: "var(--color-brand-dark)",
-              border: "2px dashed var(--color-status-error)",
-            }}
-          >
-            <strong>Orange #FF7A3A</strong>
-            <span>
-              Disallowed as background. Decorative only: icons, blobs, borders,
-              accents.
-            </span>
           </div>
         </div>
       </section>

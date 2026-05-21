@@ -62,10 +62,20 @@ export default function HeaderDemo() {
                   onClick={() => toggleSub(href)}
                   aria-expanded={openSub === href}
                 >
-                  {label}{" "}
-                  <span aria-hidden="true">
-                    {openSub === href ? "\u25B2" : "\u25BC"}
-                  </span>
+                  {label}
+                  <svg
+                    className={`fe-nav-chevron${openSub === href ? " is-open" : ""}`}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
                 </button>
                 {openSub === href && (
                   <div className="fe-header__dropdown">
@@ -124,10 +134,20 @@ export default function HeaderDemo() {
                   onClick={() => toggleSub(href)}
                   aria-expanded={openSub === href}
                 >
-                  {label}{" "}
-                  <span aria-hidden="true">
-                    {openSub === href ? "\u25B2" : "\u25BC"}
-                  </span>
+                  {label}
+                  <svg
+                    className={`fe-nav-chevron${openSub === href ? " is-open" : ""}`}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
                 </button>
                 {openSub === href && (
                   <div className="fe-header__mobile-sub">
@@ -157,8 +177,7 @@ export default function HeaderDemo() {
           )}
           <a
             href="#book"
-            className="ds-btn ds-btn--primary"
-            style={{ marginTop: "var(--spacing-2)", alignSelf: "flex-start" }}
+            className="ds-btn ds-btn--primary fe-header__mobile-cta"
             onClick={() => setMenuOpen(false)}
           >
             Book a Workshop &rarr;

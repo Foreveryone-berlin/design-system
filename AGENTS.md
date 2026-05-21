@@ -42,17 +42,17 @@ Full detail: [docs/AGENTS.md](docs/AGENTS.md), [docs/agents/agent-contract.md](d
 | Cross-tool contract | [docs/agents/agent-contract.md](docs/agents/agent-contract.md) |
 | Runtime / risk policy | [docs/agents/runtime-policy.md](docs/agents/runtime-policy.md) |
 | Agent file map | [docs/agents/README.md](docs/agents/README.md) |
-| Codex precedence shim | [.codex/AGENTS.md](.codex/AGENTS.md) |
+| Cursor agent precedence shim | [.cursor/AGENTS.md](.cursor/AGENTS.md) |
 | PR / merge workflow | [docs/pr-and-merge-workflow.md](docs/pr-and-merge-workflow.md) |
 | Token update skill | [docs/skills/token-update.md](docs/skills/token-update.md) |
-| Cursor rules | [.cursor/rules/](.cursor/rules/) |
+| Cursor path-scoped rules | [.cursor/rules/](.cursor/rules/) |
 
 ## Retrieval-led reasoning
 
 **IMPORTANT:** Prefer retrieval-led reasoning over pre-training-led reasoning for
 any design-system, token, CSS, Elementor, Figma, or prototype (Next.js) tasks. Use the index below to open the right files instead of guessing.
 
-**Coding agents:** [OpenAI Codex](https://developers.openai.com/codex/) uses this file plus [.codex/AGENTS.md](.codex/AGENTS.md) (precedence there). [Claude Code](https://code.claude.com/docs) reads [CLAUDE.md](CLAUDE.md). Path-scoped rules: [.claude/rules/](.claude/rules/) (Markdown); Cursor: [.cursor/rules/](.cursor/rules/) (`.mdc`).
+**Coding agents:** [Cursor agent](https://docs.cursor.com/agent) reads this file plus [.cursor/AGENTS.md](.cursor/AGENTS.md) (precedence there) and auto-attaches [.cursor/rules/](.cursor/rules/) (`.mdc`) by path. [Claude Code](https://code.claude.com/docs) reads [CLAUDE.md](CLAUDE.md) and uses [.claude/rules/](.claude/rules/) (Markdown).
 
 ---
 
