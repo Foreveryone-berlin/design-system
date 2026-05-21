@@ -86,11 +86,11 @@ export default function PatternsPage() {
           <div className="fe-card__media">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/hero.png"
-              alt=""
+              src="/images/workshop-group.jpg"
+              alt="Community members laughing around a table in the For Everyone café"
               width={360}
               height={225}
-              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", transform: "scale(1.25)" }}
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
             />
             <span className="fe-card-badge">2 free spots</span>
             <span className="fe-card-category">Balance and Wellness</span>
