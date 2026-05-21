@@ -17,7 +17,7 @@ Portable task contract: [agents/agent-contract.md](agents/agent-contract.md).
 Paths are repo-relative from project root unless noted.
 
 |root:{README.md,CHANGELOG.md,AGENTS.md,CLAUDE.md}
-|docs:{AGENTS.md,audit.md,color-audit-2026.md,contributing.md,cursor-plan-prompt.md,getting-started.md,official-references.md,pr-and-merge-workflow.md,token-naming.md,validation.md,visual-styles.md}
+|docs:{AGENTS.md,audit.md,color-audit-2026.md,contributing.md,cursor-plan-prompt.md,getting-started.md,logo-usage.md,official-references.md,pr-and-merge-workflow.md,token-naming.md,validation.md,visual-styles.md}
 |docs/agents:{README.md,agent-contract.md,runtime-policy.md}
 |docs/decisions:{001-token-format.md}
 |docs/skills:{README.md,token-update.md,elementor-mapping.md,release.md}
