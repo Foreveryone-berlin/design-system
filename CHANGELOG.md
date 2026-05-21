@@ -5,6 +5,16 @@
 - **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**
 - **(WIP)** — append when in progress
 
+## [0.11.1] - 2026-05-21
+
+- **Enhance**: Prototype: header demo nav aligned to production menu (Workshops, EU Projects with 3 sub-items, About Us with 3 sub-items, Cafe, Blog, Contact).
+- **Enhance**: Prototype: popup component restyled to match production newsletter modal (megaphone illustration, lede copy, pill input, full-width Subscribe button).
+- **Enhance**: Prototype: workshop card uses dedicated `workshop-group.jpg` (1440x900, mozjpeg q82, ~242 KB) instead of reusing the hero image.
+- **Enhance**: Prototype: hero asset renamed `hero.png` → `community-cafe.png` and `ASSETS.md` updated.
+- **Fix**: Prototype: removed the "in the future it will live at design.foreveryone.berlin" sentence from the homepage (the prototype lives there now).
+- **Chore**: Add `scripts/process-workshop-image.mjs` (sharp-based resize/compress helper for prototype assets).
+- **Chore**: Gitignore brand guideline reference PDFs (`*_Brand_Guidelines.pdf`).
+
 ## [0.11.0] - 2026-05-15
 
 - **Feat**: Prototype: redirect `fe-design-system.vercel.app` → `https://design.foreveryone.berlin` via `prototype/vercel.json` (301, host-based, path-preserving).

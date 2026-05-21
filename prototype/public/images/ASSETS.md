@@ -7,7 +7,8 @@ Images in this folder are for **design system prototype use only** (design.forev
 - **Production:** Final assets for the live site should be sourced from the main site or asset pipeline.
 
 **Current assets:**
-- `hero.png` — homepage hero, blob-masked photograph of people at the ForEveryone community café (1090×1094 PNG).
+- `community-cafe.png` — homepage hero, blob-masked photograph of people at the ForEveryone community café (1090×1094 PNG).
+- `workshop-group.jpg` — workshop card image, photograph of community members laughing around a table in the café (mozjpeg, ~720×450).
 - `social-preview.jpg` — Open Graph / Twitter card image, community café photograph cropped to 1200×630 (1.91:1) per OG best practice, mozjpeg q82.
 
 **Current icons:**

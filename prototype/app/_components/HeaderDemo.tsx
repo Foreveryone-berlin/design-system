@@ -11,24 +11,25 @@ interface NavItem {
 const navLinks: NavItem[] = [
   { href: "#workshops", label: "Workshops" },
   {
+    href: "#eu-projects",
+    label: "EU Projects",
+    children: [
+      { href: "#what-we-do", label: "What We Do" },
+      { href: "#toolbox", label: "Toolbox For Integration" },
+      { href: "#peer-support", label: "Peer Support & Resilience" },
+    ],
+  },
+  {
     href: "#about",
     label: "About Us",
     children: [
-      { href: "#team", label: "Meet The Team" },
-      { href: "#impact", label: "Impact" },
+      { href: "#foreveryone", label: "ForEveryone" },
+      { href: "#partnerships", label: "Partnerships" },
+      { href: "#volunteer", label: "Volunteer" },
     ],
   },
-  { href: "#cafe", label: "Community Cafe" },
+  { href: "#cafe", label: "Cafe" },
   { href: "#blog", label: "Blog" },
-  {
-    href: "#support",
-    label: "Support",
-    children: [
-      { href: "#involved", label: "Get Involved" },
-      { href: "#partner", label: "Partner with Us" },
-      { href: "#press", label: "Press & Media" },
-    ],
-  },
   { href: "#contact", label: "Contact" },
 ];
 

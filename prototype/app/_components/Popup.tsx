@@ -37,7 +37,7 @@ export default function Popup() {
       <dialog
         ref={dialogRef}
         className="fe-popup"
-        aria-label="Get in touch"
+        aria-label="Subscribe to our Newsletter"
         onClick={(e) => {
           if (e.target === e.currentTarget) close();
         }}
@@ -52,7 +52,59 @@ export default function Popup() {
             &times;
           </button>
 
-          <h3 className="fe-popup__title">Get in touch</h3>
+          <h3 className="fe-popup__title">Subscribe to our Newsletter</h3>
+
+          <div className="fe-popup__illustration" aria-hidden="true">
+            <svg
+              viewBox="0 0 120 100"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              role="img"
+            >
+              <path
+                d="M22 56 L22 44 L74 22 L74 78 Z"
+                fill="var(--color-brand-primary)"
+                stroke="var(--color-brand-primary)"
+                strokeWidth="3"
+                strokeLinejoin="round"
+              />
+              <rect
+                x="14"
+                y="42"
+                width="14"
+                height="16"
+                rx="3"
+                fill="var(--color-brand-primary)"
+              />
+              <path
+                d="M36 78 L46 92 L56 84 L48 70 Z"
+                fill="var(--color-brand-primary)"
+              />
+              <path
+                d="M84 30 L96 22"
+                stroke="var(--color-brand-primary)"
+                strokeWidth="4"
+                strokeLinecap="round"
+              />
+              <path
+                d="M86 50 L100 50"
+                stroke="var(--color-brand-primary)"
+                strokeWidth="4"
+                strokeLinecap="round"
+              />
+              <path
+                d="M84 70 L96 78"
+                stroke="var(--color-brand-primary)"
+                strokeWidth="4"
+                strokeLinecap="round"
+              />
+            </svg>
+          </div>
+
+          <p className="fe-popup__lede">
+            Get updates from the For Everyone space with community moments,
+            upcoming events, and thoughtful ideas and stories from Berlin.
+          </p>
 
           <form
             className="fe-popup__form"
@@ -61,48 +113,24 @@ export default function Popup() {
               close();
             }}
           >
-            <div className="fe-popup__row">
-              <div className="fe-input-group">
-                <label className="fe-label" htmlFor="popup-name">
-                  Name <span className="fe-popup__required">*</span>
-                </label>
-                <input
-                  id="popup-name"
-                  type="text"
-                  className="fe-input"
-                  placeholder="Your name"
-                  required
-                />
-              </div>
-              <div className="fe-input-group">
-                <label className="fe-label" htmlFor="popup-email">
-                  Email <span className="fe-popup__required">*</span>
-                </label>
-                <input
-                  id="popup-email"
-                  type="email"
-                  className="fe-input"
-                  placeholder="Your email address"
-                  required
-                />
-              </div>
-            </div>
-
             <div className="fe-input-group">
-              <label className="fe-label" htmlFor="popup-message">
-                Message <span className="fe-popup__required">*</span>
+              <label className="fe-label fe-popup__sr-label" htmlFor="popup-newsletter-email">
+                Email Address
               </label>
-              <textarea
-                id="popup-message"
-                className="fe-input fe-popup__textarea"
-                placeholder="Message"
-                rows={4}
+              <input
+                id="popup-newsletter-email"
+                type="email"
+                className="fe-input fe-popup__input"
+                placeholder="Email Address"
                 required
               />
             </div>
 
-            <button type="submit" className="ds-btn ds-btn--primary fe-popup__submit">
-              Send
+            <button
+              type="submit"
+              className="ds-btn ds-btn--primary fe-popup__submit"
+            >
+              Subscribe
             </button>
           </form>
         </div>
