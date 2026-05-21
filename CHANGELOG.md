@@ -33,6 +33,7 @@ Brand-guide alignment release. Implements the 2026 Quick Brand Guidelines (Ver 2
 - **Docs**: `elementor/global-colors.md` — Global 2 (Orange) marked DECORATIVE ONLY with the white-logo-on-orange exception spelled out for editors.
 - **Docs**: `docs/AGENTS.md` index updated with `logo-usage.md`.
 - **Docs**: Drop OpenAI Codex support (`.codex/AGENTS.md` removed) and add Cursor agent support — new `.cursor/AGENTS.md` precedence shim, root `AGENTS.md` / `docs/AGENTS.md` / `docs/agents/README.md` / `docs/agents/agent-contract.md` / `docs/agents/runtime-policy.md` / `README.md` all re-pointed at the Cursor agent layering. `.cursor/rules/*.mdc` still hosts path-scoped reminders unchanged.
+- **Docs**: README rewritten for clarity — tighter lede, single Quick start block, consolidated Integrations section (Figma + Elementor + visual styles + logo + color audit), updated repo-layout tree (no `.codex`, includes `.cursor/AGENTS.md`), unified Contributing + Changelog tail.
 - **Chore**: `tokens/colors.json` `brand-primary` description rewritten to spell out the decorative-only rule and the only allowed orange-background exception.
 - **Chore**: `tokens/typography.json` — all weight tokens and family tokens carry full `$description` covering brand-guide intent (regular, italic style, medium, bold, black; Filson Pro digital+print, Young Serif print-only).
 - **Build**: `scripts/build-css.js` emits the new semantic color + italic-weight variables and warns inline that `--font-family-accent` is print-only.
