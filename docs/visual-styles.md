@@ -1,6 +1,8 @@
 # Visual styles — icons, illustrations, blobs
 
-Brand guide summary for **ForEveryone Berlin** (iconography, blobs, photography). **Figma** remains the visual source of truth; this page ties brand rules to tokens and CSS utilities. See also [color-audit-2026.md](color-audit-2026.md) for hex roles.
+Brand guide summary for **ForEveryone Berlin** (iconography, blobs, photography). **Figma** remains the visual source of truth; this page ties brand rules to tokens and CSS utilities. See also [color-audit-2026.md](color-audit-2026.md) for hex roles and approved background ⇄ text combinations, and [logo-usage.md](logo-usage.md) for logo safe-zone, minimum sizes, and the white-on-orange exception.
+
+**Category icon set (filled, orange + white glyph)** ships in `prototype/public/icons/categories/`: `painting.svg`, `pottery.svg`, `wellness.svg`, `language.svg`. Use them via the `CategoryIcon` React component inside `.fe-card-category__icon` so the orange (`var(--color-accent-icon)`) and white-glyph styling stays consistent. Add new categories by dropping an SVG (stroke="currentColor", 24×24 viewBox) into the same folder and extending `CategoryIcon`.
 
 ## Iconography and illustration
 

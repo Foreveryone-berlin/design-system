@@ -1,4 +1,5 @@
 import HeaderDemo from "../_components/HeaderDemo";
+import CategoryIcon from "../_components/CategoryIcon";
 
 export default function PatternsPage() {
   return (
@@ -93,7 +94,12 @@ export default function PatternsPage() {
               style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
             />
             <span className="fe-card-badge">2 free spots</span>
-            <span className="fe-card-category">Balance and Wellness</span>
+            <span className="fe-card-category">
+              <span className="fe-card-category__icon" aria-hidden="true">
+                <CategoryIcon name="wellness" />
+              </span>
+              Balance and Wellness
+            </span>
           </div>
           <div className="fe-card__body">
             <div className="fe-card-meta">
@@ -112,6 +118,87 @@ export default function PatternsPage() {
               <span className="fe-card-price__amount">From &euro;10</span>
               <a href="#book" className="fe-btn-primary">Book Now &rarr;</a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="color-combinations" className="ds-section">
+        <h2 className="ds-section-title">Approved color combinations</h2>
+        <p
+          className="fe-body"
+          style={{
+            marginBottom: "var(--spacing-4)",
+            fontSize: "var(--font-size-sm)",
+            color: "var(--color-theme-8)",
+          }}
+        >
+          Background ⇄ text pairs allowed by the 2026 brand guide. Orange is
+          decorative only — never use it as a background containing text.
+        </p>
+        <div className="ds-combos">
+          <div
+            className="ds-combo"
+            style={{
+              background: "var(--color-background-default)",
+              color: "var(--color-brand-dark)",
+            }}
+          >
+            <strong>Warm White</strong>
+            <span>Charcoal text — text-heavy content</span>
+          </div>
+          <div
+            className="ds-combo"
+            style={{
+              background: "var(--color-background-soft)",
+              color: "var(--color-brand-dark)",
+            }}
+          >
+            <strong>Soft Lavender</strong>
+            <span>Charcoal text — cards, decorative blocks</span>
+          </div>
+          <div
+            className="ds-combo"
+            style={{
+              background: "var(--color-background-title)",
+              color: "var(--color-brand-dark)",
+            }}
+          >
+            <strong>Lime Green</strong>
+            <span>Charcoal text — title areas</span>
+          </div>
+          <div
+            className="ds-combo"
+            style={{
+              background: "var(--color-background-alert)",
+              color: "var(--color-white)",
+            }}
+          >
+            <strong>Blue</strong>
+            <span>White text — announcements / alerts only</span>
+          </div>
+          <div
+            className="ds-combo"
+            style={{
+              background: "var(--color-brand-dark)",
+              color: "var(--color-accent)",
+            }}
+          >
+            <strong>Charcoal</strong>
+            <span>Warm White text — dark sections (rare)</span>
+          </div>
+          <div
+            className="ds-combo ds-combo--disallowed"
+            style={{
+              background: "var(--color-background-default)",
+              color: "var(--color-brand-dark)",
+              border: "2px dashed var(--color-status-error)",
+            }}
+          >
+            <strong>Orange #FF7A3A</strong>
+            <span>
+              Disallowed as background. Decorative only: icons, blobs, borders,
+              accents.
+            </span>
           </div>
         </div>
       </section>

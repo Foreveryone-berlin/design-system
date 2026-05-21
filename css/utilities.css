@@ -1,25 +1,29 @@
-/* Primary Button */
+/* Primary Button
+   2026 brand guide: orange is decorative-only; primary CTA pairs
+   Soft Lavender background + Charcoal text + decorative orange border. */
 .fe-btn-primary {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-2);
   padding: var(--spacing-3) var(--spacing-6);
-  background-color: var(--color-brand-primary);
-  color: var(--color-white);
+  background-color: var(--color-background-soft);
+  color: var(--color-brand-dark);
   font-family: var(--font-family-body);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-normal);
-  border: 2px solid transparent;
+  border: 2px solid var(--color-accent-border);
   border-radius: var(--radius-pill);
   cursor: pointer;
   transition:
     background-color var(--transition-base),
+    border-color var(--transition-fast),
     transform var(--transition-fast);
   text-decoration: none;
 }
 .fe-btn-primary:hover {
-  background-color: var(--color-focus-button);
+  background-color: var(--color-light-purple);
+  border-color: var(--color-focus-button);
 }
 .fe-btn-primary:focus {
   outline: none;
@@ -82,8 +86,8 @@
     color var(--transition-fast);
 }
 .fe-icon-btn:hover {
-  background-color: var(--color-brand-primary);
-  border-color: var(--color-brand-primary);
+  background-color: var(--color-accent-icon);
+  border-color: var(--color-accent-icon);
   color: var(--color-white);
 }
 .fe-icon-btn:focus {
@@ -106,8 +110,8 @@
   width: 2.5rem;
   height: 2.5rem;
   padding: 0;
-  background-color: var(--color-brand-primary);
-  border: 2px solid var(--color-brand-primary);
+  background-color: var(--color-accent-icon);
+  border: 2px solid var(--color-accent-icon);
   border-radius: var(--radius-circle);
   color: var(--color-white);
   cursor: pointer;
@@ -188,9 +192,9 @@
   color: var(--color-focus-button);
 }
 .fe-tag-pill.active {
-  background-color: var(--color-brand-primary);
-  color: var(--color-white);
-  border-color: var(--color-brand-primary);
+  background-color: var(--color-background-title);
+  color: var(--color-brand-dark);
+  border-color: var(--color-background-title);
 }
 .fe-tag-pill--green.active,
 .fe-tag-pill--green:hover {
@@ -246,22 +250,46 @@
   top: var(--spacing-3);
   left: var(--spacing-3);
   padding: var(--spacing-1) var(--spacing-3);
-  background-color: var(--color-brand-primary);
-  color: var(--color-white);
+  background-color: var(--color-background-default);
+  color: var(--color-brand-dark);
+  border: 2px solid var(--color-accent-border);
   font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-bold);
   border-radius: var(--radius-pill);
 }
+/* Category chip with filled (orange) icon + Charcoal label on Warm White.
+   Implements brand guide "Filled Icons: Functional markers (e.g. Painting,
+   Pottery) used for categorisation. These must be Orange, with high-contrast
+   labels". */
 .fe-card-category {
   position: absolute;
   top: var(--spacing-3);
   right: var(--spacing-3);
-  padding: var(--spacing-1) var(--spacing-3);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-1) var(--spacing-3) var(--spacing-1) var(--spacing-1);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   border-radius: var(--radius-pill);
-  background-color: var(--color-theme-5);
+  background-color: var(--color-background-default);
   color: var(--color-brand-dark);
+  box-shadow: var(--shadow-sm);
+}
+.fe-card-category__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: var(--radius-circle);
+  background-color: var(--color-accent-icon);
+  color: var(--color-white);
+  flex-shrink: 0;
+}
+.fe-card-category__icon svg {
+  width: 0.875rem;
+  height: 0.875rem;
 }
 .fe-card__body {
   padding: var(--spacing-5);
