@@ -272,11 +272,13 @@
   text-decoration: none;
   color: inherit;
   transition:
+    background-color var(--transition-fast),
     box-shadow var(--transition-base),
     transform var(--transition-base);
 }
 
 .ds-overview-card:hover {
+  background-color: color-mix(in srgb, var(--color-light-orange) 30%, var(--color-white));
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
@@ -364,6 +366,13 @@
   overflow: visible;
 }
 
+/* Patterns page: workshop card needs room for its drop-shadow on every
+   side, so override the section's overflow clip and add breathing padding. */
+#workshop-card {
+  overflow: visible;
+  padding: var(--spacing-3) var(--spacing-3) var(--spacing-6);
+}
+
 /* Patterns page: make footer demo feel like a contained card */
 #footer-pattern .fe-footer {
   border-radius: var(--radius-xl);
@@ -377,7 +386,7 @@
   line-height: var(--line-height-snug);
   letter-spacing: var(--letter-spacing-tight);
   color: var(--color-theme-2);
-  margin: 0 0 var(--spacing-4);
+  margin: 0 0 var(--spacing-6);
   padding-bottom: var(--spacing-2);
   border-bottom: 2px solid var(--color-theme-7);
 }
@@ -903,6 +912,39 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
   color: var(--color-theme-2);
 }
 
+/* ---- Approved color combinations swatches ---- */
+.ds-combos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--spacing-3);
+}
+.ds-combo {
+  padding: var(--spacing-4) var(--spacing-5);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  min-height: 6rem;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+}
+.ds-combo strong {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+}
+.ds-combo--disallowed {
+  position: relative;
+}
+.ds-combo--disallowed::after {
+  content: "✕";
+  position: absolute;
+  top: var(--spacing-2);
+  right: var(--spacing-3);
+  color: var(--color-status-error);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+}
+
 /* ---- Popup (dialog modal) ---- */
 .fe-popup {
   border: none;
@@ -985,7 +1027,8 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
   margin: var(--spacing-6) 0 var(--spacing-5);
 }
 
-.fe-popup__illustration svg {
+.fe-popup__illustration svg,
+.fe-popup__illustration img {
   width: 140px;
   height: auto;
 }

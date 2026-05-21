@@ -55,50 +55,13 @@ export default function Popup() {
           <h3 className="fe-popup__title">Subscribe to our Newsletter</h3>
 
           <div className="fe-popup__illustration" aria-hidden="true">
-            <svg
-              viewBox="0 0 120 100"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              role="img"
-            >
-              <path
-                d="M22 56 L22 44 L74 22 L74 78 Z"
-                fill="var(--color-brand-primary)"
-                stroke="var(--color-brand-primary)"
-                strokeWidth="3"
-                strokeLinejoin="round"
-              />
-              <rect
-                x="14"
-                y="42"
-                width="14"
-                height="16"
-                rx="3"
-                fill="var(--color-brand-primary)"
-              />
-              <path
-                d="M36 78 L46 92 L56 84 L48 70 Z"
-                fill="var(--color-brand-primary)"
-              />
-              <path
-                d="M84 30 L96 22"
-                stroke="var(--color-brand-primary)"
-                strokeWidth="4"
-                strokeLinecap="round"
-              />
-              <path
-                d="M86 50 L100 50"
-                stroke="var(--color-brand-primary)"
-                strokeWidth="4"
-                strokeLinecap="round"
-              />
-              <path
-                d="M84 70 L96 78"
-                stroke="var(--color-brand-primary)"
-                strokeWidth="4"
-                strokeLinecap="round"
-              />
-            </svg>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/icons/megaphone.png"
+              alt=""
+              width={234}
+              height={184}
+            />
           </div>
 
           <p className="fe-popup__lede">

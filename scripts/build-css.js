@@ -83,6 +83,15 @@ const FLAT_COLOR_KEYS = [
   "theme-8",
 ];
 
+const SEMANTIC_COLOR_KEYS = [
+  "background-default",
+  "background-soft",
+  "background-title",
+  "background-alert",
+  "accent-icon",
+  "accent-border",
+];
+
 const SPACING_KEYS = [
   "1",
   "2",
@@ -110,6 +119,10 @@ function buildCss(tokens) {
       `  --color-${key}: ${getTokenValue(tokens, `color.${key}`)};`,
   ).join("\n");
 
+  const semanticColorCss = SEMANTIC_COLOR_KEYS.map(
+    (key) => `  --color-${key}: ${getTokenValue(tokens, `color.${key}`)};`,
+  ).join("\n");
+
   const spacingCss = SPACING_KEYS.map(
     (key) => `  --spacing-${key}: ${getTokenValue(tokens, `spacing.${key}`)};`,
   ).join("\n");
@@ -125,6 +138,11 @@ function buildCss(tokens) {
   /* ── Colors: Brand ─────────────────────────────────────────────────────── */
 ${colorCss}
 
+  /* ── Colors: Semantic (2026 brand guide) ─────────────────────────────── */
+  /* Use these instead of raw brand colors for backgrounds and accents.    */
+  /* --color-brand-primary (orange) is DECORATIVE ONLY — never a bg.       */
+${semanticColorCss}
+
   /* ── Colors: Status ──────────────────────────────────────────────────── */
   --color-status-error:   ${getTokenValue(tokens, "color.status.error")};
   --color-status-success: ${getTokenValue(tokens, "color.status.success")};
@@ -136,11 +154,13 @@ ${colorCss}
 
   /* ── Typography: Font Families ───────────────────────────────────────── */
   --font-family-heading: ${getTokenValue(tokens, "font.family.heading")};
+  /* PRINT-ONLY. Do not reference --font-family-accent from digital surfaces. */
   --font-family-accent:  ${getTokenValue(tokens, "font.family.accent")};
   --font-family-body:    ${getTokenValue(tokens, "font.family.body")};
 
   /* ── Typography: Font Weights ────────────────────────────────────────── */
   --font-weight-regular: ${getTokenValue(tokens, "font.weight.regular")};
+  --font-weight-italic:  ${getTokenValue(tokens, "font.weight.italic")};  /* STYLE: pair with font-style: italic */
   --font-weight-medium:  ${getTokenValue(tokens, "font.weight.medium")};
   --font-weight-bold:    ${getTokenValue(tokens, "font.weight.bold")};
   --font-weight-black:   ${getTokenValue(tokens, "font.weight.black")};

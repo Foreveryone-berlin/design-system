@@ -4,7 +4,7 @@ Canonical narrative, documentation index, and domain rules for this repository.
 
 **Repo root [`AGENTS.md`](../AGENTS.md)** duplicates the retrieval index and condensed rules for tools that only read `AGENTS.md` at the repository root (see [Vercel: AGENTS.md vs skills](https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals)).
 
-**Coding agents:** [OpenAI Codex](https://developers.openai.com/codex/) loads repo guidance via root [`AGENTS.md`](../AGENTS.md) and [`.codex/AGENTS.md`](../.codex/AGENTS.md) (precedence there). [Claude Code](https://code.claude.com/docs) reads [`CLAUDE.md`](../CLAUDE.md) at session start. Cursor uses [`.cursor/rules/`](../.cursor/rules/). Path-scoped Markdown rules: [`.claude/rules/`](../.claude/rules/). **Update this file** when changing shared narrative; then refresh the root mirror + `CLAUDE.md` “Key docs” / pins if needed.
+**Coding agents:** [Cursor agent](https://docs.cursor.com/agent) loads repo guidance via root [`AGENTS.md`](../AGENTS.md) and [`.cursor/AGENTS.md`](../.cursor/AGENTS.md) (precedence there), and auto-attaches [`.cursor/rules/`](../.cursor/rules/) (`.mdc`) by path. [Claude Code](https://code.claude.com/docs) reads [`CLAUDE.md`](../CLAUDE.md) at session start and uses [`.claude/rules/`](../.claude/rules/) (Markdown). **Update this file** when changing shared narrative; then refresh the root mirror + `CLAUDE.md` "Key docs" / pins if needed.
 
 Portable task contract: [agents/agent-contract.md](agents/agent-contract.md).
 
@@ -17,7 +17,7 @@ Portable task contract: [agents/agent-contract.md](agents/agent-contract.md).
 Paths are repo-relative from project root unless noted.
 
 |root:{README.md,CHANGELOG.md,AGENTS.md,CLAUDE.md}
-|docs:{AGENTS.md,audit.md,color-audit-2026.md,contributing.md,cursor-plan-prompt.md,getting-started.md,official-references.md,pr-and-merge-workflow.md,token-naming.md,validation.md,visual-styles.md}
+|docs:{AGENTS.md,audit.md,color-audit-2026.md,contributing.md,cursor-plan-prompt.md,getting-started.md,logo-usage.md,official-references.md,pr-and-merge-workflow.md,token-naming.md,validation.md,visual-styles.md}
 |docs/agents:{README.md,agent-contract.md,runtime-policy.md}
 |docs/decisions:{001-token-format.md}
 |docs/skills:{README.md,token-update.md,elementor-mapping.md,release.md}

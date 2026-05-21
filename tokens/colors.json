@@ -1,6 +1,6 @@
 {
   "color": {
-    "brand-primary": { "$value": "#FF7A3A", "$type": "color", "$description": "Brand orange (palette). Web: primary CTA / Elementor Global 2. Brand guide: decorative-only in some print/slide contexts—do not use as full-page background or in logo." },
+    "brand-primary": { "$value": "#FF7A3A", "$type": "color", "$description": "Brand orange (palette). DECORATIVE USE ONLY per 2026 brand guide (May 2026). Allowed: filled-icon fills, blob shapes, accents, borders. NEVER use as section/button background; orange + white text fails contrast. White standalone logo on orange background is the only exception (social profile + print covers, no text)." },
     "brand-secondary": { "$value": "#3F00EB", "$type": "color", "$description": "Brand blue (palette). Special announcements and alerts; always pair with white text (#FFF). Elementor Global 1." },
     "brand-dark": { "$value": "#1E1E1E", "$type": "color", "$description": "Charcoal (palette)—primary text on light backgrounds. Elementor Global 3." },
     "accent": { "$value": "#FDFCF7", "$type": "color", "$description": "Warm white (palette)—text-heavy content backgrounds; pair with Charcoal text. Elementor Global 4." },
@@ -14,6 +14,14 @@
     "purple": { "$value": "#DA83DA", "$type": "color", "$description": "Purple — decorative accent (Elementor Custom 7)" },
     "very-light-gray": { "$value": "#F7F7F7", "$type": "color", "$description": "Very Light Gray — light section backgrounds (Elementor Custom 8)" },
     "light-gray": { "$value": "#D9D9D9", "$type": "color", "$description": "Light Gray — borders, dividers (Elementor Custom 9)" },
+
+    "background-default": { "$value": "#FDFCF7", "$type": "color", "$description": "Semantic — text-heavy content background. Alias of Warm White; pair with Charcoal text." },
+    "background-soft":    { "$value": "#E5DCFF", "$type": "color", "$description": "Semantic — decorative content background (cards, sections). Alias of Soft Lavender; pair with Charcoal text." },
+    "background-title":   { "$value": "#D4E6A8", "$type": "color", "$description": "Semantic — title / key layout background. Alias of Lime Green; pair with Charcoal text." },
+    "background-alert":   { "$value": "#3F00EB", "$type": "color", "$description": "Semantic — special announcements / alerts only. Alias of Brand Blue; pair with white text." },
+    "accent-icon":        { "$value": "#FF7A3A", "$type": "color", "$description": "Semantic — filled-icon fill (category markers). Alias of Brand Orange; pair with Charcoal labels or white glyph inside the icon shape only." },
+    "accent-border":      { "$value": "#FF7A3A", "$type": "color", "$description": "Semantic — decorative border / underline accent. Alias of Brand Orange; never use as a fill background for elements containing text." },
+
     "theme-1": { "$value": "#0170B9", "$type": "color", "$description": "Theme Color 1 — WordPress/Elementor theme blue (Theme slot 1)" },
     "theme-2": { "$value": "#1E1E1E", "$type": "color", "$description": "Charcoal-aligned — primary body text (Theme slot 2); matches palette Charcoal." },
     "theme-4": { "$value": "#4B4F58", "$type": "color", "$description": "Theme Color 4 — mid-dark UI text (Theme slot 4)" },

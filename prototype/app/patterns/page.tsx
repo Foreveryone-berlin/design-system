@@ -1,4 +1,5 @@
 import HeaderDemo from "../_components/HeaderDemo";
+import CategoryIcon from "../_components/CategoryIcon";
 
 export default function PatternsPage() {
   return (
@@ -28,12 +29,10 @@ export default function PatternsPage() {
         <h2 className="ds-section-title">Footer</h2>
         <footer className="fe-footer">
           <div className="fe-footer__inner">
+            <p className="fe-footer__brand">For Everyone</p>
             <div className="fe-footer__grid">
               <div className="fe-footer__column">
-                <div style={{ fontWeight: "var(--font-weight-bold)", marginBottom: "var(--spacing-4)" }}>
-                  For Everyone
-                </div>
-                <p className="fe-label" style={{ marginBottom: "var(--spacing-2)" }}>Explore</p>
+                <p className="fe-footer__column-title">Explore</p>
                 <ul>
                   <li><a href="#w" className="fe-nav-link">Workshops</a></li>
                   <li><a href="#a" className="fe-nav-link">About Us</a></li>
@@ -43,7 +42,7 @@ export default function PatternsPage() {
                 </ul>
               </div>
               <div className="fe-footer__column">
-                <p className="fe-label" style={{ marginBottom: "var(--spacing-2)" }}>Support</p>
+                <p className="fe-footer__column-title">Support</p>
                 <ul>
                   <li><a href="#g" className="fe-nav-link">Get Involved</a></li>
                   <li><a href="#p" className="fe-nav-link">Partner with Us</a></li>
@@ -51,7 +50,7 @@ export default function PatternsPage() {
                 </ul>
               </div>
               <div className="fe-footer__column">
-                <p className="fe-label" style={{ marginBottom: "var(--spacing-2)" }}>Contact</p>
+                <p className="fe-footer__column-title">Contact</p>
                 <p className="fe-body" style={{ margin: 0, fontSize: "var(--font-size-sm)" }}>
                   info@wellbeing4everyone.com
                 </p>
@@ -73,7 +72,7 @@ export default function PatternsPage() {
               <span>&copy; 2025 ForEveryone. All rights reserved.</span>
               <div className="fe-footer__legal">
                 <a href="#privacy">Privacy</a>
-                <a href="#terms">Terms</a>
+                <a href="#impressum">Impressum</a>
               </div>
             </div>
           </div>
@@ -93,7 +92,12 @@ export default function PatternsPage() {
               style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
             />
             <span className="fe-card-badge">2 free spots</span>
-            <span className="fe-card-category">Balance and Wellness</span>
+            <span className="fe-card-category">
+              <span className="fe-card-category__icon" aria-hidden="true">
+                <CategoryIcon name="wellness" />
+              </span>
+              Balance and Wellness
+            </span>
           </div>
           <div className="fe-card__body">
             <div className="fe-card-meta">

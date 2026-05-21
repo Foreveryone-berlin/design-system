@@ -1,6 +1,6 @@
 # Agent workflow (cross-tool)
 
-Editor-agnostic contracts for AI agents working in this design system. File layout (canonical `docs/AGENTS.md`, root `AGENTS.md` mirror, `CLAUDE.md`, `.codex/AGENTS.md`) matches the pattern used in parcelLab’s **`parcellab-website`** theme repo.
+Editor-agnostic contracts for AI agents working in this design system. File layout: canonical `docs/AGENTS.md`, root `AGENTS.md` mirror, `CLAUDE.md`, `.cursor/AGENTS.md`.
 
 | Doc | Purpose |
 | --- | --- |
@@ -12,8 +12,6 @@ Editor-agnostic contracts for AI agents working in this design system. File layo
 
 **Claude Code:** [`CLAUDE.md`](../../CLAUDE.md).
 
-**OpenAI Codex:** precedence in [`.codex/AGENTS.md`](../../.codex/AGENTS.md).
-
-**Cursor:** [`.cursor/rules/`](../../.cursor/rules/) (`.mdc`).
+**Cursor agent:** precedence in [`.cursor/AGENTS.md`](../../.cursor/AGENTS.md); path-scoped reminders in [`.cursor/rules/`](../../.cursor/rules/) (`.mdc`).
 
 **Claude Code rules (Markdown):** [`.claude/rules/`](../../.claude/rules/).
