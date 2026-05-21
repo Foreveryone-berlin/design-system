@@ -457,18 +457,29 @@
 .fe-faq-item.is-active {
   background-color: var(--color-white);
 }
+.fe-faq-item__content-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition:
+    grid-template-rows var(--transition-base),
+    opacity var(--transition-fast);
+  opacity: 0;
+}
+.fe-faq-item.is-active .fe-faq-item__content-wrapper {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
 .fe-faq-item__content {
-  padding: 0 var(--spacing-5) var(--spacing-4);
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 var(--spacing-5);
   font-size: var(--font-size-sm);
   line-height: var(--line-height-normal);
   color: var(--color-brand-dark);
 }
-.fe-faq-item:not(.is-active) .fe-faq-item__content {
-  display: none;
-}
 .fe-faq-item.is-active .fe-faq-item__content {
-  display: block;
-  color: var(--color-brand-dark);
+  padding: var(--spacing-4) var(--spacing-5);
+  transition: padding var(--transition-base);
 }
 
 /* Dropdown */
