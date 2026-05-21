@@ -278,7 +278,7 @@
 }
 
 .ds-overview-card:hover {
-  background-color: var(--color-light-orange);
+  background-color: color-mix(in srgb, var(--color-light-orange) 30%, var(--color-white));
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
@@ -386,7 +386,7 @@
   line-height: var(--line-height-snug);
   letter-spacing: var(--letter-spacing-tight);
   color: var(--color-theme-2);
-  margin: 0 0 var(--spacing-4);
+  margin: 0 0 var(--spacing-6);
   padding-bottom: var(--spacing-2);
   border-bottom: 2px solid var(--color-theme-7);
 }
@@ -1027,7 +1027,8 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
   margin: var(--spacing-6) 0 var(--spacing-5);
 }
 
-.fe-popup__illustration svg {
+.fe-popup__illustration svg,
+.fe-popup__illustration img {
   width: 140px;
   height: auto;
 }
