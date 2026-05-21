@@ -20,12 +20,11 @@ This repository defines shared design foundations so designers, developers, and 
 foreveryone-design-system/
 ├── AGENTS.md                     # Mirror: retrieval index + pins (tools that only read repo root)
 ├── CLAUDE.md                     # Claude Code entry (pins + key docs; full index in docs/AGENTS.md)
-├── .codex/
-│   └── AGENTS.md                 # OpenAI Codex precedence shim
+├── .cursor/
+│   ├── AGENTS.md                 # Cursor agent precedence shim
+│   └── rules/                    # Cursor path-scoped rules (.mdc)
 ├── .claude/
 │   └── rules/                    # Claude Code rules (mirrors .cursor/rules)
-├── .cursor/
-│   └── rules/                    # Cursor IDE rules (.mdc)
 ├── docs/                         # AGENTS.md, agents/, audit, onboarding, ADRs, skills, …
 │   ├── AGENTS.md                 # Canonical agent narrative + full docs index
 │   └── agents/                   # Cross-tool agent contract + README
@@ -100,9 +99,9 @@ Elementor and WordPress official docs used for this setup: [docs/official-refere
 
 - **Canonical context:** [docs/AGENTS.md](docs/AGENTS.md) (full documentation index and domain rules).
 - **Repo root [AGENTS.md](AGENTS.md):** duplicate index for tools that only auto-load root `AGENTS.md` (see [Vercel note on AGENTS.md](https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals)).
-- **OpenAI Codex:** root `AGENTS.md` plus [.codex/AGENTS.md](.codex/AGENTS.md) (precedence order inside that file).
-- **Anthropic Claude Code:** [CLAUDE.md](CLAUDE.md) at session start; [.claude/rules/](.claude/rules/) for topic reminders; Cursor uses [.cursor/rules/](.cursor/rules/).
-- **Portable contract:** [docs/agents/agent-contract.md](docs/agents/agent-contract.md); **runtime / risk:** [docs/agents/runtime-policy.md](docs/agents/runtime-policy.md) (same idea as **parcellab-website** agent docs).
+- **Cursor agent:** root `AGENTS.md` plus [.cursor/AGENTS.md](.cursor/AGENTS.md) (precedence order inside that file); path-scoped reminders in [.cursor/rules/](.cursor/rules/) (`.mdc`) auto-attach by file location.
+- **Anthropic Claude Code:** [CLAUDE.md](CLAUDE.md) at session start; [.claude/rules/](.claude/rules/) for topic reminders.
+- **Portable contract:** [docs/agents/agent-contract.md](docs/agents/agent-contract.md); **runtime / risk:** [docs/agents/runtime-policy.md](docs/agents/runtime-policy.md).
 
 ## Skills & Workflows
 
@@ -117,7 +116,7 @@ See [`docs/contributing.md`](docs/contributing.md) for contribution workflow, co
 Licensing is split by content type:
 
 - **Software** (`scripts/`, `prototype/`): **MIT** — see the **MIT License** section in [LICENSE](LICENSE).
-- **Design system** (`tokens/`, `css/`, `figma/`, `elementor/`, `docs/`, root documentation including `AGENTS.md` / `CLAUDE.md`, `.codex/`, and `.claude/` / `.cursor/` rules): **CC BY-NC 4.0** — [human-readable summary](https://creativecommons.org/licenses/by-nc/4.0/); full legal text under **Creative Commons Attribution-NonCommercial 4.0 International** in [LICENSE](LICENSE).
+- **Design system** (`tokens/`, `css/`, `figma/`, `elementor/`, `docs/`, root documentation including `AGENTS.md` / `CLAUDE.md`, and `.claude/` / `.cursor/` rules): **CC BY-NC 4.0** — [human-readable summary](https://creativecommons.org/licenses/by-nc/4.0/); full legal text under **Creative Commons Attribution-NonCommercial 4.0 International** in [LICENSE](LICENSE).
 
 All terms live in that single file (dual licensing — apply the section that matches what you reuse).
 
