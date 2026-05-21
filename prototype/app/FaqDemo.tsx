@@ -52,11 +52,11 @@ export default function FaqDemo() {
           </button>
           <div
             id={`${item.id}-content`}
-            className="fe-faq-item__content"
+            className="fe-faq-item__content-wrapper"
             role="region"
             aria-labelledby={`${item.id}-trigger`}
           >
-            {item.answer}
+            <div className="fe-faq-item__content">{item.answer}</div>
           </div>
         </div>
       ))}

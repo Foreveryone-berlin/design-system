@@ -82,8 +82,8 @@
     color var(--transition-fast);
 }
 .fe-icon-btn:hover {
-  background-color: var(--color-brand-primary);
-  border-color: var(--color-brand-primary);
+  background-color: var(--color-accent-icon);
+  border-color: var(--color-accent-icon);
   color: var(--color-white);
 }
 .fe-icon-btn:focus {
@@ -106,8 +106,8 @@
   width: 2.5rem;
   height: 2.5rem;
   padding: 0;
-  background-color: var(--color-brand-primary);
-  border: 2px solid var(--color-brand-primary);
+  background-color: var(--color-accent-icon);
+  border: 2px solid var(--color-accent-icon);
   border-radius: var(--radius-circle);
   color: var(--color-white);
   cursor: pointer;
@@ -188,9 +188,9 @@
   color: var(--color-focus-button);
 }
 .fe-tag-pill.active {
-  background-color: var(--color-brand-primary);
-  color: var(--color-white);
-  border-color: var(--color-brand-primary);
+  background-color: var(--color-background-title);
+  color: var(--color-brand-dark);
+  border-color: var(--color-background-title);
 }
 .fe-tag-pill--green.active,
 .fe-tag-pill--green:hover {
@@ -220,6 +220,7 @@
 /* Workshop Card */
 .fe-card {
   background: var(--color-white);
+  border: 1px solid var(--color-light-gray);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
   overflow: hidden;
@@ -246,22 +247,46 @@
   top: var(--spacing-3);
   left: var(--spacing-3);
   padding: var(--spacing-1) var(--spacing-3);
-  background-color: var(--color-brand-primary);
-  color: var(--color-white);
+  background-color: var(--color-background-default);
+  color: var(--color-brand-dark);
+  border: 2px solid var(--color-accent-border);
   font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-bold);
   border-radius: var(--radius-pill);
 }
+/* Category chip with filled (orange) icon + Charcoal label on Warm White.
+   Implements brand guide "Filled Icons: Functional markers (e.g. Painting,
+   Pottery) used for categorisation. These must be Orange, with high-contrast
+   labels". */
 .fe-card-category {
   position: absolute;
   top: var(--spacing-3);
   right: var(--spacing-3);
-  padding: var(--spacing-1) var(--spacing-3);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-1) var(--spacing-3) var(--spacing-1) var(--spacing-1);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   border-radius: var(--radius-pill);
-  background-color: var(--color-theme-5);
+  background-color: var(--color-background-default);
   color: var(--color-brand-dark);
+  box-shadow: var(--shadow-sm);
+}
+.fe-card-category__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: var(--radius-circle);
+  background-color: var(--color-accent-icon);
+  color: var(--color-white);
+  flex-shrink: 0;
+}
+.fe-card-category__icon svg {
+  width: 0.875rem;
+  height: 0.875rem;
 }
 .fe-card__body {
   padding: var(--spacing-5);
@@ -432,18 +457,29 @@
 .fe-faq-item.is-active {
   background-color: var(--color-white);
 }
+.fe-faq-item__content-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition:
+    grid-template-rows var(--transition-base),
+    opacity var(--transition-fast);
+  opacity: 0;
+}
+.fe-faq-item.is-active .fe-faq-item__content-wrapper {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
 .fe-faq-item__content {
-  padding: 0 var(--spacing-5) var(--spacing-4);
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 var(--spacing-5);
   font-size: var(--font-size-sm);
   line-height: var(--line-height-normal);
   color: var(--color-brand-dark);
 }
-.fe-faq-item:not(.is-active) .fe-faq-item__content {
-  display: none;
-}
 .fe-faq-item.is-active .fe-faq-item__content {
-  display: block;
-  color: var(--color-brand-dark);
+  padding: var(--spacing-4) var(--spacing-5);
+  transition: padding var(--transition-base);
 }
 
 /* Dropdown */
@@ -484,13 +520,14 @@
   text-decoration: none;
   transition: color var(--transition-fast);
 }
-.fe-nav-link:hover {
-  color: var(--color-brand-primary);
-}
+.fe-nav-link:hover,
 .fe-nav-link:focus {
-  color: var(--color-brand-primary);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
+  color: var(--color-theme-2);
+}
+.fe-nav-link:focus-visible {
+  outline: 2px solid var(--color-brand-secondary);
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 .fe-nav-link:disabled,
 .fe-nav-link[aria-disabled="true"] {
@@ -590,27 +627,53 @@
   font-size: 0.65em;
   line-height: 1;
 }
+.fe-nav-chevron {
+  width: 0.85em;
+  height: 0.85em;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+.fe-nav-chevron.is-open {
+  transform: rotate(180deg);
+}
 .fe-header__dropdown {
   position: absolute;
-  top: 100%;
+  top: calc(100% + var(--spacing-3));
   left: 0;
-  background: var(--color-white);
-  border: 1px solid var(--color-theme-7);
+  background: var(--color-light-orange);
+  border: none;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
-  padding: var(--spacing-2) 0;
-  min-width: 180px;
+  padding: 0;
+  width: max-content;
+  max-width: 320px;
+  overflow: hidden;
   z-index: 10;
 }
 .fe-header__dropdown .fe-nav-link {
-  padding: var(--spacing-2) var(--spacing-4);
+  padding: var(--spacing-3) var(--spacing-4);
+  color: var(--color-theme-4);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+.fe-header__dropdown .fe-nav-link:hover,
+.fe-header__dropdown .fe-nav-link:focus {
+  background-color: var(--color-brand-primary);
+  color: var(--color-white);
+}
+.fe-header__dropdown .fe-nav-link:active {
+  background-color: var(--color-focus-button);
+  color: var(--color-white);
 }
 .fe-header__mobile-nav {
   display: flex;
   flex-direction: column;
-  padding: 0 var(--spacing-4);
+  padding: 0;
   border-top: 1px solid var(--color-theme-7);
   max-height: 0;
   overflow: hidden;
@@ -621,23 +684,45 @@
     padding 0.35s ease;
 }
 .fe-header__mobile-nav.is-open {
-  max-height: 600px;
+  max-height: 100vh;
   opacity: 1;
-  padding: var(--spacing-3) var(--spacing-4) var(--spacing-4);
+  padding: 0 0 var(--spacing-4);
 }
 .fe-header__mobile-nav .fe-nav-link,
 .fe-header__mobile-nav .fe-header__dropdown-trigger {
-  padding: var(--spacing-2) 0;
+  width: 100%;
+  padding: var(--spacing-4) var(--spacing-6);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-brand-dark);
+  border-bottom: 1px solid var(--color-theme-7);
+  background-color: transparent;
+  justify-content: center;
+  text-align: center;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+.fe-header__mobile-nav .fe-header__dropdown-trigger[aria-expanded="true"] {
+  background-color: var(--color-light-orange);
 }
 .fe-header__mobile-sub {
   display: flex;
   flex-direction: column;
-  padding-left: var(--spacing-4);
+  padding-left: 0;
 }
 .fe-header__mobile-sub .fe-nav-link {
-  padding: var(--spacing-1) 0;
-  font-size: var(--font-size-sm);
-  color: var(--color-theme-4);
+  padding: var(--spacing-4) var(--spacing-6);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-brand-dark);
+  text-align: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--color-theme-7);
+}
+.fe-header__mobile-cta {
+  margin: var(--spacing-4) var(--spacing-4) 0;
+  justify-content: center;
 }
 @media (min-width: 1200px) {
   .fe-header__menu-btn {
@@ -669,6 +754,27 @@
 .fe-footer__inner {
   max-width: var(--container-max-width);
   margin-inline: auto;
+}
+.fe-footer__brand {
+  margin: 0 0 var(--spacing-8);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-dark);
+  line-height: 1;
+}
+@media (min-width: 640px) {
+  .fe-footer__brand {
+    margin-bottom: var(--spacing-6);
+  }
+}
+.fe-footer__column-title {
+  margin: 0 0 var(--spacing-3);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-brand-dark);
+  line-height: 1.2;
 }
 .fe-footer__grid {
   display: grid;

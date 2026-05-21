@@ -1,126 +1,93 @@
 # ForEveryone Berlin Design System
 
-Design system repository for the ForEveryone Berlin website (`https://foreveryone.berlin/`), built for a WordPress + Elementor Pro workflow with custom CSS and token-driven styling.
+Token-driven design system for [foreveryone.berlin](https://foreveryone.berlin/) — a WordPress + Elementor Pro site backed by a child theme. This repository holds the **source of truth for implementation**: design tokens, generated CSS custom properties, hand-authored CSS primitives, Elementor / Figma mappings, and a Next.js prototype that previews everything together.
 
-## Project Overview
+Live prototype: **[design.foreveryone.berlin](https://design.foreveryone.berlin)** (legacy `fe-design-system.vercel.app` 301-redirects there).
 
-This repository defines shared design foundations so designers, developers, and Elementor editors can work from the same system. It includes design tokens, generated CSS custom properties, reusable CSS primitives, and implementation documentation for WordPress + Elementor.
+## Quick start
 
-## Tech Stack
+```bash
+# Build CSS custom properties from tokens
+node scripts/build-css.js
 
-- WordPress (child theme integration)
-- Elementor Pro (Global Colors, Global Fonts, Custom CSS)
-- Plain CSS
-- Node.js (single build script)
-- Figma + Tokens Studio plugin
+# Run the prototype locally
+cd prototype && npm install && npm run dev
+# → http://localhost:3000
+```
 
-## Repository Structure
+Root `package.json` exposes script aliases: `npm run build`, `npm test`, `npm run prototype:dev`, `npm run prototype:build`, `npm run prototype:lint`.
+
+## How tokens work
+
+1. Token values live in [`tokens/*.json`](tokens/) (W3C DTCG shape: `$value`, `$type`, `$description`).
+2. [`scripts/build-css.js`](scripts/build-css.js) reads [`tokens/index.json`](tokens/index.json) imports.
+3. The script generates [`css/custom-properties.css`](css/custom-properties.css) (the `:root` block of CSS custom properties). **Do not hand-edit it.**
+4. Authored layers in [`css/*.css`](css/) consume the variables via `var(--…)`.
+5. WordPress + Elementor and the Next.js prototype both read from the same generated file.
+
+`scripts/build-css.test.js` validates the DTCG shape and smoke-checks the generated CSS.
+
+## Repository layout
 
 ```text
 foreveryone-design-system/
-├── AGENTS.md                     # Mirror: retrieval index + pins (tools that only read repo root)
-├── CLAUDE.md                     # Claude Code entry (pins + key docs; full index in docs/AGENTS.md)
-├── .codex/
-│   └── AGENTS.md                 # OpenAI Codex precedence shim
-├── .claude/
-│   └── rules/                    # Claude Code rules (mirrors .cursor/rules)
-├── .cursor/
-│   └── rules/                    # Cursor IDE rules (.mdc)
-├── docs/                         # AGENTS.md, agents/, audit, onboarding, ADRs, skills, …
-│   ├── AGENTS.md                 # Canonical agent narrative + full docs index
-│   └── agents/                   # Cross-tool agent contract + README
-├── tokens/                       # Source-of-truth token JSON files
-├── css/                          # Generated vars + implementation CSS
-├── elementor/                    # Elementor mapping and setup docs
-├── figma/                        # Figma sync instructions
-├── scripts/                      # Build scripts
-├── .github/                      # PR template
-├── README.md
-├── CHANGELOG.md
-└── .gitignore
+├── tokens/                       # Source-of-truth token JSON (DTCG)
+├── css/                          # Generated + authored CSS
+├── scripts/                      # Build + test + PR helpers
+├── prototype/                    # Next.js preview app
+├── elementor/                    # Global colors / fonts / custom CSS setup
+├── figma/                        # Tokens Studio sync notes
+├── docs/                         # Canonical agent narrative, guides, ADRs
+│   ├── AGENTS.md                 #   ↳ full docs index + domain rules
+│   ├── agents/                   #   ↳ cross-tool agent contract + runtime policy
+│   ├── skills/                   #   ↳ repeatable workflows
+│   ├── color-audit-2026.md, logo-usage.md, visual-styles.md, …
+├── AGENTS.md                     # Repo-root mirror of docs/AGENTS.md
+├── CLAUDE.md                     # Claude Code session entry
+├── .cursor/{AGENTS.md, rules/}   # Cursor agent precedence + path-scoped rules
+├── .claude/rules/                # Claude Code path-scoped rules
+├── .github/                      # PR template + CI workflows
+├── README.md                     # ← you are here
+└── CHANGELOG.md
 ```
 
-## Quick Start
+## Integrations
 
-1. Clone the repository.
-2. Install dependencies:
-   - `npm install`
-3. Build token CSS custom properties:
-   - `node scripts/build-css.js`
-4. Confirm output:
-   - `css/custom-properties.css` was regenerated.
+- **Figma + Tokens Studio:** [`figma/sync-guide.md`](figma/sync-guide.md) and [`figma/token-export-instructions.md`](figma/token-export-instructions.md).
+- **Elementor:** Global colors [`elementor/global-colors.md`](elementor/global-colors.md), global fonts [`elementor/global-fonts.md`](elementor/global-fonts.md), child-theme CSS enqueue [`elementor/custom-css-setup.md`](elementor/custom-css-setup.md). Background WordPress + Elementor reference: [`docs/official-references.md`](docs/official-references.md).
+- **Visual styles** (icons, blobs, photography, category icon set): [`docs/visual-styles.md`](docs/visual-styles.md).
+- **Logo usage** (X measurement, safe zone, min sizes, white-on-orange exception): [`docs/logo-usage.md`](docs/logo-usage.md).
+- **Color audit** (2026 brand-guide alignment + approved background ⇄ text combinations): [`docs/color-audit-2026.md`](docs/color-audit-2026.md).
 
-## Design system prototype
+## Git workflow
 
-A Next.js app in `prototype/` previews the tokens and components. Live at [design.foreveryone.berlin](https://design.foreveryone.berlin) (the legacy `fe-design-system.vercel.app` URL 301-redirects there; see [docs/prototype-deploy.md](docs/prototype-deploy.md)). To run it locally:
-
-1. From repo root, build token CSS: `node scripts/build-css.js`
-2. `cd prototype && npm install && npm run dev`
-3. Open [http://localhost:3000](http://localhost:3000) (or the port Next.js prints). In Cursor, you can ask the agent to “open the prototype in the Cursor browser” to view it there.
-
-## How Tokens Work
-
-1. Token values live in `tokens/*.json`.
-2. `scripts/build-css.js` reads `tokens/index.json` imports.
-3. Script generates `css/custom-properties.css` (`:root` custom properties).
-4. Implementation styles in `css/*.css` consume variables via `var(--...)`.
-5. Elementor and WordPress consume the same values through documented mappings.
-
-## Figma Sync
-
-Use Tokens Studio in Figma to mirror token sets and export/sync JSON:
-
-- Setup and policy: [`figma/sync-guide.md`](figma/sync-guide.md)
-- Export instructions: [`figma/token-export-instructions.md`](figma/token-export-instructions.md)
-
-## Elementor Integration
-
-- Global colors mapping: [`elementor/global-colors.md`](elementor/global-colors.md)
-- Global fonts mapping: [`elementor/global-fonts.md`](elementor/global-fonts.md)
-- Custom CSS + enqueue setup: [`elementor/custom-css-setup.md`](elementor/custom-css-setup.md)
-- Visual styles (icons, blobs, photography): [`docs/visual-styles.md`](docs/visual-styles.md)
-
-## Official References
-
-Elementor and WordPress official docs used for this setup: [docs/official-references.md](docs/official-references.md) (Global Settings, Global Colors/Fonts, Custom CSS, child themes, `wp_enqueue_style`).
-
-## Git Workflow
-
-- `main`: default branch (repo setting), protected, release-ready
-- `develop`: integration branch
-- Branch from `develop` using:
-  - `feature/*`
-  - `fix/*`
-  - `docs/*`
-  - `chore/*`
+- `main` is the default branch (protected, release-ready). `develop` is the integration branch.
+- Branch from `develop` using `feature/*`, `fix/*`, `docs/*`, `chore/*`.
 - Use Conventional Commits.
-- Merge `develop` -> `main` for release and tag semver versions.
+- PRs use [`.github/PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQUEST_TEMPLATE.md).
+- Solo flow: `bash scripts/pr-and-merge.sh` pushes the current branch, opens a PR, and merges it. Detail in [`docs/pr-and-merge-workflow.md`](docs/pr-and-merge-workflow.md).
+- Tag `main` with `vX.Y.Z` at release.
 
 ## AI coding assistants
 
-- **Canonical context:** [docs/AGENTS.md](docs/AGENTS.md) (full documentation index and domain rules).
-- **Repo root [AGENTS.md](AGENTS.md):** duplicate index for tools that only auto-load root `AGENTS.md` (see [Vercel note on AGENTS.md](https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals)).
-- **OpenAI Codex:** root `AGENTS.md` plus [.codex/AGENTS.md](.codex/AGENTS.md) (precedence order inside that file).
-- **Anthropic Claude Code:** [CLAUDE.md](CLAUDE.md) at session start; [.claude/rules/](.claude/rules/) for topic reminders; Cursor uses [.cursor/rules/](.cursor/rules/).
-- **Portable contract:** [docs/agents/agent-contract.md](docs/agents/agent-contract.md); **runtime / risk:** [docs/agents/runtime-policy.md](docs/agents/runtime-policy.md) (same idea as **parcellab-website** agent docs).
-
-## Skills & Workflows
-
-Repeatable workflows (token updates, Elementor mapping, releases): [docs/skills/](docs/skills/).
+- **Canonical context:** [`docs/AGENTS.md`](docs/AGENTS.md) (full documentation index + domain rules).
+- **Repo-root mirror:** [`AGENTS.md`](AGENTS.md) — duplicated index for tools that only auto-load `AGENTS.md` at the repo root.
+- **Cursor agent:** [`.cursor/AGENTS.md`](.cursor/AGENTS.md) precedence shim; path-scoped `.mdc` reminders in [`.cursor/rules/`](.cursor/rules/) auto-attach by file location.
+- **Claude Code:** [`CLAUDE.md`](CLAUDE.md) at session start; path-scoped Markdown rules in [`.claude/rules/`](.claude/rules/).
+- **Portable contract + runtime policy:** [`docs/agents/agent-contract.md`](docs/agents/agent-contract.md), [`docs/agents/runtime-policy.md`](docs/agents/runtime-policy.md).
+- **Repeatable workflows:** [`docs/skills/`](docs/skills/) (token updates, Elementor mapping, releases).
 
 ## Contributing
 
-See [`docs/contributing.md`](docs/contributing.md) for contribution workflow, commit conventions, and PR expectations.
+See [`docs/contributing.md`](docs/contributing.md) for workflow, commit conventions, and PR expectations.
 
 ## License
 
-Licensing is split by content type:
+Dual-licensed in a single [LICENSE](LICENSE) file (apply the section that matches what you reuse):
 
-- **Software** (`scripts/`, `prototype/`): **MIT** — see the **MIT License** section in [LICENSE](LICENSE).
-- **Design system** (`tokens/`, `css/`, `figma/`, `elementor/`, `docs/`, root documentation including `AGENTS.md` / `CLAUDE.md`, `.codex/`, and `.claude/` / `.cursor/` rules): **CC BY-NC 4.0** — [human-readable summary](https://creativecommons.org/licenses/by-nc/4.0/); full legal text under **Creative Commons Attribution-NonCommercial 4.0 International** in [LICENSE](LICENSE).
-
-All terms live in that single file (dual licensing — apply the section that matches what you reuse).
+- **Software** (`scripts/`, `prototype/`): **MIT**.
+- **Design system** (`tokens/`, `css/`, `figma/`, `elementor/`, `docs/`, root agent docs, `.claude/` and `.cursor/` rules): **CC BY-NC 4.0** ([summary](https://creativecommons.org/licenses/by-nc/4.0/)).
 
 ## Changelog
 
-Project history is tracked in [`CHANGELOG.md`](CHANGELOG.md) using Keep a Changelog format.
+Project history is tracked in [`CHANGELOG.md`](CHANGELOG.md) using the Keep a Changelog format. GitHub Releases for each tag mirror the changelog entry.
