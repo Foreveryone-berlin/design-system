@@ -2,7 +2,7 @@
 
 ![People gathered around a wooden table in the ForEveryone community café, with paintings on the wall and natural light through tall windows.](prototype/public/images/social-preview.jpg)
 
-Token-driven design system for [foreveryone.berlin](https://foreveryone.berlin/), an open, inclusive community space in Berlin. Design tokens, generated CSS, Elementor mappings, and a Next.js prototype that pulls it all together.
+Token-driven design system for [foreveryone.berlin](https://foreveryone.berlin/), an open, inclusive community space in Berlin. Design tokens, generated CSS, and a Next.js prototype that pulls it all together.
 
 Live prototype: **[design.foreveryone.berlin](https://design.foreveryone.berlin)**
 
@@ -25,7 +25,7 @@ Root `package.json` script aliases: `npm run build`, `npm test`, `npm run protot
 2. [`scripts/build-css.js`](scripts/build-css.js) reads [`tokens/index.json`](tokens/index.json) imports.
 3. The script generates [`css/custom-properties.css`](css/custom-properties.css) (the `:root` block). **Do not hand-edit it.**
 4. Authored layers in [`css/*.css`](css/) consume variables via `var(--…)`.
-5. Elementor and the Next.js prototype both read from the same generated file.
+5. The marketing site and the Next.js prototype both read from the same generated file.
 
 `scripts/build-css.test.js` validates the DTCG shape and smoke-checks the generated CSS.
 
@@ -37,11 +37,11 @@ foreveryone-design-system/
 ├── css/             # Generated + authored CSS
 ├── scripts/         # Build, test, and PR helpers
 ├── prototype/       # Next.js preview app
-├── elementor/       # Global colors / fonts / custom CSS setup
+├── elementor/       # Global colors / fonts / custom CSS for the marketing site
 ├── figma/           # Tokens Studio sync notes
 ├── docs/            # Guides, ADRs, agent contracts
 │   ├── AGENTS.md    #   ↳ full docs index + domain rules
-│   └── skills/      #   ↳ repeatable workflows (tokens, Elementor, releases)
+│   └── skills/      #   ↳ repeatable workflows (tokens, releases)
 ├── AGENTS.md        # Repo-root mirror of docs/AGENTS.md
 ├── CLAUDE.md        # Claude Code session entry
 └── CHANGELOG.md
@@ -50,7 +50,7 @@ foreveryone-design-system/
 ## Integrations
 
 - **Figma + Tokens Studio:** [`figma/sync-guide.md`](figma/sync-guide.md) and [`figma/token-export-instructions.md`](figma/token-export-instructions.md).
-- **Elementor:** Global colors [`elementor/global-colors.md`](elementor/global-colors.md), global fonts [`elementor/global-fonts.md`](elementor/global-fonts.md), CSS setup [`elementor/custom-css-setup.md`](elementor/custom-css-setup.md). Reference docs: [`docs/official-references.md`](docs/official-references.md).
+- **Marketing site:** Global colors [`elementor/global-colors.md`](elementor/global-colors.md), global fonts [`elementor/global-fonts.md`](elementor/global-fonts.md), CSS setup [`elementor/custom-css-setup.md`](elementor/custom-css-setup.md). Reference docs: [`docs/official-references.md`](docs/official-references.md).
 - **Visual styles** (icons, blobs, photography, category icon set): [`docs/visual-styles.md`](docs/visual-styles.md).
 - **Logo usage** (X measurement, safe zone, min sizes, white-on-orange exception): [`docs/logo-usage.md`](docs/logo-usage.md).
 - **Color audit** (2026 brand-guide alignment + approved bg ⇄ text combinations): [`docs/color-audit-2026.md`](docs/color-audit-2026.md).
@@ -88,7 +88,7 @@ This design system is a community effort. Built with care by the people who make
 Dual-licensed in a single [LICENSE](LICENSE) file:
 
 - **Software** (`scripts/`, `prototype/`): **MIT**.
-- **Design system** (`tokens/`, `css/`, `figma/`, `elementor/`, `docs/`, root agent docs, `.claude/` and `.cursor/` rules): **CC BY-NC 4.0** ([summary](https://creativecommons.org/licenses/by-nc/4.0/)).
+- **Design system** (`tokens/`, `css/`, `figma/`, `elementor/`, `docs/`, agent docs, `.claude/` and `.cursor/` rules): **CC BY-NC 4.0** ([summary](https://creativecommons.org/licenses/by-nc/4.0/)).
 
 ## Changelog
 
