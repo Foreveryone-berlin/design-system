@@ -1,8 +1,8 @@
-# ForEveryone Berlin — Design System
+# ForEveryone Berlin Design System
 
 ![People gathered around a wooden table in the ForEveryone community café, with paintings on the wall and natural light through tall windows.](prototype/public/images/social-preview.jpg)
 
-Token-driven design system for [foreveryone.berlin](https://foreveryone.berlin/) — an open, inclusive community space in Berlin. Design tokens, generated CSS, Elementor mappings, and a Next.js prototype that pulls it all together.
+Token-driven design system for [foreveryone.berlin](https://foreveryone.berlin/), an open, inclusive community space in Berlin. Design tokens, generated CSS, Elementor mappings, and a Next.js prototype that pulls it all together.
 
 Live prototype: **[design.foreveryone.berlin](https://design.foreveryone.berlin)**
 
@@ -23,7 +23,7 @@ Root `package.json` script aliases: `npm run build`, `npm test`, `npm run protot
 
 1. Token values live in [`tokens/*.json`](tokens/) (W3C DTCG shape: `$value`, `$type`, `$description`).
 2. [`scripts/build-css.js`](scripts/build-css.js) reads [`tokens/index.json`](tokens/index.json) imports.
-3. The script generates [`css/custom-properties.css`](css/custom-properties.css) — the `:root` block. **Do not hand-edit it.**
+3. The script generates [`css/custom-properties.css`](css/custom-properties.css) (the `:root` block). **Do not hand-edit it.**
 4. Authored layers in [`css/*.css`](css/) consume variables via `var(--…)`.
 5. WordPress + Elementor and the Next.js prototype both read from the same generated file.
 
@@ -67,7 +67,7 @@ foreveryone-design-system/
 ## AI coding assistants
 
 - **Canonical context:** [`docs/AGENTS.md`](docs/AGENTS.md) (full documentation index + domain rules).
-- **Repo-root mirror:** [`AGENTS.md`](AGENTS.md) — for tools that only auto-load root-level `AGENTS.md`.
+- **Repo-root mirror:** [`AGENTS.md`](AGENTS.md) for tools that only auto-load root-level `AGENTS.md`.
 - **Cursor:** [`.cursor/AGENTS.md`](.cursor/AGENTS.md) + path-scoped rules in [`.cursor/rules/`](.cursor/rules/).
 - **Claude Code:** [`CLAUDE.md`](CLAUDE.md) + path-scoped rules in [`.claude/rules/`](.claude/rules/).
 - **Agent contract + runtime policy:** [`docs/agents/`](docs/agents/).
@@ -79,7 +79,7 @@ See [`docs/contributing.md`](docs/contributing.md) for workflow, commit conventi
 
 ## Acknowledgements
 
-This design system is a community effort. Built with care by the people who make ForEveryone Berlin what it is — a warm, open space where everyone belongs.
+This design system is a community effort. Built with care by the people who make ForEveryone Berlin what it is: a warm, open space where everyone belongs.
 
 <!-- WIP: add team names here -->
 
