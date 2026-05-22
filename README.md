@@ -6,6 +6,16 @@ Token-driven design system for [foreveryone.berlin](https://foreveryone.berlin/)
 
 Live prototype: **[design.foreveryone.berlin](https://design.foreveryone.berlin)**
 
+## Tech stack
+
+- **Tokens:** W3C DTCG JSON (`tokens/*.json`) with `$value`, `$type`, `$description`.
+- **Build:** Node script `scripts/build-css.js` generates `css/custom-properties.css`.
+- **CSS:** Authored layers in `css/*.css` (variables only, no raw values).
+- **Prototype:** Next.js 15 + TypeScript (App Router) in `prototype/`.
+- **Hosting:** Vercel at `design.foreveryone.berlin` (legacy `fe-design-system.vercel.app` 301-redirects there).
+- **Production target:** WordPress + Elementor Pro on `foreveryone.berlin` (global colors, global fonts, custom CSS).
+- **CI:** GitHub Actions for token build + test + prototype build, and auto-release on `v*.*.*` tag.
+
 ## Quick start
 
 ```bash
