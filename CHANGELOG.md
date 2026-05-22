@@ -5,7 +5,14 @@
 - **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**
 - **(WIP)** append when in progress
 
-## [Unreleased]
+## [0.13.1] - 2026-05-22
+
+- **Docs**: README hero swapped to a dedicated wide image (`prototype/public/images/readme-hero.jpg`, 1500x720, ~179 KB); `social-preview.jpg` stays OG-only.
+- **Docs**: `ASSETS.md` corrected (`workshop-group.jpg` is 1440x900, not ~720x450) and lists the new README hero.
+- **Docs**: Removed empty `[Unreleased]` placeholder from CHANGELOG.
+- **Chore**: Added `scripts/process-readme-hero.mjs` (sharp resize and mozjpeg helper).
+- **Chore**: Version bump to `0.13.1` in `package.json` and `prototype/package.json`.
+- **Test**: Cross-browser Playwright smoke harness in `prototype/tests/smoke.spec.ts` plus `prototype/playwright.config.ts` (Chromium, Firefox, WebKit, iPhone 13, Pixel 5 against `https://design.foreveryone.berlin`). New `npm run test:e2e` script. Test artifacts gitignored.
 
 ## [0.13.0] - 2026-05-22
 
