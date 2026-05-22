@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://design.foreveryone.berlin"),
   title: "ForEveryone Design System | design.foreveryone.berlin",
   description:
-    "Design system for For Everyone Berlin — tokens, components, and patterns. Future home of design.foreveryone.berlin.",
+    "Design system for For Everyone Berlin — tokens, components, and patterns at design.foreveryone.berlin.",
   icons: {
     icon: [{ url: "/favicon.png", type: "image/png" }],
     apple: [{ url: "/apple-touch-icon.png", type: "image/png" }],
