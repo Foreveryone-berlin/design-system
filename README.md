@@ -25,7 +25,7 @@ Root `package.json` script aliases: `npm run build`, `npm test`, `npm run protot
 2. [`scripts/build-css.js`](scripts/build-css.js) reads [`tokens/index.json`](tokens/index.json) imports.
 3. The script generates [`css/custom-properties.css`](css/custom-properties.css) (the `:root` block). **Do not hand-edit it.**
 4. Authored layers in [`css/*.css`](css/) consume variables via `var(--…)`.
-5. WordPress + Elementor and the Next.js prototype both read from the same generated file.
+5. Elementor and the Next.js prototype both read from the same generated file.
 
 `scripts/build-css.test.js` validates the DTCG shape and smoke-checks the generated CSS.
 
@@ -50,7 +50,7 @@ foreveryone-design-system/
 ## Integrations
 
 - **Figma + Tokens Studio:** [`figma/sync-guide.md`](figma/sync-guide.md) and [`figma/token-export-instructions.md`](figma/token-export-instructions.md).
-- **Elementor:** Global colors [`elementor/global-colors.md`](elementor/global-colors.md), global fonts [`elementor/global-fonts.md`](elementor/global-fonts.md), child-theme CSS enqueue [`elementor/custom-css-setup.md`](elementor/custom-css-setup.md). WordPress + Elementor reference: [`docs/official-references.md`](docs/official-references.md).
+- **Elementor:** Global colors [`elementor/global-colors.md`](elementor/global-colors.md), global fonts [`elementor/global-fonts.md`](elementor/global-fonts.md), CSS setup [`elementor/custom-css-setup.md`](elementor/custom-css-setup.md). Reference docs: [`docs/official-references.md`](docs/official-references.md).
 - **Visual styles** (icons, blobs, photography, category icon set): [`docs/visual-styles.md`](docs/visual-styles.md).
 - **Logo usage** (X measurement, safe zone, min sizes, white-on-orange exception): [`docs/logo-usage.md`](docs/logo-usage.md).
 - **Color audit** (2026 brand-guide alignment + approved bg ⇄ text combinations): [`docs/color-audit-2026.md`](docs/color-audit-2026.md).
