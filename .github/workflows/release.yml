@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extract version from tag
+        id: version
+        run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Extract CHANGELOG section
+        id: notes
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          # Grab everything between the matching ## [X.Y.Z] header and the next ## header
+          NOTES=$(awk "/^## \[${VERSION}\]/{found=1; next} found && /^## /{exit} found{print}" CHANGELOG.md)
+          # Strip the summary line (first non-empty paragraph before the first bullet)
+          BULLETS=$(echo "$NOTES" | awk '/^- /{found=1} found{print}')
+          # Write to file to preserve newlines
+          printf '%s' "$BULLETS" > release-notes.txt
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            --title "$GITHUB_REF_NAME" \
+            --notes-file release-notes.txt
