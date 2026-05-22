@@ -5,6 +5,17 @@
 - **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**
 - **(WIP)** — append when in progress
 
+## [Unreleased]
+
+## [0.13.0] - 2026-05-22
+
+README and release infrastructure improvements. Hero image, acknowledgements section, shorter GitHub About, and an automated GitHub release workflow.
+
+- **Docs**: README rewritten in community-focused voice aligned with foreveryone.berlin; hero image (`social-preview.jpg`, 1200×630) added at top; acknowledgements section added (WIP — team names to follow).
+- **CI**: New `.github/workflows/release.yml` — on annotated tag push `v*.*.*`, extracts the matching CHANGELOG section and creates a GitHub Release with a bare `vX.Y.Z` title and bullets-only body.
+- **Chore**: `package.json` version bumped to `0.13.0`.
+- **Chore**: Prototype metadata description updated (removed stale "future home" copy).
+
 ## [0.12.0] - 2026-05-21
 
 Brand-guide alignment release (2026 Quick Brand Guidelines, Ver 2.0). Orange is now decorative-only, Filson Pro italic is first-class, Young Serif is print-only, filled category icons are formalised, and an approved bg ⇄ text matrix is published. No raw hex changes — only role reassignments — so tokens remain backwards compatible.
