@@ -1,6 +1,6 @@
 # ForEveryone Berlin Design System
 
-![People gathered around a wooden table in the ForEveryone community café, with paintings on the wall and natural light through tall windows.](prototype/public/images/social-preview.jpg)
+![Four people seated around two cafe tables in conversation, with sunlit windows, a chalkboard, paintings, and macramé in the background of the ForEveryone community café.](prototype/public/images/readme-hero.jpg)
 
 Token-driven design system for [foreveryone.berlin](https://foreveryone.berlin/), an open, inclusive community space in Berlin. Design tokens, generated CSS, and a Next.js prototype that pulls it all together.
 
