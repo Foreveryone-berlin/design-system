@@ -10,6 +10,17 @@
 
 **Labels:** **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**; append **(WIP)** only for incomplete work.
 
+## [0.13.3] - 2026-06-02
+
+- **Fix**: Write `build-card-image.mjs` debug crops to `os.tmpdir()`, not hardcoded `/tmp/`, which breaks the card build on Windows.
+- **Fix**: Guard `build-css.js` `getTokenValue` so an over-long token path throws "Missing token path", not a raw TypeError.
+- **Fix**: Build `pr-and-merge.sh` PR changelog from `origin/develop` when present, so it is not empty without a local `develop` ref.
+- **Fix**: Give the prototype header mobile nav its own dropdown state so a desktop submenu no longer expands the hidden mobile submenu.
+- **Enhance**: Mark collapsed FAQ panels `inert` so closed answers leave the tab order and a11y tree; grid-row animation preserved.
+- **Enhance**: Close the prototype mobile nav on Escape and on route change, and lock body scroll while it is open.
+- **Fix**: Align token `$type` to DTCG: motion transitions and `radius.circle` to `string`, font weights to numeric; generated CSS unchanged.
+- **Chore**: Bump `package.json` and `prototype/package.json` to `0.13.3`.
+
 ## [0.13.2] - 2026-06-02
 
 - **Docs**: Expand CHANGELOG header with Format, Voice, Length, and Links guidance; fold Labels into one line.
