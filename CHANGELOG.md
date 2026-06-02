@@ -1,9 +1,20 @@
 # Changelog
 
-**Labels**
+**Format:** Based on [Keep a Changelog](https://keepachangelog.com).
 
-- **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**
-- **(WIP)** append when in progress
+**Voice:** Use the imperative, like a commit message. Write add, fix, increase, force, not added, fixed, increased, forced.
+
+**Length:** Keep each bullet on one line, max 120 characters (link URLs do not count toward the cap, only the visible text does).
+
+**Links:** Add inline markdown links for related PRs, docs, and external references when they help the reader.
+
+**Labels:** **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**; append **(WIP)** only for incomplete work.
+
+## [0.13.2] - 2026-06-02
+
+- **Docs**: Expand CHANGELOG header with Format, Voice, Length, and Links guidance; fold Labels into one line.
+- **Enhance**: Rebuild `social-preview.jpg` (1200x630) and `readme-hero.jpg` (1500x720) as a composed "Design System" lavender card via new `scripts/build-card-image.mjs`.
+- **Chore**: Bump `package.json` and `prototype/package.json` to `0.13.2`.
 
 ## [0.13.1] - 2026-05-22
 
