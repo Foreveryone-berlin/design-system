@@ -13,6 +13,7 @@
 ## [0.13.2] - 2026-06-02
 
 - **Docs**: Expand CHANGELOG header with Format, Voice, Length, and Links guidance; fold Labels into one line.
+- **Enhance**: Rebuild `social-preview.jpg` (1200x630) and `readme-hero.jpg` (1500x720) as a composed "Design System" lavender card via new `scripts/build-card-image.mjs`.
 - **Chore**: Bump `package.json` and `prototype/package.json` to `0.13.2`.
 
 ## [0.13.1] - 2026-05-22

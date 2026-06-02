@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         url: "/images/social-preview.jpg",
         width: 1200,
         height: 630,
-        alt: "People gathered around a wooden table in the ForEveryone community café, with paintings on the wall and natural light through tall windows.",
+        alt: "ForEveryone Design System card: a bold \"Design System\" headline on a soft-lavender background with an orange megaphone burst, a line-art illustration of a person making pottery, and the For Everyone logo.",
       },
     ],
   },
