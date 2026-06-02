@@ -55,6 +55,7 @@ export default function FaqDemo() {
             className="fe-faq-item__content-wrapper"
             role="region"
             aria-labelledby={`${item.id}-trigger`}
+            inert={activeId !== item.id}
           >
             <div className="fe-faq-item__content">{item.answer}</div>
           </div>
