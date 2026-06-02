@@ -32,7 +32,7 @@ function getTokenValue(tokens, tokenPath) {
   const segments = tokenPath.split(".");
   let current = tokens;
   for (const segment of segments) {
-    if (!current || !(segment in current)) {
+    if (current === null || typeof current !== "object" || !(segment in current)) {
       throw new Error(`Missing token path: ${tokenPath}`);
     }
     current = current[segment];

@@ -10,6 +10,7 @@
 // usage: node scripts/build-card-image.mjs <source.png>
 import sharp from "../prototype/node_modules/sharp/lib/index.js";
 import path from "node:path";
+import os from "node:os";
 import { fileURLToPath } from "node:url";
 import { stat } from "node:fs/promises";
 
@@ -63,8 +64,8 @@ const megMeta = await sharp(megaphone).metadata();
 const womMeta = await sharp(woman).metadata();
 const logoMeta = await sharp(LOGO).metadata();
 
-await sharp(megaphone).toFile("/tmp/el-megaphone.png");
-await sharp(woman).toFile("/tmp/el-woman.png");
+await sharp(megaphone).toFile(path.join(os.tmpdir(), "el-megaphone.png"));
+await sharp(woman).toFile(path.join(os.tmpdir(), "el-woman.png"));
 console.log(`megaphone ${megMeta.width}x${megMeta.height}  woman ${womMeta.width}x${womMeta.height}  logo ${logoMeta.width}x${logoMeta.height}`);
 
 // ---- layout: sizes scale with canvas height, capped to stay sharp ----
