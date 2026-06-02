@@ -36,9 +36,12 @@ const navLinks: NavItem[] = [
 export default function HeaderDemo() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openSub, setOpenSub] = useState<string | null>(null);
+  const [openSubMobile, setOpenSubMobile] = useState<string | null>(null);
 
   const toggleSub = (href: string) =>
     setOpenSub((prev) => (prev === href ? null : href));
+  const toggleSubMobile = (href: string) =>
+    setOpenSubMobile((prev) => (prev === href ? null : href));
 
   return (
     <div className="fe-header">
@@ -106,7 +109,7 @@ export default function HeaderDemo() {
             aria-expanded={menuOpen}
             onClick={() => {
               setMenuOpen(!menuOpen);
-              setOpenSub(null);
+              setOpenSubMobile(null);
             }}
           >
             <span className="fe-hamburger">
@@ -131,12 +134,12 @@ export default function HeaderDemo() {
                 <button
                   type="button"
                   className="fe-nav-link fe-header__dropdown-trigger"
-                  onClick={() => toggleSub(href)}
-                  aria-expanded={openSub === href}
+                  onClick={() => toggleSubMobile(href)}
+                  aria-expanded={openSubMobile === href}
                 >
                   {label}
                   <svg
-                    className={`fe-nav-chevron${openSub === href ? " is-open" : ""}`}
+                    className={`fe-nav-chevron${openSubMobile === href ? " is-open" : ""}`}
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -149,7 +152,7 @@ export default function HeaderDemo() {
                     <path d="M6 9l6 6 6-6" />
                   </svg>
                 </button>
-                {openSub === href && (
+                {openSubMobile === href && (
                   <div className="fe-header__mobile-sub">
                     {children.map((child) => (
                       <a
