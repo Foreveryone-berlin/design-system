@@ -1,6 +1,6 @@
 # ForEveryone Berlin Design System
 
-![Four people seated around two cafe tables in conversation, with sunlit windows, a chalkboard, paintings, and macramé in the background of the ForEveryone community café.](prototype/public/images/readme-hero.jpg)
+![ForEveryone Design System card: a bold "Design System" headline on a soft-lavender background with an orange megaphone burst, a line-art illustration of a person making pottery, and the For Everyone logo.](prototype/public/images/readme-hero.jpg)
 
 Token-driven design system for [foreveryone.berlin](https://foreveryone.berlin/), an open, inclusive community space in Berlin. Design tokens, generated CSS, and a Next.js prototype that pulls it all together.
 
