@@ -41,7 +41,9 @@ fi
 
 # Build body from .github/PULL_REQUEST_TEMPLATE.md (required by workspace rules)
 TITLE=$(git log -1 --pretty=format:%s)
-CHANGES=$(git log develop..HEAD --pretty=format:"- %s" 2>/dev/null || echo "-")
+BASE_REF=develop
+git rev-parse --verify --quiet origin/develop >/dev/null && BASE_REF=origin/develop
+CHANGES=$(git log "$BASE_REF..HEAD" --pretty=format:"- %s" 2>/dev/null)
 [ -z "$CHANGES" ] && CHANGES="-"
 
 BODY="## What changed
