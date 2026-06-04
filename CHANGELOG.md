@@ -10,6 +10,15 @@
 
 **Labels:** **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**; append **(WIP)** only for incomplete work.
 
+## [0.14.0] - 2026-06-04
+
+- **Perf**: Serve prototype raster images via `next/image` (avif/webp, sized to avoid CLS); inline SVGs stay raw `<img>`.
+- **Feat**: Add prototype web manifest and a `viewport` theme-color; enrich `layout.tsx` metadata (title template, canonical, OpenGraph/Twitter). Site stays `noindex`.
+- **Enhance**: Add an a11y baseline: skip link, global `:focus-visible` ring, and a `prefers-reduced-motion` block in `globals.css`.
+- **Enhance**: Set `aria-current` on nav, label icon-only buttons, make the newsletter popup a native `<dialog>`, mark hidden mobile nav `inert`.
+- **Chore**: Drop unused `site-copy` exports; add `scripts/screenshot.mjs` for desktop/tablet/mobile visual checks; document the quality baseline and add the `optimize-prototype` skill.
+- **Chore**: Bump `package.json` and `prototype/package.json` to `0.14.0`.
+
 ## [0.13.3] - 2026-06-02
 
 - **Fix**: Write `build-card-image.mjs` debug crops to `os.tmpdir()`, not hardcoded `/tmp/`, which breaks the card build on Windows.
