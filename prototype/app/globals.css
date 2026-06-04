@@ -4,6 +4,47 @@
 @import "../../css/typography.css";
 @import "../../css/utilities.css";
 
+/* ---- Accessibility: visible keyboard focus ---- */
+/* Global fallback so every interactive element shows a clear focus ring when
+   reached by keyboard; component-specific overrides (e.g. .ds-btn) still win. */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--color-focus-button);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ---- Accessibility: skip to main content ---- */
+/* Visually hidden until focused; jumps keyboard users past the nav.
+   Requires the skip anchor + a matching #main-content target in markup. */
+.ds-skip-link {
+  position: absolute;
+  inset-block-start: var(--spacing-2);
+  inset-inline-start: var(--spacing-2);
+  z-index: 200;
+  padding: var(--spacing-2) var(--spacing-4);
+  background: var(--color-white);
+  color: var(--color-theme-2);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-150%);
+  transition: transform var(--transition-fast);
+}
+
+.ds-skip-link:focus-visible {
+  transform: translateY(0);
+}
+
 /* ---- View Transitions (page-level fade + slide) ---- */
 @keyframes vt-fade-in {
   from {
@@ -1072,4 +1113,32 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
   height: 3.25rem;
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-bold);
+}
+
+/* ---- Accessibility: respect reduced-motion preference ---- */
+/* Disable view transitions, popup entrance, and decorative motion for users
+   who ask for it; keep focus/visibility intact. */
+@media (prefers-reduced-motion: reduce) {
+  .ds-light-only {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.01ms;
+    scroll-behavior: auto;
+  }
+
+  .vt-fade-in,
+  .fe-popup__content {
+    animation: none;
+  }
+
+  .ds-overview-card:hover,
+  .ds-motion-demo-card:hover {
+    transform: none;
+  }
 }

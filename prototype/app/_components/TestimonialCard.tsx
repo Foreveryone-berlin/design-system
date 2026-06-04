@@ -2,17 +2,17 @@ const testimonials = [
   {
     quote:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel sapien a nulla fermentum tincidunt. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada. Nulla facilisi etiam dignissim diam quis enim lobortis scelerisque.",
-    attribution: "Jane Doe \u2014 Placeholder Role",
+    attribution: "Jane Doe, Placeholder Role",
   },
   {
     quote:
       "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-    attribution: "John Smith \u2014 Placeholder Role",
+    attribution: "John Smith, Placeholder Role",
   },
   {
     quote:
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
-    attribution: "Alex Johnson \u2014 Placeholder Role",
+    attribution: "Alex Johnson, Placeholder Role",
   },
 ];
 
