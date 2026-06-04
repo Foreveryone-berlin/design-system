@@ -5,6 +5,7 @@ import {
   designSystemIntro,
 } from "@/content/site-copy";
 import packageJson from "@/package.json";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -25,12 +26,13 @@ export default function Home() {
           <p className="ds-intro">{heroCopy.tagline}</p>
         </div>
         <div className="ds-hero-image-wrap">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/images/community-cafe.png"
             alt="Three people sit and chat at a wooden table in the ForEveryone community café, lit by afternoon sun."
             width={1090}
             height={1094}
+            priority
+            sizes="(max-width: 1024px) 100vw, 320px"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </div>

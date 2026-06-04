@@ -32,6 +32,7 @@ export default function Navigation() {
           <Link
             key={href}
             href={href}
+            aria-current={pathname === href ? "page" : undefined}
             className={`ds-sidebar__link${pathname === href ? " is-active" : ""}`}
           >
             {label}
