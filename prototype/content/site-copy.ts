@@ -26,20 +26,5 @@ export const stats = [
   { label: "Motion presets", value: "3" },
 ] as const;
 
-export const benefits = [
-  "Tokens drive CSS custom properties.",
-  "Components are documented with live examples.",
-  "Light theme only in this prototype.",
-] as const;
-
-export const ctas = {
-  bookWorkshop: "Primary CTA",
-  exploreEvents: "Explore",
-  exploreWorkshops: "View all",
-  learnMore: "Learn more",
-  getInTouch: "Get in touch",
-  communityCafe: "Link",
-} as const;
-
 export const designSystemIntro =
   "This page showcases the design system. Use the sections below to inspect tokens and components.";

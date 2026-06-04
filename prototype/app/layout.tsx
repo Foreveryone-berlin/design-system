@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navigation from "./_components/Navigation";
@@ -15,18 +15,34 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://design.foreveryone.berlin"),
-  title: "ForEveryone Design System | design.foreveryone.berlin",
+  title: {
+    default: "ForEveryone Design System",
+    template: "%s | ForEveryone Design System",
+  },
   description:
-    "Design system for For Everyone Berlin — tokens, components, and patterns at design.foreveryone.berlin.",
+    "Design system for For Everyone Berlin: tokens, components, and patterns at design.foreveryone.berlin.",
+  applicationName: "ForEveryone Design System",
+  authors: [{ name: "ForEveryone Berlin", url: "https://foreveryone.berlin" }],
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: [{ url: "/favicon.png", type: "image/png" }],
     apple: [{ url: "/apple-touch-icon.png", type: "image/png" }],
     shortcut: [{ url: "/favicon.png", type: "image/png" }],
   },
   openGraph: {
-    title: "ForEveryone Design System | design.foreveryone.berlin",
+    type: "website",
+    siteName: "ForEveryone Design System",
+    title: "ForEveryone Design System",
     description:
       "Design tokens, components, and patterns for the ForEveryone digital experience.",
+    url: "/",
     images: [
       {
         url: "/images/social-preview.jpg",
@@ -38,12 +54,18 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ForEveryone Design System | design.foreveryone.berlin",
+    title: "ForEveryone Design System",
     description:
       "Design tokens, components, and patterns for the ForEveryone digital experience.",
     images: ["/images/social-preview.jpg"],
   },
   robots: "noindex, nofollow",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#FF7A3A",
 };
 
 export default function RootLayout({
@@ -60,12 +82,15 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body suppressHydrationWarning>
+        <a href="#main-content" className="ds-skip-link">
+          Skip to content
+        </a>
         <ViewTransitions />
         <MobileNav />
         <div className="ds-layout" suppressHydrationWarning>
           <Navigation />
           <div className="ds-main-area" suppressHydrationWarning>
-            <main className="ds-page" suppressHydrationWarning>
+            <main id="main-content" tabIndex={-1} className="ds-page" suppressHydrationWarning>
               {children}
             </main>
             <footer className="ds-footer" suppressHydrationWarning>

@@ -5,28 +5,37 @@ import { useState, useEffect, useCallback, useRef } from "react";
 export default function Popup() {
   const [open, setOpen] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   const close = useCallback(() => setOpen(false), []);
 
   useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
     if (open) {
-      dialogRef.current?.showModal();
-    } else {
-      dialogRef.current?.close();
+      dialog.showModal();
+    } else if (dialog.open) {
+      dialog.close();
     }
   }, [open]);
 
+  // Native dialog closes itself on Escape; keep React state in sync and
+  // restore focus to the trigger when the dialog closes for any reason.
   useEffect(() => {
-    const onEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    const onClose = () => {
+      setOpen(false);
+      triggerRef.current?.focus();
     };
-    window.addEventListener("keydown", onEsc);
-    return () => window.removeEventListener("keydown", onEsc);
-  }, [close]);
+    dialog.addEventListener("close", onClose);
+    return () => dialog.removeEventListener("close", onClose);
+  }, []);
 
   return (
     <>
       <button
+        ref={triggerRef}
         type="button"
         className="ds-btn ds-btn--primary"
         onClick={() => setOpen(true)}
@@ -37,7 +46,8 @@ export default function Popup() {
       <dialog
         ref={dialogRef}
         className="fe-popup"
-        aria-label="Subscribe to our Newsletter"
+        aria-modal="true"
+        aria-labelledby="fe-popup-title"
         onClick={(e) => {
           if (e.target === e.currentTarget) close();
         }}
@@ -49,10 +59,12 @@ export default function Popup() {
             onClick={close}
             aria-label="Close"
           >
-            &times;
+            <span aria-hidden="true">&times;</span>
           </button>
 
-          <h3 className="fe-popup__title">Subscribe to our Newsletter</h3>
+          <h3 id="fe-popup-title" className="fe-popup__title">
+            Subscribe to our Newsletter
+          </h3>
 
           <div className="fe-popup__illustration" aria-hidden="true">
             {/* eslint-disable-next-line @next/next/no-img-element */}

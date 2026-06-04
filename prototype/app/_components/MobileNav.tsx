@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -14,6 +14,7 @@ const navSections = [
 export default function MobileNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     setOpen(false);
@@ -22,7 +23,10 @@ export default function MobileNav() {
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
     };
     document.addEventListener("keydown", onKey);
     const prevOverflow = document.body.style.overflow;
@@ -45,20 +49,27 @@ export default function MobileNav() {
         />
       </Link>
       <button
+        ref={toggleRef}
         type="button"
         className="ds-mobile-header__toggle"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
-        aria-label="Toggle navigation"
+        aria-controls="ds-mobile-nav"
+        aria-label={open ? "Close navigation" : "Open navigation"}
       >
-        {open ? "\u2715" : "\u2630"}
+        <span aria-hidden="true">{open ? "✕" : "☰"}</span>
       </button>
       {open && (
-        <nav className="ds-mobile-nav" aria-label="Design system">
+        <nav
+          id="ds-mobile-nav"
+          className="ds-mobile-nav"
+          aria-label="Design system"
+        >
           {navSections.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
+              aria-current={pathname === href ? "page" : undefined}
               className={`ds-mobile-nav__link${pathname === href ? " is-active" : ""}`}
               onClick={() => setOpen(false)}
             >
