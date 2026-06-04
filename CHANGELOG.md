@@ -12,14 +12,11 @@
 
 ## [0.14.0] - 2026-06-04
 
-- **Perf**: Serve prototype raster images via `next/image` (avif/webp, explicit dimensions to avoid CLS); keep inline SVGs as raw `<img>`.
-- **Feat**: Add prototype web manifest (`app/manifest.ts`) and a `viewport` theme-color export; site stays `noindex, nofollow` by design.
-- **Enhance**: Enrich `layout.tsx` metadata: title template, canonical, and richer OpenGraph/Twitter fields.
-- **Enhance**: Add an accessibility baseline: skip-to-content link, global `:focus-visible` ring, and a `prefers-reduced-motion` block in `globals.css`.
-- **Enhance**: Set `aria-current` on nav, label icon-only buttons, make the newsletter popup a native `<dialog>` with focus return, mark hidden mobile nav `inert`.
-- **Chore**: Remove unused `benefits` and `ctas` exports from `prototype/content/site-copy.ts`.
-- **Test**: Add `prototype/scripts/screenshot.mjs` to shoot key pages at desktop, tablet, and mobile for visual-regression checks.
-- **Docs**: Document the prototype quality baseline in `CLAUDE.md`; add the `optimize-prototype` Claude Code skill under `.claude/skills/`.
+- **Perf**: Serve prototype raster images via `next/image` (avif/webp, sized to avoid CLS); inline SVGs stay raw `<img>`.
+- **Feat**: Add prototype web manifest and a `viewport` theme-color; enrich `layout.tsx` metadata (title template, canonical, OpenGraph/Twitter). Site stays `noindex`.
+- **Enhance**: Add an a11y baseline: skip link, global `:focus-visible` ring, and a `prefers-reduced-motion` block in `globals.css`.
+- **Enhance**: Set `aria-current` on nav, label icon-only buttons, make the newsletter popup a native `<dialog>`, mark hidden mobile nav `inert`.
+- **Chore**: Drop unused `site-copy` exports; add `scripts/screenshot.mjs` for desktop/tablet/mobile visual checks; document the quality baseline and add the `optimize-prototype` skill.
 - **Chore**: Bump `package.json` and `prototype/package.json` to `0.14.0`.
 
 ## [0.13.3] - 2026-06-02
