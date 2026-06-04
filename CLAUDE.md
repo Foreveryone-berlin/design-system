@@ -29,7 +29,17 @@ Common mistakes:
 | --- | --- |
 | Build CSS from tokens (repo root) | `node scripts/build-css.js` |
 | Prototype dev | `cd prototype && npm install && npm run dev` |
+| Screenshot key pages at 3 breakpoints | `cd prototype && OUT_DIR=baseline BASE_URL=http://localhost:3100 node scripts/screenshot.mjs` |
 | Solo PR + merge to `develop` | `bash scripts/pr-and-merge.sh` |
+
+## Prototype quality baseline
+
+An optimization pass (performance, accessibility, SEO, code quality) established these conventions in `prototype/`. Keep them when adding pages or components:
+
+- **Images:** raster images use `next/image` with explicit `width`/`height` (not `fill`, since the wrappers have no fixed height). Inline SVGs stay as `<img>` (no `dangerouslyAllowSVG`).
+- **Accessibility:** `globals.css` provides a global `:focus-visible` ring, a `.ds-skip-link` (its target is `#main-content` on `<main>` in `layout.tsx`), and a `prefers-reduced-motion` block. Icon-only buttons need `aria-label`; nav links set `aria-current="page"`; the dialog is a native `<dialog>` via `Popup`; hidden mobile-nav regions use `inert`.
+- **Metadata:** `layout.tsx` holds a title template, canonical, OG/Twitter, and a Next 15 `export const viewport` (theme-color). `app/manifest.ts` is the web manifest. The site is intentionally `robots: noindex, nofollow` (internal design system); do not make it indexable, and do not add a sitemap.
+- **Verify visually:** run the screenshot command into `OUT_DIR=baseline` before changes and `OUT_DIR=after` post-change, then diff. Re-run the full pass with the `/optimize-prototype` skill (`.claude/skills/optimize-prototype/`).
 
 ## Git and PR rules
 
