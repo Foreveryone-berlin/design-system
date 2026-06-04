@@ -64,6 +64,7 @@ export default function HeaderDemo() {
                   className="fe-nav-link fe-header__dropdown-trigger"
                   onClick={() => toggleSub(href)}
                   aria-expanded={openSub === href}
+                  aria-haspopup="true"
                 >
                   {label}
                   <svg
@@ -105,8 +106,9 @@ export default function HeaderDemo() {
           <button
             type="button"
             className={`fe-header__menu-btn${menuOpen ? " is-open" : ""}`}
-            aria-label="Menu"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
+            aria-controls="fe-header-mobile-nav"
             onClick={() => {
               setMenuOpen(!menuOpen);
               setOpenSubMobile(null);
@@ -124,9 +126,10 @@ export default function HeaderDemo() {
         </div>
       </div>
       <nav
+        id="fe-header-mobile-nav"
         className={`fe-header__mobile-nav${menuOpen ? " is-open" : ""}`}
         aria-label="Main"
-        aria-hidden={!menuOpen}
+        inert={!menuOpen}
       >
           {navLinks.map(({ href, label, children }) =>
             children ? (
@@ -136,6 +139,7 @@ export default function HeaderDemo() {
                   className="fe-nav-link fe-header__dropdown-trigger"
                   onClick={() => toggleSubMobile(href)}
                   aria-expanded={openSubMobile === href}
+                  aria-haspopup="true"
                 >
                   {label}
                   <svg

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import HeaderDemo from "../_components/HeaderDemo";
 import CategoryIcon from "../_components/CategoryIcon";
 
@@ -83,12 +84,12 @@ export default function PatternsPage() {
         <h2 className="ds-section-title">Workshop card (full)</h2>
         <div className="fe-card" style={{ maxWidth: "360px" }}>
           <div className="fe-card__media">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/images/workshop-group.jpg"
               alt="Community members laughing around a table in the For Everyone café"
               width={360}
               height={225}
+              sizes="360px"
               style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
             />
             <span className="fe-card-badge">2 free spots</span>
