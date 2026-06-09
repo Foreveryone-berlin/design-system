@@ -117,7 +117,8 @@
 
   /* ── Typography: Font Families ───────────────────────────────────────── */
   --font-family-heading: 'FilsonPro', sans-serif;
-  /* PRINT-ONLY. Do not reference --font-family-accent from digital surfaces. */
+  /* Accent serif (Young Serif). Display headings only (H1/H3 additional),    */
+  /* pull quotes, short highlights — never body copy. Single weight (400).    */
   --font-family-accent:  'Young Serif', serif;
   --font-family-body:    'FilsonPro', sans-serif;
 

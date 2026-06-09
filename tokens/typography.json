@@ -2,7 +2,7 @@
   "font": {
     "family": {
       "heading": { "$value": "'FilsonPro', sans-serif", "$type": "fontFamily", "$description": "Primary (digital + print). Filson Pro family — used for headlines, body, UI, all digital surfaces. Pair with weights: regular 400, medium 500, bold 700; italic (style) for publication names and emphasis." },
-      "accent": { "$value": "'Young Serif', serif", "$type": "fontFamily", "$description": "PRINT ONLY (CMYK). Young Serif — accent for printed subheadings, pull quotes, short highlights. DIGITAL RESTRICTION: never load or use on web; the --font-family-accent CSS variable is emitted only for print-mock surfaces and must not be referenced by shipped digital components." },
+      "accent": { "$value": "'Young Serif', serif", "$type": "fontFamily", "$description": "Accent serif (Young Serif). Per the 2026 style guide, an accent for display headings: H1 additional (84px) and H3 additional (20px), plus pull quotes and short highlights. Use sparingly alongside the Filson Pro primary; never for body copy. Young Serif ships a single weight (400) on the web, so accent headings render at regular weight." },
       "body": { "$value": "'FilsonPro', sans-serif", "$type": "fontFamily", "$description": "Primary (digital + print). Filson Pro family for body, descriptions, supporting copy." }
     },
     "weight": {
