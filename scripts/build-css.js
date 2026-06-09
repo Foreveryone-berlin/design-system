@@ -181,7 +181,8 @@ ${rampCss}
 
   /* ── Typography: Font Families ───────────────────────────────────────── */
   --font-family-heading: ${getTokenValue(tokens, "font.family.heading")};
-  /* PRINT-ONLY. Do not reference --font-family-accent from digital surfaces. */
+  /* Accent serif (Young Serif). Display headings only (H1/H3 additional),    */
+  /* pull quotes, short highlights — never body copy. Single weight (400).    */
   --font-family-accent:  ${getTokenValue(tokens, "font.family.accent")};
   --font-family-body:    ${getTokenValue(tokens, "font.family.body")};
 
