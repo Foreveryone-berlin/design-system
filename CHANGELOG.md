@@ -12,13 +12,15 @@
 
 ## [1.0.0] - 2026-06-09
 
-First stable release: tokens, generated CSS, prototype, and docs aligned to the 2026 style guide.
-
-- **Feat**: Add full numeric colour ramps (50–900) for Neutral, Orange, Green, Blue, and Lavender to `tokens/colors.json`, matching the 2026 style guide; emit `--color-{family}-{step}` variables via `build-css.js`.
-- **Feat**: Promote Young Serif from print-only to a digital accent serif; add `.fe-h1--serif` / `.fe-h3--serif` (style guide "H1/H3 additional") and load Young Serif in the prototype.
-- **Feat**: Add `spacing-28` (112px) to complete the 8-point spacing grid from 8px to 128px.
-- **Feat**: Redesign the OG/social card and README hero (layered brand blobs, dual-font headline, token colour-swatch row, v1.0.0 pill); add reusable `prototype/scripts/build-og-card.mjs`.
-- **Docs**: Document the canonical 2026 category icon set (Balance and Wellness, Movement, Arts and Crafts, Expression, Music), UI/functional icons, and the orange line-illustration doodles in `docs/visual-styles.md`; flag the legacy 4-icon subset to align.
+- **Feat**: Add 50–900 numeric colour ramps for the five families to tokens; emit `--color-{family}-{step}` via `build-css.js`.
+- **Feat**: Label tokens-page ramp swatches with a legible step value (white on dark steps, charcoal on light).
+- **Feat**: Add `spacing-28` (112px) to complete the 8-point grid from 8px to 128px.
+- **Feat**: Ship brand line illustrations (flower, headline underline, swirl, sprout, coffee-heart) and a headline-underline utility.
+- **Feat**: Redesign the OG/social card and README hero; add reusable `prototype/scripts/build-og-card.mjs`.
+- **Fix**: Render headlines single-charcoal and drop the orange two-tone; orange is decorative-only, matching the live site.
+- **Docs**: Document the category icon set, UI icons, and line-illustration doodles in `docs/visual-styles.md`.
+- **Chore**: Keep Young Serif print-only; remove the Motion token section from the prototype and docs.
+- **Chore**: Sync the favicon and header nav from foreveryone.berlin.
 - **Chore**: Bump `package.json` and `prototype/package.json` to `1.0.0`.
 
 ## [0.14.0] - 2026-06-04
