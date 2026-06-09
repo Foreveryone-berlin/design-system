@@ -95,8 +95,8 @@ const colorCode = `/* Brand */
 --color-black: #0A0A0A;`;
 
 const typographyCode = `/* Font Families */
---font-family-heading: 'FilsonPro', sans-serif;
---font-family-accent: 'Young Serif', serif;
+--font-family-heading: 'FilsonPro', sans-serif;  /* H1–H3, body, UI */
+--font-family-accent: 'Young Serif', serif;      /* serif accent: .fe-h1--serif, .fe-h3--serif */
 --font-family-body: 'FilsonPro', sans-serif;
 
 /* Font Weights */
@@ -283,12 +283,20 @@ export default function TokensPage() {
             <h2 className="fe-h1">Heading 1</h2>
           </div>
           <div>
+            <div className="fe-label">H1 additional — serif accent</div>
+            <h2 className="fe-h1 fe-h1--serif">Heading 1</h2>
+          </div>
+          <div>
             <div className="fe-label">H2</div>
             <h3 className="fe-h2">Heading 2</h3>
           </div>
           <div>
             <div className="fe-label">H3</div>
             <h4 className="fe-h3">Heading 3</h4>
+          </div>
+          <div>
+            <div className="fe-label">H3 additional — serif accent</div>
+            <h4 className="fe-h3 fe-h3--serif">Heading 3</h4>
           </div>
           <div>
             <div className="fe-label">Body</div>

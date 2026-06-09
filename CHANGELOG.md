@@ -14,6 +14,7 @@
 
 - **Feat**: Add full numeric colour ramps (50–900) for Neutral, Orange, Green, Blue, and Lavender to `tokens/colors.json`, matching the 2026 style guide; emit `--color-{family}-{step}` variables via `build-css.js`.
 - **Feat**: Add `spacing-28` (112px) to complete the 8-point spacing grid from 8px to 128px.
+- **Feat**: Promote Young Serif from print-only to a digital accent serif; add `.fe-h1--serif` / `.fe-h3--serif` (style guide "H1/H3 additional") and load Young Serif in the prototype.
 
 ## [0.14.0] - 2026-06-04
 

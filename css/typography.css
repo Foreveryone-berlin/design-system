@@ -7,12 +7,18 @@
   letter-spacing: var(--letter-spacing-tight);
   color: var(--color-theme-2);
 }
-/* Accent heading: brand-orange tint on the primary heading family.
-   Note: --font-family-accent (Young Serif) is PRINT-ONLY per 2026 brand
-   guide and must not be applied to digital surfaces. Keep this class on
-   the heading family; use a print stylesheet to swap families. */
+/* Accent-tinted heading: brand-orange wording on the primary heading family.
+   Keeps Filson Pro; only changes colour for an emphasised word/phrase. */
 .fe-h1--accent {
   color: var(--color-brand-primary);
+}
+
+/* Serif display heading (Young Serif accent) — style guide "H1 additional".
+   Use sparingly next to the Filson Pro primary. Young Serif ships one weight
+   (400) on the web, so this renders regular regardless of --font-weight-*. */
+.fe-h1--serif {
+  font-family: var(--font-family-accent);
+  font-weight: var(--font-weight-regular);
 }
 
 /* Italic emphasis (Filson Pro Italic) for publication names, artwork
@@ -35,6 +41,11 @@
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-snug);
   letter-spacing: var(--letter-spacing-tight);
+}
+/* Serif variant — style guide "H3 additional" (Young Serif at H3 size). */
+.fe-h3--serif {
+  font-family: var(--font-family-accent);
+  font-weight: var(--font-weight-regular);
 }
 .fe-body {
   font-size: var(--font-size-base);

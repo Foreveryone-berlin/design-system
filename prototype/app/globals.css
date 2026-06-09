@@ -73,6 +73,8 @@ summary:focus-visible,
   scroll-behavior: smooth;
   --font-family-heading: var(--font-outfit, "Outfit"), sans-serif;
   --font-family-body: var(--font-outfit, "Outfit"), sans-serif;
+  /* Accent serif: Young Serif stands in for the brand accent (style guide H1/H3 additional). */
+  --font-family-accent: var(--font-young-serif, "Young Serif"), serif;
   /* Calmer motion than default tokens (prototype-only) */
   --transition-fast: 220ms ease;
   --transition-base: 400ms ease;
