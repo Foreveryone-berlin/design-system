@@ -10,6 +10,22 @@
 
 **Labels:** **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**; append **(WIP)** only for incomplete work.
 
+## [0.15.0] - 2026-06-09
+
+- **Feat**: Add 50–900 numeric colour ramps for the five families to tokens; emit `--color-{family}-{step}` via `build-css.js`.
+- **Feat**: Label tokens-page ramp swatches with a legible step value (white on dark steps, charcoal on light).
+- **Feat**: Add `spacing-28` (112px) to complete the 8-point grid from 8px to 128px.
+- **Feat**: Ship brand line illustrations (flower, smiley, swirl, strategy, cloud, chess, vase) and a sketched headline-underline utility.
+- **Feat**: Add Upcoming Events (filter tabs + cards), a Partners strip, and a bilingual (EN/DE) EU-funding disclaimer pattern.
+- **Feat**: Add a button state matrix (default/hover/focused/disabled) on the components page.
+- **Feat**: Reorganise the prototype into Foundations, Components, Patterns, Guidelines, and Governance (rename `/tokens` to `/foundations`).
+- **Feat**: Redesign the OG/social card and README hero; add reusable `prototype/scripts/build-og-card.mjs`.
+- **Fix**: Render headlines single-charcoal and drop the orange two-tone; orange is decorative-only, matching the live site.
+- **Docs**: Document the category icon set, UI icons, and line-illustration doodles in `docs/visual-styles.md`.
+- **Chore**: Keep Young Serif print-only; remove the Motion token section from the prototype and docs.
+- **Chore**: Sync the favicon and header nav from foreveryone.berlin.
+- **Chore**: Bump `package.json` and `prototype/package.json` to `0.15.0`.
+
 ## [0.14.0] - 2026-06-04
 
 - **Perf**: Serve prototype raster images via `next/image` (avif/webp, sized to avoid CLS); inline SVGs stay raw `<img>`.

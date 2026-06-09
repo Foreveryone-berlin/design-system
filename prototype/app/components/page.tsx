@@ -46,6 +46,32 @@ export default function ComponentsPage() {
         </div>
       </section>
 
+      <section id="button-states" className="ds-section">
+        <h2 className="ds-section-title">Button states</h2>
+        <p className="ds-section-intro">
+          Default, hover, focused, and disabled per the style guide. Hover and
+          focus are shown statically here; they fire on real interaction.
+        </p>
+        <div className="ds-state-matrix">
+          <span className="ds-state-matrix__label">Default</span>
+          <button type="button" className="ds-btn ds-btn--primary">
+            Book Event
+          </button>
+          <span className="ds-state-matrix__label">Hover</span>
+          <button type="button" className="ds-btn ds-btn--primary is-hover">
+            Book Event
+          </button>
+          <span className="ds-state-matrix__label">Focused</span>
+          <button type="button" className="ds-btn ds-btn--primary is-focus">
+            Book Event
+          </button>
+          <span className="ds-state-matrix__label">Disabled</span>
+          <button type="button" className="ds-btn ds-btn--primary" disabled>
+            Book Event
+          </button>
+        </div>
+      </section>
+
       <section id="icon-buttons" className="ds-section">
         <h2 className="ds-section-title">Icon buttons &amp; Play button</h2>
         <p className="ds-intro" style={{ marginTop: 0 }}>
@@ -204,6 +230,49 @@ export default function ComponentsPage() {
             />
             <span>External link</span>
           </div>
+        </div>
+      </section>
+
+      <section id="illustrations" className="ds-section">
+        <h2 className="ds-section-title">Line illustrations</h2>
+        <p className="ds-section-intro">
+          Decorative hand-drawn doodles in brand orange: warmth, never
+          wayfinding. Use sparingly behind blobs and beside headings; the
+          sketched underline sits under a headline (see the home hero). Exact
+          artwork is maintained in Figma.
+        </p>
+        <div className="ds-icon-demo">
+          {[
+            ["flower.png", "Flower"],
+            ["cloud.svg", "Cloud"],
+            ["smiley.png", "Smiley"],
+            ["swirl.png", "Swirl"],
+            ["strategy.png", "Strategy"],
+            ["chess.svg", "Chess"],
+            ["vase.svg", "Vase"],
+          ].map(([file, label]) => (
+            <div className="ds-icon-item" key={file}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/illustrations/${file}`}
+                alt=""
+                width={48}
+                height={48}
+                aria-hidden="true"
+              />
+              <span>{label}</span>
+            </div>
+          ))}
+        </div>
+        <div style={{ marginTop: "var(--spacing-6)" }}>
+          <div className="fe-label">Headline underline</div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/illustrations/headline-underline.png"
+            alt=""
+            aria-hidden="true"
+            style={{ display: "block", width: "220px", height: "auto" }}
+          />
         </div>
       </section>
 

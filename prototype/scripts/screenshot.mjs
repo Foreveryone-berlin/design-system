@@ -10,9 +10,11 @@ const outRoot = path.join("test-results", "screenshots", OUT_DIR);
 
 const pages = [
   { name: "home", path: "/" },
-  { name: "tokens", path: "/tokens" },
+  { name: "foundations", path: "/foundations" },
   { name: "components", path: "/components" },
   { name: "patterns", path: "/patterns" },
+  { name: "guidelines", path: "/guidelines" },
+  { name: "governance", path: "/governance" },
 ];
 
 const viewports = [
