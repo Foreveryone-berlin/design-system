@@ -124,7 +124,7 @@ const colorCode = `/* Brand */
 
 const typographyCode = `/* Font Families */
 --font-family-heading: 'FilsonPro', sans-serif;  /* H1–H3, body, UI */
---font-family-accent: 'Young Serif', serif;      /* PRINT ONLY — not for digital */
+--font-family-accent: 'Young Serif', serif;      /* PRINT ONLY, not for digital */
 --font-family-body: 'FilsonPro', sans-serif;
 
 /* Font Weights */
@@ -215,7 +215,7 @@ export default function TokensPage() {
         <p className="ds-section-intro">
           Numeric tints (50–900) from the 2026 style guide. 500 is the brand
           &ldquo;main&rdquo; for orange, green, blue, and lavender; neutral 900
-          is Charcoal. Orange stays decorative — never a text background.
+          is Charcoal. Orange stays decorative, never a text background.
         </p>
         <div className="ds-ramps">
           {colorRamps.map(({ family, steps }) => (

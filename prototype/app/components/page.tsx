@@ -210,7 +210,7 @@ export default function ComponentsPage() {
       <section id="illustrations" className="ds-section">
         <h2 className="ds-section-title">Line illustrations</h2>
         <p className="ds-section-intro">
-          Decorative hand-drawn doodles in brand orange — warmth, never
+          Decorative hand-drawn doodles in brand orange: warmth, never
           wayfinding. Use sparingly behind blobs and beside headings; the
           sketched underline sits under a headline (see the home hero). Exact
           artwork is maintained in Figma.
@@ -222,6 +222,8 @@ export default function ComponentsPage() {
             ["smiley", "Smiley"],
             ["swirl", "Swirl"],
             ["sparkle", "Sparkle"],
+            ["chess", "Chess"],
+            ["vase", "Vase"],
           ].map(([file, label]) => (
             <div className="ds-icon-item" key={file}>
               {/* eslint-disable-next-line @next/next/no-img-element */}

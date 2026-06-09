@@ -8,23 +8,33 @@ interface NavItem {
   children?: { href: string; label: string }[];
 }
 
-// Matches the live foreveryone.berlin primary nav. About Us keeps a dropdown
-// to demonstrate the menu component.
+// Mirrors the live foreveryone.berlin primary nav (Elementor menu), including
+// the two dropdowns. "Book a Workshop" renders as the CTA below.
 const navLinks: NavItem[] = [
   { href: "#workshops", label: "Workshops" },
   {
-    href: "#about",
-    label: "About Us",
+    href: "#eu-projects",
+    label: "EU Projects",
     children: [
-      { href: "#foreveryone", label: "ForEveryone" },
-      { href: "#partnerships", label: "Partnerships" },
-      { href: "#volunteer", label: "Volunteer" },
+      { href: "#what-we-do", label: "What We Do" },
+      { href: "#toolbox", label: "Toolbox For Integration" },
+      { href: "#peer-support", label: "Peer Support & Resilience" },
+      { href: "#sheleads", label: "SheLeads" },
     ],
   },
-  { href: "#community-cafe", label: "Community Cafe" },
+  {
+    href: "#community",
+    label: "Community",
+    children: [
+      { href: "#about", label: "About Us" },
+      { href: "#partnerships", label: "Partnerships" },
+      { href: "#events", label: "Events" },
+      { href: "#volunteer", label: "Volunteer" },
+      { href: "#contact", label: "Contact" },
+    ],
+  },
+  { href: "#cafe", label: "Cafe" },
   { href: "#blog", label: "Blog" },
-  { href: "#support", label: "Support" },
-  { href: "#contact", label: "Contact" },
 ];
 
 export default function HeaderDemo() {
