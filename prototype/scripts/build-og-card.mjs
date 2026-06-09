@@ -53,16 +53,12 @@ function html({ w, h }) {
   .b-orng { width:${h*0.30}px; height:${h*0.30}px; right:${h*0.30}px; top:${h*0.30}px;
             background:${C.orange}; border-radius:60% 40% 47% 53% / 38% 58% 42% 62%; opacity:.92; }
   .content { position:absolute; inset:0; padding:${pad}px; display:flex; flex-direction:column; justify-content:center; }
-  .pill { align-self:flex-start; display:inline-flex; gap:.5em; align-items:center;
-          background:${C.lavender}; color:${C.charcoal}; font-weight:700; font-size:${subSize*0.7}px;
-          letter-spacing:.02em; padding:.5em 1em; border-radius:9999px; margin-bottom:${pad*0.32}px; }
-  .pill b { color:${C.charcoal}; }
   h1 { font-size:${titleSize}px; line-height:.84; letter-spacing:-0.03em; margin-bottom:${pad*0.28}px; }
   .sub { font-size:${subSize}px; font-weight:500; color:${C.neutral600}; margin-bottom:${pad*0.42}px; }
   .ramp { display:flex; gap:${w>=1500?14:12}px; margin-bottom:${pad*0.5}px; }
   .ramp span { width:${w>=1500?64:54}px; height:${w>=1500?64:54}px; border-radius:18px;
                box-shadow:0 4px 12px rgba(0,0,0,.08); }
-  .foot { position:absolute; left:${pad}px; bottom:${pad*0.7}px; height:${w>=1500?52:46}px; }
+  .foot { position:absolute; left:${pad}px; bottom:${pad*0.7}px; height:${w>=1500?38:34}px; }
   .foot img { height:100%; }
 </style></head>
 <body>
@@ -70,9 +66,8 @@ function html({ w, h }) {
   <div class="blob b-lime"></div>
   <div class="blob b-orng"></div>
   <div class="content">
-    <span class="pill">v1.0.0 &nbsp;·&nbsp; For Everyone Berlin</span>
     <h1>Design<br>System</h1>
-    <p class="sub">Design tokens, components &amp; patterns — one source of truth.</p>
+    <p class="sub">Design tokens, components &amp; patterns.</p>
     <div class="ramp">
       <span style="background:${C.lavender}"></span>
       <span style="background:${C.lime}"></span>

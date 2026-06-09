@@ -243,18 +243,18 @@ export default function ComponentsPage() {
         </p>
         <div className="ds-icon-demo">
           {[
-            ["flower", "Flower"],
-            ["cloud", "Cloud"],
-            ["smiley", "Smiley"],
-            ["swirl", "Swirl"],
-            ["sparkle", "Sparkle"],
-            ["chess", "Chess"],
-            ["vase", "Vase"],
+            ["flower.png", "Flower"],
+            ["cloud.svg", "Cloud"],
+            ["smiley.png", "Smiley"],
+            ["swirl.png", "Swirl"],
+            ["strategy.png", "Strategy"],
+            ["chess.svg", "Chess"],
+            ["vase.svg", "Vase"],
           ].map(([file, label]) => (
             <div className="ds-icon-item" key={file}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={`/illustrations/${file}.svg`}
+                src={`/illustrations/${file}`}
                 alt=""
                 width={48}
                 height={48}
@@ -268,7 +268,7 @@ export default function ComponentsPage() {
           <div className="fe-label">Headline underline</div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/illustrations/headline-underline.svg"
+            src="/illustrations/headline-underline.png"
             alt=""
             aria-hidden="true"
             style={{ display: "block", width: "220px", height: "auto" }}

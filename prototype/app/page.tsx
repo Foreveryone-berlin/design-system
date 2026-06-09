@@ -21,7 +21,7 @@ export default function Home() {
             {heroCopy.headline.split(" ").slice(1).join(" ")}
           </h1>
           <img
-            src="/illustrations/headline-underline.svg"
+            src="/illustrations/headline-underline.png"
             alt=""
             aria-hidden="true"
             className="ds-headline-underline"
