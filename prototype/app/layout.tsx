@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit, Young_Serif } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navigation from "./_components/Navigation";
 import MobileNav from "./_components/MobileNav";
@@ -10,15 +10,6 @@ const outfit = Outfit({
   weight: ["400", "500", "700", "900"],
   subsets: ["latin"],
   variable: "--font-outfit",
-  display: "swap",
-});
-
-// Young Serif stands in for the brand accent serif (style guide H1/H3 additional).
-// Single weight (400) is the only one published.
-const youngSerif = Young_Serif({
-  weight: ["400"],
-  subsets: ["latin"],
-  variable: "--font-young-serif",
   display: "swap",
 });
 
@@ -87,7 +78,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`ds-light-only ${outfit.variable} ${youngSerif.variable}`}
+      className={`ds-light-only ${outfit.variable}`}
       suppressHydrationWarning
     >
       <body suppressHydrationWarning>

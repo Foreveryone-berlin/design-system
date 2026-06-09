@@ -37,7 +37,7 @@ function html({ w, h }) {
   return `<!doctype html><html><head><meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;900&family=Young+Serif&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   html,body { width:${w}px; height:${h}px; }
@@ -58,7 +58,6 @@ function html({ w, h }) {
           letter-spacing:.02em; padding:.5em 1em; border-radius:9999px; margin-bottom:${pad*0.32}px; }
   .pill b { color:${C.charcoal}; }
   h1 { font-size:${titleSize}px; line-height:.84; letter-spacing:-0.03em; margin-bottom:${pad*0.28}px; }
-  h1 .serif { font-family:'Young Serif',serif; font-weight:400; letter-spacing:-0.01em; }
   .sub { font-size:${subSize}px; font-weight:500; color:${C.neutral600}; margin-bottom:${pad*0.42}px; }
   .ramp { display:flex; gap:${w>=1500?14:12}px; margin-bottom:${pad*0.5}px; }
   .ramp span { width:${w>=1500?64:54}px; height:${w>=1500?64:54}px; border-radius:18px;
@@ -72,7 +71,7 @@ function html({ w, h }) {
   <div class="blob b-orng"></div>
   <div class="content">
     <span class="pill">v1.0.0 &nbsp;·&nbsp; For Everyone Berlin</span>
-    <h1>Design<br><span class="serif">System</span></h1>
+    <h1>Design<br>System</h1>
     <p class="sub">Design tokens, components &amp; patterns — one source of truth.</p>
     <div class="ramp">
       <span style="background:${C.lavender}"></span>

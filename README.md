@@ -1,6 +1,6 @@
 # ForEveryone Berlin Design System
 
-![ForEveryone Design System card: a bold "Design System" headline (sans-serif "Design" over serif "System") on a warm-white ground with layered lavender, lime, and orange brand blobs, a v1.0.0 tag, a row of token colour swatches, and the For Everyone wordmark.](prototype/public/images/readme-hero.jpg)
+![ForEveryone Design System card: a bold "Design System" headline on a warm-white ground with layered lavender, lime, and orange brand blobs, a v1.0.0 tag, a row of token colour swatches, and the For Everyone wordmark.](prototype/public/images/readme-hero.jpg)
 
 Token-driven design system for [foreveryone.berlin](https://foreveryone.berlin/), an open, inclusive community space in Berlin. Design tokens, generated CSS, and a Next.js prototype that pulls it all together.
 
