@@ -6,9 +6,11 @@ import Link from "next/link";
 
 const navSections = [
   { href: "/", label: "Overview" },
-  { href: "/tokens", label: "Tokens" },
+  { href: "/foundations", label: "Foundations" },
   { href: "/components", label: "Components" },
   { href: "/patterns", label: "Patterns" },
+  { href: "/guidelines", label: "Guidelines" },
+  { href: "/governance", label: "Governance" },
 ];
 
 export default function MobileNav() {

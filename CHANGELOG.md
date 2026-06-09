@@ -15,7 +15,10 @@
 - **Feat**: Add 50–900 numeric colour ramps for the five families to tokens; emit `--color-{family}-{step}` via `build-css.js`.
 - **Feat**: Label tokens-page ramp swatches with a legible step value (white on dark steps, charcoal on light).
 - **Feat**: Add `spacing-28` (112px) to complete the 8-point grid from 8px to 128px.
-- **Feat**: Ship brand line illustrations (flower, headline underline, swirl, sprout, coffee-heart) and a headline-underline utility.
+- **Feat**: Ship brand line illustrations (flower, cloud, smiley, swirl, sparkle, chess, vase) and a sketched headline-underline utility.
+- **Feat**: Add Upcoming Events (filter tabs + cards), a Partners strip, and a bilingual (EN/DE) EU-funding disclaimer pattern.
+- **Feat**: Add a button state matrix (default/hover/focused/disabled) on the components page.
+- **Feat**: Reorganise the prototype into Foundations, Components, Patterns, Guidelines, and Governance (rename `/tokens` to `/foundations`).
 - **Feat**: Redesign the OG/social card and README hero; add reusable `prototype/scripts/build-og-card.mjs`.
 - **Fix**: Render headlines single-charcoal and drop the orange two-tone; orange is decorative-only, matching the live site.
 - **Docs**: Document the category icon set, UI icons, and line-illustration doodles in `docs/visual-styles.md`.

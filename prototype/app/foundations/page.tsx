@@ -184,14 +184,11 @@ const radiusShadowCode = `/* Border Radius */
 export default function TokensPage() {
   return (
     <>
-      <h1 className="ds-hero-title">
-        Design
-        <br />
-        Tokens
-      </h1>
+      <h1 className="ds-page-title">Foundations</h1>
       <p className="ds-intro">
-        Design tokens define the visual language — colors, typography, spacing,
-        radius, and shadows. All values are exposed as CSS custom properties.
+        The visual base of the system: colour, typography, spacing, radius, and
+        shadows, defined as design tokens and exposed as CSS custom properties.
+        Iconography and illustrations live under Components.
       </p>
 
       <section id="colors" className="ds-section">
