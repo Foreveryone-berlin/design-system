@@ -64,13 +64,15 @@ export default function Home() {
       <section className="ds-section">
         <h2 className="ds-section-title">Explore the system</h2>
         <div className="ds-overview-grid">
-          <Link href="/tokens" className="ds-overview-card">
-            <h3 className="ds-overview-card__title">Tokens</h3>
+          <Link href="/foundations" className="ds-overview-card">
+            <h3 className="ds-overview-card__title">Foundations</h3>
             <p className="ds-overview-card__desc">
-              Colors, typography, spacing, radius, and shadows — the visual
-              foundation.
+              Colour, typography, spacing, radius, and shadows: the visual
+              foundation, as design tokens.
             </p>
-            <span className="ds-overview-card__link">View tokens &rarr;</span>
+            <span className="ds-overview-card__link">
+              View foundations &rarr;
+            </span>
           </Link>
           <Link href="/components" className="ds-overview-card">
             <h3 className="ds-overview-card__title">Components</h3>
@@ -85,10 +87,26 @@ export default function Home() {
           <Link href="/patterns" className="ds-overview-card">
             <h3 className="ds-overview-card__title">Patterns</h3>
             <p className="ds-overview-card__desc">
-              Header, footer, workshop cards, and composite layouts that combine
-              tokens and components.
+              Header, footer, workshop cards, events, and composite layouts that
+              combine tokens and components.
             </p>
             <span className="ds-overview-card__link">View patterns &rarr;</span>
+          </Link>
+          <Link href="/guidelines" className="ds-overview-card">
+            <h3 className="ds-overview-card__title">Guidelines</h3>
+            <p className="ds-overview-card__desc">
+              Voice, content, and usage rules: how to combine colour, type, and
+              illustration on-brand.
+            </p>
+            <span className="ds-overview-card__link">View guidelines &rarr;</span>
+          </Link>
+          <Link href="/governance" className="ds-overview-card">
+            <h3 className="ds-overview-card__title">Governance</h3>
+            <p className="ds-overview-card__desc">
+              Versioning, contribution, and the changelog: how the system
+              evolves and stays consistent.
+            </p>
+            <span className="ds-overview-card__link">View governance &rarr;</span>
           </Link>
         </div>
       </section>
