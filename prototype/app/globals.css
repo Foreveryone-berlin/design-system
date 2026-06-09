@@ -357,6 +357,14 @@ summary:focus-visible,
   font-size: clamp(1.75rem, 4vw + 1rem, 2.75rem);
 }
 
+/* Sketched brand underline tucked under a headline (see SheLeads). */
+.ds-headline-underline {
+  display: block;
+  width: min(340px, 72%);
+  height: auto;
+  margin: calc(-1 * var(--spacing-6)) 0 var(--spacing-4);
+}
+
 .ds-hero-with-image .ds-intro {
   font-size: var(--font-size-xl);
 }
