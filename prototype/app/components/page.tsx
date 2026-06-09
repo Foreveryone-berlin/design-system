@@ -207,6 +207,47 @@ export default function ComponentsPage() {
         </div>
       </section>
 
+      <section id="illustrations" className="ds-section">
+        <h2 className="ds-section-title">Line illustrations</h2>
+        <p className="ds-section-intro">
+          Decorative hand-drawn doodles in brand orange — warmth, never
+          wayfinding. Use sparingly behind blobs and beside headings; the
+          sketched underline sits under a headline (see the home hero). Exact
+          artwork is maintained in Figma.
+        </p>
+        <div className="ds-icon-demo">
+          {[
+            ["flower", "Flower"],
+            ["cloud", "Cloud"],
+            ["smiley", "Smiley"],
+            ["swirl", "Swirl"],
+            ["sparkle", "Sparkle"],
+          ].map(([file, label]) => (
+            <div className="ds-icon-item" key={file}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/illustrations/${file}.svg`}
+                alt=""
+                width={48}
+                height={48}
+                aria-hidden="true"
+              />
+              <span>{label}</span>
+            </div>
+          ))}
+        </div>
+        <div style={{ marginTop: "var(--spacing-6)" }}>
+          <div className="fe-label">Headline underline</div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/illustrations/headline-underline.svg"
+            alt=""
+            aria-hidden="true"
+            style={{ display: "block", width: "220px", height: "auto" }}
+          />
+        </div>
+      </section>
+
       <section id="forms" className="ds-section">
         <h2 className="ds-section-title">Form elements &amp; input states</h2>
         <div

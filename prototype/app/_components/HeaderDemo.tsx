@@ -8,17 +8,10 @@ interface NavItem {
   children?: { href: string; label: string }[];
 }
 
+// Matches the live foreveryone.berlin primary nav. About Us keeps a dropdown
+// to demonstrate the menu component.
 const navLinks: NavItem[] = [
   { href: "#workshops", label: "Workshops" },
-  {
-    href: "#eu-projects",
-    label: "EU Projects",
-    children: [
-      { href: "#what-we-do", label: "What We Do" },
-      { href: "#toolbox", label: "Toolbox For Integration" },
-      { href: "#peer-support", label: "Peer Support & Resilience" },
-    ],
-  },
   {
     href: "#about",
     label: "About Us",
@@ -28,8 +21,9 @@ const navLinks: NavItem[] = [
       { href: "#volunteer", label: "Volunteer" },
     ],
   },
-  { href: "#cafe", label: "Cafe" },
+  { href: "#community-cafe", label: "Community Cafe" },
   { href: "#blog", label: "Blog" },
+  { href: "#support", label: "Support" },
   { href: "#contact", label: "Contact" },
 ];
 
