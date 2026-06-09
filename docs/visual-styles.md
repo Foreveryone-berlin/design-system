@@ -36,7 +36,7 @@ Beyond categories, the system uses a small set of UI glyphs (seen in the brand g
 
 - **Role:** Decorative “doodle” marks — warmth, hand-drawn personality (e.g. the orange flower beside *Our Impact* and the sketched underline beneath the *SheLeads* / home headline).
 - **Colour:** Drawn in **brand orange** (decorative use), matching the filled-illustration family; do not recolour to blue.
-- **Shipped set** in `prototype/public/illustrations/`: stroke doodles `flower.svg`, `cloud.svg`, `smiley.svg`, `swirl.svg`, `sparkle.svg`; filled `chess.svg`, `vase.svg`; and `headline-underline.svg`. These are stylistic recreations; the **exact brand artwork lives in Figma** and should replace/extend these on export.
+- **Shipped set** in `prototype/public/illustrations/`: brand artwork `flower.png`, `smiley.png`, `swirl.png`, `strategy.png`, and `headline-underline.png` (exported from Figma); plus placeholder `cloud.svg`, `chess.svg`, `vase.svg` recreations. Figma remains the source of truth for any new or updated artwork.
 - **Headline underline:** place `headline-underline.svg` under a heading (see `.ds-headline-underline` on the home hero) for the brand’s sketched-underline accent.
 - **Usage:** Supporting hero sections, empty states, editorial blocks — avoid competing with primary CTAs; pair with blob shapes rather than stacking on busy imagery.
 
