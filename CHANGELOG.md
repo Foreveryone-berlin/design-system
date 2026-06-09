@@ -10,6 +10,11 @@
 
 **Labels:** **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**; append **(WIP)** only for incomplete work.
 
+## [1.0.0] - Unreleased
+
+- **Feat**: Add full numeric colour ramps (50–900) for Neutral, Orange, Green, Blue, and Lavender to `tokens/colors.json`, matching the 2026 style guide; emit `--color-{family}-{step}` variables via `build-css.js`.
+- **Feat**: Add `spacing-28` (112px) to complete the 8-point spacing grid from 8px to 128px.
+
 ## [0.14.0] - 2026-06-04
 
 - **Perf**: Serve prototype raster images via `next/image` (avif/webp, sized to avoid CLS); inline SVGs stay raw `<img>`.
