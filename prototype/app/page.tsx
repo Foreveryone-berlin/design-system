@@ -18,9 +18,7 @@ export default function Home() {
           <h1 className="ds-hero-title">
             {heroCopy.headline.split(" ")[0]}
             <br />
-            <span className="ds-hero-accent">
-              {heroCopy.headline.split(" ").slice(1).join(" ")}
-            </span>
+            {heroCopy.headline.split(" ").slice(1).join(" ")}
           </h1>
           <span className="ds-hero-version">v{version}</span>
           <p className="ds-intro">{heroCopy.tagline}</p>
@@ -63,8 +61,8 @@ export default function Home() {
           <Link href="/tokens" className="ds-overview-card">
             <h3 className="ds-overview-card__title">Tokens</h3>
             <p className="ds-overview-card__desc">
-              Colors, typography, spacing, radius, shadows, and motion — the
-              visual foundation.
+              Colors, typography, spacing, radius, and shadows — the visual
+              foundation.
             </p>
             <span className="ds-overview-card__link">View tokens &rarr;</span>
           </Link>
