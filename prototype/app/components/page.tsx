@@ -46,6 +46,32 @@ export default function ComponentsPage() {
         </div>
       </section>
 
+      <section id="button-states" className="ds-section">
+        <h2 className="ds-section-title">Button states</h2>
+        <p className="ds-section-intro">
+          Default, hover, focused, and disabled per the style guide. Hover and
+          focus are shown statically here; they fire on real interaction.
+        </p>
+        <div className="ds-state-matrix">
+          <span className="ds-state-matrix__label">Default</span>
+          <button type="button" className="ds-btn ds-btn--primary">
+            Book Event
+          </button>
+          <span className="ds-state-matrix__label">Hover</span>
+          <button type="button" className="ds-btn ds-btn--primary is-hover">
+            Book Event
+          </button>
+          <span className="ds-state-matrix__label">Focused</span>
+          <button type="button" className="ds-btn ds-btn--primary is-focus">
+            Book Event
+          </button>
+          <span className="ds-state-matrix__label">Disabled</span>
+          <button type="button" className="ds-btn ds-btn--primary" disabled>
+            Book Event
+          </button>
+        </div>
+      </section>
+
       <section id="icon-buttons" className="ds-section">
         <h2 className="ds-section-title">Icon buttons &amp; Play button</h2>
         <p className="ds-intro" style={{ marginTop: 0 }}>
