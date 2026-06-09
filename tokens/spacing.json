@@ -16,6 +16,7 @@
     "18": { "$value": "4.5rem", "$type": "dimension", "$description": "72px" },
     "22": { "$value": "5.5rem", "$type": "dimension", "$description": "88px" },
     "26": { "$value": "6.5rem", "$type": "dimension", "$description": "104px" },
+    "28": { "$value": "7rem", "$type": "dimension", "$description": "112px" },
     "30": { "$value": "7.5rem", "$type": "dimension", "$description": "120px" },
     "32": { "$value": "8rem", "$type": "dimension", "$description": "128px" }
   }
