@@ -20,8 +20,8 @@ export const mission = {
 } as const;
 
 export const stats = [
-  { label: "Color tokens", value: "24" },
-  { label: "Spacing scale", value: "8" },
+  { label: "Color tokens", value: "80+" },
+  { label: "Spacing scale", value: "8pt" },
   { label: "Components", value: "12+" },
   { label: "Motion presets", value: "3" },
 ] as const;
