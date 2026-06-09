@@ -2,15 +2,43 @@
 
 Brand guide summary for **ForEveryone Berlin** (iconography, blobs, photography). **Figma** remains the visual source of truth; this page ties brand rules to tokens and CSS utilities. See also [color-audit-2026.md](color-audit-2026.md) for hex roles and approved background ⇄ text combinations, and [logo-usage.md](logo-usage.md) for logo safe-zone, minimum sizes, and the white-on-orange exception.
 
-**Category icon set (filled, orange + white glyph)** ships in `prototype/public/icons/categories/`: `painting.svg`, `pottery.svg`, `wellness.svg`, `language.svg`. Use them via the `CategoryIcon` React component inside `.fe-card-category__icon` so the orange (`var(--color-accent-icon)`) and white-glyph styling stays consistent. Add new categories by dropping an SVG (stroke="currentColor", 24×24 viewBox) into the same folder and extending `CategoryIcon`.
+**Category icon set (filled, orange + white glyph)** ships in `prototype/public/icons/categories/` and renders via the `CategoryIcon` React component inside `.fe-card-category__icon`, keeping the orange (`var(--color-accent-icon)`) + white-glyph styling consistent. Add a category by dropping an SVG (stroke="currentColor", 24×24 viewBox) into the folder and extending `CategoryIcon`.
 
 ## Iconography and illustration
 
-### Line illustrations
+### Category icons (canonical set)
 
-- **Role:** Decorative “doodle” marks — warmth, hand-drawn personality.
-- **Execution:** Typically stroke-based SVGs or exported assets; not tied to Global Color slots unless you intentionally tint them.
-- **Usage:** Supporting hero sections, empty states, editorial blocks — avoid competing with primary CTAs.
+Per the 2026 style guide, workshop categories use a fixed, filled, orange icon set. Each icon has interaction states on the category tag/label control: **Default · Hover · Active · Focused · Disabled**.
+
+| Category | Tag label | Status |
+|----------|-----------|--------|
+| Balance and Wellness | `Balance and Wellness` | canonical (style guide) |
+| Movement | `Movement` | canonical (style guide) |
+| Arts and Crafts | `Arts and Crafts` | canonical (style guide) |
+| Expression | `Expression` | canonical (style guide) |
+| Music | `Music` | canonical (style guide) |
+
+**Gap to close before/at 1.0.0:** the prototype currently ships a legacy subset — `painting.svg`, `pottery.svg`, `wellness.svg`, `language.svg` — and `CategoryIcon` only maps those four. Align the asset filenames and the `CategoryIconName` union to the five canonical categories above (e.g. `balance-wellness`, `movement`, `arts-crafts`, `expression`, `music`); keep legacy names only as aliases if live content still references them.
+
+### UI / functional icons
+
+Beyond categories, the system uses a small set of UI glyphs (seen in the brand guidelines and style guide). Document and ship these as `currentColor` SVGs so they inherit control colour:
+
+| Icon | Where | Asset / class |
+|------|-------|----------------|
+| Icon button (states: default/hover/focused/disabled) | quiet actions, social | `.fe-icon-btn` (+ `--filled-brand` for always-on orange) |
+| Play button | media/video affordances | filled orange circle + white triangle glyph |
+| Dropdown chevron | nav dropdowns, selects, FAQ accordions | inline chevron SVG, rotates on open |
+| Arrow (right) | "Book Now" / "Explore all" CTAs | `arrow-right.svg` |
+| External link | outbound links | `external-link.svg` |
+
+### Line illustrations (doodles)
+
+- **Role:** Decorative “doodle” marks — warmth, hand-drawn personality (e.g. the orange flower beside *Our Impact* and the sketched underline beneath the *SheLeads* / home headline).
+- **Colour:** Drawn in **brand orange** (decorative use), matching the filled-illustration family; do not recolour to blue.
+- **Shipped set** in `prototype/public/illustrations/`: brand artwork `flower.png`, `smiley.png`, `swirl.png`, `strategy.png`, and `headline-underline.png` (exported from Figma); plus placeholder `cloud.svg`, `chess.svg`, `vase.svg` recreations. Figma remains the source of truth for any new or updated artwork.
+- **Headline underline:** place `headline-underline.svg` under a heading (see `.ds-headline-underline` on the home hero) for the brand’s sketched-underline accent.
+- **Usage:** Supporting hero sections, empty states, editorial blocks — avoid competing with primary CTAs; pair with blob shapes rather than stacking on busy imagery.
 
 ### Filled icons (functional)
 

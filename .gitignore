@@ -19,6 +19,7 @@ CLAUDE.local.md
 
 .vercel
 
-# Brand guideline reference PDFs (not source-of-truth, kept locally only)
-*_Brand_Guidelines.pdf
-2026_Quick_Brand_Guidelines.pdf
+# Local design references (Figma is source of truth; not tracked)
+*.pdf
+*Screenshot*.png
+*_Screenshot*.png

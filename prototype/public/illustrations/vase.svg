@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="#FF7A3A" role="img" aria-label="Vase and pottery illustration">
+  <!-- Vase -->
+  <path d="M44 26c2 8-2 12-6 18-5 8-6 18-1 27 4 7 13 11 23 11s19-4 23-11c5-9 4-19-1-27-4-6-8-10-6-18z" />
+  <path d="M44 26c4 5 28 5 32 0 1-4-3-7-16-7s-17 3-16 7z" />
+  <!-- Loose shard / lid piece -->
+  <path d="M84 30l16-6 5 13-16 6z" transform="rotate(18 92 32)"/>
+  <!-- Small base shadow chip -->
+  <path d="M30 96c10 5 50 5 60 0l-6 8c-14 4-34 4-48 0z"/>
+</svg>

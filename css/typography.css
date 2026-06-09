@@ -7,13 +7,6 @@
   letter-spacing: var(--letter-spacing-tight);
   color: var(--color-theme-2);
 }
-/* Accent heading: brand-orange tint on the primary heading family.
-   Note: --font-family-accent (Young Serif) is PRINT-ONLY per 2026 brand
-   guide and must not be applied to digital surfaces. Keep this class on
-   the heading family; use a print stylesheet to swap families. */
-.fe-h1--accent {
-  color: var(--color-brand-primary);
-}
 
 /* Italic emphasis (Filson Pro Italic) for publication names, artwork
    titles, and emphasised phrases. Use sparingly. */

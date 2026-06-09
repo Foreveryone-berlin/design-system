@@ -121,6 +121,126 @@ export default function PatternsPage() {
         </div>
       </section>
 
+      <section id="events" className="ds-section">
+        <h2 className="ds-section-title">Upcoming events</h2>
+        <div className="fe-event-tabs" role="tablist" aria-label="Filter events">
+          {["This Week", "This Month", "Next Month", "Choose Date"].map(
+            (tab, i) => (
+              <button
+                key={tab}
+                type="button"
+                role="tab"
+                aria-selected={i === 0}
+                className={`fe-event-tab${i === 0 ? " is-active" : ""}`}
+              >
+                {tab}
+              </button>
+            ),
+          )}
+        </div>
+        <div className="ds-events-grid">
+          {[0, 1, 2].map((n) => (
+            <div className="fe-card" key={n}>
+              <div className="fe-card__media">
+                <Image
+                  src="/images/workshop-group.jpg"
+                  alt="Community members at a For Everyone workshop"
+                  width={360}
+                  height={200}
+                  sizes="(max-width: 768px) 100vw, 320px"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+                <span className="fe-card-badge">2 free spots</span>
+                <span className="fe-card-category">
+                  <span className="fe-card-category__icon" aria-hidden="true">
+                    <CategoryIcon name="wellness" />
+                  </span>
+                  Balance and Wellness
+                </span>
+              </div>
+              <div className="fe-card__body">
+                <div className="fe-card-meta">
+                  <span aria-hidden="true">&#x1F550;</span> Sunday, Sept 15
+                  &middot; 14:00–17:00
+                </div>
+                <h3 className="fe-h3" style={{ margin: "0 0 var(--spacing-2)" }}>
+                  Fluentbody: A Somatic Movement Workshop
+                </h3>
+                <p
+                  className="fe-body"
+                  style={{
+                    margin: 0,
+                    fontSize: "var(--font-size-sm)",
+                    color: "var(--color-brand-dark)",
+                  }}
+                >
+                  A hands-on, welcoming workshop for all levels. No experience
+                  needed.
+                </p>
+                <div className="fe-card-price">
+                  <a href="#join" className="fe-btn-primary">
+                    Join For Free &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div style={{ marginTop: "var(--spacing-6)", textAlign: "center" }}>
+          <a href="#all-events" className="ds-btn ds-btn--secondary">
+            Explore all events
+          </a>
+        </div>
+      </section>
+
+      <section id="partners" className="ds-section">
+        <h2 className="ds-section-title">Our partners</h2>
+        <p className="ds-section-intro">
+          SheLeads is coordinated by For Everyone (W4E) in Berlin and
+          implemented with partners across Italy, Bulgaria, Poland, and Greece.
+        </p>
+        <div className="fe-partners">
+          {["W4E Berlin", "Italy", "Bulgaria", "Poland", "Greece"].map((p) => (
+            <div className="fe-partner-logo" key={p}>
+              {p}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="eu-disclaimer" className="ds-section">
+        <h2 className="ds-section-title">EU funding disclaimer (bilingual)</h2>
+        <div className="fe-eu-disclaimer">
+          <div className="fe-eu-disclaimer__flag" aria-hidden="true">
+            <span className="fe-eu-stars">&#x2605;</span> Co-funded by the
+            European Union
+          </div>
+          <div className="fe-eu-disclaimer__cols">
+            <div>
+              <p className="fe-eu-disclaimer__title">Disclaimer</p>
+              <p className="fe-body">
+                Funded by the European Union. Views and opinions expressed are
+                however those of the author(s) only and do not necessarily
+                reflect those of the European Union or the European Education
+                and Culture Executive Agency (EACEA). Neither the European Union
+                nor EACEA can be held responsible for them.
+              </p>
+            </div>
+            <div lang="de">
+              <p className="fe-eu-disclaimer__title">Haftungsausschluss</p>
+              <p className="fe-body">
+                Von der Europäischen Union finanziert. Die geäußerten Ansichten
+                und Meinungen entsprechen jedoch ausschließlich denen des Autors
+                bzw. der Autoren und spiegeln nicht zwingend die der
+                Europäischen Union oder der Europäischen Exekutivagentur für
+                Bildung und Kultur (EACEA) wider. Weder die Europäische Union
+                noch die EACEA können dafür verantwortlich gemacht werden.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="benefit-cards" className="ds-section">
         <h2 className="ds-section-title">Card benefit &amp; get involved</h2>
         <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-4)" }}>

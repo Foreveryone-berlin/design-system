@@ -92,6 +92,14 @@ const SEMANTIC_COLOR_KEYS = [
   "accent-border",
 ];
 
+const COLOR_RAMPS = {
+  neutral: ["50", "100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  orange: ["50", "100", "150", "200", "300", "400", "500", "600", "700", "800", "900"],
+  green: ["50", "100", "150", "200", "300", "400", "500", "600", "700", "800", "900"],
+  blue: ["50", "100", "150", "200", "300", "400", "500", "600", "700", "800", "900"],
+  lavender: ["50", "100", "150", "200", "300", "400", "500", "600", "700", "800", "900"],
+};
+
 const SPACING_KEYS = [
   "1",
   "2",
@@ -109,6 +117,7 @@ const SPACING_KEYS = [
   "22",
   "24",
   "26",
+  "28",
   "30",
   "32",
 ];
@@ -122,6 +131,18 @@ function buildCss(tokens) {
   const semanticColorCss = SEMANTIC_COLOR_KEYS.map(
     (key) => `  --color-${key}: ${getTokenValue(tokens, `color.${key}`)};`,
   ).join("\n");
+
+  const rampCss = Object.entries(COLOR_RAMPS)
+    .map(([family, steps]) => {
+      const lines = steps
+        .map(
+          (step) =>
+            `  --color-${family}-${step}: ${getTokenValue(tokens, `color.${family}.${step}`)};`,
+        )
+        .join("\n");
+      return `  /* ${family} */\n${lines}`;
+    })
+    .join("\n\n");
 
   const spacingCss = SPACING_KEYS.map(
     (key) => `  --spacing-${key}: ${getTokenValue(tokens, `spacing.${key}`)};`,
@@ -151,6 +172,12 @@ ${semanticColorCss}
   /* ── Colors: Base ────────────────────────────────────────────────────── */
   --color-white: ${getTokenValue(tokens, "color.base.white")};
   --color-black: ${getTokenValue(tokens, "color.base.black")};
+
+  /* ── Colors: Ramps (2026 style guide, 50–900) ───────────────────────── */
+  /* Numeric tints for prototype/web surfaces. 500 = brand "main" for       */
+  /* orange/green/blue/lavender; neutral 900 = Charcoal. Orange stays        */
+  /* DECORATIVE ONLY — never a text background.                              */
+${rampCss}
 
   /* ── Typography: Font Families ───────────────────────────────────────── */
   --font-family-heading: ${getTokenValue(tokens, "font.family.heading")};
