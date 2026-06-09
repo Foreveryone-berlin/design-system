@@ -28,6 +28,34 @@ const colorSwatches = [
   { token: "black", var: "var(--color-black)" },
 ];
 
+const rampHex: Record<string, Record<string, string>> = {
+  neutral: { "50": "#FAFAFA", "100": "#F5F5F5", "200": "#E5E5E5", "300": "#D4D4D4", "400": "#A3A3A3", "500": "#737373", "600": "#525252", "700": "#404040", "800": "#262626", "900": "#1E1E1E" },
+  orange: { "50": "#FFF2EB", "100": "#FFE4D8", "150": "#FFD7C4", "200": "#FFCAB0", "300": "#FFAF89", "400": "#FF9561", "500": "#FF7A3A", "600": "#CC622E", "700": "#994923", "800": "#663117", "900": "#33180C" },
+  green: { "50": "#FBFCF6", "100": "#F6FAEE", "150": "#F2F7E5", "200": "#EEF5DC", "300": "#E5F0CB", "400": "#DDEBB9", "500": "#D4E6A8", "600": "#AAB886", "700": "#7F8A65", "800": "#555C43", "900": "#2A2E22" },
+  blue: { "50": "#ECE5FD", "100": "#D9CCFB", "150": "#C5B2F9", "200": "#B299F7", "300": "#8C66F3", "400": "#6533EF", "500": "#3F00EB", "600": "#3200BC", "700": "#26008D", "800": "#19005E", "900": "#0D002F" },
+  lavender: { "50": "#FBF9FF", "100": "#F7F3FF", "150": "#F2EEFF", "200": "#EEE8FF", "300": "#E6DCFF", "400": "#DDD1FF", "500": "#D5C5FF", "600": "#AA9ECC", "700": "#807699", "800": "#554F66", "900": "#2B2733" },
+};
+
+// Pick a legible step label: white on dark swatches, charcoal on light ones.
+function labelColor(hex: string): string {
+  const toLin = (c: number) =>
+    c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+  const r = toLin(parseInt(hex.slice(1, 3), 16) / 255);
+  const g = toLin(parseInt(hex.slice(3, 5), 16) / 255);
+  const b = toLin(parseInt(hex.slice(5, 7), 16) / 255);
+  const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  return luminance < 0.35 ? "#FFFFFF" : "#1E1E1E";
+}
+
+const colorRamps = Object.entries(rampHex).map(([family, steps]) => ({
+  family,
+  steps: Object.entries(steps).map(([step, hex]) => ({
+    step,
+    var: `var(--color-${family}-${step})`,
+    label: labelColor(hex),
+  })),
+}));
+
 const spacingScale = [
   { name: "1", var: "var(--spacing-1)" },
   { name: "2", var: "var(--spacing-2)" },
@@ -95,8 +123,8 @@ const colorCode = `/* Brand */
 --color-black: #0A0A0A;`;
 
 const typographyCode = `/* Font Families */
---font-family-heading: 'FilsonPro', sans-serif;
---font-family-accent: 'Young Serif', serif;
+--font-family-heading: 'FilsonPro', sans-serif;  /* H1–H3, body, UI */
+--font-family-accent: 'Young Serif', serif;      /* PRINT ONLY, not for digital */
 --font-family-body: 'FilsonPro', sans-serif;
 
 /* Font Weights */
@@ -153,23 +181,14 @@ const radiusShadowCode = `/* Border Radius */
 --shadow-card: 0 2px 8px rgba(0,0,0,0.08);
 --shadow-header: 0 2px 12px rgba(0,0,0,0.1);`;
 
-const motionCode = `/* Motion / Transitions */
---transition-fast: 150ms ease;
---transition-base: 250ms ease;
---transition-slow: 400ms ease;`;
-
 export default function TokensPage() {
   return (
     <>
-      <h1 className="ds-hero-title">
-        Design
-        <br />
-        <span className="ds-hero-accent">Tokens</span>
-      </h1>
+      <h1 className="ds-page-title">Foundations</h1>
       <p className="ds-intro">
-        Design tokens define the visual language — colors, typography, spacing,
-        radius, shadows, and motion. All values are exposed as CSS custom
-        properties.
+        The visual base of the system: colour, typography, spacing, radius, and
+        shadows, defined as design tokens and exposed as CSS custom properties.
+        Iconography and illustrations live under Components.
       </p>
 
       <section id="colors" className="ds-section">
@@ -186,6 +205,36 @@ export default function TokensPage() {
           ))}
         </div>
         <CodeBlock code={colorCode} />
+      </section>
+
+      <section id="color-ramps" className="ds-section">
+        <h2 className="ds-section-title">Color ramps</h2>
+        <p className="ds-section-intro">
+          Numeric tints (50–900) from the 2026 style guide. 500 is the brand
+          &ldquo;main&rdquo; for orange, green, blue, and lavender; neutral 900
+          is Charcoal. Orange stays decorative, never a text background.
+        </p>
+        <div className="ds-ramps">
+          {colorRamps.map(({ family, steps }) => (
+            <div key={family} className="ds-ramp">
+              <div className="ds-ramp-name">{family}</div>
+              <div className="ds-ramp-row">
+                {steps.map(({ step, var: cssVar, label }) => (
+                  <div
+                    key={step}
+                    className="ds-ramp-swatch"
+                    style={{ backgroundColor: cssVar }}
+                    title={`--color-${family}-${step}`}
+                  >
+                    <span className="ds-ramp-step" style={{ color: label }}>
+                      {step}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section id="color-combinations" className="ds-section">
@@ -359,17 +408,6 @@ export default function TokensPage() {
           ))}
         </div>
         <CodeBlock code={radiusShadowCode} />
-      </section>
-
-      <section id="motion" className="ds-section">
-        <h2 className="ds-section-title">Motion</h2>
-        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
-          Transitions: <code>--transition-fast</code> (150ms),{" "}
-          <code>--transition-base</code> (250ms), <code>--transition-slow</code>{" "}
-          (400ms). Hover the card:
-        </p>
-        <div className="ds-motion-demo-card">Hover me</div>
-        <CodeBlock code={motionCode} />
       </section>
     </>
   );

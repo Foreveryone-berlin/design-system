@@ -36,6 +36,75 @@
     "base": {
       "white": { "$value": "#FFFFFF", "$type": "color", "$description": "Base white" },
       "black": { "$value": "#0A0A0A", "$type": "color", "$description": "Base black" }
+    },
+
+    "neutral": {
+      "50":  { "$value": "#FAFAFA", "$type": "color", "$description": "Neutral 50 — lightest surface tint (2026 style guide ramp)." },
+      "100": { "$value": "#F5F5F5", "$type": "color", "$description": "Neutral 100 — light surface; aligns with theme-5." },
+      "200": { "$value": "#E5E5E5", "$type": "color", "$description": "Neutral 200 — border/divider; aligns with theme-7." },
+      "300": { "$value": "#D4D4D4", "$type": "color", "$description": "Neutral 300 — subtle border / disabled surface." },
+      "400": { "$value": "#A3A3A3", "$type": "color", "$description": "Neutral 400 — muted/placeholder text on light." },
+      "500": { "$value": "#737373", "$type": "color", "$description": "Neutral 500 — secondary text." },
+      "600": { "$value": "#525252", "$type": "color", "$description": "Neutral 600 — mid UI text." },
+      "700": { "$value": "#404040", "$type": "color", "$description": "Neutral 700 — strong UI text." },
+      "800": { "$value": "#262626", "$type": "color", "$description": "Neutral 800 — near-charcoal." },
+      "900": { "$value": "#1E1E1E", "$type": "color", "$description": "Neutral 900 (Neutral_main) — Charcoal, primary text on light backgrounds." }
+    },
+
+    "orange": {
+      "50":  { "$value": "#FFF2EB", "$type": "color", "$description": "Orange 50 — softest peach tint (decorative)." },
+      "100": { "$value": "#FFE4D8", "$type": "color", "$description": "Orange 100 — soft CTA/hover tint." },
+      "150": { "$value": "#FFD7C4", "$type": "color", "$description": "Orange 150 — light orange surface; aligns with light-orange." },
+      "200": { "$value": "#FFCAB0", "$type": "color", "$description": "Orange 200 — light decorative tint." },
+      "300": { "$value": "#FFAF89", "$type": "color", "$description": "Orange 300 (Peach) — warm accent; aligns with status.warning." },
+      "400": { "$value": "#FF9561", "$type": "color", "$description": "Orange 400 — mid decorative orange." },
+      "500": { "$value": "#FF7A3A", "$type": "color", "$description": "Orange 500 (Orange_main) — Brand orange. DECORATIVE ONLY: icons, blobs, accents, borders; never a text background." },
+      "600": { "$value": "#CC622E", "$type": "color", "$description": "Orange 600 — primary-button hover/pressed; aligns with focus-button." },
+      "700": { "$value": "#994923", "$type": "color", "$description": "Orange 700 — deep accent." },
+      "800": { "$value": "#663117", "$type": "color", "$description": "Orange 800 — darkest usable orange." },
+      "900": { "$value": "#33180C", "$type": "color", "$description": "Orange 900 — near-black brown." }
+    },
+
+    "green": {
+      "50":  { "$value": "#FBFCF6", "$type": "color", "$description": "Green 50 — softest lime tint." },
+      "100": { "$value": "#F6FAEE", "$type": "color", "$description": "Green 100 — light lime surface." },
+      "150": { "$value": "#F2F7E5", "$type": "color", "$description": "Green 150 — light lime surface." },
+      "200": { "$value": "#EEF5DC", "$type": "color", "$description": "Green 200 — light decorative tint." },
+      "300": { "$value": "#E5F0CB", "$type": "color", "$description": "Green 300 — soft accent." },
+      "400": { "$value": "#DDEBB9", "$type": "color", "$description": "Green 400 — mid-light lime." },
+      "500": { "$value": "#D4E6A8", "$type": "color", "$description": "Green 500 (Green_main) — Lime green. Title/key-layout backgrounds with Charcoal text; aligns with light-green/status.success." },
+      "600": { "$value": "#AAB886", "$type": "color", "$description": "Green 600 — muted olive accent." },
+      "700": { "$value": "#7F8A65", "$type": "color", "$description": "Green 700 — deep olive." },
+      "800": { "$value": "#555C43", "$type": "color", "$description": "Green 800 — dark olive." },
+      "900": { "$value": "#2A2E22", "$type": "color", "$description": "Green 900 — near-black olive." }
+    },
+
+    "blue": {
+      "50":  { "$value": "#ECE5FD", "$type": "color", "$description": "Blue 50 — softest indigo tint." },
+      "100": { "$value": "#D9CCFB", "$type": "color", "$description": "Blue 100 — light indigo surface." },
+      "150": { "$value": "#C5B2F9", "$type": "color", "$description": "Blue 150 — light indigo tint." },
+      "200": { "$value": "#B299F7", "$type": "color", "$description": "Blue 200 — light decorative indigo." },
+      "300": { "$value": "#8C66F3", "$type": "color", "$description": "Blue 300 — mid indigo." },
+      "400": { "$value": "#6533EF", "$type": "color", "$description": "Blue 400 — vivid indigo." },
+      "500": { "$value": "#3F00EB", "$type": "color", "$description": "Blue 500 (Blue_main) — Brand blue. Announcements/alerts only; always pair with white text." },
+      "600": { "$value": "#3200BC", "$type": "color", "$description": "Blue 600 — deep indigo." },
+      "700": { "$value": "#26008D", "$type": "color", "$description": "Blue 700 — darker indigo." },
+      "800": { "$value": "#19005E", "$type": "color", "$description": "Blue 800 — very dark indigo." },
+      "900": { "$value": "#0D002F", "$type": "color", "$description": "Blue 900 — near-black indigo." }
+    },
+
+    "lavender": {
+      "50":  { "$value": "#FBF9FF", "$type": "color", "$description": "Lavender 50 — softest lavender tint." },
+      "100": { "$value": "#F7F3FF", "$type": "color", "$description": "Lavender 100 — light lavender surface." },
+      "150": { "$value": "#F2EEFF", "$type": "color", "$description": "Lavender 150 — light lavender surface." },
+      "200": { "$value": "#EEE8FF", "$type": "color", "$description": "Lavender 200 — light decorative tint." },
+      "300": { "$value": "#E6DCFF", "$type": "color", "$description": "Lavender 300 — soft lavender; aligns with soft-lavender background." },
+      "400": { "$value": "#DDD1FF", "$type": "color", "$description": "Lavender 400 (Lavender_Light) — readable lavender surface." },
+      "500": { "$value": "#D5C5FF", "$type": "color", "$description": "Lavender 500 (Lavender_main) — Lavender. Decorative: blobs, icons, accents, borders; aligns with light-purple." },
+      "600": { "$value": "#AA9ECC", "$type": "color", "$description": "Lavender 600 — muted violet." },
+      "700": { "$value": "#807699", "$type": "color", "$description": "Lavender 700 — grey-violet." },
+      "800": { "$value": "#554F66", "$type": "color", "$description": "Lavender 800 — dark grey-violet." },
+      "900": { "$value": "#2B2733", "$type": "color", "$description": "Lavender 900 — near-black violet." }
     }
   }
 }
