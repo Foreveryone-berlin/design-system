@@ -491,6 +491,60 @@ summary:focus-visible,
   word-break: break-all;
 }
 
+.ds-section-intro {
+  max-width: 60ch;
+  margin-block-end: var(--spacing-5);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-neutral-500);
+}
+
+/* Color ramps */
+.ds-ramps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.ds-ramp-name {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  margin-block-end: var(--spacing-2);
+  text-transform: capitalize;
+  color: var(--color-brand-dark);
+}
+
+.ds-ramp-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--spacing-1);
+}
+
+@media (min-width: 768px) {
+  .ds-ramp-row {
+    grid-template-columns: repeat(11, 1fr);
+  }
+}
+
+.ds-ramp-swatch {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-theme-7);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: var(--spacing-1);
+}
+
+.ds-ramp-step {
+  font-size: 0.625rem;
+  font-weight: var(--font-weight-medium);
+  /* Mix-blend keeps the label legible on both light and dark steps. */
+  color: var(--color-white);
+  mix-blend-mode: difference;
+}
+
 .ds-spacing-demo {
   display: flex;
   flex-wrap: wrap;

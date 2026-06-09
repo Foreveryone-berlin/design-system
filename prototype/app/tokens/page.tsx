@@ -28,6 +28,22 @@ const colorSwatches = [
   { token: "black", var: "var(--color-black)" },
 ];
 
+const rampSteps = {
+  neutral: ["50", "100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  orange: ["50", "100", "150", "200", "300", "400", "500", "600", "700", "800", "900"],
+  green: ["50", "100", "150", "200", "300", "400", "500", "600", "700", "800", "900"],
+  blue: ["50", "100", "150", "200", "300", "400", "500", "600", "700", "800", "900"],
+  lavender: ["50", "100", "150", "200", "300", "400", "500", "600", "700", "800", "900"],
+} as const;
+
+const colorRamps = Object.entries(rampSteps).map(([family, steps]) => ({
+  family,
+  steps: steps.map((step) => ({
+    step,
+    var: `var(--color-${family}-${step})`,
+  })),
+}));
+
 const spacingScale = [
   { name: "1", var: "var(--spacing-1)" },
   { name: "2", var: "var(--spacing-2)" },
@@ -186,6 +202,34 @@ export default function TokensPage() {
           ))}
         </div>
         <CodeBlock code={colorCode} />
+      </section>
+
+      <section id="color-ramps" className="ds-section">
+        <h2 className="ds-section-title">Color ramps</h2>
+        <p className="ds-section-intro">
+          Numeric tints (50–900) from the 2026 style guide. 500 is the brand
+          &ldquo;main&rdquo; for orange, green, blue, and lavender; neutral 900
+          is Charcoal. Orange stays decorative — never a text background.
+        </p>
+        <div className="ds-ramps">
+          {colorRamps.map(({ family, steps }) => (
+            <div key={family} className="ds-ramp">
+              <div className="ds-ramp-name">{family}</div>
+              <div className="ds-ramp-row">
+                {steps.map(({ step, var: cssVar }) => (
+                  <div
+                    key={step}
+                    className="ds-ramp-swatch"
+                    style={{ backgroundColor: cssVar }}
+                    title={`--color-${family}-${step}`}
+                  >
+                    <span className="ds-ramp-step">{step}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section id="color-combinations" className="ds-section">
