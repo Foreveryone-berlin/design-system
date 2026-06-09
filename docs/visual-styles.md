@@ -34,10 +34,11 @@ Beyond categories, the system uses a small set of UI glyphs (seen in the brand g
 
 ### Line illustrations (doodles)
 
-- **Role:** Decorative “doodle” marks — warmth, hand-drawn personality (e.g. the orange flower/asterisk doodle beside *Our Impact* on the live SheLeads page).
-- **Colour:** Drawn in **brand orange** (decorative use), matching the filled-icon family; do not recolour to blue.
-- **Execution:** Stroke-based SVGs or exported assets; not tied to Global Color slots unless you intentionally tint them.
-- **Usage:** Supporting hero sections, empty states, editorial blocks — avoid competing with primary CTAs.
+- **Role:** Decorative “doodle” marks — warmth, hand-drawn personality (e.g. the orange flower beside *Our Impact* and the sketched underline beneath the *SheLeads* / home headline).
+- **Colour:** Drawn in **brand orange** (decorative use), matching the filled-illustration family; do not recolour to blue.
+- **Shipped starter set** in `prototype/public/illustrations/` (stroke-based SVGs): `flower.svg`, `cloud.svg`, `smiley.svg`, `swirl.svg`, `sparkle.svg`, and `headline-underline.svg`. These are stylistic recreations; the **exact brand artwork (incl. the filled chess and vase/pottery illustrations) lives in Figma** and should replace/extend these on export.
+- **Headline underline:** place `headline-underline.svg` under a heading (see `.ds-headline-underline` on the home hero) for the brand’s sketched-underline accent.
+- **Usage:** Supporting hero sections, empty states, editorial blocks — avoid competing with primary CTAs; pair with blob shapes rather than stacking on busy imagery.
 
 ### Filled icons (functional)
 

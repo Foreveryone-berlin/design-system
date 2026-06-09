@@ -20,6 +20,12 @@ export default function Home() {
             <br />
             {heroCopy.headline.split(" ").slice(1).join(" ")}
           </h1>
+          <img
+            src="/illustrations/headline-underline.svg"
+            alt=""
+            aria-hidden="true"
+            className="ds-headline-underline"
+          />
           <span className="ds-hero-version">v{version}</span>
           <p className="ds-intro">{heroCopy.tagline}</p>
         </div>
