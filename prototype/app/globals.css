@@ -1026,6 +1026,19 @@ a.ds-btn {
   color: var(--color-brand-dark);
 }
 
+.ds-footer__github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--spacing-3);
+  color: var(--color-theme-4);
+  transition: color var(--transition-fast);
+}
+
+.ds-footer__github:hover {
+  color: var(--color-brand-primary);
+}
+
 /* Icons demo */
 .ds-icon-demo {
   display: flex;
