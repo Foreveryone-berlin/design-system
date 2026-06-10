@@ -39,7 +39,7 @@ export default function CodeBlock({
         type="button"
         className="ds-code-copy"
         onClick={copy}
-        aria-label={copied ? "Code copied" : "Copy code"}
+        aria-label="Copy code"
       >
         <span aria-hidden="true">
           {copied ? (
