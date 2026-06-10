@@ -15,9 +15,8 @@ textarea:focus-visible,
 select:focus-visible,
 summary:focus-visible,
 [tabindex]:focus-visible {
-  outline: 3px solid var(--color-focus-button);
+  outline: 3px solid var(--color-focus-ring);
   outline-offset: 2px;
-  border-radius: var(--radius-sm);
 }
 
 /* ---- Accessibility: skip to main content ---- */
@@ -77,6 +76,8 @@ summary:focus-visible,
   --transition-fast: 220ms ease;
   --transition-base: 400ms ease;
   --transition-slow: 600ms ease;
+  /* Keyboard focus ring (prototype-only) */
+  --color-focus-ring: oklch(0.79 0.15 70);
 }
 
 .ds-light-only body {
@@ -308,7 +309,7 @@ summary:focus-visible,
 /* ---- Page title ---- */
 .ds-page-title {
   font-family: var(--font-family-heading);
-  font-weight: var(--font-weight-black);
+  font-weight: var(--font-weight-bold);
   font-size: clamp(1.5rem, 3vw + 0.5rem, 2rem);
   line-height: var(--line-height-snug);
   letter-spacing: var(--letter-spacing-tight);
@@ -370,7 +371,7 @@ summary:focus-visible,
 /* Hero headline: fluid size, no serif */
 .ds-hero-title {
   font-family: var(--font-family-heading);
-  font-weight: var(--font-weight-black);
+  font-weight: var(--font-weight-bold);
   line-height: var(--line-height-snug);
   letter-spacing: var(--letter-spacing-tight);
   color: var(--color-theme-2);
@@ -601,7 +602,7 @@ summary:focus-visible,
   gap: var(--spacing-6);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .ds-events-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -761,7 +762,7 @@ a.ds-btn {
 }
 
 .ds-btn:focus-visible {
-  outline: 3px solid var(--color-light-orange);
+  outline: 3px solid var(--color-focus-ring);
   outline-offset: 2px;
 }
 
@@ -771,7 +772,7 @@ a.ds-btn {
 }
 
 .ds-btn--primary:hover {
-  background: #2d00b3;
+  background: var(--color-brand-primary);
 }
 
 .ds-btn--secondary {
@@ -806,13 +807,13 @@ a.ds-btn {
    mirror the real :hover / :focus-visible rules so each state is visible at
    once; disabled is the real attribute. */
 .ds-btn--primary.is-hover {
-  background: #2d00b3;
+  background: var(--color-brand-primary);
 }
 .ds-btn--secondary.is-hover {
   background: var(--color-theme-7);
 }
 .ds-btn.is-focus {
-  outline: 3px solid var(--color-light-orange);
+  outline: 3px solid var(--color-focus-ring);
   outline-offset: 2px;
 }
 .ds-btn:disabled,
@@ -967,7 +968,7 @@ a.ds-btn {
   }
 }
 .ds-stat {
-  text-align: center;
+  text-align: left;
 }
 .ds-stat-value {
   font-family: var(--font-family-heading);
@@ -1212,7 +1213,7 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
   line-height: 1;
   color: var(--color-brand-primary);
   font-family: var(--font-family-heading);
-  font-weight: var(--font-weight-black);
+  font-weight: var(--font-weight-bold);
   letter-spacing: 0.1em;
 }
 
@@ -1328,7 +1329,7 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
 }
 
 .fe-popup__close:focus-visible {
-  outline: 2px solid var(--color-brand-secondary);
+  outline: 3px solid var(--color-focus-ring);
   outline-offset: 2px;
 }
 

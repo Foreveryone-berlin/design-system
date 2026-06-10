@@ -30,7 +30,7 @@ export default function PatternsPage() {
         <h2 className="ds-section-title">Footer</h2>
         <footer className="fe-footer">
           <div className="fe-footer__inner">
-            <p className="fe-footer__brand">For Everyone</p>
+            <p className="fe-footer__brand">ForEveryone</p>
             <div className="fe-footer__grid">
               <div className="fe-footer__column">
                 <p className="fe-footer__column-title">Explore</p>
