@@ -772,7 +772,7 @@ a.ds-btn {
 }
 
 .ds-btn--primary:hover {
-  background: #2d00b3;
+  background: var(--color-brand-primary);
 }
 
 .ds-btn--secondary {
@@ -807,7 +807,7 @@ a.ds-btn {
    mirror the real :hover / :focus-visible rules so each state is visible at
    once; disabled is the real attribute. */
 .ds-btn--primary.is-hover {
-  background: #2d00b3;
+  background: var(--color-brand-primary);
 }
 .ds-btn--secondary.is-hover {
   background: var(--color-theme-7);
