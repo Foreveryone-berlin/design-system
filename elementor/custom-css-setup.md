@@ -85,7 +85,6 @@ If enqueueing is not available yet, open **Elementor > Site Settings > Custom CS
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
-  --font-weight-black: 900;
 
   /* ── Typography: Font Sizes ──────────────────────────────────────────── */
   --font-size-xs: 0.75rem; /* 12px — tags, labels */

@@ -126,7 +126,6 @@
   --font-weight-italic:  400;  /* STYLE: pair with font-style: italic */
   --font-weight-medium:  500;
   --font-weight-bold:    700;
-  --font-weight-black:   900;
 
   /* ── Typography: Font Sizes ──────────────────────────────────────────── */
   --font-size-xs:   0.75rem;   /* 12px — tags, labels */
