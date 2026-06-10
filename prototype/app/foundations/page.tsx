@@ -131,7 +131,6 @@ const typographyCode = `/* Font Families */
 --font-weight-regular: 400;
 --font-weight-medium: 500;
 --font-weight-bold: 700;
---font-weight-black: 900;
 
 /* Font Sizes */
 --font-size-xs: 0.75rem;    /* 12px */
