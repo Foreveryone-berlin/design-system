@@ -57,7 +57,7 @@ export default function HeaderDemo() {
             fontSize: "var(--font-size-lg)",
           }}
         >
-          For Everyone
+          ForEveryone
         </div>
         <nav className="fe-header__nav" aria-label="Main">
           {navLinks.map(({ href, label, children }) =>
