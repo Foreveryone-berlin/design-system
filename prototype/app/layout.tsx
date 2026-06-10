@@ -7,7 +7,7 @@ import ViewTransitions from "./_components/ViewTransitions";
 import packageJson from "@/package.json";
 
 const outfit = Outfit({
-  weight: ["400", "500", "700", "900"],
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
   variable: "--font-outfit",
   display: "swap",

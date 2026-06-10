@@ -9,8 +9,7 @@
       "regular": { "$value": 400, "$type": "fontWeight", "$description": "Regular — body text, descriptions, supporting copy." },
       "italic":  { "$value": 400, "$type": "fontWeight", "$description": "Italic — STYLE not weight (use with font-style: italic). Reserved for publication names, artwork titles, emphasised phrases; use sparingly." },
       "medium":  { "$value": 500, "$type": "fontWeight", "$description": "Medium — UI labels, navigation, callouts, subtle emphasis." },
-      "bold":    { "$value": 700, "$type": "fontWeight", "$description": "Bold — headlines, titles, key points of emphasis." },
-      "black":   { "$value": 900, "$type": "fontWeight", "$description": "Black — display hero headline only." }
+      "bold":    { "$value": 700, "$type": "fontWeight", "$description": "Bold — headlines, titles, key points of emphasis. Heaviest weight in the system." }
     },
     "size": {
       "xs": { "$value": "0.75rem", "$type": "dimension", "$description": "12px - tags, labels" },
