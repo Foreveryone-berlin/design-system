@@ -240,6 +240,25 @@ summary:focus-visible,
   cursor: pointer;
   color: var(--color-brand-dark);
   padding: var(--spacing-1);
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.ds-mobile-header__toggle[aria-expanded="true"] {
+  color: var(--color-focus-button);
+  transform: rotate(90deg);
+}
+
+@keyframes ds-mobile-nav-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .ds-mobile-nav {
@@ -253,6 +272,8 @@ summary:focus-visible,
   display: flex;
   flex-direction: column;
   padding: var(--spacing-2) 0;
+  transform-origin: top;
+  animation: ds-mobile-nav-in 200ms ease-out both;
 }
 
 .ds-mobile-nav__link {
