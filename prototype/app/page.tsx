@@ -7,6 +7,7 @@ import {
 import packageJson from "@/package.json";
 import Image from "next/image";
 import Link from "next/link";
+import StatCounter from "./_components/StatCounter";
 
 export default function Home() {
   const version = packageJson.version;
@@ -55,7 +56,9 @@ export default function Home() {
       <section className="ds-stats" aria-label="Design system at a glance">
         {statsCopy.map((stat) => (
           <div key={stat.label} className="ds-stat">
-            <p className="ds-stat-value">{stat.value}</p>
+            <p className="ds-stat-value">
+              <StatCounter value={stat.value} />
+            </p>
             <p className="ds-stat-label">{stat.label}</p>
           </div>
         ))}
