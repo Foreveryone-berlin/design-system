@@ -256,8 +256,8 @@ export default function ComponentsPage() {
               <img
                 src={`/illustrations/${file}`}
                 alt=""
-                width={48}
-                height={48}
+                width={64}
+                height={64}
                 aria-hidden="true"
               />
               <span>{label}</span>
