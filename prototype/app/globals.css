@@ -968,7 +968,7 @@ a.ds-btn {
   }
 }
 .ds-stat {
-  text-align: center;
+  text-align: left;
 }
 .ds-stat-value {
   font-family: var(--font-family-heading);
