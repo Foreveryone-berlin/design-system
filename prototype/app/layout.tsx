@@ -7,7 +7,7 @@ import ViewTransitions from "./_components/ViewTransitions";
 import packageJson from "@/package.json";
 
 const outfit = Outfit({
-  weight: ["400", "500", "700", "900"],
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
   variable: "--font-outfit",
   display: "swap",
@@ -94,8 +94,9 @@ export default function RootLayout({
               {children}
             </main>
             <footer className="ds-footer" suppressHydrationWarning>
-              <p className="ds-footer-version">Design System v{version}</p>
-              <p style={{ margin: 0 }}>design.foreveryone.berlin</p>
+              <p className="ds-footer-version">
+                ForEveryone Design System v{version}
+              </p>
               <a
                 className="ds-footer__github"
                 href="https://github.com/Foreveryone-berlin/design-system"
@@ -104,8 +105,8 @@ export default function RootLayout({
                 aria-label="GitHub repository (opens in new tab)"
               >
                 <svg
-                  width="20"
-                  height="20"
+                  width="16"
+                  height="16"
                   viewBox="0 0 16 16"
                   fill="currentColor"
                   aria-hidden="true"
