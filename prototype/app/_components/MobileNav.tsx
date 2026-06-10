@@ -17,10 +17,15 @@ export default function MobileNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    if (open) navRef.current?.querySelector<HTMLAnchorElement>("a")?.focus();
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
@@ -63,6 +68,7 @@ export default function MobileNav() {
       </button>
       {open && (
         <nav
+          ref={navRef}
           id="ds-mobile-nav"
           className="ds-mobile-nav"
           aria-label="Design system"

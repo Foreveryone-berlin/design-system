@@ -101,7 +101,7 @@ export default function RootLayout({
                 href="https://github.com/Foreveryone-berlin/design-system"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="GitHub repository"
+                aria-label="GitHub repository (opens in new tab)"
               >
                 <svg
                   width="20"

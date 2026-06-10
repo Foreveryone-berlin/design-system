@@ -268,7 +268,7 @@ export default function ComponentsPage() {
           <div className="fe-label">Headline underline</div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/illustrations/headline-underline.png"
+            src="/illustrations/headline-underline.svg"
             alt=""
             aria-hidden="true"
             style={{ display: "block", width: "220px", height: "auto" }}
