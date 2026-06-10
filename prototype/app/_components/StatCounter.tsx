@@ -58,10 +58,13 @@ export default function StatCounter({
   if (target === null) return <span>{value}</span>;
 
   return (
-    <span ref={ref}>
-      {prefix}
-      {display}
-      {suffix}
-    </span>
+    <>
+      <span ref={ref} aria-hidden="true">
+        {prefix}
+        {display}
+        {suffix}
+      </span>
+      <span className="ds-visually-hidden">{value}</span>
+    </>
   );
 }
