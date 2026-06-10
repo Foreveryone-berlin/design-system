@@ -190,7 +190,6 @@ ${rampCss}
   --font-weight-italic:  ${getTokenValue(tokens, "font.weight.italic")};  /* STYLE: pair with font-style: italic */
   --font-weight-medium:  ${getTokenValue(tokens, "font.weight.medium")};
   --font-weight-bold:    ${getTokenValue(tokens, "font.weight.bold")};
-  --font-weight-black:   ${getTokenValue(tokens, "font.weight.black")};
 
   /* ── Typography: Font Sizes ──────────────────────────────────────────── */
   --font-size-xs:   ${getTokenValue(tokens, "font.size.xs")};   /* 12px — tags, labels */
