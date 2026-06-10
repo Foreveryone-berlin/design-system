@@ -10,6 +10,18 @@
 
 **Labels:** **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**; append **(WIP)** only for incomplete work.
 
+## [0.16.0] - 2026-06-10
+
+- **Feat**: Animate the mobile nav panel (slide-and-fade) and the hamburger toggle; honour `prefers-reduced-motion`.
+- **Feat**: Add a copy-to-clipboard button to design-token code blocks with a transient "Copied" confirmation.
+- **Feat**: Add a GitHub repository link (inline-SVG icon) to the prototype footer.
+- **Feat**: Count the "at a glance" stats up from zero on scroll into view; add a Breakpoints stat.
+- **Enhance**: Replace the raster headline-underline PNG with a crisp SVG vector across the hero and components pages.
+- **Fix**: Expose true stat values to assistive tech, fix a code-block double announcement, and focus the first mobile-nav link on open.
+- **Docs**: Credit contributors (Didem, Pedram, Rie, Angelina) in the README acknowledgements.
+- **Chore**: Remove the Partners strip and bilingual EU-funding disclaimer patterns and their CSS.
+- **Chore**: Bump `package.json` and `prototype/package.json` to `0.16.0`.
+
 ## [0.15.0] - 2026-06-09
 
 - **Feat**: Add 50–900 numeric colour ramps for the five families to tokens; emit `--color-{family}-{step}` via `build-css.js`.

@@ -23,6 +23,7 @@ export const stats = [
   { label: "Color tokens", value: "80+" },
   { label: "Spacing scale", value: "19" },
   { label: "Components", value: "12+" },
+  { label: "Breakpoints", value: "3" },
 ] as const;
 
 export const designSystemIntro =

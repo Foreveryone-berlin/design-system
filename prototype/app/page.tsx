@@ -7,6 +7,7 @@ import {
 import packageJson from "@/package.json";
 import Image from "next/image";
 import Link from "next/link";
+import StatCounter from "./_components/StatCounter";
 
 export default function Home() {
   const version = packageJson.version;
@@ -21,7 +22,7 @@ export default function Home() {
             {heroCopy.headline.split(" ").slice(1).join(" ")}
           </h1>
           <img
-            src="/illustrations/headline-underline.png"
+            src="/illustrations/headline-underline.svg"
             alt=""
             aria-hidden="true"
             className="ds-headline-underline"
@@ -55,7 +56,9 @@ export default function Home() {
       <section className="ds-stats" aria-label="Design system at a glance">
         {statsCopy.map((stat) => (
           <div key={stat.label} className="ds-stat">
-            <p className="ds-stat-value">{stat.value}</p>
+            <p className="ds-stat-value">
+              <StatCounter value={stat.value} />
+            </p>
             <p className="ds-stat-label">{stat.label}</p>
           </div>
         ))}
