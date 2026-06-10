@@ -309,7 +309,7 @@ summary:focus-visible,
 /* ---- Page title ---- */
 .ds-page-title {
   font-family: var(--font-family-heading);
-  font-weight: var(--font-weight-black);
+  font-weight: var(--font-weight-bold);
   font-size: clamp(1.5rem, 3vw + 0.5rem, 2rem);
   line-height: var(--line-height-snug);
   letter-spacing: var(--letter-spacing-tight);
@@ -371,7 +371,7 @@ summary:focus-visible,
 /* Hero headline: fluid size, no serif */
 .ds-hero-title {
   font-family: var(--font-family-heading);
-  font-weight: var(--font-weight-black);
+  font-weight: var(--font-weight-bold);
   line-height: var(--line-height-snug);
   letter-spacing: var(--letter-spacing-tight);
   color: var(--color-theme-2);
@@ -1213,7 +1213,7 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
   line-height: 1;
   color: var(--color-brand-primary);
   font-family: var(--font-family-heading);
-  font-weight: var(--font-weight-black);
+  font-weight: var(--font-weight-bold);
   letter-spacing: 0.1em;
 }
 
