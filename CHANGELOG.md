@@ -10,6 +10,20 @@
 
 **Labels:** **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**; append **(WIP)** only for incomplete work.
 
+## [0.17.0] - 2026-06-10
+
+- **Feat**: Cap the system's max font weight at 700; remove the `font.weight.black` (900) token and stop loading Outfit 900.
+- **Feat**: Use the brand headline-underline scribble asset, cropped to the artwork bounds.
+- **Feat**: Keep the events cards full-width through tablet, going 3-up only at >=1024px.
+- **Enhance**: Switch the keyboard focus ring to `oklch(0.79 0.15 70)` and stop focus from changing an element's radius.
+- **Enhance**: Make the primary button hover orange to match the focus ring.
+- **Enhance**: Tidy the footer to "ForEveryone Design System" + semver, drop the domain line, and shrink the GitHub icon.
+- **Enhance**: Left-align the at-a-glance stats and enlarge the line-illustration gallery to 64px.
+- **Fix**: Use the "ForEveryone" wordmark in the header and footer patterns.
+- **Fix**: Update the cross-browser smoke-test routes (drop the stale `/tokens`, add `/guidelines` and `/governance`).
+- **Docs**: Link the GitHub repository and CHANGELOG from the governance page.
+- **Chore**: Bump `package.json` and `prototype/package.json` to `0.17.0`.
+
 ## [0.16.0] - 2026-06-10
 
 - **Feat**: Animate the mobile nav panel (slide-and-fade) and the hamburger toggle; honour `prefers-reduced-motion`.
