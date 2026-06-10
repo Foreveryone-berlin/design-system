@@ -1,6 +1,13 @@
 import { test, expect, type ConsoleMessage } from "@playwright/test";
 
-const routes = ["/", "/tokens", "/components", "/patterns"] as const;
+const routes = [
+  "/",
+  "/foundations",
+  "/components",
+  "/patterns",
+  "/guidelines",
+  "/governance",
+] as const;
 
 for (const route of routes) {
   test(`loads ${route} without console errors`, async ({ page }) => {
