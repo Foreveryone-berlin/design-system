@@ -21,8 +21,15 @@ export default function GovernancePage() {
             <strong>Figma</strong> is the source of truth for visual decisions.
           </li>
           <li>
-            <strong>This repo</strong> is the source of truth for
-            implementation: DTCG tokens, generated CSS, and the prototype.
+            <a
+              href="https://github.com/Foreveryone-berlin/design-system"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>This repo</strong>
+            </a>{" "}
+            is the source of truth for implementation: DTCG tokens, generated
+            CSS, and the prototype.
           </li>
         </ul>
       </section>
@@ -64,9 +71,24 @@ export default function GovernancePage() {
       <section className="ds-section">
         <h2 className="ds-section-title">Changelog</h2>
         <p className="fe-body">
-          All notable changes are recorded in <code>CHANGELOG.md</code> using
-          Keep a Changelog, with imperative one-line entries and labels (Feat,
-          Fix, Enhance, Perf, Chore, Docs).
+          All notable changes are recorded in{" "}
+          <a
+            href="https://github.com/Foreveryone-berlin/design-system/blob/main/CHANGELOG.md"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <code>CHANGELOG.md</code>
+          </a>{" "}
+          using{" "}
+          <a
+            href="https://keepachangelog.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Keep a Changelog
+          </a>
+          , with imperative one-line entries and labels (Feat, Fix, Enhance,
+          Perf, Chore, Docs).
         </p>
       </section>
     </>
