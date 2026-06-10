@@ -15,9 +15,8 @@ textarea:focus-visible,
 select:focus-visible,
 summary:focus-visible,
 [tabindex]:focus-visible {
-  outline: 3px solid var(--color-focus-button);
+  outline: 3px solid var(--color-focus-ring);
   outline-offset: 2px;
-  border-radius: var(--radius-sm);
 }
 
 /* ---- Accessibility: skip to main content ---- */
@@ -77,6 +76,8 @@ summary:focus-visible,
   --transition-fast: 220ms ease;
   --transition-base: 400ms ease;
   --transition-slow: 600ms ease;
+  /* Keyboard focus ring (prototype-only) */
+  --color-focus-ring: oklch(0.79 0.15 70);
 }
 
 .ds-light-only body {
@@ -761,7 +762,7 @@ a.ds-btn {
 }
 
 .ds-btn:focus-visible {
-  outline: 3px solid var(--color-light-orange);
+  outline: 3px solid var(--color-focus-ring);
   outline-offset: 2px;
 }
 
@@ -812,7 +813,7 @@ a.ds-btn {
   background: var(--color-theme-7);
 }
 .ds-btn.is-focus {
-  outline: 3px solid var(--color-light-orange);
+  outline: 3px solid var(--color-focus-ring);
   outline-offset: 2px;
 }
 .ds-btn:disabled,
@@ -1328,7 +1329,7 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
 }
 
 .fe-popup__close:focus-visible {
-  outline: 2px solid var(--color-brand-secondary);
+  outline: 3px solid var(--color-focus-ring);
   outline-offset: 2px;
 }
 
