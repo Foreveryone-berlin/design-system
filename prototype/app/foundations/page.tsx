@@ -191,7 +191,7 @@ export default function TokensPage() {
       </p>
 
       <section id="colors" className="ds-section">
-        <h2 className="ds-section-title">Colors</h2>
+        <h2 className="ds-section-title">Colours</h2>
         <div className="ds-swatch-grid">
           {colorSwatches.map(({ token, var: cssVar }) => (
             <div key={token} className="ds-swatch">
@@ -207,7 +207,7 @@ export default function TokensPage() {
       </section>
 
       <section id="color-ramps" className="ds-section">
-        <h2 className="ds-section-title">Color ramps</h2>
+        <h2 className="ds-section-title">Colour ramps</h2>
         <p className="ds-section-intro">
           Numeric tints (50–900) from the 2026 style guide. 500 is the brand
           &ldquo;main&rdquo; for orange, green, blue, and lavender; neutral 900
@@ -237,7 +237,7 @@ export default function TokensPage() {
       </section>
 
       <section id="color-combinations" className="ds-section">
-        <h2 className="ds-section-title">Approved color combinations</h2>
+        <h2 className="ds-section-title">Approved colour combinations</h2>
         <p
           className="fe-body"
           style={{
