@@ -77,7 +77,7 @@ export default function Popup() {
           </div>
 
           <p className="fe-popup__lede">
-            Get updates from the For Everyone space with community moments,
+            Get updates from the ForEveryone space with community moments,
             upcoming events, and thoughtful ideas and stories from Berlin.
           </p>
 
