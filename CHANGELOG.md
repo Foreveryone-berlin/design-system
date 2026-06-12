@@ -10,6 +10,11 @@
 
 **Labels:** **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**; append **(WIP)** only for incomplete work.
 
+## [0.18.0] - 2026-06-12
+
+- **Feat**: Add a "How to represent us" Guidelines section and align brand-name, cafe, and UK-spelling usage across the prototype.
+- **Chore**: Bump `package.json` and `prototype/package.json` to `0.18.0`.
+
 ## [0.17.0] - 2026-06-10
 
 - **Feat**: Cap the system's max font weight at 700; remove the `font.weight.black` (900) token and stop loading Outfit 900.

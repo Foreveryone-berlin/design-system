@@ -33,7 +33,7 @@ export default function Home() {
         <div className="ds-hero-image-wrap">
           <Image
             src="/images/community-cafe.png"
-            alt="Three people sit and chat at a wooden table in the ForEveryone community café, lit by afternoon sun."
+            alt="Three people sit and chat at a wooden table in the ForEveryone community cafe, lit by afternoon sun."
             width={1090}
             height={1094}
             priority

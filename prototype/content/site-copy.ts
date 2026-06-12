@@ -14,13 +14,13 @@ export const hero = {
 export const mission = {
   title: "What’s in this system",
   bodyLine1:
-    "Colors, typography, spacing, radius, and shadows are defined as design tokens.",
+    "Colours, typography, spacing, radius, and shadows are defined as design tokens.",
   bodyLine2:
     "Buttons, cards, forms, and layout patterns use those tokens so the main site and this prototype stay consistent.",
 } as const;
 
 export const stats = [
-  { label: "Color tokens", value: "80+" },
+  { label: "Colour tokens", value: "80+" },
   { label: "Spacing scale", value: "19" },
   { label: "Components", value: "12+" },
   { label: "Breakpoints", value: "3" },

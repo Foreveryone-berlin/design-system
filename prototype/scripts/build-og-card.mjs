@@ -78,7 +78,7 @@ function html({ w, h }) {
       <span style="background:${C.charcoal}"></span>
     </div>
   </div>
-  <div class="foot"><img src="data:image/png;base64,${logoB64}" alt="For Everyone"></div>
+  <div class="foot"><img src="data:image/png;base64,${logoB64}" alt="ForEveryone"></div>
 </body></html>`;
 }
 

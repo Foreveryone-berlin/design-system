@@ -86,7 +86,7 @@ export default function PatternsPage() {
           <div className="fe-card__media">
             <Image
               src="/images/workshop-group.jpg"
-              alt="Community members laughing around a table in the For Everyone café"
+              alt="Community members laughing around a table in the ForEveryone cafe"
               width={360}
               height={225}
               sizes="360px"
@@ -144,7 +144,7 @@ export default function PatternsPage() {
               <div className="fe-card__media">
                 <Image
                   src="/images/workshop-group.jpg"
-                  alt="Community members at a For Everyone workshop"
+                  alt="Community members at a ForEveryone workshop"
                   width={360}
                   height={200}
                   sizes="(max-width: 768px) 100vw, 320px"
