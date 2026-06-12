@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | ForEveryone Design System",
   },
   description:
-    "Design system for For Everyone Berlin: tokens, components, and patterns at design.foreveryone.berlin.",
+    "Design system for ForEveryone Berlin: tokens, components, and patterns at design.foreveryone.berlin.",
   applicationName: "ForEveryone Design System",
   authors: [{ name: "ForEveryone Berlin", url: "https://foreveryone.berlin" }],
   formatDetection: {
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         url: "/images/social-preview.jpg",
         width: 1200,
         height: 630,
-        alt: "ForEveryone Design System card: a bold \"Design System\" headline on a soft-lavender background with an orange megaphone burst, a line-art illustration of a person making pottery, and the For Everyone logo.",
+        alt: "ForEveryone Design System card: a bold \"Design System\" headline on a soft-lavender background with an orange megaphone burst, a line-art illustration of a person making pottery, and the ForEveryone logo.",
       },
     ],
   },
