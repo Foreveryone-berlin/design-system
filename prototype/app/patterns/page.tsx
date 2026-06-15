@@ -123,14 +123,13 @@ export default function PatternsPage() {
 
       <section id="events" className="ds-section">
         <h2 className="ds-section-title">Upcoming events</h2>
-        <div className="fe-event-tabs" role="tablist" aria-label="Filter events">
+        <div className="fe-event-tabs" role="group" aria-label="Filter events">
           {["This Week", "This Month", "Next Month", "Choose Date"].map(
             (tab, i) => (
               <button
                 key={tab}
                 type="button"
-                role="tab"
-                aria-selected={i === 0}
+                aria-pressed={i === 0}
                 className={`fe-event-tab${i === 0 ? " is-active" : ""}`}
               >
                 {tab}
