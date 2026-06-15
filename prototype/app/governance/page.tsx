@@ -26,7 +26,7 @@ export default function GovernancePage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <strong>This repo</strong>
+              <strong>The GitHub repository</strong>
             </a>{" "}
             is the source of truth for implementation: DTCG tokens, generated
             CSS, and the prototype.

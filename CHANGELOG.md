@@ -10,6 +10,21 @@
 
 **Labels:** **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**; append **(WIP)** only for incomplete work.
 
+## [0.19.0] - 2026-06-15
+
+- **Feat**: Add an "On this page" contents rail with scrollspy, shown on screens >=1200px to mirror the docs layout.
+- **Feat**: Add an Accessibility page with the system's accessibility statement, testing approach, and feedback route.
+- **Style**: Make the primary button blue with an orange hover and focus state, and remove its border.
+- **Fix**: Use Charcoal labels on the outline buttons so the orange-on-white text no longer fails contrast.
+- **Fix**: Use Charcoal for the active nav link, chips, and stat numbers, and a neutral grey disabled play button.
+- **Fix**: Link the input error via `aria-describedby` and drop redundant `aria-label`s that hid the visible labels.
+- **Fix**: Use real toggle buttons for the events filter instead of unwired tab roles.
+- **Fix**: Trap focus in the open mobile nav by marking the background `inert`.
+- **Fix**: Move focus to the target heading when an "On this page" link is activated.
+- **Enhance**: Replace the footer GitHub icon with a hyphen-separated plain-text "GitHub" link in the footer text colour.
+- **Test**: Add an axe-core Playwright accessibility scan over key routes (WCAG 2.1 AA, serious/critical).
+- **Chore**: Bump `package.json` and `prototype/package.json` to `0.19.0`.
+
 ## [0.18.0] - 2026-06-12
 
 - **Feat**: Add a "How to represent us" Guidelines section and align brand-name, cafe, and UK-spelling usage across the prototype.
