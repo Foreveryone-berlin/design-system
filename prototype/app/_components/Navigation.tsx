@@ -9,6 +9,7 @@ const navSections = [
   { href: "/components", label: "Components" },
   { href: "/patterns", label: "Patterns" },
   { href: "/guidelines", label: "Guidelines" },
+  { href: "/accessibility", label: "Accessibility" },
   { href: "/governance", label: "Governance" },
 ];
 
