@@ -10,6 +10,15 @@
 
 **Labels:** **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**; append **(WIP)** only for incomplete work.
 
+## [0.19.1] - 2026-06-15
+
+- **Fix**: Add the Accessibility page to the mobile navigation so it matches the desktop sidebar.
+- **Fix**: Hide the "On this page" rail on the homepage.
+- **Fix**: Anchor the content column to the left and cap its reading width, widening it on screens >=1600px.
+- **Fix**: Place the "On this page" rail beside the content and cap its width, widening it on screens >=1600px.
+- **Style**: Drop the trailing arrow and shrink the "Book a Workshop" header CTA and the footer "Subscribe" button.
+- **Chore**: Bump `package.json` and `prototype/package.json` to `0.19.1`.
+
 ## [0.19.0] - 2026-06-15
 
 - **Feat**: Add an "On this page" contents rail with scrollspy, shown on screens >=1200px to mirror the docs layout.

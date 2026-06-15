@@ -125,7 +125,7 @@ export default function HeaderDemo() {
             </span>
           </button>
           <a href="#book" className="ds-btn ds-btn--primary fe-header__cta">
-            Book a Workshop &rarr;
+            Book a Workshop
           </a>
         </div>
       </div>
@@ -191,7 +191,7 @@ export default function HeaderDemo() {
             className="ds-btn ds-btn--primary fe-header__mobile-cta"
             onClick={() => setMenuOpen(false)}
           >
-            Book a Workshop &rarr;
+            Book a Workshop
           </a>
       </nav>
     </div>
