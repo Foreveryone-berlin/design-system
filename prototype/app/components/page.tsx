@@ -295,7 +295,6 @@ export default function ComponentsPage() {
               type="text"
               className="fe-input"
               placeholder="Placeholder text"
-              aria-label="Demo input"
             />
           </div>
           <div className="fe-input-group">
@@ -307,10 +306,12 @@ export default function ComponentsPage() {
               type="text"
               className="fe-input fe-input--error"
               placeholder="Label"
-              aria-label="Error state"
               aria-invalid="true"
+              aria-describedby="ds-input-error-msg"
             />
-            <span className="fe-input-error-msg">field is required</span>
+            <span id="ds-input-error-msg" className="fe-input-error-msg">
+              field is required
+            </span>
           </div>
           <div className="fe-input-group">
             <label className="fe-label" htmlFor="ds-input-disabled">
@@ -322,7 +323,6 @@ export default function ComponentsPage() {
               className="fe-input"
               placeholder="Label"
               disabled
-              aria-label="Disabled"
             />
           </div>
         </div>
