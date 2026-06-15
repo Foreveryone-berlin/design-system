@@ -116,6 +116,78 @@ summary:focus-visible,
   margin-top: auto;
 }
 
+.ds-content-row {
+  flex: 1;
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+}
+.ds-content-row .ds-page {
+  flex: 1;
+  min-width: 0;
+}
+
+/* On this page (in-page table of contents) */
+.ds-on-this-page {
+  display: none;
+}
+@media (min-width: 1200px) {
+  .ds-on-this-page {
+    display: block;
+    flex-shrink: 0;
+    width: 15rem;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    max-height: 100vh;
+    overflow-y: auto;
+    padding: var(--spacing-8) var(--spacing-6) var(--spacing-8) 0;
+  }
+}
+.ds-on-this-page__title {
+  margin: 0 0 var(--spacing-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-theme-4);
+}
+.ds-on-this-page__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid var(--color-theme-7);
+}
+.ds-on-this-page__link {
+  display: block;
+  padding: var(--spacing-1) var(--spacing-3);
+  margin-left: -1px;
+  border-left: 2px solid transparent;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-snug);
+  color: var(--color-theme-4);
+  text-decoration: none;
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+.ds-on-this-page__item--sub .ds-on-this-page__link {
+  padding-left: var(--spacing-5);
+  font-size: var(--font-size-xs);
+}
+.ds-on-this-page__link:hover {
+  color: var(--color-brand-dark);
+}
+.ds-on-this-page__link.is-active {
+  color: var(--color-brand-dark);
+  border-left-color: var(--color-accent-border);
+  font-weight: var(--font-weight-medium);
+}
+.ds-section-title,
+.ds-subsection-title {
+  scroll-margin-top: var(--spacing-16);
+}
+
 /* Prototype: slower header / mobile nav motion (matches calmer --transition-*) */
 .ds-light-only .fe-hamburger__line {
   transition:
@@ -203,7 +275,7 @@ summary:focus-visible,
 
 .ds-sidebar__link.is-active {
   background: var(--color-light-orange);
-  color: var(--color-focus-button);
+  color: var(--color-brand-dark);
   font-weight: var(--font-weight-bold);
 }
 
@@ -293,7 +365,7 @@ summary:focus-visible,
 }
 
 .ds-mobile-nav__link.is-active {
-  color: var(--color-focus-button);
+  color: var(--color-brand-dark);
   font-weight: var(--font-weight-bold);
 }
 
@@ -795,12 +867,13 @@ a.ds-btn {
 }
 
 .ds-btn--orange {
-  background: var(--color-brand-primary);
-  color: var(--color-white);
+  background: transparent;
+  color: var(--color-brand-dark);
+  box-shadow: inset 0 0 0 2px var(--color-accent-border);
 }
 
 .ds-btn--orange:hover {
-  background: var(--color-focus-button);
+  background: var(--color-light-orange);
 }
 
 /* Static state previews for the component state matrix. .is-hover / .is-focus
@@ -815,6 +888,10 @@ a.ds-btn {
 .ds-btn.is-focus {
   outline: 3px solid var(--color-focus-ring);
   outline-offset: 2px;
+}
+.ds-btn--primary.is-focus,
+.ds-btn--primary:focus-visible {
+  background: var(--color-brand-primary);
 }
 .ds-btn:disabled,
 .ds-btn.is-disabled {
@@ -910,7 +987,7 @@ a.ds-btn {
   line-height: var(--line-height-snug);
   border-radius: var(--radius-pill);
   background: var(--color-light-orange);
-  color: var(--color-focus-button);
+  color: var(--color-brand-dark);
 }
 
 .ds-chip-grid {
@@ -975,7 +1052,7 @@ a.ds-btn {
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
-  color: var(--color-brand-primary);
+  color: var(--color-brand-dark);
   margin: 0 0 var(--spacing-1);
 }
 .ds-stat-label {
@@ -1013,8 +1090,12 @@ a.ds-btn {
   padding: var(--spacing-6) var(--section-padding-x-mobile);
   border-top: 1px solid var(--color-theme-7);
   font-size: var(--font-size-sm);
-  color: var(--color-theme-4);
-  text-align: center;
+  color: var(--color-brand-dark);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--spacing-2);
 }
 
 @media (min-width: 48rem) {
@@ -1023,21 +1104,13 @@ a.ds-btn {
   }
 }
 .ds-footer-version {
+  margin: 0;
   font-weight: var(--font-weight-medium);
-  color: var(--color-brand-dark);
 }
 
 .ds-footer__github {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: var(--spacing-3);
-  color: var(--color-theme-4);
-  transition: color var(--transition-fast);
-}
-
-.ds-footer__github:hover {
-  color: var(--color-brand-primary);
+  color: inherit;
+  text-decoration: underline;
 }
 
 /* Icons demo */

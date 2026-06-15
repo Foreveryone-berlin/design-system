@@ -6,6 +6,7 @@ const routes = [
   "/components",
   "/patterns",
   "/guidelines",
+  "/accessibility",
   "/governance",
 ] as const;
 

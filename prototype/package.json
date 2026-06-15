@@ -1,6 +1,6 @@
 {
   "name": "foreveryone-design-system-prototype",
-  "version": "0.18.0",
+  "version": "0.19.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -17,6 +17,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
     "@playwright/test": "^1.60.0",
     "@types/node": "^22.0.0",
     "@types/prismjs": "^1.26.6",

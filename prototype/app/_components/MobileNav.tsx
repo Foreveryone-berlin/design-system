@@ -38,9 +38,12 @@ export default function MobileNav() {
     document.addEventListener("keydown", onKey);
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    const layout = document.querySelector(".ds-layout");
+    layout?.setAttribute("inert", "");
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = prevOverflow;
+      layout?.removeAttribute("inert");
     };
   }, [open]);
 
