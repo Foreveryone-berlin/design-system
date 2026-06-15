@@ -121,10 +121,21 @@ summary:focus-visible,
   display: flex;
   min-width: 0;
   align-items: flex-start;
+  /* Anchor content + TOC to the left; keep free space on the right at very
+     wide viewports instead of centering the reading column. */
+  justify-content: flex-start;
 }
 .ds-content-row .ds-page {
   flex: 1;
   min-width: 0;
+  /* Override the base `margin: 0 auto` so the capped column hugs the sidebar
+     instead of centering; max-width still bounds the reading width. */
+  margin-inline: 0;
+}
+@media (min-width: 1600px) {
+  .ds-content-row .ds-page {
+    max-width: 88rem;
+  }
 }
 
 /* On this page (in-page table of contents) */
@@ -143,6 +154,23 @@ summary:focus-visible,
     overflow-y: auto;
     padding: var(--spacing-8) var(--spacing-6) var(--spacing-8) 0;
   }
+}
+@media (min-width: 1600px) {
+  .ds-on-this-page {
+    width: 17rem;
+  }
+}
+
+/* Pattern CTAs: the demos now sit in a narrower column (On this page rail),
+   so the header "Book a Workshop" and footer "Subscribe" buttons drop their
+   trailing arrow (markup) and use a smaller label to avoid crowding. */
+.fe-header__cta {
+  font-size: var(--font-size-xs);
+  padding-block: var(--spacing-1);
+  padding-inline: var(--spacing-4);
+}
+.fe-footer__newsletter .ds-btn--primary {
+  font-size: var(--font-size-xs);
 }
 .ds-on-this-page__title {
   margin: 0 0 var(--spacing-3);

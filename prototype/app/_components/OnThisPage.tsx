@@ -70,7 +70,7 @@ export default function OnThisPage() {
     target.focus({ preventScroll: true });
   }
 
-  if (headings.length < 2) return null;
+  if (pathname === "/" || headings.length < 2) return null;
 
   return (
     <aside className="ds-on-this-page" aria-labelledby="ds-otp-title">
