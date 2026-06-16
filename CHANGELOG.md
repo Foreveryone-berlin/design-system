@@ -27,6 +27,9 @@
 - **Feat**: Add a WhatsApp icon-button variant and a pressed state for icon buttons.
 - **Feat**: Show all four button types (Primary, Secondary, Icon, Play) across Default/Hover/Focused/Disabled in one matrix.
 - **Feat**: Add five-state input matrix (Default/Hover/Active/Disabled/Error) and a nav-link state matrix on the Components page.
+- **Feat**: Add a Joy brand badge (orange ground, Charcoal label), a label-card group, and a dropdown state demo.
+- **Fix**: Inset card grids and the workshop card so their hover-lift shadow is no longer clipped by the section overflow.
+- **Style**: Give FAQ accordion items a bordered-card look with a hover shadow lift, matching the style guide.
 - **Feat**: Give the benefit and get-involved cards a Soft Lavender background with a hand-drawn orange illustration.
 - **Feat**: Expand the components icon gallery with the full Figma functional icon set as inline SVGs.
 - **Enhance**: Use a check-circle icon on the workshop-card date rows instead of a clock emoji.
