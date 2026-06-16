@@ -17,6 +17,9 @@ CLAUDE.local.md
 # Claude Code per-machine permissions (do not commit)
 .claude/settings.local.json
 
+# Secrets — BrowserStack MCP credentials (see .env.example)
+.env
+
 .vercel
 
 # Local design references (Figma is source of truth; not tracked)
