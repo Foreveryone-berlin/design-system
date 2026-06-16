@@ -37,6 +37,7 @@
   --color-background-alert: #3F00EB;
   --color-accent-icon: #FF7A3A;
   --color-accent-border: #FF7A3A;
+  --color-focus-ring: #1E1E1E;
 
   /* ── Colors: Status ──────────────────────────────────────────────────── */
   --color-status-error:   #DC2626;
