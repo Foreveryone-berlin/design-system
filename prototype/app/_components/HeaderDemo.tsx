@@ -43,16 +43,19 @@ export default function HeaderDemo() {
   const [openSubMobile, setOpenSubMobile] = useState<string | null>(null);
   const desktopNavRef = useRef<HTMLElement>(null);
 
-  // Close the desktop dropdown when clicking outside the nav.
+  // Close the desktop dropdown when clicking outside the nav. Attached only
+  // while a dropdown is open, and after the opening click has completed, so it
+  // never interferes with the trigger's own toggle.
   useEffect(() => {
     if (!openSub) return;
-    const handlePointerDown = (event: PointerEvent) => {
-      if (!desktopNavRef.current?.contains(event.target as Node)) {
+    const handleDocumentClick = (event: MouseEvent) => {
+      const nav = desktopNavRef.current;
+      if (nav && !nav.contains(event.target as Node)) {
         setOpenSub(null);
       }
     };
-    document.addEventListener("pointerdown", handlePointerDown);
-    return () => document.removeEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("click", handleDocumentClick);
+    return () => document.removeEventListener("click", handleDocumentClick);
   }, [openSub]);
 
   const toggleSub = (href: string) =>
