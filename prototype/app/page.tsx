@@ -77,6 +77,14 @@ export default function Home() {
               View foundations &rarr;
             </span>
           </Link>
+          <Link href="/motion" className="ds-overview-card">
+            <h3 className="ds-overview-card__title">Motion</h3>
+            <p className="ds-overview-card__desc">
+              Motion principles, the duration and easing tokens, and
+              reduced-motion-safe specimens.
+            </p>
+            <span className="ds-overview-card__link">View motion &rarr;</span>
+          </Link>
           <Link href="/components" className="ds-overview-card">
             <h3 className="ds-overview-card__title">Components</h3>
             <p className="ds-overview-card__desc">
@@ -110,6 +118,24 @@ export default function Home() {
               evolves and stays consistent.
             </p>
             <span className="ds-overview-card__link">View governance &rarr;</span>
+          </Link>
+          <Link href="/accessibility" className="ds-overview-card">
+            <h3 className="ds-overview-card__title">Accessibility</h3>
+            <p className="ds-overview-card__desc">
+              Our commitment, conformance target, what is built in, and how we
+              test for an inclusive experience.
+            </p>
+            <span className="ds-overview-card__link">
+              View accessibility &rarr;
+            </span>
+          </Link>
+          <Link href="/credits" className="ds-overview-card">
+            <h3 className="ds-overview-card__title">Credits</h3>
+            <p className="ds-overview-card__desc">
+              The people, tools, and licences behind the ForEveryone design
+              system.
+            </p>
+            <span className="ds-overview-card__link">View credits &rarr;</span>
           </Link>
         </div>
       </section>
