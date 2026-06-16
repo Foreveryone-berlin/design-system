@@ -77,8 +77,10 @@ export default function ComponentsPage() {
         cards, tags, and more.
       </p>
 
+      <h2 className="ds-section-title ds-group-title">Actions</h2>
+
       <section id="buttons" className="ds-section">
-        <h2 className="ds-section-title">Buttons</h2>
+        <h3 className="ds-subsection-title">Buttons</h3>
         <div
           style={{ display: "flex", flexWrap: "wrap", gap: "var(--spacing-4)" }}
         >
@@ -113,13 +115,12 @@ export default function ComponentsPage() {
       </section>
 
       <section id="button-states" className="ds-section">
-        <h2 className="ds-section-title">Button states</h2>
+        <h3 className="ds-subsection-title">Button states</h3>
         <p className="ds-section-intro">
-          The four button types across Default, Hover, Focused, and Disabled per
-          the style guide. Hover and focused are shown statically here; the gold
-          keyboard ring fires on real <code className="ds-code">:focus-visible</code>.
-          The Focused column is the pressed/selected fill, drawn without an
-          outline.
+          The four pill button variants across Default, Hover, Focused, and
+          Disabled per the style guide. Hover and focused are shown statically
+          here; on real keyboard focus the button shows the same focused fill
+          (no outline). The Focused column is the pressed/selected fill.
         </p>
         <div className="ds-state-grid">
           <span aria-hidden="true" />
@@ -154,34 +155,28 @@ export default function ComponentsPage() {
             </span>
           ))}
 
-          <span className="ds-state-grid__row-label">Icon</span>
+          <span className="ds-state-grid__row-label">Orange</span>
           {["", "is-hover", "is-focus", "disabled"].map((state) => (
-            <span className="ds-state-grid__cell" key={`i-${state}`}>
+            <span className="ds-state-grid__cell" key={`o-${state}`}>
               <button
                 type="button"
-                className={`fe-icon-btn${state && state !== "disabled" ? ` ${state}` : ""}`}
-                aria-label="Instagram"
+                className={`ds-btn ds-btn--orange${state && state !== "disabled" ? ` ${state}` : ""}`}
                 disabled={state === "disabled"}
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
+                Orange
               </button>
             </span>
           ))}
 
-          <span className="ds-state-grid__row-label">Play</span>
+          <span className="ds-state-grid__row-label">Outline</span>
           {["", "is-hover", "is-focus", "disabled"].map((state) => (
-            <span className="ds-state-grid__cell" key={`pl-${state}`}>
+            <span className="ds-state-grid__cell" key={`ol-${state}`}>
               <button
                 type="button"
-                className={`fe-play-btn${state && state !== "disabled" ? ` ${state}` : ""}`}
-                aria-label="Play"
+                className={`ds-btn ds-btn--outline${state && state !== "disabled" ? ` ${state}` : ""}`}
                 disabled={state === "disabled"}
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
+                Outline
               </button>
             </span>
           ))}
@@ -189,7 +184,7 @@ export default function ComponentsPage() {
       </section>
 
       <section id="icon-buttons" className="ds-section">
-        <h2 className="ds-section-title">Icon buttons &amp; Play button</h2>
+        <h3 className="ds-subsection-title">Icon buttons &amp; Play button</h3>
         <p className="ds-intro" style={{ marginTop: 0 }}>
           Neutral circular controls use{" "}
           <code className="ds-code">.fe-icon-btn</code>. Category-style filled
@@ -276,13 +271,94 @@ export default function ComponentsPage() {
         </div>
       </section>
 
-      <section id="faq" className="ds-section">
-        <h2 className="ds-section-title">FAQ / Accordion</h2>
-        <FaqDemo />
+      <h2 className="ds-section-title ds-group-title">Forms &amp; inputs</h2>
+
+      <section id="forms" className="ds-section">
+        <h3 className="ds-subsection-title">Form elements &amp; input states</h3>
+        <p className="ds-section-intro">
+          Five input states: Default, Hover, Active (focus), Disabled, and Error.
+          Hover and active are shown statically; on real focus the input keeps
+          its own border and shadow treatment rather than the gold keyboard ring.
+        </p>
+        <div className="ds-state-matrix" style={{ maxWidth: "28rem" }}>
+          <span className="ds-state-matrix__label">Default</span>
+          <input
+            type="text"
+            className="fe-input"
+            placeholder="Placeholder text"
+            aria-label="Default input"
+          />
+          <span className="ds-state-matrix__label">Hover</span>
+          <input
+            type="text"
+            className="fe-input is-hover"
+            placeholder="Placeholder text"
+            aria-label="Hover input"
+          />
+          <span className="ds-state-matrix__label">Active</span>
+          <input
+            type="text"
+            className="fe-input is-focus"
+            placeholder="Placeholder text"
+            aria-label="Active input"
+          />
+          <span className="ds-state-matrix__label">Disabled</span>
+          <input
+            type="text"
+            className="fe-input"
+            placeholder="Placeholder text"
+            aria-label="Disabled input"
+            disabled
+          />
+          <span className="ds-state-matrix__label">Error</span>
+          <div className="fe-input-group">
+            <input
+              id="ds-input-error"
+              type="text"
+              className="fe-input fe-input--error"
+              placeholder="Placeholder text"
+              aria-invalid="true"
+              aria-label="Required field"
+              aria-describedby="ds-input-error-msg"
+            />
+            <span id="ds-input-error-msg" className="fe-input-error-msg">
+              This field is required
+            </span>
+          </div>
+        </div>
       </section>
 
+      <section id="dropdown" className="ds-section">
+        <h3 className="ds-subsection-title">Dropdown</h3>
+        <p className="ds-section-intro">
+          Menu surface with item states: Default, Hover, Selected, and Disabled.
+          Hover and selected are shown statically here.
+        </p>
+        <div className="fe-dropdown" role="menu" aria-label="Dropdown states demo">
+          <a href="#dropdown" className="fe-dropdown-item" role="menuitem">
+            Default item
+          </a>
+          <a href="#dropdown" className="fe-dropdown-item is-hover" role="menuitem">
+            Hover item
+          </a>
+          <a
+            href="#dropdown"
+            className="fe-dropdown-item is-active"
+            role="menuitem"
+            aria-current="true"
+          >
+            Selected item
+          </a>
+          <span className="fe-dropdown-item" role="menuitem" aria-disabled="true">
+            Disabled item
+          </span>
+        </div>
+      </section>
+
+      <h2 className="ds-section-title ds-group-title">Tags &amp; labels</h2>
+
       <section id="category-tags" className="ds-section">
-        <h2 className="ds-section-title">Category tag variants</h2>
+        <h3 className="ds-subsection-title">Category tag variants</h3>
         <p className="ds-section-intro">
           Five workshop categories. Grey at rest; each takes its category colour
           on hover and when active (selected).
@@ -323,8 +399,60 @@ export default function ComponentsPage() {
         </div>
       </section>
 
+      <section id="chips" className="ds-section">
+        <h3 className="ds-subsection-title">Chips / tags</h3>
+        <div className="ds-chip-grid">
+          <span className="ds-chip">Tag one</span>
+          <span className="ds-chip">Tag two</span>
+          <span className="ds-chip">Design tokens</span>
+          <span className="ds-chip">Light only</span>
+        </div>
+      </section>
+
+      <section id="badges" className="ds-section">
+        <h3 className="ds-subsection-title">Badges &amp; labels</h3>
+        <p className="ds-section-intro">
+          The &ldquo;Joy&rdquo; brand badge sits on an orange ground with a
+          high-contrast Charcoal label (orange fills never carry white text).
+          Label cards group a key with its value.
+        </p>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            gap: "var(--spacing-3)",
+            marginBlockEnd: "var(--spacing-6)",
+          }}
+        >
+          <span className="fe-badge fe-badge--joy">Joy</span>
+          <span className="fe-badge fe-badge--blue">New</span>
+          <span className="fe-badge">Default</span>
+        </div>
+        <div className="fe-label-cards">
+          <div className="fe-label-card">
+            <span className="fe-label-card__label">Category</span>
+            <span className="fe-label-card__value">Arts &amp; Crafts</span>
+          </div>
+          <div className="fe-label-card">
+            <span className="fe-label-card__label">Duration</span>
+            <span className="fe-label-card__value">3 hours</span>
+          </div>
+          <div className="fe-label-card">
+            <span className="fe-label-card__label">Level</span>
+            <span className="fe-label-card__value">All levels</span>
+          </div>
+          <div className="fe-label-card">
+            <span className="fe-label-card__label">Price</span>
+            <span className="fe-label-card__value">From &euro;10</span>
+          </div>
+        </div>
+      </section>
+
+      <h2 className="ds-section-title ds-group-title">Navigation</h2>
+
       <section id="nav-states" className="ds-section">
-        <h2 className="ds-section-title">Nav link states</h2>
+        <h3 className="ds-subsection-title">Nav link states</h3>
         <p className="ds-section-intro">
           Header and footer nav links: Default, Hover (orange underline grows
           in), and Disabled. The underline is a decorative accent, not the link
@@ -351,15 +479,17 @@ export default function ComponentsPage() {
         </div>
       </section>
 
+      <h2 className="ds-section-title ds-group-title">Content &amp; media</h2>
+
       <section id="cards" className="ds-section">
-        <h2 className="ds-section-title">Cards</h2>
+        <h3 className="ds-subsection-title">Cards</h3>
         <div
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(16.25rem, 1fr))",
             gap: "var(--spacing-6)",
-            padding: "var(--spacing-2)",
-            margin: "calc(-1 * var(--spacing-2))",
+            padding: "var(--spacing-4)",
+            margin: "calc(-1 * var(--spacing-4))",
           }}
         >
           <div className="ds-card">
@@ -383,8 +513,24 @@ export default function ComponentsPage() {
         </div>
       </section>
 
+      <section id="testimonials" className="ds-section">
+        <h3 className="ds-subsection-title">Testimonials</h3>
+        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
+          Centered testimonial cards with large orange quote marks and bold
+          attribution. Matches the live-site style.
+        </p>
+        <TestimonialCard />
+      </section>
+
+      <section id="faq" className="ds-section">
+        <h3 className="ds-subsection-title">FAQ / Accordion</h3>
+        <FaqDemo />
+      </section>
+
+      <h2 className="ds-section-title ds-group-title">Iconography</h2>
+
       <section id="icons" className="ds-section">
-        <h2 className="ds-section-title">Icons</h2>
+        <h3 className="ds-subsection-title">Icons</h3>
         <div className="ds-icon-demo">
           <div className="ds-icon-item">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -442,7 +588,7 @@ export default function ComponentsPage() {
       </section>
 
       <section id="illustrations" className="ds-section">
-        <h2 className="ds-section-title">Line illustrations</h2>
+        <h3 className="ds-subsection-title">Line illustrations</h3>
         <p className="ds-section-intro">
           Decorative hand-drawn doodles in brand orange: warmth, never
           wayfinding. Use sparingly behind blobs and beside headings; the
@@ -455,9 +601,7 @@ export default function ComponentsPage() {
             ["cloud.svg", "Cloud"],
             ["smiley.png", "Smiley"],
             ["swirl.png", "Swirl"],
-            ["strategy.png", "Strategy"],
             ["chess.svg", "Chess"],
-            ["vase.svg", "Vase"],
           ].map(([file, label]) => (
             <div className="ds-icon-item" key={file}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -473,7 +617,7 @@ export default function ComponentsPage() {
           ))}
         </div>
         <div style={{ marginTop: "var(--spacing-6)" }}>
-          <div className="fe-label">Headline underline</div>
+          <div className="fe-label">Underline</div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/illustrations/headline-underline.svg"
@@ -484,156 +628,10 @@ export default function ComponentsPage() {
         </div>
       </section>
 
-      <section id="forms" className="ds-section">
-        <h2 className="ds-section-title">Form elements &amp; input states</h2>
-        <p className="ds-section-intro">
-          Five input states: Default, Hover, Active (focus), Disabled, and Error.
-          Hover and active are shown statically; the gold keyboard ring fires on
-          real <code className="ds-code">:focus-visible</code>.
-        </p>
-        <div className="ds-state-matrix" style={{ maxWidth: "28rem" }}>
-          <span className="ds-state-matrix__label">Default</span>
-          <input
-            type="text"
-            className="fe-input"
-            placeholder="Placeholder text"
-            aria-label="Default input"
-          />
-          <span className="ds-state-matrix__label">Hover</span>
-          <input
-            type="text"
-            className="fe-input is-hover"
-            placeholder="Placeholder text"
-            aria-label="Hover input"
-          />
-          <span className="ds-state-matrix__label">Active</span>
-          <input
-            type="text"
-            className="fe-input is-focus"
-            placeholder="Placeholder text"
-            aria-label="Active input"
-          />
-          <span className="ds-state-matrix__label">Disabled</span>
-          <input
-            type="text"
-            className="fe-input"
-            placeholder="Placeholder text"
-            aria-label="Disabled input"
-            disabled
-          />
-          <span className="ds-state-matrix__label">Error</span>
-          <div className="fe-input-group">
-            <input
-              id="ds-input-error"
-              type="text"
-              className="fe-input fe-input--error"
-              placeholder="Placeholder text"
-              aria-invalid="true"
-              aria-label="Required field"
-              aria-describedby="ds-input-error-msg"
-            />
-            <span id="ds-input-error-msg" className="fe-input-error-msg">
-              This field is required
-            </span>
-          </div>
-        </div>
-      </section>
-
-      <section id="chips" className="ds-section">
-        <h2 className="ds-section-title">Chips / tags</h2>
-        <div className="ds-chip-grid">
-          <span className="ds-chip">Tag one</span>
-          <span className="ds-chip">Tag two</span>
-          <span className="ds-chip">Design tokens</span>
-          <span className="ds-chip">Light only</span>
-        </div>
-      </section>
-
-      <section id="badges" className="ds-section">
-        <h2 className="ds-section-title">Badges &amp; labels</h2>
-        <p className="ds-section-intro">
-          The &ldquo;Joy&rdquo; brand badge sits on an orange ground with a
-          high-contrast Charcoal label (orange fills never carry white text).
-          Label cards group a key with its value.
-        </p>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            gap: "var(--spacing-3)",
-            marginBlockEnd: "var(--spacing-6)",
-          }}
-        >
-          <span className="fe-badge fe-badge--joy">Joy</span>
-          <span className="fe-badge fe-badge--blue">New</span>
-          <span className="fe-badge">Default</span>
-        </div>
-        <div className="fe-label-cards">
-          <div className="fe-label-card">
-            <span className="fe-label-card__label">Category</span>
-            <span className="fe-label-card__value">Arts &amp; Crafts</span>
-          </div>
-          <div className="fe-label-card">
-            <span className="fe-label-card__label">Duration</span>
-            <span className="fe-label-card__value">3 hours</span>
-          </div>
-          <div className="fe-label-card">
-            <span className="fe-label-card__label">Level</span>
-            <span className="fe-label-card__value">All levels</span>
-          </div>
-          <div className="fe-label-card">
-            <span className="fe-label-card__label">Price</span>
-            <span className="fe-label-card__value">From &euro;10</span>
-          </div>
-        </div>
-      </section>
-
-      <section id="dropdown" className="ds-section">
-        <h2 className="ds-section-title">Dropdown</h2>
-        <p className="ds-section-intro">
-          Menu surface with item states: Default, Hover, Selected, and Disabled.
-          Hover and selected are shown statically here.
-        </p>
-        <div className="fe-dropdown" role="menu" aria-label="Dropdown states demo">
-          <a href="#dropdown" className="fe-dropdown-item" role="menuitem">
-            Default item
-          </a>
-          <a href="#dropdown" className="fe-dropdown-item is-hover" role="menuitem">
-            Hover item
-          </a>
-          <a
-            href="#dropdown"
-            className="fe-dropdown-item is-active"
-            role="menuitem"
-            aria-current="true"
-          >
-            Selected item
-          </a>
-          <span className="fe-dropdown-item" role="menuitem" aria-disabled="true">
-            Disabled item
-          </span>
-        </div>
-      </section>
-
-      <section id="blockquote" className="ds-section">
-        <h2 className="ds-section-title">Blockquote</h2>
-        <blockquote className="ds-quote">
-          Typography and spacing come from the design system.
-        </blockquote>
-      </section>
-
-      <section id="testimonials" className="ds-section">
-        <h2 className="ds-section-title">Testimonials</h2>
-        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
-          Centered testimonial cards with large orange quote marks and bold
-          attribution. Matches the live-site style.
-        </p>
-        <TestimonialCard />
-      </section>
+      <h2 className="ds-section-title ds-group-title">Overlays</h2>
 
       <section id="popup" className="ds-section">
-        <h2 className="ds-section-title">Popup</h2>
+        <h3 className="ds-subsection-title">Popup</h3>
         <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
           Modal dialog built on the native <code>&lt;dialog&gt;</code> element.
           Simplified contact form with blurred backdrop overlay. Press Escape or
