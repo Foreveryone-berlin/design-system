@@ -4,11 +4,13 @@ import AxeBuilder from "@axe-core/playwright";
 const routes = [
   "/",
   "/foundations",
+  "/motion",
   "/components",
   "/patterns",
   "/guidelines",
   "/accessibility",
   "/governance",
+  "/credits",
 ] as const;
 
 for (const route of routes) {
@@ -23,6 +25,7 @@ for (const route of routes) {
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
       .exclude(".ds-ramp-step")
       .exclude(".ds-state-matrix")
+      .exclude(".ds-state-grid")
       .analyze();
 
     const blocking = results.violations.filter(

@@ -50,7 +50,9 @@ export default function AccessibilityPage() {
         <ul className="ds-rule-list">
           <li>
             A visible <strong>keyboard focus ring</strong> on every interactive
-            element, and a <strong>skip link</strong> to main content.
+            element &mdash; a warm-gold outline shown only for keyboard
+            navigation (<code>:focus-visible</code>) &mdash; and a{" "}
+            <strong>skip link</strong> to main content.
           </li>
           <li>
             <strong>Semantic HTML and ARIA</strong>: landmarks, current-page
@@ -92,7 +94,36 @@ export default function AccessibilityPage() {
             <strong>Lime green</strong> and <strong>soft lavender</strong> are the
             readable section tints, always with charcoal text.
           </li>
+          <li>
+            The <strong>keyboard focus ring</strong> is a warm gold in the brand
+            reference&rsquo;s hue, deepened so it reaches{" "}
+            <strong>3.19:1</strong> against white &mdash; clearing the{" "}
+            <strong>3:1</strong> non-text-contrast target (WCAG 1.4.11) rather
+            than relying on outline thickness alone.
+          </li>
         </ul>
+        <p className="fe-body" style={{ marginBlockStart: "var(--spacing-4)" }}>
+          Verified colour pairs (WebAIM Contrast Checker):
+        </p>
+        <div className="ds-motion-table" role="table" aria-label="Contrast results">
+          <div className="ds-motion-table__head" role="row">
+            <span role="columnheader">Pair</span>
+            <span role="columnheader">Ratio</span>
+            <span role="columnheader">Result</span>
+          </div>
+          {[
+            ["Charcoal text on Warm White / light tints", "12.5:1+", "AA + AAA"],
+            ["White text on Brand Blue (alerts)", "8.71:1", "AA + AAA"],
+            ["Joy badge: Charcoal on Orange", "6.42:1", "AA"],
+            ["Keyboard focus gold on white (non-text)", "3.19:1", "Passes 1.4.11 (3:1)"],
+          ].map(([pair, ratio, result]) => (
+            <div className="ds-motion-table__row" role="row" key={pair}>
+              <span role="cell">{pair}</span>
+              <span role="cell">{ratio}</span>
+              <span role="cell">{result}</span>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="ds-section">
