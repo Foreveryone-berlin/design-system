@@ -3,11 +3,13 @@ import { test, expect, type ConsoleMessage } from "@playwright/test";
 const routes = [
   "/",
   "/foundations",
+  "/motion",
   "/components",
   "/patterns",
   "/guidelines",
   "/accessibility",
   "/governance",
+  "/credits",
 ] as const;
 
 for (const route of routes) {

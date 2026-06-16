@@ -68,6 +68,7 @@ const FLAT_COLOR_KEYS = [
   "focus-button",
   "light-purple",
   "soft-lavender",
+  "lavender-official",
   "light-green",
   "light-orange",
   "pink",
@@ -91,6 +92,7 @@ const SEMANTIC_COLOR_KEYS = [
   "accent-icon",
   "accent-border",
   "focus-ring",
+  "focus-visible-accent",
 ];
 
 const COLOR_RAMPS = {
