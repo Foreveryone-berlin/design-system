@@ -324,14 +324,26 @@
 
 /* Benefit / Get-involved Card */
 .fe-card-benefit {
-  background: var(--color-light-green);
+  background: var(--color-background-soft);
   border-radius: var(--radius-lg);
   padding: var(--spacing-6);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+.fe-card-benefit__content {
+  flex: 1;
+  min-width: 0;
+}
+.fe-card-benefit__illustration {
+  flex-shrink: 0;
+  width: 96px;
+  height: auto;
 }
 
 /* Card Get Involved */
 .fe-card-get-involved {
-  background: var(--color-light-green);
+  background: var(--color-background-soft);
   border-radius: var(--radius-lg);
   padding: var(--spacing-6);
   display: flex;
