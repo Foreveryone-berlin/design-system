@@ -50,7 +50,7 @@ export default function AccessibilityPage() {
         <ul className="ds-rule-list">
           <li>
             A visible <strong>keyboard focus ring</strong> on every interactive
-            element &mdash; a thick warm-gold outline shown only for keyboard
+            element &mdash; a warm-gold outline shown only for keyboard
             navigation (<code>:focus-visible</code>) &mdash; and a{" "}
             <strong>skip link</strong> to main content.
           </li>
@@ -95,12 +95,11 @@ export default function AccessibilityPage() {
             readable section tints, always with charcoal text.
           </li>
           <li>
-            <strong>Known limitation:</strong> the keyboard focus ring is a warm
-            gold matched to the brand reference. Gold on white is below the 3:1
-            non-text-contrast target; we mitigate this with a thick{" "}
-            <strong>0.3rem</strong> ring and offset (the WCAG 2.4.11
-            focus-appearance size path) and are tracking it for review with the
-            forthcoming brand book.
+            The <strong>keyboard focus ring</strong> is a warm gold in the brand
+            reference&rsquo;s hue, deepened so it reaches{" "}
+            <strong>3.19:1</strong> against white &mdash; clearing the{" "}
+            <strong>3:1</strong> non-text-contrast target (WCAG 1.4.11) rather
+            than relying on outline thickness alone.
           </li>
         </ul>
       </section>

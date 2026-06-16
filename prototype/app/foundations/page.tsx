@@ -87,40 +87,43 @@ const shadowTokens = [
   { token: "header", var: "var(--shadow-header)" },
 ];
 
+// Tokens are authored in OKLCH (round-trip-exact to the sRGB hex shown in
+// comments) so the palette reads in a perceptual space and is ready for wide
+// gamut. Hex equivalents are kept inline for reference only.
 const colorCode = `/* Brand */
---color-brand-primary: #FF7A3A;
---color-brand-secondary: #3F00EB;
---color-brand-dark: #1E1E1E;
---color-accent: #FDFCF7;
---color-focus-button: #CC622E;
+--color-brand-primary: oklch(0.726 0.179 43.9);    /* #FF7A3A */
+--color-brand-secondary: oklch(0.4486 0.2813 275.3); /* #3F00EB */
+--color-brand-dark: oklch(0.235 0 89.9);           /* #1E1E1E */
+--color-accent: oklch(0.99 0.007 97.3);            /* #FDFCF7 */
+--color-focus-button: oklch(0.616 0.149 44.3);     /* #CC622E */
 
 /* Tints & Accents */
---color-light-purple: #D5C5FF;
---color-soft-lavender: #E5DCFF;
---color-light-green: #D4E6A8;
---color-light-orange: #FFD7C4;
---color-pink: #F39EBC;
---color-teal: #03C9D3;
---color-purple: #DA83DA;
---color-very-light-gray: #F7F7F7;
---color-light-gray: #D9D9D9;
+--color-light-purple: oklch(0.856 0.081 297.3);    /* #D5C5FF */
+--color-soft-lavender: oklch(0.912 0.048 297.2);   /* #E5DCFF */
+--color-light-green: oklch(0.896 0.083 121.2);     /* #D4E6A8 */
+--color-light-orange: oklch(0.908 0.052 46.9);     /* #FFD7C4 */
+--color-pink: oklch(0.792 0.107 357.1);            /* #F39EBC */
+--color-teal: oklch(0.7606 0.1291 201.2);          /* #03C9D3 */
+--color-purple: oklch(0.732 0.153 327);            /* #DA83DA */
+--color-very-light-gray: oklch(0.976 0 89.9);      /* #F7F7F7 */
+--color-light-gray: oklch(0.885 0 89.9);           /* #D9D9D9 */
 
 /* Theme (Elementor) */
---color-theme-1: #0170B9;
---color-theme-2: #1E1E1E;
---color-theme-4: #4B4F58;
---color-theme-5: #F5F5F5;
---color-theme-7: #E5E5E5;
---color-theme-8: #1E1E1E;
+--color-theme-1: oklch(0.532 0.142 247.7);         /* #0170B9 */
+--color-theme-2: oklch(0.235 0 89.9);              /* #1E1E1E */
+--color-theme-4: oklch(0.427 0.016 266.5);         /* #4B4F58 */
+--color-theme-5: oklch(0.97 0 89.9);               /* #F5F5F5 */
+--color-theme-7: oklch(0.922 0 89.9);              /* #E5E5E5 */
+--color-theme-8: oklch(0.235 0 89.9);              /* #1E1E1E */
 
 /* Status */
---color-status-error: #DC2626;
---color-status-success: #D4E6A8;
---color-status-warning: #FFAF89;
+--color-status-error: oklch(0.577 0.215 27.3);     /* #DC2626 */
+--color-status-success: oklch(0.896 0.083 121.2);  /* #D4E6A8 */
+--color-status-warning: oklch(0.822 0.107 46.2);   /* #FFAF89 */
 
 /* Base */
---color-white: #FFFFFF;
---color-black: #0A0A0A;`;
+--color-white: oklch(1 0 89.9);                    /* #FFFFFF */
+--color-black: oklch(0.145 0 89.9);                /* #0A0A0A */`;
 
 const typographyCode = `/* Font Families */
 --font-family-heading: 'FilsonPro', sans-serif;  /* H1–H3, body, UI */
