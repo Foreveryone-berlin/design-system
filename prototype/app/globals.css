@@ -700,6 +700,10 @@ select:focus-visible,
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-6);
+  /* Inset the grid so the cards' hover-lift shadow isn't clipped by the
+     section's overflow:hidden; the negative margin keeps outer alignment. */
+  padding: var(--spacing-2);
+  margin: calc(-1 * var(--spacing-2));
 }
 
 @media (min-width: 768px) {

@@ -50,14 +50,16 @@ export default function HeaderDemo() {
   return (
     <div className="fe-header">
       <div className="fe-header__inner">
-        <div
-          className="fe-header__logo"
-          style={{
-            fontWeight: "var(--font-weight-bold)",
-            fontSize: "var(--font-size-lg)",
-          }}
-        >
-          ForEveryone
+        <div className="fe-header__logo">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/favicon.svg"
+            alt=""
+            width={28}
+            height={28}
+            aria-hidden="true"
+          />
+          <span>ForEveryone</span>
         </div>
         <nav className="fe-header__nav" aria-label="Main">
           {navLinks.map(({ href, label, children }) =>
