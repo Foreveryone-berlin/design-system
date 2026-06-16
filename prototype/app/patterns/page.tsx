@@ -3,6 +3,28 @@ import HeaderDemo from "../_components/HeaderDemo";
 import CategoryIcon from "../_components/CategoryIcon";
 import ObfuscatedEmail from "../_components/ObfuscatedEmail";
 
+// Check-circle used on the workshop-card date row (per Figma), inline so it
+// inherits currentColor and the system's 24x24 / stroke-2 geometry.
+function CheckCircle() {
+  return (
+    <svg
+      width={18}
+      height={18}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="12" cy="12" r="9" />
+      <polyline points="8.5 12.5 11 15 16 9.5" />
+    </svg>
+  );
+}
+
 export default function PatternsPage() {
   return (
     <>
@@ -31,7 +53,16 @@ export default function PatternsPage() {
         <h2 className="ds-section-title">Footer</h2>
         <footer className="fe-footer">
           <div className="fe-footer__inner">
-            <p className="fe-footer__brand">ForEveryone</p>
+            <p className="fe-footer__brand">
+              {/* Same brand mark as the design-system header. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/foreveryone-logo.png"
+                alt="ForEveryone"
+                width={120}
+                height={22}
+              />
+            </p>
             <div className="fe-footer__grid">
               <div className="fe-footer__column">
                 <p className="fe-footer__column-title">Explore</p>
@@ -81,7 +112,10 @@ export default function PatternsPage() {
 
       <section id="workshop-card" className="ds-section">
         <h2 className="ds-section-title">Workshop card (full)</h2>
-        <div className="fe-card" style={{ maxWidth: "360px" }}>
+        {/* Pad the wrapper so the card's hover-lift shadow clears the section's
+            overflow:hidden clip. */}
+        <div style={{ padding: "var(--spacing-2)", maxWidth: "23rem" }}>
+        <div className="fe-card" style={{ maxWidth: "22rem" }}>
           <div className="fe-card__media">
             <Image
               src="/images/workshop-group.jpg"
@@ -101,7 +135,7 @@ export default function PatternsPage() {
           </div>
           <div className="fe-card__body">
             <div className="fe-card-meta">
-              <span aria-hidden="true">&#x1F550;</span> Sunday, Sept 15 &middot; 14:00–17:00
+              <CheckCircle /> Sunday, Sept 15 &middot; 14:00–17:00
             </div>
             <h3 className="fe-h3" style={{ margin: "0 0 var(--spacing-2)" }}>
               Pottery Workshop
@@ -112,16 +146,16 @@ export default function PatternsPage() {
             >
               A hands-on, welcoming clay workshop for all levels — no experience needed!
             </p>
-            <div className="fe-card-price">
-              <span className="fe-card-price__amount">From &euro;10</span>
-              <a href="#book" className="fe-btn-primary">Book Now &rarr;</a>
+            <div className="fe-card-price" style={{ justifyContent: "flex-end" }}>
+              <a href="#book" className="fe-btn-secondary">Book Workshop &rarr;</a>
             </div>
           </div>
+        </div>
         </div>
       </section>
 
       <section id="events" className="ds-section">
-        <h2 className="ds-section-title">Upcoming events</h2>
+        <h2 className="ds-section-title">Upcoming workshops</h2>
         <div className="fe-event-tabs" role="group" aria-label="Filter events">
           {["This Week", "This Month", "Next Month", "Choose Date"].map(
             (tab, i) => (
@@ -158,8 +192,7 @@ export default function PatternsPage() {
               </div>
               <div className="fe-card__body">
                 <div className="fe-card-meta">
-                  <span aria-hidden="true">&#x1F550;</span> Sunday, Sept 15
-                  &middot; 14:00–17:00
+                  <CheckCircle /> Sunday, Sept 15 &middot; 14:00–17:00
                 </div>
                 <h3 className="fe-h3" style={{ margin: "0 0 var(--spacing-2)" }}>
                   Fluentbody: A Somatic Movement Workshop
@@ -176,8 +209,9 @@ export default function PatternsPage() {
                   needed.
                 </p>
                 <div className="fe-card-price">
-                  <a href="#join" className="fe-btn-primary">
-                    Join For Free &rarr;
+                  <span className="fe-card-price__amount">From &euro;10</span>
+                  <a href="#join" className="fe-btn-secondary">
+                    Book Workshop &rarr;
                   </a>
                 </div>
               </div>
@@ -195,10 +229,21 @@ export default function PatternsPage() {
         <h2 className="ds-section-title">Card benefit &amp; get involved</h2>
         <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-4)" }}>
           <div className="fe-card-benefit">
-            <h3 className="fe-h3" style={{ margin: "0 0 var(--spacing-2)" }}>Meet People Offline</h3>
-            <p className="fe-body" style={{ margin: 0 }}>
-              A safe space to make genuine, real-life connections.
-            </p>
+            <div className="fe-card-benefit__content">
+              <h3 className="fe-h3" style={{ margin: "0 0 var(--spacing-2)" }}>Meet People Offline</h3>
+              <p className="fe-body" style={{ margin: 0 }}>
+                A safe space to make genuine, real-life connections.
+              </p>
+            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="fe-card-benefit__illustration"
+              src="/illustrations/flower.png"
+              alt=""
+              width={96}
+              height={96}
+              aria-hidden="true"
+            />
           </div>
           <div className="fe-card-get-involved">
             <div className="fe-card-get-involved__content">
@@ -207,7 +252,15 @@ export default function PatternsPage() {
                 Help locals and internationals find belonging by sharing your hobby.
               </p>
             </div>
-            <div className="fe-card-get-involved__icon" aria-hidden="true">&#x1F3AD;</div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="fe-card-benefit__illustration"
+              src="/illustrations/smiley.png"
+              alt=""
+              width={96}
+              height={96}
+              aria-hidden="true"
+            />
           </div>
         </div>
       </section>
