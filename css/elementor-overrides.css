@@ -82,9 +82,9 @@ select {
   color: var(--color-theme-2);
 }
 .elementor-nav-menu a:focus-visible {
-  outline: 0.3rem solid var(--color-focus-visible-accent);
-  outline-offset: 0.3rem;
-  border-radius: 2px;
+  outline: 0.125rem solid var(--color-focus-visible-accent);
+  outline-offset: 0.1875rem;
+  border-radius: 0.125rem;
 }
 
 /* Form labels: align with .fe-input-group */
