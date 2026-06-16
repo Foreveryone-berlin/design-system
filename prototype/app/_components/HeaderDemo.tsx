@@ -51,15 +51,14 @@ export default function HeaderDemo() {
     <div className="fe-header">
       <div className="fe-header__inner">
         <div className="fe-header__logo">
+          {/* Same brand mark as the design-system header (Navigation/MobileNav). */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/favicon.svg"
-            alt=""
-            width={28}
-            height={28}
-            aria-hidden="true"
+            src="/images/foreveryone-logo.png"
+            alt="ForEveryone"
+            width={120}
+            height={22}
           />
-          <span>ForEveryone</span>
         </div>
         <nav className="fe-header__nav" aria-label="Main">
           {navLinks.map(({ href, label, children }) =>
