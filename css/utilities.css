@@ -18,7 +18,8 @@
     transform var(--transition-fast);
   text-decoration: none;
 }
-.fe-btn-primary:hover {
+.fe-btn-primary:hover,
+.fe-btn-primary.is-hover {
   background-color: var(--color-brand-primary);
 }
 /* Focused/pressed fill (matches the style guide). The keyboard gold ring is
@@ -58,7 +59,8 @@
     color var(--transition-base);
   text-decoration: none;
 }
-.fe-btn-secondary:hover {
+.fe-btn-secondary:hover,
+.fe-btn-secondary.is-hover {
   background-color: var(--color-brand-primary);
   border-color: var(--color-brand-primary);
   color: var(--color-white);
@@ -98,7 +100,8 @@
     border-color var(--transition-fast),
     color var(--transition-fast);
 }
-.fe-icon-btn:hover {
+.fe-icon-btn:hover,
+.fe-icon-btn.is-hover {
   background-color: var(--color-accent-icon);
   border-color: var(--color-accent-icon);
   color: var(--color-white);
@@ -170,7 +173,8 @@
     background-color var(--transition-fast),
     opacity var(--transition-fast);
 }
-.fe-play-btn:hover {
+.fe-play-btn:hover,
+.fe-play-btn.is-hover {
   background-color: var(--color-brand-primary);
 }
 .fe-play-btn:active,
@@ -444,18 +448,21 @@
 .fe-input::placeholder {
   color: var(--color-theme-4);
 }
-.fe-input:hover {
+.fe-input:hover,
+.fe-input.is-hover {
   border-color: var(--color-theme-4);
 }
-.fe-input:focus {
+.fe-input:focus,
+.fe-input.is-focus {
   border-color: var(--color-brand-primary);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand-primary) 15%, transparent);
+  box-shadow: 0 0 0 0.1875rem color-mix(in srgb, var(--color-brand-primary) 15%, transparent);
 }
 .fe-input--error {
   border-color: var(--color-status-error);
 }
-.fe-input--error:focus {
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-status-error) 15%, transparent);
+.fe-input--error:focus,
+.fe-input--error.is-focus {
+  box-shadow: 0 0 0 0.1875rem color-mix(in srgb, var(--color-status-error) 15%, transparent);
 }
 .fe-input:disabled {
   background-color: var(--color-theme-5);
@@ -604,9 +611,16 @@
     background-size var(--transition-fast);
 }
 .fe-nav-link:hover,
-.fe-nav-link:focus {
+.fe-nav-link:focus,
+.fe-nav-link.is-hover {
   color: var(--color-theme-2);
   background-size: 100% 0.125rem;
+}
+/* Static "Focused" specimen: draw the keyboard gold ring without real focus. */
+.fe-nav-link.is-focus {
+  outline: 0.125rem solid var(--color-focus-visible-accent);
+  outline-offset: 0.1875rem;
+  border-radius: 0.125rem;
 }
 .fe-nav-link:disabled,
 .fe-nav-link[aria-disabled="true"] {
