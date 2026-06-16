@@ -24,10 +24,6 @@
 .fe-btn-primary:focus {
   outline: none;
 }
-.fe-btn-primary:focus-visible {
-  outline: 3px solid var(--color-focus-ring);
-  outline-offset: 2px;
-}
 .fe-btn-primary:disabled {
   opacity: 0.4;
   cursor: not-allowed;
@@ -59,10 +55,6 @@
 .fe-btn-secondary:focus {
   outline: none;
 }
-.fe-btn-secondary:focus-visible {
-  outline: 3px solid var(--color-focus-ring);
-  outline-offset: 2px;
-}
 
 /* Icon Button (social, etc.) */
 .fe-icon-btn {
@@ -89,10 +81,6 @@
 }
 .fe-icon-btn:focus {
   outline: none;
-}
-.fe-icon-btn:focus-visible {
-  outline: 3px solid var(--color-focus-ring);
-  outline-offset: 2px;
 }
 .fe-icon-btn:disabled {
   opacity: 0.5;
@@ -126,10 +114,6 @@
 .fe-icon-btn--filled-brand:focus {
   outline: none;
 }
-.fe-icon-btn--filled-brand:focus-visible {
-  outline: 3px solid var(--color-focus-ring);
-  outline-offset: 2px;
-}
 .fe-icon-btn--filled-brand:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -157,10 +141,6 @@
 }
 .fe-play-btn:focus {
   outline: none;
-}
-.fe-play-btn:focus-visible {
-  outline: 3px solid var(--color-focus-ring);
-  outline-offset: 2px;
 }
 .fe-play-btn:disabled {
   background-color: var(--color-neutral-200);
@@ -525,15 +505,34 @@
 .fe-nav-link:focus {
   color: var(--color-theme-2);
 }
-.fe-nav-link:focus-visible {
-  outline: 3px solid var(--color-focus-ring);
-  outline-offset: 2px;
-  border-radius: 2px;
-}
 .fe-nav-link:disabled,
 .fe-nav-link[aria-disabled="true"] {
   color: var(--color-theme-4);
   cursor: not-allowed;
+}
+
+/* ── Keyboard focus ─────────────────────────────────────────────────────────
+   Warm gold ring matched to marcopontili.com, KEYBOARD ONLY (:focus-visible).
+   Mouse/active states are defined per-component above and stay unchanged.
+   Thick (0.3rem) + 0.3rem offset = the source site's "thick enough" geometry
+   (WCAG 2.4.11 focus-appearance thickness path). The :focus { outline: none }
+   resets above ensure the ring shows on keyboard nav only. */
+.fe-btn-primary:focus-visible,
+.fe-btn-secondary:focus-visible,
+.fe-icon-btn:focus-visible,
+.fe-icon-btn--filled-brand:focus-visible,
+.fe-play-btn:focus-visible,
+.fe-tag-pill:focus-visible,
+.fe-nav-link:focus-visible {
+  outline: 0.3rem solid var(--color-focus-visible-accent);
+  outline-offset: 0.3rem;
+}
+.fe-nav-link:focus-visible {
+  border-radius: 2px;
+}
+.fe-input:focus-visible {
+  border-color: var(--color-focus-visible-accent);
+  box-shadow: 0 0 0 0.3rem var(--color-focus-visible-accent);
 }
 
 /* Header */
