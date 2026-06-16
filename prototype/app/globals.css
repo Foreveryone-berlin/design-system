@@ -945,6 +945,34 @@ a.ds-btn {
   color: var(--color-neutral-500);
 }
 
+/* Wider matrix: one row per component type, one column per state. The header
+   row labels the states; the first cell of each row labels the type. */
+.ds-state-grid {
+  display: grid;
+  grid-template-columns: auto repeat(4, 1fr);
+  gap: var(--spacing-4) var(--spacing-5);
+  align-items: center;
+  overflow-x: auto;
+}
+.ds-state-grid__col,
+.ds-state-grid__row-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-neutral-500);
+}
+.ds-state-grid__col {
+  text-align: center;
+}
+.ds-state-grid__row-label {
+  color: var(--color-theme-2);
+  white-space: nowrap;
+}
+.ds-state-grid__cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Cards */
 .ds-card {
   background: var(--color-white);
