@@ -605,7 +605,7 @@
 }
 .fe-dropdown-item.is-active {
   background-color: var(--color-light-orange);
-  color: var(--color-focus-button);
+  color: var(--color-brand-dark);
   font-weight: var(--font-weight-medium);
 }
 .fe-dropdown-item:disabled,
@@ -685,16 +685,9 @@
     background-size var(--transition-fast);
 }
 .fe-nav-link:hover,
-.fe-nav-link:focus,
 .fe-nav-link.is-hover {
   color: var(--color-theme-2);
   background-size: 100% 0.125rem;
-}
-/* Static "Focused" specimen: draw the keyboard gold ring without real focus. */
-.fe-nav-link.is-focus {
-  outline: 0.125rem solid var(--color-focus-visible-accent);
-  outline-offset: 0.1875rem;
-  border-radius: 0.125rem;
 }
 .fe-nav-link:disabled,
 .fe-nav-link[aria-disabled="true"] {
@@ -738,7 +731,7 @@
   max-width: var(--container-max-width);
   margin-inline: auto;
 }
-/* Brand lockup: logomark + wordmark copy. */
+/* Brand lockup: the ForEveryone wordmark (same asset as the DS header). */
 .fe-header__logo {
   display: inline-flex;
   align-items: center;
@@ -749,8 +742,8 @@
 }
 .fe-header__logo img {
   display: block;
-  width: 1.75rem;
-  height: 1.75rem;
+  height: 1.375rem;
+  width: auto;
 }
 .fe-header__nav {
   display: none;
@@ -974,8 +967,8 @@
 }
 .fe-footer__brand img {
   display: block;
-  width: 1.75rem;
-  height: 1.75rem;
+  height: 1.375rem;
+  width: auto;
 }
 @media (min-width: 640px) {
   .fe-footer__brand {

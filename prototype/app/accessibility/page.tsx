@@ -102,6 +102,28 @@ export default function AccessibilityPage() {
             than relying on outline thickness alone.
           </li>
         </ul>
+        <p className="fe-body" style={{ marginBlockStart: "var(--spacing-4)" }}>
+          Verified colour pairs (WebAIM Contrast Checker):
+        </p>
+        <div className="ds-motion-table" role="table" aria-label="Contrast results">
+          <div className="ds-motion-table__head" role="row">
+            <span role="columnheader">Pair</span>
+            <span role="columnheader">Ratio</span>
+            <span role="columnheader">Result</span>
+          </div>
+          {[
+            ["Charcoal text on Warm White / light tints", "12.5:1+", "AA + AAA"],
+            ["White text on Brand Blue (alerts)", "8.71:1", "AA + AAA"],
+            ["Joy badge: Charcoal on Orange", "6.42:1", "AA"],
+            ["Keyboard focus gold on white (non-text)", "3.19:1", "Passes 1.4.11 (3:1)"],
+          ].map(([pair, ratio, result]) => (
+            <div className="ds-motion-table__row" role="row" key={pair}>
+              <span role="cell">{pair}</span>
+              <span role="cell">{ratio}</span>
+              <span role="cell">{result}</span>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="ds-section">

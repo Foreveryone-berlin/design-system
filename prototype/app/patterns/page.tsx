@@ -54,15 +54,14 @@ export default function PatternsPage() {
         <footer className="fe-footer">
           <div className="fe-footer__inner">
             <p className="fe-footer__brand">
+              {/* Same brand mark as the design-system header. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/favicon.svg"
-                alt=""
-                width={28}
-                height={28}
-                aria-hidden="true"
+                src="/images/foreveryone-logo.png"
+                alt="ForEveryone"
+                width={120}
+                height={22}
               />
-              <span>ForEveryone</span>
             </p>
             <div className="fe-footer__grid">
               <div className="fe-footer__column">
