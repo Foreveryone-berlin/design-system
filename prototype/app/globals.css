@@ -347,7 +347,7 @@ select:focus-visible,
 }
 
 .ds-mobile-header__toggle[aria-expanded="true"] {
-  color: var(--color-focus-button);
+  color: var(--color-brand-dark);
   transform: rotate(90deg);
 }
 
@@ -435,13 +435,12 @@ select:focus-visible,
   text-decoration: none;
   color: inherit;
   transition:
-    background-color var(--transition-fast),
     box-shadow var(--transition-base),
     transform var(--transition-base);
 }
 
+/* Match the system card hover (shadow lift only, no background tint). */
 .ds-overview-card:hover {
-  background-color: color-mix(in srgb, var(--color-light-orange) 30%, var(--color-white));
   box-shadow: var(--shadow-md);
   transform: translateY(-0.125rem);
 }
@@ -953,9 +952,10 @@ a.ds-btn {
    row labels the states; the first cell of each row labels the type. */
 .ds-state-grid {
   display: grid;
-  grid-template-columns: auto repeat(4, 1fr);
+  grid-template-columns: auto repeat(4, max-content);
   gap: var(--spacing-4) var(--spacing-5);
   align-items: center;
+  justify-content: start;
   overflow-x: auto;
 }
 .ds-state-grid__col,

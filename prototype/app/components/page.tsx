@@ -327,8 +327,9 @@ export default function ComponentsPage() {
         <h2 className="ds-section-title">Nav link states</h2>
         <p className="ds-section-intro">
           Header and footer nav links: Default, Hover (orange underline grows
-          in), Focused (gold keyboard ring), and Disabled. The underline is a
-          decorative accent, not the link colour.
+          in), and Disabled. The underline is a decorative accent, not the link
+          colour. Focus is keyboard-only &mdash; Tab to the link below to see the
+          gold <code className="ds-code">:focus-visible</code> ring.
         </p>
         <div className="ds-state-matrix">
           <span className="ds-state-matrix__label">Default</span>
@@ -339,8 +340,8 @@ export default function ComponentsPage() {
           <a href="#nav-states" className="fe-nav-link is-hover">
             Workshops
           </a>
-          <span className="ds-state-matrix__label">Focused</span>
-          <a href="#nav-states" className="fe-nav-link is-focus">
+          <span className="ds-state-matrix__label">Focus (keyboard)</span>
+          <a href="#nav-states" className="fe-nav-link">
             Workshops
           </a>
           <span className="ds-state-matrix__label">Disabled</span>
