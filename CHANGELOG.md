@@ -10,6 +10,16 @@
 
 **Labels:** **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**; append **(WIP)** only for incomplete work.
 
+## [0.19.2] - 2026-06-16
+
+- **Fix**: Use a Charcoal focus ring on every interactive element so keyboard focus passes WCAG 2.4.11 (>=3:1).
+- **Fix**: Drop the orange background on the primary button's focus state so it no longer renders white text on orange.
+- **Refactor**: Add a `color.focus-ring` semantic token and standardize all `:focus-visible` outlines on it.
+- **Fix**: Cap the Upcoming-events grid at two columns on laptops, three only on screens >=1600px.
+- **Fix**: Obfuscate the footer contact address and update it to `hello@foreveryone.berlin`.
+- **Build**: Wire the BrowserStack MCP into the repo for cross-browser checks (credentials via env, never committed).
+- **Chore**: Bump `package.json` and `prototype/package.json` to `0.19.2`.
+
 ## [0.19.1] - 2026-06-15
 
 - **Fix**: Add the Accessibility page to the mobile navigation so it matches the desktop sidebar.
