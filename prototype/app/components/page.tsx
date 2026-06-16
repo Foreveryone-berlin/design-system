@@ -355,8 +355,10 @@ export default function ComponentsPage() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(16.25rem, 1fr))",
             gap: "var(--spacing-6)",
+            padding: "var(--spacing-2)",
+            margin: "calc(-1 * var(--spacing-2))",
           }}
         >
           <div className="ds-card">
@@ -543,6 +545,73 @@ export default function ComponentsPage() {
           <span className="ds-chip">Tag two</span>
           <span className="ds-chip">Design tokens</span>
           <span className="ds-chip">Light only</span>
+        </div>
+      </section>
+
+      <section id="badges" className="ds-section">
+        <h2 className="ds-section-title">Badges &amp; labels</h2>
+        <p className="ds-section-intro">
+          The &ldquo;Joy&rdquo; brand badge sits on an orange ground with a
+          high-contrast Charcoal label (orange fills never carry white text).
+          Label cards group a key with its value.
+        </p>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            gap: "var(--spacing-3)",
+            marginBlockEnd: "var(--spacing-6)",
+          }}
+        >
+          <span className="fe-badge fe-badge--joy">Joy</span>
+          <span className="fe-badge fe-badge--blue">New</span>
+          <span className="fe-badge">Default</span>
+        </div>
+        <div className="fe-label-cards">
+          <div className="fe-label-card">
+            <span className="fe-label-card__label">Category</span>
+            <span className="fe-label-card__value">Arts &amp; Crafts</span>
+          </div>
+          <div className="fe-label-card">
+            <span className="fe-label-card__label">Duration</span>
+            <span className="fe-label-card__value">3 hours</span>
+          </div>
+          <div className="fe-label-card">
+            <span className="fe-label-card__label">Level</span>
+            <span className="fe-label-card__value">All levels</span>
+          </div>
+          <div className="fe-label-card">
+            <span className="fe-label-card__label">Price</span>
+            <span className="fe-label-card__value">From &euro;10</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="dropdown" className="ds-section">
+        <h2 className="ds-section-title">Dropdown</h2>
+        <p className="ds-section-intro">
+          Menu surface with item states: Default, Hover, Selected, and Disabled.
+          Hover and selected are shown statically here.
+        </p>
+        <div className="fe-dropdown" role="menu" aria-label="Dropdown states demo">
+          <a href="#dropdown" className="fe-dropdown-item" role="menuitem">
+            Default item
+          </a>
+          <a href="#dropdown" className="fe-dropdown-item is-hover" role="menuitem">
+            Hover item
+          </a>
+          <a
+            href="#dropdown"
+            className="fe-dropdown-item is-active"
+            role="menuitem"
+            aria-current="true"
+          >
+            Selected item
+          </a>
+          <span className="fe-dropdown-item" role="menuitem" aria-disabled="true">
+            Disabled item
+          </span>
         </div>
       </section>
 
