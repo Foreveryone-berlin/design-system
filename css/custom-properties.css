@@ -14,6 +14,7 @@
   --color-focus-button: #CC622E;
   --color-light-purple: #D5C5FF;
   --color-soft-lavender: #E5DCFF;
+  --color-lavender-official: #E5D0FF;
   --color-light-green: #D4E6A8;
   --color-light-orange: #FFD7C4;
   --color-pink: #F39EBC;
@@ -38,6 +39,7 @@
   --color-accent-icon: #FF7A3A;
   --color-accent-border: #FF7A3A;
   --color-focus-ring: #1E1E1E;
+  --color-focus-visible-accent: oklch(0.79 0.15 70);
 
   /* ── Colors: Status ──────────────────────────────────────────────────── */
   --color-status-error:   #DC2626;
