@@ -14,6 +14,7 @@
 
 ## [0.20.1] - 2026-06-16
 
+- **Docs**: Link "European Accessibility Act" to the official European Commission page.
 - **Feat**: Group the Components page into labelled categories with a nested on-this-page outline.
 - **Feat**: Show the four pill button variants (Primary, Secondary, Orange, Outline) in the button-state matrix.
 - **Fix**: Increase the card-grid container padding so the hover-lift shadow is no longer clipped.
