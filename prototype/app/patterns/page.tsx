@@ -1,6 +1,7 @@
 import Image from "next/image";
 import HeaderDemo from "../_components/HeaderDemo";
 import CategoryIcon from "../_components/CategoryIcon";
+import ObfuscatedEmail from "../_components/ObfuscatedEmail";
 
 export default function PatternsPage() {
   return (
@@ -52,9 +53,7 @@ export default function PatternsPage() {
               </div>
               <div className="fe-footer__column">
                 <p className="fe-footer__column-title">Contact</p>
-                <p className="fe-body" style={{ margin: 0, fontSize: "var(--font-size-sm)" }}>
-                  info@wellbeing4everyone.com
-                </p>
+                <ObfuscatedEmail />
                 <p className="fe-body" style={{ marginTop: "var(--spacing-2)", fontSize: "var(--font-size-sm)" }}>
                   Boxhagener Platz, 10245 Berlin
                 </p>
