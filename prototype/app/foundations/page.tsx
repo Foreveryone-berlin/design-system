@@ -349,6 +349,12 @@ export default function TokensPage() {
             </p>
           </div>
           <div>
+            <div className="fe-label">Blockquote</div>
+            <blockquote className="ds-quote">
+              Typography and spacing come from the design system.
+            </blockquote>
+          </div>
+          <div>
             <span className="fe-tag">Tag</span>
           </div>
         </div>

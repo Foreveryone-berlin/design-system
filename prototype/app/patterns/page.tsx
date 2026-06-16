@@ -218,11 +218,6 @@ export default function PatternsPage() {
             </div>
           ))}
         </div>
-        <div style={{ marginTop: "var(--spacing-6)", textAlign: "center" }}>
-          <a href="#all-events" className="ds-btn ds-btn--secondary">
-            Explore all events
-          </a>
-        </div>
       </section>
 
       <section id="benefit-cards" className="ds-section">
