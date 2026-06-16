@@ -1,6 +1,72 @@
+import type { ReactNode } from "react";
 import FaqDemo from "../FaqDemo";
 import TestimonialCard from "../_components/TestimonialCard";
 import Popup from "../_components/Popup";
+
+// Functional UI glyphs from the Figma icon set, inline so they inherit
+// currentColor and the 24x24 / stroke-2 geometry used across the system.
+const UI_ICONS: { label: string; path: ReactNode }[] = [
+  { label: "Chevron down", path: <polyline points="6 9 12 15 18 9" /> },
+  {
+    label: "Check circle",
+    path: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <polyline points="8.5 12.5 11 15 16 9.5" />
+      </>
+    ),
+  },
+  {
+    label: "Clock",
+    path: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <polyline points="12 7 12 12 15.5 14" />
+      </>
+    ),
+  },
+  {
+    label: "Location pin",
+    path: (
+      <>
+        <path d="M12 21s-6.5-5.6-6.5-10.5a6.5 6.5 0 1 1 13 0C18.5 15.4 12 21 12 21z" />
+        <circle cx="12" cy="10.5" r="2.5" />
+      </>
+    ),
+  },
+  { label: "Close", path: <path d="M6 6l12 12M18 6L6 18" /> },
+  {
+    label: "Mail",
+    path: (
+      <>
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <polyline points="3 7 12 13 21 7" />
+      </>
+    ),
+  },
+  { label: "Plus", path: <path d="M12 5v14M5 12h14" /> },
+  { label: "Minus", path: <path d="M5 12h14" /> },
+  {
+    label: "Phone",
+    path: (
+      <path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L16 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
+    ),
+  },
+  {
+    label: "Play",
+    path: <path d="M8 5.5v13l11-6.5z" fill="currentColor" stroke="none" />,
+  },
+  {
+    label: "Instagram",
+    path: (
+      <>
+        <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17" cy="7" r="1" fill="currentColor" stroke="none" />
+      </>
+    ),
+  },
+];
 
 export default function ComponentsPage() {
   return (
@@ -273,6 +339,25 @@ export default function ComponentsPage() {
             />
             <span>External link</span>
           </div>
+          {UI_ICONS.map(({ label, path }) => (
+            <div className="ds-icon-item" key={label}>
+              <svg
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                {path}
+              </svg>
+              <span>{label}</span>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -353,7 +438,7 @@ export default function ComponentsPage() {
               aria-describedby="ds-input-error-msg"
             />
             <span id="ds-input-error-msg" className="fe-input-error-msg">
-              field is required
+              This field is required
             </span>
           </div>
           <div className="fe-input-group">
