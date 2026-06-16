@@ -90,6 +90,7 @@ const SEMANTIC_COLOR_KEYS = [
   "background-alert",
   "accent-icon",
   "accent-border",
+  "focus-ring",
 ];
 
 const COLOR_RAMPS = {
