@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface NavItem {
   href: string;
@@ -41,6 +41,22 @@ export default function HeaderDemo() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openSub, setOpenSub] = useState<string | null>(null);
   const [openSubMobile, setOpenSubMobile] = useState<string | null>(null);
+  const desktopNavRef = useRef<HTMLElement>(null);
+
+  // Close the desktop dropdown when clicking outside the nav. Attached only
+  // while a dropdown is open, and after the opening click has completed, so it
+  // never interferes with the trigger's own toggle.
+  useEffect(() => {
+    if (!openSub) return;
+    const handleDocumentClick = (event: MouseEvent) => {
+      const nav = desktopNavRef.current;
+      if (nav && !nav.contains(event.target as Node)) {
+        setOpenSub(null);
+      }
+    };
+    document.addEventListener("click", handleDocumentClick);
+    return () => document.removeEventListener("click", handleDocumentClick);
+  }, [openSub]);
 
   const toggleSub = (href: string) =>
     setOpenSub((prev) => (prev === href ? null : href));
@@ -60,7 +76,7 @@ export default function HeaderDemo() {
             height={22}
           />
         </div>
-        <nav className="fe-header__nav" aria-label="Main">
+        <nav className="fe-header__nav" aria-label="Main" ref={desktopNavRef}>
           {navLinks.map(({ href, label, children }) =>
             children ? (
               <div key={href} style={{ position: "relative" }}>
