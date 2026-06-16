@@ -148,19 +148,43 @@ export default function ComponentsPage() {
 
       <section id="category-tags" className="ds-section">
         <h2 className="ds-section-title">Category tag variants</h2>
+        <p className="ds-section-intro">
+          Five workshop categories. Grey at rest; each takes its category colour
+          on hover and when active (selected).
+        </p>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "var(--spacing-3)",
+            marginBlockEnd: "var(--spacing-4)",
+          }}
+        >
+          <span className="fe-tag-pill">Default</span>
+          <span className="fe-tag-pill fe-tag-pill--balance">
+            Balance and Wellness
+          </span>
+          <span className="fe-tag-pill fe-tag-pill--movement">Movement</span>
+          <span className="fe-tag-pill fe-tag-pill--arts">Arts and Crafts</span>
+          <span className="fe-tag-pill fe-tag-pill--expression">Expression</span>
+          <span className="fe-tag-pill fe-tag-pill--music">Music</span>
+        </div>
         <div
           style={{ display: "flex", flexWrap: "wrap", gap: "var(--spacing-3)" }}
         >
-          <span className="fe-tag-pill">Default</span>
-          <span className="fe-tag-pill fe-tag-pill--green">
+          <span className="fe-tag-pill fe-tag-pill--balance active">
             Balance and Wellness
           </span>
-          <span className="fe-tag-pill fe-tag-pill--orange">Expression</span>
-          <span className="fe-tag-pill fe-tag-pill--lavender">
+          <span className="fe-tag-pill fe-tag-pill--movement active">
+            Movement
+          </span>
+          <span className="fe-tag-pill fe-tag-pill--arts active">
             Arts and Crafts
           </span>
-          <span className="fe-tag-pill fe-tag-pill--blue">Music</span>
-          <span className="fe-tag-pill active">Active (primary)</span>
+          <span className="fe-tag-pill fe-tag-pill--expression active">
+            Expression
+          </span>
+          <span className="fe-tag-pill fe-tag-pill--music active">Music</span>
         </div>
       </section>
 
