@@ -12,6 +12,21 @@
 
 ## [Unreleased]
 
+## [0.20.1] - 2026-06-16
+
+- **Feat**: Group the Components page into labelled categories with a nested on-this-page outline.
+- **Feat**: Show the four pill button variants (Primary, Secondary, Orange, Outline) in the button-state matrix.
+- **Fix**: Increase the card-grid container padding so the hover-lift shadow is no longer clipped.
+- **Fix**: Close the header dropdown when clicking outside it.
+- **Style**: Replace the gold focus-visible ring on buttons with each button's focused fill on keyboard focus.
+- **Style**: Drop the redundant gold focus-visible ring on form inputs and header dropdown links.
+- **Style**: Remove the icon and play rows from the button-state matrix.
+- **Style**: Move the Blockquote specimen from Components into Foundations typography.
+- **Style**: Tint the overview explore-card hover with Soft Lavender.
+- **Style**: Remove the growing-underline flash on header dropdown links so hover goes straight to the orange fill.
+- **Style**: Remove the strategy and vase line illustrations and rename the headline-underline label to "Underline".
+- **Style**: Remove the "Explore all events" call to action from the Patterns page.
+
 ## [0.20.0] - 2026-06-16
 
 - **Feat**: Add a Motion page documenting motion principles, the duration/easing tokens, and live reduced-motion-safe specimens.

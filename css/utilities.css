@@ -22,9 +22,10 @@
 .fe-btn-primary.is-hover {
   background-color: var(--color-brand-primary);
 }
-/* Focused/pressed fill (matches the style guide). The keyboard gold ring is
-   separate (:focus-visible); .is-focus is the static demo of this fill. */
+/* Focused/pressed fill (matches the style guide). Keyboard focus reuses this
+   fill instead of a gold ring; .is-focus is the static demo of the same fill. */
 .fe-btn-primary:active,
+.fe-btn-primary:focus-visible,
 .fe-btn-primary.is-focus {
   background-color: var(--color-focus-button);
 }
@@ -66,6 +67,7 @@
   color: var(--color-white);
 }
 .fe-btn-secondary:active,
+.fe-btn-secondary:focus-visible,
 .fe-btn-secondary.is-focus {
   background-color: var(--color-focus-button);
   border-color: var(--color-focus-button);
@@ -107,6 +109,7 @@
   color: var(--color-white);
 }
 .fe-icon-btn:active,
+.fe-icon-btn:focus-visible,
 .fe-icon-btn.is-pressed,
 .fe-icon-btn.is-focus {
   background-color: var(--color-focus-button);
@@ -143,7 +146,8 @@
     color var(--transition-fast),
     opacity var(--transition-fast);
 }
-.fe-icon-btn--filled-brand:hover {
+.fe-icon-btn--filled-brand:hover,
+.fe-icon-btn--filled-brand:focus-visible {
   background-color: var(--color-focus-button);
   border-color: var(--color-focus-button);
   color: var(--color-white);
@@ -178,6 +182,7 @@
   background-color: var(--color-brand-primary);
 }
 .fe-play-btn:active,
+.fe-play-btn:focus-visible,
 .fe-play-btn.is-pressed,
 .fe-play-btn.is-focus {
   background-color: var(--color-focus-button);
@@ -698,17 +703,11 @@
 /* ── Keyboard focus ─────────────────────────────────────────────────────────
    Warm gold focus outline (hue 70, deepened to ~#CB7F00 so it clears the WCAG
    2.4.11 non-text 3:1 threshold on white), KEYBOARD ONLY (:focus-visible). A
-   thin 0.125rem outline at 0.1875rem offset. Mouse/active states are defined
-   per-component above and stay unchanged. The :focus { outline: none } resets
-   above ensure the outline shows on keyboard nav only. */
-.fe-btn-primary:focus-visible,
-.fe-btn-secondary:focus-visible,
-.fe-icon-btn:focus-visible,
-.fe-icon-btn--filled-brand:focus-visible,
-.fe-play-btn:focus-visible,
+   thin 0.125rem outline at 0.1875rem offset. Buttons and inputs instead reuse
+   their own focused fill / border treatment on :focus-visible (defined
+   per-component above), so only tag pills and nav links carry the gold ring. */
 .fe-tag-pill:focus-visible,
-.fe-nav-link:focus-visible,
-.fe-input:focus-visible {
+.fe-nav-link:focus-visible {
   outline: 0.125rem solid var(--color-focus-visible-accent);
   outline-offset: 0.1875rem;
 }
@@ -856,6 +855,9 @@
   color: var(--color-theme-4);
   font-weight: var(--font-weight-medium);
   white-space: nowrap;
+  /* No growing-underline accent in the dropdown — hover goes straight to the
+     orange fill below. */
+  background-image: none;
   transition:
     background-color var(--transition-fast),
     color var(--transition-fast);
@@ -868,6 +870,12 @@
 .fe-header__dropdown .fe-nav-link:active {
   background-color: var(--color-focus-button);
   color: var(--color-white);
+}
+/* The orange :focus fill is the visible focus indicator here, so suppress the
+   gold keyboard ring on dropdown links. */
+.fe-header__dropdown .fe-nav-link:focus-visible,
+.fe-header__mobile-sub .fe-nav-link:focus-visible {
+  outline: none;
 }
 .fe-header__mobile-nav {
   display: flex;
@@ -918,6 +926,7 @@
   text-align: center;
   justify-content: center;
   border-bottom: 1px solid var(--color-theme-7);
+  background-image: none;
 }
 .fe-header__mobile-cta {
   margin: var(--spacing-4) var(--spacing-4) 0;
