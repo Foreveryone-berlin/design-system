@@ -439,8 +439,9 @@ select:focus-visible,
     transform var(--transition-base);
 }
 
-/* Match the system card hover (shadow lift only, no background tint). */
+/* Explore-card hover: Soft Lavender tint plus the shadow lift. */
 .ds-overview-card:hover {
+  background: var(--color-soft-lavender);
   box-shadow: var(--shadow-md);
   transform: translateY(-0.125rem);
 }
@@ -562,6 +563,17 @@ select:focus-visible,
   font-weight: var(--font-weight-bold);
   color: var(--color-theme-8);
   margin: var(--spacing-8) 0 var(--spacing-3);
+}
+
+/* Category header that groups several component sub-sections. Sits above its
+   group with extra separation and an accent rule to distinguish it from the
+   per-section sub-headings. */
+.ds-group-title {
+  margin-top: var(--spacing-12);
+  border-bottom-color: var(--color-accent-border);
+}
+.ds-group-title:first-of-type {
+  margin-top: 0;
 }
 
 .ds-palette-group {
@@ -870,11 +882,6 @@ a.ds-btn {
   box-shadow: none;
 }
 
-.ds-btn:focus-visible {
-  outline: 0.125rem solid var(--color-focus-visible-accent);
-  outline-offset: 0.1875rem;
-}
-
 .ds-btn--primary {
   background: var(--color-brand-secondary);
   color: var(--color-white);
@@ -914,21 +921,37 @@ a.ds-btn {
 }
 
 /* Static state previews for the component state matrix. .is-hover / .is-focus
-   mirror the real :hover / :focus-visible rules so each state is visible at
-   once; disabled is the real attribute. */
+   mirror the real :hover / focused fills so each state is visible at once;
+   disabled is the real attribute. */
 .ds-btn--primary.is-hover {
   background: var(--color-brand-primary);
 }
 .ds-btn--secondary.is-hover {
   background: var(--color-theme-7);
 }
-/* Static "Focused" specimen shows the focused fill only — no outline drawn.
-   The real gold keyboard outline fires on actual :focus-visible. */
-.ds-btn--primary.is-focus {
+.ds-btn--orange.is-hover {
+  background: var(--color-light-orange);
+}
+.ds-btn--outline.is-hover {
+  background: var(--color-light-purple);
+}
+/* Focused fill: keyboard focus reuses this fill (no gold outline); .is-focus is
+   the static demo of the same fill. */
+.ds-btn--primary.is-focus,
+.ds-btn--primary:focus-visible {
   background: var(--color-focus-button);
 }
-.ds-btn--secondary.is-focus {
+.ds-btn--secondary.is-focus,
+.ds-btn--secondary:focus-visible {
   background: var(--color-theme-7);
+}
+.ds-btn--orange.is-focus,
+.ds-btn--orange:focus-visible {
+  background: var(--color-light-orange);
+}
+.ds-btn--outline.is-focus,
+.ds-btn--outline:focus-visible {
+  background: var(--color-light-purple);
 }
 .ds-btn:disabled,
 .ds-btn.is-disabled {
@@ -1029,11 +1052,6 @@ a.ds-btn {
   outline: none;
   border-color: var(--color-brand-secondary);
   box-shadow: 0 0 0 0.1875rem var(--color-light-purple);
-}
-
-.ds-input:focus-visible {
-  outline: 0.125rem solid var(--color-focus-visible-accent);
-  outline-offset: 0.1875rem;
 }
 
 .ds-input::placeholder {
