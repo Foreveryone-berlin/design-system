@@ -3,6 +3,28 @@ import HeaderDemo from "../_components/HeaderDemo";
 import CategoryIcon from "../_components/CategoryIcon";
 import ObfuscatedEmail from "../_components/ObfuscatedEmail";
 
+// Check-circle used on the workshop-card date row (per Figma), inline so it
+// inherits currentColor and the system's 24x24 / stroke-2 geometry.
+function CheckCircle() {
+  return (
+    <svg
+      width={18}
+      height={18}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="12" cy="12" r="9" />
+      <polyline points="8.5 12.5 11 15 16 9.5" />
+    </svg>
+  );
+}
+
 export default function PatternsPage() {
   return (
     <>
@@ -101,7 +123,7 @@ export default function PatternsPage() {
           </div>
           <div className="fe-card__body">
             <div className="fe-card-meta">
-              <span aria-hidden="true">&#x1F550;</span> Sunday, Sept 15 &middot; 14:00–17:00
+              <CheckCircle /> Sunday, Sept 15 &middot; 14:00–17:00
             </div>
             <h3 className="fe-h3" style={{ margin: "0 0 var(--spacing-2)" }}>
               Pottery Workshop
@@ -158,8 +180,7 @@ export default function PatternsPage() {
               </div>
               <div className="fe-card__body">
                 <div className="fe-card-meta">
-                  <span aria-hidden="true">&#x1F550;</span> Sunday, Sept 15
-                  &middot; 14:00–17:00
+                  <CheckCircle /> Sunday, Sept 15 &middot; 14:00–17:00
                 </div>
                 <h3 className="fe-h3" style={{ margin: "0 0 var(--spacing-2)" }}>
                   Fluentbody: A Somatic Movement Workshop
