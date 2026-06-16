@@ -76,8 +76,6 @@ summary:focus-visible,
   --transition-fast: 220ms ease;
   --transition-base: 400ms ease;
   --transition-slow: 600ms ease;
-  /* Keyboard focus ring (prototype-only) */
-  --color-focus-ring: oklch(0.79 0.15 70);
 }
 
 .ds-light-only body {
@@ -702,7 +700,13 @@ summary:focus-visible,
   gap: var(--spacing-6);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
+  .ds-events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1600px) {
   .ds-events-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -916,10 +920,6 @@ a.ds-btn {
 .ds-btn.is-focus {
   outline: 3px solid var(--color-focus-ring);
   outline-offset: 2px;
-}
-.ds-btn--primary.is-focus,
-.ds-btn--primary:focus-visible {
-  background: var(--color-brand-primary);
 }
 .ds-btn:disabled,
 .ds-btn.is-disabled {
