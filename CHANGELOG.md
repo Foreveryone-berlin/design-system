@@ -10,6 +10,28 @@
 
 **Labels:** **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**; append **(WIP)** only for incomplete work.
 
+## [0.20.0] - Unreleased
+
+- **Feat**: Add a warm-gold `color.focus-visible-accent` token (matched to the brand reference) for keyboard focus.
+- **Style**: Use a thick gold `:focus-visible` outline on every control (keyboard only); leave mouse states unchanged.
+- **Enhance**: Collapse the six duplicated focus rules and the divergent Elementor nav-focus rule onto one treatment.
+- **Style**: Give form fields a gold keyboard-focus border and ring instead of a clipped outline.
+- **Feat**: Add the official light-lavender token `#E5D0FF` (use sparingly), distinct from Soft Lavender.
+- **Style**: Rework `.fe-tag-pill` into five category variants, grey at rest with colour on hover/active.
+- **Feat**: Add the missing Movement category tag and switch colour-named variants to category names.
+- **Feat**: Add small and large play-button sizes and a real hover plus pressed state.
+- **Feat**: Add a WhatsApp icon-button variant and a pressed state for icon buttons.
+- **Feat**: Give the benefit and get-involved cards a Soft Lavender background with a hand-drawn orange illustration.
+- **Feat**: Expand the components icon gallery with the full Figma functional icon set as inline SVGs.
+- **Enhance**: Use a check-circle icon on the workshop-card date rows instead of a clock emoji.
+- **Style**: Add an orange underline that grows in on header and footer nav-link hover and focus.
+- **Fix**: Correct the input error helper text to "This field is required".
+- **Docs**: Note the warm-gold keyboard focus ring and its contrast tradeoff on the accessibility page.
+- **Docs**: Reconcile the agent retrieval index with the real prototype tree and document the local e2e command.
+- **Build**: Bump in-range deps (Next 15.5.19, React 19.2.7, Playwright 1.61, types); stay within current majors.
+- **Sec**: Resolve the high-severity Next.js advisories via Next 15.5.19 (one transitive postcss moderate remains).
+- **Chore**: Bump `package.json` and `prototype/package.json` to `0.20.0`.
+
 ## [0.19.2] - 2026-06-16
 
 - **Fix**: Use a Charcoal focus ring on every interactive element so keyboard focus passes WCAG 2.4.11 (>=3:1).
