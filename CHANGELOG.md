@@ -12,6 +12,8 @@
 
 ## [0.20.0] - Unreleased
 
+- **Feat**: Add a Motion page documenting motion principles, the duration/easing tokens, and live reduced-motion-safe specimens.
+- **Feat**: Wire the Motion page into the desktop sidebar and mobile navigation, after Foundations.
 - **Feat**: Add a warm-gold `color.focus-visible-accent` token (matched to the brand reference) for keyboard focus.
 - **Style**: Use a thick gold `:focus-visible` outline on every control (keyboard only); leave mouse states unchanged.
 - **Enhance**: Collapse the six duplicated focus rules and the divergent Elementor nav-focus rule onto one treatment.
