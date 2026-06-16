@@ -10,7 +10,9 @@
 
 **Labels:** **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**; append **(WIP)** only for incomplete work.
 
-## [0.20.0] - Unreleased
+## [Unreleased]
+
+## [0.20.0] - 2026-06-16
 
 - **Feat**: Add a Motion page documenting motion principles, the duration/easing tokens, and live reduced-motion-safe specimens.
 - **Feat**: Add a Credits page (people, stack, accessibility tooling, licence) wired into the desktop and mobile navigation.
