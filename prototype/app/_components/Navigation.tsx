@@ -12,6 +12,7 @@ const navSections = [
   { href: "/guidelines", label: "Guidelines" },
   { href: "/accessibility", label: "Accessibility" },
   { href: "/governance", label: "Governance" },
+  { href: "/credits", label: "Credits" },
 ];
 
 export default function Navigation() {

@@ -13,7 +13,13 @@
 ## [0.20.0] - Unreleased
 
 - **Feat**: Add a Motion page documenting motion principles, the duration/easing tokens, and live reduced-motion-safe specimens.
-- **Feat**: Wire the Motion page into the desktop sidebar and mobile navigation, after Foundations.
+- **Feat**: Add a Credits page (people, stack, accessibility tooling, licence) wired into the desktop and mobile navigation.
+- **Feat**: Wire the Motion and Credits pages into both navigations; surface every section as a card on the home overview.
+- **Fix**: Keep the button-state specimens at their natural size instead of stretching to the matrix columns.
+- **Fix**: Use the same ForEveryone wordmark in the pattern header and footer as the design-system header.
+- **Fix**: Render the mobile-nav close (X) in Charcoal rather than orange.
+- **Style**: Match the home overview-card hover to the system card (shadow lift only, no background tint).
+- **Docs**: Record the WebAIM contrast results on the accessibility page.
 - **Feat**: Migrate the entire colour palette to OKLCH, round-trip-exact to the prior sRGB hex (hex kept in token notes).
 - **Feat**: Add a `color.focus-visible-accent` token in the brand-reference gold hue, deepened to 3.19:1 on white.
 - **Style**: Use the gold `:focus-visible` outline on every control (keyboard only); leave mouse states unchanged.

@@ -93,7 +93,7 @@ See [`docs/contributing.md`](docs/contributing.md) for workflow, commit conventi
 
 This design system is a community effort. Built with care by the people who make ForEveryone Berlin what it is: a warm, open space where everyone belongs.
 
-With thanks to Didem, Pedram, Rie, and Angelina.
+With thanks to Rie, Roxana, Didem, Pedram, Marco, and Angelina.
 
 ## License
 
