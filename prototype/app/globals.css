@@ -6,17 +6,19 @@
 
 /* ---- Accessibility: visible keyboard focus ---- */
 /* Global fallback so every interactive element shows a clear focus ring when
-   reached by keyboard; component-specific overrides (e.g. .ds-btn) still win. */
+   reached by keyboard; component-specific overrides (e.g. .ds-btn) still win.
+   Warm gold focus outline (hue 70, deepened to clear WCAG 2.4.11 3:1 on white),
+   KEYBOARD ONLY (:focus-visible): a thin 0.125rem outline at 0.1875rem offset. */
 a:focus-visible,
 button:focus-visible,
 [role="button"]:focus-visible,
+summary:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
-summary:focus-visible,
 [tabindex]:focus-visible {
-  outline: 3px solid var(--color-focus-ring);
-  outline-offset: 2px;
+  outline: 0.125rem solid var(--color-focus-visible-accent);
+  outline-offset: 0.1875rem;
 }
 
 /* ---- Accessibility: skip to main content ---- */
@@ -48,7 +50,7 @@ summary:focus-visible,
 @keyframes vt-fade-in {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(0.5rem);
   }
   to {
     opacity: 1;
@@ -230,7 +232,7 @@ summary:focus-visible,
 
 /* ---- Sidebar ---- */
 .ds-sidebar {
-  width: 240px;
+  width: 15rem;
   flex-shrink: 0;
   background: var(--color-theme-5);
   border-right: 1px solid var(--color-theme-7);
@@ -257,7 +259,7 @@ summary:focus-visible,
 
 .ds-sidebar__logo img {
   display: block;
-  height: 22px;
+  height: 1.375rem;
   width: auto;
 }
 
@@ -328,7 +330,7 @@ summary:focus-visible,
 
 .ds-mobile-header__logo img {
   display: block;
-  height: 22px;
+  height: 1.375rem;
   width: auto;
 }
 
@@ -345,7 +347,7 @@ summary:focus-visible,
 }
 
 .ds-mobile-header__toggle[aria-expanded="true"] {
-  color: var(--color-focus-button);
+  color: var(--color-brand-dark);
   transform: rotate(90deg);
 }
 
@@ -433,15 +435,14 @@ summary:focus-visible,
   text-decoration: none;
   color: inherit;
   transition:
-    background-color var(--transition-fast),
     box-shadow var(--transition-base),
     transform var(--transition-base);
 }
 
+/* Match the system card hover (shadow lift only, no background tint). */
 .ds-overview-card:hover {
-  background-color: color-mix(in srgb, var(--color-light-orange) 30%, var(--color-white));
   box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  transform: translateY(-0.125rem);
 }
 
 .ds-overview-card__title {
@@ -480,7 +481,7 @@ summary:focus-visible,
 /* Sketched brand underline tucked under a headline (see SheLeads). */
 .ds-headline-underline {
   display: block;
-  width: min(340px, 72%);
+  width: min(21.25rem, 72%);
   height: auto;
   margin: calc(-1 * var(--spacing-6)) 0 var(--spacing-4);
 }
@@ -599,7 +600,7 @@ summary:focus-visible,
 }
 
 .ds-swatch-color {
-  height: 56px;
+  height: 3.5rem;
 }
 
 .ds-swatch-label {
@@ -698,6 +699,10 @@ summary:focus-visible,
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-6);
+  /* Inset the grid so the cards' hover-lift shadow isn't clipped by the
+     section's overflow:hidden; the negative margin keeps outer alignment. */
+  padding: var(--spacing-2);
+  margin: calc(-1 * var(--spacing-2));
 }
 
 @media (min-width: 768px) {
@@ -806,8 +811,8 @@ summary:focus-visible,
 }
 
 .ds-radius-card {
-  width: 96px;
-  height: 64px;
+  width: 6rem;
+  height: 4rem;
   background: var(--color-theme-5);
   box-shadow: var(--shadow-card);
   display: flex;
@@ -866,8 +871,8 @@ a.ds-btn {
 }
 
 .ds-btn:focus-visible {
-  outline: 3px solid var(--color-focus-ring);
-  outline-offset: 2px;
+  outline: 0.125rem solid var(--color-focus-visible-accent);
+  outline-offset: 0.1875rem;
 }
 
 .ds-btn--primary {
@@ -917,9 +922,13 @@ a.ds-btn {
 .ds-btn--secondary.is-hover {
   background: var(--color-theme-7);
 }
-.ds-btn.is-focus {
-  outline: 3px solid var(--color-focus-ring);
-  outline-offset: 2px;
+/* Static "Focused" specimen shows the focused fill only — no outline drawn.
+   The real gold keyboard outline fires on actual :focus-visible. */
+.ds-btn--primary.is-focus {
+  background: var(--color-focus-button);
+}
+.ds-btn--secondary.is-focus {
+  background: var(--color-theme-7);
 }
 .ds-btn:disabled,
 .ds-btn.is-disabled {
@@ -937,6 +946,35 @@ a.ds-btn {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   color: var(--color-neutral-500);
+}
+
+/* Wider matrix: one row per component type, one column per state. The header
+   row labels the states; the first cell of each row labels the type. */
+.ds-state-grid {
+  display: grid;
+  grid-template-columns: auto repeat(4, max-content);
+  gap: var(--spacing-4) var(--spacing-5);
+  align-items: center;
+  justify-content: start;
+  overflow-x: auto;
+}
+.ds-state-grid__col,
+.ds-state-grid__row-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-neutral-500);
+}
+.ds-state-grid__col {
+  text-align: center;
+}
+.ds-state-grid__row-label {
+  color: var(--color-theme-2);
+  white-space: nowrap;
+}
+.ds-state-grid__cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Cards */
@@ -990,7 +1028,12 @@ a.ds-btn {
 .ds-input:focus {
   outline: none;
   border-color: var(--color-brand-secondary);
-  box-shadow: 0 0 0 3px var(--color-light-purple);
+  box-shadow: 0 0 0 0.1875rem var(--color-light-purple);
+}
+
+.ds-input:focus-visible {
+  outline: 0.125rem solid var(--color-focus-visible-accent);
+  outline-offset: 0.1875rem;
 }
 
 .ds-input::placeholder {
@@ -1080,7 +1123,8 @@ a.ds-btn {
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
-  color: var(--color-brand-dark);
+  /* Brand blue: ~10.6:1 on white (passes AA comfortably). */
+  color: var(--color-brand-secondary);
   margin: 0 0 var(--spacing-1);
 }
 .ds-stat-label {
@@ -1137,8 +1181,11 @@ a.ds-btn {
 }
 
 .ds-footer__github {
+  /* Match the version copy on its left exactly; keep only the deco underline. */
   color: inherit;
+  font-weight: var(--font-weight-medium);
   text-decoration: underline;
+  text-underline-offset: 0.125rem;
 }
 
 /* Icons demo */
@@ -1156,13 +1203,13 @@ a.ds-btn {
   font-size: var(--font-size-sm);
 }
 .ds-icon-item svg {
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   color: var(--color-theme-2);
 }
 .ds-motion-demo-card {
-  width: 120px;
-  height: 80px;
+  width: 7.5rem;
+  height: 5rem;
   background: var(--color-light-orange);
   border-radius: var(--radius-md);
   display: flex;
@@ -1174,9 +1221,184 @@ a.ds-btn {
     box-shadow var(--transition-base);
 }
 .ds-motion-demo-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-0.125rem);
   box-shadow: var(--shadow-md);
 }
+
+/* ── Motion page ──────────────────────────────────────────────────────────── */
+.ds-motion-principles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-4);
+}
+@media (min-width: 640px) {
+  .ds-motion-principles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.ds-motion-principle {
+  background: var(--color-background-soft);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-5);
+}
+.ds-motion-principle__title {
+  margin: 0 0 var(--spacing-2);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-theme-2);
+}
+.ds-motion-principle__body {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-brand-dark);
+}
+
+/* Token reference table (CSS grid faux-table; semantics via role=* in markup). */
+.ds-motion-table {
+  display: grid;
+  grid-template-columns: minmax(10rem, auto) auto minmax(7rem, auto) 1fr;
+  border: 1px solid var(--color-theme-7);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  font-size: var(--font-size-sm);
+}
+.ds-motion-table__head,
+.ds-motion-table__row {
+  display: contents;
+}
+.ds-motion-table__head > span,
+.ds-motion-table__row > span {
+  padding: var(--spacing-3) var(--spacing-4);
+  border-block-end: 1px solid var(--color-theme-7);
+}
+.ds-motion-table__head > span {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-theme-2);
+  background: var(--color-theme-5);
+}
+.ds-motion-table__row:last-child > span {
+  border-block-end: none;
+}
+.ds-motion-table__row > span {
+  color: var(--color-brand-dark);
+}
+@media (max-width: 639px) {
+  .ds-motion-table {
+    grid-template-columns: 1fr;
+  }
+  .ds-motion-table__head {
+    display: none;
+  }
+  .ds-motion-table__row > span {
+    border-block-end: none;
+    padding-block: var(--spacing-1);
+  }
+  .ds-motion-table__row {
+    display: block;
+    padding: var(--spacing-3) var(--spacing-4);
+    border-block-end: 1px solid var(--color-theme-7);
+  }
+}
+
+/* Live specimens */
+.ds-motion-specimens {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-5);
+}
+@media (min-width: 768px) {
+  .ds-motion-specimens {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.ds-motion-demo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+.ds-motion-demo__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+}
+.ds-motion-demo__caption {
+  font-size: var(--font-size-sm);
+  color: var(--color-neutral-500);
+}
+.ds-motion-demo__stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 8rem;
+  padding: var(--spacing-4);
+  background: var(--color-very-light-gray);
+  border: 1px solid var(--color-theme-7);
+  border-radius: var(--radius-md);
+}
+.ds-motion-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 5rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  font-size: var(--font-size-sm);
+  color: var(--color-brand-dark);
+  cursor: pointer;
+  transition:
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+.ds-motion-card:hover,
+.ds-motion-card:focus-visible {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-0.25rem);
+}
+.ds-motion-replay {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-1) var(--spacing-3);
+  background: var(--color-theme-5);
+  border: 1px solid var(--color-theme-7);
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-theme-2);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+.ds-motion-replay:hover {
+  background: var(--color-theme-7);
+}
+.ds-motion-rise {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 5rem;
+  background: var(--color-light-orange);
+  border-radius: var(--radius-card);
+  font-size: var(--font-size-sm);
+  color: var(--color-brand-dark);
+  animation: ds-motion-rise var(--transition-slow) both;
+}
+@keyframes ds-motion-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .ds-shadow-demo {
   display: flex;
   flex-wrap: wrap;
@@ -1184,19 +1406,19 @@ a.ds-btn {
   margin-top: var(--spacing-4);
 }
 .ds-shadow-box {
-  width: 80px;
-  height: 60px;
+  width: 5rem;
+  height: 3.75rem;
   border-radius: var(--radius-md);
   background: var(--color-white);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 0.625rem;
   color: var(--color-theme-4);
 }
 .ds-radius-circle-demo {
-  width: 48px;
-  height: 48px;
+  width: 3rem;
+  height: 3rem;
   border-radius: var(--radius-circle, 50%);
   background: var(--color-brand-secondary);
   display: flex;
@@ -1372,7 +1594,7 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
   border: none;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
-  max-width: 520px;
+  max-width: 32.5rem;
   width: calc(100% - var(--spacing-8));
   padding: 0;
   background: transparent;
@@ -1394,7 +1616,7 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
 @keyframes fe-popup-enter {
   from {
     opacity: 0;
-    transform: translateY(12px) scale(0.97);
+    transform: translateY(0.75rem) scale(0.97);
   }
   to {
     opacity: 1;
@@ -1413,8 +1635,8 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
   line-height: 1;
   color: var(--color-theme-2);
   cursor: pointer;
-  width: 28px;
-  height: 28px;
+  width: 1.75rem;
+  height: 1.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1430,8 +1652,8 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
 }
 
 .fe-popup__close:focus-visible {
-  outline: 3px solid var(--color-focus-ring);
-  outline-offset: 2px;
+  outline: 0.125rem solid var(--color-focus-visible-accent);
+  outline-offset: 0.1875rem;
 }
 
 .fe-popup__title {
@@ -1451,7 +1673,7 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
 
 .fe-popup__illustration svg,
 .fe-popup__illustration img {
-  width: 140px;
+  width: 8.75rem;
   height: auto;
 }
 
