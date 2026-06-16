@@ -11,18 +11,18 @@
     "test:e2e:report": "playwright show-report"
   },
   "dependencies": {
-    "next": "^15.0.0",
+    "next": "^15.5.19",
     "prismjs": "^1.30.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.0",
-    "@playwright/test": "^1.60.0",
-    "@types/node": "^22.0.0",
+    "@playwright/test": "^1.61.0",
+    "@types/node": "^22.19.21",
     "@types/prismjs": "^1.26.6",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
     "typescript": "^5.0.0"
   }
 }
