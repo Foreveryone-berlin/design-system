@@ -6,6 +6,7 @@ import Link from "next/link";
 const navSections = [
   { href: "/", label: "Overview" },
   { href: "/foundations", label: "Foundations" },
+  { href: "/motion", label: "Motion" },
   { href: "/components", label: "Components" },
   { href: "/patterns", label: "Patterns" },
   { href: "/guidelines", label: "Guidelines" },
