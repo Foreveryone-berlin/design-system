@@ -79,6 +79,12 @@
   border-color: var(--color-accent-icon);
   color: var(--color-white);
 }
+.fe-icon-btn:active,
+.fe-icon-btn.is-pressed {
+  background-color: var(--color-focus-button);
+  border-color: var(--color-focus-button);
+  color: var(--color-white);
+}
 .fe-icon-btn:focus {
   outline: none;
 }
@@ -137,15 +143,28 @@
     opacity var(--transition-fast);
 }
 .fe-play-btn:hover {
-  background-color: var(--color-brand-secondary);
+  background-color: var(--color-brand-primary);
+}
+.fe-play-btn:active,
+.fe-play-btn.is-pressed {
+  background-color: var(--color-focus-button);
 }
 .fe-play-btn:focus {
   outline: none;
 }
 .fe-play-btn:disabled {
-  background-color: var(--color-neutral-200);
-  color: var(--color-theme-4);
+  background-color: var(--color-light-purple);
+  color: var(--color-white);
   cursor: not-allowed;
+}
+/* Large size — used in hero / media contexts */
+.fe-play-btn--lg {
+  width: 4rem;
+  height: 4rem;
+}
+.fe-play-btn--lg svg {
+  width: 2rem;
+  height: 2rem;
 }
 
 /* Category / Filter Tag */
