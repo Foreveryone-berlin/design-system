@@ -6,17 +6,24 @@
 
 /* ---- Accessibility: visible keyboard focus ---- */
 /* Global fallback so every interactive element shows a clear focus ring when
-   reached by keyboard; component-specific overrides (e.g. .ds-btn) still win. */
+   reached by keyboard; component-specific overrides (e.g. .ds-btn) still win.
+   Warm gold ring matched to marcopontili.com, KEYBOARD ONLY (:focus-visible),
+   thick (0.3rem) + 0.3rem offset (WCAG 2.4.11 thickness path). Form fields get
+   a border + ring treatment instead (below) so the outline doesn't clip. */
 a:focus-visible,
 button:focus-visible,
 [role="button"]:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible,
 summary:focus-visible,
 [tabindex]:focus-visible {
-  outline: 3px solid var(--color-focus-ring);
-  outline-offset: 2px;
+  outline: 0.3rem solid var(--color-focus-visible-accent);
+  outline-offset: 0.3rem;
+}
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  border-color: var(--color-focus-visible-accent);
+  box-shadow: 0 0 0 0.3rem var(--color-focus-visible-accent);
 }
 
 /* ---- Accessibility: skip to main content ---- */
@@ -866,8 +873,8 @@ a.ds-btn {
 }
 
 .ds-btn:focus-visible {
-  outline: 3px solid var(--color-focus-ring);
-  outline-offset: 2px;
+  outline: 0.3rem solid var(--color-focus-visible-accent);
+  outline-offset: 0.3rem;
 }
 
 .ds-btn--primary {
@@ -918,8 +925,8 @@ a.ds-btn {
   background: var(--color-theme-7);
 }
 .ds-btn.is-focus {
-  outline: 3px solid var(--color-focus-ring);
-  outline-offset: 2px;
+  outline: 0.3rem solid var(--color-focus-visible-accent);
+  outline-offset: 0.3rem;
 }
 .ds-btn:disabled,
 .ds-btn.is-disabled {
@@ -991,6 +998,11 @@ a.ds-btn {
   outline: none;
   border-color: var(--color-brand-secondary);
   box-shadow: 0 0 0 3px var(--color-light-purple);
+}
+
+.ds-input:focus-visible {
+  border-color: var(--color-focus-visible-accent);
+  box-shadow: 0 0 0 0.3rem var(--color-focus-visible-accent);
 }
 
 .ds-input::placeholder {
@@ -1430,8 +1442,8 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
 }
 
 .fe-popup__close:focus-visible {
-  outline: 3px solid var(--color-focus-ring);
-  outline-offset: 2px;
+  outline: 0.3rem solid var(--color-focus-visible-accent);
+  outline-offset: 0.3rem;
 }
 
 .fe-popup__title {
