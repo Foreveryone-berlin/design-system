@@ -76,8 +76,6 @@ summary:focus-visible,
   --transition-fast: 220ms ease;
   --transition-base: 400ms ease;
   --transition-slow: 600ms ease;
-  /* Keyboard focus ring (prototype-only) */
-  --color-focus-ring: oklch(0.79 0.15 70);
 }
 
 .ds-light-only body {
@@ -916,10 +914,6 @@ a.ds-btn {
 .ds-btn.is-focus {
   outline: 3px solid var(--color-focus-ring);
   outline-offset: 2px;
-}
-.ds-btn--primary.is-focus,
-.ds-btn--primary:focus-visible {
-  background: var(--color-brand-primary);
 }
 .ds-btn:disabled,
 .ds-btn.is-disabled {

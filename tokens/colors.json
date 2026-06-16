@@ -21,6 +21,7 @@
     "background-alert":   { "$value": "#3F00EB", "$type": "color", "$description": "Semantic — special announcements / alerts only. Alias of Brand Blue; pair with white text." },
     "accent-icon":        { "$value": "#FF7A3A", "$type": "color", "$description": "Semantic — filled-icon fill (category markers). Alias of Brand Orange; pair with Charcoal labels or white glyph inside the icon shape only." },
     "accent-border":      { "$value": "#FF7A3A", "$type": "color", "$description": "Semantic — decorative border / underline accent. Alias of Brand Orange; never use as a fill background for elements containing text." },
+    "focus-ring":         { "$value": "#1E1E1E", "$type": "color", "$description": "Semantic — keyboard focus outline. Alias of Charcoal; ~17:1 on light brand backgrounds, passes WCAG 2.4.11 (>=3:1). Brand-neutral (blue is alerts-only, orange decorative-only). Use for all :focus-visible outlines." },
 
     "theme-1": { "$value": "#0170B9", "$type": "color", "$description": "Theme Color 1 — WordPress/Elementor theme blue (Theme slot 1)" },
     "theme-2": { "$value": "#1E1E1E", "$type": "color", "$description": "Charcoal-aligned — primary body text (Theme slot 2); matches palette Charcoal." },
