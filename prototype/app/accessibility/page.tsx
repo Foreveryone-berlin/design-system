@@ -20,10 +20,17 @@ export default function AccessibilityPage() {
         <h2 className="ds-section-title">Our commitment</h2>
         <p className="fe-body">
           Accessibility is part of being &ldquo;for everyone&rdquo;, not an
-          afterthought. We also treat the European Accessibility Act as a
-          baseline obligation, not a ceiling. Every token, component, and pattern
-          in this system is designed to support an inclusive experience by
-          default.
+          afterthought. We also treat the{" "}
+          <a
+            href="https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/union-equality-strategy-rights-persons-disabilities-2021-2030/european-accessibility-act_en"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            European Accessibility Act
+          </a>{" "}
+          as a baseline obligation, not a ceiling. Every token, component, and
+          pattern in this system is designed to support an inclusive experience
+          by default.
         </p>
       </section>
 
