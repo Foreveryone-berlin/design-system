@@ -61,7 +61,7 @@ any design-system, token, CSS, Elementor, Figma, or prototype (Next.js) tasks. U
 Paths are repo-relative from project root.
 
 |root:{README.md,CHANGELOG.md,AGENTS.md,CLAUDE.md}
-|docs:{AGENTS.md,audit.md,color-audit-2026.md,contributing.md,cursor-plan-prompt.md,getting-started.md,official-references.md,pr-and-merge-workflow.md,token-naming.md,validation.md,visual-styles.md}
+|docs:{AGENTS.md,audit.md,color-audit-2026.md,contributing.md,cursor-plan-prompt.md,getting-started.md,logo-usage.md,official-references.md,pr-and-merge-workflow.md,prototype-deploy.md,token-naming.md,validation.md,visual-styles.md}
 |docs/agents:{README.md,agent-contract.md,runtime-policy.md}
 |docs/decisions:{001-token-format.md}
 |docs/skills:{README.md,token-update.md,elementor-mapping.md,release.md}
@@ -70,13 +70,14 @@ Paths are repo-relative from project root.
 |figma:{sync-guide.md,token-export-instructions.md}
 |tokens:{index.json,colors.json,typography.json,spacing.json,radius.json,shadows.json,motion.json}
 |css:{custom-properties.css,base.css,typography.css,utilities.css,elementor-overrides.css}
-|scripts:{build-css.js,pr-and-merge.sh}
-|prototype:{README.md,next.config.ts,package.json,tsconfig.json}
-|prototype/app:{layout.tsx,page.tsx,globals.css,FaqDemo.tsx}
-|prototype/app/components:{page.tsx,Navigation.tsx,MobileNav.tsx}
-|prototype/app/patterns:{page.tsx}
-|prototype/app/tokens:{page.tsx}
+|scripts:{build-css.js,build-css.test.js,pr-and-merge.sh}
+|prototype:{README.md,next.config.ts,package.json,tsconfig.json,playwright.config.ts}
+|prototype/app:{layout.tsx,page.tsx,globals.css,manifest.ts,FaqDemo.tsx}
+|prototype/app/_components:{CategoryIcon.tsx,CodeBlock.tsx,HeaderDemo.tsx,MobileNav.tsx,Navigation.tsx,ObfuscatedEmail.tsx,OnThisPage.tsx,Popup.tsx,StatCounter.tsx,TestimonialCard.tsx,ViewTransitions.tsx}
+|prototype/app:{components,patterns,foundations,guidelines,governance,accessibility}/page.tsx
 |prototype/content:{site-copy.ts}
+|prototype/tests:{a11y.spec.ts,smoke.spec.ts}
+|prototype/scripts:{screenshot.mjs,build-og-card.mjs}
 |prototype/public/images:{ASSETS.md}
 
 ---
