@@ -53,7 +53,17 @@ export default function PatternsPage() {
         <h2 className="ds-section-title">Footer</h2>
         <footer className="fe-footer">
           <div className="fe-footer__inner">
-            <p className="fe-footer__brand">ForEveryone</p>
+            <p className="fe-footer__brand">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/favicon.svg"
+                alt=""
+                width={28}
+                height={28}
+                aria-hidden="true"
+              />
+              <span>ForEveryone</span>
+            </p>
             <div className="fe-footer__grid">
               <div className="fe-footer__column">
                 <p className="fe-footer__column-title">Explore</p>
@@ -103,7 +113,10 @@ export default function PatternsPage() {
 
       <section id="workshop-card" className="ds-section">
         <h2 className="ds-section-title">Workshop card (full)</h2>
-        <div className="fe-card" style={{ maxWidth: "360px" }}>
+        {/* Pad the wrapper so the card's hover-lift shadow clears the section's
+            overflow:hidden clip. */}
+        <div style={{ padding: "var(--spacing-2)", maxWidth: "23rem" }}>
+        <div className="fe-card" style={{ maxWidth: "22rem" }}>
           <div className="fe-card__media">
             <Image
               src="/images/workshop-group.jpg"
@@ -134,16 +147,16 @@ export default function PatternsPage() {
             >
               A hands-on, welcoming clay workshop for all levels — no experience needed!
             </p>
-            <div className="fe-card-price">
-              <span className="fe-card-price__amount">From &euro;10</span>
-              <a href="#book" className="fe-btn-primary">Book Now &rarr;</a>
+            <div className="fe-card-price" style={{ justifyContent: "flex-end" }}>
+              <a href="#book" className="fe-btn-secondary">Book Workshop &rarr;</a>
             </div>
           </div>
+        </div>
         </div>
       </section>
 
       <section id="events" className="ds-section">
-        <h2 className="ds-section-title">Upcoming events</h2>
+        <h2 className="ds-section-title">Upcoming workshops</h2>
         <div className="fe-event-tabs" role="group" aria-label="Filter events">
           {["This Week", "This Month", "Next Month", "Choose Date"].map(
             (tab, i) => (
@@ -197,8 +210,9 @@ export default function PatternsPage() {
                   needed.
                 </p>
                 <div className="fe-card-price">
-                  <a href="#join" className="fe-btn-primary">
-                    Join For Free &rarr;
+                  <span className="fe-card-price__amount">From &euro;10</span>
+                  <a href="#join" className="fe-btn-secondary">
+                    Book Workshop &rarr;
                   </a>
                 </div>
               </div>
