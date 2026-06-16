@@ -195,10 +195,21 @@ export default function PatternsPage() {
         <h2 className="ds-section-title">Card benefit &amp; get involved</h2>
         <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-4)" }}>
           <div className="fe-card-benefit">
-            <h3 className="fe-h3" style={{ margin: "0 0 var(--spacing-2)" }}>Meet People Offline</h3>
-            <p className="fe-body" style={{ margin: 0 }}>
-              A safe space to make genuine, real-life connections.
-            </p>
+            <div className="fe-card-benefit__content">
+              <h3 className="fe-h3" style={{ margin: "0 0 var(--spacing-2)" }}>Meet People Offline</h3>
+              <p className="fe-body" style={{ margin: 0 }}>
+                A safe space to make genuine, real-life connections.
+              </p>
+            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="fe-card-benefit__illustration"
+              src="/illustrations/flower.png"
+              alt=""
+              width={96}
+              height={96}
+              aria-hidden="true"
+            />
           </div>
           <div className="fe-card-get-involved">
             <div className="fe-card-get-involved__content">
@@ -207,7 +218,15 @@ export default function PatternsPage() {
                 Help locals and internationals find belonging by sharing your hobby.
               </p>
             </div>
-            <div className="fe-card-get-involved__icon" aria-hidden="true">&#x1F3AD;</div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="fe-card-benefit__illustration"
+              src="/illustrations/smiley.png"
+              alt=""
+              width={96}
+              height={96}
+              aria-hidden="true"
+            />
           </div>
         </div>
       </section>
