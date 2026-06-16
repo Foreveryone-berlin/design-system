@@ -173,29 +173,38 @@
   color: var(--color-brand-dark);
   border-color: var(--color-background-title);
 }
-.fe-tag-pill--green.active,
-.fe-tag-pill--green:hover {
-  background-color: var(--color-light-green);
-  color: var(--color-theme-2);
-  border-color: var(--color-light-green);
+/* Category variants — grey at rest (base above); colour on hover/active.
+   Five workshop categories per the 2026 Color Guidelines. Charcoal labels on
+   light fills (AA); white on the indigo Music fill. */
+.fe-tag-pill--balance.active,
+.fe-tag-pill--balance:hover {
+  background-color: var(--color-green-500);
+  color: var(--color-brand-dark);
+  border-color: var(--color-green-500);
 }
-.fe-tag-pill--orange.active,
-.fe-tag-pill--orange:hover {
-  background-color: var(--color-status-warning);
-  color: var(--color-theme-2);
-  border-color: var(--color-status-warning);
+.fe-tag-pill--movement.active,
+.fe-tag-pill--movement:hover {
+  background-color: var(--color-orange-300);
+  color: var(--color-brand-dark);
+  border-color: var(--color-orange-300);
 }
-.fe-tag-pill--lavender.active,
-.fe-tag-pill--lavender:hover {
-  background-color: var(--color-light-purple);
-  color: var(--color-theme-2);
-  border-color: var(--color-light-purple);
+.fe-tag-pill--arts.active,
+.fe-tag-pill--arts:hover {
+  background-color: var(--color-lavender-500);
+  color: var(--color-brand-dark);
+  border-color: var(--color-lavender-500);
 }
-.fe-tag-pill--blue.active,
-.fe-tag-pill--blue:hover {
-  background-color: var(--color-purple);
+.fe-tag-pill--expression.active,
+.fe-tag-pill--expression:hover {
+  background-color: var(--color-light-orange);
+  color: var(--color-brand-dark);
+  border-color: var(--color-light-orange);
+}
+.fe-tag-pill--music.active,
+.fe-tag-pill--music:hover {
+  background-color: var(--color-blue-500);
   color: var(--color-white);
-  border-color: var(--color-purple);
+  border-color: var(--color-blue-500);
 }
 
 /* Workshop Card */
