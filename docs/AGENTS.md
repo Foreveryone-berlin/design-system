@@ -17,7 +17,7 @@ Portable task contract: [agents/agent-contract.md](agents/agent-contract.md).
 Paths are repo-relative from project root unless noted.
 
 |root:{README.md,CHANGELOG.md,AGENTS.md,CLAUDE.md}
-|docs:{AGENTS.md,audit.md,color-audit-2026.md,contributing.md,cursor-plan-prompt.md,getting-started.md,logo-usage.md,official-references.md,pr-and-merge-workflow.md,token-naming.md,validation.md,visual-styles.md}
+|docs:{AGENTS.md,audit.md,color-audit-2026.md,contributing.md,cursor-plan-prompt.md,getting-started.md,logo-usage.md,official-references.md,pr-and-merge-workflow.md,prototype-deploy.md,token-naming.md,validation.md,visual-styles.md}
 |docs/agents:{README.md,agent-contract.md,runtime-policy.md}
 |docs/decisions:{001-token-format.md}
 |docs/skills:{README.md,token-update.md,elementor-mapping.md,release.md}
@@ -26,13 +26,14 @@ Paths are repo-relative from project root unless noted.
 |figma:{sync-guide.md,token-export-instructions.md}
 |tokens:{index.json,colors.json,typography.json,spacing.json,radius.json,shadows.json,motion.json}
 |css:{custom-properties.css,base.css,typography.css,utilities.css,elementor-overrides.css}
-|scripts:{build-css.js,pr-and-merge.sh}
-|prototype:{README.md,next.config.ts,package.json,tsconfig.json}
-|prototype/app:{layout.tsx,page.tsx,globals.css,FaqDemo.tsx}
-|prototype/app/components:{page.tsx,Navigation.tsx,MobileNav.tsx}
-|prototype/app/patterns:{page.tsx}
-|prototype/app/tokens:{page.tsx}
+|scripts:{build-css.js,build-css.test.js,pr-and-merge.sh}
+|prototype:{README.md,next.config.ts,package.json,tsconfig.json,playwright.config.ts}
+|prototype/app:{layout.tsx,page.tsx,globals.css,manifest.ts,FaqDemo.tsx}
+|prototype/app/_components:{CategoryIcon.tsx,CodeBlock.tsx,HeaderDemo.tsx,MobileNav.tsx,MotionSpecimens.tsx,Navigation.tsx,ObfuscatedEmail.tsx,OnThisPage.tsx,Popup.tsx,StatCounter.tsx,TestimonialCard.tsx,ViewTransitions.tsx}
+|prototype/app:{components,patterns,foundations,motion,guidelines,governance,accessibility,credits}/page.tsx
 |prototype/content:{site-copy.ts}
+|prototype/tests:{a11y.spec.ts,smoke.spec.ts}
+|prototype/scripts:{screenshot.mjs,build-og-card.mjs}
 |prototype/public/images:{ASSETS.md}
 
 ---
@@ -43,6 +44,7 @@ Paths are repo-relative from project root unless noted.
 | --- | --- |
 | Regenerate CSS custom properties from tokens | `node scripts/build-css.js` (repo root) |
 | Prototype dev server | `cd prototype && npm install && npm run dev` |
+| Prototype e2e + axe (against LOCAL, not prod) | `cd prototype` then with the dev server up: `PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e` |
 | Solo merge current branch to `develop` (PR + merge via `gh`) | `bash scripts/pr-and-merge.sh` (repo root) |
 
 ---

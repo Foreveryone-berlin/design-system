@@ -10,6 +10,44 @@
 
 **Labels:** **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**; append **(WIP)** only for incomplete work.
 
+## [Unreleased]
+
+## [0.20.0] - 2026-06-16
+
+- **Feat**: Add a Motion page documenting motion principles, the duration/easing tokens, and live reduced-motion-safe specimens.
+- **Feat**: Add a Credits page (people, stack, accessibility tooling, licence) wired into the desktop and mobile navigation.
+- **Feat**: Wire the Motion and Credits pages into both navigations; surface every section as a card on the home overview.
+- **Fix**: Keep the button-state specimens at their natural size instead of stretching to the matrix columns.
+- **Fix**: Use the same ForEveryone wordmark in the pattern header and footer as the design-system header.
+- **Fix**: Render the mobile-nav close (X) in Charcoal rather than orange.
+- **Style**: Match the home overview-card hover to the system card (shadow lift only, no background tint).
+- **Docs**: Record the WebAIM contrast results on the accessibility page.
+- **Feat**: Migrate the entire colour palette to OKLCH, round-trip-exact to the prior sRGB hex (hex kept in token notes).
+- **Feat**: Add a `color.focus-visible-accent` token in the brand-reference gold hue, deepened to 3.19:1 on white.
+- **Style**: Use the gold `:focus-visible` outline on every control (keyboard only); leave mouse states unchanged.
+- **Enhance**: Collapse the six duplicated focus rules and the divergent Elementor nav-focus rule onto one treatment.
+- **Style**: Express focus outlines, logos, icons, and other scalable sizes in `rem` instead of `px` (borders/breakpoints stay `px`).
+- **Docs**: Record that the keyboard focus ring now meets the 3:1 non-text-contrast target on the accessibility page.
+- **Feat**: Add the official light-lavender token `#E5D0FF` (use sparingly), distinct from Soft Lavender.
+- **Style**: Rework `.fe-tag-pill` into five category variants, grey at rest with colour on hover/active.
+- **Feat**: Add the missing Movement category tag and switch colour-named variants to category names.
+- **Feat**: Add small and large play-button sizes and a real hover plus pressed state.
+- **Feat**: Add a WhatsApp icon-button variant and a pressed state for icon buttons.
+- **Feat**: Show all four button types (Primary, Secondary, Icon, Play) across Default/Hover/Focused/Disabled in one matrix.
+- **Feat**: Add five-state input matrix (Default/Hover/Active/Disabled/Error) and a nav-link state matrix on the Components page.
+- **Feat**: Add a Joy brand badge (orange ground, Charcoal label), a label-card group, and a dropdown state demo.
+- **Fix**: Inset card grids and the workshop card so their hover-lift shadow is no longer clipped by the section overflow.
+- **Style**: Give FAQ accordion items a bordered-card look with a hover shadow lift, matching the style guide.
+- **Feat**: Give the benefit and get-involved cards a Soft Lavender background with a hand-drawn orange illustration.
+- **Feat**: Expand the components icon gallery with the full Figma functional icon set as inline SVGs.
+- **Enhance**: Use a check-circle icon on the workshop-card date rows instead of a clock emoji.
+- **Style**: Add an orange underline that grows in on header and footer nav-link hover and focus.
+- **Fix**: Correct the input error helper text to "This field is required".
+- **Docs**: Reconcile the agent retrieval index with the real prototype tree and document the local e2e command.
+- **Build**: Bump in-range deps (Next 15.5.19, React 19.2.7, Playwright 1.61, types); stay within current majors.
+- **Sec**: Resolve the high-severity Next.js advisories via Next 15.5.19 (one transitive postcss moderate remains).
+- **Chore**: Bump `package.json` and `prototype/package.json` to `0.20.0`.
+
 ## [0.19.2] - 2026-06-16
 
 - **Fix**: Use a Charcoal focus ring on every interactive element so keyboard focus passes WCAG 2.4.11 (>=3:1).

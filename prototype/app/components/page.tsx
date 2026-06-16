@@ -1,6 +1,72 @@
+import type { ReactNode } from "react";
 import FaqDemo from "../FaqDemo";
 import TestimonialCard from "../_components/TestimonialCard";
 import Popup from "../_components/Popup";
+
+// Functional UI glyphs from the Figma icon set, inline so they inherit
+// currentColor and the 24x24 / stroke-2 geometry used across the system.
+const UI_ICONS: { label: string; path: ReactNode }[] = [
+  { label: "Chevron down", path: <polyline points="6 9 12 15 18 9" /> },
+  {
+    label: "Check circle",
+    path: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <polyline points="8.5 12.5 11 15 16 9.5" />
+      </>
+    ),
+  },
+  {
+    label: "Clock",
+    path: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <polyline points="12 7 12 12 15.5 14" />
+      </>
+    ),
+  },
+  {
+    label: "Location pin",
+    path: (
+      <>
+        <path d="M12 21s-6.5-5.6-6.5-10.5a6.5 6.5 0 1 1 13 0C18.5 15.4 12 21 12 21z" />
+        <circle cx="12" cy="10.5" r="2.5" />
+      </>
+    ),
+  },
+  { label: "Close", path: <path d="M6 6l12 12M18 6L6 18" /> },
+  {
+    label: "Mail",
+    path: (
+      <>
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <polyline points="3 7 12 13 21 7" />
+      </>
+    ),
+  },
+  { label: "Plus", path: <path d="M12 5v14M5 12h14" /> },
+  { label: "Minus", path: <path d="M5 12h14" /> },
+  {
+    label: "Phone",
+    path: (
+      <path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L16 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
+    ),
+  },
+  {
+    label: "Play",
+    path: <path d="M8 5.5v13l11-6.5z" fill="currentColor" stroke="none" />,
+  },
+  {
+    label: "Instagram",
+    path: (
+      <>
+        <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17" cy="7" r="1" fill="currentColor" stroke="none" />
+      </>
+    ),
+  },
+];
 
 export default function ComponentsPage() {
   return (
@@ -49,26 +115,76 @@ export default function ComponentsPage() {
       <section id="button-states" className="ds-section">
         <h2 className="ds-section-title">Button states</h2>
         <p className="ds-section-intro">
-          Default, hover, focused, and disabled per the style guide. Hover and
-          focus are shown statically here; they fire on real interaction.
+          The four button types across Default, Hover, Focused, and Disabled per
+          the style guide. Hover and focused are shown statically here; the gold
+          keyboard ring fires on real <code className="ds-code">:focus-visible</code>.
+          The Focused column is the pressed/selected fill, drawn without an
+          outline.
         </p>
-        <div className="ds-state-matrix">
-          <span className="ds-state-matrix__label">Default</span>
-          <button type="button" className="ds-btn ds-btn--primary">
-            Book Event
-          </button>
-          <span className="ds-state-matrix__label">Hover</span>
-          <button type="button" className="ds-btn ds-btn--primary is-hover">
-            Book Event
-          </button>
-          <span className="ds-state-matrix__label">Focused</span>
-          <button type="button" className="ds-btn ds-btn--primary is-focus">
-            Book Event
-          </button>
-          <span className="ds-state-matrix__label">Disabled</span>
-          <button type="button" className="ds-btn ds-btn--primary" disabled>
-            Book Event
-          </button>
+        <div className="ds-state-grid">
+          <span aria-hidden="true" />
+          <span className="ds-state-grid__col">Default</span>
+          <span className="ds-state-grid__col">Hover</span>
+          <span className="ds-state-grid__col">Focused</span>
+          <span className="ds-state-grid__col">Disabled</span>
+
+          <span className="ds-state-grid__row-label">Primary</span>
+          {["", "is-hover", "is-focus", "disabled"].map((state) => (
+            <span className="ds-state-grid__cell" key={`p-${state}`}>
+              <button
+                type="button"
+                className={`fe-btn-primary${state && state !== "disabled" ? ` ${state}` : ""}`}
+                disabled={state === "disabled"}
+              >
+                Book Event
+              </button>
+            </span>
+          ))}
+
+          <span className="ds-state-grid__row-label">Secondary</span>
+          {["", "is-hover", "is-focus", "disabled"].map((state) => (
+            <span className="ds-state-grid__cell" key={`s-${state}`}>
+              <button
+                type="button"
+                className={`fe-btn-secondary${state && state !== "disabled" ? ` ${state}` : ""}`}
+                disabled={state === "disabled"}
+              >
+                Book Event
+              </button>
+            </span>
+          ))}
+
+          <span className="ds-state-grid__row-label">Icon</span>
+          {["", "is-hover", "is-focus", "disabled"].map((state) => (
+            <span className="ds-state-grid__cell" key={`i-${state}`}>
+              <button
+                type="button"
+                className={`fe-icon-btn${state && state !== "disabled" ? ` ${state}` : ""}`}
+                aria-label="Instagram"
+                disabled={state === "disabled"}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </button>
+            </span>
+          ))}
+
+          <span className="ds-state-grid__row-label">Play</span>
+          {["", "is-hover", "is-focus", "disabled"].map((state) => (
+            <span className="ds-state-grid__cell" key={`pl-${state}`}>
+              <button
+                type="button"
+                className={`fe-play-btn${state && state !== "disabled" ? ` ${state}` : ""}`}
+                aria-label="Play"
+                disabled={state === "disabled"}
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </button>
+            </span>
+          ))}
         </div>
       </section>
 
@@ -80,7 +196,13 @@ export default function ComponentsPage() {
           markers use{" "}
           <code className="ds-code">.fe-icon-btn--filled-brand</code> (orange
           ground, white glyph via <code className="ds-code">currentColor</code>
-          ). See <code className="ds-code">docs/visual-styles.md</code>.
+          ). The WhatsApp slot adds{" "}
+          <code className="ds-code">.fe-icon-btn--whatsapp</code>; both social
+          buttons darken on hover and press. The play button ships in two sizes
+          (<code className="ds-code">.fe-play-btn</code> and{" "}
+          <code className="ds-code">--lg</code>) and now has a real hover and
+          pressed state. See{" "}
+          <code className="ds-code">docs/visual-styles.md</code>.
         </p>
         <div
           style={{
@@ -101,7 +223,11 @@ export default function ComponentsPage() {
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
             </svg>
           </button>
-          <button type="button" className="fe-icon-btn" aria-label="WhatsApp">
+          <button
+            type="button"
+            className="fe-icon-btn fe-icon-btn--whatsapp"
+            aria-label="WhatsApp"
+          >
             <svg
               width="20"
               height="20"
@@ -138,6 +264,15 @@ export default function ComponentsPage() {
               <path d="M8 5v14l11-7z" />
             </svg>
           </button>
+          <button
+            type="button"
+            className="fe-play-btn fe-play-btn--lg"
+            aria-label="Play (large)"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </button>
         </div>
       </section>
 
@@ -148,19 +283,71 @@ export default function ComponentsPage() {
 
       <section id="category-tags" className="ds-section">
         <h2 className="ds-section-title">Category tag variants</h2>
+        <p className="ds-section-intro">
+          Five workshop categories. Grey at rest; each takes its category colour
+          on hover and when active (selected).
+        </p>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "var(--spacing-3)",
+            marginBlockEnd: "var(--spacing-4)",
+          }}
+        >
+          <span className="fe-tag-pill">Default</span>
+          <span className="fe-tag-pill fe-tag-pill--balance">
+            Balance and Wellness
+          </span>
+          <span className="fe-tag-pill fe-tag-pill--movement">Movement</span>
+          <span className="fe-tag-pill fe-tag-pill--arts">Arts and Crafts</span>
+          <span className="fe-tag-pill fe-tag-pill--expression">Expression</span>
+          <span className="fe-tag-pill fe-tag-pill--music">Music</span>
+        </div>
         <div
           style={{ display: "flex", flexWrap: "wrap", gap: "var(--spacing-3)" }}
         >
-          <span className="fe-tag-pill">Default</span>
-          <span className="fe-tag-pill fe-tag-pill--green">
+          <span className="fe-tag-pill fe-tag-pill--balance active">
             Balance and Wellness
           </span>
-          <span className="fe-tag-pill fe-tag-pill--orange">Expression</span>
-          <span className="fe-tag-pill fe-tag-pill--lavender">
+          <span className="fe-tag-pill fe-tag-pill--movement active">
+            Movement
+          </span>
+          <span className="fe-tag-pill fe-tag-pill--arts active">
             Arts and Crafts
           </span>
-          <span className="fe-tag-pill fe-tag-pill--blue">Music</span>
-          <span className="fe-tag-pill active">Active (primary)</span>
+          <span className="fe-tag-pill fe-tag-pill--expression active">
+            Expression
+          </span>
+          <span className="fe-tag-pill fe-tag-pill--music active">Music</span>
+        </div>
+      </section>
+
+      <section id="nav-states" className="ds-section">
+        <h2 className="ds-section-title">Nav link states</h2>
+        <p className="ds-section-intro">
+          Header and footer nav links: Default, Hover (orange underline grows
+          in), and Disabled. The underline is a decorative accent, not the link
+          colour. Focus is keyboard-only &mdash; Tab to the link below to see the
+          gold <code className="ds-code">:focus-visible</code> ring.
+        </p>
+        <div className="ds-state-matrix">
+          <span className="ds-state-matrix__label">Default</span>
+          <a href="#nav-states" className="fe-nav-link">
+            Workshops
+          </a>
+          <span className="ds-state-matrix__label">Hover</span>
+          <a href="#nav-states" className="fe-nav-link is-hover">
+            Workshops
+          </a>
+          <span className="ds-state-matrix__label">Focus (keyboard)</span>
+          <a href="#nav-states" className="fe-nav-link">
+            Workshops
+          </a>
+          <span className="ds-state-matrix__label">Disabled</span>
+          <span className="fe-nav-link" aria-disabled="true">
+            Workshops
+          </span>
         </div>
       </section>
 
@@ -169,8 +356,10 @@ export default function ComponentsPage() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(16.25rem, 1fr))",
             gap: "var(--spacing-6)",
+            padding: "var(--spacing-2)",
+            margin: "calc(-1 * var(--spacing-2))",
           }}
         >
           <div className="ds-card">
@@ -230,6 +419,25 @@ export default function ComponentsPage() {
             />
             <span>External link</span>
           </div>
+          {UI_ICONS.map(({ label, path }) => (
+            <div className="ds-icon-item" key={label}>
+              <svg
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                {path}
+              </svg>
+              <span>{label}</span>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -278,52 +486,55 @@ export default function ComponentsPage() {
 
       <section id="forms" className="ds-section">
         <h2 className="ds-section-title">Form elements &amp; input states</h2>
-        <div
-          style={{
-            maxWidth: "20rem",
-            display: "flex",
-            flexDirection: "column",
-            gap: "var(--spacing-6)",
-          }}
-        >
+        <p className="ds-section-intro">
+          Five input states: Default, Hover, Active (focus), Disabled, and Error.
+          Hover and active are shown statically; the gold keyboard ring fires on
+          real <code className="ds-code">:focus-visible</code>.
+        </p>
+        <div className="ds-state-matrix" style={{ maxWidth: "28rem" }}>
+          <span className="ds-state-matrix__label">Default</span>
+          <input
+            type="text"
+            className="fe-input"
+            placeholder="Placeholder text"
+            aria-label="Default input"
+          />
+          <span className="ds-state-matrix__label">Hover</span>
+          <input
+            type="text"
+            className="fe-input is-hover"
+            placeholder="Placeholder text"
+            aria-label="Hover input"
+          />
+          <span className="ds-state-matrix__label">Active</span>
+          <input
+            type="text"
+            className="fe-input is-focus"
+            placeholder="Placeholder text"
+            aria-label="Active input"
+          />
+          <span className="ds-state-matrix__label">Disabled</span>
+          <input
+            type="text"
+            className="fe-input"
+            placeholder="Placeholder text"
+            aria-label="Disabled input"
+            disabled
+          />
+          <span className="ds-state-matrix__label">Error</span>
           <div className="fe-input-group">
-            <label className="fe-label" htmlFor="ds-input-demo">
-              Label
-            </label>
-            <input
-              id="ds-input-demo"
-              type="text"
-              className="fe-input"
-              placeholder="Placeholder text"
-            />
-          </div>
-          <div className="fe-input-group">
-            <label className="fe-label" htmlFor="ds-input-error">
-              Required field
-            </label>
             <input
               id="ds-input-error"
               type="text"
               className="fe-input fe-input--error"
-              placeholder="Label"
+              placeholder="Placeholder text"
               aria-invalid="true"
+              aria-label="Required field"
               aria-describedby="ds-input-error-msg"
             />
             <span id="ds-input-error-msg" className="fe-input-error-msg">
-              field is required
+              This field is required
             </span>
-          </div>
-          <div className="fe-input-group">
-            <label className="fe-label" htmlFor="ds-input-disabled">
-              Disabled
-            </label>
-            <input
-              id="ds-input-disabled"
-              type="text"
-              className="fe-input"
-              placeholder="Label"
-              disabled
-            />
           </div>
         </div>
       </section>
@@ -335,6 +546,73 @@ export default function ComponentsPage() {
           <span className="ds-chip">Tag two</span>
           <span className="ds-chip">Design tokens</span>
           <span className="ds-chip">Light only</span>
+        </div>
+      </section>
+
+      <section id="badges" className="ds-section">
+        <h2 className="ds-section-title">Badges &amp; labels</h2>
+        <p className="ds-section-intro">
+          The &ldquo;Joy&rdquo; brand badge sits on an orange ground with a
+          high-contrast Charcoal label (orange fills never carry white text).
+          Label cards group a key with its value.
+        </p>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            gap: "var(--spacing-3)",
+            marginBlockEnd: "var(--spacing-6)",
+          }}
+        >
+          <span className="fe-badge fe-badge--joy">Joy</span>
+          <span className="fe-badge fe-badge--blue">New</span>
+          <span className="fe-badge">Default</span>
+        </div>
+        <div className="fe-label-cards">
+          <div className="fe-label-card">
+            <span className="fe-label-card__label">Category</span>
+            <span className="fe-label-card__value">Arts &amp; Crafts</span>
+          </div>
+          <div className="fe-label-card">
+            <span className="fe-label-card__label">Duration</span>
+            <span className="fe-label-card__value">3 hours</span>
+          </div>
+          <div className="fe-label-card">
+            <span className="fe-label-card__label">Level</span>
+            <span className="fe-label-card__value">All levels</span>
+          </div>
+          <div className="fe-label-card">
+            <span className="fe-label-card__label">Price</span>
+            <span className="fe-label-card__value">From &euro;10</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="dropdown" className="ds-section">
+        <h2 className="ds-section-title">Dropdown</h2>
+        <p className="ds-section-intro">
+          Menu surface with item states: Default, Hover, Selected, and Disabled.
+          Hover and selected are shown statically here.
+        </p>
+        <div className="fe-dropdown" role="menu" aria-label="Dropdown states demo">
+          <a href="#dropdown" className="fe-dropdown-item" role="menuitem">
+            Default item
+          </a>
+          <a href="#dropdown" className="fe-dropdown-item is-hover" role="menuitem">
+            Hover item
+          </a>
+          <a
+            href="#dropdown"
+            className="fe-dropdown-item is-active"
+            role="menuitem"
+            aria-current="true"
+          >
+            Selected item
+          </a>
+          <span className="fe-dropdown-item" role="menuitem" aria-disabled="true">
+            Disabled item
+          </span>
         </div>
       </section>
 
