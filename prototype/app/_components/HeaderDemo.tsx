@@ -8,18 +8,18 @@ interface NavItem {
   children?: { href: string; label: string }[];
 }
 
-// Mirrors the live foreveryone.berlin primary nav (Elementor menu), including
-// the two dropdowns. "Book a Workshop" renders as the CTA below.
+// A generic header pattern with two dropdown menus. "Book a Workshop" renders
+// as the CTA below.
 const navLinks: NavItem[] = [
   { href: "#workshops", label: "Workshops" },
   {
     href: "#eu-projects",
     label: "EU Projects",
     children: [
-      { href: "#what-we-do", label: "What We Do" },
-      { href: "#toolbox", label: "Toolbox For Integration" },
-      { href: "#peer-support", label: "Peer Support & Resilience" },
-      { href: "#sheleads", label: "SheLeads" },
+      { href: "#project-1", label: "Project 1" },
+      { href: "#project-2", label: "Project 2" },
+      { href: "#project-3", label: "Project 3" },
+      { href: "#project-4", label: "Project 4" },
     ],
   },
   {
