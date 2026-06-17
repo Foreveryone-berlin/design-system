@@ -757,6 +757,13 @@
 /* Slightly smaller nav text so the full menu fits the demo header comfortably. */
 .fe-header__nav .fe-nav-link {
   font-size: var(--font-size-sm);
+  /* No growing-underline accent on the header-pattern menu; hover shifts the
+     label to the orange accent instead. */
+  background-image: none;
+}
+.fe-header__nav .fe-nav-link:hover,
+.fe-header__nav .fe-nav-link.is-hover {
+  color: var(--color-brand-primary);
 }
 .fe-header__actions {
   display: flex;

@@ -7,7 +7,6 @@ import Link from "next/link";
 const navSections = [
   { href: "/", label: "Overview" },
   { href: "/foundations", label: "Foundations" },
-  { href: "/motion", label: "Motion" },
   { href: "/components", label: "Components" },
   { href: "/patterns", label: "Patterns" },
   { href: "/guidelines", label: "Guidelines" },
@@ -64,13 +63,17 @@ export default function MobileNav() {
       <button
         ref={toggleRef}
         type="button"
-        className="ds-mobile-header__toggle"
+        className={`fe-header__menu-btn${open ? " is-open" : ""}`}
         onClick={() => setOpen(!open)}
         aria-expanded={open}
         aria-controls="ds-mobile-nav"
         aria-label={open ? "Close navigation" : "Open navigation"}
       >
-        <span aria-hidden="true">{open ? "✕" : "☰"}</span>
+        <span className="fe-hamburger" aria-hidden="true">
+          <span className="fe-hamburger__line" />
+          <span className="fe-hamburger__line" />
+          <span className="fe-hamburger__line" />
+        </span>
       </button>
       {open && (
         <nav

@@ -77,14 +77,6 @@ export default function Home() {
               View foundations &rarr;
             </span>
           </Link>
-          <Link href="/motion" className="ds-overview-card">
-            <h3 className="ds-overview-card__title">Motion</h3>
-            <p className="ds-overview-card__desc">
-              Motion principles, the duration and easing tokens, and
-              reduced-motion-safe specimens.
-            </p>
-            <span className="ds-overview-card__link">View motion &rarr;</span>
-          </Link>
           <Link href="/components" className="ds-overview-card">
             <h3 className="ds-overview-card__title">Components</h3>
             <p className="ds-overview-card__desc">
