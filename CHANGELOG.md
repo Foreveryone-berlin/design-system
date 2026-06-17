@@ -20,6 +20,7 @@
 - **Style**: Drop the growing-underline hover on the header-pattern top-level menu; hover shifts the label to orange instead.
 - **Fix**: Space the Blockquote specimen below its label in Foundations typography.
 - **Style**: Genericise the header-pattern "EU Projects" sub-menu to Project 1–4.
+- **Style**: Enlarge the design-system site logo slightly in the sidebar and mobile header.
 - **Chore**: Bump `package.json` and `prototype/package.json` to `0.20.2`.
 
 ## [0.20.1] - 2026-06-16
