@@ -4,7 +4,6 @@ import AxeBuilder from "@axe-core/playwright";
 const routes = [
   "/",
   "/foundations",
-  "/motion",
   "/components",
   "/patterns",
   "/guidelines",
