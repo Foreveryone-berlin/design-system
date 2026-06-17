@@ -183,6 +183,27 @@ const radiusShadowCode = `/* Border Radius */
 --shadow-card: 0 2px 8px rgba(0,0,0,0.08);
 --shadow-header: 0 2px 12px rgba(0,0,0,0.1);`;
 
+const motionDurations = [
+  { token: "--transition-fast", value: "150ms", use: "Button hover, focus ring, icon swaps" },
+  { token: "--transition-base", value: "250ms", use: "Accordions, dropdowns, card hover-lift" },
+  { token: "--transition-slow", value: "400ms", use: "Mobile-nav sheet, page-level fades" },
+];
+
+const motionCode = `/* tokens/motion.json → CSS custom properties */
+--transition-fast: 150ms ease;   /* snap interactions       */
+--transition-base: 250ms ease;   /* default UI              */
+--transition-slow: 400ms ease;   /* large surfaces          */
+
+/* One ease curve, three speeds. Animate only the properties that
+   change (opacity, transform, colour) — never \`all\`. Every animated
+   surface sits under the reduced-motion guard. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}`;
+
 export default function TokensPage() {
   return (
     <>
@@ -348,7 +369,13 @@ export default function TokensPage() {
               normal line height.
             </p>
           </div>
-          <div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "var(--spacing-2)",
+            }}
+          >
             <div className="fe-label">Blockquote</div>
             <blockquote className="ds-quote">
               Typography and spacing come from the design system.
@@ -416,6 +443,37 @@ export default function TokensPage() {
           ))}
         </div>
         <CodeBlock code={radiusShadowCode} />
+      </section>
+
+      <section id="motion" className="ds-section">
+        <h2 className="ds-section-title">Motion</h2>
+        <p className="ds-section-intro">
+          Motion is calm and purposeful: it confirms an action or eases a
+          transition, never performs. One shared <code className="ds-code">ease</code>{" "}
+          curve at three durations; the speed reads as proportional to the size
+          of the moving surface. Every animated surface respects reduced-motion.
+        </p>
+        <div
+          className="ds-motion-table ds-motion-table--3col"
+          role="table"
+          aria-label="Motion tokens"
+        >
+          <div className="ds-motion-table__head" role="row">
+            <span role="columnheader">Token</span>
+            <span role="columnheader">Duration</span>
+            <span role="columnheader">Use for</span>
+          </div>
+          {motionDurations.map(({ token, value, use }) => (
+            <div className="ds-motion-table__row" role="row" key={token}>
+              <span role="cell">
+                <code className="ds-code">{token}</code>
+              </span>
+              <span role="cell">{value}</span>
+              <span role="cell">{use}</span>
+            </div>
+          ))}
+        </div>
+        <CodeBlock code={motionCode} />
       </section>
     </>
   );
