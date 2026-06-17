@@ -12,6 +12,8 @@
 
 ## [Unreleased]
 
+- **CI**: Title GitHub Releases with the bare version (e.g. `0.20.2`), dropping the tag's `v` prefix.
+
 ## [0.20.2] - 2026-06-17
 
 - **Style**: Fold Motion into a shortened Foundations section (intro, duration tokens, reduced-motion guard) and drop the standalone Motion page from both navigations and the home overview.
