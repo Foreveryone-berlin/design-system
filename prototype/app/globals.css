@@ -258,7 +258,7 @@ summary:focus-visible,
 
 .ds-sidebar__logo img {
   display: block;
-  height: 1.375rem;
+  height: 1.625rem;
   width: auto;
 }
 
@@ -329,25 +329,8 @@ summary:focus-visible,
 
 .ds-mobile-header__logo img {
   display: block;
-  height: 1.375rem;
+  height: 1.625rem;
   width: auto;
-}
-
-.ds-mobile-header__toggle {
-  background: none;
-  border: none;
-  font-size: var(--font-size-xl);
-  cursor: pointer;
-  color: var(--color-brand-dark);
-  padding: var(--spacing-1);
-  transition:
-    color var(--transition-fast),
-    transform var(--transition-fast);
-}
-
-.ds-mobile-header__toggle[aria-expanded="true"] {
-  color: var(--color-brand-dark);
-  transform: rotate(90deg);
 }
 
 @keyframes ds-mobile-nav-in {
@@ -998,6 +981,12 @@ a.ds-btn {
   align-items: center;
   justify-content: center;
 }
+/* Match the .ds-btn (orange/outline) rows to the .fe-btn pill size so all
+   four rows of the state matrix read at one size. */
+#button-states .ds-btn {
+  padding: var(--spacing-3) var(--spacing-6);
+  font-size: var(--font-size-base);
+}
 
 /* Cards */
 .ds-card {
@@ -1224,54 +1213,6 @@ a.ds-btn {
   height: 1.5rem;
   color: var(--color-theme-2);
 }
-.ds-motion-demo-card {
-  width: 7.5rem;
-  height: 5rem;
-  background: var(--color-light-orange);
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--font-size-xs);
-  transition:
-    transform var(--transition-base),
-    box-shadow var(--transition-base);
-}
-.ds-motion-demo-card:hover {
-  transform: translateY(-0.125rem);
-  box-shadow: var(--shadow-md);
-}
-
-/* ── Motion page ──────────────────────────────────────────────────────────── */
-.ds-motion-principles {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-4);
-}
-@media (min-width: 640px) {
-  .ds-motion-principles {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-.ds-motion-principle {
-  background: var(--color-background-soft);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-5);
-}
-.ds-motion-principle__title {
-  margin: 0 0 var(--spacing-2);
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-theme-2);
-}
-.ds-motion-principle__body {
-  margin: 0;
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-normal);
-  color: var(--color-brand-dark);
-}
-
 /* Token reference table (CSS grid faux-table; semantics via role=* in markup). */
 .ds-motion-table {
   display: grid;
@@ -1280,6 +1221,9 @@ a.ds-btn {
   border-radius: var(--radius-md);
   overflow: hidden;
   font-size: var(--font-size-sm);
+}
+.ds-motion-table--3col {
+  grid-template-columns: minmax(10rem, auto) minmax(5rem, auto) 1fr;
 }
 .ds-motion-table__head,
 .ds-motion-table__row {
@@ -1316,103 +1260,6 @@ a.ds-btn {
     display: block;
     padding: var(--spacing-3) var(--spacing-4);
     border-block-end: 1px solid var(--color-theme-7);
-  }
-}
-
-/* Live specimens */
-.ds-motion-specimens {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-5);
-}
-@media (min-width: 768px) {
-  .ds-motion-specimens {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-.ds-motion-demo {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-3);
-}
-.ds-motion-demo__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--spacing-3);
-}
-.ds-motion-demo__caption {
-  font-size: var(--font-size-sm);
-  color: var(--color-neutral-500);
-}
-.ds-motion-demo__stage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 8rem;
-  padding: var(--spacing-4);
-  background: var(--color-very-light-gray);
-  border: 1px solid var(--color-theme-7);
-  border-radius: var(--radius-md);
-}
-.ds-motion-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 5rem;
-  background: var(--color-white);
-  border: 1px solid var(--color-light-gray);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
-  font-size: var(--font-size-sm);
-  color: var(--color-brand-dark);
-  cursor: pointer;
-  transition:
-    box-shadow var(--transition-base),
-    transform var(--transition-base);
-}
-.ds-motion-card:hover,
-.ds-motion-card:focus-visible {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-0.25rem);
-}
-.ds-motion-replay {
-  display: inline-flex;
-  align-items: center;
-  padding: var(--spacing-1) var(--spacing-3);
-  background: var(--color-theme-5);
-  border: 1px solid var(--color-theme-7);
-  border-radius: var(--radius-pill);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-theme-2);
-  cursor: pointer;
-  transition: background-color var(--transition-fast);
-}
-.ds-motion-replay:hover {
-  background: var(--color-theme-7);
-}
-.ds-motion-rise {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 5rem;
-  background: var(--color-light-orange);
-  border-radius: var(--radius-card);
-  font-size: var(--font-size-sm);
-  color: var(--color-brand-dark);
-  animation: ds-motion-rise var(--transition-slow) both;
-}
-@keyframes ds-motion-rise {
-  from {
-    opacity: 0;
-    transform: translateY(1rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -1757,8 +1604,7 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
     animation: none;
   }
 
-  .ds-overview-card:hover,
-  .ds-motion-demo-card:hover {
+  .ds-overview-card:hover {
     transform: none;
   }
 }
