@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" fill="currentColor" role="img" aria-label="No. 52 compact mark (approximate recreation)">
+  <!-- APPROXIMATE in-repo recreation of the No. 52 compact mark: 'N' followed by a
+       circular 'o' with '52' set inside it (Brand Book v1.0 p.15). Official vector
+       lives in Google Drive / Canva Brand Kit (access-restricted). See ASSETS.md. -->
+  <text x="2" y="46" font-family="'Outfit', sans-serif" font-size="48" font-weight="700">N</text>
+  <circle cx="68" cy="32" r="26" fill="none" stroke="currentColor" stroke-width="6" />
+  <text x="68" y="40" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="24" font-weight="700">52</text>
+</svg>
