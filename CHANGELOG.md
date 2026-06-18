@@ -12,6 +12,11 @@
 
 ## [0.21.0] - Unreleased
 
+- **Feat**: Enrich Foundations typography with the Brand Book type-scale roles and canonical specimens (Display, H1, H2, Subheading, Body, Caption, Emphasis), plus copy-format do/don't rules (Brand Book v1.0 p.22–23).
+- **Feat**: Add a **Layout** section to Foundations — grid/margins, white-space and alignment rules, and a QR-code specimen with the solid Orange rounded border (Brand Book v1.0 p.33).
+- **Enhance**: Add `font.weight.medium-italic` and `font.weight.bold-italic` tokens to complete the Filson Pro six-style family (Brand Book v1.0 p.20).
+- **Enhance**: Raise body `line-height` (`--line-height-normal`) from 1.4 to **1.5** per Brand Book v1.0 p.22 ("not below 1.5").
+- **Feat**: Add a `.fe-caption` typography class (Medium weight) for photo credits and captions.
 - **Feat**: Add a **Visual Elements** page (`/visual-elements`) with live specimens for the four Brand Book families: workshop icons, line illustrations, decorative accent marks, and graphic shapes (blobs vs waves) (Brand Book v1.0 p.24–27).
 - **Fix**: Redraw the workshop category icons as **solid filled** orange glyphs (Brand Book p.24); the prior set was outline/stroke, which the Brand Book forbids. `CategoryIcon` now maps the five canonical categories (`balance-wellness`, `movement`, `arts-crafts`, `expression`, `music`) with legacy names kept as aliases.
 - **Feat**: Author decorative accent-mark SVGs (doodle strokes, sparkle, asterisk, music note) and wave-divider SVGs; document blobs ≠ waves.

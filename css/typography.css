@@ -37,6 +37,13 @@
 .fe-body--medium {
   font-weight: var(--font-weight-medium);
 }
+/* Caption (Brand Book v1.0 p.22): Medium weight, small — photo credits, captions. */
+.fe-caption {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  color: var(--color-theme-8);
+}
 .fe-label {
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-regular);

@@ -130,10 +130,12 @@ const typographyCode = `/* Font Families */
 --font-family-accent: 'Young Serif', serif;      /* PRINT ONLY, not for digital */
 --font-family-body: 'FilsonPro', sans-serif;
 
-/* Font Weights */
+/* Font Weights (Filson Pro: 6 styles incl. italics) */
 --font-weight-regular: 400;
 --font-weight-medium: 500;
+--font-weight-medium-italic: 500;  /* + font-style: italic */
 --font-weight-bold: 700;
+--font-weight-bold-italic: 700;    /* + font-style: italic */
 
 /* Font Sizes */
 --font-size-xs: 0.75rem;    /* 12px */
@@ -148,7 +150,7 @@ const typographyCode = `/* Font Families */
 /* Line Heights */
 --line-height-tight: 0.8;
 --line-height-snug: 1.0;
---line-height-normal: 1.4;
+--line-height-normal: 1.5;  /* body — never below 1.5 */
 
 /* Letter Spacing */
 --letter-spacing-tight: -0.02em;
@@ -351,22 +353,39 @@ export default function TokensPage() {
           }}
         >
           <div>
-            <div className="fe-label">H1</div>
-            <h2 className="fe-h1">Heading 1</h2>
+            <div className="fe-label">Display &middot; Bold</div>
+            <h2 className="fe-h1">Real Connections Made Easy</h2>
           </div>
           <div>
-            <div className="fe-label">H2</div>
-            <h3 className="fe-h2">Heading 2</h3>
+            <div className="fe-label">Heading 1 &middot; Bold</div>
+            <h3 className="fe-h2">Upcoming Workshop at No. 52</h3>
           </div>
           <div>
-            <div className="fe-label">H3</div>
-            <h4 className="fe-h3">Heading 3</h4>
+            <div className="fe-label">Heading 2 &middot; Bold</div>
+            <h4 className="fe-h3">No Experience Needed.</h4>
           </div>
           <div>
-            <div className="fe-label">Body</div>
+            <div className="fe-label">Subheading &middot; Medium</div>
+            <p className="fe-body fe-body--medium">
+              Every Thursday &middot; Free Entry &middot; No. 52 Cafe
+            </p>
+          </div>
+          <div>
+            <div className="fe-label">Body &middot; Regular</div>
             <p className="fe-body">
-              Body text uses design system tokens. FilsonPro at base size with
-              normal line height.
+              Our workshops are open to everyone, regardless of background or
+              experience. Come as you are.
+            </p>
+          </div>
+          <div>
+            <div className="fe-label">Caption &middot; Medium</div>
+            <p className="fe-caption">Photo: ForEveryone Drawing Club, March 2026</p>
+          </div>
+          <div>
+            <div className="fe-label">Emphasis &middot; Italic</div>
+            <p className="fe-body">
+              Used for publication names, artwork titles, and{" "}
+              <em className="fe-em">highlighted phrases</em>.
             </p>
           </div>
           <div
@@ -385,7 +404,33 @@ export default function TokensPage() {
             <span className="fe-tag">Tag</span>
           </div>
         </div>
+        <p className="fe-callout">
+          <strong>Spacing:</strong> keep letter-spacing at 0% for all weights, and
+          do not compress body line-height below <strong>1.5</strong> (Brand Book
+          v1.0 p.22). Filson Pro ships six styles: Regular, Regular Italic, Medium,
+          Medium Italic, Bold, Bold Italic. Young Serif is print only.
+        </p>
         <CodeBlock code={typographyCode} />
+
+        <h3 className="ds-subsection-title">Copy format rules</h3>
+        <div className="ds-dodont">
+          <div className="ds-dodont__do">
+            <p className="ds-dodont__label">Do</p>
+            <ul>
+              <li>Left-align all headlines and body text.</li>
+              <li>Use bullet points only for lists of two or more items.</li>
+              <li>Keep paragraphs whole; avoid isolated single words or lines.</li>
+            </ul>
+          </div>
+          <div className="ds-dodont__dont">
+            <p className="ds-dodont__label">Don&rsquo;t</p>
+            <ul>
+              <li>Justify text to both the left and right edges.</li>
+              <li>Hyphenate words at the end of a line.</li>
+              <li>Centre-align body copy of three or more lines.</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <section id="spacing" className="ds-section">
@@ -474,6 +519,50 @@ export default function TokensPage() {
           ))}
         </div>
         <CodeBlock code={motionCode} />
+      </section>
+
+      <section id="layout" className="ds-section">
+        <h2 className="ds-section-title">Layout</h2>
+        <p className="ds-section-intro">
+          Layouts are open, warm, and well-structured: generous white space,
+          photography and community content leading, no visual clutter (Brand Book
+          v1.0 p.33). White space is an active design decision &mdash; when in
+          doubt, reduce content rather than reduce spacing.
+        </p>
+        <ul className="ds-rule-list">
+          <li>
+            <strong>Grid &amp; margins:</strong> 48&ndash;64px on all sides
+            (digital); 15&ndash;20mm (print).
+          </li>
+          <li>
+            <strong>Alignment:</strong> left-align body text and headings by
+            default. Centre display headlines on full-bleed title slides only.
+          </li>
+          <li>
+            Never align text to both edges; never centre-align body copy of three
+            or more lines.
+          </li>
+        </ul>
+
+        <h3 className="ds-subsection-title">QR codes</h3>
+        <p className="fe-body">
+          Frame each QR code in a solid <strong>Orange</strong> border with four
+          rounded corners, on a White or Warm White background &mdash; Orange in
+          its approved role as a border accent. No tilt, no effects; leave even
+          breathing space between the code and the border.
+        </p>
+        <div className="ds-qr-demo" aria-hidden="true">
+          <div className="ds-qr-frame">
+            <div className="ds-qr-grid">
+              {Array.from({ length: 25 }).map((_, i) => (
+                <span
+                  key={i}
+                  className={`ds-qr-cell${(i * 7 + (i % 3)) % 2 === 0 ? " is-on" : ""}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
     </>
   );
