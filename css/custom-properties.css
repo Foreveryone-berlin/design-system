@@ -50,6 +50,16 @@
   --color-white: oklch(1 0 89.9);
   --color-black: oklch(0.145 0 89.9);
 
+  /* ── Colors: PRINT / DOC — NOT FOR DIGITAL UI ────────────────────────── */
+  /* Emitted for the /print reference page and print-mock surfaces only.    */
+  /* Do NOT reference these from shipped digital components. Print purple    */
+  /* substitutes Brand Blue in CMYK; doc greys are Brand Book document       */
+  /* chrome, not part of the brand palette. (Brand Book v1.0 p.17)           */
+  --color-print-purple-home:  oklch(0.519 0.119 291.2);
+  --color-print-purple-press: oklch(0.488 0.130 295.7);
+  --color-doc-grey-light:     oklch(0.947 0.009 84.6);
+  --color-doc-grey-dark:      oklch(0.866 0.011 76.6);
+
   /* ── Colors: Ramps (2026 style guide, 50–900) ───────────────────────── */
   /* Numeric tints for prototype/web surfaces. 500 = brand "main" for       */
   /* orange/green/blue/lavender; neutral 900 = Charcoal. Orange stays        */
