@@ -12,6 +12,10 @@
 
 ## [0.21.0] - Unreleased
 
+- **Feat**: Add a **Visual Elements** page (`/visual-elements`) with live specimens for the four Brand Book families: workshop icons, line illustrations, decorative accent marks, and graphic shapes (blobs vs waves) (Brand Book v1.0 p.24–27).
+- **Fix**: Redraw the workshop category icons as **solid filled** orange glyphs (Brand Book p.24); the prior set was outline/stroke, which the Brand Book forbids. `CategoryIcon` now maps the five canonical categories (`balance-wellness`, `movement`, `arts-crafts`, `expression`, `music`) with legacy names kept as aliases.
+- **Feat**: Author decorative accent-mark SVGs (doodle strokes, sparkle, asterisk, music note) and wave-divider SVGs; document blobs ≠ waves.
+- **Docs**: Rewrite [`visual-styles.md`](docs/visual-styles.md) to the precise four-family taxonomy and the corrected, filled workshop-icon set.
 - **Feat**: Add a **Logo** page (`/logo`) with the variant set, an at-a-glance spec table, an interactive 1X clear-space overlay, background combinations (1 background = 1 logo colour), logo-on-photography blob rules, the No. 52 Cafe marks, and the incorrect-usage grid (Brand Book v1.0 p.10–15).
 - **Feat**: Add logo assets under `prototype/public/images/logo/` — horizontal/stacked/standalone lockups derived from the official PNG, plus approximate No. 52 wordmark and compact SVG marks pending official vectors.
 - **Docs**: Expand [`logo-usage.md`](docs/logo-usage.md) with background combinations, photography blob rules, No. 52 sub-logo rules, and the full incorrect-usage list.

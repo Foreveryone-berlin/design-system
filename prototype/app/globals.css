@@ -1473,6 +1473,102 @@ a.ds-btn {
   line-height: 1;
 }
 
+/* Visual Elements page */
+.ds-icon-specimens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-5);
+  margin: var(--spacing-4) 0;
+}
+.ds-icon-specimen {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2);
+  width: 96px;
+  text-align: center;
+}
+/* Filled workshop-icon control: orange ground, white glyph (Brand Book p.24). */
+.ds-icon-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: var(--color-accent-icon);
+  color: var(--color-white);
+}
+.ds-icon-chip svg {
+  width: 32px;
+  height: 32px;
+}
+.ds-icon-specimen figcaption {
+  font-size: var(--font-size-xs);
+  color: var(--color-theme-8);
+  line-height: var(--line-height-snug);
+}
+
+.ds-illo-specimens,
+.ds-accent-specimens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-6);
+  margin: var(--spacing-4) 0;
+}
+.ds-illo-specimen,
+.ds-accent-specimen {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+.ds-illo-specimen img,
+.ds-accent-specimen img {
+  height: auto;
+}
+.ds-illo-specimen figcaption,
+.ds-accent-specimen figcaption {
+  font-size: var(--font-size-xs);
+  color: var(--color-theme-8);
+}
+
+/* Blob specimens — organic silhouettes via border-radius. */
+.ds-blob-specimens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-5);
+  margin: var(--spacing-4) 0;
+}
+.ds-blob {
+  display: inline-block;
+  width: 96px;
+  height: 96px;
+  border-radius: 64% 36% 57% 43% / 49% 57% 43% 51%;
+}
+.ds-blob--lavender {
+  background: var(--color-light-purple);
+}
+.ds-blob--lime {
+  background: var(--color-light-green);
+  border-radius: 41% 59% 38% 62% / 58% 41% 59% 42%;
+}
+.ds-blob--orange {
+  background: var(--color-brand-primary);
+  border-radius: 55% 45% 63% 37% / 42% 60% 40% 58%;
+}
+.ds-wave-specimen {
+  margin: var(--spacing-4) 0;
+  max-width: 600px;
+}
+.ds-wave-specimen img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Wave section */
 .ds-wave-section {
   background: var(--color-soft-lavender);
