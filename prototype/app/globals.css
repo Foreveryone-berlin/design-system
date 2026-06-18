@@ -1313,6 +1313,166 @@ a.ds-btn {
   color: var(--color-brand-dark);
 }
 
+/* Logo page */
+.ds-logo-variants {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--spacing-6);
+  margin-top: var(--spacing-4);
+}
+.ds-logo-variant {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  align-items: flex-start;
+  background: var(--color-white);
+  border: 1px solid var(--color-theme-7);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-5);
+}
+.ds-logo-variant img {
+  height: auto;
+}
+.ds-logo-variant figcaption {
+  font-size: var(--font-size-sm);
+  color: var(--color-theme-8);
+}
+.ds-logo-variant--no52 {
+  color: var(--color-brand-dark);
+}
+
+.ds-logo-bg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-4);
+}
+.ds-logo-bg {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6) var(--spacing-5) var(--spacing-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.ds-logo-bg__mark {
+  height: auto;
+}
+/* The shipped lockup PNG is dark Charcoal; render it pure white on dark
+   backgrounds (Blue, Orange) via a filter so we keep a single source asset. */
+.ds-logo-bg__mark--white {
+  filter: brightness(0) invert(1);
+}
+.ds-logo-bg__caption {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  /* Charcoal reads on all light backgrounds; on Blue/Orange the caption sits
+     on the tinted card and stays legible. */
+  color: var(--color-brand-dark);
+}
+.ds-logo-bg[style*="brand-secondary"] .ds-logo-bg__caption,
+.ds-logo-bg[style*="brand-primary"] .ds-logo-bg__caption {
+  color: var(--color-white);
+}
+
+/* Clear-space interactive demo */
+.ds-logo-clearspace {
+  margin-top: var(--spacing-4);
+}
+.ds-toggle-btn {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-brand-dark);
+  background: var(--color-white);
+  border: 1px solid var(--color-theme-4);
+  border-radius: var(--radius-pill);
+  padding: var(--spacing-2) var(--spacing-4);
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+.ds-toggle-btn:hover {
+  background: var(--color-light-orange);
+  border-color: var(--color-accent-border);
+}
+.ds-logo-clearspace__stage {
+  position: relative;
+  display: inline-flex;
+  margin: var(--spacing-5) 0;
+  padding: var(--spacing-12);
+  background: var(--color-white);
+  border: 1px solid var(--color-theme-7);
+  border-radius: var(--radius-lg);
+}
+.ds-logo-clearspace__zone {
+  position: absolute;
+  inset: var(--spacing-4);
+  border: 2px dashed transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+}
+.ds-logo-clearspace__stage.is-showing .ds-logo-clearspace__zone {
+  border-color: var(--color-accent-border);
+  background: var(--color-orange-50);
+}
+.ds-logo-clearspace__logo {
+  position: relative;
+  height: auto;
+}
+.ds-logo-clearspace__caption {
+  max-width: 60ch;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-theme-2);
+}
+
+/* Callout note */
+.fe-callout {
+  margin-top: var(--spacing-4);
+  padding: var(--spacing-4) var(--spacing-5);
+  border-left: 4px solid var(--color-accent-border);
+  background: var(--color-orange-50);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-theme-2);
+  max-width: 80ch;
+}
+.fe-callout code {
+  font-family: "Fira Code", "JetBrains Mono", Consolas, monospace;
+  font-size: 0.85em;
+}
+
+/* Don't grid (logo incorrect usage) */
+.ds-dont-grid {
+  list-style: none;
+  margin: var(--spacing-4) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--spacing-3);
+}
+.ds-dont-grid__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-4);
+  border: 1px solid var(--color-orange-200);
+  background: var(--color-orange-50);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-theme-2);
+}
+.ds-dont-grid__x {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-status-error);
+  line-height: 1;
+}
+
 /* Wave section */
 .ds-wave-section {
   background: var(--color-soft-lavender);

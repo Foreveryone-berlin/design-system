@@ -12,6 +12,9 @@
 
 ## [0.21.0] - Unreleased
 
+- **Feat**: Add a **Logo** page (`/logo`) with the variant set, an at-a-glance spec table, an interactive 1X clear-space overlay, background combinations (1 background = 1 logo colour), logo-on-photography blob rules, the No. 52 Cafe marks, and the incorrect-usage grid (Brand Book v1.0 p.10–15).
+- **Feat**: Add logo assets under `prototype/public/images/logo/` — horizontal/stacked/standalone lockups derived from the official PNG, plus approximate No. 52 wordmark and compact SVG marks pending official vectors.
+- **Docs**: Expand [`logo-usage.md`](docs/logo-usage.md) with background combinations, photography blob rules, No. 52 sub-logo rules, and the full incorrect-usage list.
 - **Feat**: Add a **Brand & Voice** page (`/brand`) with who-we-are, mission/vision, values, brand personality (We are / We are not), voice &amp; tone traits, in-practice Use/Avoid copy pairs, tone-by-context, and naming rules (Brand Book v1.0 p.3–9).
 - **Style**: Trim the Guidelines page to colour/typography/illustration mechanics; move voice, tone, and naming to Brand & Voice.
 - **Feat**: Add print-namespaced color tokens — `color.print.purple-home` (`#6A5AA7`) and `color.print.purple-press` (`#674DA0`), the CMYK substitute for Blue (Brand Book v1.0 p.17).
