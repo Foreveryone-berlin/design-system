@@ -12,6 +12,8 @@
 
 ## [0.21.0] - Unreleased
 
+- **Feat**: Add **alt-text** writing guidance to the Accessibility page (describe activity + setting, one sentence, skip "image of", empty for decorative; per-platform note) (Brand Book v1.0 p.29, 37).
+- **Feat**: Add **Ethical representation** (minors/consent, vulnerable individuals, cultural sensitivity, context, right to withdraw) and **Contact & permissions** to the Governance page, plus the Brand Book minor/major versioning model (p.32, 40, 41).
 - **Feat**: Add a **Print & Media** page (`/print`) marking the digital ↔ print boundary: digital-vs-print table, Young Serif (print only), CMYK Home/Press values, the print-purple substitute for Blue, document greys, cafe signs, the Canva photo workflow, and asset-library contacts (Brand Book v1.0 p.16–17, 21, 36–40).
 - **Feat**: Enrich Foundations typography with the Brand Book type-scale roles and canonical specimens (Display, H1, H2, Subheading, Body, Caption, Emphasis), plus copy-format do/don't rules (Brand Book v1.0 p.22–23).
 - **Feat**: Add a **Layout** section to Foundations — grid/margins, white-space and alignment rules, and a QR-code specimen with the solid Orange rounded border (Brand Book v1.0 p.33).
