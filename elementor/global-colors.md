@@ -13,7 +13,7 @@ Elementor reference: <https://elementor.com/help/theme-style-global-settings/>
 ## Global Color Slot Mapping
 
 - **Global 1 — Brand Secondary** -> `color.brand-secondary` -> `#3F00EB` (Blue, alerts/announcements only; pair with white text)
-- **Global 2 — Brand Primary** -> `color.brand-primary` -> `#FF7A3A` ⚠️ **DECORATIVE ONLY** (May 2026 brand guide). Use for filled-icon fills, blob shapes, borders, and accents. **Never use as a section/button/background color, and never pair with text.** The only exception is the standalone white logo icon on an orange background for social profile images and print covers (no text on that background).
+- **Global 2 — Brand Primary** -> `color.brand-primary` -> `#FF7A3A` ⚠️ **DECORATIVE ONLY** (Brand Book v1.0, June 2026, p.16). Use for filled-icon fills, blob shapes, borders, and accents. **Never use as a section/button/background color, and never pair with text.** The only structural exceptions are the QR-code border (p.33) and the standalone white logo icon on an orange background for social profile images and print covers (no text on that background, p.12).
 - **Global 3 — Brand Dark** -> `color.brand-dark` -> `#1E1E1E` (Charcoal; primary text on light backgrounds)
 - **Global 4 — Accent** -> `color.accent` -> `#FDFCF7` (Warm white; default text-heavy content background)
 
@@ -75,3 +75,4 @@ These are the Astra/Elementor theme-level colors used by the site:
 - This mapping must stay aligned with `tokens/colors.json`.
 - If token values change, update both Elementor Global Colors and `CHANGELOG.md`.
 - Brand palette audit: [`docs/color-audit-2026.md`](../docs/color-audit-2026.md).
+- Brand authority matrix: [`docs/brand-book-references.md`](../docs/brand-book-references.md) (Brand Book v1.0 is the source of truth).

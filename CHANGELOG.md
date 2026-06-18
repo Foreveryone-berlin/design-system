@@ -10,8 +10,10 @@
 
 **Labels:** **Build**, **Chore**, **CI**, **Docs**, **Enhance**, **Feat**, **Fix**, **Perf**, **Revert**, **Sec**, **Style**; append **(WIP)** only for incomplete work.
 
-## [Unreleased]
+## [0.21.0] - Unreleased
 
+- **Docs**: Re-point brand source-of-truth to the [ForEveryone Brand Book v1.0 (June 2026)](docs/brand-book-references.md); mark Quick Brand Guidelines v2.0 as a superseded condensed reference.
+- **Docs**: Add [`docs/brand-book-references.md`](docs/brand-book-references.md) authority matrix mapping each brand domain to its governing source and the digital vs print boundary.
 - **CI**: Title GitHub Releases with the bare version (e.g. `0.20.2`), dropping the tag's `v` prefix.
 
 ## [0.20.2] - 2026-06-17
