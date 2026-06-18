@@ -9,7 +9,9 @@
       "regular": { "$value": 400, "$type": "fontWeight", "$description": "Regular — body text, descriptions, supporting copy." },
       "italic":  { "$value": 400, "$type": "fontWeight", "$description": "Italic — STYLE not weight (use with font-style: italic). Reserved for publication names, artwork titles, emphasised phrases; use sparingly." },
       "medium":  { "$value": 500, "$type": "fontWeight", "$description": "Medium — UI labels, navigation, callouts, subtle emphasis." },
-      "bold":    { "$value": 700, "$type": "fontWeight", "$description": "Bold — headlines, titles, key points of emphasis. Heaviest weight in the system." }
+      "medium-italic": { "$value": 500, "$type": "fontWeight", "$description": "Medium Italic — STYLE pairing (weight 500 + font-style: italic). Part of the Filson Pro six-style family (Brand Book v1.0 p.20)." },
+      "bold":    { "$value": 700, "$type": "fontWeight", "$description": "Bold — headlines, titles, key points of emphasis. Heaviest weight in the system." },
+      "bold-italic": { "$value": 700, "$type": "fontWeight", "$description": "Bold Italic — STYLE pairing (weight 700 + font-style: italic). Part of the Filson Pro six-style family (Brand Book v1.0 p.20)." }
     },
     "size": {
       "xs": { "$value": "0.75rem", "$type": "dimension", "$description": "12px - tags, labels" },
@@ -24,7 +26,7 @@
     "lineHeight": {
       "tight": { "$value": "0.8", "$type": "number", "$description": "80% - H1" },
       "snug": { "$value": "1.0", "$type": "number", "$description": "100% - H2, H3, tags, labels" },
-      "normal": { "$value": "1.4", "$type": "number", "$description": "140% - body, inputs, buttons" }
+      "normal": { "$value": "1.5", "$type": "number", "$description": "150% - body, inputs, buttons. Brand Book v1.0 p.22 requires body line-height not below 1.5." }
     },
     "letterSpacing": {
       "tight": { "$value": "-0.02em", "$type": "dimension", "$description": "-2% - headings" },

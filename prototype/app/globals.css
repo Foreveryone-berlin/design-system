@@ -1139,6 +1139,494 @@ a.ds-btn {
   margin: 0;
 }
 
+/* Brand & Voice: mission/vision, values, personality, voice pairs, table */
+.ds-mv-grid,
+.ds-value-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-4);
+}
+@media (min-width: 48rem) {
+  .ds-mv-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ds-value-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.ds-mv-card,
+.ds-value-card {
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-5);
+  background: var(--color-soft-lavender);
+  color: var(--color-brand-dark);
+}
+
+.ds-mv-card__label,
+.ds-value-card__title {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  margin: 0 0 var(--spacing-2);
+}
+
+.ds-value-card__body {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+}
+
+.ds-personality {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-4);
+}
+@media (min-width: 48rem) {
+  .ds-personality {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ds-personality__col {
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-5);
+  border: 1px solid var(--color-theme-7);
+}
+.ds-personality__col--are {
+  background: var(--color-green-50);
+  border-color: var(--color-green-300);
+}
+.ds-personality__col--not {
+  background: var(--color-orange-50);
+  border-color: var(--color-orange-200);
+}
+.ds-personality__label {
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 var(--spacing-3);
+  color: var(--color-brand-dark);
+}
+
+.ds-chip-grid--list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ds-chip--negative {
+  background: var(--color-orange-100);
+}
+.ds-chip--voice {
+  background: var(--color-soft-lavender);
+}
+.ds-voice-traits {
+  margin: var(--spacing-4) 0 0;
+}
+
+.ds-voice-pairs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-4);
+}
+.ds-voice-pair {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-theme-7);
+  padding: var(--spacing-5);
+  background: var(--color-white);
+  max-width: 80ch;
+}
+.ds-voice-pair:hover,
+.ds-voice-pair:focus-visible {
+  border-color: var(--color-accent-border);
+}
+.ds-voice-pair__context {
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 var(--spacing-3);
+  color: var(--color-brand-dark);
+}
+.ds-voice-pair__use,
+.ds-voice-pair__avoid {
+  margin: 0 0 var(--spacing-2);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-theme-2);
+}
+/* The "avoid" example is visually distinguished by its tag, not by dimming the
+   text (dimming charcoal below full opacity drops contrast under 4.5:1). The
+   card border brightens on hover/focus as the digital affordance. */
+.ds-voice-pair__tag {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-sm);
+  padding: 0 var(--spacing-2);
+  margin-right: var(--spacing-2);
+}
+.ds-voice-pair__tag--use {
+  background: var(--color-green-300);
+  color: var(--color-brand-dark);
+}
+.ds-voice-pair__tag--avoid {
+  background: var(--color-orange-150);
+  color: var(--color-brand-dark);
+}
+
+.ds-table-wrap {
+  overflow-x: auto;
+  margin-top: var(--spacing-4);
+}
+.ds-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 70ch;
+  font-size: var(--font-size-sm);
+  color: var(--color-theme-2);
+}
+.ds-table th,
+.ds-table td {
+  text-align: left;
+  padding: var(--spacing-3) var(--spacing-4);
+  border-bottom: 1px solid var(--color-theme-7);
+  vertical-align: top;
+}
+.ds-table thead th {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-dark);
+  border-bottom-width: 2px;
+}
+.ds-table tbody th {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-brand-dark);
+}
+
+/* Logo page */
+.ds-logo-variants {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--spacing-6);
+  margin-top: var(--spacing-4);
+}
+.ds-logo-variant {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  align-items: flex-start;
+  background: var(--color-white);
+  border: 1px solid var(--color-theme-7);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-5);
+}
+.ds-logo-variant img {
+  height: auto;
+}
+.ds-logo-variant figcaption {
+  font-size: var(--font-size-sm);
+  color: var(--color-theme-8);
+}
+.ds-logo-variant--no52 {
+  color: var(--color-brand-dark);
+}
+
+.ds-logo-bg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-4);
+}
+.ds-logo-bg {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6) var(--spacing-5) var(--spacing-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.ds-logo-bg__mark {
+  height: auto;
+}
+/* The shipped lockup PNG is dark Charcoal; render it pure white on dark
+   backgrounds (Blue, Orange) via a filter so we keep a single source asset. */
+.ds-logo-bg__mark--white {
+  filter: brightness(0) invert(1);
+}
+/* Caption sits in a solid white chip so it reads on ANY card colour (incl.
+   Blue and Orange, where charcoal or white body text would fail contrast). */
+.ds-logo-bg__caption {
+  align-self: flex-start;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-brand-dark);
+  background: var(--color-white);
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--radius-pill);
+}
+
+/* Clear-space interactive demo */
+.ds-logo-clearspace {
+  margin-top: var(--spacing-4);
+}
+.ds-toggle-btn {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-brand-dark);
+  background: var(--color-white);
+  border: 1px solid var(--color-theme-4);
+  border-radius: var(--radius-pill);
+  padding: var(--spacing-2) var(--spacing-4);
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+.ds-toggle-btn:hover {
+  background: var(--color-light-orange);
+  border-color: var(--color-accent-border);
+}
+.ds-logo-clearspace__stage {
+  position: relative;
+  display: inline-flex;
+  margin: var(--spacing-5) 0;
+  padding: var(--spacing-12);
+  background: var(--color-white);
+  border: 1px solid var(--color-theme-7);
+  border-radius: var(--radius-lg);
+}
+.ds-logo-clearspace__zone {
+  position: absolute;
+  inset: var(--spacing-4);
+  border: 2px dashed transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+}
+.ds-logo-clearspace__stage.is-showing .ds-logo-clearspace__zone {
+  border-color: var(--color-accent-border);
+  background: var(--color-orange-50);
+}
+.ds-logo-clearspace__logo {
+  position: relative;
+  height: auto;
+}
+.ds-logo-clearspace__caption {
+  max-width: 60ch;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-theme-2);
+}
+
+/* Callout note */
+.fe-callout {
+  margin-top: var(--spacing-4);
+  padding: var(--spacing-4) var(--spacing-5);
+  border-left: 4px solid var(--color-accent-border);
+  background: var(--color-orange-50);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-theme-2);
+  max-width: 80ch;
+}
+.fe-callout code {
+  font-family: "Fira Code", "JetBrains Mono", Consolas, monospace;
+  font-size: 0.85em;
+}
+
+/* Don't grid (logo incorrect usage) */
+.ds-dont-grid {
+  list-style: none;
+  margin: var(--spacing-4) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--spacing-3);
+}
+.ds-dont-grid__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-4);
+  border: 1px solid var(--color-orange-200);
+  background: var(--color-orange-50);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-theme-2);
+}
+.ds-dont-grid__x {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-status-error);
+  line-height: 1;
+}
+
+/* Visual Elements page */
+.ds-icon-specimens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-5);
+  margin: var(--spacing-4) 0;
+}
+.ds-icon-specimen {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2);
+  width: 96px;
+  text-align: center;
+}
+/* Filled workshop-icon control: orange ground, white glyph (Brand Book p.24). */
+.ds-icon-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: var(--color-accent-icon);
+  color: var(--color-white);
+}
+.ds-icon-chip svg {
+  width: 32px;
+  height: 32px;
+}
+.ds-icon-specimen figcaption {
+  font-size: var(--font-size-xs);
+  color: var(--color-theme-8);
+  line-height: var(--line-height-snug);
+}
+
+.ds-illo-specimens,
+.ds-accent-specimens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-6);
+  margin: var(--spacing-4) 0;
+}
+.ds-illo-specimen,
+.ds-accent-specimen {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+.ds-illo-specimen img,
+.ds-accent-specimen img {
+  height: auto;
+}
+.ds-illo-specimen figcaption,
+.ds-accent-specimen figcaption {
+  font-size: var(--font-size-xs);
+  color: var(--color-theme-8);
+}
+
+/* Blob specimens — organic silhouettes via border-radius. */
+.ds-blob-specimens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-5);
+  margin: var(--spacing-4) 0;
+}
+.ds-blob {
+  display: inline-block;
+  width: 96px;
+  height: 96px;
+  border-radius: 64% 36% 57% 43% / 49% 57% 43% 51%;
+}
+.ds-blob--lavender {
+  background: var(--color-light-purple);
+}
+.ds-blob--lime {
+  background: var(--color-light-green);
+  border-radius: 41% 59% 38% 62% / 58% 41% 59% 42%;
+}
+.ds-blob--orange {
+  background: var(--color-brand-primary);
+  border-radius: 55% 45% 63% 37% / 42% 60% 40% 58%;
+}
+.ds-wave-specimen {
+  margin: var(--spacing-4) 0;
+  max-width: 600px;
+}
+.ds-wave-specimen img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Print & Media page */
+.ds-swatch-dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-right: var(--spacing-2);
+  vertical-align: middle;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+.ds-print-swap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-4);
+}
+.ds-print-swap__card {
+  border: 1px solid var(--color-theme-7);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-4);
+  min-width: 140px;
+  background: var(--color-white);
+}
+.ds-print-swap__chip {
+  display: block;
+  width: 100%;
+  height: 40px;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-3);
+}
+.ds-print-swap__label {
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  margin: 0 0 var(--spacing-1);
+  color: var(--color-brand-dark);
+}
+.ds-print-swap__arrow {
+  font-size: var(--font-size-2xl);
+  color: var(--color-theme-4);
+}
+
+/* QR code demo (Brand Book p.33): solid Orange rounded border on white. */
+.ds-qr-demo {
+  margin-top: var(--spacing-4);
+}
+.ds-qr-frame {
+  display: inline-block;
+  padding: var(--spacing-4);
+  background: var(--color-white);
+  border: 4px solid var(--color-accent-border);
+  border-radius: var(--radius-lg);
+}
+.ds-qr-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 16px);
+  grid-auto-rows: 16px;
+  gap: 3px;
+}
+.ds-qr-cell {
+  background: transparent;
+  border-radius: 2px;
+}
+.ds-qr-cell.is-on {
+  background: var(--color-brand-dark);
+}
+
 /* Wave section */
 .ds-wave-section {
   background: var(--color-soft-lavender);

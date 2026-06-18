@@ -1,11 +1,11 @@
 {
   "color": {
-    "brand-primary": { "$value": "oklch(0.726 0.179 43.9)", "$type": "color", "$description": "Brand orange (palette, #FF7A3A). DECORATIVE USE ONLY per 2026 brand guide (May 2026). Allowed: filled-icon fills, blob shapes, accents, borders. NEVER use as section/button background; orange + white text fails contrast. White standalone logo on orange background is the only exception (social profile + print covers, no text)." },
+    "brand-primary": { "$value": "oklch(0.726 0.179 43.9)", "$type": "color", "$description": "Brand orange (palette, #FF7A3A). DECORATIVE USE ONLY per Brand Book v1.0 (p.16). Allowed: filled-icon fills, blob shapes, accents, borders. NEVER use as section/button text-background; orange + white text fails contrast (2.59:1, p.19). Orange icons must always carry a text label (p.18). Sanctioned structural exceptions: the QR-code border (p.33) and the white standalone logo icon on an orange background for social profile images / print covers with no text (p.12)." },
     "brand-secondary": { "$value": "oklch(0.4486 0.2813 275.3)", "$type": "color", "$description": "Brand blue (palette, #3F00EB). Special announcements and alerts; always pair with white text (#FFF). Elementor Global 1." },
     "brand-dark": { "$value": "oklch(0.235 0 89.9)", "$type": "color", "$description": "Charcoal (palette, #1E1E1E)—primary text on light backgrounds. Elementor Global 3." },
     "accent": { "$value": "oklch(0.99 0.007 97.3)", "$type": "color", "$description": "Warm white (palette, #FDFCF7)—text-heavy content backgrounds; pair with Charcoal text. Elementor Global 4." },
     "focus-button": { "$value": "oklch(0.616 0.149 44.3)", "$type": "color", "$description": "Focus Button (#CC622E)—primary button hover/pressed state (Elementor Custom 1)" },
-    "light-purple": { "$value": "oklch(0.856 0.081 297.3)", "$type": "color", "$description": "Lavender (palette, #D5C5FF)—decorative: blobs, icons, accents, borders; prefer Soft Lavender for large readable backgrounds. Elementor Custom 2." },
+    "light-purple": { "$value": "oklch(0.856 0.081 297.3)", "$type": "color", "$description": "Lavender (palette, #D5C5FF)—decorative: blobs, icons, accents, borders. NEVER a background (Brand Book v1.0 p.16); use Soft Lavender for large readable backgrounds. Do not place Lavender accents on a Soft Lavender background (too close in tone, p.16). Elementor Custom 2." },
     "soft-lavender": { "$value": "oklch(0.912 0.048 297.2)", "$type": "color", "$description": "Soft lavender (palette, #E5DCFF)—social/layout backgrounds; pair with Charcoal text. Map in Elementor as an additional Custom Color if available." },
     "lavender-official": { "$value": "oklch(0.89 0.067 305.3)", "$type": "color", "$description": "Official light lavender (2026 Color Guidelines, #E5D0FF). USE SPARINGLY—decorative accent only. Distinct from Soft Lavender #E5DCFF (layout bg) and lavender.300 #E6DCFF (ramp)." },
     "light-green": { "$value": "oklch(0.896 0.083 121.2)", "$type": "color", "$description": "Lime green (palette, #D4E6A8)—title/key layout backgrounds; pair with Charcoal; decorative accents. Elementor Custom 3." },
@@ -39,6 +39,15 @@
     "base": {
       "white": { "$value": "oklch(1 0 89.9)", "$type": "color", "$description": "Base white (#FFFFFF)" },
       "black": { "$value": "oklch(0.145 0 89.9)", "$type": "color", "$description": "Base black (#0A0A0A)" }
+    },
+
+    "print": {
+      "purple-home": { "$value": "oklch(0.519 0.119 291.2)", "$type": "color", "$description": "PRINT ONLY (Brand Book v1.0 p.17, #6A5AA7). Home/desktop-printer substitute for Brand Blue, which does not print well in CMYK. Home CMYK 68/74/0/0. NEVER load or use on web — digital surfaces use brand-secondary (Blue) instead." },
+      "purple-press": { "$value": "oklch(0.488 0.130 295.7)", "$type": "color", "$description": "PRINT ONLY (Brand Book v1.0 p.17, #674DA0). Professional-press substitute for Brand Blue in CMYK. Press CMYK 71/82/0/0. NEVER load or use on web." }
+    },
+    "doc": {
+      "grey-light": { "$value": "oklch(0.947 0.009 84.6)", "$type": "color", "$description": "DOCUMENT CHROME ONLY (Brand Book v1.0 p.17, #F0EDE7). Warm grey for the Brand Book's own tables, callout boxes, and reference notes. NOT part of the ForEveryone brand palette; never use in product UI." },
+      "grey-dark": { "$value": "oklch(0.866 0.011 76.6)", "$type": "color", "$description": "DOCUMENT CHROME ONLY (Brand Book v1.0 p.17, #D7D2CB). Darker warm grey companion to doc.grey-light for document tables/notes. NOT part of the brand palette; never use in product UI." }
     },
 
     "neutral": {

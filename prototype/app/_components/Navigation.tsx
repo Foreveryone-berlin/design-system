@@ -5,7 +5,11 @@ import Link from "next/link";
 
 const navSections = [
   { href: "/", label: "Overview" },
+  { href: "/brand", label: "Brand & Voice" },
+  { href: "/logo", label: "Logo" },
   { href: "/foundations", label: "Foundations" },
+  { href: "/visual-elements", label: "Visual Elements" },
+  { href: "/print", label: "Print & Media" },
   { href: "/components", label: "Components" },
   { href: "/patterns", label: "Patterns" },
   { href: "/guidelines", label: "Guidelines" },
