@@ -1253,18 +1253,9 @@ a.ds-btn {
   line-height: var(--line-height-normal);
   color: var(--color-theme-2);
 }
-/* The "avoid" example is de-emphasised until the card is hovered/focused, so
-   the on-brand "use" copy reads first. Opacity only — text stays in the DOM
-   and reduced-motion users get the same end state. */
-.ds-voice-pair__avoid {
-  opacity: 0.5;
-  transition: opacity var(--transition-base);
-}
-.ds-voice-pair:hover .ds-voice-pair__avoid,
-.ds-voice-pair:focus-visible .ds-voice-pair__avoid,
-.ds-voice-pair:focus-within .ds-voice-pair__avoid {
-  opacity: 1;
-}
+/* The "avoid" example is visually distinguished by its tag, not by dimming the
+   text (dimming charcoal below full opacity drops contrast under 4.5:1). The
+   card border brightens on hover/focus as the digital affordance. */
 .ds-voice-pair__tag {
   display: inline-block;
   font-size: var(--font-size-xs);
@@ -1366,16 +1357,16 @@ a.ds-btn {
 .ds-logo-bg__mark--white {
   filter: brightness(0) invert(1);
 }
+/* Caption sits in a solid white chip so it reads on ANY card colour (incl.
+   Blue and Orange, where charcoal or white body text would fail contrast). */
 .ds-logo-bg__caption {
+  align-self: flex-start;
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
-  /* Charcoal reads on all light backgrounds; on Blue/Orange the caption sits
-     on the tinted card and stays legible. */
   color: var(--color-brand-dark);
-}
-.ds-logo-bg[style*="brand-secondary"] .ds-logo-bg__caption,
-.ds-logo-bg[style*="brand-primary"] .ds-logo-bg__caption {
-  color: var(--color-white);
+  background: var(--color-white);
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--radius-pill);
 }
 
 /* Clear-space interactive demo */
