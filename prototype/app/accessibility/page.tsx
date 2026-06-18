@@ -167,6 +167,44 @@ export default function AccessibilityPage() {
       </section>
 
       <section className="ds-section">
+        <h2 className="ds-section-title">Alt text</h2>
+        <p className="fe-body">
+          Alt text is a short written description that screen readers read aloud
+          for people who are blind or have low vision. It is a small but meaningful
+          way we make sure ForEveryone really means everyone, and it improves
+          search visibility too (Brand Book v1.0 p.29, 37).
+        </p>
+        <div className="ds-dodont">
+          <div className="ds-dodont__do">
+            <p className="ds-dodont__label">Do</p>
+            <ul>
+              <li>
+                Describe what is <em>happening</em>, not just what is in the frame
+                &mdash; mention activity and setting.
+              </li>
+              <li>Keep it to one sentence.</li>
+              <li>Leave alt text empty for purely decorative graphics.</li>
+            </ul>
+          </div>
+          <div className="ds-dodont__dont">
+            <p className="ds-dodont__label">Don&rsquo;t</p>
+            <ul>
+              <li>Start with &ldquo;image of&rdquo; or &ldquo;photo of&rdquo;.</li>
+              <li>List only objects with no context.</li>
+              <li>Skip alt text on meaningful photos.</li>
+            </ul>
+          </div>
+        </div>
+        <p className="fe-callout">
+          <strong>Example:</strong> &ldquo;A group of people laughing while painting
+          at No. 52 Cafe&rdquo; says more than &ldquo;people in a room&rdquo;. On
+          social platforms (Instagram, Facebook, LinkedIn) add alt text in the
+          post&rsquo;s advanced settings; on the website the web team manages alt
+          text in WordPress &mdash; send suggested alt text alongside each image.
+        </p>
+      </section>
+
+      <section className="ds-section">
         <h2 className="ds-section-title">Feedback</h2>
         <p className="fe-body">
           If you hit an accessibility barrier, please tell us so we can fix it.
