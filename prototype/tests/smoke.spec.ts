@@ -2,9 +2,13 @@ import { test, expect, type ConsoleMessage } from "@playwright/test";
 
 const routes = [
   "/",
+  "/brand",
+  "/logo",
   "/foundations",
   "/components",
   "/patterns",
+  "/visual-elements",
+  "/print",
   "/guidelines",
   "/accessibility",
   "/governance",
