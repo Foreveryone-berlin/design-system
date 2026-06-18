@@ -1139,6 +1139,180 @@ a.ds-btn {
   margin: 0;
 }
 
+/* Brand & Voice: mission/vision, values, personality, voice pairs, table */
+.ds-mv-grid,
+.ds-value-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-4);
+}
+@media (min-width: 48rem) {
+  .ds-mv-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ds-value-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.ds-mv-card,
+.ds-value-card {
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-5);
+  background: var(--color-soft-lavender);
+  color: var(--color-brand-dark);
+}
+
+.ds-mv-card__label,
+.ds-value-card__title {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  margin: 0 0 var(--spacing-2);
+}
+
+.ds-value-card__body {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+}
+
+.ds-personality {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-4);
+}
+@media (min-width: 48rem) {
+  .ds-personality {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ds-personality__col {
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-5);
+  border: 1px solid var(--color-theme-7);
+}
+.ds-personality__col--are {
+  background: var(--color-green-50);
+  border-color: var(--color-green-300);
+}
+.ds-personality__col--not {
+  background: var(--color-orange-50);
+  border-color: var(--color-orange-200);
+}
+.ds-personality__label {
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 var(--spacing-3);
+  color: var(--color-brand-dark);
+}
+
+.ds-chip-grid--list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ds-chip--negative {
+  background: var(--color-orange-100);
+}
+.ds-chip--voice {
+  background: var(--color-soft-lavender);
+}
+.ds-voice-traits {
+  margin: var(--spacing-4) 0 0;
+}
+
+.ds-voice-pairs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-4);
+}
+.ds-voice-pair {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-theme-7);
+  padding: var(--spacing-5);
+  background: var(--color-white);
+  max-width: 80ch;
+}
+.ds-voice-pair:hover,
+.ds-voice-pair:focus-visible {
+  border-color: var(--color-accent-border);
+}
+.ds-voice-pair__context {
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 var(--spacing-3);
+  color: var(--color-brand-dark);
+}
+.ds-voice-pair__use,
+.ds-voice-pair__avoid {
+  margin: 0 0 var(--spacing-2);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-theme-2);
+}
+/* The "avoid" example is de-emphasised until the card is hovered/focused, so
+   the on-brand "use" copy reads first. Opacity only — text stays in the DOM
+   and reduced-motion users get the same end state. */
+.ds-voice-pair__avoid {
+  opacity: 0.5;
+  transition: opacity var(--transition-base);
+}
+.ds-voice-pair:hover .ds-voice-pair__avoid,
+.ds-voice-pair:focus-visible .ds-voice-pair__avoid,
+.ds-voice-pair:focus-within .ds-voice-pair__avoid {
+  opacity: 1;
+}
+.ds-voice-pair__tag {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-sm);
+  padding: 0 var(--spacing-2);
+  margin-right: var(--spacing-2);
+}
+.ds-voice-pair__tag--use {
+  background: var(--color-green-300);
+  color: var(--color-brand-dark);
+}
+.ds-voice-pair__tag--avoid {
+  background: var(--color-orange-150);
+  color: var(--color-brand-dark);
+}
+
+.ds-table-wrap {
+  overflow-x: auto;
+  margin-top: var(--spacing-4);
+}
+.ds-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 70ch;
+  font-size: var(--font-size-sm);
+  color: var(--color-theme-2);
+}
+.ds-table th,
+.ds-table td {
+  text-align: left;
+  padding: var(--spacing-3) var(--spacing-4);
+  border-bottom: 1px solid var(--color-theme-7);
+  vertical-align: top;
+}
+.ds-table thead th {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-dark);
+  border-bottom-width: 2px;
+}
+.ds-table tbody th {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-brand-dark);
+}
+
 /* Wave section */
 .ds-wave-section {
   background: var(--color-soft-lavender);
