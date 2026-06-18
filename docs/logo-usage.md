@@ -1,10 +1,11 @@
 # Logo usage
 
-Source: 2026 Quick Brand Guidelines, Ver 2.0. The repo currently ships
-`prototype/public/images/foreveryone-logo.png` (600×110, RGBA) and uses it
-in the prototype sidebar + mobile header. Wordmark / standalone variants are
-not yet in the repo; this document records the rules the brand guide sets
-so any future asset additions follow them.
+Source: **ForEveryone Brand Book v1.0 (June 2026)**, p.10–15 (Logo system, variations,
+background combinations, incorrect usage, No. 52 Cafe logos). See
+[`docs/brand-book-references.md`](brand-book-references.md) for the authority matrix.
+The repo ships `prototype/public/images/foreveryone-logo.png` (600×110, RGBA) and uses it
+in the prototype sidebar + mobile header. This document records the rules the Brand Book
+sets so any asset additions follow them.
 
 ## The X measurement
 
