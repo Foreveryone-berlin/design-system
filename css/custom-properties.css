@@ -138,7 +138,9 @@
   --font-weight-regular: 400;
   --font-weight-italic:  400;  /* STYLE: pair with font-style: italic */
   --font-weight-medium:  500;
+  --font-weight-medium-italic: 500;  /* STYLE: 500 + font-style: italic */
   --font-weight-bold:    700;
+  --font-weight-bold-italic: 700;  /* STYLE: 700 + font-style: italic */
 
   /* ── Typography: Font Sizes ──────────────────────────────────────────── */
   --font-size-xs:   0.75rem;   /* 12px — tags, labels */
@@ -153,7 +155,7 @@
   /* ── Typography: Line Heights ────────────────────────────────────────── */
   --line-height-tight:  0.8;   /* H1 */
   --line-height-snug:   1.0;   /* H2, H3, tags */
-  --line-height-normal: 1.4;   /* body, inputs, buttons */
+  --line-height-normal: 1.5;   /* body, inputs, buttons */
 
   /* ── Typography: Letter Spacing ──────────────────────────────────────── */
   --letter-spacing-tight:  -0.02em;  /* headings */
