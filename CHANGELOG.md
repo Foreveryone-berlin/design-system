@@ -12,6 +12,8 @@
 
 ## [0.21.0] - Unreleased
 
+- **Feat**: Add a **Brand & Voice** page (`/brand`) with who-we-are, mission/vision, values, brand personality (We are / We are not), voice &amp; tone traits, in-practice Use/Avoid copy pairs, tone-by-context, and naming rules (Brand Book v1.0 p.3–9).
+- **Style**: Trim the Guidelines page to colour/typography/illustration mechanics; move voice, tone, and naming to Brand & Voice.
 - **Feat**: Add print-namespaced color tokens — `color.print.purple-home` (`#6A5AA7`) and `color.print.purple-press` (`#674DA0`), the CMYK substitute for Blue (Brand Book v1.0 p.17).
 - **Feat**: Add document-chrome tokens `color.doc.grey-light` (`#F0EDE7`) and `color.doc.grey-dark` (`#D7D2CB`); not part of the brand palette.
 - **Build**: Emit `--color-print-*` and `--color-doc-*` in a fenced "NOT FOR DIGITAL UI" block so digital components never consume print values.
