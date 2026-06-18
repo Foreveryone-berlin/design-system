@@ -1,6 +1,8 @@
 # Color audit — brand palette vs repo (2026)
 
-Official **7-color brand table** (design guide) cross-checked against [`tokens/colors.json`](../tokens/colors.json) and Elementor mapping.
+Official **7-color brand table** cross-checked against [`tokens/colors.json`](../tokens/colors.json) and Elementor mapping.
+
+> **Source of truth:** **ForEveryone Brand Book v1.0 (June 2026)** — see [`docs/brand-book-references.md`](brand-book-references.md). The Brand Book confirms the seven hexes below unchanged from the earlier Quick Brand Guidelines v2.0 (April 2026), which is now a superseded condensed reference only.
 
 ## Phase 0 decisions (implementation authority)
 
@@ -35,9 +37,9 @@ Official **7-color brand table** (design guide) cross-checked against [`tokens/c
 - White (`#FFF`) on Blue for alerts/special panels.
 - **Orange is decorative only as of May 2026.** Orange-as-background with white text is now disallowed; previous primary CTA style is replaced in 0.12.0 (Soft Lavender bg + Charcoal text + orange border).
 
-## Approved background ⇄ text combinations (May 2026)
+## Approved background ⇄ text combinations
 
-Source: 2026 Quick Brand Guidelines, Ver 2.0. Codified as semantic tokens in `tokens/colors.json` (`background-default|soft|title|alert`, `accent-icon|border`) and surfaced as CSS variables `--color-background-*`, `--color-accent-*`.
+Source: **Brand Book v1.0 (June 2026)**, p.18 (accessibility combinations) and p.16–17 (palette). Codified as semantic tokens in `tokens/colors.json` (`background-default|soft|title|alert`, `accent-icon|border`) and surfaced as CSS variables `--color-background-*`, `--color-accent-*`.
 
 | Background           | Text       | Token alias                    | Use                                    |
 |----------------------|------------|--------------------------------|----------------------------------------|
