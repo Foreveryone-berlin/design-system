@@ -9,6 +9,7 @@ const navSections = [
   { href: "/logo", label: "Logo" },
   { href: "/foundations", label: "Foundations" },
   { href: "/visual-elements", label: "Visual Elements" },
+  { href: "/print", label: "Print & Media" },
   { href: "/components", label: "Components" },
   { href: "/patterns", label: "Patterns" },
   { href: "/guidelines", label: "Guidelines" },
