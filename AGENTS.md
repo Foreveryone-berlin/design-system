@@ -60,9 +60,11 @@ any design-system, token, CSS, Elementor, Figma, or prototype (Next.js) tasks. U
 
 Paths are repo-relative from project root.
 
-|root:{README.md,CHANGELOG.md,AGENTS.md,CLAUDE.md}
-|docs:{AGENTS.md,audit.md,color-audit-2026.md,contributing.md,cursor-plan-prompt.md,getting-started.md,logo-usage.md,official-references.md,pr-and-merge-workflow.md,prototype-deploy.md,token-naming.md,validation.md,visual-styles.md}
-|docs/agents:{README.md,agent-contract.md,runtime-policy.md}
+|root:{README.md,CHANGELOG.md,AGENTS.md,CLAUDE.md,llms.txt}
+|docs:{AGENTS.md,audit.md,brand-book-references.md,color-audit-2026.md,contributing.md,cursor-plan-prompt.md,getting-started.md,logo-usage.md,official-references.md,pr-and-merge-workflow.md,prototype-deploy.md,token-naming.md,validation.md,visual-styles.md}
+|docs/agents:{README.md,agent-contract.md,runtime-policy.md,redesign-from-this-system.md}
+|spec:{tokens.json,principles.md}
+|spec/components:{README.md,button.md,tag-pill.md,card.md,input.md,faq.md}
 |docs/decisions:{001-token-format.md}
 |docs/skills:{README.md,token-update.md,elementor-mapping.md,release.md}
 |elementor:{global-colors.md,global-fonts.md,custom-css-setup.md}
@@ -74,7 +76,7 @@ Paths are repo-relative from project root.
 |prototype:{README.md,next.config.ts,package.json,tsconfig.json,playwright.config.ts}
 |prototype/app:{layout.tsx,page.tsx,globals.css,manifest.ts,FaqDemo.tsx}
 |prototype/app/_components:{CategoryIcon.tsx,CodeBlock.tsx,HeaderDemo.tsx,MobileNav.tsx,MotionSpecimens.tsx,Navigation.tsx,ObfuscatedEmail.tsx,OnThisPage.tsx,Popup.tsx,StatCounter.tsx,TestimonialCard.tsx,ViewTransitions.tsx}
-|prototype/app:{components,patterns,foundations,motion,guidelines,governance,accessibility,credits}/page.tsx
+|prototype/app:{components,patterns,foundations,guidelines,governance,accessibility,credits,brand,logo,visual-elements,print}/page.tsx
 |prototype/content:{site-copy.ts}
 |prototype/tests:{a11y.spec.ts,smoke.spec.ts}
 |prototype/scripts:{screenshot.mjs,build-og-card.mjs}
