@@ -5,6 +5,7 @@ import Link from "next/link";
 
 const navSections = [
   { href: "/", label: "Overview" },
+  { href: "/brand", label: "Brand & Voice" },
   { href: "/foundations", label: "Foundations" },
   { href: "/components", label: "Components" },
   { href: "/patterns", label: "Patterns" },
