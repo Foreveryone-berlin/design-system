@@ -12,6 +12,7 @@
 
 ## [0.21.0] - Unreleased
 
+- **Feat**: Add a **Print & Media** page (`/print`) marking the digital ↔ print boundary: digital-vs-print table, Young Serif (print only), CMYK Home/Press values, the print-purple substitute for Blue, document greys, cafe signs, the Canva photo workflow, and asset-library contacts (Brand Book v1.0 p.16–17, 21, 36–40).
 - **Feat**: Enrich Foundations typography with the Brand Book type-scale roles and canonical specimens (Display, H1, H2, Subheading, Body, Caption, Emphasis), plus copy-format do/don't rules (Brand Book v1.0 p.22–23).
 - **Feat**: Add a **Layout** section to Foundations — grid/margins, white-space and alignment rules, and a QR-code specimen with the solid Orange rounded border (Brand Book v1.0 p.33).
 - **Enhance**: Add `font.weight.medium-italic` and `font.weight.bold-italic` tokens to complete the Filson Pro six-style family (Brand Book v1.0 p.20).
