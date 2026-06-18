@@ -16,9 +16,11 @@ Portable task contract: [agents/agent-contract.md](agents/agent-contract.md).
 
 Paths are repo-relative from project root unless noted.
 
-|root:{README.md,CHANGELOG.md,AGENTS.md,CLAUDE.md}
-|docs:{AGENTS.md,audit.md,color-audit-2026.md,contributing.md,cursor-plan-prompt.md,getting-started.md,logo-usage.md,official-references.md,pr-and-merge-workflow.md,prototype-deploy.md,token-naming.md,validation.md,visual-styles.md}
-|docs/agents:{README.md,agent-contract.md,runtime-policy.md}
+|root:{README.md,CHANGELOG.md,AGENTS.md,CLAUDE.md,llms.txt}
+|docs:{AGENTS.md,audit.md,brand-book-references.md,color-audit-2026.md,contributing.md,cursor-plan-prompt.md,getting-started.md,logo-usage.md,official-references.md,pr-and-merge-workflow.md,prototype-deploy.md,token-naming.md,validation.md,visual-styles.md}
+|docs/agents:{README.md,agent-contract.md,runtime-policy.md,redesign-from-this-system.md}
+|spec:{tokens.json,principles.md}
+|spec/components:{README.md,button.md,tag-pill.md,card.md,input.md,faq.md}
 |docs/decisions:{001-token-format.md}
 |docs/skills:{README.md,token-update.md,elementor-mapping.md,release.md}
 |elementor:{global-colors.md,global-fonts.md,custom-css-setup.md}
@@ -30,7 +32,7 @@ Paths are repo-relative from project root unless noted.
 |prototype:{README.md,next.config.ts,package.json,tsconfig.json,playwright.config.ts}
 |prototype/app:{layout.tsx,page.tsx,globals.css,manifest.ts,FaqDemo.tsx}
 |prototype/app/_components:{CategoryIcon.tsx,CodeBlock.tsx,HeaderDemo.tsx,MobileNav.tsx,MotionSpecimens.tsx,Navigation.tsx,ObfuscatedEmail.tsx,OnThisPage.tsx,Popup.tsx,StatCounter.tsx,TestimonialCard.tsx,ViewTransitions.tsx}
-|prototype/app:{components,patterns,foundations,motion,guidelines,governance,accessibility,credits}/page.tsx
+|prototype/app:{components,patterns,foundations,guidelines,governance,accessibility,credits,brand,logo,visual-elements,print}/page.tsx
 |prototype/content:{site-copy.ts}
 |prototype/tests:{a11y.spec.ts,smoke.spec.ts}
 |prototype/scripts:{screenshot.mjs,build-og-card.mjs}
@@ -43,6 +45,8 @@ Paths are repo-relative from project root unless noted.
 | Task | Command |
 | --- | --- |
 | Regenerate CSS custom properties from tokens | `node scripts/build-css.js` (repo root) |
+| Regenerate the machine-readable token spec for agents | `node scripts/build-spec.js` (repo root) — writes `spec/tokens.json` |
+| Build both (CSS + spec) | `npm run build` (repo root) |
 | Prototype dev server | `cd prototype && npm install && npm run dev` |
 | Prototype e2e + axe (against LOCAL, not prod) | `cd prototype` then with the dev server up: `PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e` |
 | Solo merge current branch to `develop` (PR + merge via `gh`) | `bash scripts/pr-and-merge.sh` (repo root) |

@@ -4,7 +4,9 @@
   "private": true,
   "description": "Design system for foreveryone.berlin: DTCG tokens, generated CSS custom properties, Elementor/Figma docs, and a Next.js prototype.",
   "scripts": {
-    "build": "node scripts/build-css.js",
+    "build": "node scripts/build-css.js && node scripts/build-spec.js",
+    "build:css": "node scripts/build-css.js",
+    "build:spec": "node scripts/build-spec.js",
     "test": "node scripts/build-css.test.js",
     "prototype:dev": "npm --prefix prototype run dev",
     "prototype:build": "npm --prefix prototype run build",
