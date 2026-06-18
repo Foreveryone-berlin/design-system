@@ -66,6 +66,7 @@ foreveryone-design-system/
 - **Visual styles** (icons, blobs, photography, category icon set): [`docs/visual-styles.md`](docs/visual-styles.md).
 - **Logo usage** (X measurement, safe zone, min sizes, white-on-orange exception): [`docs/logo-usage.md`](docs/logo-usage.md).
 - **Color audit** (2026 brand-guide alignment + approved bg ⇄ text combinations): [`docs/color-audit-2026.md`](docs/color-audit-2026.md).
+- **Brand source of truth** (authority matrix; Brand Book v1.0 governs): [`docs/brand-book-references.md`](docs/brand-book-references.md).
 
 ## Git workflow
 
