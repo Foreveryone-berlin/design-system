@@ -1,0 +1,50 @@
+# ForEveryone Berlin — Design System
+
+> Token-driven, digital-first design system for foreveryone.berlin (WordPress +
+> Elementor Pro live site, plus a Next.js prototype). Figma is the visual source
+> of truth; this repository is the implementation source of truth. The brand
+> spec is the ForEveryone Brand Book v1.0 (June 2026).
+
+This file is the entry point for AI agents and engineers adopting the system.
+Read the spec files below before generating UI, then follow the principles and
+component contracts exactly. Determinism over guesswork: every colour, type
+role, and component has one correct answer.
+
+## How to consume this system
+
+1. Import the generated CSS variables: `css/custom-properties.css` (authored CSS
+   uses `var(--*)` only — never raw hex or font names).
+2. Resolve tokens from `spec/tokens.json` (flattened, machine-readable). Each
+   token has `name`, `css` (the custom-property), `value`, `type`, and
+   `surface` ("digital" | "print").
+3. Build UI from the component contracts in `spec/components/*.md`.
+4. Obey the hard rules in `spec/principles.md`.
+
+## Hard rules (never break)
+
+- **Never invent hex values or font names.** Use existing tokens. To extend a
+  palette, work in OKLCH: hold the hue and lightness, step the chroma, and the
+  new shade already belongs to the system.
+- **Never use `surface: "print"` tokens on the web** (Young Serif
+  `--font-family-accent`, `--color-print-*`, `--color-doc-*`).
+- **Orange (`--color-brand-primary`) is decorative only** — never a text
+  background. The only structural exceptions are the QR-code border and the
+  white standalone logo icon on orange (no text). Orange icons always carry a
+  label.
+- **Blue (`--color-brand-secondary`) is for announcements/alerts only**, always
+  with pure white text.
+- **Body text is Charcoal on light backgrounds**; body line-height is never
+  below 1.5; letter-spacing is 0%.
+
+## Files
+
+- Tokens (machine-readable): [spec/tokens.json](spec/tokens.json)
+- Principles (deterministic rules): [spec/principles.md](spec/principles.md)
+- Component contracts: [spec/components/](spec/components/)
+- Generated CSS: [css/custom-properties.css](css/custom-properties.css)
+- One-prompt redesign guide: [docs/agents/redesign-from-this-system.md](docs/agents/redesign-from-this-system.md)
+- Full docs index: [docs/AGENTS.md](docs/AGENTS.md)
+- Brand authority matrix: [docs/brand-book-references.md](docs/brand-book-references.md)
+- Colour audit + approved pairings: [docs/color-audit-2026.md](docs/color-audit-2026.md)
+- Live prototype: the Next.js app in `prototype/` (routes: foundations, components,
+  patterns, brand, logo, visual-elements, print, accessibility, governance).
