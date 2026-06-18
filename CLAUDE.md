@@ -28,6 +28,8 @@ Common mistakes:
 | Task | Command |
 | --- | --- |
 | Build CSS from tokens (repo root) | `node scripts/build-css.js` |
+| Build agent token spec (repo root) | `node scripts/build-spec.js` → `spec/tokens.json` |
+| Build both (CSS + spec) | `npm run build` |
 | Prototype dev | `cd prototype && npm install && npm run dev` |
 | Screenshot key pages at 3 breakpoints | `cd prototype && OUT_DIR=baseline BASE_URL=http://localhost:3100 node scripts/screenshot.mjs` |
 | Prototype e2e + axe (LOCAL, not prod) | with dev server up: `cd prototype && PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e` |

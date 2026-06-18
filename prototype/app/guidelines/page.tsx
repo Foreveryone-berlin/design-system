@@ -7,19 +7,12 @@ export default function GuidelinesPage() {
     <>
       <h1 className="ds-page-title">Guidelines</h1>
       <p className="ds-intro">
-        How to combine the foundations and components on-brand: voice, colour
-        usage, typography, illustration, and how to represent us in writing.
-        Figma stays the visual source of truth; these rules mirror the 2026 brand
-        guidelines.
+        How to combine the foundations and components on-brand: colour usage,
+        typography, and illustration. For brand personality, voice &amp; tone, and
+        how to represent us in writing, see <a href="/brand">Brand &amp; Voice</a>.
+        Figma stays the visual source of truth; these rules follow the Brand Book
+        v1.0.
       </p>
-
-      <section className="ds-section">
-        <h2 className="ds-section-title">Voice &amp; tone</h2>
-        <p className="fe-body">
-          Heartfelt, human, happy. Write warm, plain, and inclusive copy. Lead
-          with people and belonging, keep sentences short, and avoid jargon.
-        </p>
-      </section>
 
       <section className="ds-section">
         <h2 className="ds-section-title">Colour usage</h2>
@@ -103,50 +96,11 @@ export default function GuidelinesPage() {
 
       <section className="ds-section">
         <h2 className="ds-section-title">How to represent us</h2>
-
-        <h3 className="ds-subsection-title">Our brand name</h3>
         <p className="fe-body">
-          Always write <strong>ForEveryone</strong> as one word, with a capital F
-          and capital E, and no space. This applies to every platform, material,
-          and context without exception.
-        </p>
-        <p className="fe-body">
-          <strong>Legal name: ForEveryone Civic gGmbH.</strong> Use only in legal
-          and formal documents.
-        </p>
-        <p className="fe-body">
-          <strong>Incorrect:</strong> For Everyone &middot; for everyone &middot;
-          Foreveryone &middot; FOREVERYONE
-        </p>
-
-        <h3 className="ds-subsection-title">Our cafe</h3>
-        <p className="fe-body">
-          Always write as <strong>No. 52 Cafe</strong> or <strong>No. 52</strong>{" "}
-          for short. Cafe is spelled <strong>without an accent</strong>.
-        </p>
-        <p className="fe-body">
-          <strong>Incorrect:</strong> No.52 Cafe &middot; No52 &middot; Pavillon
-          Cafe &middot; KARUNA Pavillon
-        </p>
-
-        <h3 className="ds-subsection-title">Social media &amp; digital</h3>
-        <ul className="ds-rule-list">
-          <li>
-            <strong>Handle:</strong> @foreveryone.berlin
-          </li>
-          <li>
-            <strong>Hashtags:</strong> #ForEveryone &middot; #ForEveryoneBerlin
-          </li>
-          <li>
-            <strong>Website:</strong> foreveryone.berlin
-          </li>
-        </ul>
-
-        <h3 className="ds-subsection-title">Spelling standard</h3>
-        <p className="fe-body">
-          We use <strong>UK English</strong> across all communications. When in
-          doubt, refer to the Oxford English Dictionary. Examples: colour,
-          organisation, programme, realise, recognise.
+          Naming rules (ForEveryone as one word, No. 52 Cafe spacing and spelling,
+          handles, hashtags, and the UK-English standard) now live on the{" "}
+          <a href="/brand">Brand &amp; Voice</a> page alongside our brand
+          personality and voice &amp; tone.
         </p>
       </section>
     </>

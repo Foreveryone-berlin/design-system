@@ -176,6 +176,16 @@ ${semanticColorCss}
   --color-white: ${getTokenValue(tokens, "color.base.white")};
   --color-black: ${getTokenValue(tokens, "color.base.black")};
 
+  /* ── Colors: PRINT / DOC — NOT FOR DIGITAL UI ────────────────────────── */
+  /* Emitted for the /print reference page and print-mock surfaces only.    */
+  /* Do NOT reference these from shipped digital components. Print purple    */
+  /* substitutes Brand Blue in CMYK; doc greys are Brand Book document       */
+  /* chrome, not part of the brand palette. (Brand Book v1.0 p.17)           */
+  --color-print-purple-home:  ${getTokenValue(tokens, "color.print.purple-home")};
+  --color-print-purple-press: ${getTokenValue(tokens, "color.print.purple-press")};
+  --color-doc-grey-light:     ${getTokenValue(tokens, "color.doc.grey-light")};
+  --color-doc-grey-dark:      ${getTokenValue(tokens, "color.doc.grey-dark")};
+
   /* ── Colors: Ramps (2026 style guide, 50–900) ───────────────────────── */
   /* Numeric tints for prototype/web surfaces. 500 = brand "main" for       */
   /* orange/green/blue/lavender; neutral 900 = Charcoal. Orange stays        */
@@ -192,7 +202,9 @@ ${rampCss}
   --font-weight-regular: ${getTokenValue(tokens, "font.weight.regular")};
   --font-weight-italic:  ${getTokenValue(tokens, "font.weight.italic")};  /* STYLE: pair with font-style: italic */
   --font-weight-medium:  ${getTokenValue(tokens, "font.weight.medium")};
+  --font-weight-medium-italic: ${getTokenValue(tokens, "font.weight.medium-italic")};  /* STYLE: 500 + font-style: italic */
   --font-weight-bold:    ${getTokenValue(tokens, "font.weight.bold")};
+  --font-weight-bold-italic: ${getTokenValue(tokens, "font.weight.bold-italic")};  /* STYLE: 700 + font-style: italic */
 
   /* ── Typography: Font Sizes ──────────────────────────────────────────── */
   --font-size-xs:   ${getTokenValue(tokens, "font.size.xs")};   /* 12px — tags, labels */

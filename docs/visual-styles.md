@@ -1,24 +1,38 @@
-# Visual styles — icons, illustrations, blobs
+# Visual styles — the four visual-element families
 
-Brand guide summary for **ForEveryone Berlin** (iconography, blobs, photography). **Figma** remains the visual source of truth; this page ties brand rules to tokens and CSS utilities. See also [color-audit-2026.md](color-audit-2026.md) for hex roles and approved background ⇄ text combinations, and [logo-usage.md](logo-usage.md) for logo safe-zone, minimum sizes, and the white-on-orange exception.
+Brand guide summary for **ForEveryone Berlin**. The Brand Book v1.0 (p.24–27)
+defines four visual-element families with distinct roles that must not be used
+interchangeably: **workshop icons** and **graphic shapes** (functional /
+structural) versus **line illustrations** and **decorative accent marks**
+(atmospheric). **Figma** remains the visual source of truth; this page ties brand
+rules to tokens and CSS utilities. See also [color-audit-2026.md](color-audit-2026.md)
+for hex roles and approved background ⇄ text combinations, and
+[logo-usage.md](logo-usage.md) for logo rules. Live specimens: `/visual-elements`
+in the prototype.
 
-**Category icon set (filled, orange + white glyph)** ships in `prototype/public/icons/categories/` and renders via the `CategoryIcon` React component inside `.fe-card-category__icon`, keeping the orange (`var(--color-accent-icon)`) + white-glyph styling consistent. Add a category by dropping an SVG (stroke="currentColor", 24×24 viewBox) into the folder and extending `CategoryIcon`.
+**Workshop icon set (filled, solid, orange + white glyph)** ships in
+`prototype/public/icons/categories/` and renders via the `CategoryIcon` React
+component inside `.fe-card-category__icon`, with orange
+(`var(--color-accent-icon)`) ground + white glyph. Per Brand Book p.24 these are
+**solid filled** silhouettes — never outline/stroke, never shadow/gradient. Add a
+category by dropping a **filled** SVG (`fill="currentColor"`, 48×48 viewBox) into
+the folder and extending `CategoryIcon`.
 
 ## Iconography and illustration
 
-### Category icons (canonical set)
+### Workshop icons (canonical set)
 
-Per the 2026 style guide, workshop categories use a fixed, filled, orange icon set. Each icon has interaction states on the category tag/label control: **Default · Hover · Active · Focused · Disabled**.
+Per Brand Book v1.0 p.24, workshop categories use a fixed, **filled solid** orange icon set (never outline/stroke; no shadow/gradient). Each icon is always paired with a category label and has interaction states on the category tag/label control: **Default · Hover · Active · Focused · Disabled**.
 
-| Category | Tag label | Status |
-|----------|-----------|--------|
-| Balance and Wellness | `Balance and Wellness` | canonical (style guide) |
-| Movement | `Movement` | canonical (style guide) |
-| Arts and Crafts | `Arts and Crafts` | canonical (style guide) |
-| Expression | `Expression` | canonical (style guide) |
-| Music | `Music` | canonical (style guide) |
+| Category | Asset / icon name | Tag label |
+|----------|-------------------|-----------|
+| Balance and Wellness | `balance-wellness` | `Balance and Wellness` |
+| Movement | `movement` | `Movement` |
+| Arts and Crafts | `arts-crafts` | `Arts and Crafts` |
+| Expression | `expression` | `Expression` |
+| Music | `music` | `Music` |
 
-**Gap to close before/at 1.0.0:** the prototype currently ships a legacy subset — `painting.svg`, `pottery.svg`, `wellness.svg`, `language.svg` — and `CategoryIcon` only maps those four. Align the asset filenames and the `CategoryIconName` union to the five canonical categories above (e.g. `balance-wellness`, `movement`, `arts-crafts`, `expression`, `music`); keep legacy names only as aliases if live content still references them.
+The five filled SVGs ship in `prototype/public/icons/categories/` and `CategoryIcon` maps these five canonical names. Legacy names (`painting`, `pottery`, `wellness`, `language`) remain as **aliases** mapping onto the canonical glyphs so existing usages and live content keep working.
 
 ### UI / functional icons
 
@@ -51,11 +65,28 @@ Beyond categories, the system uses a small set of UI glyphs (seen in the brand g
 - **Role:** Footer/social and “quiet” actions where orange fill is **not** required by brand.
 - **CSS:** Base class `.fe-icon-btn` — neutral surface, orange on **hover**. Do not replace with `.fe-icon-btn--filled-brand` unless design explicitly asks for always-on orange.
 
-## Blob shapes
+## Graphic shapes: blobs vs waves
 
-- **Role:** Playful, welcoming **decorative** shapes and **masks** for photography.
+Brand Book v1.0 p.27 defines two graphic-shape types with distinct roles that **must not be used interchangeably**.
+
+### Blob shapes
+
+- **Role:** Organic, rounded **containers** for photos and **colour blocks** behind text; soften photography and frame imagery.
 - **Colors:** Decorative blobs use the brand accent family: **orange**, **lavender**, **lime** — map to `var(--color-brand-primary)`, `var(--color-light-purple)`, `var(--color-light-green)` (and large soft surfaces: `var(--color-soft-lavender)` where appropriate).
 - **Implementation:** Organic silhouettes via large `border-radius`, SVG masks, or clip-path. Exact paths often live in **Figma exports** or Elementor image widgets + custom CSS; no single token defines every blob — keep shapes aligned with Figma components.
+
+### Wave shapes
+
+- **Role:** Soft **horizontal dividers** at the top or bottom edge of a section. Not containers, not masks — only edge dividers.
+- **Colour:** Lime green (`var(--color-light-green)`); match the section they edge.
+- **Shipped set:** `prototype/public/illustrations/waves/wave-divider.svg` (bottom edge) and `wave-divider-alt.svg` (top edge). Use `preserveAspectRatio="none"` and stretch full-width.
+
+## Decorative accent marks
+
+Brand Book v1.0 p.26 — used sparingly, orange prioritised, never the focal point. Two types, shipped in `prototype/public/illustrations/accents/`:
+
+- **Doodle strokes:** `doodle-underline.svg`, `doodle-arrow.svg`, `doodle-circle.svg` — hand-drawn marks beneath headings/titles for a playful, handmade feel.
+- **Sparkle / asterisk / music note:** `sparkle.svg`, `asterisk.svg`, `music-note.svg` — small marks that add energy to titles and announcements.
 
 ## Photography (editorial)
 
