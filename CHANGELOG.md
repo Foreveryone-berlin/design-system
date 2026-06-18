@@ -12,6 +12,10 @@
 
 ## [0.21.0] - Unreleased
 
+- **Feat**: Add print-namespaced color tokens — `color.print.purple-home` (`#6A5AA7`) and `color.print.purple-press` (`#674DA0`), the CMYK substitute for Blue (Brand Book v1.0 p.17).
+- **Feat**: Add document-chrome tokens `color.doc.grey-light` (`#F0EDE7`) and `color.doc.grey-dark` (`#D7D2CB`); not part of the brand palette.
+- **Build**: Emit `--color-print-*` and `--color-doc-*` in a fenced "NOT FOR DIGITAL UI" block so digital components never consume print values.
+- **Docs**: Enrich brand color `$descriptions` with Brand Book v1.0 rules (orange QR-border exception and label requirement; Lavender never a background or on Soft Lavender).
 - **Docs**: Re-point brand source-of-truth to the [ForEveryone Brand Book v1.0 (June 2026)](docs/brand-book-references.md); mark Quick Brand Guidelines v2.0 as a superseded condensed reference.
 - **Docs**: Add [`docs/brand-book-references.md`](docs/brand-book-references.md) authority matrix mapping each brand domain to its governing source and the digital vs print boundary.
 - **CI**: Title GitHub Releases with the bare version (e.g. `0.20.2`), dropping the tag's `v` prefix.
