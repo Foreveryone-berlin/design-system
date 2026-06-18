@@ -202,7 +202,9 @@ ${rampCss}
   --font-weight-regular: ${getTokenValue(tokens, "font.weight.regular")};
   --font-weight-italic:  ${getTokenValue(tokens, "font.weight.italic")};  /* STYLE: pair with font-style: italic */
   --font-weight-medium:  ${getTokenValue(tokens, "font.weight.medium")};
+  --font-weight-medium-italic: ${getTokenValue(tokens, "font.weight.medium-italic")};  /* STYLE: 500 + font-style: italic */
   --font-weight-bold:    ${getTokenValue(tokens, "font.weight.bold")};
+  --font-weight-bold-italic: ${getTokenValue(tokens, "font.weight.bold-italic")};  /* STYLE: 700 + font-style: italic */
 
   /* ── Typography: Font Sizes ──────────────────────────────────────────── */
   --font-size-xs:   ${getTokenValue(tokens, "font.size.xs")};   /* 12px — tags, labels */
