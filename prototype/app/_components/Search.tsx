@@ -41,6 +41,29 @@ export default function Search({
     setQuery("");
     onNavigate?.();
     router.push(entry.href);
+
+    // The heading IDs are assigned on the destination page by OnThisPage's
+    // mount effect, so the #hash target does not exist yet when router.push
+    // runs (and Next's client navigation does not scroll to the hash on its
+    // own). Wait for the element to appear, then scroll to it and move focus
+    // there for keyboard users. scroll-margin-top on the headings clears the
+    // sticky header; prefers-reduced-motion is honoured via scroll-behavior in
+    // globals.css.
+    const hash = entry.href.split("#")[1];
+    if (!hash) return;
+    let frames = 0;
+    const findAndScroll = () => {
+      const target = document.getElementById(hash);
+      if (target) {
+        target.scrollIntoView({ block: "start" });
+        if (!target.hasAttribute("tabindex"))
+          target.setAttribute("tabindex", "-1");
+        target.focus({ preventScroll: true });
+        return;
+      }
+      if (frames++ < 40) requestAnimationFrame(findAndScroll);
+    };
+    requestAnimationFrame(findAndScroll);
   }
 
   function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {

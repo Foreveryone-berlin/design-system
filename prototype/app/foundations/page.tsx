@@ -1,5 +1,75 @@
 import CodeBlock from "../_components/CodeBlock";
 
+// Primary palette with the Brand Book v1.0 (p.16) role + usage line for each
+// colour, so the "what is this colour for" decision is visible up front rather
+// than only as a small badge on a swatch.
+const primaryRoles = [
+  {
+    name: "Orange",
+    var: "var(--color-brand-primary)",
+    hex: "#FF7A3A",
+    role: "Decorative",
+    text: "charcoal",
+    usage:
+      "Icons, accents, and borders. Decorative only — never use it behind standalone text.",
+  },
+  {
+    name: "Lime Green",
+    var: "var(--color-light-green)",
+    hex: "#D4E6A8",
+    role: "Background",
+    text: "charcoal",
+    usage: "Title slides, key layouts, and blob shapes.",
+  },
+  {
+    name: "Soft Lavender",
+    var: "var(--color-soft-lavender)",
+    hex: "#E5DCFF",
+    role: "Background",
+    text: "charcoal",
+    usage: "Social media posts, layouts, and blob shapes.",
+  },
+  {
+    name: "Lavender",
+    var: "var(--color-light-purple)",
+    hex: "#D5C5FF",
+    role: "Decorative",
+    text: "charcoal",
+    usage:
+      "Icons, accents, and borders. Never use it as a background colour — use Soft Lavender instead.",
+  },
+];
+
+// Neutral and the single secondary colour, with their Brand Book roles (p.17).
+const neutralSecondaryRoles = [
+  {
+    name: "Warm White",
+    var: "var(--color-accent)",
+    hex: "#FDFCF7",
+    role: "Background",
+    text: "charcoal",
+    usage: "Default background for text-heavy content. Always pair with Charcoal text.",
+  },
+  {
+    name: "Charcoal",
+    var: "var(--color-brand-dark)",
+    hex: "#1E1E1E",
+    role: "Text & logo",
+    text: "white",
+    usage:
+      "Primary text and logo colour. Use on light backgrounds — never as a background itself.",
+  },
+  {
+    name: "Blue",
+    var: "var(--color-brand-secondary)",
+    hex: "#3F00EB",
+    role: "Announcements & alerts",
+    text: "white",
+    usage:
+      "Strictly for special announcements and alerts. Never in general layouts, social posts, or regular communications.",
+  },
+];
+
 const colorSwatches = [
   { token: "brand-primary", var: "var(--color-brand-primary)" },
   { token: "brand-secondary", var: "var(--color-brand-secondary)" },
@@ -218,6 +288,64 @@ export default function TokensPage() {
 
       <section id="colors" className="ds-section">
         <h2 className="ds-section-title">Colours</h2>
+        <p className="ds-section-intro">
+          Every brand colour has one job. The role on each card below is the
+          first decision: a <strong>background</strong> colour can sit behind
+          text, a <strong>decorative</strong> colour cannot, and Blue is held
+          back for announcements and alerts (Brand Book v1.0 p.16&ndash;17).
+        </p>
+
+        <h3 className="ds-subsection-title">Primary colours</h3>
+        <p className="ds-section-intro">
+          These four form the primary palette: covers, social posts, blob
+          shapes, key layouts, and decorative elements.
+        </p>
+        <div className="ds-role-grid">
+          {primaryRoles.map((c) => (
+            <div key={c.name} className="ds-role-card">
+              <div
+                className={`ds-role-card__swatch ds-role-card__swatch--${c.text}`}
+                style={{ backgroundColor: c.var }}
+              >
+                <span className="ds-role-card__badge">{c.role}</span>
+              </div>
+              <div className="ds-role-card__body">
+                <p className="ds-role-card__name">{c.name}</p>
+                <p className="ds-role-card__hex">{c.hex}</p>
+                <p className="ds-role-card__usage">{c.usage}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <h3 className="ds-subsection-title">Neutral &amp; secondary colours</h3>
+        <p className="ds-section-intro">
+          Neutrals are the foundation of every layout; they support the primary
+          palette without competing with it. Blue is the only secondary colour.
+        </p>
+        <div className="ds-role-grid">
+          {neutralSecondaryRoles.map((c) => (
+            <div key={c.name} className="ds-role-card">
+              <div
+                className={`ds-role-card__swatch ds-role-card__swatch--${c.text}`}
+                style={{ backgroundColor: c.var }}
+              >
+                <span className="ds-role-card__badge">{c.role}</span>
+              </div>
+              <div className="ds-role-card__body">
+                <p className="ds-role-card__name">{c.name}</p>
+                <p className="ds-role-card__hex">{c.hex}</p>
+                <p className="ds-role-card__usage">{c.usage}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <h3 className="ds-subsection-title">All colour tokens</h3>
+        <p className="ds-section-intro">
+          The full set of CSS custom properties, including theme (Elementor) and
+          status colours.
+        </p>
         <div className="ds-swatch-grid">
           {colorSwatches.map(({ token, var: cssVar }) => (
             <div key={token} className="ds-swatch">
