@@ -8,6 +8,16 @@
 
 ## [Unreleased]
 
+## [0.22.1] - 2026-06-19
+
+Polish pass after the Clarity release: small fixes across search, navigation, and the brand assets.
+
+- **Fix**: Give the search box the brand's own focus highlight instead of the browser's default blue outline.
+- **Fix**: Collapse the navigation into expandable sections on phones, so the menu is short and tidy.
+- **Fix**: Put the ForEveryone logo back into the example header and footer, and add a real, scannable QR code that opens foreveryone.berlin.
+- **Fix**: Redraw the No. 52 Cafe logos to match the Brand Book, show wave shapes in more colours and sizes, and rename the brand page to "About & Brand".
+- **Fix**: Point the BrowserStack link to the right page, refresh a workshop photo, and check every link still works.
+
 ## [0.22.0] - 2026-06-19
 
 The "Clarity" release: make what already exists easy to find, easy to read, and clear.

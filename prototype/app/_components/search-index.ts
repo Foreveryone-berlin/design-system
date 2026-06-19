@@ -73,7 +73,7 @@ const pages: PageDef[] = [
   },
   {
     route: "/brand",
-    title: "Brand & Voice",
+    title: "About & Brand",
     description:
       "Who we are, mission and vision, values, personality, voice and tone.",
     sections: [

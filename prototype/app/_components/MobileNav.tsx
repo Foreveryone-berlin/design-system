@@ -84,32 +84,54 @@ export default function MobileNav() {
           >
             {overviewLink.label}
           </Link>
-          {navGroups.map((group) => (
-            <div className="ds-mobile-nav__group" key={group.label}>
-              <p className="ds-mobile-nav__group-title" aria-hidden="true">
-                {group.label}
-              </p>
-              <ul
-                className="ds-mobile-nav__group-list"
-                aria-label={group.label}
+          {navGroups.map((group) => {
+            // Open the group that contains the current page; collapse the rest
+            // so the nav is short on a phone.
+            const hasActive = group.links.some((l) => l.href === pathname);
+            return (
+              <details
+                className="ds-mobile-nav__group"
+                key={group.label}
+                open={hasActive}
               >
-                {group.links.map(({ href, label }) => (
-                  <li key={href}>
-                    <Link
-                      href={href}
-                      aria-current={pathname === href ? "page" : undefined}
-                      className={`ds-mobile-nav__link ds-mobile-nav__link--child${
-                        pathname === href ? " is-active" : ""
-                      }`}
-                      onClick={() => setOpen(false)}
-                    >
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+                <summary className="ds-mobile-nav__group-title">
+                  {group.label}
+                  <svg
+                    className="ds-mobile-nav__group-chevron"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </summary>
+                <ul
+                  className="ds-mobile-nav__group-list"
+                  aria-label={group.label}
+                >
+                  {group.links.map(({ href, label }) => (
+                    <li key={href}>
+                      <Link
+                        href={href}
+                        aria-current={pathname === href ? "page" : undefined}
+                        className={`ds-mobile-nav__link ds-mobile-nav__link--child${
+                          pathname === href ? " is-active" : ""
+                        }`}
+                        onClick={() => setOpen(false)}
+                      >
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            );
+          })}
         </nav>
       )}
     </header>

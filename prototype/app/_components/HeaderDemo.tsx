@@ -67,10 +67,13 @@ export default function HeaderDemo() {
     <div className="fe-header">
       <div className="fe-header__inner">
         <div className="fe-header__logo">
-          {/* Generic logo placeholder: the pattern shows the slot, not a brand. */}
-          <span className="ds-logo-placeholder" aria-label="Logo">
-            Logo
-          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/foreveryone-logo.png"
+            alt="ForEveryone"
+            width={142}
+            height={26}
+          />
         </div>
         <nav className="fe-header__nav" aria-label="Main" ref={desktopNavRef}>
           {navLinks.map(({ href, label, children }) =>
