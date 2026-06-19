@@ -3,21 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-
-const navSections = [
-  { href: "/", label: "Overview" },
-  { href: "/brand", label: "Brand & Voice" },
-  { href: "/logo", label: "Logo" },
-  { href: "/foundations", label: "Foundations" },
-  { href: "/visual-elements", label: "Visual Elements" },
-  { href: "/print", label: "Print & Media" },
-  { href: "/components", label: "Components" },
-  { href: "/patterns", label: "Patterns" },
-  { href: "/guidelines", label: "Guidelines" },
-  { href: "/accessibility", label: "Accessibility" },
-  { href: "/governance", label: "Governance" },
-  { href: "/credits", label: "Credits" },
-];
+import { navGroups, overviewLink } from "./nav-sections";
+import Search from "./Search";
 
 export default function MobileNav() {
   const pathname = usePathname();
@@ -86,16 +73,42 @@ export default function MobileNav() {
           className="ds-mobile-nav"
           aria-label="Design system"
         >
-          {navSections.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              aria-current={pathname === href ? "page" : undefined}
-              className={`ds-mobile-nav__link${pathname === href ? " is-active" : ""}`}
-              onClick={() => setOpen(false)}
-            >
-              {label}
-            </Link>
+          <Search onNavigate={() => setOpen(false)} />
+          <Link
+            href={overviewLink.href}
+            aria-current={pathname === overviewLink.href ? "page" : undefined}
+            className={`ds-mobile-nav__link${
+              pathname === overviewLink.href ? " is-active" : ""
+            }`}
+            onClick={() => setOpen(false)}
+          >
+            {overviewLink.label}
+          </Link>
+          {navGroups.map((group) => (
+            <div className="ds-mobile-nav__group" key={group.label}>
+              <p className="ds-mobile-nav__group-title" aria-hidden="true">
+                {group.label}
+              </p>
+              <ul
+                className="ds-mobile-nav__group-list"
+                aria-label={group.label}
+              >
+                {group.links.map(({ href, label }) => (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      aria-current={pathname === href ? "page" : undefined}
+                      className={`ds-mobile-nav__link ds-mobile-nav__link--child${
+                        pathname === href ? " is-active" : ""
+                      }`}
+                      onClick={() => setOpen(false)}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
         </nav>
       )}
