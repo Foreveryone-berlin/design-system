@@ -25,10 +25,10 @@ jobs:
           VERSION="${{ steps.version.outputs.version }}"
           # Grab everything between the matching ## [X.Y.Z] header and the next ## header
           NOTES=$(awk "/^## \[${VERSION}\]/{found=1; next} found && /^## /{exit} found{print}" CHANGELOG.md)
-          # Strip the summary line (first non-empty paragraph before the first bullet)
-          BULLETS=$(echo "$NOTES" | awk '/^- /{found=1} found{print}')
+          # Keep the full section (summary paragraph + bullets); drop leading/trailing blank lines
+          NOTES=$(echo "$NOTES" | sed -e '/./,$!d' | sed -e :a -e '/^\n*$/{$d;N;ba}')
           # Write to file to preserve newlines
-          printf '%s' "$BULLETS" > release-notes.txt
+          printf '%s\n' "$NOTES" > release-notes.txt
 
       - name: Create GitHub Release
         env:
