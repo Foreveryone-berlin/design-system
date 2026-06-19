@@ -752,7 +752,7 @@
   .fe-header__nav {
     display: flex;
     align-items: center;
-    gap: var(--spacing-5);
+    gap: var(--spacing-6);
   }
 }
 /* Slightly smaller nav text so the full menu fits the demo header comfortably. */
@@ -903,7 +903,10 @@
 .fe-header__mobile-nav.is-open {
   max-height: 100vh;
   opacity: 1;
-  padding: 0 0 var(--spacing-4);
+  /* Space above the first item so the divider line is not flush against the
+     header row / hamburger toggle. */
+  margin-top: var(--spacing-3);
+  padding: var(--spacing-2) 0 var(--spacing-4);
 }
 .fe-header__mobile-nav .fe-nav-link,
 .fe-header__mobile-nav .fe-header__dropdown-trigger {
