@@ -114,8 +114,8 @@ export default function BrandPage() {
       <section className="ds-section">
         <h2 className="ds-section-title">Who we are</h2>
         <p className="fe-body">
-          ForEveryone is a volunteer-run, community-focused NGO in the heart of
-          Berlin. Founded in 2022, we started with a straightforward belief: that
+          ForEveryone is a volunteer-run, community-focused non-profit social
+          enterprise in the heart of Berlin. Founded in 2022, we started with a straightforward belief: that
           joy, belonging, and resilience through creative connection should be
           open to everyone.
         </p>

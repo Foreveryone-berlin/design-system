@@ -9,7 +9,7 @@ This audit is based on the pre-extracted Phase 1 dataset from the project brief.
 - Site: <https://foreveryone.berlin/>
 - Stack: WordPress + Elementor Pro + custom CSS
 - Figma source: <https://www.figma.com/design/QKks3ov9RS4CltsYLfRZod/Design-File>
-- Organization: For Everyone (Berlin NGO focused on belonging, workshops, events, and community cafe activities)
+- Organization: For Everyone (Berlin non-profit social enterprise focused on belonging, workshops, events, and community cafe activities)
 
 ## Color Tokens (Ground Truth)
 

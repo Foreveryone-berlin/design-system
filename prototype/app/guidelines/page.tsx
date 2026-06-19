@@ -95,6 +95,30 @@ export default function GuidelinesPage() {
       </section>
 
       <section className="ds-section">
+        <h2 className="ds-section-title">Layout &amp; white space</h2>
+        <p className="fe-body">
+          White space is an active design decision, not empty space. Breathing
+          room around text, images, and shapes reinforces the brand&rsquo;s open,
+          welcoming character. When in doubt, reduce content rather than reduce
+          spacing (Brand Book v1.0 p.33).
+        </p>
+        <ul className="ds-rule-list">
+          <li>
+            <strong>Left-align</strong> all body text and headings by default.
+            Centre display headlines on full-bleed title slides only.
+          </li>
+          <li>
+            Never align text to both the left and right edges (no justified
+            text), and never centre-align body copy of three or more lines.
+          </li>
+          <li>
+            Keep generous margins (48&ndash;64px digital) and let photography and
+            community content lead; avoid visual clutter.
+          </li>
+        </ul>
+      </section>
+
+      <section className="ds-section">
         <h2 className="ds-section-title">How to represent us</h2>
         <p className="fe-body">
           Naming rules (ForEveryone as one word, No. 52 Cafe spacing and spelling,
