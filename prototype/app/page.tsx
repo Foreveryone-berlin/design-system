@@ -106,12 +106,14 @@ export default function Home() {
             <span className="ds-overview-card__link">View patterns &rarr;</span>
           </Link>
           <Link href="/brand" className="ds-overview-card">
-            <h3 className="ds-overview-card__title">Brand &amp; Voice</h3>
+            <h3 className="ds-overview-card__title">About &amp; Brand</h3>
             <p className="ds-overview-card__desc">
               Who we are, mission and vision, values, personality, and voice and
               tone.
             </p>
-            <span className="ds-overview-card__link">View brand &rarr;</span>
+            <span className="ds-overview-card__link">
+              View about &amp; brand &rarr;
+            </span>
           </Link>
           <Link href="/logo" className="ds-overview-card">
             <h3 className="ds-overview-card__title">Logo</h3>
