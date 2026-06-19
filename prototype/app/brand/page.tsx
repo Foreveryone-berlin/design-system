@@ -1,7 +1,7 @@
 import StatCounter from "../_components/StatCounter";
 
 export const metadata = {
-  title: "Brand & Voice",
+  title: "About & Brand",
   description:
     "Who ForEveryone is, our brand personality, and how we sound: voice, tone by context, and naming rules from the Brand Book.",
 };
@@ -100,7 +100,7 @@ const toneByContext = [
 export default function BrandPage() {
   return (
     <>
-      <h1 className="ds-page-title">Brand &amp; Voice</h1>
+      <h1 className="ds-page-title">About &amp; Brand</h1>
       <p className="ds-intro">
         Who ForEveryone is, how we show up, and how we sound. This is the digital,
         always-current home of the Brand Book&rsquo;s introduction, personality,
