@@ -41,14 +41,14 @@ const upcomingWorkshops = [
     price: "From €10",
   },
   {
-    image: "/images/workshop-movement.jpg",
-    alt: "A group seated in a circle on a wooden floor during a movement session.",
-    category: "movement" as const,
-    categoryLabel: "Movement",
+    image: "/images/workshop-group.jpg",
+    alt: "Community members laughing around a table in the cafe.",
+    category: "wellness" as const,
+    categoryLabel: "Balance and Wellness",
     spots: "5 free spots",
     date: "Tuesday, Sept 17 · 18:30–20:00",
-    title: "Somatic Movement Workshop",
-    blurb: "Gentle, guided movement to reconnect with the body. All bodies welcome.",
+    title: "Community Connection Evening",
+    blurb: "A relaxed evening to meet new faces over coffee. All are welcome.",
     price: "From €8",
   },
   {
@@ -79,8 +79,10 @@ export default function PatternsPage() {
           color: "var(--color-theme-8)",
         }}
       >
-        The header and footer below are structural examples with placeholder
-        content, showing the reusable shape rather than any specific site.
+        The header and footer below are structural examples: the ForEveryone
+        logo sits in the brand slot, while the navigation, columns, and links use
+        placeholder content to show the reusable shape rather than a specific
+        site map.
       </p>
 
       <section id="header-pattern" className="ds-section">
@@ -104,10 +106,13 @@ export default function PatternsPage() {
         <footer className="fe-footer">
           <div className="fe-footer__inner">
             <p className="fe-footer__brand">
-              {/* Generic logo placeholder: the pattern shows the slot, not a brand. */}
-              <span className="ds-logo-placeholder" aria-label="Logo">
-                Logo
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/foreveryone-logo.png"
+                alt="ForEveryone"
+                width={175}
+                height={32}
+              />
             </p>
             <div className="fe-footer__grid">
               <div className="fe-footer__column">

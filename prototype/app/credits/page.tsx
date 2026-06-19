@@ -31,8 +31,8 @@ const tools = [
   },
   {
     name: "BrowserStack MCP",
-    href: "https://www.browserstack.com/",
-    role: "Cross-browser and accessibility checks",
+    href: "https://github.com/browserstack/mcp-server",
+    role: "MCP server for cross-browser and accessibility checks",
   },
 ];
 
