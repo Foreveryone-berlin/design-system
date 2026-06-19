@@ -8,33 +8,33 @@ interface NavItem {
   children?: { href: string; label: string }[];
 }
 
-// A generic header pattern with two dropdown menus. "Book a Workshop" renders
-// as the CTA below.
+// A content-agnostic header pattern showing the reusable structure: logo slot,
+// primary nav with a flat link and two dropdown menus, mobile toggle, and a CTA
+// slot. Labels are generic placeholders on purpose so the pattern reads as
+// reusable shape, not a specific site's information architecture.
 const navLinks: NavItem[] = [
-  { href: "#workshops", label: "Workshops" },
+  { href: "#section-one", label: "Section One" },
   {
-    href: "#eu-projects",
-    label: "EU Projects",
+    href: "#menu-two",
+    label: "Menu Two",
     children: [
-      { href: "#project-1", label: "Project 1" },
-      { href: "#project-2", label: "Project 2" },
-      { href: "#project-3", label: "Project 3" },
-      { href: "#project-4", label: "Project 4" },
+      { href: "#item-1", label: "Item One" },
+      { href: "#item-2", label: "Item Two" },
+      { href: "#item-3", label: "Item Three" },
+      { href: "#item-4", label: "Item Four" },
     ],
   },
   {
-    href: "#community",
-    label: "Community",
+    href: "#menu-three",
+    label: "Menu Three",
     children: [
-      { href: "#about", label: "About Us" },
-      { href: "#partnerships", label: "Partnerships" },
-      { href: "#events", label: "Events" },
-      { href: "#volunteer", label: "Volunteer" },
-      { href: "#contact", label: "Contact" },
+      { href: "#link-1", label: "Link One" },
+      { href: "#link-2", label: "Link Two" },
+      { href: "#link-3", label: "Link Three" },
     ],
   },
-  { href: "#cafe", label: "Cafe" },
-  { href: "#blog", label: "Blog" },
+  { href: "#section-four", label: "Section Four" },
+  { href: "#section-five", label: "Section Five" },
 ];
 
 export default function HeaderDemo() {
@@ -67,14 +67,10 @@ export default function HeaderDemo() {
     <div className="fe-header">
       <div className="fe-header__inner">
         <div className="fe-header__logo">
-          {/* Same brand mark as the design-system header (Navigation/MobileNav). */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/foreveryone-logo.png"
-            alt="ForEveryone"
-            width={120}
-            height={22}
-          />
+          {/* Generic logo placeholder: the pattern shows the slot, not a brand. */}
+          <span className="ds-logo-placeholder" aria-label="Logo">
+            Logo
+          </span>
         </div>
         <nav className="fe-header__nav" aria-label="Main" ref={desktopNavRef}>
           {navLinks.map(({ href, label, children }) =>
@@ -141,8 +137,8 @@ export default function HeaderDemo() {
               <span className="fe-hamburger__line" />
             </span>
           </button>
-          <a href="#book" className="ds-btn ds-btn--primary fe-header__cta">
-            Book a Workshop
+          <a href="#cta" className="ds-btn ds-btn--primary fe-header__cta">
+            Primary action
           </a>
         </div>
       </div>
@@ -204,11 +200,11 @@ export default function HeaderDemo() {
             ),
           )}
           <a
-            href="#book"
+            href="#cta"
             className="ds-btn ds-btn--primary fe-header__mobile-cta"
             onClick={() => setMenuOpen(false)}
           >
-            Book a Workshop
+            Primary action
           </a>
       </nav>
     </div>
