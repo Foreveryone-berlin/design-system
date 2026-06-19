@@ -133,14 +133,30 @@ export default function VisualElementsPage() {
         </div>
 
         <h3 className="ds-subsection-title">Wave shapes</h3>
-        <div className="ds-wave-specimen" aria-hidden="true">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/illustrations/waves/wave-divider.svg"
-            alt=""
-            width={600}
-            height={40}
-          />
+        <p className="fe-body">
+          The same wave can divide a section at its bottom or top edge, tinted to
+          any approved background colour and stretched to any width. Below: the
+          bottom-edge and top-edge waves in Lime, Lavender, and Orange, at two
+          sizes.
+        </p>
+        <div className="ds-wave-specimens" aria-hidden="true">
+          {[
+            { edge: "bottom", label: "Bottom edge" },
+            { edge: "top", label: "Top edge" },
+          ].map((wave) =>
+            (["lime", "lavender", "orange"] as const).map((tone, i) => (
+              <div
+                className={`ds-wave-chip ds-wave-chip--${tone}${
+                  i === 0 ? " ds-wave-chip--narrow" : ""
+                }`}
+                key={`${wave.edge}-${tone}`}
+              >
+                <span
+                  className={`ds-wave-shape ds-wave-shape--${wave.edge} ds-wave-shape--${tone}`}
+                />
+              </div>
+            )),
+          )}
         </div>
         <p className="fe-callout">
           Blobs are containers/masks; waves are section dividers. Do not swap one
