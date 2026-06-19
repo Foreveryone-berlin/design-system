@@ -727,6 +727,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--spacing-5);
   max-width: var(--container-max-width);
   margin-inline: auto;
 }
@@ -747,7 +748,7 @@
 .fe-header__nav {
   display: none;
 }
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
   .fe-header__nav {
     display: flex;
     align-items: center;
@@ -757,6 +758,8 @@
 /* Slightly smaller nav text so the full menu fits the demo header comfortably. */
 .fe-header__nav .fe-nav-link {
   font-size: var(--font-size-sm);
+  /* Keep each label on one line so the demo menu never wraps. */
+  white-space: nowrap;
   /* No growing-underline accent on the header-pattern menu; hover shifts the
      label to the orange accent instead. */
   background-image: none;
@@ -939,7 +942,7 @@
   margin: var(--spacing-4) var(--spacing-4) 0;
   justify-content: center;
 }
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
   .fe-header__menu-btn {
     display: none;
   }

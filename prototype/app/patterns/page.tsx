@@ -139,7 +139,7 @@ export default function PatternsPage() {
                   hello@example.com
                 </p>
                 <p className="fe-body" style={{ marginTop: "var(--spacing-2)", fontSize: "var(--font-size-sm)" }}>
-                  123 Example Street, City
+                  Example Strasse 52, 10115 Berlin
                 </p>
               </div>
               <div className="fe-footer__column">
