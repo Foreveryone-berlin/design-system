@@ -815,6 +815,99 @@ summary:focus-visible,
   word-break: break-all;
 }
 
+/* Colour role cards (Foundations → Colours): a swatch panel with a role badge,
+   then name + hex + the one-line usage rule, mirroring the Brand Book layout. */
+.ds-role-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-4);
+  margin-block-end: var(--spacing-8);
+}
+@media (min-width: 768px) {
+  .ds-role-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1200px) {
+  .ds-role-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+/* Neutral & secondary group has three cards — cap at three across so they
+   don't stretch on wide viewports. */
+.ds-role-grid:has(> :nth-child(3):last-child) {
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .ds-role-grid:has(> :nth-child(3):last-child) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.ds-role-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-theme-7);
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.ds-role-card__swatch {
+  position: relative;
+  min-height: 8rem;
+  border-end-start-radius: var(--radius-lg);
+  border-end-end-radius: var(--radius-lg);
+}
+
+.ds-role-card__badge {
+  position: absolute;
+  inset-block-start: var(--spacing-3);
+  inset-inline-end: var(--spacing-3);
+  padding: 0.25rem var(--spacing-2);
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  color: var(--color-brand-dark);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+/* On a dark swatch (Charcoal, Blue) the white badge already reads; on light
+   swatches it sits on a soft outline so it stays distinct from the colour. */
+.ds-role-card__swatch--charcoal .ds-role-card__badge {
+  box-shadow: inset 0 0 0 1px var(--color-theme-7);
+}
+
+.ds-role-card__body {
+  padding: var(--spacing-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.ds-role-card__name {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  color: var(--color-brand-dark);
+}
+
+.ds-role-card__hex {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-neutral-500);
+  letter-spacing: 0.02em;
+}
+
+.ds-role-card__usage {
+  margin-block-start: var(--spacing-1);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-brand-dark);
+}
+
 .ds-section-intro {
   max-width: 60ch;
   margin-block-end: var(--spacing-5);
@@ -1538,9 +1631,6 @@ a.ds-btn {
   font-size: var(--font-size-sm);
   color: var(--color-theme-8);
 }
-.ds-logo-variant--no52 {
-  color: var(--color-brand-dark);
-}
 
 .ds-logo-bg-grid {
   display: grid;
@@ -1693,7 +1783,7 @@ a.ds-btn {
   flex-direction: column;
   align-items: center;
   gap: var(--spacing-2);
-  width: 96px;
+  width: 120px;
   text-align: center;
 }
 /* Filled workshop-icon control: orange ground, white glyph (Brand Book p.24). */
@@ -1701,15 +1791,15 @@ a.ds-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: var(--radius-md);
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-lg);
   background: var(--color-accent-icon);
   color: var(--color-white);
 }
 .ds-icon-chip svg {
-  width: 32px;
-  height: 32px;
+  width: 52px;
+  height: 52px;
 }
 .ds-icon-specimen figcaption {
   font-size: var(--font-size-xs);
@@ -1736,35 +1826,56 @@ a.ds-btn {
 .ds-accent-specimen img {
   height: auto;
 }
+/* Orange line-art marks tinted via CSS mask from the brand token, so a single
+   currentColor SVG asset renders in brand orange without baking in the hex. */
+.ds-illo-mark,
+.ds-accent-mark {
+  display: block;
+  background-color: var(--color-brand-primary);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+.ds-illo-mark {
+  width: 5rem;
+  height: 5rem;
+}
+.ds-accent-mark {
+  width: 3rem;
+  height: 3rem;
+}
+.ds-accent-mark--wide {
+  width: 6rem;
+}
 .ds-illo-specimen figcaption,
 .ds-accent-specimen figcaption {
   font-size: var(--font-size-xs);
   color: var(--color-theme-8);
 }
 
-/* Blob specimens — organic silhouettes via border-radius. */
+/* Blob specimens — the seven organic Soft Lavender shapes (Brand Book v1.0
+   p.27), each a masked SVG silhouette tinted from the lavender token. */
 .ds-blob-specimens {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: var(--spacing-5);
   margin: var(--spacing-4) 0;
 }
 .ds-blob {
   display: inline-block;
-  width: 96px;
-  height: 96px;
-  border-radius: 64% 36% 57% 43% / 49% 57% 43% 51%;
-}
-.ds-blob--lavender {
-  background: var(--color-light-purple);
-}
-.ds-blob--lime {
-  background: var(--color-light-green);
-  border-radius: 41% 59% 38% 62% / 58% 41% 59% 42%;
-}
-.ds-blob--orange {
-  background: var(--color-brand-primary);
-  border-radius: 55% 45% 63% 37% / 42% 60% 40% 58%;
+  width: 110px;
+  height: 110px;
+  background-color: var(--color-light-purple);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }
 .ds-wave-specimens {
   display: flex;
@@ -1776,40 +1887,50 @@ a.ds-btn {
   display: flex;
   align-items: flex-end;
   width: 100%;
-  height: 8rem;
+  height: 7rem;
   padding: 0;
   background: var(--color-white);
   border: 1px solid var(--color-theme-7);
   border-radius: var(--radius-md);
   overflow: hidden;
 }
-/* The wave silhouette is a single SVG used as a mask, so background-color can
-   tint it to any tone from one asset. */
+/* Each horizontal wave is its own SVG, used as a mask so the Lime Green token
+   tints the silhouette. Three crest patterns are shown. */
 .ds-wave-shape {
   display: block;
   width: 100%;
   height: 4rem;
+  background: var(--color-light-green);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
 }
-.ds-wave-shape--bottom {
-  -webkit-mask-image: url("/illustrations/waves/wave-divider.svg");
-  mask-image: url("/illustrations/waves/wave-divider.svg");
+
+/* Corner waves fill a top or bottom corner of a panel. */
+.ds-wave-corners {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  margin: var(--spacing-4) 0;
 }
-.ds-wave-shape--top {
-  -webkit-mask-image: url("/illustrations/waves/wave-divider-alt.svg");
-  mask-image: url("/illustrations/waves/wave-divider-alt.svg");
+.ds-wave-corner-chip {
+  position: relative;
+  width: 9rem;
+  height: 9rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-theme-7);
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
-.ds-wave-shape--grey-1 {
-  background: var(--color-light-gray);
-}
-.ds-wave-shape--grey-2 {
-  background: var(--color-neutral-300);
-}
-.ds-wave-shape--lime {
+.ds-wave-corner {
+  position: absolute;
+  inset: 0;
   background: var(--color-light-green);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }
 
 /* Print & Media page */
@@ -2121,10 +2242,12 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
   background: var(--color-theme-5);
   border: 1px solid var(--color-theme-7);
   border-radius: var(--radius-card);
-  text-align: center;
+  /* Body copy stays left-aligned (Brand Book v1.0 p.23: never centre-align body
+     copy of three or more lines). The large quote mark leads the card. */
+  text-align: start;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--spacing-4);
 }
 

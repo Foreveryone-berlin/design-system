@@ -9,20 +9,29 @@ export const metadata = {
     "The four ForEveryone visual-element families: workshop icons, line illustrations, decorative accent marks, and graphic shapes (blobs vs waves).",
 };
 
+// Doodle strokes + sparkle/asterisk/music-note decorations (Brand Book v1.0
+// p.26). Each is an orange line-art SVG tinted via CSS mask, so it picks up the
+// brand colour from a token rather than baking the hex into the asset.
 const accents = [
-  { src: "/illustrations/accents/doodle-underline.svg", label: "Doodle underline" },
-  { src: "/illustrations/accents/doodle-arrow.svg", label: "Doodle arrow" },
-  { src: "/illustrations/accents/doodle-circle.svg", label: "Doodle circle" },
+  { src: "/illustrations/accents/doodle-underline.svg", label: "Underline", wide: true },
+  { src: "/illustrations/accents/doodle-burst.svg", label: "Burst" },
+  { src: "/illustrations/accents/doodle-circle.svg", label: "Emphasis oval", wide: true },
+  { src: "/illustrations/accents/doodle-arrow.svg", label: "Arrow" },
+  { src: "/illustrations/accents/doodle-swirl.svg", label: "Swirl", wide: true },
   { src: "/illustrations/accents/sparkle.svg", label: "Sparkle" },
   { src: "/illustrations/accents/asterisk.svg", label: "Asterisk" },
   { src: "/illustrations/accents/music-note.svg", label: "Music note" },
 ];
 
+// Organic, hand-drawn spot illustrations (Brand Book v1.0 p.25). Orange line-art
+// SVGs, tinted via CSS mask from the brand token.
 const illustrations = [
-  { src: "/illustrations/flower.png", label: "Flower" },
-  { src: "/illustrations/smiley.png", label: "Smiley" },
-  { src: "/illustrations/swirl.png", label: "Swirl" },
+  { src: "/illustrations/smiley.svg", label: "Smiley" },
+  { src: "/illustrations/flower.svg", label: "Flower" },
+  { src: "/illustrations/sprout.svg", label: "Sprout" },
   { src: "/illustrations/cloud.svg", label: "Cloud" },
+  { src: "/illustrations/donation-box.svg", label: "Donation box" },
+  { src: "/illustrations/coffee-cup.svg", label: "Coffee cup" },
 ];
 
 export default function VisualElementsPage() {
@@ -88,8 +97,11 @@ export default function VisualElementsPage() {
         <div className="ds-illo-specimens">
           {illustrations.map((illo) => (
             <figure key={illo.label} className="ds-illo-specimen">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={illo.src} alt="" width={72} height={72} aria-hidden="true" />
+              <span
+                className="ds-illo-mark"
+                style={{ maskImage: `url(${illo.src})`, WebkitMaskImage: `url(${illo.src})` }}
+                aria-hidden="true"
+              />
               <figcaption>{illo.label}</figcaption>
             </figure>
           ))}
@@ -107,8 +119,11 @@ export default function VisualElementsPage() {
         <div className="ds-accent-specimens">
           {accents.map((a) => (
             <figure key={a.label} className="ds-accent-specimen">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={a.src} alt="" width={96} height={48} aria-hidden="true" />
+              <span
+                className={`ds-accent-mark${a.wide ? " ds-accent-mark--wide" : ""}`}
+                style={{ maskImage: `url(${a.src})`, WebkitMaskImage: `url(${a.src})` }}
+                aria-hidden="true"
+              />
               <figcaption>{a.label}</figcaption>
             </figure>
           ))}
@@ -126,27 +141,52 @@ export default function VisualElementsPage() {
         </p>
 
         <h3 className="ds-subsection-title">Blob shapes</h3>
+        <p className="fe-body">
+          Organic, rounded shapes used as containers for photos or as colour
+          blocks behind text. Approved fills: Soft Lavender, Lime Green, or Warm
+          White &mdash; never Orange behind the full wordmark.
+        </p>
         <div className="ds-blob-specimens" aria-hidden="true">
-          <span className="ds-blob ds-blob--lavender" />
-          <span className="ds-blob ds-blob--lime" />
-          <span className="ds-blob ds-blob--orange" />
+          {[1, 2, 3, 4, 5, 6, 7].map((n) => (
+            <span
+              key={n}
+              className="ds-blob"
+              style={{
+                maskImage: `url(/illustrations/blobs/blob-${n}.svg)`,
+                WebkitMaskImage: `url(/illustrations/blobs/blob-${n}.svg)`,
+              }}
+            />
+          ))}
         </div>
 
         <h3 className="ds-subsection-title">Wave shapes</h3>
         <p className="fe-body">
-          The same wave can divide a section at its bottom or top edge and
-          stretch to the full width. Below: the bottom-edge and top-edge waves,
-          full width, in soft neutral greys and light green.
+          Soft horizontal dividers used at the top or bottom edge of a section,
+          always in Lime Green. Three full-width crest patterns plus two corner
+          waves that fill a top or bottom corner of the page.
         </p>
         <div className="ds-wave-specimens" aria-hidden="true">
-          {[
-            { edge: "bottom", tone: "grey-1" },
-            { edge: "top", tone: "grey-2" },
-            { edge: "bottom", tone: "lime" },
-          ].map((wave, i) => (
-            <div className="ds-wave-chip" key={`${wave.edge}-${wave.tone}-${i}`}>
+          {["wave-h1", "wave-h2", "wave-h3"].map((w) => (
+            <div className="ds-wave-chip" key={w}>
               <span
-                className={`ds-wave-shape ds-wave-shape--${wave.edge} ds-wave-shape--${wave.tone}`}
+                className="ds-wave-shape"
+                style={{
+                  maskImage: `url(/illustrations/waves/${w}.svg)`,
+                  WebkitMaskImage: `url(/illustrations/waves/${w}.svg)`,
+                }}
+              />
+            </div>
+          ))}
+        </div>
+        <div className="ds-wave-corners" aria-hidden="true">
+          {["wave-corner-tr", "wave-corner-br"].map((w) => (
+            <div className="ds-wave-corner-chip" key={w}>
+              <span
+                className="ds-wave-corner"
+                style={{
+                  maskImage: `url(/illustrations/waves/${w}.svg)`,
+                  WebkitMaskImage: `url(/illustrations/waves/${w}.svg)`,
+                }}
               />
             </div>
           ))}

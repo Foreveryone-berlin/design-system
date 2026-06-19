@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <!-- Hand-drawn smiley face: line illustration (Brand Book v1.0 p.25). currentColor; no fill. -->
+  <path d="M50 8c23 0 42 18 42 42S73 92 50 92 8 73 8 50 27 8 50 8z" />
+  <path d="M38 42v6" />
+  <path d="M62 42v6" />
+  <path d="M34 60c5 8 13 12 16 12s11-4 16-12" />
+</svg>

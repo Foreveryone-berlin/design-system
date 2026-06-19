@@ -35,43 +35,43 @@ const ALIASES: Record<string, CanonicalName> = {
   language: "expression",
 };
 
-// Solid filled glyphs on a 48×48 grid. fill="currentColor".
+// Solid filled glyphs on a 48×48 grid. fill="currentColor". Redrawn to match the
+// Brand Book p.24 exemplars (palette + brush, pottery, fountain pen + ink, etc.):
+// bold, recognisable, filled silhouettes — no outline, shadow, or gradient.
 const ICONS: Record<CanonicalName, ReactNode> = {
-  // Balance & Wellness — a lotus / leaf cluster (calm, growth).
+  // Balance & Wellness — a leaf/sprout with a stem (calm, growth).
   "balance-wellness": (
     <>
-      <path d="M24 6c-4 5-6 10-6 15 0 4 2.6 7.4 6 9 3.4-1.6 6-5 6-9 0-5-2-10-6-15z" />
-      <path d="M11 19c-1 6 1.4 11 7 14-1-6-3.4-10.4-7-14z" />
-      <path d="M37 19c1 6-1.4 11-7 14 1-6 3.4-10.4 7-14z" />
-      <path d="M14 38c3-2 6.4-3 10-3s7 1 10 3c-3 2-6.4 3-10 3s-7-1-10-3z" />
+      <path d="M24 7c-7 0-13 5-13 14 0 1.6.2 3.1.6 4.5C14 21 19 18 24 17c-4 2.5-8 6.4-10.4 11.6C16 32 19.6 34 24 34c8 0 13-6 13-14C37 12 31 7 24 7z" />
+      <path d="M22 30h4v11h-4z" />
     </>
   ),
-  // Movement — a figure mid-motion.
+  // Movement — a running figure mid-stride.
   movement: (
     <>
-      <circle cx="28" cy="9" r="4.5" />
-      <path d="M30 15c-2 0-3.6 1.2-4.4 3l-3.2 7-7-2.4-1.4 4 9.4 3.4 1.8-4 1.6 4.8L19 42l3.4 2.6 6-9.4c.6-1 .7-2.2.3-3.3l-1.6-4.6 3.5 2.1 2.8 6.4 3.8-1.6-3.3-7.6c-.5-1.1-1.5-2-2.7-2.4L30 19z" />
+      <circle cx="30" cy="10" r="5" />
+      <path d="M27 18c-1.8.4-3.2 1.6-4 3.3l-2.6 5.6-6.6-3-2 3.6 8.4 3.8c1.4.6 3 .2 4-1l1-1.3 1 6.6-6.8 7.2 3 2.8 7.6-8c.7-.7 1-1.7.9-2.7l-.9-6.6 3 4.2 6.8 2.4 1.4-3.8-5.8-2-4.2-6c-1-1.4-2.6-2.2-4.3-2.1z" />
     </>
   ),
-  // Arts & Crafts — a paint palette with brush (Brand Book p.24 exemplar).
+  // Arts & Crafts — a paint palette with a brush (Brand Book p.24 exemplar).
   "arts-crafts": (
     <>
-      <path d="M22 6C13 6 6 12.5 6 21c0 7 5 12 12 12 2.2 0 3.6-1.4 3.6-3.4 0-1-.4-1.8-1-2.6-.5-.7-.9-1.4-.9-2.3 0-1.8 1.5-3.2 3.4-3.2H27c6 0 11-4.6 11-11C38 10.6 31 6 22 6zM13 24a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2zm3-9a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2zm8-1.4a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2zm8 3a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2z" />
-      <path d="M33 30l7-7 3 3-7 7-3.6.6z" />
+      <path d="M21 7C12 7 5 13 5 22c0 8 6 14 15 14 2.6 0 4.4-1.8 4.4-4.2 0-1.2-.5-2.2-1.2-3-.5-.6-.8-1.2-.8-2 0-1.8 1.5-3.2 3.4-3.2H29c7 0 12-5 12-12C41 11.5 31 7 21 7zM12 26a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm3-10a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm9-2a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm8 3a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+      <path d="M37 28l5.6-5.6c.8-.8.8-2 0-2.8l-1.2-1.2c-.8-.8-2-.8-2.8 0L33 24l1.4 1.4-7 7 1.4 1.4 7-7z" />
     </>
   ),
-  // Expression — a fountain pen / quill nib with an ink stroke.
+  // Expression — a fountain-pen nib with a flowing ink stroke (p.24 exemplar).
   expression: (
     <>
-      <path d="M34 6l8 8-19 19-9 1.6 1.6-9z" />
-      <path d="M10 38c2-1 5-1 7 0-2 2-5 3-9 4 .4-1.6 1-2.8 2-4z" />
+      <path d="M14 30 33 11l4 4-19 19-6.4 1.4zm5.4 3.2 1.4-1.4-2.6-2.6-1.4 1.4z" />
+      <path d="M6 42c1.6-3 4-4.6 7-4.6 1.6 0 3 .5 4.4 1.4-1.4 1.6-3.6 2.6-6.4 3.1-1.6.3-3.2.4-5 .1z" />
     </>
   ),
-  // Music — an eighth-note pair.
+  // Music — an eighth-note pair (beamed).
   music: (
     <>
-      <path d="M20 8l18-3v6L24 14v18.5A6.5 6.5 0 1 1 20 26.4V8z" />
-      <path d="M38 11v9.5A6.5 6.5 0 1 1 34 14.4V11z" />
+      <path d="M19 9l20-3.5v6.5L23 15v17.5A7 7 0 1 1 19 26V9z" />
+      <path d="M39 12v9.5A7 7 0 1 1 35 15V12.4z" />
     </>
   ),
 };

@@ -191,23 +191,6 @@ export default function PrintPage() {
           Highlights, Whites, and Blacks at 0 unless further correction is needed.
         </p>
       </section>
-
-      <section className="ds-section">
-        <h2 className="ds-section-title">Asset library &amp; contacts</h2>
-        <ul className="ds-rule-list">
-          <li>
-            Logo, icon, and photo assets live in the Brand Asset folders on{" "}
-            <strong>Google Drive</strong> and the <strong>Canva Brand Kit</strong>
-            &nbsp;(access-restricted). Request access via the Marketing Hub on
-            Slack.
-          </li>
-          <li>
-            Organisational approval (sponsor logos, partnerships, legal): contact{" "}
-            <strong>Roxana</strong> or <strong>Andr&eacute;</strong>, the
-            co-founders.
-          </li>
-        </ul>
-      </section>
     </>
   );
 }
