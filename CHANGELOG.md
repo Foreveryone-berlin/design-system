@@ -2,11 +2,22 @@
 
 **Format:** Based on [Keep a Changelog](https://keepachangelog.com).
 
-**Audience:** Non-developer stakeholders (designers, managers). Write so a reader who does not touch code can tell what changed.
+**Audience:** Non-developer stakeholders (designers and leaders). Write so a reader who does not touch code can tell what changed.
 
 **Standard:** At most 6 bullets per release, one plain sentence each. Keep the imperative voice (add, fix, raise) and the date on each version. No file paths, token IDs, or build/CI mechanics in the visible list.
 
 ## [Unreleased]
+
+## [0.23.0] - 2026-06-19
+
+A fidelity pass bringing the prototype closer to Brand Book v1.0.
+
+- **Add**: Each colour on the Foundations page now shows its role up front (background, decorative, text & logo, or announcements & alerts) so the "what is this colour for" rule is visible at a glance.
+- **Change**: Redrew the workshop category icons (now larger), the line illustrations and accent marks, the blob shapes, and the wave dividers to match the Brand Book artwork.
+- **Fix**: Search results now scroll to the exact section heading, not just the top of the page.
+- **Fix**: Left-aligned the testimonial text, matching the rule that long body copy is never centred.
+- **Remove**: Took out the No. 52 Cafe logos block, the community-group illustration, and the print asset-library contacts section.
+- **Docs**: Added the white-space and alignment principles to the Guidelines page, and updated copy to say "non-profit social enterprise" and "designers and leaders".
 
 ## [0.22.3] - 2026-06-19
 

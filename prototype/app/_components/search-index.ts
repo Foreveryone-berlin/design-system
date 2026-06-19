@@ -96,7 +96,6 @@ const pages: PageDef[] = [
       "Clear space",
       "Background combinations",
       "Logo on photography",
-      "No. 52 Cafe logos",
       "Incorrect usage",
     ],
   },
@@ -113,7 +112,6 @@ const pages: PageDef[] = [
       "Document greys",
       "Cafe signs",
       "Adjusting photos (Canva)",
-      "Asset library & contacts",
     ],
   },
   {

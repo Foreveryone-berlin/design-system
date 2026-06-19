@@ -11,7 +11,7 @@
 **Site:** https://foreveryone.berlin/  
 **Stack:** WordPress + Elementor Pro + custom CSS  
 **Figma:** https://www.figma.com/design/QKks3ov9RS4CltsYLfRZod/Design-File  
-**Org:** For Everyone — volunteer-run NGO in Berlin running community workshops, events, and a cafe (No. 52) focused on real-life connection, belonging, and creative activities.
+**Org:** For Everyone — volunteer-run non-profit social enterprise in Berlin running community workshops, events, and a cafe (No. 52) focused on real-life connection, belonging, and creative activities.
 
 The site is community-first, inclusive, warm, and energetic. The design system must reflect that while remaining maintainable by non-developers (Elementor editors) and developers alike.
 
