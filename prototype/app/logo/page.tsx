@@ -190,9 +190,10 @@ export default function LogoPage() {
       <section className="ds-section">
         <h2 className="ds-section-title">No. 52 Cafe logos</h2>
         <p className="fe-body">
-          No. 52 Cafe has its own mark: the <strong>No. 52</strong> wordmark for
-          cafe materials, plus a compact mark with <strong>52</strong> set inside
-          the <strong>o</strong> for small or square formats. Clear space is{" "}
+          No. 52 Cafe has its own mark: the primary <strong>No52</strong>{" "}
+          wordmark for cafe materials, plus a compact mark with{" "}
+          <strong>52</strong> set inside the <strong>o</strong> for small or
+          square formats. Clear space is{" "}
           <strong>half the height of the &ldquo;N&rdquo;</strong> on all sides.
           Minimum sizes: 32px / 8mm (primary), 40px / 10mm (secondary).
         </p>
@@ -201,41 +202,41 @@ export default function LogoPage() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/logo/no52-wordmark.svg"
-              alt="No. 52 Cafe wordmark (approximate)"
-              width={176}
-              height={64}
+              alt="No. 52 Cafe primary wordmark"
+              width={196}
+              height={72}
             />
-            <figcaption>No. 52 wordmark (approximate)</figcaption>
+            <figcaption>No52 wordmark (primary)</figcaption>
           </figure>
           <figure className="ds-logo-variant ds-logo-variant--no52">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/logo/no52-compact.svg"
-              alt="No. 52 compact mark (approximate)"
-              width={96}
-              height={64}
+              alt="No. 52 Cafe compact mark"
+              width={98}
+              height={72}
             />
-            <figcaption>No. 52 compact mark (approximate)</figcaption>
+            <figcaption>Compact mark (secondary)</figcaption>
           </figure>
         </div>
         <p className="fe-callout">
-          The No. 52 marks shown here are <strong>approximate recreations</strong>
-          ; the official vectors live in the access-restricted Brand Kit and must
-          replace these before any production use.
+          These marks are redrawn in-repo from the Brand Book (p.15); the
+          official vectors live in the access-restricted Brand Kit and should
+          replace these for any production use.
         </p>
       </section>
 
       <section className="ds-section">
         <h2 className="ds-section-title">Incorrect usage</h2>
-        <p className="fe-body">Never do any of the following to the logo.</p>
+        <p className="fe-body">
+          Never do any of the following to the logo. Each card below describes a
+          misuse the Brand Book (p.14) rules out.
+        </p>
         <ul className="ds-dont-grid">
           {donts.map((d) => (
             <li key={d} className="ds-dont-grid__item">
-              <span className="ds-dont-grid__x" aria-hidden="true">
-                &times;
-              </span>
-              <span className="ds-visually-hidden">Don&apos;t:</span>
-              {d}
+              <span className="ds-dont-grid__label">Don&rsquo;t</span>
+              <span className="ds-dont-grid__text">{d}</span>
             </li>
           ))}
         </ul>
