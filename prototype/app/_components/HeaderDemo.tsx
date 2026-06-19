@@ -13,28 +13,28 @@ interface NavItem {
 // slot. Labels are generic placeholders on purpose so the pattern reads as
 // reusable shape, not a specific site's information architecture.
 const navLinks: NavItem[] = [
-  { href: "#section-one", label: "Section One" },
+  { href: "#link-1", label: "Link 1" },
   {
-    href: "#menu-two",
-    label: "Menu Two",
+    href: "#link-2",
+    label: "Link 2",
     children: [
-      { href: "#item-1", label: "Item One" },
-      { href: "#item-2", label: "Item Two" },
-      { href: "#item-3", label: "Item Three" },
-      { href: "#item-4", label: "Item Four" },
+      { href: "#item-1", label: "Item 1" },
+      { href: "#item-2", label: "Item 2" },
+      { href: "#item-3", label: "Item 3" },
+      { href: "#item-4", label: "Item 4" },
     ],
   },
   {
-    href: "#menu-three",
-    label: "Menu Three",
+    href: "#link-3",
+    label: "Link 3",
     children: [
-      { href: "#link-1", label: "Link One" },
-      { href: "#link-2", label: "Link Two" },
-      { href: "#link-3", label: "Link Three" },
+      { href: "#sub-1", label: "Item 1" },
+      { href: "#sub-2", label: "Item 2" },
+      { href: "#sub-3", label: "Item 3" },
     ],
   },
-  { href: "#section-four", label: "Section Four" },
-  { href: "#section-five", label: "Section Five" },
+  { href: "#link-4", label: "Link 4" },
+  { href: "#link-5", label: "Link 5" },
 ];
 
 export default function HeaderDemo() {
@@ -141,7 +141,7 @@ export default function HeaderDemo() {
             </span>
           </button>
           <a href="#cta" className="ds-btn ds-btn--primary fe-header__cta">
-            Primary action
+            Book workshop
           </a>
         </div>
       </div>
@@ -207,7 +207,7 @@ export default function HeaderDemo() {
             className="ds-btn ds-btn--primary fe-header__mobile-cta"
             onClick={() => setMenuOpen(false)}
           >
-            Primary action
+            Book workshop
           </a>
       </nav>
     </div>
