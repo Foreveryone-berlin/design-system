@@ -8,6 +8,12 @@
 
 ## [Unreleased]
 
+## [0.22.3] - 2026-06-19
+
+Hotfix for the example header pattern.
+
+- **Fix**: The header pattern's mobile menu now opens again, and the header switches to mobile based on the width of the panel it sits in (not the whole screen), so it matches how it is embedded in the design system.
+
 ## [0.22.2] - 2026-06-19
 
 Small visual fixes after 0.22.1.
