@@ -2,13 +2,17 @@
 
 ![ForEveryone Design System card: a bold "Design System" headline on a warm-white ground with layered lavender, lime, and orange brand blobs, a row of token colour swatches, and the ForEveryone wordmark.](prototype/public/images/readme-hero.jpg)
 
-Token-driven design system for [foreveryone.berlin](https://foreveryone.berlin/), an open, inclusive community space in Berlin. Design tokens, generated CSS, and a Next.js prototype that pulls it all together.
+This is the shared look and feel for [foreveryone.berlin](https://foreveryone.berlin/), an open, inclusive community space in Berlin. It keeps the brand's colours, type, and reusable building blocks in one place, so everything we make looks like it belongs together. It is here for designers, developers, and anyone curious about how the brand fits together.
 
-Live prototype: **[design.foreveryone.berlin](https://design.foreveryone.berlin)**
+You can see it all in action on the live preview: **[design.foreveryone.berlin](https://design.foreveryone.berlin)**
 
 ![How to represent us: brand-name, cafe, social-media, and UK-English spelling rules.](how-to-represent-us.png)
 
-## Tech stack
+## For developers
+
+Technical detail; non-developers can skip this.
+
+### Tech stack
 
 - **Tokens:** W3C DTCG JSON (`tokens/*.json`) with `$value`, `$type`, `$description`.
 - **Build:** Node script `scripts/build-css.js` generates `css/custom-properties.css`.
@@ -18,7 +22,7 @@ Live prototype: **[design.foreveryone.berlin](https://design.foreveryone.berlin)
 - **Production target:** WordPress + Elementor Pro on `foreveryone.berlin` (global colors, global fonts, custom CSS).
 - **CI:** GitHub Actions for token build + test + prototype build, and auto-release on `v*.*.*` tag.
 
-## Quick start
+### Quick start
 
 ```bash
 # Build CSS custom properties from tokens
@@ -31,7 +35,7 @@ cd prototype && npm install && npm run dev
 
 Root `package.json` script aliases: `npm run build`, `npm test`, `npm run prototype:dev`, `npm run prototype:build`, `npm run prototype:lint`.
 
-## How tokens work
+### How tokens work
 
 1. Token values live in [`tokens/*.json`](tokens/) (W3C DTCG shape: `$value`, `$type`, `$description`).
 2. [`scripts/build-css.js`](scripts/build-css.js) reads [`tokens/index.json`](tokens/index.json) imports.
@@ -41,7 +45,7 @@ Root `package.json` script aliases: `npm run build`, `npm test`, `npm run protot
 
 `scripts/build-css.test.js` validates the DTCG shape and smoke-checks the generated CSS.
 
-## Repository layout
+### Repository layout
 
 ```text
 foreveryone-design-system/

@@ -5,8 +5,15 @@ node_modules/
 .DS_Store
 Thumbs.db
 
+# Stray artifacts: git-bash ">NUL" leak; screenshot script run with unset OUT_DIR
+NUL
+prototype/undefined/
+
 # Cursor local planning artifacts
 .cursor/plans/
+
+# Claude Code local planning artifacts
+.claude/plans/
 
 .vercel
 .vercel-inspect.json
