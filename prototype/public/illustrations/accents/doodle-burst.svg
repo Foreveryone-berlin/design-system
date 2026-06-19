@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" aria-hidden="true">
+  <!-- Hand-drawn burst / emphasis lines radiating from a point (Brand Book v1.0 p.26). currentColor. -->
+  <path d="M24 22V6" />
+  <path d="M16 24 9 11" />
+  <path d="M32 24l7-13" />
+  <path d="M14 30 4 24" />
+  <path d="M34 30l10-6" />
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <!-- Hand-drawn donation box with a euro coin dropping in and a heart on the
+       front: line illustration for fundraising (Brand Book v1.0 p.25). currentColor; no fill. -->
+  <!-- Coin with euro sign, above the slot -->
+  <circle cx="50" cy="20" r="11" />
+  <path d="M54 16c-4-3-9 0-9 5s5 8 9 5" />
+  <path d="M42 19h7" />
+  <path d="M42 23h7" />
+  <!-- Box top with slot -->
+  <path d="M24 44h52l-8 10H32z" />
+  <path d="M44 49h12" />
+  <!-- Box body -->
+  <path d="M30 54v30h40V54" />
+  <!-- Heart on the front -->
+  <path d="M50 78c-6-4-11-8-11-13a5 5 0 0 1 11-2 5 5 0 0 1 11 2c0 5-5 9-11 13z" />
+</svg>
