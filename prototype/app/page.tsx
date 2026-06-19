@@ -77,6 +77,16 @@ export default function Home() {
               View foundations &rarr;
             </span>
           </Link>
+          <Link href="/visual-elements" className="ds-overview-card">
+            <h3 className="ds-overview-card__title">Visual Elements</h3>
+            <p className="ds-overview-card__desc">
+              Workshop icons, line illustrations, accent marks, and graphic
+              shapes.
+            </p>
+            <span className="ds-overview-card__link">
+              View visual elements &rarr;
+            </span>
+          </Link>
           <Link href="/components" className="ds-overview-card">
             <h3 className="ds-overview-card__title">Components</h3>
             <p className="ds-overview-card__desc">
@@ -95,6 +105,30 @@ export default function Home() {
             </p>
             <span className="ds-overview-card__link">View patterns &rarr;</span>
           </Link>
+          <Link href="/brand" className="ds-overview-card">
+            <h3 className="ds-overview-card__title">Brand &amp; Voice</h3>
+            <p className="ds-overview-card__desc">
+              Who we are, mission and vision, values, personality, and voice and
+              tone.
+            </p>
+            <span className="ds-overview-card__link">View brand &rarr;</span>
+          </Link>
+          <Link href="/logo" className="ds-overview-card">
+            <h3 className="ds-overview-card__title">Logo</h3>
+            <p className="ds-overview-card__desc">
+              Logo variants, clear space, background combinations, and incorrect
+              usage.
+            </p>
+            <span className="ds-overview-card__link">View logo &rarr;</span>
+          </Link>
+          <Link href="/print" className="ds-overview-card">
+            <h3 className="ds-overview-card__title">Print &amp; Media</h3>
+            <p className="ds-overview-card__desc">
+              The digital to print boundary: Young Serif, CMYK values, document
+              greys, and cafe signs.
+            </p>
+            <span className="ds-overview-card__link">View print &rarr;</span>
+          </Link>
           <Link href="/guidelines" className="ds-overview-card">
             <h3 className="ds-overview-card__title">Guidelines</h3>
             <p className="ds-overview-card__desc">
@@ -102,14 +136,6 @@ export default function Home() {
               illustration on-brand.
             </p>
             <span className="ds-overview-card__link">View guidelines &rarr;</span>
-          </Link>
-          <Link href="/governance" className="ds-overview-card">
-            <h3 className="ds-overview-card__title">Governance</h3>
-            <p className="ds-overview-card__desc">
-              Versioning, contribution, and the changelog: how the system
-              evolves and stays consistent.
-            </p>
-            <span className="ds-overview-card__link">View governance &rarr;</span>
           </Link>
           <Link href="/accessibility" className="ds-overview-card">
             <h3 className="ds-overview-card__title">Accessibility</h3>
@@ -120,6 +146,14 @@ export default function Home() {
             <span className="ds-overview-card__link">
               View accessibility &rarr;
             </span>
+          </Link>
+          <Link href="/governance" className="ds-overview-card">
+            <h3 className="ds-overview-card__title">Governance</h3>
+            <p className="ds-overview-card__desc">
+              Versioning, contribution, and the changelog: how the system
+              evolves and stays consistent.
+            </p>
+            <span className="ds-overview-card__link">View governance &rarr;</span>
           </Link>
           <Link href="/credits" className="ds-overview-card">
             <h3 className="ds-overview-card__title">Credits</h3>

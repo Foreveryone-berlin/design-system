@@ -234,6 +234,7 @@ export default function LogoPage() {
               <span className="ds-dont-grid__x" aria-hidden="true">
                 &times;
               </span>
+              <span className="ds-visually-hidden">Don&apos;t:</span>
               {d}
             </li>
           ))}

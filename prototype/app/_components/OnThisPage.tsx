@@ -2,16 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { slugify } from "./slugify";
 
 type Heading = { id: string; text: string; level: 2 | 3 };
-
-function slugify(text: string) {
-  return text
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
 
 export default function OnThisPage() {
   const pathname = usePathname();
