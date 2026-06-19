@@ -134,29 +134,22 @@ export default function VisualElementsPage() {
 
         <h3 className="ds-subsection-title">Wave shapes</h3>
         <p className="fe-body">
-          The same wave can divide a section at its bottom or top edge, tinted to
-          any approved background colour and stretched to any width. Below: the
-          bottom-edge and top-edge waves in Lime, Lavender, and Orange, at two
-          sizes.
+          The same wave can divide a section at its bottom or top edge and
+          stretch to the full width. Below: the bottom-edge and top-edge waves,
+          full width, in soft neutral greys and light green.
         </p>
         <div className="ds-wave-specimens" aria-hidden="true">
           {[
-            { edge: "bottom", label: "Bottom edge" },
-            { edge: "top", label: "Top edge" },
-          ].map((wave) =>
-            (["lime", "lavender", "orange"] as const).map((tone, i) => (
-              <div
-                className={`ds-wave-chip ds-wave-chip--${tone}${
-                  i === 0 ? " ds-wave-chip--narrow" : ""
-                }`}
-                key={`${wave.edge}-${tone}`}
-              >
-                <span
-                  className={`ds-wave-shape ds-wave-shape--${wave.edge} ds-wave-shape--${tone}`}
-                />
-              </div>
-            )),
-          )}
+            { edge: "bottom", tone: "grey-1" },
+            { edge: "top", tone: "grey-2" },
+            { edge: "bottom", tone: "lime" },
+          ].map((wave, i) => (
+            <div className="ds-wave-chip" key={`${wave.edge}-${wave.tone}-${i}`}>
+              <span
+                className={`ds-wave-shape ds-wave-shape--${wave.edge} ds-wave-shape--${wave.tone}`}
+              />
+            </div>
+          ))}
         </div>
         <p className="fe-callout">
           Blobs are containers/masks; waves are section dividers. Do not swap one
