@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <!-- Hand-drawn sprout / leafy stem: line illustration (Brand Book v1.0 p.25). currentColor; no fill. -->
+  <path d="M50 88c0-18-2-40 0-58" />
+  <path d="M50 40c-6-10-18-12-26-10 2 12 14 20 26 14" />
+  <path d="M50 58c7-9 19-9 27-5-4 11-17 16-27 9" />
+  <path d="M50 30c-2-8-10-13-17-13 1 9 8 15 17 14" />
+</svg>

@@ -3,7 +3,7 @@ import LogoClearSpace from "../_components/LogoClearSpace";
 export const metadata = {
   title: "Logo",
   description:
-    "The ForEveryone logo system: variants, clear space, background combinations, photography rules, the No. 52 Cafe marks, and incorrect usage.",
+    "The ForEveryone logo system: variants, clear space, background combinations, photography rules, and incorrect usage.",
 };
 
 const atAGlance = [
@@ -185,45 +185,6 @@ export default function LogoPage() {
             the blob.
           </li>
         </ul>
-      </section>
-
-      <section className="ds-section">
-        <h2 className="ds-section-title">No. 52 Cafe logos</h2>
-        <p className="fe-body">
-          No. 52 Cafe has its own mark: the primary <strong>No52</strong>{" "}
-          wordmark for cafe materials, plus a compact mark with{" "}
-          <strong>52</strong> set inside the <strong>o</strong> for small or
-          square formats. Clear space is{" "}
-          <strong>half the height of the &ldquo;N&rdquo;</strong> on all sides.
-          Minimum sizes: 32px / 8mm (primary), 40px / 10mm (secondary).
-        </p>
-        <div className="ds-logo-variants">
-          <figure className="ds-logo-variant ds-logo-variant--no52">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/logo/no52-wordmark.svg"
-              alt="No. 52 Cafe primary wordmark"
-              width={196}
-              height={72}
-            />
-            <figcaption>No52 wordmark (primary)</figcaption>
-          </figure>
-          <figure className="ds-logo-variant ds-logo-variant--no52">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/logo/no52-compact.svg"
-              alt="No. 52 Cafe compact mark"
-              width={98}
-              height={72}
-            />
-            <figcaption>Compact mark (secondary)</figcaption>
-          </figure>
-        </div>
-        <p className="fe-callout">
-          These marks are redrawn in-repo from the Brand Book (p.15); the
-          official vectors live in the access-restricted Brand Kit and should
-          replace these for any production use.
-        </p>
       </section>
 
       <section className="ds-section">
