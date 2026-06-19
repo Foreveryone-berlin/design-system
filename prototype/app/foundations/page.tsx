@@ -551,17 +551,23 @@ export default function TokensPage() {
           its approved role as a border accent. No tilt, no effects; leave even
           breathing space between the code and the border.
         </p>
-        <div className="ds-qr-demo" aria-hidden="true">
-          <div className="ds-qr-frame">
-            <div className="ds-qr-grid">
-              {Array.from({ length: 25 }).map((_, i) => (
-                <span
-                  key={i}
-                  className={`ds-qr-cell${(i * 7 + (i % 3)) % 2 === 0 ? " is-on" : ""}`}
-                />
-              ))}
-            </div>
-          </div>
+        <div className="ds-qr-demo">
+          <a
+            className="ds-qr-frame"
+            href="https://foreveryone.berlin"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {/* Real, scannable QR encoding https://foreveryone.berlin.
+                eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/illustrations/qr-foreveryone.svg"
+              alt="QR code linking to foreveryone.berlin"
+              width={132}
+              height={132}
+              className="ds-qr-code"
+            />
+          </a>
         </div>
       </section>
     </>
