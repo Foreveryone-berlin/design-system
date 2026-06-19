@@ -109,9 +109,11 @@ summary:focus-visible,
 
 .ds-main-area .ds-page {
   flex: 1;
-  /* Size container so demos (the header pattern) can collapse based on the
-     content-column width between the sidebar and the On-this-page rail,
-     not the full viewport. */
+  /* The header pattern is embedded in this content column (sidebar on the left,
+     On-this-page rail on the right), so its mobile/desktop switch must track
+     this column's width, not the viewport. Make it a size container; the header
+     rules below query it. The live marketing site keeps the viewport breakpoint
+     in css/utilities.css. */
   container-type: inline-size;
   container-name: ds-content;
 }
@@ -120,11 +122,18 @@ summary:focus-visible,
   margin-top: auto;
 }
 
-/* Header pattern collapse is driven by the content-column width, not the
-   viewport. Below 1024 of available column width the demo header shows the
-   mobile hamburger; at/above 1024 it shows the full desktop nav + CTA. These
-   container rules override the viewport media queries in css/utilities.css for
-   the prototype's rendering context. */
+/* ── Header pattern collapse (prototype only) ────────────────────────────────
+   The embedded header demo must switch to mobile by the CONTENT-COLUMN width,
+   not the viewport, because it sits inside .ds-page (sidebar + On-this-page
+   rail flank it). These rules query the .ds-page container and override the
+   viewport @media block in css/utilities.css for the prototype context only;
+   the live marketing site is unaffected (it keeps the viewport breakpoint).
+
+   Base = mobile mode (column < 1024): hide desktop nav + CTA, show hamburger,
+   and force the mobile nav back to `display: flex` so it can open even on a
+   wide viewport whose column is still narrow (utilities.css would otherwise
+   hide it at viewport >= 1024). The base .fe-header__mobile-nav rule keeps it
+   collapsed until .is-open. */
 .ds-page .fe-header__nav {
   display: none;
 }
@@ -135,6 +144,11 @@ summary:focus-visible,
 .ds-page .fe-header__actions .fe-header__cta {
   display: none;
 }
+.ds-page .fe-header__mobile-nav {
+  display: flex;
+}
+/* Column >= 1024: desktop mode (in practice viewport >= 1024 + the sidebar and
+   On-this-page rail widths). */
 @container ds-content (min-width: 1024px) {
   .ds-page .fe-header__nav {
     display: flex;
