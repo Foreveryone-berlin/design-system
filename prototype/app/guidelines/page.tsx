@@ -9,7 +9,7 @@ export default function GuidelinesPage() {
       <p className="ds-intro">
         How to combine the foundations and components on-brand: colour usage,
         typography, and illustration. For brand personality, voice &amp; tone, and
-        how to represent us in writing, see <a href="/brand">Brand &amp; Voice</a>.
+        how to represent us in writing, see <a href="/brand">About &amp; Brand</a>.
         Figma stays the visual source of truth; these rules follow the Brand Book
         v1.0.
       </p>
@@ -99,7 +99,7 @@ export default function GuidelinesPage() {
         <p className="fe-body">
           Naming rules (ForEveryone as one word, No. 52 Cafe spacing and spelling,
           handles, hashtags, and the UK-English standard) now live on the{" "}
-          <a href="/brand">Brand &amp; Voice</a> page alongside our brand
+          <a href="/brand">About &amp; Brand</a> page alongside our brand
           personality and voice &amp; tone.
         </p>
       </section>
