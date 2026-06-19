@@ -27,7 +27,7 @@ export const navGroups: NavGroup[] = [
   {
     label: "Brand",
     links: [
-      { href: "/brand", label: "Brand & Voice" },
+      { href: "/brand", label: "About & Brand" },
       { href: "/logo", label: "Logo" },
       { href: "/print", label: "Print & Media" },
     ],
