@@ -271,6 +271,87 @@ export default function ComponentsPage() {
         </div>
       </section>
 
+      <section id="icon-button-states" className="ds-section">
+        <h3 className="ds-subsection-title">Icon button states</h3>
+        <p className="ds-section-intro">
+          The neutral <code className="ds-code">.fe-icon-btn</code> across
+          Default, Hover, Focused, and Disabled per the style guide. Hover and
+          focused are shown statically here; on real keyboard focus the button
+          shows the same focused fill (no gold ring).
+        </p>
+        <div className="ds-state-matrix">
+          <span className="ds-state-matrix__label">Default</span>
+          <button type="button" className="fe-icon-btn" aria-label="Instagram">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" strokeWidth="2" />
+              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="2" />
+              <circle cx="17" cy="7" r="1.2" />
+            </svg>
+          </button>
+          <span className="ds-state-matrix__label">Hover</span>
+          <button
+            type="button"
+            className="fe-icon-btn is-hover"
+            aria-label="Instagram (hover)"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" strokeWidth="2" />
+              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="2" />
+              <circle cx="17" cy="7" r="1.2" />
+            </svg>
+          </button>
+          <span className="ds-state-matrix__label">Focused</span>
+          <button
+            type="button"
+            className="fe-icon-btn is-focus"
+            aria-label="Instagram (focused)"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" strokeWidth="2" />
+              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="2" />
+              <circle cx="17" cy="7" r="1.2" />
+            </svg>
+          </button>
+          <span className="ds-state-matrix__label">Disabled</span>
+          <button
+            type="button"
+            className="fe-icon-btn"
+            aria-label="Instagram (disabled)"
+            disabled
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" strokeWidth="2" />
+              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="2" />
+              <circle cx="17" cy="7" r="1.2" />
+            </svg>
+          </button>
+        </div>
+      </section>
+
       <h2 className="ds-section-title ds-group-title">Forms &amp; inputs</h2>
 
       <section id="forms" className="ds-section">
@@ -396,6 +477,31 @@ export default function ComponentsPage() {
             Expression
           </span>
           <span className="fe-tag-pill fe-tag-pill--music active">Music</span>
+        </div>
+        <p
+          className="ds-section-intro"
+          style={{ marginBlockStart: "var(--spacing-5)" }}
+        >
+          Focused: keyboard focus reuses each category&rsquo;s coloured fill
+          (shown statically here); on a real Tab the grey pill also carries the
+          gold <code className="ds-code">:focus-visible</code> ring.
+        </p>
+        <div
+          style={{ display: "flex", flexWrap: "wrap", gap: "var(--spacing-3)" }}
+        >
+          <span className="fe-tag-pill fe-tag-pill--balance is-focus">
+            Balance and Wellness
+          </span>
+          <span className="fe-tag-pill fe-tag-pill--movement is-focus">
+            Movement
+          </span>
+          <span className="fe-tag-pill fe-tag-pill--arts is-focus">
+            Arts and Crafts
+          </span>
+          <span className="fe-tag-pill fe-tag-pill--expression is-focus">
+            Expression
+          </span>
+          <span className="fe-tag-pill fe-tag-pill--music is-focus">Music</span>
         </div>
       </section>
 

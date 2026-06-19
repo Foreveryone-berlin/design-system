@@ -31,6 +31,10 @@ Which document governs which brand domain, and how the repo relates to each.
 | Print & physical (CMYK, print purple, document greys, cafe signs) | Brand Book p.16–17, 38 | `/print` page; print-namespaced tokens |
 | Contacts, permissions, versioning | Brand Book p.39–41 | `/governance`; `CHANGELOG.md` |
 
+## Re-audit status
+
+A full page-by-page re-audit of Brand Book v1.0 against the implemented pages and tokens is **pending the source file**: the PDF is not tracked in git (`*.pdf` gitignored), so it cannot be diffed in-repo. The authority matrix above reflects the v1.0 port done in 0.21.0, which mapped every domain (p.3 to 41). When the PDF is available locally, re-audit against this matrix and record any gaps here before the next release.
+
 ## Digital vs print boundary
 
 The Brand Book covers both digital and print. This repo is **digital-first**: print-only specifications (Young Serif typeface, CMYK values, the print purple substitute for Blue, document-chrome greys, mm sizes, cafe signs, Canva workflows) are documented on the `/print` page and namespaced in tokens (`color.print.*`, `color.doc.*`) so digital components never consume them. See the `/print` page and `tokens/colors.json` descriptions.
