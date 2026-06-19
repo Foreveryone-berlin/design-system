@@ -8,6 +8,14 @@
 
 ## [Unreleased]
 
+## [0.22.2] - 2026-06-19
+
+Small visual fixes after 0.22.1.
+
+- **Fix**: Space out the example header, shorten its menu and button labels, and keep each label on one line.
+- **Fix**: Give the search box the same focus style as the form inputs (an orange border and soft glow) instead of an outline ring.
+- **Fix**: Show the wave shapes larger, one per row, in soft neutral greys and light green.
+
 ## [0.22.1] - 2026-06-19
 
 Polish pass after the Clarity release: small fixes across search, navigation, and the brand assets.
