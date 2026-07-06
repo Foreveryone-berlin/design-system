@@ -2457,7 +2457,8 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
   }
 
   .vt-fade-in,
-  .fe-popup__content {
+  .fe-popup__content,
+  .ds-mobile-nav {
     animation: none;
   }
 

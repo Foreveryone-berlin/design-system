@@ -42,6 +42,11 @@ export default function HeaderDemo() {
   const [openSub, setOpenSub] = useState<string | null>(null);
   const [openSubMobile, setOpenSubMobile] = useState<string | null>(null);
   const desktopNavRef = useRef<HTMLElement>(null);
+  const menuBtnRef = useRef<HTMLButtonElement>(null);
+  const mobileNavRef = useRef<HTMLElement>(null);
+
+  const dropdownId = (href: string) =>
+    `fe-header-dropdown-${href.replace(/^#/, "")}`;
 
   // Close the desktop dropdown when clicking outside the nav. Attached only
   // while a dropdown is open, and after the opening click has completed, so it
@@ -54,9 +59,35 @@ export default function HeaderDemo() {
         setOpenSub(null);
       }
     };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenSub(null);
+    };
     document.addEventListener("click", handleDocumentClick);
-    return () => document.removeEventListener("click", handleDocumentClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("click", handleDocumentClick);
+      document.removeEventListener("keydown", onKey);
+    };
   }, [openSub]);
+
+  useEffect(() => {
+    if (menuOpen) {
+      mobileNavRef.current?.querySelector<HTMLElement>("a, button")?.focus();
+    }
+  }, [menuOpen]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        setOpenSubMobile(null);
+        menuBtnRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
 
   const toggleSub = (href: string) =>
     setOpenSub((prev) => (prev === href ? null : href));
@@ -85,6 +116,7 @@ export default function HeaderDemo() {
                   onClick={() => toggleSub(href)}
                   aria-expanded={openSub === href}
                   aria-haspopup="true"
+                  aria-controls={dropdownId(href)}
                 >
                   {label}
                   <svg
@@ -102,7 +134,11 @@ export default function HeaderDemo() {
                   </svg>
                 </button>
                 {openSub === href && (
-                  <div className="fe-header__dropdown">
+                  <div
+                    id={dropdownId(href)}
+                    className="fe-header__dropdown"
+                    role="menu"
+                  >
                     {children.map((child) => (
                       <a
                         key={child.href}
@@ -124,6 +160,7 @@ export default function HeaderDemo() {
         </nav>
         <div className="fe-header__actions">
           <button
+            ref={menuBtnRef}
             type="button"
             className={`fe-header__menu-btn${menuOpen ? " is-open" : ""}`}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -134,7 +171,7 @@ export default function HeaderDemo() {
               setOpenSubMobile(null);
             }}
           >
-            <span className="fe-hamburger">
+            <span className="fe-hamburger" aria-hidden="true">
               <span className="fe-hamburger__line" />
               <span className="fe-hamburger__line" />
               <span className="fe-hamburger__line" />
@@ -146,6 +183,7 @@ export default function HeaderDemo() {
         </div>
       </div>
       <nav
+        ref={mobileNavRef}
         id="fe-header-mobile-nav"
         className={`fe-header__mobile-nav${menuOpen ? " is-open" : ""}`}
         aria-label="Main"
@@ -160,6 +198,7 @@ export default function HeaderDemo() {
                   onClick={() => toggleSubMobile(href)}
                   aria-expanded={openSubMobile === href}
                   aria-haspopup="true"
+                  aria-controls={`${dropdownId(href)}-mobile`}
                 >
                   {label}
                   <svg
@@ -177,7 +216,10 @@ export default function HeaderDemo() {
                   </svg>
                 </button>
                 {openSubMobile === href && (
-                  <div className="fe-header__mobile-sub">
+                  <div
+                    id={`${dropdownId(href)}-mobile`}
+                    className="fe-header__mobile-sub"
+                  >
                     {children.map((child) => (
                       <a
                         key={child.href}
