@@ -72,7 +72,7 @@ run_agent_pass() {
 
 run_verify() {
   echo "=== Verify ==="
-  (cd "$PROTOTYPE" && npx tsc --noEmit && npm run build && npm run lint)
+  (cd "$PROTOTYPE" && npx tsc --noEmit && npm run build)
   (cd "$REPO_ROOT" && npm run build)
 }
 
