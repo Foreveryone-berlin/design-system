@@ -93,6 +93,7 @@ export default function Search({
         ref={inputRef}
         type="text"
         role="combobox"
+        aria-haspopup="listbox"
         aria-expanded={open && results.length > 0}
         aria-controls={listId}
         aria-autocomplete="list"

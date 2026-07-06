@@ -5,21 +5,24 @@ import {
   designSystemIntro,
 } from "@/content/site-copy";
 import packageJson from "@/package.json";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import StatCounter from "./_components/StatCounter";
+
+const StatCounter = dynamic(() => import("./_components/StatCounter"));
 
 export default function Home() {
   const version = packageJson.version;
+  const [headlineFirst, ...headlineRest] = heroCopy.headline.split(" ");
 
   return (
     <>
       <section className="ds-hero-with-image">
         <div>
           <h1 className="ds-hero-title">
-            {heroCopy.headline.split(" ")[0]}
+            {headlineFirst}
             <br />
-            {heroCopy.headline.split(" ").slice(1).join(" ")}
+            {headlineRest.join(" ")}
           </h1>
           <img
             src="/illustrations/headline-underline.svg"
@@ -38,7 +41,6 @@ export default function Home() {
             height={1094}
             priority
             sizes="(max-width: 1024px) 100vw, 320px"
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </div>
       </section>
