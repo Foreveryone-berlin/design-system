@@ -6,24 +6,57 @@ The blocks below are duplicated here so tools that only read repo-root `AGENTS.m
 still get the retrieval index and stack pin (see
 [Vercel: AGENTS.md vs skills](https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals)).
 
+**Maintenance:** When stack pins, commands, prototype baseline, or skill triggers change, update this file together with [CLAUDE.md](CLAUDE.md) and [.cursor/AGENTS.md](.cursor/AGENTS.md). See [docs/agents/agent-contract.md](docs/agents/agent-contract.md) (Cross-tool parity).
+
 ## What this repo is
 
-Design system for [foreveryone.berlin](https://foreveryone.berlin/) — WordPress + Elementor Pro + child theme + tokens and CSS **in this repo**. Figma = visual source of truth; this repo = implementation source of truth. Includes a **Next.js prototype** under `prototype/` (preview only).
+Design system for [foreveryone.berlin](https://foreveryone.berlin/) — WordPress + Elementor Pro + child theme on the live site; **this repo** holds tokens, CSS, Elementor/Figma docs, and a **Next.js prototype** (`prototype/`). Figma = visual source of truth; repo = implementation source of truth.
 
 ## Stack pin
 
 ```text
-[Stack] WordPress+Elementor (production site) | W3C DTCG tokens JSON | CSS var(--*) in authored layers | Next.js prototype
-[Mistakes] hand-edit custom-properties.css | raw hex/font in authored CSS | skip CHANGELOG on tokens/css changes | branch from `main` instead of `develop`
+Tokens|W3C DTCG JSON ($value, $type, $description) | refs {category.tier.variant}
+CSS|authored: var(--*) only | css/custom-properties.css GENERATED — edit tokens + build
+Classes|fe-* | Elementor bp: mobile <767 | tablet 768–1024 | desktop >1025
+Prototype|Next.js — see prototype/package.json
 ```
+
+Common mistakes:
+
+- Editing `css/custom-properties.css` by hand — run `node scripts/build-css.js` after token changes.
+- Hardcoding hex or `font-family` in authored CSS — use variables from `custom-properties.css`.
+- Skipping `CHANGELOG.md` when touching `tokens/` or implementation `css`.
 
 ## Commands (repo root unless noted)
 
 | Task | Command |
 | --- | --- |
-| Regenerate `css/custom-properties.css` from tokens | `node scripts/build-css.js` |
-| Prototype dev server | `cd prototype && npm install && npm run dev` |
-| Solo merge current branch to `develop` | `bash scripts/pr-and-merge.sh` |
+| Build CSS from tokens (repo root) | `node scripts/build-css.js` |
+| Build agent token spec (repo root) | `node scripts/build-spec.js` → `spec/tokens.json` |
+| Build both (CSS + spec) | `npm run build` |
+| Prototype dev | `cd prototype && npm install && npm run dev` |
+| Screenshot key pages at 3 breakpoints | `cd prototype && OUT_DIR=baseline BASE_URL=http://localhost:3100 node scripts/screenshot.mjs` |
+| Prototype e2e + axe (LOCAL, not prod) | with dev server up: `cd prototype && PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e` |
+| Solo PR + merge to `develop` | `bash scripts/pr-and-merge.sh` |
+| Ship a full release (develop→main→tag→Vercel) | `ship-release` skill (`.claude/skills/ship-release/`); triggers: "ship it", "cut release" |
+
+## Skills
+
+Skills live in `.claude/skills/`. Cursor IDE and CLI auto-load them (third-party skills compatibility). Triggers:
+
+- **ship-release** — "ship it", "cut release", "release X.Y.Z", "ship to main"
+- **optimize-prototype** — optimize, audit, or improve the prototype (performance, a11y, SEO, code quality)
+
+Manual workflow fallbacks: [docs/skills/](docs/skills/).
+
+## Prototype quality baseline
+
+Keep these conventions in `prototype/` when adding pages or components:
+
+- **Images:** raster images use `next/image` with explicit `width`/`height` (not `fill`). Inline SVGs stay as `<img>`.
+- **Accessibility:** global `:focus-visible` ring, `.ds-skip-link` → `#main-content`, `prefers-reduced-motion`. Icon-only buttons need `aria-label`; nav links set `aria-current="page"`; dialog via native `<dialog>` in `Popup`; hidden mobile-nav regions use `inert`.
+- **Metadata:** title template, canonical, OG/Twitter, Next 15 `viewport`. `robots: noindex, nofollow`; no sitemap.
+- **Verify visually:** screenshot with `OUT_DIR=baseline` / `OUT_DIR=after`, then diff. Full pass: `optimize-prototype` skill.
 
 ## Git and PR rules (summary)
 
@@ -43,6 +76,7 @@ Full detail: [docs/AGENTS.md](docs/AGENTS.md), [docs/agents/agent-contract.md](d
 | Runtime / risk policy | [docs/agents/runtime-policy.md](docs/agents/runtime-policy.md) |
 | Agent file map | [docs/agents/README.md](docs/agents/README.md) |
 | Cursor agent precedence shim | [.cursor/AGENTS.md](.cursor/AGENTS.md) |
+| Claude Code entry | [CLAUDE.md](CLAUDE.md) |
 | PR / merge workflow | [docs/pr-and-merge-workflow.md](docs/pr-and-merge-workflow.md) |
 | Token update skill | [docs/skills/token-update.md](docs/skills/token-update.md) |
 | Cursor path-scoped rules | [.cursor/rules/](.cursor/rules/) |
@@ -52,7 +86,7 @@ Full detail: [docs/AGENTS.md](docs/AGENTS.md), [docs/agents/agent-contract.md](d
 **IMPORTANT:** Prefer retrieval-led reasoning over pre-training-led reasoning for
 any design-system, token, CSS, Elementor, Figma, or prototype (Next.js) tasks. Use the index below to open the right files instead of guessing.
 
-**Coding agents:** [Cursor agent](https://docs.cursor.com/agent) reads this file plus [.cursor/AGENTS.md](.cursor/AGENTS.md) (precedence there) and auto-attaches [.cursor/rules/](.cursor/rules/) (`.mdc`) by path. [Claude Code](https://code.claude.com/docs) reads [CLAUDE.md](CLAUDE.md) and uses [.claude/rules/](.claude/rules/) (Markdown).
+**Coding agents:** [Cursor agent](https://docs.cursor.com/agent) reads this file plus [.cursor/AGENTS.md](.cursor/AGENTS.md) (precedence there) and auto-attaches [.cursor/rules/](.cursor/rules/) (`.mdc`) by path. [Cursor CLI](https://cursor.com/docs/cli/using) reads this file and [CLAUDE.md](CLAUDE.md) at the project root (not `.cursor/AGENTS.md`). [Claude Code](https://code.claude.com/docs) reads [CLAUDE.md](CLAUDE.md) and uses [.claude/rules/](.claude/rules/) (Markdown). Both tools auto-load skills from [.claude/skills/](.claude/skills/).
 
 ---
 
@@ -67,6 +101,8 @@ Paths are repo-relative from project root.
 |spec/components:{README.md,button.md,tag-pill.md,card.md,input.md,faq.md}
 |docs/decisions:{001-token-format.md}
 |docs/skills:{README.md,token-update.md,elementor-mapping.md,release.md}
+|claude:{rules/git.md,rules/general.md,rules/css.md,rules/tokens.md,skills/ship-release/SKILL.md,skills/optimize-prototype/SKILL.md}
+|cursor:{AGENTS.md,rules/git.mdc,rules/general.mdc,rules/css.mdc,rules/tokens.mdc}
 |elementor:{global-colors.md,global-fonts.md,custom-css-setup.md}
 |elementor/templates:{README.md}
 |figma:{sync-guide.md,token-export-instructions.md}
@@ -102,6 +138,6 @@ Paths are repo-relative from project root.
 
 **Git:** Branch from `develop` (not `main`). Conventional Commits. PRs use `.github/PULL_REQUEST_TEMPLATE.md`. Solo merge to develop: `bash scripts/pr-and-merge.sh` from repo root.
 
-**Workflows:** Token changes → `docs/skills/token-update.md`. Elementor sync → `docs/skills/elementor-mapping.md`. Release → `docs/skills/release.md`.
+**Workflows:** Token changes → `docs/skills/token-update.md`. Elementor sync → `docs/skills/elementor-mapping.md`. Release → `docs/skills/release.md` (automated via `ship-release` skill in `.claude/skills/ship-release/`; Cursor auto-loads). Prototype audit → `optimize-prototype` skill in `.claude/skills/optimize-prototype/`.
 
 **Prototype:** Next.js app under `prototype/` previews tokens/components; uses `app/globals.css` and design-system CSS patterns — consult `prototype/README.md` and match framework version in `prototype/package.json` when touching App Router/APIs.

@@ -2,7 +2,7 @@
 
 Ship a version from `develop` to `main` and tag it (e.g. v0.1.0).
 
-> **Automated path:** the `ship-release` Claude Code skill (`.claude/skills/ship-release/SKILL.md`) drives this whole flow end-to-end on a trigger phrase ("ship it", "cut release", "release X.Y.Z"). Deploy is by Vercel (push to `main`); `release.yml` only creates the GitHub Release from the tag. The manual steps below remain the fallback and the reference for what the skill does.
+> **Automated path:** the `ship-release` agent skill (`.claude/skills/ship-release/SKILL.md`; Cursor IDE and CLI auto-load from `.claude/skills/`) drives this whole flow end-to-end on a trigger phrase ("ship it", "cut release", "release X.Y.Z"). Deploy is by Vercel (push to `main`); `release.yml` only creates the GitHub Release from the tag. The manual steps below remain the fallback and the reference for what the skill does.
 
 ## Prerequisites
 
