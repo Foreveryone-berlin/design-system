@@ -4,7 +4,7 @@ Canonical narrative, documentation index, and domain rules for this repository.
 
 **Repo root [`AGENTS.md`](../AGENTS.md)** duplicates the retrieval index and condensed rules for tools that only read `AGENTS.md` at the repository root (see [Vercel: AGENTS.md vs skills](https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals)).
 
-**Coding agents:** [Cursor agent](https://docs.cursor.com/agent) loads repo guidance via root [`AGENTS.md`](../AGENTS.md) and [`.cursor/AGENTS.md`](../.cursor/AGENTS.md) (precedence there), and auto-attaches [`.cursor/rules/`](../.cursor/rules/) (`.mdc`) by path. [Claude Code](https://code.claude.com/docs) reads [`CLAUDE.md`](../CLAUDE.md) at session start and uses [`.claude/rules/`](../.claude/rules/) (Markdown). **Update this file** when changing shared narrative; then refresh the root mirror + `CLAUDE.md` "Key docs" / pins if needed.
+**Coding agents:** [Cursor agent](https://docs.cursor.com/agent) loads repo guidance via root [`AGENTS.md`](../AGENTS.md) and [`.cursor/AGENTS.md`](../.cursor/AGENTS.md) (precedence there), and auto-attaches [`.cursor/rules/`](../.cursor/rules/) (`.mdc`) by path. [Cursor CLI](https://cursor.com/docs/cli/using) reads root [`AGENTS.md`](../AGENTS.md) and [`CLAUDE.md`](../CLAUDE.md) plus [`.cursor/rules/`](../.cursor/rules/); it does not load `.cursor/AGENTS.md`. [Claude Code](https://code.claude.com/docs) reads [`CLAUDE.md`](../CLAUDE.md) at session start and uses [`.claude/rules/`](../.claude/rules/) (Markdown). Both Cursor and Claude auto-load project skills from [`.claude/skills/`](../.claude/skills/). **Update this file** when changing shared narrative; then refresh the root mirror, `CLAUDE.md`, and `.cursor/AGENTS.md` pins if needed (see [agents/agent-contract.md](agents/agent-contract.md) Cross-tool parity).
 
 Portable task contract: [agents/agent-contract.md](agents/agent-contract.md).
 
@@ -23,6 +23,8 @@ Paths are repo-relative from project root unless noted.
 |spec/components:{README.md,button.md,tag-pill.md,card.md,input.md,faq.md}
 |docs/decisions:{001-token-format.md}
 |docs/skills:{README.md,token-update.md,elementor-mapping.md,release.md}
+|claude:{rules/git.md,rules/general.md,rules/css.md,rules/tokens.md,skills/ship-release/SKILL.md,skills/optimize-prototype/SKILL.md}
+|cursor:{AGENTS.md,rules/git.mdc,rules/general.mdc,rules/css.mdc,rules/tokens.mdc}
 |elementor:{global-colors.md,global-fonts.md,custom-css-setup.md}
 |elementor/templates:{README.md}
 |figma:{sync-guide.md,token-export-instructions.md}
@@ -49,7 +51,9 @@ Paths are repo-relative from project root unless noted.
 | Build both (CSS + spec) | `npm run build` (repo root) |
 | Prototype dev server | `cd prototype && npm install && npm run dev` |
 | Prototype e2e + axe (against LOCAL, not prod) | `cd prototype` then with the dev server up: `PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e` |
+| Screenshot key pages at 3 breakpoints | `cd prototype && OUT_DIR=baseline BASE_URL=http://localhost:3100 node scripts/screenshot.mjs` |
 | Solo merge current branch to `develop` (PR + merge via `gh`) | `bash scripts/pr-and-merge.sh` (repo root) |
+| Ship a full release (develop→main→tag→Vercel) | `ship-release` skill (`.claude/skills/ship-release/`); triggers: "ship it", "cut release" |
 
 ---
 
@@ -71,6 +75,6 @@ Paths are repo-relative from project root unless noted.
 
 **Git:** Branch from `develop` (not `main`). Conventional Commits. PRs use `.github/PULL_REQUEST_TEMPLATE.md`. Solo merge to develop: `bash scripts/pr-and-merge.sh` from repo root. Detail: `docs/pr-and-merge-workflow.md`.
 
-**Workflows:** Token changes → `docs/skills/token-update.md`. Elementor sync → `docs/skills/elementor-mapping.md`. Release → `docs/skills/release.md` (automated end-to-end via the `ship-release` skill, `.claude/skills/ship-release/`; deploy is Vercel on push to `main`, `release.yml` only creates the GitHub Release).
+**Workflows:** Token changes → `docs/skills/token-update.md`. Elementor sync → `docs/skills/elementor-mapping.md`. Release → `docs/skills/release.md` (automated end-to-end via the `ship-release` skill, `.claude/skills/ship-release/`; Cursor and Claude auto-load; deploy is Vercel on push to `main`, `release.yml` only creates the GitHub Release). Prototype audit → `optimize-prototype` skill (`.claude/skills/optimize-prototype/`).
 
 **Prototype:** Next.js app under `prototype/` previews tokens/components; uses `app/globals.css` and design-system CSS patterns — consult `prototype/README.md` and match framework version in `prototype/package.json` when touching App Router/APIs.

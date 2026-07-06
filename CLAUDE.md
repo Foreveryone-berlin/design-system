@@ -2,7 +2,7 @@
 
 Focused entry for [Claude Code](https://code.claude.com/docs). Full index and rules: **[docs/AGENTS.md](docs/AGENTS.md)**. Do not duplicate long indexes here—read that file for retrieval paths.
 
-**Maintenance:** When stack pins, commands, or git summary change, update **both** this file and the matching sections in [docs/AGENTS.md](docs/AGENTS.md) / root [AGENTS.md](AGENTS.md) as needed.
+**Maintenance:** When stack pins, commands, or git summary change, update **this file**, root [AGENTS.md](AGENTS.md), and [.cursor/AGENTS.md](.cursor/AGENTS.md), plus matching sections in [docs/AGENTS.md](docs/AGENTS.md) as needed.
 
 ## What this repo is
 
@@ -35,6 +35,8 @@ Common mistakes:
 | Prototype e2e + axe (LOCAL, not prod) | with dev server up: `cd prototype && PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e` |
 | Solo PR + merge to `develop` | `bash scripts/pr-and-merge.sh` |
 | Ship a full release (develop→main→tag→Vercel) | `ship-release` skill (`.claude/skills/ship-release/`); triggers: "ship it", "cut release" |
+
+Cursor IDE and CLI auto-load project skills from `.claude/skills/`.
 
 ## Prototype quality baseline
 
