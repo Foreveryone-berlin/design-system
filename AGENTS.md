@@ -56,7 +56,7 @@ Keep these conventions in `prototype/` when adding pages or components:
 - **Images:** raster images use `next/image` with explicit `width`/`height` (not `fill`). Inline SVGs stay as `<img>`.
 - **Accessibility:** global `:focus-visible` ring, `.ds-skip-link` → `#main-content`, `prefers-reduced-motion`. Icon-only buttons need `aria-label`; nav links set `aria-current="page"`; dialog via native `<dialog>` in `Popup`; hidden mobile-nav regions use `inert`.
 - **Metadata:** title template, canonical, OG/Twitter, Next 15 `viewport`. `robots: noindex, nofollow`; no sitemap.
-- **Verify visually:** screenshot with `OUT_DIR=baseline` / `OUT_DIR=after`, then diff. Full pass: `optimize-prototype` skill.
+- **Verify visually:** screenshot with `OUT_DIR=baseline` / `OUT_DIR=after`, then diff. CLI: `bash scripts/optimize-run.sh`. Full pass: `optimize-prototype` skill.
 
 ## Git and PR rules (summary)
 
