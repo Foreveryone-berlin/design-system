@@ -8,7 +8,7 @@
 
 ## [Unreleased]
 
-## [0.24.0] - Unreleased
+## [0.24.0] - 2026-07-06
 
 Agent parity: Cursor IDE, Cursor CLI, and Claude Code share the same instructions.
 
