@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+- **Behind the scenes:** Add Cursor CLI `optimize-run.sh` and domain prompt files for sequential prototype audits.
+- **Behind the scenes:** Dual-runtime optimize skill (CLI sequential agent passes or IDE Task fan-out).
+- **Docs:** Cursor CLI section in agent contract and playbook cross-links.
+
 ## [0.24.0] - 2026-07-06
 
 Agent parity: Cursor IDE, Cursor CLI, and Claude Code share the same instructions.

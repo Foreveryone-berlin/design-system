@@ -53,3 +53,10 @@ Optional sanity check before merge: compare substantive sections of `CLAUDE.md` 
 Tool loading matrix: [README.md](README.md).
 
 Keep root `AGENTS.md`, `CLAUDE.md`, `.cursor/AGENTS.md` pins, and this contract aligned when you change team-wide behavior.
+
+## Cursor CLI
+
+- **Model:** Composer 2.5 standard (`maxMode: false` via dotfiles defaults).
+- **Context:** loads root `AGENTS.md` + `.cursor/AGENTS.md` + project skills from `.claude/skills/`.
+- **Headless:** `agent -p --force` from repo root; long jobs use `bash scripts/optimize-run.sh` (sequential optimize domains) or repo-specific `*-fanout.sh` when file ownership overlaps.
+- **Autonomous jobs:** see dotfiles `docs/cursor-cli-playbook.md` for job-scoped merge/deploy rules.
