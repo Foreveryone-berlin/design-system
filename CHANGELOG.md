@@ -8,7 +8,14 @@
 
 ## [Unreleased]
 
-## [0.24.1] - 2026-07-06
+## [0.24.2] - 2026-07-06
+
+Prototype accessibility polish from the CLI optimize pass.
+
+- **Accessibility:** Improve header demo keyboard support, focus management, and ARIA for menus and search.
+- **Accessibility:** Fix on-this-page current-section indication for screen readers.
+- **Accessibility:** Respect reduced-motion for mobile navigation animation.
+
 
 Cursor CLI can run prototype optimize passes from the terminal.
 
