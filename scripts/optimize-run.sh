@@ -15,6 +15,14 @@ SKIP_BASELINE=0
 PROMPTS_ONLY=0
 DIMENSION=""
 DEV_PID=""
+AGENT_BIN="${AGENT_BIN:-agent}"
+if ! command -v "$AGENT_BIN" >/dev/null 2>&1; then
+  if [[ -n "${LOCALAPPDATA:-}" && -f "${LOCALAPPDATA}/cursor-agent/agent.cmd" ]]; then
+    AGENT_BIN="${LOCALAPPDATA}/cursor-agent/agent.cmd"
+  elif [[ -f "$HOME/AppData/Local/cursor-agent/agent.cmd" ]]; then
+    AGENT_BIN="$HOME/AppData/Local/cursor-agent/agent.cmd"
+  fi
+fi
 
 for arg in "$@"; do
   case "$arg" in
@@ -58,7 +66,7 @@ run_agent_pass() {
   echo "=== Agent pass: $domain ==="
   local text
   text="$(cat "$prompt")"
-  agent -p --force "$text"
+  "$AGENT_BIN" -p --force "$text"
 }
 
 run_verify() {
@@ -95,7 +103,7 @@ while read -r domain; do
 done < <(domains_to_run)
 
 echo "=== Integration pass (orchestrator) ==="
-agent -p --force "In $REPO_ROOT/prototype, wire cross-file handoffs from the optimize skill step 3 (skip-link in layout + globals.css, image sizing handoffs). Run npx tsc --noEmit in prototype/. Do not commit."
+"$AGENT_BIN" -p --force "In $REPO_ROOT/prototype, wire cross-file handoffs from the optimize skill step 3 (skip-link in layout + globals.css, image sizing handoffs). Run npx tsc --noEmit in prototype/. Do not commit."
 
 run_verify
 run_after_shots
