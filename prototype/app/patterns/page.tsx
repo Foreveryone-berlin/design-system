@@ -106,12 +106,12 @@ export default function PatternsPage() {
         <footer className="fe-footer">
           <div className="fe-footer__inner">
             <p className="fe-footer__brand">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/images/foreveryone-logo.png"
                 alt="ForEveryone"
                 width={175}
                 height={32}
+                sizes="175px"
               />
             </p>
             <div className="fe-footer__grid">
@@ -176,7 +176,6 @@ export default function PatternsPage() {
               width={360}
               height={225}
               sizes="360px"
-              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
             />
             <span className="fe-card-badge">2 free spots</span>
             <span className="fe-card-category">
@@ -233,7 +232,6 @@ export default function PatternsPage() {
                   width={360}
                   height={200}
                   sizes="(max-width: 768px) 100vw, 320px"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
                 <span className="fe-card-badge">{w.spots}</span>
                 <span className="fe-card-category">
