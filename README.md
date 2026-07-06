@@ -58,6 +58,8 @@ foreveryone-design-system/
 ├── docs/            # Guides, ADRs, agent contracts
 │   ├── AGENTS.md    #   ↳ full docs index + domain rules
 │   └── skills/      #   ↳ repeatable workflows (tokens, releases)
+├── .cursor/         # Cursor agent (AGENTS.md + path-scoped rules)
+├── .claude/         # Claude Code (rules + project skills)
 ├── AGENTS.md        # Repo-root mirror of docs/AGENTS.md
 ├── CLAUDE.md        # Claude Code session entry
 └── CHANGELOG.md
@@ -85,9 +87,11 @@ foreveryone-design-system/
 ## AI coding assistants
 
 - **Canonical context:** [`docs/AGENTS.md`](docs/AGENTS.md) (full documentation index + domain rules).
-- **Repo-root mirror:** [`AGENTS.md`](AGENTS.md) for tools that only auto-load root-level `AGENTS.md`.
-- **Cursor:** [`.cursor/AGENTS.md`](.cursor/AGENTS.md) + path-scoped rules in [`.cursor/rules/`](.cursor/rules/).
+- **Repo-root mirror:** [`AGENTS.md`](AGENTS.md) for tools that only auto-load root-level `AGENTS.md` (including Cursor CLI).
+- **Cursor IDE:** [`.cursor/AGENTS.md`](.cursor/AGENTS.md) + path-scoped rules in [`.cursor/rules/`](.cursor/rules/).
+- **Cursor CLI:** [`AGENTS.md`](AGENTS.md) + [`CLAUDE.md`](CLAUDE.md) + [`.cursor/rules/`](.cursor/rules/) (does not read `.cursor/AGENTS.md`).
 - **Claude Code:** [`CLAUDE.md`](CLAUDE.md) + path-scoped rules in [`.claude/rules/`](.claude/rules/).
+- **Project skills (both tools):** [`.claude/skills/`](.claude/skills/) (`ship-release`, `optimize-prototype`); Cursor auto-loads from this folder.
 - **Agent contract + runtime policy:** [`docs/agents/`](docs/agents/).
 - **Repeatable workflows:** [`docs/skills/`](docs/skills/).
 

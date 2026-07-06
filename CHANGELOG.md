@@ -8,6 +8,14 @@
 
 ## [Unreleased]
 
+## [0.24.0] - 2026-07-06
+
+Agent parity: Cursor IDE, Cursor CLI, and Claude Code share the same instructions.
+
+- **Behind the scenes:** Align Cursor and Claude agent instructions so both tools get the same commands, quality rules, and release workflows.
+- **Behind the scenes:** Document that Cursor picks up project skills from the same folder as Claude Code.
+- **Docs:** Add a cross-tool maintenance checklist so agent files stay in sync.
+
 ## [0.23.0] - 2026-06-19
 
 A fidelity pass bringing the prototype closer to Brand Book v1.0.
