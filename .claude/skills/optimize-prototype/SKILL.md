@@ -16,6 +16,11 @@ The user wants to optimize/audit the prototype for performance, accessibility, S
 - Never use the em-dash character (U+2014), in prose, code, comments, or strings. Use comma, colon, or semicolon.
 - No "Generated with Claude" attribution or co-author trailers.
 - Do not commit, push, or branch unless the user explicitly asks; leave changes uncommitted for review.
+
+### Job-scope override (autonomous jobs)
+
+When executing the **Cursor CLI Opus replacement** job (dotfiles `docs/cursor-cli-playbook.md`), the orchestrator may commit, push, and open PRs. Interactive sessions keep the rule above.
+
 - Authored CSS uses `var(--token)` custom properties only (no raw hex or font-family), logical properties, mobile-first min-width, no `!important`. `css/custom-properties.css` is generated; never hand-edit it.
 - The prototype is intentionally `robots: noindex, nofollow`; keep it that way and do not add a sitemap.
 
@@ -35,12 +40,11 @@ OUT_DIR=baseline BASE_URL=http://localhost:3100 node scripts/screenshot.mjs
 
 ### 2. Run four audit+fix agents IN PARALLEL with disjoint file ownership
 
-Launch all four in a single message (general-purpose subagents). Parallel edits are only safe because each agent owns a non-overlapping file set. Tell every agent: edit only your files; report (do not fix) issues in other files; a shared dev server is on :3100, do not start another; run `npx tsc --noEmit` and fix only type errors in your own files. Skip a dimension the user did not ask for.
+**CLI (headless):** run `bash scripts/optimize-run.sh` from repo root (sequential four `agent -p --force` passes using `scripts/optimize-prompts/`). Flags: `--skip-baseline`, `--dimension perf|a11y|seo|cleanup`, `--prompts-only`.
 
-- **Performance/build** owns: `next.config.ts`, `app/page.tsx`, `app/tokens/page.tsx`, `app/components/page.tsx`, `app/patterns/page.tsx`, `app/FaqDemo.tsx`. Focus: `next/image` with explicit `width`/`height` (not `fill`, the wrappers have no fixed height), CLS, unneeded `"use client"`, bundle, safe `next.config` options only.
-- **Accessibility** owns: `app/_components/**`, `app/globals.css`. Focus: accessible names, `aria-current`, native `<dialog>` semantics + focus return, `inert` for hidden regions, `:focus-visible` ring, `.ds-skip-link`, `prefers-reduced-motion`.
-- **SEO** owns: `app/layout.tsx`, `public/robots.txt`, new `app/manifest.ts`, optional `app/sitemap.ts`. Focus: title template, canonical, OG/Twitter, Next 15 `export const viewport` (theme-color), manifest. Keep noindex; do not add a sitemap.
-- **Code quality** owns: `content/site-copy.ts`, `tsconfig.json`, `package.json`, ESLint config. Focus: remove genuinely unused exports (grep first), tighten types, lint/tsc hygiene. Do not add/remove deps or bump versions.
+**IDE (Cursor agent mode):** launch all four in a single message (general-purpose `Task` subagents). Parallel edits are only safe because each agent owns a non-overlapping file set. Tell every agent: edit only your files; report (do not fix) issues in other files; a shared dev server is on :3100, do not start another; run `npx tsc --noEmit` and fix only type errors in your own files. Skip a dimension the user did not ask for.
+
+Prompt files: `scripts/optimize-prompts/{perf,a11y,seo,cleanup}.md`.
 
 ### 3. Integrate cross-file handoffs (orchestrator, after agents return)
 
