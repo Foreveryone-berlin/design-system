@@ -84,7 +84,7 @@ export default function OnThisPage() {
                 className={`ds-on-this-page__link${
                   activeId === h.id ? " is-active" : ""
                 }`}
-                aria-current={activeId === h.id ? "page" : undefined}
+                aria-current={activeId === h.id ? "true" : undefined}
                 onClick={() => handleClick(h.id)}
               >
                 {h.text}
