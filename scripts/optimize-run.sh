@@ -24,12 +24,13 @@ if ! command -v "$AGENT_BIN" >/dev/null 2>&1; then
   fi
 fi
 
-for arg in "$@"; do
-  case "$arg" in
-    --skip-baseline) SKIP_BASELINE=1 ;;
-    --prompts-only) PROMPTS_ONLY=1 ;;
-    --dimension) shift; DIMENSION="${1:-}" ;;
-    --dimension=*) DIMENSION="${arg#*=}" ;;
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --skip-baseline) SKIP_BASELINE=1; shift ;;
+    --prompts-only) PROMPTS_ONLY=1; shift ;;
+    --dimension) DIMENSION="${2:-}"; shift 2 ;;
+    --dimension=*) DIMENSION="${1#*=}"; shift ;;
+    *) shift ;;
   esac
 done
 

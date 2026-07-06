@@ -14,7 +14,7 @@ Audit and fix performance in `prototype/`. Read repo `AGENTS.md`, `CLAUDE.md`, a
 
 ## Owns
 
-`prototype/next.config.ts`, `prototype/app/page.tsx`, `prototype/app/tokens/page.tsx`, `prototype/app/components/page.tsx`, `prototype/app/patterns/page.tsx`, `prototype/app/FaqDemo.tsx`.
+`prototype/next.config.ts`, `prototype/app/page.tsx`, `prototype/app/foundations/page.tsx`, `prototype/app/components/page.tsx`, `prototype/app/patterns/page.tsx`, `prototype/app/FaqDemo.tsx`.
 
 ## Focus
 
