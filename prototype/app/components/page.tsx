@@ -1,7 +1,9 @@
 import type { ReactNode } from "react";
-import FaqDemo from "../FaqDemo";
+import dynamic from "next/dynamic";
 import TestimonialCard from "../_components/TestimonialCard";
-import Popup from "../_components/Popup";
+
+const FaqDemo = dynamic(() => import("../FaqDemo"));
+const Popup = dynamic(() => import("../_components/Popup"));
 
 // Functional UI glyphs from the Figma icon set, inline so they inherit
 // currentColor and the 24x24 / stroke-2 geometry used across the system.
