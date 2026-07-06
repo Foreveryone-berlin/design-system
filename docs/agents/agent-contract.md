@@ -40,4 +40,16 @@ Portable rules for AI agents (Cursor agent, Claude Code, and similar). Cursor pa
 - **Claude Code:** [`CLAUDE.md`](../../CLAUDE.md).
 - **Cursor agent layering:** [`.cursor/AGENTS.md`](../../.cursor/AGENTS.md) (with path-scoped reminders in [`.cursor/rules/`](../../.cursor/rules/)).
 
-Keep root `AGENTS.md`, `CLAUDE.md` pins, and this contract aligned when you change team-wide behavior.
+### Cross-tool parity
+
+When changing team-wide agent behavior, keep these surfaces aligned in the same PR:
+
+- **Commands, stack pin, prototype baseline, skill triggers:** [`docs/AGENTS.md`](../AGENTS.md), root [`AGENTS.md`](../../AGENTS.md), [`CLAUDE.md`](../../CLAUDE.md), [`.cursor/AGENTS.md`](../../.cursor/AGENTS.md).
+- **Path-scoped rules:** [`.cursor/rules/*.mdc`](../../.cursor/rules/) **and** [`.claude/rules/*.md`](../../.claude/rules/) (each `.md` file notes its `.mdc` mirror).
+- **Skills:** edit [`.claude/skills/<name>/SKILL.md`](../../.claude/skills/) only; Cursor IDE and CLI auto-load from there. No `.cursor/skills/` copy.
+
+Optional sanity check before merge: compare substantive sections of `CLAUDE.md` and `.cursor/AGENTS.md` (excluding the Cursor precedence block).
+
+Tool loading matrix: [README.md](README.md).
+
+Keep root `AGENTS.md`, `CLAUDE.md`, `.cursor/AGENTS.md` pins, and this contract aligned when you change team-wide behavior.
