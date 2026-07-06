@@ -1399,6 +1399,7 @@ a.ds-btn {
   }
 }
 .ds-hero-image-wrap {
+  aspect-ratio: 1090 / 1094;
   border-radius: var(--radius-xl);
   overflow: hidden;
   max-width: 320px;
@@ -2456,7 +2457,8 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
   }
 
   .vt-fade-in,
-  .fe-popup__content {
+  .fe-popup__content,
+  .ds-mobile-nav {
     animation: none;
   }
 
