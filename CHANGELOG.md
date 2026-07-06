@@ -8,7 +8,11 @@
 
 ## [Unreleased]
 
-- **Behind the scenes:** Add Cursor CLI `optimize-run.sh` and domain prompt files for sequential prototype audits.
+## [0.24.1] - 2026-07-06
+
+Cursor CLI can run prototype optimize passes from the terminal.
+
+- **Behind the scenes:** Add Cursor CLI optimize-run.sh and domain prompt files for sequential prototype audits.
 - **Behind the scenes:** Dual-runtime optimize skill (CLI sequential agent passes or IDE Task fan-out).
 - **Docs:** Cursor CLI section in agent contract and playbook cross-links.
 
