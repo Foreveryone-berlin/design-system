@@ -8,28 +8,36 @@
 
 ## [Unreleased]
 
+## [0.24.3] - 2026-07-08
+
+Tidy the repository README.
+
+- Remove the brand-representation diagram so the page opens with the hero and live preview link.
+- **Behind the scenes**: Update prototype dependencies within their current major versions.
+
 ## [0.24.2] - 2026-07-06
 
 Prototype accessibility polish from the CLI optimize pass.
 
-- **Accessibility:** Improve header demo keyboard support, focus management, and ARIA for menus and search.
-- **Accessibility:** Fix on-this-page current-section indication for screen readers.
-- **Accessibility:** Respect reduced-motion for mobile navigation animation.
+- **Fix**: Improve header demo keyboard support, focus management, and ARIA for menus and search.
+- **Fix**: Fix on-this-page current-section indication for screen readers.
+- **Fix**: Respect reduced-motion for mobile navigation animation.
 
+## [0.24.1] - 2026-07-06
 
 Cursor CLI can run prototype optimize passes from the terminal.
 
-- **Behind the scenes:** Add Cursor CLI optimize-run.sh and domain prompt files for sequential prototype audits.
-- **Behind the scenes:** Dual-runtime optimize skill (CLI sequential agent passes or IDE Task fan-out).
-- **Docs:** Cursor CLI section in agent contract and playbook cross-links.
+- **Behind the scenes**: Add Cursor CLI optimize-run.sh and domain prompt files for sequential prototype audits.
+- **Behind the scenes**: Add a dual-runtime optimize skill (CLI sequential agent passes or IDE Task fan-out).
+- **Docs**: Add a Cursor CLI section to the agent contract and playbook cross-links.
 
 ## [0.24.0] - 2026-07-06
 
 Agent parity: Cursor IDE, Cursor CLI, and Claude Code share the same instructions.
 
-- **Behind the scenes:** Align Cursor and Claude agent instructions so both tools get the same commands, quality rules, and release workflows.
-- **Behind the scenes:** Document that Cursor picks up project skills from the same folder as Claude Code.
-- **Docs:** Add a cross-tool maintenance checklist so agent files stay in sync.
+- **Behind the scenes**: Align Cursor and Claude agent instructions so both tools get the same commands, quality rules, and release workflows.
+- **Behind the scenes**: Document that Cursor picks up project skills from the same folder as Claude Code.
+- **Docs**: Add a cross-tool maintenance checklist so agent files stay in sync.
 
 ## [0.23.0] - 2026-06-19
 
