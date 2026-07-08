@@ -6,8 +6,6 @@ This is the shared look and feel for [foreveryone.berlin](https://foreveryone.be
 
 You can see it all in action on the live preview: **[design.foreveryone.berlin](https://design.foreveryone.berlin)**
 
-![How to represent us: brand-name, cafe, social-media, and UK-English spelling rules.](how-to-represent-us.png)
-
 ## For developers
 
 Technical detail; non-developers can skip this.
