@@ -1,86 +1,78 @@
-/* Primary Button */
+/* Primary Button
+   Brand Book v1.0: orange is decorative-only; primary CTA pairs
+   Soft Lavender background + Charcoal text + decorative orange border. */
 .fe-btn-primary {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-2);
   padding: var(--spacing-3) var(--spacing-6);
-  background-color: var(--color-brand-secondary);
-  color: var(--color-white);
+  background-color: var(--color-background-soft);
+  color: var(--color-brand-dark);
   font-family: var(--font-family-body);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-normal);
-  border: 2px solid transparent;
+  border: 2px solid var(--color-accent-border);
   border-radius: var(--radius-pill);
   cursor: pointer;
   transition:
     background-color var(--transition-base),
+    border-color var(--transition-fast),
     transform var(--transition-fast);
   text-decoration: none;
 }
 .fe-btn-primary:hover,
 .fe-btn-primary.is-hover {
-  background-color: var(--color-brand-primary);
+  background-color: var(--color-light-purple);
+  border-color: var(--color-focus-button);
 }
-/* Focused/pressed fill (matches the style guide). Keyboard focus reuses this
-   fill instead of a gold ring; .is-focus is the static demo of the same fill. */
 .fe-btn-primary:active,
-.fe-btn-primary:focus-visible,
 .fe-btn-primary.is-focus {
-  background-color: var(--color-focus-button);
+  background-color: var(--color-light-purple);
+  border-color: var(--color-focus-button);
 }
 .fe-btn-primary:focus {
   outline: none;
 }
 .fe-btn-primary:disabled,
 .fe-btn-primary.is-disabled {
-  background-color: var(--color-light-purple);
-  color: var(--color-white);
-  opacity: 1;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
-/* Secondary / Outline Button — indigo outline per the style guide. */
+/* Secondary Button — orange outline per Brand Book decorative border rule. */
 .fe-btn-secondary {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-2);
   padding: var(--spacing-3) var(--spacing-6);
   background-color: transparent;
-  color: var(--color-brand-secondary);
+  color: var(--color-brand-primary);
   font-family: var(--font-family-body);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
-  border: 2px solid var(--color-brand-secondary);
+  border: 2px solid var(--color-brand-primary);
   border-radius: var(--radius-pill);
   cursor: pointer;
   transition:
     background-color var(--transition-base),
-    border-color var(--transition-base),
     color var(--transition-base);
   text-decoration: none;
 }
 .fe-btn-secondary:hover,
 .fe-btn-secondary.is-hover {
-  background-color: var(--color-brand-primary);
-  border-color: var(--color-brand-primary);
-  color: var(--color-white);
+  background-color: var(--color-light-orange);
 }
 .fe-btn-secondary:active,
-.fe-btn-secondary:focus-visible,
 .fe-btn-secondary.is-focus {
-  background-color: var(--color-focus-button);
-  border-color: var(--color-focus-button);
-  color: var(--color-white);
+  background-color: var(--color-light-orange);
 }
 .fe-btn-secondary:focus {
   outline: none;
 }
 .fe-btn-secondary:disabled,
 .fe-btn-secondary.is-disabled {
-  background-color: transparent;
-  border-color: var(--color-light-purple);
-  color: var(--color-light-purple);
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
@@ -232,8 +224,8 @@
   border-color: var(--color-background-title);
 }
 /* Category variants — grey at rest (base above); colour on hover/active.
-   Five workshop categories per the 2026 Color Guidelines. Charcoal labels on
-   light fills (AA); white on the indigo Music fill. */
+   Five workshop categories; Charcoal labels on light fills. Music uses pink
+   (not alert blue). Full mapping pending brand-book category-colour rules. */
 .fe-tag-pill--balance.active,
 .fe-tag-pill--balance:hover {
   background-color: var(--color-green-500);
@@ -260,9 +252,9 @@
 }
 .fe-tag-pill--music.active,
 .fe-tag-pill--music:hover {
-  background-color: var(--color-blue-500);
-  color: var(--color-white);
-  border-color: var(--color-blue-500);
+  background-color: var(--color-pink);
+  color: var(--color-brand-dark);
+  border-color: var(--color-pink);
 }
 /* Static "Focused" specimens reuse each category's coloured fill (no ring). */
 .fe-tag-pill--balance.is-focus {
@@ -282,9 +274,9 @@
   border-color: var(--color-light-orange);
 }
 .fe-tag-pill--music.is-focus {
-  background-color: var(--color-blue-500);
-  border-color: var(--color-blue-500);
-  color: var(--color-white);
+  background-color: var(--color-pink);
+  border-color: var(--color-pink);
+  color: var(--color-brand-dark);
 }
 
 /* Workshop Card */
