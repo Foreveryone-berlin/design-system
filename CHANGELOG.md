@@ -8,6 +8,16 @@
 
 ## [Unreleased]
 
+## [0.25.0] - 2026-07-13
+
+Align pill buttons and category tags with the Brand Book after design review.
+
+- **Fix**: Restore the primary action button to Soft Lavender with Charcoal text and an orange border, instead of orange or blue fills with white text.
+- **Fix**: Restore the secondary outline button to the orange-border style with a light hover tint, without solid orange fills behind white text.
+- **Fix**: Change the Music category tag to pink with Charcoal text so alert blue is reserved for announcements only.
+- **Docs**: Document the category-tag colour mapping and note that interactive-state rules are still pending a future brand-book update.
+- **Behind the scenes**: Mirror the corrected button styles on the prototype demo controls so the Components page matches the shipped CSS.
+
 ## [0.24.3] - 2026-07-08
 
 Tidy the repository README.
