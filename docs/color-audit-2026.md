@@ -7,7 +7,7 @@ Official **7-color brand table** cross-checked against [`tokens/colors.json`](..
 ## Phase 0 decisions (implementation authority)
 
 1. **Scope:** The seven swatches are the **canonical brand colors** for hex alignment. **Legacy** tokens (pink, teal, purple, decorative theme blues/greys, `focus-button`, `light-orange`, etc.) **remain** for Elementor slots and existing utilities until a separate deprecation pass; they are **not** in the 7-color table.
-2. **Orange (`#FF7A3A`):** Brand guide calls for decorative-only use in some media; **web / Elementor** continues to use the same orange as **primary CTA** (`color.brand-primary`). Descriptions document both: primary actions on site vs. print/slide constraints from brand PDF.
+2. **Orange (`#FF7A3A`):** Decorative-only per Brand Book v1.0. **Web primary text buttons** use Soft Lavender + Charcoal + orange border (`.fe-btn-primary`, restored in 0.25.0 after a 0.19–0.24 regression). Orange remains for icon fills, borders, and accents.
 3. **Figma:** Assume Figma variables match this table; repo values were updated to the guide hexes below. Reconcile in Figma if any path still differs.
 
 ## Palette vs tokens (matrix)
@@ -37,7 +37,7 @@ Official **7-color brand table** cross-checked against [`tokens/colors.json`](..
 
 - Charcoal text on warm white, lime, soft lavender backgrounds.
 - White (`#FFF`) on Blue for alerts/special panels.
-- **Orange is decorative only as of May 2026.** Orange-as-background with white text is now disallowed; previous primary CTA style is replaced in 0.12.0 (Soft Lavender bg + Charcoal text + orange border).
+- **Orange is decorative only as of May 2026.** Orange-as-background with white text is disallowed; primary CTA style is Soft Lavender bg + Charcoal text + orange border (0.12.0; restored 0.25.0). Category tag Music uses pink, not alert blue.
 
 ## Approved background ⇄ text combinations
 

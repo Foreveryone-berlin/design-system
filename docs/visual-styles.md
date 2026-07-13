@@ -34,6 +34,10 @@ Per Brand Book v1.0 p.24, workshop categories use a fixed, **filled solid** oran
 
 The five filled SVGs ship in `prototype/public/icons/categories/` and `CategoryIcon` maps these five canonical names. Legacy names (`painting`, `pottery`, `wellness`, `language`) remain as **aliases** mapping onto the canonical glyphs so existing usages and live content keep working.
 
+### Category tag colours (hover / active)
+
+The brand book defines five categories but not per-category chroma. The repo maps each `.fe-tag-pill--*` modifier to a distinct decorative tint on hover/active (Charcoal labels throughout). Alert blue is **not** used. See [`spec/components/tag-pill.md`](../spec/components/tag-pill.md) for the token table. Official category-colour rules are pending a future brand-book revision.
+
 ### UI / functional icons
 
 Beyond categories, the system uses a small set of UI glyphs (seen in the brand guidelines and style guide). Document and ship these as `currentColor` SVGs so they inherit control colour:
