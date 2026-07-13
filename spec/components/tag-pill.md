@@ -12,6 +12,22 @@
 | Expression | `.fe-tag-pill--expression` |
 | Music | `.fe-tag-pill--music` |
 
+## Category colour on hover / active
+
+Grey at rest; each modifier takes its fill on **hover** and when **active**
+(selected). All use Charcoal labels except where noted. Mapping is an
+implementation gap-fill until brand-book category-colour rules exist.
+
+| Category | Token / colour | Label |
+|---|---|---|
+| Balance and Wellness | `--color-green-500` (Lime) | Charcoal |
+| Movement | `--color-orange-300` (Peach) | Charcoal |
+| Arts and Crafts | `--color-lavender-500` | Charcoal |
+| Expression | `--color-light-orange` | Charcoal |
+| Music | `--color-pink` | Charcoal |
+
+Alert blue (`--color-blue-500`) is reserved for announcements only, not category tags.
+
 ## Anatomy
 
 A pill control labelling a workshop category. May pair with a filled workshop
@@ -29,6 +45,7 @@ focus-visible ring.
 
 - Do: always show the category label text alongside the icon.
 - Do: use the canonical five categories.
+- Don't: use alert blue for a category tag.
 - Don't: use a workshop icon decoratively or without a label.
 - Don't: use outline/stroke category icons — they are solid filled.
 
