@@ -52,6 +52,14 @@ start_dev() {
     curl -sf "http://localhost:3100/" >/dev/null 2>&1 && break
     sleep 2
   done
+  if ! curl -sf "http://localhost:3100/" >/dev/null 2>&1; then
+    if [[ -n "$DEV_PID" ]] && ! kill -0 "$DEV_PID" 2>/dev/null; then
+      echo "Dev server failed to start, process exited" >&2
+    else
+      echo "Dev server failed health check at :3100" >&2
+    fi
+    return 1
+  fi
   echo "Dev server started on :3100"
 }
 
