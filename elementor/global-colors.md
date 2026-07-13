@@ -57,10 +57,11 @@ These are the Astra/Elementor theme-level colors used by the site:
 3. Enter exact hex values from this mapping.
 4. Save changes.
 5. Open one page in Elementor editor and verify:
-   - Buttons use **Brand Primary** and **Focus Button** for hover.
+   - Primary **text buttons** use **Soft Lavender** (`color.soft-lavender` / `color.background-soft`) background, **Charcoal** text, and **Brand Primary** orange border — not orange or blue solid fills with white text.
+   - Secondary outline buttons use **Brand Primary** orange border with a light orange hover tint.
    - Text defaults to **Brand Dark** or **Theme Color 2** (Charcoal).
    - Light sections use **Theme Color 5** or **Accent** (Warm white).
-   - **Brand Secondary** panels use **white** text.
+   - **Brand Secondary** (alert) panels use **white** text only.
    - Error states use `#DC2626` (status-error).
 
 ## Screenshot Checklist (for editors)
