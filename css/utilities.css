@@ -1,78 +1,86 @@
-/* Primary Button
-   Brand Book v1.0: orange is decorative-only; primary CTA pairs
-   Soft Lavender background + Charcoal text + decorative orange border. */
+/* Primary Button */
 .fe-btn-primary {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-2);
   padding: var(--spacing-3) var(--spacing-6);
-  background-color: var(--color-background-soft);
-  color: var(--color-brand-dark);
+  background-color: var(--color-brand-secondary);
+  color: var(--color-white);
   font-family: var(--font-family-body);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-normal);
-  border: 2px solid var(--color-accent-border);
+  border: 2px solid transparent;
   border-radius: var(--radius-pill);
   cursor: pointer;
   transition:
     background-color var(--transition-base),
-    border-color var(--transition-fast),
     transform var(--transition-fast);
   text-decoration: none;
 }
 .fe-btn-primary:hover,
 .fe-btn-primary.is-hover {
-  background-color: var(--color-light-purple);
-  border-color: var(--color-focus-button);
+  background-color: var(--color-brand-primary);
 }
+/* Focused/pressed fill (matches the style guide). Keyboard focus reuses this
+   fill instead of a gold ring; .is-focus is the static demo of the same fill. */
 .fe-btn-primary:active,
+.fe-btn-primary:focus-visible,
 .fe-btn-primary.is-focus {
-  background-color: var(--color-light-purple);
-  border-color: var(--color-focus-button);
+  background-color: var(--color-focus-button);
 }
 .fe-btn-primary:focus {
   outline: none;
 }
 .fe-btn-primary:disabled,
 .fe-btn-primary.is-disabled {
-  opacity: 0.4;
+  background-color: var(--color-light-purple);
+  color: var(--color-white);
+  opacity: 1;
   cursor: not-allowed;
 }
 
-/* Secondary Button — orange outline per Brand Book decorative border rule. */
+/* Secondary / Outline Button — indigo outline per the style guide. */
 .fe-btn-secondary {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-2);
   padding: var(--spacing-3) var(--spacing-6);
   background-color: transparent;
-  color: var(--color-brand-primary);
+  color: var(--color-brand-secondary);
   font-family: var(--font-family-body);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
-  border: 2px solid var(--color-brand-primary);
+  border: 2px solid var(--color-brand-secondary);
   border-radius: var(--radius-pill);
   cursor: pointer;
   transition:
     background-color var(--transition-base),
+    border-color var(--transition-base),
     color var(--transition-base);
   text-decoration: none;
 }
 .fe-btn-secondary:hover,
 .fe-btn-secondary.is-hover {
-  background-color: var(--color-light-orange);
+  background-color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+  color: var(--color-white);
 }
 .fe-btn-secondary:active,
+.fe-btn-secondary:focus-visible,
 .fe-btn-secondary.is-focus {
-  background-color: var(--color-light-orange);
+  background-color: var(--color-focus-button);
+  border-color: var(--color-focus-button);
+  color: var(--color-white);
 }
 .fe-btn-secondary:focus {
   outline: none;
 }
 .fe-btn-secondary:disabled,
 .fe-btn-secondary.is-disabled {
-  opacity: 0.4;
+  background-color: transparent;
+  border-color: var(--color-light-purple);
+  color: var(--color-light-purple);
   cursor: not-allowed;
 }
 
@@ -451,15 +459,22 @@
 }
 .fe-input:focus,
 .fe-input.is-focus {
-  border-color: var(--color-brand-primary);
-  box-shadow: 0 0 0 0.1875rem color-mix(in srgb, var(--color-brand-primary) 15%, transparent);
+  border-color: color-mix(in srgb, var(--color-brand-primary) 70%, var(--color-white));
+  box-shadow: 0 0 0 0.1875rem
+    color-mix(in srgb, var(--color-brand-primary) 10.5%, transparent);
 }
 .fe-input--error {
   border-color: var(--color-status-error);
 }
+.fe-input--error:hover,
+.fe-input--error.is-hover {
+  border-color: color-mix(in srgb, var(--color-status-error) 85%, black);
+}
 .fe-input--error:focus,
-.fe-input--error.is-focus {
-  box-shadow: 0 0 0 0.1875rem color-mix(in srgb, var(--color-status-error) 15%, transparent);
+.fe-input--error.is-focus,
+.fe-input--error:active {
+  border-color: color-mix(in srgb, var(--color-status-error) 92%, black);
+  box-shadow: 0 0 0 0.1875rem color-mix(in srgb, var(--color-status-error) 32%, transparent);
 }
 .fe-input:disabled {
   background-color: var(--color-theme-5);

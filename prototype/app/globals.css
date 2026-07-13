@@ -1166,15 +1166,12 @@ a.ds-btn {
 }
 
 .ds-btn--primary {
-  background: var(--color-background-soft);
-  color: var(--color-brand-dark);
-  border: 2px solid var(--color-accent-border);
+  background: var(--color-brand-secondary);
+  color: var(--color-white);
 }
 
-.ds-btn--primary:hover,
-.ds-btn--primary.is-hover {
-  background: var(--color-light-purple);
-  border-color: var(--color-focus-button);
+.ds-btn--primary:hover {
+  background: var(--color-brand-primary);
 }
 
 .ds-btn--secondary {
@@ -1210,8 +1207,7 @@ a.ds-btn {
    mirror the real :hover / focused fills so each state is visible at once;
    disabled is the real attribute. */
 .ds-btn--primary.is-hover {
-  background: var(--color-light-purple);
-  border-color: var(--color-focus-button);
+  background: var(--color-brand-primary);
 }
 .ds-btn--secondary.is-hover {
   background: var(--color-theme-7);
@@ -1222,11 +1218,11 @@ a.ds-btn {
 .ds-btn--outline.is-hover {
   background: var(--color-light-purple);
 }
-/* Focused: static demo reuses hover fill; keyboard focus uses the global gold ring. */
+/* Focused fill: keyboard focus reuses this fill (no gold outline); .is-focus is
+   the static demo of the same fill. */
 .ds-btn--primary.is-focus,
 .ds-btn--primary:focus-visible {
-  background: var(--color-light-purple);
-  border-color: var(--color-focus-button);
+  background: var(--color-focus-button);
 }
 .ds-btn--secondary.is-focus,
 .ds-btn--secondary:focus-visible {
