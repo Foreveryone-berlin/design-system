@@ -8,8 +8,8 @@ render `.fe-input-error-msg`.
 ## Anatomy
 
 - `.fe-input-group` — wraps a label, the control, and an optional error message.
-- `.fe-input` — the text control. Border uses a neutral grey; focus brings the
-  orange accent border.
+- `.fe-input` — the text control. Border uses a neutral grey; focus brings a
+  softened orange accent border.
 - `.fe-input-error-msg` — error text, paired with `--color-status-error`.
 
 ## States
@@ -17,8 +17,8 @@ render `.fe-input-error-msg`.
 | State | Behaviour |
 |---|---|
 | Default | Light-grey border |
-| Focus | Orange accent border + gold focus-visible ring |
-| Error | `.fe-input--error` red border + visible `.fe-input-error-msg` |
+| Focus | Softened orange accent border + soft glow |
+| Error | `.fe-input--error` red border; stronger red on hover, focus, and press |
 | Disabled | Reduced emphasis |
 
 ## Do / don't
