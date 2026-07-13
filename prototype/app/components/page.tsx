@@ -87,10 +87,10 @@ export default function ComponentsPage() {
           style={{ display: "flex", flexWrap: "wrap", gap: "var(--spacing-4)" }}
         >
           <button type="button" className="fe-btn-primary">
-            Book Event &rarr;
+            Book Event
           </button>
           <button type="button" className="fe-btn-secondary">
-            Book Event &rarr;
+            Book Event
           </button>
         </div>
         <div

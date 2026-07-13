@@ -6,9 +6,12 @@ import Link from "next/link";
 import { navGroups, overviewLink } from "./nav-sections";
 import Search from "./Search";
 
+const MOBILE_QUERY = "(max-width: 47.99rem)";
+
 export default function MobileNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const navRef = useRef<HTMLElement>(null);
 
@@ -21,7 +24,22 @@ export default function MobileNav() {
   }, [open]);
 
   useEffect(() => {
-    if (!open) return;
+    const media = window.matchMedia(MOBILE_QUERY);
+    const syncViewport = (event: MediaQueryListEvent | MediaQueryList) => {
+      setIsMobile(event.matches);
+    };
+
+    syncViewport(media);
+    media.addEventListener("change", syncViewport);
+    return () => media.removeEventListener("change", syncViewport);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile && open) setOpen(false);
+  }, [isMobile, open]);
+
+  useEffect(() => {
+    if (!open || !isMobile) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setOpen(false);
@@ -38,7 +56,7 @@ export default function MobileNav() {
       document.body.style.overflow = prevOverflow;
       layout?.removeAttribute("inert");
     };
-  }, [open]);
+  }, [open, isMobile]);
 
   return (
     <header className="ds-mobile-header" suppressHydrationWarning>

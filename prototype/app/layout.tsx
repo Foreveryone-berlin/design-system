@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navigation from "./_components/Navigation";
 import MobileNav from "./_components/MobileNav";
+import HeadingAnchors from "./_components/HeadingAnchors";
 import OnThisPage from "./_components/OnThisPage";
 import ViewTransitions from "./_components/ViewTransitions";
 import packageJson from "@/package.json";
@@ -87,6 +88,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <ViewTransitions />
+        <HeadingAnchors />
         <MobileNav />
         <div className="ds-layout" suppressHydrationWarning>
           <Navigation />

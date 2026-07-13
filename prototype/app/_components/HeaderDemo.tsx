@@ -115,7 +115,6 @@ export default function HeaderDemo() {
                   className="fe-nav-link fe-header__dropdown-trigger"
                   onClick={() => toggleSub(href)}
                   aria-expanded={openSub === href}
-                  aria-haspopup="true"
                   aria-controls={dropdownId(href)}
                 >
                   {label}
@@ -137,7 +136,6 @@ export default function HeaderDemo() {
                   <div
                     id={dropdownId(href)}
                     className="fe-header__dropdown"
-                    role="menu"
                   >
                     {children.map((child) => (
                       <a
@@ -197,7 +195,6 @@ export default function HeaderDemo() {
                   className="fe-nav-link fe-header__dropdown-trigger"
                   onClick={() => toggleSubMobile(href)}
                   aria-expanded={openSubMobile === href}
-                  aria-haspopup="true"
                   aria-controls={`${dropdownId(href)}-mobile`}
                 >
                   {label}
