@@ -8,15 +8,21 @@
 
 ## [Unreleased]
 
+## [0.25.1] - 2026-07-13
+
+Quick fix after the colour alignment release: put the action buttons back, sharpen error fields, and soften the orange focus ring on ordinary inputs.
+
+- **Fix**: Put the primary and secondary action buttons back to the blue-and-orange fill style used before the last release.
+- **Fix**: Make error form fields show a stronger red border and glow when you hover, focus, or press them.
+- **Fix**: Tone down the orange highlight on ordinary form fields when they are focused.
+- **Behind the scenes**: Rewrite recent release notes so they read plainly again, and keep the Music category tag on pink.
+
 ## [0.25.0] - 2026-07-13
 
-Align pill buttons and category tags with the Brand Book after design review.
+Align the Music category tag with the Brand Book after design review (action buttons were reverted in 0.25.1).
 
-- **Fix**: Restore the primary action button to Soft Lavender with Charcoal text and an orange border, instead of orange or blue fills with white text.
-- **Fix**: Restore the secondary outline button to the orange-border style with a light hover tint, without solid orange fills behind white text.
 - **Fix**: Change the Music category tag to pink with Charcoal text so alert blue is reserved for announcements only.
 - **Docs**: Document the category-tag colour mapping and note that interactive-state rules are still pending a future brand-book update.
-- **Behind the scenes**: Mirror the corrected button styles on the prototype demo controls so the Components page matches the shipped CSS.
 
 ## [0.24.3] - 2026-07-08
 
@@ -27,7 +33,7 @@ Tidy the repository README.
 
 ## [0.24.2] - 2026-07-06
 
-Prototype accessibility polish from the CLI optimize pass.
+Prototype accessibility polish from the terminal optimize pass.
 
 - **Fix**: Improve header demo keyboard support, focus management, and ARIA for menus and search.
 - **Fix**: Fix on-this-page current-section indication for screen readers.
@@ -35,11 +41,11 @@ Prototype accessibility polish from the CLI optimize pass.
 
 ## [0.24.1] - 2026-07-06
 
-Cursor CLI can run prototype optimize passes from the terminal.
+Run prototype optimize passes from the Cursor terminal.
 
-- **Behind the scenes**: Add Cursor CLI optimize-run.sh and domain prompt files for sequential prototype audits.
-- **Behind the scenes**: Add a dual-runtime optimize skill (CLI sequential agent passes or IDE Task fan-out).
-- **Docs**: Add a Cursor CLI section to the agent contract and playbook cross-links.
+- **Behind the scenes**: Add a terminal workflow so audits can run step by step from the command line.
+- **Behind the scenes**: Add an optimize skill that works in both the terminal and the IDE.
+- **Docs**: Explain the terminal workflow in the agent playbook.
 
 ## [0.24.0] - 2026-07-06
 
@@ -53,8 +59,8 @@ Agent parity: Cursor IDE, Cursor CLI, and Claude Code share the same instruction
 
 A fidelity pass bringing the prototype closer to Brand Book v1.0.
 
-- **Add**: Each colour on the Foundations page now shows its role up front (background, decorative, text & logo, or announcements & alerts) so the "what is this colour for" rule is visible at a glance.
-- **Change**: Redrew the workshop category icons (now larger), the line illustrations and accent marks, the blob shapes, and the wave dividers to match the Brand Book artwork.
+- **Add**: Each colour on the Foundations page now shows its role up front so the "what is this colour for" rule is visible at a glance.
+- **Change**: Redrew the workshop category icons, line illustrations, accent marks, blob shapes, and wave dividers to match the Brand Book artwork.
 - **Fix**: Search results now scroll to the exact section heading, not just the top of the page.
 - **Fix**: Left-aligned the testimonial text, matching the rule that long body copy is never centred.
 - **Remove**: Took out the No. 52 Cafe logos block, the community-group illustration, and the print asset-library contacts section.
@@ -64,14 +70,14 @@ A fidelity pass bringing the prototype closer to Brand Book v1.0.
 
 Hotfix for the example header pattern.
 
-- **Fix**: The header pattern's mobile menu now opens again, and the header switches to mobile based on the width of the panel it sits in (not the whole screen), so it matches how it is embedded in the design system.
+- **Fix**: The header pattern's mobile menu now opens again, and the header switches to mobile based on the width of the panel it sits in, so it matches how it is embedded in the design system.
 
 ## [0.22.2] - 2026-06-19
 
 Small visual fixes after 0.22.1.
 
 - **Fix**: Space out the example header, shorten its menu and button labels, and keep each label on one line.
-- **Fix**: Give the search box the same focus style as the form inputs (an orange border and soft glow) instead of an outline ring.
+- **Fix**: Give the search box the same focus style as the form inputs instead of an outline ring.
 - **Fix**: Show the wave shapes larger, one per row, in soft neutral greys and light green.
 
 ## [0.22.1] - 2026-06-19
