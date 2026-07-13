@@ -2,62 +2,13 @@
 
 const fs = require("fs");
 const path = require("path");
+const { loadAllTokens, resolveTokenValue } = require("./token-utils");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
-const TOKENS_DIR = path.join(ROOT_DIR, "tokens");
-const INDEX_PATH = path.join(TOKENS_DIR, "index.json");
 const OUTPUT_PATH = path.join(ROOT_DIR, "css", "custom-properties.css");
 
-function readJson(filePath) {
-  return JSON.parse(fs.readFileSync(filePath, "utf8"));
-}
-
-function isPlainObject(value) {
-  return value && typeof value === "object" && !Array.isArray(value);
-}
-
-function deepMerge(target, source) {
-  const result = { ...target };
-  for (const [key, value] of Object.entries(source)) {
-    if (isPlainObject(value) && isPlainObject(result[key])) {
-      result[key] = deepMerge(result[key], value);
-    } else {
-      result[key] = value;
-    }
-  }
-  return result;
-}
-
 function getTokenValue(tokens, tokenPath) {
-  const segments = tokenPath.split(".");
-  let current = tokens;
-  for (const segment of segments) {
-    if (current === null || typeof current !== "object" || !(segment in current)) {
-      throw new Error(`Missing token path: ${tokenPath}`);
-    }
-    current = current[segment];
-  }
-
-  if (!current || typeof current !== "object" || !("$value" in current)) {
-    throw new Error(`Invalid token leaf at path: ${tokenPath}`);
-  }
-  return current.$value;
-}
-
-function loadAllTokens() {
-  const index = readJson(INDEX_PATH);
-  const imports = index.imports || [];
-  if (!Array.isArray(imports) || imports.length === 0) {
-    throw new Error("tokens/index.json must define a non-empty imports array.");
-  }
-
-  let merged = {};
-  for (const relativePath of imports) {
-    const fullPath = path.resolve(TOKENS_DIR, relativePath);
-    const json = readJson(fullPath);
-    merged = deepMerge(merged, json);
-  }
-  return merged;
+  return resolveTokenValue(tokens, tokenPath);
 }
 
 const FLAT_COLOR_KEYS = [

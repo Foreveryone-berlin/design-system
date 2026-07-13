@@ -8,6 +8,17 @@
 
 ## [Unreleased]
 
+## [0.26.0] - 2026-07-13
+
+Prototype navigation and sharing improvements, plus safer token and release tooling.
+
+- **Add**: Show a `#` link beside section headings so readers can copy a direct page link and get clear "Link copied" feedback.
+- **Fix**: Close the mobile menu and restore page interaction when the viewport grows from phone to desktop.
+- **Fix**: Keep search keyboard shortcuts from focusing a hidden desktop search field on mobile.
+- **Fix**: Simplify header dropdown accessibility so it behaves like normal navigation links.
+- **Behind the scenes**: Resolve token references correctly when building CSS and the agent token spec.
+- **Behind the scenes**: Make the optimize workflow fail clearly when the local dev server does not start.
+
 ## [0.25.1] - 2026-07-13
 
 Quick fix after the colour alignment release: put the action buttons back, sharpen error fields, and soften the orange focus ring on ordinary inputs.

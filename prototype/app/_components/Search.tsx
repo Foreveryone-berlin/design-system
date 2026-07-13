@@ -19,9 +19,15 @@ export default function Search({
 
   // Global shortcut: "/" or Cmd/Ctrl+K focuses the search input.
   useEffect(() => {
+    const isInputVisible = () => {
+      const input = inputRef.current;
+      return Boolean(input && input.offsetParent !== null);
+    };
+
     const onKey = (e: KeyboardEvent) => {
       const tag = (e.target as HTMLElement)?.tagName;
       const typing = tag === "INPUT" || tag === "TEXTAREA";
+      if (!isInputVisible()) return;
       if ((e.key === "/" && !typing) || ((e.metaKey || e.ctrlKey) && e.key === "k")) {
         e.preventDefault();
         inputRef.current?.focus();
