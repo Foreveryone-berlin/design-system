@@ -8,6 +8,15 @@
 
 ## [Unreleased]
 
+## [0.25.1] - 2026-07-13
+
+Quick fix after the colour alignment release: put the action buttons back, sharpen error fields, and soften the orange focus ring on ordinary inputs.
+
+- **Fix**: Put the primary and secondary action buttons back to the blue-and-orange fill style used before the last release.
+- **Fix**: Make error form fields show a stronger red border and glow when you hover, focus, or press them.
+- **Fix**: Tone down the orange highlight on ordinary form fields when they are focused.
+- **Behind the scenes**: Rewrite recent release notes so they read plainly again, and keep the Music category tag on pink.
+
 ## [0.25.0] - 2026-07-13
 
 Align the Music category tag with the Brand Book after design review (action buttons were reverted in 0.25.1).
