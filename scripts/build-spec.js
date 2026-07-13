@@ -7,36 +7,12 @@
 
 const fs = require("fs");
 const path = require("path");
+const { loadAllTokens, resolveTokenValue } = require("./token-utils");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
-const TOKENS_DIR = path.join(ROOT_DIR, "tokens");
-const INDEX_PATH = path.join(TOKENS_DIR, "index.json");
 const OUTPUT_PATH = path.join(ROOT_DIR, "spec", "tokens.json");
-
-function readJson(filePath) {
-  return JSON.parse(fs.readFileSync(filePath, "utf8"));
-}
 function isPlainObject(v) {
   return v && typeof v === "object" && !Array.isArray(v);
-}
-function deepMerge(target, source) {
-  const result = { ...target };
-  for (const [key, value] of Object.entries(source)) {
-    if (isPlainObject(value) && isPlainObject(result[key])) {
-      result[key] = deepMerge(result[key], value);
-    } else {
-      result[key] = value;
-    }
-  }
-  return result;
-}
-function loadAllTokens() {
-  const index = readJson(INDEX_PATH);
-  let merged = {};
-  for (const rel of index.imports || []) {
-    merged = deepMerge(merged, readJson(path.resolve(TOKENS_DIR, rel)));
-  }
-  return merged;
 }
 
 // Map a dotted token path to its CSS custom-property name, mirroring
@@ -76,13 +52,13 @@ function surfaceFor(dottedPath, description) {
   return "digital";
 }
 
-function walk(node, group, trail, out) {
+function walk(node, group, trail, out, tokens) {
   if (isPlainObject(node) && "$value" in node) {
     const dotted = trail.join(".");
     out.push({
       name: dotted,
       css: cssVarFor(group, dotted),
-      value: node.$value,
+      value: resolveTokenValue(tokens, dotted),
       type: node.$type ?? null,
       surface: surfaceFor(dotted, node.$description),
       description: node.$description ?? null,
@@ -91,7 +67,7 @@ function walk(node, group, trail, out) {
   }
   if (isPlainObject(node)) {
     for (const [key, child] of Object.entries(node)) {
-      walk(child, group, [...trail, key], out);
+      walk(child, group, [...trail, key], out, tokens);
     }
   }
 }
@@ -100,7 +76,7 @@ function main() {
   const tokens = loadAllTokens();
   const out = [];
   for (const group of Object.keys(tokens)) {
-    walk(tokens[group], group, [group], out);
+    walk(tokens[group], group, [group], out, tokens);
   }
   const spec = {
     $schema: "https://foreveryone.berlin/spec/tokens.schema.json",

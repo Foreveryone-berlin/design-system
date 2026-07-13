@@ -5,6 +5,7 @@
 const fs = require("fs");
 const path = require("path");
 const { execFileSync } = require("child_process");
+const { loadAllTokens, resolveTokenValue } = require("./token-utils");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const TOKENS_DIR = path.join(ROOT_DIR, "tokens");
@@ -67,16 +68,21 @@ function validateDtcg(file, json) {
     }
     const v = leaf.$value;
     if (typeof v === "string" && /^\{[^}]+\}$/.test(v.trim())) {
-      return fail(
-        `${file} ${dotted} resolved`,
-        `unresolved DTCG ref ${v}; build-css.js does not resolve refs`,
-      );
+      try {
+        resolveTokenValue(MERGED_TOKENS, dotted);
+      } catch (error) {
+        return fail(
+          `${file} ${dotted} reference`,
+          `invalid DTCG ref ${v}; ${error.message}`,
+        );
+      }
     }
     ok(`${file} ${dotted} (${leaf.$type})`);
   });
 }
 
 console.log("# token JSON DTCG shape");
+const MERGED_TOKENS = loadAllTokens();
 const tokenFiles = fs
   .readdirSync(TOKENS_DIR)
   .filter((f) => f.endsWith(".json") && f !== "index.json");

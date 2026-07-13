@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { slugify } from "./slugify";
+import { collectPageHeadings } from "./page-headings";
 
 type Heading = { id: string; text: string; level: 2 | 3 };
 
@@ -15,29 +15,12 @@ export default function OnThisPage() {
     const main = document.getElementById("main-content");
     if (!main) return;
 
-    const nodes = Array.from(
-      main.querySelectorAll<HTMLElement>(
-        "h2.ds-section-title, h3.ds-subsection-title",
-      ),
+    const collected = collectPageHeadings(main);
+    const nodes = collected.map((h) => h.node);
+
+    setHeadings(
+      collected.map(({ id, text, level }) => ({ id, text, level })),
     );
-
-    const used = new Set<string>();
-    const collected: Heading[] = nodes.map((node) => {
-      let id = node.id || slugify(node.textContent ?? "");
-      if (!id) id = "section";
-      let unique = id;
-      let n = 2;
-      while (used.has(unique)) unique = `${id}-${n++}`;
-      used.add(unique);
-      node.id = unique;
-      return {
-        id: unique,
-        text: node.textContent ?? "",
-        level: node.tagName === "H3" ? 3 : 2,
-      };
-    });
-
-    setHeadings(collected);
     setActiveId(collected[0]?.id ?? "");
 
     if (collected.length === 0) return;
