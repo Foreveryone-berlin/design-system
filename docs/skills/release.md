@@ -1,6 +1,6 @@
 # Release Workflow
 
-Ship a version from `develop` to `main` and tag it (e.g. v0.1.0).
+Ship a version from `develop` to `main` and tag it (e.g. v1.0.0).
 
 > **Automated path:** the `ship-release` agent skill (`.claude/skills/ship-release/SKILL.md`; Cursor IDE and CLI auto-load from `.claude/skills/`) drives this whole flow end-to-end on a trigger phrase ("ship it", "cut release", "release X.Y.Z"). Deploy is by Vercel (push to `main`); `release.yml` only creates the GitHub Release from the tag. The manual steps below remain the fallback and the reference for what the skill does.
 
@@ -17,7 +17,7 @@ Ship a version from `develop` to `main` and tag it (e.g. v0.1.0).
    - Leave `## [Unreleased]` at the top for future changes.
 
 2. **Commit on `develop`**
-   - Use conventional commits, e.g. `chore: release 0.1.0` or `docs: finalize CHANGELOG for 0.1.0`.
+   - Use conventional commits, e.g. `chore: release 1.0.0` or `docs: finalize CHANGELOG for 1.0.0`.
    - Include any release-related doc/rule updates in the same or previous commits.
 
 3. **Push `develop`**
@@ -36,8 +36,8 @@ Ship a version from `develop` to `main` and tag it (e.g. v0.1.0).
    ```bash
    git checkout main
    git pull origin main
-   git tag -a v0.1.0 -m "Release 0.1.0"
-   git push origin v0.1.0
+   git tag -a v1.0.0 -m "Release 1.0.0"
+   git push origin v1.0.0
    ```
 
 7. **Verify production after deploy**

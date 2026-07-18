@@ -112,4 +112,4 @@ Dual-licensed in a single [LICENSE](LICENSE) file:
 
 ## Changelog
 
-Full history in [`CHANGELOG.md`](CHANGELOG.md). GitHub Releases for each tag mirror the changelog entry.
+Full history in [`CHANGELOG.md`](CHANGELOG.md). GitHub Releases for each tag mirror the matching changelog section.
