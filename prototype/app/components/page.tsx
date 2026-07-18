@@ -716,14 +716,20 @@ export default function ComponentsPage() {
           artwork is maintained in Figma.
         </p>
         <div className="ds-icon-demo">
-          {[
-            ["flower.svg", "Flower", false],
-            ["cloud.svg", "Cloud", false],
-            ["smiley.svg", "Smiley", false],
-            ["accents/doodle-swirl.svg", "Swirl", false],
-            ["chess.svg", "Chess", false],
-            ["headline-underline.svg", "Underline", true],
-          ].map(([file, label, wide]) => (
+          {(
+            [
+              { file: "flower.svg", label: "Flower", wide: false },
+              { file: "cloud.svg", label: "Cloud", wide: false },
+              { file: "smiley.svg", label: "Smiley", wide: false },
+              { file: "accents/doodle-swirl.svg", label: "Swirl", wide: false },
+              { file: "chess.svg", label: "Chess", wide: false },
+              { file: "headline-underline.svg", label: "Underline", wide: true },
+            ] satisfies ReadonlyArray<{
+              file: string;
+              label: string;
+              wide?: boolean;
+            }>
+          ).map(({ file, label, wide = false }) => (
             <div className="ds-icon-item" key={file}>
               <span
                 className={`ds-illo-mark${wide ? " ds-illo-mark--wide" : ""}`}
