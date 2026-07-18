@@ -8,6 +8,8 @@
 
 ## [Unreleased]
 
+## [0.26.1] - 2026-07-18
+
 Prototype artwork refresh from the official Figma element export.
 
 - **Change**: Replace workshop category icons and decorative artwork (doodles, accent marks, blobs, and wave dividers) with the official Figma element exports.
