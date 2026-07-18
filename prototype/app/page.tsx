@@ -19,17 +19,14 @@ export default function Home() {
     <>
       <section className="ds-hero-with-image">
         <div>
+        <div className="ds-headline-with-underline">
           <h1 className="ds-hero-title">
             {headlineFirst}
             <br />
             {headlineRest.join(" ")}
           </h1>
-          <img
-            src="/illustrations/headline-underline.svg"
-            alt=""
-            aria-hidden="true"
-            className="ds-headline-underline"
-          />
+          <span className="ds-headline-underline" aria-hidden="true" />
+        </div>
           <span className="ds-hero-version">v{version}</span>
           <p className="ds-intro">{heroCopy.tagline}</p>
         </div>

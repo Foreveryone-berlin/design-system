@@ -281,12 +281,12 @@ export default function PatternsPage() {
               </p>
             </div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              className="fe-card-benefit__illustration"
-              src="/illustrations/flower.png"
-              alt=""
-              width={96}
-              height={96}
+            <span
+              className="fe-card-benefit__illustration ds-illo-mark"
+              style={{
+                maskImage: "url(/illustrations/flower.svg)",
+                WebkitMaskImage: "url(/illustrations/flower.svg)",
+              }}
               aria-hidden="true"
             />
           </div>
@@ -298,12 +298,12 @@ export default function PatternsPage() {
               </p>
             </div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              className="fe-card-benefit__illustration"
-              src="/illustrations/smiley.png"
-              alt=""
-              width={96}
-              height={96}
+            <span
+              className="fe-card-benefit__illustration ds-illo-mark"
+              style={{
+                maskImage: "url(/illustrations/smiley.svg)",
+                WebkitMaskImage: "url(/illustrations/smiley.svg)",
+              }}
               aria-hidden="true"
             />
           </div>

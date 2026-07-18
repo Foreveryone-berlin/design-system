@@ -765,12 +765,46 @@ summary:focus-visible,
   font-size: clamp(1.75rem, 4vw + 1rem, 2.75rem);
 }
 
+/* Headline + sketched underline as one unit (underline sits below copy, not on it). */
+.ds-headline-with-underline {
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  margin-bottom: var(--spacing-4);
+}
+
+.ds-headline-with-underline .ds-hero-title,
+.ds-headline-with-underline .fe-h3 {
+  margin-bottom: 0;
+}
+
 /* Sketched brand underline tucked under a headline (see SheLeads). */
 .ds-headline-underline {
   display: block;
-  width: min(21.25rem, 72%);
-  height: auto;
-  margin: calc(-1 * var(--spacing-6)) 0 var(--spacing-4);
+  width: 100%;
+  height: 1.125rem;
+  margin: var(--spacing-2) 0 0;
+  background-color: var(--color-brand-primary);
+  -webkit-mask-image: url(/illustrations/headline-underline.svg);
+  mask-image: url(/illustrations/headline-underline.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-position: left bottom;
+  mask-position: left bottom;
+}
+
+.ds-hero-with-image .ds-headline-with-underline {
+  margin-bottom: var(--spacing-2);
+}
+
+/* Wide horizontal accent strokes (doodle underline, headline underline specimens). */
+.ds-accent-mark--underline {
+  width: min(16rem, 100%);
+  height: 1.25rem;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }
 
 .ds-hero-with-image .ds-intro {
@@ -1893,7 +1927,7 @@ a.ds-btn {
   background: var(--color-accent-icon);
   color: var(--color-white);
 }
-.ds-icon-chip svg {
+.ds-icon-chip .fe-category-icon-glyph {
   width: 52px;
   height: 52px;
 }
@@ -1938,6 +1972,12 @@ a.ds-btn {
 .ds-illo-mark {
   width: 5rem;
   height: 5rem;
+}
+.ds-illo-mark--wide {
+  width: 20rem;
+  height: 2rem;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }
 .ds-accent-mark {
   width: 3rem;

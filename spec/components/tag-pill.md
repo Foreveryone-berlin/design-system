@@ -32,7 +32,7 @@ Alert blue (`--color-blue-500`) is reserved for announcements only, not category
 
 A pill control labelling a workshop category. May pair with a filled workshop
 icon (see `CategoryIcon`, `prototype/public/icons/categories/*.svg`): solid
-orange glyph, white inside the icon shape. The icon is **always** accompanied by
+orange ground with a white glyph via CSS mask over the category SVG. The icon is **always** accompanied by
 the category label text.
 
 ## States
