@@ -8,6 +8,14 @@
 
 ## [Unreleased]
 
+Prototype artwork refresh from the official Figma element export.
+
+- **Change**: Replace workshop category icons and decorative artwork (doodles, accent marks, blobs, and wave dividers) with the official Figma element exports.
+- **Fix**: Show line illustrations on the Patterns and Components pages again; those pages had been pointing at artwork files that were not in the repo.
+- **Fix**: Place the headline underline beneath copy, stretch it to the headline width, and size the line-illustration specimen correctly in the prototype.
+- **Docs**: Update visual-styles, prototype asset notes, and the category-tag spec so the new artwork and import workflow are documented.
+- **Behind the scenes**: Add a script that normalizes Figma SVG exports for the prototype and wire category icons through the shared SVG files.
+
 ## [0.26.0] - 2026-07-13
 
 Prototype navigation and sharing improvements, plus safer token and release tooling.

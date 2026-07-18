@@ -695,6 +695,18 @@ export default function ComponentsPage() {
         </div>
       </section>
 
+      <section id="headline-underline" className="ds-section">
+        <h3 className="ds-subsection-title">Headline underline</h3>
+        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
+          Sketched double underline for hero and section headings. Always sits
+          directly beneath the headline copy, not as a standalone icon.
+        </p>
+        <div className="ds-headline-with-underline">
+          <p className="fe-h3">Example headline</p>
+          <span className="ds-headline-underline ds-headline-underline--demo" aria-hidden="true" />
+        </div>
+      </section>
+
       <section id="illustrations" className="ds-section">
         <h3 className="ds-subsection-title">Line illustrations</h3>
         <p className="ds-section-intro">
@@ -705,34 +717,25 @@ export default function ComponentsPage() {
         </p>
         <div className="ds-icon-demo">
           {[
-            ["flower.png", "Flower"],
-            ["cloud.svg", "Cloud"],
-            ["smiley.png", "Smiley"],
-            ["swirl.png", "Swirl"],
-            ["chess.svg", "Chess"],
-          ].map(([file, label]) => (
+            ["flower.svg", "Flower", false],
+            ["cloud.svg", "Cloud", false],
+            ["smiley.svg", "Smiley", false],
+            ["accents/doodle-swirl.svg", "Swirl", false],
+            ["chess.svg", "Chess", false],
+            ["headline-underline.svg", "Underline", true],
+          ].map(([file, label, wide]) => (
             <div className="ds-icon-item" key={file}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`/illustrations/${file}`}
-                alt=""
-                width={64}
-                height={64}
+              <span
+                className={`ds-illo-mark${wide ? " ds-illo-mark--wide" : ""}`}
+                style={{
+                  maskImage: `url(/illustrations/${file})`,
+                  WebkitMaskImage: `url(/illustrations/${file})`,
+                }}
                 aria-hidden="true"
               />
               <span>{label}</span>
             </div>
           ))}
-        </div>
-        <div style={{ marginTop: "var(--spacing-6)" }}>
-          <div className="fe-label">Underline</div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/illustrations/headline-underline.svg"
-            alt=""
-            aria-hidden="true"
-            style={{ display: "block", width: "220px", height: "auto" }}
-          />
         </div>
       </section>
 
