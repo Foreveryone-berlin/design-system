@@ -13,7 +13,16 @@ export const metadata = {
 // p.26). Each is an orange line-art SVG tinted via CSS mask, so it picks up the
 // brand colour from a token rather than baking the hex into the asset.
 const accents = [
-  { src: "/illustrations/accents/doodle-underline.svg", label: "Underline", wide: true },
+  {
+    src: "/illustrations/accents/doodle-underline.svg",
+    label: "Underline",
+    underline: true,
+  },
+  {
+    src: "/illustrations/headline-underline.svg",
+    label: "Headline underline",
+    underline: true,
+  },
   { src: "/illustrations/accents/doodle-burst.svg", label: "Burst" },
   { src: "/illustrations/accents/doodle-circle.svg", label: "Emphasis oval", wide: true },
   { src: "/illustrations/accents/doodle-arrow.svg", label: "Arrow" },
@@ -120,7 +129,9 @@ export default function VisualElementsPage() {
           {accents.map((a) => (
             <figure key={a.label} className="ds-accent-specimen">
               <span
-                className={`ds-accent-mark${a.wide ? " ds-accent-mark--wide" : ""}`}
+                className={`ds-accent-mark${
+                  a.wide ? " ds-accent-mark--wide" : ""
+                }${a.underline ? " ds-accent-mark--underline" : ""}`}
                 style={{ maskImage: `url(${a.src})`, WebkitMaskImage: `url(${a.src})` }}
                 aria-hidden="true"
               />
