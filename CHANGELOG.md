@@ -8,6 +8,21 @@
 
 ## [Unreleased]
 
+Start notes for the next release here.
+
+## [1.0.0] - 2026-07-18
+
+Credits page refresh, accessibility enforcement, and button spec alignment.
+
+Migration note: [v1.0.0 migration note](docs/releases/v1.0.0-migration.md).
+
+- **Change**: Refresh the Credits page so design-system contributors are listed by name and role, with links to the main site and app surfaces.
+- **Change**: Credit Cursor alongside Claude Code under the tools this system was built with.
+- **Fix**: Match button documentation states to the current primary and secondary button behavior in the prototype.
+- **Fix**: Respect reduced-motion preferences for accordion and mobile menu animation in shared component styles.
+- **Add**: Add accessibility validation steps, alt-text guidance for WordPress editors, and a conformance register for known gaps.
+- **Fix**: Keep the "Link copied" label fully inside its highlighted background beside section headings.
+
 ## [0.26.1] - 2026-07-18
 
 Prototype artwork refresh from the official Figma element export.

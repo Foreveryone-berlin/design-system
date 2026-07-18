@@ -1,21 +1,72 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Credits",
   description:
-    "The people, tools, and licences behind the ForEveryone Berlin design system.",
+    "Contributors, tools, and licence terms for the ForEveryone design system.",
 };
 
 const REPO_URL = "https://github.com/Foreveryone-berlin/design-system";
 
-const people = ["Rie", "Roxana", "Didem", "Pedram", "Marco", "Angelina"];
+const contributors = [
+  { name: "Angelina Andriianova", role: "UX/UI design" },
+  { name: "Didem Odemis", role: "UX/UI design" },
+  { name: "Marco Pontili", role: "Web lead and implementation" },
+  { name: "Pedram Madani", role: "Tech lead" },
+  { name: "Rie Takeuchi", role: "Brand and visual design lead" },
+  { name: "Roxana Sillmen", role: "Co-founder" },
+];
 
-const stack = [
+const stack: { name: string; role: ReactNode }[] = [
   { name: "Figma", role: "Visual source of truth for the design system" },
-  { name: "WordPress + Elementor Pro", role: "Live-site platform the system targets" },
-  { name: "Next.js", role: "Prototype framework (App Router, React 19)" },
+  {
+    name: "WordPress + Elementor Pro",
+    role: (
+      <>
+        Marketing site at{" "}
+        <a
+          href="https://foreveryone.berlin"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          foreveryone.berlin
+        </a>
+      </>
+    ),
+  },
+  {
+    name: "Next.js",
+    role: (
+      <>
+        Design system prototype and PWA web apps at{" "}
+        <a
+          href="https://app.foreveryone.berlin"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          app.foreveryone.berlin
+        </a>{" "}
+        and{" "}
+        <a
+          href="https://dash.foreveryone.berlin"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          dash.foreveryone.berlin
+        </a>
+      </>
+    ),
+  },
   { name: "Playwright + axe-core", role: "End-to-end and accessibility testing" },
-  { name: "Claude Code", role: "Agent-assisted development of tokens, CSS, and the prototype" },
+  {
+    name: "Cursor",
+    role: "IDE and CLI agent-assisted development of tokens, CSS, and the prototype",
+  },
+  {
+    name: "Claude Code",
+    role: "Agent-assisted development of tokens, CSS, and the prototype",
+  },
 ];
 
 const tools = [
@@ -41,25 +92,30 @@ export default function CreditsPage() {
     <>
       <h1 className="ds-page-title">Credits</h1>
       <p className="ds-intro">
-        This design system is a community effort &mdash; built with care by the
-        people who make ForEveryone Berlin what it is: a warm, open space where
-        everyone belongs.
+        Who built this design system, the tools we used, and how it is licensed.
       </p>
 
-      <section id="people" className="ds-section">
-        <h2 className="ds-section-title">With thanks to</h2>
+      <section id="contributors" className="ds-section">
+        <h2 className="ds-section-title">Contributors</h2>
         <p className="ds-section-intro">
-          The people who shaped the brand, the system, and the community it
-          serves.
+          The people who shaped this design system through brand, UX/UI, and web
+          work. Meet the rest of the team on{" "}
+          <a
+            href="https://foreveryone.berlin/about-us"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            About us at foreveryone.berlin
+          </a>
+          .
         </p>
-        <div className="fe-label-cards">
-          {people.map((name) => (
-            <div className="fe-label-card" key={name}>
-              <span className="fe-label-card__label">Contributor</span>
-              <span className="fe-label-card__value">{name}</span>
-            </div>
+        <ul className="ds-rule-list">
+          {contributors.map(({ name, role }) => (
+            <li key={name}>
+              <strong>{name}</strong> &mdash; {role}
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
 
       <section id="stack" className="ds-section">

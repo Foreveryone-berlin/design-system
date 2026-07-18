@@ -100,6 +100,22 @@ use the older sharp-edged version, or place the logo directly on a photograph.
 No other element (text, image, container edge) may enter the X-thick band
 around the logo on any side.
 
+## Alt text
+
+Use short, literal alt text. Do not start with "logo of" or "image of".
+
+| Context | Asset | Recommended alt |
+|---------|-------|-----------------|
+| Navigation / header link | Horizontal lockup | `ForEveryone` |
+| Logo page / documentation | Horizontal lockup | `ForEveryone horizontal logo` |
+| Logo page / documentation | Stacked lockup | `ForEveryone stacked logo` |
+| Logo page / documentation | Standalone icon | `ForEveryone standalone icon` |
+| Favicon / app icon | Standalone icon | `ForEveryone` (or site name in `<title>` carries the name; alt may match) |
+| White icon on Orange | Standalone icon only | `ForEveryone` |
+| Background pairing demo | Lockup on named background | `ForEveryone logo on {background name}` |
+
+When the logo sits inside a link to the homepage, the link's accessible name can be "ForEveryone"; the image alt may be empty only if the link already has visible text (prefer non-empty alt for clarity).
+
 ## Files
 
 - `prototype/public/images/foreveryone-logo.png` — original horizontal lockup

@@ -315,6 +315,7 @@ summary:focus-visible,
   left: 0;
   top: 50%;
   transform: translateY(-50%);
+  width: max-content;
   padding: var(--spacing-1) var(--spacing-2);
   border-radius: var(--radius-sm);
   background-color: color-mix(in srgb, var(--color-brand-primary) 10%, var(--color-white));

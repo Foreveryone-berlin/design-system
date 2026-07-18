@@ -1,6 +1,6 @@
 {
   "name": "foreveryone-design-system-prototype",
-  "version": "0.26.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -23,6 +23,7 @@
     "@types/prismjs": "^1.26.6",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
+    "sharp": "^0.35.3",
     "typescript": "^5.0.0"
   }
 }
