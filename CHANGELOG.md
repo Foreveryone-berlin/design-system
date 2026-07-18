@@ -8,11 +8,14 @@
 
 ## [Unreleased]
 
-Credits page refresh and button spec alignment.
+Credits page refresh, accessibility enforcement, and button spec alignment.
 
 - **Change**: Refresh the Credits page so design-system contributors are listed by name and role, with links to the main site and app surfaces.
 - **Change**: Credit Cursor alongside Claude Code under the tools this system was built with.
 - **Docs**: Update the button spec so documented hover and focus states match primary and secondary buttons in the prototype.
+- **Fix**: Respect reduced-motion preferences for accordion and mobile menu animation in shared component styles.
+- **Docs**: Add accessibility validation steps, alt-text guidance for WordPress editors, and a conformance register for known gaps.
+- **Behind the scenes**: Run automated accessibility checks on pull requests, covering page scans, keyboard flows, and image alt semantics.
 - **Fix**: Make the "Link copied" label beside section headings sit fully inside its highlighted background.
 
 ## [0.26.1] - 2026-07-18
