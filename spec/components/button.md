@@ -7,8 +7,7 @@
 - **Secondary action:** `.fe-btn-secondary` — outline/quiet style for the
   lesser action beside a primary.
 
-Do not invent button colours. Orange is **not** a button background (decorative
-only); there is no orange-filled text button.
+Do not invent button colours beyond the state table below.
 
 ## Anatomy
 
@@ -17,20 +16,30 @@ inline `currentColor` SVG (e.g. `arrow-right`).
 
 ## States
 
+Primary and secondary share the same fill progression; secondary starts as
+outline-only at rest.
+
 | State | Behaviour |
 |---|---|
-| Default | Blue fill, white text |
-| Hover | Shifts to Orange tint via `--color-focus-button` accent |
-| Active | Pressed/darkened |
-| Focus-visible | Gold keyboard ring (`--color-focus-visible-accent`), 0.125rem at 0.1875rem offset |
-| Disabled | Reduced emphasis; not interactive |
+| Default | Primary: Blue fill, white text. Secondary: Blue outline, Blue text, transparent fill. |
+| Hover | Orange (`--color-brand-primary`) fill, white text (secondary: Orange fill + border). |
+| Active / focus-visible | Pressed fill `--color-focus-button` (#CC622E), white text; no gold ring on pill buttons (outline suppressed; fill is the indicator). |
+| Disabled | Primary: `--color-light-purple` fill, white text. Secondary: light-purple border and text, transparent fill. |
+
+Hover and pressed fills are legacy UI choices (Elementor / live-site parity)
+pending brand-book interactive-state rules. Orange at rest as a CTA fill is
+disallowed; Orange on hover is intentional for primary/secondary pills.
 
 ## Do / don't
 
 - Do: one primary action per view; pair with a secondary for the alternative.
 - Do: keep label text Filson Pro, sentence case.
-- Don't: use Orange as a button fill; don't place white text on Orange.
-- Don't: remove the focus-visible ring.
+- Don't: use Orange as the **default** button fill; don't add new button hues
+  outside the state table.
+- Don't: remove the focused/pressed fill on pill buttons.
+
+Other controls (category tags, nav links) use the gold
+`--color-focus-visible-accent` ring; pill buttons do not.
 
 ## Minimal snippet
 

@@ -8,6 +8,12 @@
 
 ## [Unreleased]
 
+Credits page refresh and button spec alignment.
+
+- **Change**: Refresh the Credits page so design-system contributors are listed by name and role, with links to the main site and app surfaces.
+- **Change**: Credit Cursor alongside Claude Code under the tools this system was built with.
+- **Docs**: Update the button spec so documented hover and focus states match primary and secondary buttons in the prototype.
+
 ## [0.26.1] - 2026-07-18
 
 Prototype artwork refresh from the official Figma element export.
