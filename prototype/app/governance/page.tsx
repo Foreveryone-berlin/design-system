@@ -147,8 +147,8 @@ export default function GovernancePage() {
           >
             Keep a Changelog
           </a>
-          , with imperative one-line entries and labels (Feat, Fix, Enhance,
-          Perf, Chore, Docs).
+          , with plain-language one-line entries written for non-developer
+          stakeholders.
         </p>
       </section>
     </>

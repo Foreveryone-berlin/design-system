@@ -20,6 +20,19 @@
 - Photography inside cards follows the imagery rules (warm, candid, diverse;
   blob/rounded masks; meaningful alt text).
 
+## Accessibility
+
+- Wrap each card in `<article>` when it represents a distinct content item.
+- **Photo alt:** One sentence describing what is happening in the frame (activity
+  and setting). Do not repeat the card `<h3>` title verbatim; the title names
+  the event, the alt describes the scene.
+- **Decorative illustration** (benefit/get-involved doodles): `alt=""` and
+  `aria-hidden="true"` when the card heading already conveys meaning.
+- **Category icon:** Always pair with visible category label text; mark the icon
+  `aria-hidden="true"`.
+- **Actions:** Use real links or buttons with visible labels; one clear action
+  per card.
+
 ## Do / don't
 
 - Do: keep one clear action per card; left-align text.
