@@ -27,3 +27,5 @@ The ForEveryone lockups above are derived from the official `foreveryone-logo.pn
 **Current icons:**
 - `../favicon.png` — site favicon synced from foreveryone.berlin.
 - `../apple-touch-icon.png` — Apple touch icon synced from foreveryone.berlin.
+- `../icons/categories/*.svg` — workshop category glyphs (Figma export; normalized by `scripts/import-figma-elements.mjs`).
+- `../illustrations/**/*.svg` — line illustrations, accent marks, blobs, and waves from the same Figma element set (see `docs/visual-styles.md`).
