@@ -220,8 +220,13 @@ export default function AccessibilityPage() {
       <section className="ds-section">
         <h2 className="ds-section-title">Status</h2>
         <p className="fe-body">
-          This statement was last reviewed on <strong>15 June 2026</strong>. It
-          evolves with the design system and the forthcoming brand book.
+          This statement was last reviewed on <strong>18 July 2026</strong>. It
+          evolves with the design system and the forthcoming brand book. Known
+          gaps and partial conformance items are tracked in the{" "}
+          <a href="https://github.com/Foreveryone-berlin/design-system/blob/develop/docs/a11y-conformance.md">
+            accessibility conformance register
+          </a>
+          .
         </p>
       </section>
     </>

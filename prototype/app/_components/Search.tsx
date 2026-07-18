@@ -93,8 +93,18 @@ export default function Search({
 
   const optionId = (i: number) => `${listId}-opt-${i}`;
 
+  const statusMessage =
+    open && query.trim()
+      ? results.length > 0
+        ? `${results.length} result${results.length === 1 ? "" : "s"}`
+        : "No results"
+      : "";
+
   return (
     <div className="ds-search">
+      <span aria-live="polite" className="fe-visually-hidden">
+        {statusMessage}
+      </span>
       <input
         ref={inputRef}
         type="text"
