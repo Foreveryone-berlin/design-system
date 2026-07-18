@@ -12,11 +12,13 @@ in the prototype.
 
 **Workshop icon set (filled, solid, orange + white glyph)** ships in
 `prototype/public/icons/categories/` and renders via the `CategoryIcon` React
-component inside `.fe-card-category__icon`, with orange
+component (CSS mask + `currentColor`) inside `.fe-card-category__icon`, with orange
 (`var(--color-accent-icon)`) ground + white glyph. Per Brand Book p.24 these are
 **solid filled** silhouettes — never outline/stroke, never shadow/gradient. Add a
-category by dropping a **filled** SVG (`fill="currentColor"`, 48×48 viewBox) into
-the folder and extending `CategoryIcon`.
+category by dropping a **filled** SVG (`fill="currentColor"`) into
+`prototype/public/icons/categories/` and extending `CategoryIcon`. Re-import
+from Figma with `node scripts/import-figma-elements.mjs` after extracting a
+fresh `ForEveryone_Elements` zip at the repo root (see **Refreshing visual-element SVGs** below).
 
 ## Iconography and illustration
 
@@ -32,7 +34,7 @@ Per Brand Book v1.0 p.24, workshop categories use a fixed, **filled solid** oran
 | Expression | `expression` | `Expression` |
 | Music | `music` | `Music` |
 
-The five filled SVGs ship in `prototype/public/icons/categories/` and `CategoryIcon` maps these five canonical names. Legacy names (`painting`, `pottery`, `wellness`, `language`) remain as **aliases** mapping onto the canonical glyphs so existing usages and live content keep working.
+The five filled SVGs ship in `prototype/public/icons/categories/` and `CategoryIcon` loads them via CSS mask (white glyph on orange ground). Legacy names (`painting`, `pottery`, `wellness`, `language`) remain as **aliases** mapping onto the canonical glyphs so existing usages and live content keep working. **Balance and Wellness** still uses the in-repo redraw (`balance-wellness.svg`); no matching glyph was in the July 2026 Figma element export.
 
 ### Category tag colours (hover / active)
 
@@ -54,7 +56,7 @@ Beyond categories, the system uses a small set of UI glyphs (seen in the brand g
 
 - **Role:** Decorative “doodle” marks — warmth, hand-drawn personality (e.g. the orange flower beside *Our Impact* and the sketched underline beneath the *SheLeads* / home headline).
 - **Colour:** Drawn in **brand orange** (decorative use), matching the filled-illustration family; do not recolour to blue.
-- **Shipped set** in `prototype/public/illustrations/`: brand artwork `flower.png`, `smiley.png`, `swirl.png`, `strategy.png`, and `headline-underline.png` (exported from Figma); plus placeholder `cloud.svg`, `chess.svg`, `vase.svg` recreations. Figma remains the source of truth for any new or updated artwork.
+- **Shipped set** in `prototype/public/illustrations/`: Figma exports (`ForEveryone_Elements` drop, normalized via `scripts/import-figma-elements.mjs`) including `flower.svg`, `smiley.svg`, `cloud.svg`, `coffee-cup.svg`, `donation-box.svg`, `sprout.svg`, `chess.svg`, and `headline-underline.svg`. `vase.svg` and `qr-foreveryone.svg` remain in-repo redraws. Figma remains the source of truth for any new or updated artwork.
 - **Headline underline:** place `headline-underline.svg` under a heading (see `.ds-headline-underline` on the home hero) for the brand’s sketched-underline accent.
 - **Usage:** Supporting hero sections, empty states, editorial blocks — avoid competing with primary CTAs; pair with blob shapes rather than stacking on busy imagery.
 
@@ -83,7 +85,7 @@ Brand Book v1.0 p.27 defines two graphic-shape types with distinct roles that **
 
 - **Role:** Soft **horizontal dividers** at the top or bottom edge of a section. Not containers, not masks — only edge dividers.
 - **Colour:** Lime green (`var(--color-light-green)`); match the section they edge.
-- **Shipped set:** `prototype/public/illustrations/waves/wave-divider.svg` (bottom edge) and `wave-divider-alt.svg` (top edge). Use `preserveAspectRatio="none"` and stretch full-width.
+- **Shipped set:** `prototype/public/illustrations/waves/wave-h1.svg`, `wave-h2.svg`, and `wave-h3.svg` (full-width crests), plus `wave-corner-tr.svg` and `wave-corner-br.svg` (corner variants). Use `preserveAspectRatio="none"` and stretch full-width where appropriate.
 
 ## Decorative accent marks
 
@@ -110,3 +112,14 @@ When placing images inside blob or rounded masks:
 | Decorative page bands | See `fe-page-bg-lavender`, `fe-page-bg-soft-lavender` in `css/base.css` |
 
 Elementor: when adding custom classes to icon widgets, use the same class names the child theme enqueues from `utilities.css` (see [custom-css-setup.md](../elementor/custom-css-setup.md)).
+
+## Refreshing visual-element SVGs from Figma
+
+When design ships an updated **ForEveryone Elements** export:
+
+1. Save the zip as `ForEveryone_Elements.zip` at the repository root (gitignored).
+2. Extract: `unzip -o ForEveryone_Elements.zip -d .` (ignore `__MACOSX/`).
+3. Run: `node scripts/import-figma-elements.mjs` from the repo root.
+4. Visually check `/visual-elements`, `/patterns`, and the home hero underline in the prototype.
+
+The script maps zip filenames to `prototype/public/` paths, strips Figma canvas backgrounds, recolors brand fills to `currentColor`, and optionally runs SVGO. It does **not** replace assets with no zip counterpart (Balance and Wellness category icon, blob shapes 5–7, wave corner variants, UI icons, favicon, QR code, or vase illustration). Update the mapping table in `scripts/import-figma-elements.mjs` when Figma adds or renames exports.

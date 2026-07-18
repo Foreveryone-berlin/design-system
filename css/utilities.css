@@ -354,7 +354,7 @@
   color: var(--color-white);
   flex-shrink: 0;
 }
-.fe-card-category__icon svg {
+.fe-card-category__icon .fe-category-icon-glyph {
   width: 0.875rem;
   height: 0.875rem;
 }
