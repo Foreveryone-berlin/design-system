@@ -41,6 +41,15 @@ Grey at rest; takes its category colour on **hover** and when **active**
 (selected). Add `.active` for the selected state. Keyboard focus uses the gold
 focus-visible ring.
 
+## Accessibility
+
+- **Decorative label** (read-only category on a card): use `<span class="fe-tag-pill">` with visible text; no extra ARIA required.
+- **Interactive filter** (selectable category): use `<button type="button">` with
+  the same classes, `aria-pressed="true"` when `.active`, and visible label text.
+- **Icon:** Workshop category icon is always decorative when a text label is
+  present; hide the SVG with `aria-hidden="true"`.
+- **Focus:** Gold `--color-focus-visible-accent` ring on keyboard focus.
+
 ## Do / don't
 
 - Do: always show the category label text alongside the icon.

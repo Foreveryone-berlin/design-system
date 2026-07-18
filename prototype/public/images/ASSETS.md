@@ -7,6 +7,16 @@ Images in this folder are for **design system prototype use only** (design.forev
 - **Production:** Final assets for the live site should be sourced from the main site or asset pipeline.
 
 **Current assets:**
+
+Recommended alt text (one sentence; describe activity and setting):
+
+| File | Alt text |
+|------|----------|
+| `community-cafe.png` | Three people sit and chat at a wooden table in the ForEveryone community cafe, lit by afternoon sun. |
+| `workshop-group.jpg` | Community members laughing around a table in the ForEveryone cafe. |
+| `workshop-pottery.jpg` | People shaping clay together at a table in a bright art studio. |
+| `workshop-drawing.jpg` | People holding up colourful portrait drawings at an outdoor table. |
+
 - `community-cafe.png` community cafe scene used as the prototype homepage hero, blob-masked photograph of people at the ForEveryone community cafe (1090x1094 PNG).
 - `workshop-group.jpg` workshop card image, photograph of community members laughing around a table in the cafe (1440x900 mozjpeg q82, ~242 KB).
 - `workshop-pottery.jpg` Upcoming-workshop card (Arts and Crafts): people shaping clay at a table in a studio. From a ForEveryone pottery-morning photo (`Pottery_Morning-012025-9173`), cropped to 720x450 and compressed (mozjpeg q80, ~37 KB).

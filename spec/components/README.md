@@ -16,3 +16,7 @@ names. Obey [../principles.md](../principles.md).
 | Card | `.fe-card` | [card.md](card.md) |
 | Input | `.fe-input` | [input.md](input.md) |
 | FAQ accordion | `.fe-faq-item` | [faq.md](faq.md) |
+| Header | `.fe-header` | [header.md](header.md) |
+| Dropdown | `.fe-dropdown` | [dropdown.md](dropdown.md) |
+| Popup | `.fe-popup` | [popup.md](popup.md) |
+| Footer | `.fe-footer` | [footer.md](footer.md) |
