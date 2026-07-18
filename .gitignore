@@ -9,11 +9,19 @@ Thumbs.db
 NUL
 prototype/undefined/
 
+# Local backups from image tone scripts (sources stay in git history)
+prototype/public/images/_originals/
+prototype/public/images/_reference/
+
 # Cursor local planning artifacts
 .cursor/plans/
+.playwright-mcp/
 
 # Claude Code local planning artifacts
 .claude/plans/
+
+# Local release plan copy
+v1-0-0-release-plan-3c3b99a7.plan.md
 
 .vercel
 .vercel-inspect.json
@@ -32,7 +40,6 @@ CLAUDE.local.md
 # Local design references (Figma is source of truth; not tracked)
 # Figma element export drop (tracked assets live under prototype/public/)
 ForEveryone_Elements.zip
-ForEveryone_Elements/
 __MACOSX/
 *.pdf
 *Screenshot*.png
