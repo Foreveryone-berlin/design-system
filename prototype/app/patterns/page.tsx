@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import HeaderDemo from "../_components/HeaderDemo";
+import ActivityIcon from "../_components/ActivityIcon";
 import { CATEGORY_LABELS } from "../_components/CategoryIcon";
 import { hero as heroCopy } from "@/content/site-copy";
+
+const PATTERNS_HERO_HEADLINE = "Tokens, Components, and Patterns";
 
 function CheckCircle() {
   return (
@@ -93,7 +96,7 @@ const FILTER_CATEGORIES = [
 ] as const;
 
 export default function PatternsPage() {
-  const [headlineFirst, ...headlineRest] = heroCopy.headline.split(" ");
+  const [headlineFirst, ...headlineRest] = PATTERNS_HERO_HEADLINE.split(" ");
 
   return (
     <>
@@ -224,7 +227,7 @@ export default function PatternsPage() {
         <div className="ds-pattern-hero-specimen">
           <div>
             <div className="ds-headline-with-underline">
-              <h2 className="ds-hero-title" style={{ fontSize: "var(--font-size-3xl)" }}>
+              <h2 className="ds-hero-title">
                 {headlineFirst}
                 <br />
                 {headlineRest.join(" ")}
@@ -391,8 +394,8 @@ export default function PatternsPage() {
             <span
               className="fe-card-benefit__illustration ds-illo-mark"
               style={{
-                maskImage: "url(/illustrations/group.svg)",
-                WebkitMaskImage: "url(/illustrations/group.svg)",
+                maskImage: "url(/illustrations/flower.svg)",
+                WebkitMaskImage: "url(/illustrations/flower.svg)",
               }}
               aria-hidden="true"
             />
@@ -404,14 +407,9 @@ export default function PatternsPage() {
                 Share your hobby with locals and internationals alike.
               </p>
             </div>
-            <span
-              className="fe-card-benefit__illustration ds-illo-mark"
-              style={{
-                maskImage: "url(/illustrations/knitting-line.svg)",
-                WebkitMaskImage: "url(/illustrations/knitting-line.svg)",
-              }}
-              aria-hidden="true"
-            />
+            <span className="fe-card-get-involved__icon" aria-hidden="true">
+              <ActivityIcon name="writing" size="lg" chip />
+            </span>
           </div>
         </div>
       </section>

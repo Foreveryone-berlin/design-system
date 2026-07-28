@@ -81,14 +81,6 @@ const SOCIAL_ICONS = [
   { file: "/icons/social/location.svg", label: "Location" },
 ] as const;
 
-const COMPONENT_ICON_VARIANTS = [
-  { file: "/icons/variants/workshop/knitting-variant-1.svg", label: "Knitting variant 1" },
-  { file: "/icons/variants/workshop/pottery-variant-1.svg", label: "Pottery variant 1" },
-  { file: "/icons/variants/workshop/pottery-variant-3.svg", label: "Pottery variant 3" },
-  { file: "/icons/variants/social/email-variant-2.svg", label: "Email variant 2" },
-  { file: "/icons/variants/social/linkedin-variant-2.svg", label: "LinkedIn variant 2" },
-] as const;
-
 export default function ComponentsPage() {
   return (
     <>
@@ -749,7 +741,7 @@ export default function ComponentsPage() {
           Filled workshop and activity glyphs used in category chips, cards, and
           filter patterns.
         </p>
-        <div className="ds-icon-demo">
+        <div className="ds-icon-list">
           {[
             ...[
               "balance-wellness",
@@ -760,40 +752,17 @@ export default function ComponentsPage() {
             ].map((name) => ({
               key: `cat-${name}`,
               label: name,
-              node: <CategoryIcon name={name as CategoryIconName} chip />,
+              node: <CategoryIcon name={name as CategoryIconName} chip={false} />,
             })),
             ...ACTIVITY_NAMES.map((name) => ({
               key: `activity-${name}`,
               label: ACTIVITY_LABELS[name],
-              node: <ActivityIcon name={name} chip />,
+              node: <ActivityIcon name={name} chip={false} />,
             })),
           ].map(({ key, label, node }) => (
-            <div className="ds-icon-item" key={key}>
-              {node}
-              <span>{label}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="component-icon-variants" className="ds-section">
-        <h3 className="ds-subsection-title">Component icon variants (Canva export)</h3>
-        <p className="ds-section-intro">
-          Additional exported variants are cataloged as alternatives. Primary
-          production defaults remain in <code className="ds-code">/icons/social</code>{" "}
-          and <code className="ds-code">/icons/workshop</code>.
-        </p>
-        <div className="ds-icon-demo">
-          {COMPONENT_ICON_VARIANTS.map(({ file, label }) => (
-            <div className="ds-icon-item" key={file}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={file}
-                alt=""
-                aria-hidden="true"
-                className="ds-icon-glyph--md"
-              />
-              <span>{label}</span>
+            <div className="ds-icon-list__row" key={key}>
+              <span className="ds-icon-list__glyph" aria-hidden="true">{node}</span>
+              <span className="ds-icon-list__label">{label}</span>
             </div>
           ))}
         </div>
