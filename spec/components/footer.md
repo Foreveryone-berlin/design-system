@@ -11,6 +11,9 @@ and legal links.
 - Column headings: real heading elements or visible text; link lists in `<ul>`.
 - Nav links: reuse `.fe-nav-link`; disabled entries use `aria-disabled="true"`.
 - Icon-only social buttons: `.fe-icon-btn` with `aria-label` per network.
+  Footer ships Instagram and LinkedIn only (`instagram.svg`, `linkedin.svg`).
+  Glyphs use CSS mask + `currentColor` so hover, focus, and active fills apply.
+  Other social assets (`email`, `location`, etc.) remain available for contact rows.
 - Decorative wave divider: `aria-hidden="true"` if purely visual.
 - Logo image: alt text per [docs/logo-usage.md](../../docs/logo-usage.md).
 

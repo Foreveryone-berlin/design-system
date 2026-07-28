@@ -37,7 +37,7 @@ export default function GovernancePage() {
       <section className="ds-section">
         <h2 className="ds-section-title">Versioning</h2>
         <ul className="ds-rule-list">
-          <li>Semantic versioning; releases are tagged on main as v1.0.0.</li>
+          <li>Semantic versioning; releases are tagged on main (e.g. v1.1.0).</li>
           <li>
             Token or CSS changes require a CHANGELOG entry under the in-flight
             version.

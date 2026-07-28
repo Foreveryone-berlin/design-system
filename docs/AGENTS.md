@@ -21,6 +21,7 @@ Paths are repo-relative from project root unless noted.
 |docs/agents:{README.md,agent-contract.md,runtime-policy.md,redesign-from-this-system.md}
 |spec:{tokens.json,principles.md}
 |spec/components:{README.md,button.md,tag-pill.md,card.md,input.md,faq.md}
+|spec/patterns:{README.md}
 |docs/decisions:{001-token-format.md}
 |docs/skills:{README.md,token-update.md,elementor-mapping.md,release.md}
 |claude:{rules/git.md,rules/general.md,rules/css.md,rules/tokens.md,skills/ship-release/SKILL.md,skills/optimize-prototype/SKILL.md}
@@ -33,7 +34,7 @@ Paths are repo-relative from project root unless noted.
 |scripts:{build-css.js,build-css.test.js,pr-and-merge.sh}
 |prototype:{README.md,next.config.ts,package.json,tsconfig.json,playwright.config.ts}
 |prototype/app:{layout.tsx,page.tsx,globals.css,manifest.ts,FaqDemo.tsx}
-|prototype/app/_components:{CategoryIcon.tsx,CodeBlock.tsx,HeaderDemo.tsx,MobileNav.tsx,MotionSpecimens.tsx,Navigation.tsx,ObfuscatedEmail.tsx,OnThisPage.tsx,Popup.tsx,StatCounter.tsx,TestimonialCard.tsx,ViewTransitions.tsx}
+|prototype/app/_components:{ActivityIcon.tsx,CategoryIcon.tsx,CodeBlock.tsx,HeaderDemo.tsx,MobileNav.tsx,MotionSpecimens.tsx,Navigation.tsx,ObfuscatedEmail.tsx,OnThisPage.tsx,Popup.tsx,StatCounter.tsx,TestimonialCard.tsx,ViewTransitions.tsx}
 |prototype/app:{components,patterns,foundations,guidelines,governance,accessibility,credits,brand,logo,visual-elements,print}/page.tsx
 |prototype/content:{site-copy.ts}
 |prototype/tests:{a11y.spec.ts,smoke.spec.ts}

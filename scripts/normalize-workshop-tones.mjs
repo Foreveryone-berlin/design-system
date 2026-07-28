@@ -18,8 +18,14 @@ const originalsDir = path.join(imagesDir, "_originals");
 
 const RECIPES = {
   "workshop-group.jpg": {
-    note: "Community Connection card; keep current export (skip)",
-    skip: true,
+    note: "Balance and Wellness card; yoga/wellbeing photo from brand export",
+    skip: false,
+    build(src) {
+      return sharp(src).modulate({ brightness: 1.05, saturation: 1.04 });
+    },
+    encode(pipeline) {
+      return pipeline.jpeg({ quality: 82, mozjpeg: true, progressive: true });
+    },
   },
   "workshop-pottery.jpg": {
     note: "First card in upcoming workshops; natural-tone lift for desktop contrast",

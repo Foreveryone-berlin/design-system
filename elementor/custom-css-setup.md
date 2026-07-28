@@ -152,6 +152,7 @@ The child theme should load `css/utilities.css` (or a bundle that includes it) s
 
 - **`.fe-icon-btn`** — neutral circular icon control (e.g. social); orange on hover.
 - **`.fe-icon-btn--filled-brand`** — **filled orange** circular control for **category / functional** icons per the brand visual styles; white glyph via `currentColor`.
+- **`.fe-workshop-icon--sm`**, **`.fe-workshop-icon--md`**, **`.fe-workshop-icon--lg`** — orange chip + white glyph at tag (24px), icon-button (40px), and specimen (80px) sizes. Pair with category or activity SVGs from `icons/categories/` or `icons/workshop/`.
 
 See [docs/visual-styles.md](../docs/visual-styles.md). Place the SVG inside the widget with `fill="currentColor"` (and `aria-hidden="true"` if the button has an `aria-label`).
 

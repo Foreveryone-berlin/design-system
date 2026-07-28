@@ -10,11 +10,20 @@
 
 Start notes for the next release here.
 
-## [1.0.0] - 2026-07-18
+## [1.1.0] - 2026-07-28
+
+Workshop icon scale guide, activity icons, refreshed artwork, and headline underline.
+
+- **Add**: Show workshop and UI icons at small, medium, and large sizes in the prototype, and add new composite layout patterns that use them in context.
+- **Add**: Ship activity-level workshop icons (knitting, pottery, chess, thread, and writing) alongside the five main categories.
+- **Change**: Refresh prototype photos and decorative artwork from the latest brand exports, cropped and compressed for fast loading.
+- **Change**: Adopt the new double-line headline underline under hero and section headings across the prototype.
+- **Change**: Replace social and contact icons with the latest brand SVG exports and document the three icon size tiers.
+- **Fix**: Remove the separate v1.0.0 migration note; the changelog remains the single release reference.
+
+## [1.0.0] - 2026-07-18 🎉
 
 Credits page refresh, accessibility enforcement, and button spec alignment.
-
-Migration note: [v1.0.0 migration note](docs/releases/v1.0.0-migration.md).
 
 - **Change**: Refresh the Credits page so design-system contributors are listed by name and role, with links to the main site and app surfaces.
 - **Change**: Credit Cursor alongside Claude Code under the tools this system was built with.

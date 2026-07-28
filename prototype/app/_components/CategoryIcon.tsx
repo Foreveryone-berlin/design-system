@@ -7,6 +7,8 @@
  * Canonical five categories; legacy names are kept as aliases so existing
  * prototype usages and live content do not break.
  */
+import type { IconSize } from "./ActivityIcon";
+
 export type CategoryIconName =
   | "balance-wellness"
   | "movement"
@@ -46,14 +48,29 @@ function resolve(name: CategoryIconName): CanonicalName {
   return ALIASES[name] ?? "arts-crafts";
 }
 
-export default function CategoryIcon({ name }: { name: CategoryIconName }) {
+function sizeClass(size: IconSize): string {
+  if (size === "sm") return "fe-workshop-icon--sm";
+  if (size === "lg") return "fe-workshop-icon--lg";
+  return "fe-workshop-icon--md";
+}
+
+export default function CategoryIcon({
+  name,
+  size = "md",
+  chip = false,
+}: {
+  name: CategoryIconName;
+  size?: IconSize;
+  chip?: boolean;
+}) {
   const key = resolve(name);
   const src = `/icons/categories/${key}.svg`;
 
-  return (
+  const glyph = (
     <span
       className="fe-category-icon-glyph"
       style={{
+        display: "block",
         backgroundColor: "currentColor",
         maskImage: `url(${src})`,
         WebkitMaskImage: `url(${src})`,
@@ -66,6 +83,14 @@ export default function CategoryIcon({ name }: { name: CategoryIconName }) {
       }}
       aria-hidden="true"
     />
+  );
+
+  if (!chip) return glyph;
+
+  return (
+    <span className={`fe-workshop-icon ${sizeClass(size)}`} aria-hidden="true">
+      {glyph}
+    </span>
   );
 }
 
