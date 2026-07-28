@@ -17,7 +17,7 @@ Recommended alt text (one sentence; describe activity and setting):
 | `workshop-pottery.jpg` | People shaping clay together at a table in a bright art studio. |
 | `workshop-drawing.jpg` | People holding up colourful portrait drawings at an outdoor table. |
 
-- `community-cafe.png` community cafe scene used as the prototype homepage hero, blob-masked photograph of people at the ForEveryone community cafe (1090x1094 PNG).
+- `community-cafe.png` homepage hero blob from `community-cafe-home.png` (Desktop export, 1090×1094 RGBA). Stored losslessly in `_originals/`; shipped as palette PNG (~549 KB, quality 100) after tone lift to match workshop cards.
 - `workshop-group.jpg` Balance and Wellness card image; yoga/wellbeing photograph from brand export (`Yoga.jpeg`), cropped to 1440×900 and compressed (mozjpeg q82). Also reused by the second upcoming-workshop card.
 - `workshop-pottery.jpg` Upcoming-workshop card (Arts and Crafts): from `Pottery_group.jpg`, cropped to 720×450 (mozjpeg q80).
 - `workshop-drawing.jpg` Upcoming-workshop card (Expression): from `Pottery_couple1.jpg`, cropped to 640×400 with a small tone lift (mozjpeg q82).
@@ -40,4 +40,5 @@ The ForEveryone lockups above are derived from the official `foreveryone-logo.pn
 - `../icons/categories/*.svg` — five canonical workshop category glyphs (Figma or desktop export; normalized by `scripts/import-figma-elements.mjs` or `scripts/import-desktop-elements.mjs`).
 - `../icons/workshop/*.svg` — activity/subcategory filled icons (knitting, pottery, thread, chess, writing) for cards and filters; `.fe-workshop-icon--sm|--md|--lg` size tiers.
 - `../icons/social/*.svg` — footer/contact glyphs (Facebook, Instagram, LinkedIn, email, location); dark fills normalized to `currentColor`.
+- `../icons/variants/**/*` — alternate Canva-export icon variants cataloged for components documentation; canonical production defaults remain in `categories/`, `workshop/`, and `social/`.
 - `../illustrations/**/*.svg` — line illustrations, accent marks, blobs, and waves (see `docs/visual-styles.md`).

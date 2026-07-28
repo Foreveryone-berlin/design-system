@@ -59,6 +59,7 @@
     border-color var(--transition-base),
     color var(--transition-base);
   text-decoration: none;
+  white-space: nowrap;
 }
 .fe-btn-secondary:hover,
 .fe-btn-secondary.is-hover {
@@ -370,6 +371,7 @@
   position: absolute;
   top: var(--spacing-3);
   left: var(--spacing-3);
+  max-inline-size: calc(50% - var(--spacing-4));
   padding: var(--spacing-1) var(--spacing-3);
   background-color: var(--color-background-default);
   color: var(--color-brand-dark);
@@ -377,6 +379,9 @@
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-bold);
   border-radius: var(--radius-pill);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 /* Category label chip on card media (Charcoal label on Warm White). */
 .fe-card-category {
@@ -385,6 +390,7 @@
   right: var(--spacing-3);
   display: inline-flex;
   align-items: center;
+  max-inline-size: calc(50% - var(--spacing-4));
   padding: var(--spacing-1) var(--spacing-3);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
@@ -392,6 +398,9 @@
   background-color: var(--color-background-default);
   color: var(--color-brand-dark);
   box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .fe-card__body {
   padding: var(--spacing-5);
@@ -409,13 +418,19 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-4);
+  flex-wrap: wrap;
   margin-top: var(--spacing-4);
   padding-top: var(--spacing-4);
   border-top: 1px solid var(--color-theme-7);
 }
 .fe-card-price__amount {
+  flex: 0 0 auto;
   font-weight: var(--font-weight-bold);
   color: var(--color-theme-2);
+}
+.fe-card-price .fe-btn-secondary {
+  margin-inline-start: auto;
+  flex-shrink: 0;
 }
 
 /* Benefit / Get-involved Card */
@@ -434,7 +449,7 @@
 .fe-card-benefit__illustration {
   flex-shrink: 0;
   width: 6rem;
-  height: auto;
+  height: 6rem;
 }
 
 /* Card Get Involved */

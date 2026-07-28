@@ -768,17 +768,16 @@ summary:focus-visible,
 
 /* Headline + sketched underline as one unit (underline spans headline text width). */
 .ds-headline-with-underline {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: max-content;
   max-width: 100%;
   margin-bottom: var(--spacing-4);
 }
 
 .ds-headline-with-underline .ds-hero-title,
 .ds-headline-with-underline .fe-h3 {
+  display: inline-block;
+  max-width: 100%;
   margin-bottom: 0;
+  vertical-align: top;
 }
 
 /* Sketched brand underline tucked under a headline (see SheLeads). */
@@ -800,14 +799,6 @@ summary:focus-visible,
 
 .ds-hero-with-image .ds-headline-with-underline {
   margin-bottom: var(--spacing-2);
-}
-
-/* Wide horizontal accent strokes (doodle underline, headline underline specimens). */
-.ds-accent-mark--underline {
-  width: min(32rem, 100%);
-  height: 1.25rem;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
 }
 
 .ds-hero-with-image .ds-intro {
@@ -1132,7 +1123,7 @@ summary:focus-visible,
   margin: calc(-1 * var(--spacing-2));
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .ds-events-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2002,6 +1993,13 @@ a.ds-btn {
 }
 .ds-accent-mark--wide {
   width: 6rem;
+}
+/* Underline specimens: 2× .ds-accent-mark--wide (6rem → 12rem); must follow base sizes. */
+.ds-accent-mark--underline {
+  width: 12rem;
+  height: 1.25rem;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }
 .ds-illo-specimen figcaption,
 .ds-accent-specimen figcaption {

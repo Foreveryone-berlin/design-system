@@ -4,7 +4,7 @@
  */
 
 export const hero = {
-  headline: "ForEveryone Design System",
+  headline: "Tokens, Components, and Patterns",
   tagline:
     "Design tokens, components, and patterns for the ForEveryone digital experience.",
   ctaPrimary: "View tokens",

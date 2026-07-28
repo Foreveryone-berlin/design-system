@@ -39,8 +39,32 @@ const illustrations = [
   { src: "/illustrations/flower.svg", label: "Flower" },
   { src: "/illustrations/sprout.svg", label: "Sprout" },
   { src: "/illustrations/cloud.svg", label: "Cloud" },
-  { src: "/illustrations/donation-box.svg", label: "Donation box" },
+];
+
+const functionalDoodles = [
   { src: "/illustrations/coffee-cup.svg", label: "Coffee cup" },
+  { src: "/illustrations/donation-box.svg", label: "Donation box" },
+];
+
+const lineIllustrationVariants = [
+  { src: "/illustrations/variants/line/flower-variant-1.svg", label: "Flower variant 1" },
+  { src: "/illustrations/variants/line/flower-variant-2.svg", label: "Flower variant 2" },
+  { src: "/illustrations/variants/line/sprout-variant-1.svg", label: "Sprout variant 1" },
+];
+
+const accentVariants = [
+  { src: "/illustrations/variants/accents/doodle-arrow-variant-1.svg", label: "Arrow variant 1" },
+  { src: "/illustrations/variants/accents/doodle-circle-variant-2.svg", label: "Circle variant 2" },
+  { src: "/illustrations/variants/accents/sparkle-variant-1.svg", label: "Sparkle variant 1" },
+  { src: "/illustrations/variants/accents/sparkle-variant-2.svg", label: "Sparkle variant 2" },
+  { src: "/illustrations/variants/accents/sparkle-variant-3.svg", label: "Sparkle variant 3" },
+  { src: "/illustrations/variants/accents/music-note-variant-1.svg", label: "Music note variant 1" },
+  { src: "/illustrations/variants/accents/music-note-variant-3.svg", label: "Music note variant 3" },
+  { src: "/illustrations/variants/accents/emphasis-lines-variant-1.svg", label: "Emphasis lines variant 1" },
+  { src: "/illustrations/variants/accents/emphasis-lines-variant-2.svg", label: "Emphasis lines variant 2" },
+  { src: "/illustrations/variants/accents/emphasis-lines-variant-3.svg", label: "Emphasis lines variant 3" },
+  { src: "/illustrations/variants/accents/emphasis-lines-variant-4.svg", label: "Emphasis lines variant 4" },
+  { src: "/illustrations/variants/accents/headline-underline-variant-1.svg", label: "Headline underline variant 1" },
 ];
 
 export default function VisualElementsPage() {
@@ -115,6 +139,23 @@ export default function VisualElementsPage() {
             </figure>
           ))}
         </div>
+        <h3 className="ds-subsection-title">Functional doodles</h3>
+        <p className="fe-body">
+          These are line-style graphics used as functional motifs in specific
+          content blocks, not as general atmospheric marks.
+        </p>
+        <div className="ds-illo-specimens">
+          {functionalDoodles.map((illo) => (
+            <figure key={illo.label} className="ds-illo-specimen">
+              <span
+                className="ds-illo-mark"
+                style={{ maskImage: `url(${illo.src})`, WebkitMaskImage: `url(${illo.src})` }}
+                aria-hidden="true"
+              />
+              <figcaption>{illo.label}</figcaption>
+            </figure>
+          ))}
+        </div>
       </section>
 
       <section className="ds-section">
@@ -136,6 +177,38 @@ export default function VisualElementsPage() {
                 aria-hidden="true"
               />
               <figcaption>{a.label}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <h3 className="ds-subsection-title">Decorative variant catalog</h3>
+        <p className="fe-body">
+          Additional Canva exports are kept as documented variants for editorial
+          and campaign flexibility.
+        </p>
+        <div className="ds-accent-specimens">
+          {accentVariants.map((a) => (
+            <figure key={a.label} className="ds-accent-specimen">
+              <span
+                className={`ds-accent-mark${
+                  a.label.toLowerCase().includes("underline") ? " ds-accent-mark--underline" : ""
+                }`}
+                style={{ maskImage: `url(${a.src})`, WebkitMaskImage: `url(${a.src})` }}
+                aria-hidden="true"
+              />
+              <figcaption>{a.label}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <h3 className="ds-subsection-title">Line-illustration variant catalog</h3>
+        <div className="ds-illo-specimens">
+          {lineIllustrationVariants.map((illo) => (
+            <figure key={illo.label} className="ds-illo-specimen">
+              <span
+                className="ds-illo-mark"
+                style={{ maskImage: `url(${illo.src})`, WebkitMaskImage: `url(${illo.src})` }}
+                aria-hidden="true"
+              />
+              <figcaption>{illo.label}</figcaption>
             </figure>
           ))}
         </div>
