@@ -32,19 +32,17 @@ CLAUDE.local.md
 # Claude Code per-machine permissions (do not commit)
 .claude/settings.local.json
 
-# Secrets — BrowserStack MCP credentials (see .env.example)
+# Secrets: BrowserStack MCP credentials (see .env.example)
 .env
 
-.vercel
-
-# Local export / scratch output
-latests/
+# Local artifact hub
+/.artifacts/*
+!/.artifacts/README.md
 
 # Local design references (Figma is source of truth; not tracked)
 # Figma element export drop (tracked assets live under prototype/public/)
 ForEveryone_Elements.zip
 __MACOSX/
-*.pdf
 *Screenshot*.png
 *_Screenshot*.png
 how-to-represent-us.png
