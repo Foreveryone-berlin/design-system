@@ -11,14 +11,16 @@ for hex roles and approved background ⇄ text combinations, and
 in the prototype.
 
 **Workshop icon set (filled, solid, orange + white glyph)** ships in
-`prototype/public/icons/categories/` and renders via the `CategoryIcon` React
-component (CSS mask + `currentColor`) inside `.fe-card-category__icon`, with orange
-(`var(--color-accent-icon)`) ground + white glyph. Per Brand Book p.24 these are
-**solid filled** silhouettes — never outline/stroke, never shadow/gradient. Add a
-category by dropping a **filled** SVG (`fill="currentColor"`) into
-`prototype/public/icons/categories/` and extending `CategoryIcon`. Re-import
-from Figma with `node scripts/import-figma-elements.mjs` after extracting a
-fresh `ForEveryone_Elements` zip at the repo root (see **Refreshing visual-element SVGs** below).
+`prototype/public/icons/categories/` (five canonical categories) and
+`prototype/public/icons/workshop/` (activity/subcategory glyphs). Renders via
+`CategoryIcon` and `ActivityIcon` (CSS mask + `currentColor`) inside
+`.fe-card-category__icon`, `.fe-workshop-icon`, or `.fe-icon-btn--filled-brand`,
+with orange (`var(--color-accent-icon)`) ground + white glyph. Per Brand Book p.24
+these are **solid filled** silhouettes — never outline/stroke, never shadow/gradient.
+Add a category by dropping a **filled** SVG (`fill="currentColor"`) into
+`prototype/public/icons/categories/` and extending `CategoryIcon`. Re-import from
+Figma with `node scripts/import-figma-elements.mjs` or from a desktop SVG drop with
+`node scripts/import-desktop-elements.mjs --source=PATH` (see **Refreshing visual-element SVGs** below).
 
 ## Iconography and illustration
 
@@ -36,6 +38,22 @@ Per Brand Book v1.0 p.24, workshop categories use a fixed, **filled solid** oran
 
 The five filled SVGs ship in `prototype/public/icons/categories/` and `CategoryIcon` loads them via CSS mask (white glyph on orange ground). Legacy names (`painting`, `pottery`, `wellness`, `language`) remain as **aliases** mapping onto the canonical glyphs so existing usages and live content keep working. **Balance and Wellness** still uses the in-repo redraw (`balance-wellness.svg`); no matching glyph was in the July 2026 Figma element export.
 
+### Activity / subcategory icons
+
+Beyond the five canonical categories, activity-specific filled icons (knitting, pottery, thread, chess, writing) live in `prototype/public/icons/workshop/` and render via `ActivityIcon`. Use them on activity cards and filter bars where the subcategory is more specific than the top-level category.
+
+### Icon size tiers
+
+Three size modifiers align with common component contexts (see `/visual-elements` and `/components` size matrices):
+
+| Tier | CSS modifier | Chip box | Glyph | Typical context |
+|------|--------------|----------|-------|-----------------|
+| Small | `.fe-workshop-icon--sm` | 24×24px | 14px | Category tag pill, filter bar |
+| Medium | `.fe-workshop-icon--md` | 40×40px | 20px | Icon button (`.fe-icon-btn--filled-brand`) |
+| Large | `.fe-workshop-icon--lg` | 80×80px | 52px | Visual-elements specimen, card hero badge |
+
+Glyph-only rendering (no orange chip) is available via `chip={false}` on `CategoryIcon` / `ActivityIcon` when the parent already supplies the orange ground (e.g. `.fe-card-category__icon`).
+
 ### Category tag colours (hover / active)
 
 The brand book defines five categories but not per-category chroma. The repo maps each `.fe-tag-pill--*` modifier to a distinct decorative tint on hover/active (Charcoal labels throughout). Alert blue is **not** used. See [`spec/components/tag-pill.md`](../spec/components/tag-pill.md) for the token table. Official category-colour rules are pending a future brand-book revision.
@@ -47,6 +65,7 @@ Beyond categories, the system uses a small set of UI glyphs (seen in the brand g
 | Icon | Where | Asset / class |
 |------|-------|----------------|
 | Icon button (states: default/hover/focused/disabled) | quiet actions, social | `.fe-icon-btn` (+ `--filled-brand` for always-on orange) |
+| Social network | footer row | `icons/social/*.svg` inside `.fe-icon-btn` with `aria-label` |
 | Play button | media/video affordances | filled orange circle + white triangle glyph |
 | Dropdown chevron | nav dropdowns, selects, FAQ accordions | inline chevron SVG, rotates on open |
 | Arrow (right) | "Book Now" / "Explore all" CTAs | `arrow-right.svg` |
@@ -56,8 +75,8 @@ Beyond categories, the system uses a small set of UI glyphs (seen in the brand g
 
 - **Role:** Decorative “doodle” marks — warmth, hand-drawn personality (e.g. the orange flower beside *Our Impact* and the sketched underline beneath the *SheLeads* / home headline).
 - **Colour:** Drawn in **brand orange** (decorative use), matching the filled-illustration family; do not recolour to blue.
-- **Shipped set** in `prototype/public/illustrations/`: Figma exports (`ForEveryone_Elements` drop, normalized via `scripts/import-figma-elements.mjs`) including `flower.svg`, `smiley.svg`, `cloud.svg`, `coffee-cup.svg`, `donation-box.svg`, `sprout.svg`, `chess.svg`, and `headline-underline.svg`. `vase.svg` and `qr-foreveryone.svg` remain in-repo redraws. Figma remains the source of truth for any new or updated artwork.
-- **Headline underline:** place `headline-underline.svg` under a heading (see `.ds-headline-underline` on the home hero) for the brand’s sketched-underline accent.
+- **Shipped set** in `prototype/public/illustrations/`: Figma exports (`ForEveryone_Elements` drop, normalized via `scripts/import-figma-elements.mjs`) or desktop exports (`scripts/import-desktop-elements.mjs`) including `flower.svg`, `smiley.svg`, `cloud.svg`, `coffee-cup.svg`, `donation-box.svg`, `sprout.svg`, `chess.svg`, `group.svg`, `knitting-line.svg`, `pottery-line.svg`, `movement-line.svg`, and `headline-underline.svg`. `vase.svg` and `qr-foreveryone.svg` remain in-repo redraws. Figma remains the source of truth for any new or updated artwork.
+- **Headline underline:** `headline-underline.svg` (from `Doodle_Double_Underlines_2_2`) sits under a heading via `.ds-headline-underline` on the home hero and pattern specimens. The import script repairs SVGO-stripped fills on this asset automatically.
 - **Usage:** Supporting hero sections, empty states, editorial blocks — avoid competing with primary CTAs; pair with blob shapes rather than stacking on busy imagery.
 
 ### Filled icons (functional)
@@ -107,9 +126,10 @@ When placing images inside blob or rounded masks:
 
 | Pattern | Class / approach |
 |--------|-------------------|
-| Category / filled orange icon control | `.fe-icon-btn--filled-brand` (+ SVG with `fill="currentColor"`) |
+| Category / filled orange icon control | `.fe-icon-btn--filled-brand`, `.fe-workshop-icon--sm|--md|--lg` (+ SVG with `fill="currentColor"`) |
 | Social / neutral icon control | `.fe-icon-btn` |
 | Decorative page bands | See `fe-page-bg-lavender`, `fe-page-bg-soft-lavender` in `css/base.css` |
+| Composite layout patterns | Prototype `/patterns`; catalog in [`spec/patterns/README.md`](../spec/patterns/README.md) |
 
 Elementor: when adding custom classes to icon widgets, use the same class names the child theme enqueues from `utilities.css` (see [custom-css-setup.md](../elementor/custom-css-setup.md)).
 
@@ -122,4 +142,12 @@ When design ships an updated **ForEveryone Elements** export:
 3. Run: `node scripts/import-figma-elements.mjs` from the repo root.
 4. Visually check `/visual-elements`, `/patterns`, and the home hero underline in the prototype.
 
-The script maps zip filenames to `prototype/public/` paths, strips Figma canvas backgrounds, recolors brand fills to `currentColor`, and optionally runs SVGO. It does **not** replace assets with no zip counterpart (Balance and Wellness category icon, blob shapes 5–7, wave corner variants, UI icons, favicon, QR code, or vase illustration). Update the mapping table in `scripts/import-figma-elements.mjs` when Figma adds or renames exports.
+**Desktop SVG drop (July 2026):** when individual SVGs land on the designer desktop export folder, run:
+
+```bash
+node scripts/import-desktop-elements.mjs --source="C:/Users/marco/Desktop"
+```
+
+Maps filenames like `Icon_Knitting_2.svg`, `Facebook.svg`, and `Doodle_Double_Underlines_2_2.svg` into `prototype/public/`. Post-processes `headline-underline.svg` after SVGO so fills survive.
+
+The Figma script maps zip filenames to `prototype/public/` paths, strips Figma canvas backgrounds, recolors brand fills to `currentColor`, and optionally runs SVGO. It does **not** replace assets with no zip counterpart (Balance and Wellness category icon, blob shapes 5–7, wave corner variants, UI icons, favicon, QR code, or vase illustration). Update the mapping table in `scripts/import-figma-elements.mjs` when Figma adds or renames exports.

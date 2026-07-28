@@ -30,10 +30,7 @@ Alert blue (`--color-blue-500`) is reserved for announcements only, not category
 
 ## Anatomy
 
-A pill control labelling a workshop category. May pair with a filled workshop
-icon (see `CategoryIcon`, `prototype/public/icons/categories/*.svg`): solid
-orange ground with a white glyph via CSS mask over the category SVG. The icon is **always** accompanied by
-the category label text.
+A pill control labelling a workshop category. Text label only; no icon inside the pill.
 
 ## States
 
@@ -46,17 +43,12 @@ focus-visible ring.
 - **Decorative label** (read-only category on a card): use `<span class="fe-tag-pill">` with visible text; no extra ARIA required.
 - **Interactive filter** (selectable category): use `<button type="button">` with
   the same classes, `aria-pressed="true"` when `.active`, and visible label text.
-- **Icon:** Workshop category icon is always decorative when a text label is
-  present; hide the SVG with `aria-hidden="true"`.
 - **Focus:** Gold `--color-focus-visible-accent` ring on keyboard focus.
 
 ## Do / don't
 
-- Do: always show the category label text alongside the icon.
 - Do: use the canonical five categories.
 - Don't: use alert blue for a category tag.
-- Don't: use a workshop icon decoratively or without a label.
-- Don't: use outline/stroke category icons — they are solid filled.
 
 ## Minimal snippet
 

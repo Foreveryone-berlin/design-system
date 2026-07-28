@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import dynamic from "next/dynamic";
+import CategoryIcon from "../_components/CategoryIcon";
 import TestimonialCard from "../_components/TestimonialCard";
 
 const FaqDemo = dynamic(() => import("../FaqDemo"));
@@ -69,6 +70,14 @@ const UI_ICONS: { label: string; path: ReactNode }[] = [
     ),
   },
 ];
+
+const SOCIAL_ICONS = [
+  { file: "/icons/social/facebook.svg", label: "Facebook" },
+  { file: "/icons/social/instagram.svg", label: "Instagram" },
+  { file: "/icons/social/linkedin.svg", label: "LinkedIn" },
+  { file: "/icons/social/email.svg", label: "Email" },
+  { file: "/icons/social/location.svg", label: "Location" },
+] as const;
 
 export default function ComponentsPage() {
   return (
@@ -240,15 +249,7 @@ export default function ComponentsPage() {
             className="fe-icon-btn--filled-brand"
             aria-label="Workshop category (demo)"
           >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5S18.33 12 17.5 12z" />
-            </svg>
+            <CategoryIcon name="arts-crafts" />
           </button>
           <button type="button" className="fe-play-btn" aria-label="Play">
             <svg
@@ -458,10 +459,18 @@ export default function ComponentsPage() {
           <span className="fe-tag-pill fe-tag-pill--balance">
             Balance and Wellness
           </span>
-          <span className="fe-tag-pill fe-tag-pill--movement">Movement</span>
-          <span className="fe-tag-pill fe-tag-pill--arts">Arts and Crafts</span>
-          <span className="fe-tag-pill fe-tag-pill--expression">Expression</span>
-          <span className="fe-tag-pill fe-tag-pill--music">Music</span>
+          <span className="fe-tag-pill fe-tag-pill--movement">
+            Movement
+          </span>
+          <span className="fe-tag-pill fe-tag-pill--arts">
+            Arts and Crafts
+          </span>
+          <span className="fe-tag-pill fe-tag-pill--expression">
+            Expression
+          </span>
+          <span className="fe-tag-pill fe-tag-pill--music">
+            Music
+          </span>
         </div>
         <div
           style={{ display: "flex", flexWrap: "wrap", gap: "var(--spacing-3)" }}
@@ -478,7 +487,9 @@ export default function ComponentsPage() {
           <span className="fe-tag-pill fe-tag-pill--expression active">
             Expression
           </span>
-          <span className="fe-tag-pill fe-tag-pill--music active">Music</span>
+          <span className="fe-tag-pill fe-tag-pill--music active">
+            Music
+          </span>
         </div>
         <p
           className="ds-section-intro"
@@ -503,7 +514,9 @@ export default function ComponentsPage() {
           <span className="fe-tag-pill fe-tag-pill--expression is-focus">
             Expression
           </span>
-          <span className="fe-tag-pill fe-tag-pill--music is-focus">Music</span>
+          <span className="fe-tag-pill fe-tag-pill--music is-focus">
+            Music
+          </span>
         </div>
       </section>
 
@@ -639,56 +652,81 @@ export default function ComponentsPage() {
 
       <section id="icons" className="ds-section">
         <h3 className="ds-subsection-title">Icons</h3>
+        <p className="ds-section-intro">
+          Functional UI glyphs and brand social icons at 24px (
+          <code className="ds-code">.ds-icon-glyph--md</code>).
+        </p>
         <div className="ds-icon-demo">
-          <div className="ds-icon-item">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/favicon.svg"
-              alt=""
-              width={32}
-              height={32}
-              aria-hidden="true"
-            />
-            <span>Favicon (site)</span>
-          </div>
-          <div className="ds-icon-item">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/icons/arrow-right.svg"
-              alt=""
-              width={24}
-              height={24}
-              aria-hidden="true"
-            />
-            <span>Arrow right</span>
-          </div>
-          <div className="ds-icon-item">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/icons/external-link.svg"
-              alt=""
-              width={24}
-              height={24}
-              aria-hidden="true"
-            />
-            <span>External link</span>
-          </div>
-          {UI_ICONS.map(({ label, path }) => (
+          {[
+            {
+              label: "Favicon",
+              node: (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src="/favicon.svg"
+                  alt=""
+                  aria-hidden="true"
+                  className="ds-icon-glyph--md"
+                />
+              ),
+            },
+            {
+              label: "Arrow right",
+              node: (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src="/icons/arrow-right.svg"
+                  alt=""
+                  aria-hidden="true"
+                  className="ds-icon-glyph--md"
+                />
+              ),
+            },
+            {
+              label: "External link",
+              node: (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src="/icons/external-link.svg"
+                  alt=""
+                  aria-hidden="true"
+                  className="ds-icon-glyph--md"
+                />
+              ),
+            },
+            ...UI_ICONS.map(({ label, path }) => ({
+              label,
+              node: (
+                <svg
+                  className="ds-icon-glyph--md"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  {path}
+                </svg>
+              ),
+            })),
+            ...SOCIAL_ICONS.map(({ file, label }) => ({
+              label,
+              node: (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={file}
+                  alt=""
+                  aria-hidden="true"
+                  className="ds-icon-glyph--md"
+                />
+              ),
+            })),
+          ].map(({ label, node }) => (
             <div className="ds-icon-item" key={label}>
-              <svg
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-                focusable="false"
-              >
-                {path}
-              </svg>
+              {node}
               <span>{label}</span>
             </div>
           ))}
@@ -711,28 +749,27 @@ export default function ComponentsPage() {
         <h3 className="ds-subsection-title">Line illustrations</h3>
         <p className="ds-section-intro">
           Decorative hand-drawn doodles in brand orange: warmth, never
-          wayfinding. Use sparingly behind blobs and beside headings; the
-          sketched underline sits under a headline (see the home hero). Exact
+          wayfinding. Use sparingly behind blobs and beside headings. Exact
           artwork is maintained in Figma.
         </p>
         <div className="ds-icon-demo">
           {(
             [
-              { file: "flower.svg", label: "Flower", wide: false },
-              { file: "cloud.svg", label: "Cloud", wide: false },
-              { file: "smiley.svg", label: "Smiley", wide: false },
-              { file: "accents/doodle-swirl.svg", label: "Swirl", wide: false },
-              { file: "chess.svg", label: "Chess", wide: false },
-              { file: "headline-underline.svg", label: "Underline", wide: true },
+              { file: "flower.svg", label: "Flower" },
+              { file: "group.svg", label: "Group" },
+              { file: "cloud.svg", label: "Cloud" },
+              { file: "smiley.svg", label: "Smiley" },
+              { file: "knitting-line.svg", label: "Knitting" },
+              { file: "accents/doodle-swirl.svg", label: "Swirl" },
+              { file: "chess.svg", label: "Chess" },
             ] satisfies ReadonlyArray<{
               file: string;
               label: string;
-              wide?: boolean;
             }>
-          ).map(({ file, label, wide = false }) => (
+          ).map(({ file, label }) => (
             <div className="ds-icon-item" key={file}>
               <span
-                className={`ds-illo-mark${wide ? " ds-illo-mark--wide" : ""}`}
+                className="ds-illo-mark"
                 style={{
                   maskImage: `url(/illustrations/${file})`,
                   WebkitMaskImage: `url(/illustrations/${file})`,

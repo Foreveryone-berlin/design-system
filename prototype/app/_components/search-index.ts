@@ -66,6 +66,9 @@ const pages: PageDef[] = [
     sections: [
       "Header (desktop & mobile)",
       "Footer",
+      "Category filter bar",
+      "Hero with blob photo",
+      "Activity workshop card",
       "Workshop card (full)",
       "Upcoming workshops",
       "Card benefit & get involved",

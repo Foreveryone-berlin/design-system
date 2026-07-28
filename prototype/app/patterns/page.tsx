@@ -1,9 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import HeaderDemo from "../_components/HeaderDemo";
-import CategoryIcon from "../_components/CategoryIcon";
+import { CATEGORY_LABELS } from "../_components/CategoryIcon";
+import { hero as heroCopy } from "@/content/site-copy";
 
-// Check-circle used on the workshop-card date row (per Figma), inline so it
-// inherits currentColor and the system's 24x24 / stroke-2 geometry.
 function CheckCircle() {
   return (
     <svg
@@ -24,16 +24,34 @@ function CheckCircle() {
   );
 }
 
-// Three distinct upcoming-workshop cards, each with its own photo, category,
-// and details, so the grid reads as a real programme rather than one repeated
-// card. Photos are ForEveryone workshop images, resized and cropped to the
-// card ratio; see prototype/public/images/ASSETS.md.
+function SocialIconButton({
+  src,
+  label,
+}: {
+  src: string;
+  label: string;
+}) {
+  return (
+    <button type="button" className="fe-icon-btn" aria-label={label}>
+      <span
+        className="fe-social-icon-glyph"
+        style={{
+          maskImage: `url(${src})`,
+          WebkitMaskImage: `url(${src})`,
+        }}
+        aria-hidden="true"
+      />
+    </button>
+  );
+}
+
 const upcomingWorkshops = [
   {
     image: "/images/workshop-pottery.jpg",
     alt: "People shaping clay together at a table in a bright art studio.",
     category: "arts-crafts" as const,
     categoryLabel: "Arts and Crafts",
+    activity: "pottery" as const,
     spots: "3 free spots",
     date: "Sunday, Sept 15 · 14:00–17:00",
     title: "Pottery and Clay Morning",
@@ -42,13 +60,14 @@ const upcomingWorkshops = [
   },
   {
     image: "/images/workshop-group.jpg",
-    alt: "Community members laughing around a table in the cafe.",
+    alt: "People practice yoga and wellbeing exercises together in a bright studio.",
     category: "wellness" as const,
     categoryLabel: "Balance and Wellness",
+    activity: null,
     spots: "5 free spots",
     date: "Tuesday, Sept 17 · 18:30–20:00",
-    title: "Community Connection Evening",
-    blurb: "A relaxed evening to meet new faces over coffee. All are welcome.",
+    title: "Yoga and Wellbeing Session",
+    blurb: "A calm group session to stretch, breathe, and reset. All levels welcome.",
     price: "From €8",
   },
   {
@@ -56,6 +75,7 @@ const upcomingWorkshops = [
     alt: "People holding up colourful portrait drawings at an outdoor table.",
     category: "expression" as const,
     categoryLabel: "Expression",
+    activity: "writing" as const,
     spots: "2 free spots",
     date: "Saturday, Sept 21 · 11:00–13:00",
     title: "Drawing and Expression",
@@ -64,7 +84,17 @@ const upcomingWorkshops = [
   },
 ];
 
+const FILTER_CATEGORIES = [
+  "balance-wellness",
+  "movement",
+  "arts-crafts",
+  "expression",
+  "music",
+] as const;
+
 export default function PatternsPage() {
+  const [headlineFirst, ...headlineRest] = heroCopy.headline.split(" ");
+
   return (
     <>
       <h1 className="ds-page-title">Patterns</h1>
@@ -72,33 +102,10 @@ export default function PatternsPage() {
         Composite UI patterns that combine tokens and components into reusable
         layouts: headers, footers, workshop cards, and more.
       </p>
-      <p
-        className="fe-body"
-        style={{
-          fontSize: "var(--font-size-sm)",
-          color: "var(--color-theme-8)",
-        }}
-      >
-        The header and footer below are structural examples: the ForEveryone
-        logo sits in the brand slot, while the navigation, columns, and links use
-        placeholder content to show the reusable shape rather than a specific
-        site map.
-      </p>
 
       <section id="header-pattern" className="ds-section">
         <h2 className="ds-section-title">Header (desktop &amp; mobile)</h2>
         <HeaderDemo />
-        <p
-          className="fe-body"
-          style={{
-            marginTop: "var(--spacing-4)",
-            fontSize: "var(--font-size-sm)",
-            color: "var(--color-theme-8)",
-          }}
-        >
-          Mobile: logo + hamburger. Desktop: nav links, dropdowns, and a CTA
-          slot.
-        </p>
       </section>
 
       <section id="footer-pattern" className="ds-section">
@@ -138,17 +145,40 @@ export default function PatternsPage() {
                 <p className="fe-body" style={{ fontSize: "var(--font-size-sm)" }}>
                   hello@example.com
                 </p>
-                <p className="fe-body" style={{ marginTop: "var(--spacing-2)", fontSize: "var(--font-size-sm)" }}>
+                <p
+                  className="fe-body"
+                  style={{
+                    marginTop: "var(--spacing-2)",
+                    fontSize: "var(--font-size-sm)",
+                  }}
+                >
                   Example Strasse 52, 10115 Berlin
                 </p>
+                <div className="fe-footer__social">
+                  <SocialIconButton src="/icons/social/instagram.svg" label="Instagram" />
+                  <SocialIconButton src="/icons/social/linkedin.svg" label="LinkedIn" />
+                </div>
               </div>
               <div className="fe-footer__column">
-                <p className="fe-body" style={{ marginBottom: "var(--spacing-4)", fontSize: "var(--font-size-sm)" }}>
+                <p
+                  className="fe-body"
+                  style={{
+                    marginBottom: "var(--spacing-4)",
+                    fontSize: "var(--font-size-sm)",
+                  }}
+                >
                   Sign up for occasional updates.
                 </p>
                 <div className="fe-footer__newsletter">
-                  <input type="email" className="fe-input" placeholder="Your email" aria-label="Email" />
-                  <button type="button" className="ds-btn ds-btn--primary">Subscribe</button>
+                  <input
+                    type="email"
+                    className="fe-input"
+                    placeholder="Your email"
+                    aria-label="Email"
+                  />
+                  <button type="button" className="ds-btn ds-btn--primary">
+                    Subscribe
+                  </button>
                 </div>
               </div>
             </div>
@@ -163,46 +193,127 @@ export default function PatternsPage() {
         </footer>
       </section>
 
-      <section id="workshop-card" className="ds-section">
-        <h2 className="ds-section-title">Workshop card (full)</h2>
-        {/* Pad the wrapper so the card's hover-lift shadow clears the section's
-            overflow:hidden clip. */}
-        <div style={{ padding: "var(--spacing-2)", maxWidth: "23rem" }}>
-        <div className="fe-card" style={{ maxWidth: "22rem" }}>
-          <div className="fe-card__media">
-            <Image
-              src="/images/workshop-group.jpg"
-              alt="Community members laughing around a table in the ForEveryone cafe"
-              width={360}
-              height={225}
-              sizes="360px"
-            />
-            <span className="fe-card-badge">2 free spots</span>
-            <span className="fe-card-category">
-              <span className="fe-card-category__icon" aria-hidden="true">
-                <CategoryIcon name="wellness" />
-              </span>
-              Balance and Wellness
-            </span>
-          </div>
-          <div className="fe-card__body">
-            <div className="fe-card-meta">
-              <CheckCircle /> Sunday, Sept 15 &middot; 14:00–17:00
-            </div>
-            <h3 className="fe-h3" style={{ margin: "0 0 var(--spacing-2)" }}>
-              Pottery Workshop
-            </h3>
-            <p
-              className="fe-body"
-              style={{ margin: 0, fontSize: "var(--font-size-sm)", color: "var(--color-brand-dark)" }}
+      <section id="category-filter" className="ds-section">
+        <h2 className="ds-section-title">Category filter bar</h2>
+        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
+          Interactive category pills. Active state uses the category fill colour.
+        </p>
+        <div
+          className="ds-icon-in-context-row"
+          style={{ flexWrap: "wrap", gap: "var(--spacing-2)" }}
+        >
+          {FILTER_CATEGORIES.map((cat, i) => (
+            <button
+              key={cat}
+              type="button"
+              className={`fe-tag-pill fe-tag-pill--${cat === "balance-wellness" ? "balance" : cat === "arts-crafts" ? "arts" : cat}${i === 0 ? " active" : ""}`}
+              aria-pressed={i === 0}
             >
-              A hands-on, welcoming clay workshop for all levels. No experience needed.
-            </p>
-            <div className="fe-card-price" style={{ justifyContent: "flex-end" }}>
-              <a href="#book" className="fe-btn-secondary">Book Workshop &rarr;</a>
+              {CATEGORY_LABELS[cat]}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section id="hero-pattern" className="ds-section">
+        <h2 className="ds-section-title">Hero with blob photo</h2>
+        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
+          Split headline, new double-line sketched underline, and blob-masked
+          hero photograph. Same structure as the design-system home page.
+        </p>
+        <div className="ds-pattern-hero-specimen">
+          <div>
+            <div className="ds-headline-with-underline">
+              <h2 className="ds-hero-title" style={{ fontSize: "var(--font-size-3xl)" }}>
+                {headlineFirst}
+                <br />
+                {headlineRest.join(" ")}
+              </h2>
+              <span className="ds-headline-underline" aria-hidden="true" />
+            </div>
+            <p className="ds-intro">{heroCopy.tagline}</p>
+            <Link href="/components" className="fe-btn-primary">
+              Explore components
+            </Link>
+          </div>
+          <div className="ds-hero-image-wrap">
+            <Image
+              src="/images/community-cafe.png"
+              alt="Three people sit and chat at a wooden table in the ForEveryone community cafe, lit by afternoon sun."
+              width={400}
+              height={400}
+              sizes="400px"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="activity-workshop-card" className="ds-section">
+        <h2 className="ds-section-title">Activity workshop card</h2>
+        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
+          Activity glyph (pottery) on the category badge while the label stays
+          canonical (&ldquo;Arts and Crafts&rdquo;).
+        </p>
+        <div style={{ padding: "var(--spacing-2)", maxWidth: "23rem" }}>
+          <div className="fe-card" style={{ maxWidth: "22rem" }}>
+            <div className="fe-card__media">
+              <Image
+                src="/images/workshop-pottery.jpg"
+                alt="People shaping clay together at a table in a bright art studio."
+                width={360}
+                height={225}
+                sizes="360px"
+              />
+              <span className="fe-card-badge">2 free spots</span>
+              <span className="fe-card-category">Arts and Crafts</span>
+            </div>
+            <div className="fe-card__body">
+              <div className="fe-card-meta">
+                <CheckCircle /> Sunday, Sept 15 · 14:00–17:00
+              </div>
+              <h3 className="fe-h3" style={{ margin: "0 0 var(--spacing-2)" }}>
+                Pottery Workshop
+              </h3>
+              <p className="fe-body" style={{ margin: 0, fontSize: "var(--font-size-sm)" }}>
+                A hands-on clay session for all levels.
+              </p>
             </div>
           </div>
         </div>
+      </section>
+
+      <section id="workshop-card" className="ds-section">
+        <h2 className="ds-section-title">Workshop card (full)</h2>
+        <div style={{ padding: "var(--spacing-2)", maxWidth: "23rem" }}>
+          <div className="fe-card" style={{ maxWidth: "22rem" }}>
+            <div className="fe-card__media">
+              <Image
+                src="/images/workshop-group.jpg"
+                alt="People practice yoga and wellbeing exercises together in a bright studio."
+                width={360}
+                height={225}
+                sizes="360px"
+              />
+              <span className="fe-card-badge">2 free spots</span>
+              <span className="fe-card-category">Balance and Wellness</span>
+            </div>
+            <div className="fe-card__body">
+              <div className="fe-card-meta">
+                <CheckCircle /> Sunday, Sept 15 · 14:00–17:00
+              </div>
+              <h3 className="fe-h3" style={{ margin: "0 0 var(--spacing-2)" }}>
+                Yoga and Wellbeing
+              </h3>
+              <p className="fe-body" style={{ margin: 0, fontSize: "var(--font-size-sm)" }}>
+                A calm group session to stretch, breathe, and reset.
+              </p>
+              <div className="fe-card-price" style={{ justifyContent: "flex-end" }}>
+                <a href="#book" className="fe-btn-secondary">
+                  Book Workshop &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -234,12 +345,7 @@ export default function PatternsPage() {
                   sizes="(max-width: 768px) 100vw, 320px"
                 />
                 <span className="fe-card-badge">{w.spots}</span>
-                <span className="fe-card-category">
-                  <span className="fe-card-category__icon" aria-hidden="true">
-                    <CategoryIcon name={w.category} />
-                  </span>
-                  {w.categoryLabel}
-                </span>
+                <span className="fe-card-category">{w.categoryLabel}</span>
               </div>
               <div className="fe-card__body">
                 <div className="fe-card-meta">
@@ -275,17 +381,18 @@ export default function PatternsPage() {
         <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-4)" }}>
           <div className="fe-card-benefit">
             <div className="fe-card-benefit__content">
-              <h3 className="fe-h3" style={{ margin: "0 0 var(--spacing-2)" }}>Meet People Offline</h3>
+              <h3 className="fe-h3" style={{ margin: "0 0 var(--spacing-2)" }}>
+                Meet People Offline
+              </h3>
               <p className="fe-body" style={{ margin: 0 }}>
                 A safe space to make genuine, real-life connections.
               </p>
             </div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <span
               className="fe-card-benefit__illustration ds-illo-mark"
               style={{
-                maskImage: "url(/illustrations/flower.svg)",
-                WebkitMaskImage: "url(/illustrations/flower.svg)",
+                maskImage: "url(/illustrations/group.svg)",
+                WebkitMaskImage: "url(/illustrations/group.svg)",
               }}
               aria-hidden="true"
             />
@@ -294,15 +401,14 @@ export default function PatternsPage() {
             <div className="fe-card-get-involved__content">
               <h3 className="fe-card-get-involved__title">Lead a Workshop or Event</h3>
               <p className="fe-card-get-involved__body">
-                Help locals and internationals find belonging by sharing your hobby.
+                Share your hobby with locals and internationals alike.
               </p>
             </div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <span
               className="fe-card-benefit__illustration ds-illo-mark"
               style={{
-                maskImage: "url(/illustrations/smiley.svg)",
-                WebkitMaskImage: "url(/illustrations/smiley.svg)",
+                maskImage: "url(/illustrations/knitting-line.svg)",
+                WebkitMaskImage: "url(/illustrations/knitting-line.svg)",
               }}
               aria-hidden="true"
             />

@@ -126,6 +126,18 @@
   color: var(--color-white);
   cursor: not-allowed;
 }
+.fe-icon-btn .fe-social-icon-glyph {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: currentColor;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+}
 
 /* Filled brand icon (category / functional markers — brand guide: orange + white glyph) */
 .fe-icon-btn--filled-brand {
@@ -158,6 +170,45 @@
 .fe-icon-btn--filled-brand:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+.fe-icon-btn--filled-brand .fe-category-icon-glyph {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Workshop / category icon chips (three size tiers — see docs/visual-styles.md) */
+.fe-workshop-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-circle);
+  background-color: var(--color-accent-icon);
+  color: var(--color-white);
+  flex-shrink: 0;
+}
+.fe-workshop-icon--sm {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.fe-workshop-icon--sm .fe-category-icon-glyph {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+.fe-workshop-icon--md {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.fe-workshop-icon--md .fe-category-icon-glyph {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.fe-workshop-icon--lg {
+  width: 5rem;
+  height: 5rem;
+}
+.fe-workshop-icon--lg .fe-category-icon-glyph {
+  width: 3.25rem;
+  height: 3.25rem;
 }
 
 /* Play Button */
@@ -210,6 +261,7 @@
 .fe-tag-pill {
   display: inline-flex;
   align-items: center;
+  gap: var(--spacing-2);
   padding: var(--spacing-1) var(--spacing-3);
   border-radius: var(--radius-pill);
   font-size: var(--font-size-xs);
@@ -326,39 +378,20 @@
   font-weight: var(--font-weight-bold);
   border-radius: var(--radius-pill);
 }
-/* Category chip with filled (orange) icon + Charcoal label on Warm White.
-   Implements brand guide "Filled Icons: Functional markers (e.g. Painting,
-   Pottery) used for categorisation. These must be Orange, with high-contrast
-   labels". */
+/* Category label chip on card media (Charcoal label on Warm White). */
 .fe-card-category {
   position: absolute;
   top: var(--spacing-3);
   right: var(--spacing-3);
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-2);
-  padding: var(--spacing-1) var(--spacing-3) var(--spacing-1) var(--spacing-1);
+  padding: var(--spacing-1) var(--spacing-3);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   border-radius: var(--radius-pill);
   background-color: var(--color-background-default);
   color: var(--color-brand-dark);
   box-shadow: var(--shadow-sm);
-}
-.fe-card-category__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: var(--radius-circle);
-  background-color: var(--color-accent-icon);
-  color: var(--color-white);
-  flex-shrink: 0;
-}
-.fe-card-category__icon .fe-category-icon-glyph {
-  width: 0.875rem;
-  height: 0.875rem;
 }
 .fe-card__body {
   padding: var(--spacing-5);
