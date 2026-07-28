@@ -770,6 +770,7 @@ summary:focus-visible,
 .ds-headline-with-underline {
   max-width: 100%;
   margin-bottom: var(--spacing-4);
+  container-type: inline-size;
 }
 
 .ds-headline-with-underline .ds-hero-title,
@@ -778,6 +779,10 @@ summary:focus-visible,
   max-width: 100%;
   margin-bottom: 0;
   vertical-align: top;
+}
+
+.ds-headline-with-underline .ds-hero-title {
+  font-size: clamp(1.75rem, 11cqi, 2.75rem);
 }
 
 /* Sketched brand underline tucked under a headline (see SheLeads). */
@@ -2217,6 +2222,33 @@ a.ds-btn {
   width: 1.5rem;
   height: 1.5rem;
   color: var(--color-theme-2);
+}
+.ds-icon-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+.ds-icon-list__row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+.ds-icon-list__glyph {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brand-primary);
+  flex-shrink: 0;
+}
+.ds-icon-list__glyph .fe-category-icon-glyph {
+  width: 100%;
+  height: 100%;
+}
+.ds-icon-list__label {
+  font-size: var(--font-size-sm);
+  color: var(--color-brand-dark);
 }
 
 /* Icon size matrix (Components + Visual Elements) */
