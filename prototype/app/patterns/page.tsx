@@ -228,8 +228,8 @@ export default function PatternsPage() {
                 {headlineFirst}
                 <br />
                 {headlineRest.join(" ")}
+                <span className="ds-headline-underline" aria-hidden="true" />
               </h2>
-              <span className="ds-headline-underline" aria-hidden="true" />
             </div>
             <p className="ds-intro">{heroCopy.tagline}</p>
             <Link href="/components" className="fe-btn-primary">
@@ -240,9 +240,9 @@ export default function PatternsPage() {
             <Image
               src="/images/community-cafe.png"
               alt="Three people sit and chat at a wooden table in the ForEveryone community cafe, lit by afternoon sun."
-              width={400}
-              height={400}
-              sizes="400px"
+              width={1090}
+              height={1094}
+              sizes="(max-width: 1024px) 100vw, 320px"
             />
           </div>
         </div>
@@ -254,8 +254,8 @@ export default function PatternsPage() {
           Activity glyph (pottery) on the category badge while the label stays
           canonical (&ldquo;Arts and Crafts&rdquo;).
         </p>
-        <div style={{ padding: "var(--spacing-2)", maxWidth: "23rem" }}>
-          <div className="fe-card" style={{ maxWidth: "22rem" }}>
+        <div style={{ padding: "var(--spacing-2)", maxWidth: "26rem" }}>
+          <div className="fe-card" style={{ maxWidth: "25rem" }}>
             <div className="fe-card__media">
               <Image
                 src="/images/workshop-pottery.jpg"
@@ -284,8 +284,8 @@ export default function PatternsPage() {
 
       <section id="workshop-card" className="ds-section">
         <h2 className="ds-section-title">Workshop card (full)</h2>
-        <div style={{ padding: "var(--spacing-2)", maxWidth: "23rem" }}>
-          <div className="fe-card" style={{ maxWidth: "22rem" }}>
+        <div style={{ padding: "var(--spacing-2)", maxWidth: "26rem" }}>
+          <div className="fe-card" style={{ maxWidth: "25rem" }}>
             <div className="fe-card__media">
               <Image
                 src="/images/workshop-group.jpg"

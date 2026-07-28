@@ -71,11 +71,16 @@ Beyond categories, the system uses a small set of UI glyphs (seen in the brand g
 | Arrow (right) | "Book Now" / "Explore all" CTAs | `arrow-right.svg` |
 | External link | outbound links | `external-link.svg` |
 
+Prototype IA split:
+- `prototype/app/components/page.tsx` catalogs **UI/action icons** and **component-specific icons**.
+- `prototype/app/visual-elements/page.tsx` catalogs **illustrations**, **decorative accents**, and **graphic shapes**.
+
 ### Line illustrations (doodles)
 
 - **Role:** Decorative “doodle” marks — warmth, hand-drawn personality (e.g. the orange flower beside *Our Impact* and the sketched underline beneath the *SheLeads* / home headline).
 - **Colour:** Drawn in **brand orange** (decorative use), matching the filled-illustration family; do not recolour to blue.
-- **Shipped set** in `prototype/public/illustrations/`: Figma exports (`ForEveryone_Elements` drop, normalized via `scripts/import-figma-elements.mjs`) or desktop exports (`scripts/import-desktop-elements.mjs`) including `flower.svg`, `smiley.svg`, `cloud.svg`, `coffee-cup.svg`, `donation-box.svg`, `sprout.svg`, `chess.svg`, `group.svg`, `knitting-line.svg`, `pottery-line.svg`, `movement-line.svg`, and `headline-underline.svg`. `vase.svg` and `qr-foreveryone.svg` remain in-repo redraws. Figma remains the source of truth for any new or updated artwork.
+- **Shipped atmospheric set** in `prototype/public/illustrations/`: `flower.svg`, `smiley.svg`, `cloud.svg`, `sprout.svg`, plus contextual scene marks (`group.svg`, `knitting-line.svg`, `pottery-line.svg`, `movement-line.svg`, `chess.svg`). Import via `scripts/import-figma-elements.mjs` or `scripts/import-desktop-elements.mjs`. `coffee-cup.svg` and `donation-box.svg` ship in the same folder but are functional/UI doodles, not atmospheric line illustrations. `vase.svg` and `qr-foreveryone.svg` remain in-repo redraws. Figma remains the source of truth for any new or updated artwork.
+- **Variant catalog:** additional Canva exports live in `prototype/public/illustrations/variants/line/` and are shown on the Visual Elements page as optional alternatives.
 - **Headline underline:** `headline-underline.svg` (from `Doodle_Double_Underlines_2_2`) sits under a heading via `.ds-headline-underline` on the home hero and pattern specimens. The import script repairs SVGO-stripped fills on this asset automatically.
 - **Usage:** Supporting hero sections, empty states, editorial blocks — avoid competing with primary CTAs; pair with blob shapes rather than stacking on busy imagery.
 
@@ -112,6 +117,7 @@ Brand Book v1.0 p.26 — used sparingly, orange prioritised, never the focal poi
 
 - **Doodle strokes:** `doodle-underline.svg`, `doodle-arrow.svg`, `doodle-circle.svg` — hand-drawn marks beneath headings/titles for a playful, handmade feel.
 - **Sparkle / asterisk / music note:** `sparkle.svg`, `asterisk.svg`, `music-note.svg` — small marks that add energy to titles and announcements.
+- **Variant catalog:** alternate decorative exports are stored in `prototype/public/illustrations/variants/accents/` and cataloged in the Visual Elements specimens.
 
 ## Photography (editorial)
 
@@ -149,5 +155,6 @@ node scripts/import-desktop-elements.mjs --source="C:/Users/marco/Desktop"
 ```
 
 Maps filenames like `Icon_Knitting_2.svg`, `Facebook.svg`, and `Doodle_Double_Underlines_2_2.svg` into `prototype/public/`. Post-processes `headline-underline.svg` after SVGO so fills survive.
+Variant exports (for example `Doodle_Sparkle_1.svg`, `Doodle_Double_Underlines_1.svg`, `Icon_Pottery_3.svg`) are mapped into `prototype/public/illustrations/variants/` and `prototype/public/icons/variants/`.
 
 The Figma script maps zip filenames to `prototype/public/` paths, strips Figma canvas backgrounds, recolors brand fills to `currentColor`, and optionally runs SVGO. It does **not** replace assets with no zip counterpart (Balance and Wellness category icon, blob shapes 5–7, wave corner variants, UI icons, favicon, QR code, or vase illustration). Update the mapping table in `scripts/import-figma-elements.mjs` when Figma adds or renames exports.

@@ -48,23 +48,65 @@ const MAP = {
   Movement: { target: "illustrations/movement-line.svg", kind: "illo" },
 
   Doodle_Flower: { target: "illustrations/flower.svg", kind: "illo" },
+  "Doodle_Flower-1": { target: "illustrations/variants/line/flower-variant-1.svg", kind: "illo" },
+  "Doodle_Flower-2": { target: "illustrations/variants/line/flower-variant-2.svg", kind: "illo" },
   Doodle_Smile: { target: "illustrations/smiley.svg", kind: "illo" },
   Doodle_Cloud: { target: "illustrations/cloud.svg", kind: "illo" },
   Doodle_CoffeeCup: { target: "illustrations/coffee-cup.svg", kind: "illo" },
   Doodle_Donation: { target: "illustrations/donation-box.svg", kind: "illo" },
   Doodle_Leaves: { target: "illustrations/sprout.svg", kind: "illo" },
+  "Doodle_Leaves-1": { target: "illustrations/variants/line/sprout-variant-1.svg", kind: "illo" },
   Doodle_Swirl: { target: "illustrations/accents/doodle-swirl.svg", kind: "accent" },
   Doodle_Underline: { target: "illustrations/accents/doodle-underline.svg", kind: "accent" },
   Doodle_Double_Underlines_2_2: {
     target: "illustrations/headline-underline.svg",
     kind: "accent",
   },
+  Doodle_Double_Underlines_1: {
+    target: "illustrations/variants/accents/headline-underline-variant-1.svg",
+    kind: "accent",
+  },
   Doodle_Arrow_2: { target: "illustrations/accents/doodle-arrow.svg", kind: "accent" },
+  Doodle_Arrow_1: { target: "illustrations/variants/accents/doodle-arrow-variant-1.svg", kind: "accent" },
   Doodle_Circle_1: { target: "illustrations/accents/doodle-circle.svg", kind: "accent" },
+  Doodle_Circle_2: { target: "illustrations/variants/accents/doodle-circle-variant-2.svg", kind: "accent" },
   Doodle_Sparkle: { target: "illustrations/accents/sparkle.svg", kind: "accent" },
+  Doodle_Sparkle_1: { target: "illustrations/variants/accents/sparkle-variant-1.svg", kind: "accent" },
+  Doodle_Sparkle_2: { target: "illustrations/variants/accents/sparkle-variant-2.svg", kind: "accent" },
+  Doodle_Sparkle_3: { target: "illustrations/variants/accents/sparkle-variant-3.svg", kind: "accent" },
   Doodle_3_Sparkles: { target: "illustrations/accents/doodle-burst.svg", kind: "accent" },
   Doodle_Music_Note_2: { target: "illustrations/accents/music-note.svg", kind: "accent" },
+  Doodle_Music_Note_1: {
+    target: "illustrations/variants/accents/music-note-variant-1.svg",
+    kind: "accent",
+  },
+  Doodle_Music_Note_3: {
+    target: "illustrations/variants/accents/music-note-variant-3.svg",
+    kind: "accent",
+  },
   Doodle_Emphasis_Lines_2: { target: "illustrations/accents/asterisk.svg", kind: "accent" },
+  Doodle_Emphasis_Lines_1: {
+    target: "illustrations/variants/accents/emphasis-lines-variant-1.svg",
+    kind: "accent",
+  },
+  "Doodle_Emphasis_Lines_2-1": {
+    target: "illustrations/variants/accents/emphasis-lines-variant-2.svg",
+    kind: "accent",
+  },
+  Doodle_Emphasis_Lines_3: {
+    target: "illustrations/variants/accents/emphasis-lines-variant-3.svg",
+    kind: "accent",
+  },
+  "Doodle_Emphasis_Lines_3-1": {
+    target: "illustrations/variants/accents/emphasis-lines-variant-4.svg",
+    kind: "accent",
+  },
+
+  Icon_Knitting: { target: "icons/variants/workshop/knitting-variant-1.svg", kind: "workshop" },
+  Icon_Pottery_1: { target: "icons/variants/workshop/pottery-variant-1.svg", kind: "workshop" },
+  Icon_Pottery_3: { target: "icons/variants/workshop/pottery-variant-3.svg", kind: "workshop" },
+  Email_2: { target: "icons/variants/social/email-variant-2.svg", kind: "social" },
+  Linkedin_2: { target: "icons/variants/social/linkedin-variant-2.svg", kind: "social" },
 };
 
 function optimizeWithSvgo(filePath) {
@@ -84,8 +126,7 @@ function repairHeadlineUnderline(filePath) {
   const pathMatches = [...raw.matchAll(/<path\b[^>]*\bd="([^"]+)"[^>]*>/gi)];
   if (pathMatches.length === 0) return;
 
-  const viewBoxMatch = raw.match(/viewBox="([^"]+)"/i);
-  const viewBox = viewBoxMatch?.[1] ?? "0 0 501 62";
+  const viewBox = "0 0 500 54";
   const paths = pathMatches
     .map((m) => m[1].replace(/\s+/g, " ").trim())
     .map((d) => `<path fill="currentColor" d="${d}"/>`)

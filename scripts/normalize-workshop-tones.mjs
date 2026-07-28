@@ -44,15 +44,24 @@ const RECIPES = {
     skip: true,
   },
   "community-cafe.png": {
-    note: "Home hero blob; matched to first workshop-card tone/contrast",
+    note: "Home hero blob from Desktop community-cafe-home.png; tone-matched to workshop cards",
+    source: "community-cafe-home.png",
     skip: false,
     build(src) {
       return sharp(src)
+        .rotate()
         .gamma(1.14)
         .modulate({ brightness: 1.24, saturation: 1.06 });
     },
     encode(pipeline) {
-      return pipeline.png({ compressionLevel: 9 });
+      return pipeline.png({
+        compressionLevel: 9,
+        adaptiveFiltering: true,
+        palette: true,
+        quality: 100,
+        colors: 256,
+        effort: 10,
+      });
     },
   },
 };
@@ -70,7 +79,9 @@ async function cardCropMean(input) {
 }
 
 async function sourcePath(name) {
-  const original = path.join(originalsDir, name);
+  const recipe = RECIPES[name];
+  const originalName = recipe?.source ?? name;
+  const original = path.join(originalsDir, originalName);
   try {
     await fs.access(original);
     return original;

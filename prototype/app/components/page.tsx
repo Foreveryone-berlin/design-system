@@ -1,7 +1,9 @@
 import type { ReactNode } from "react";
 import dynamic from "next/dynamic";
 import CategoryIcon from "../_components/CategoryIcon";
+import ActivityIcon, { ACTIVITY_LABELS, ACTIVITY_NAMES } from "../_components/ActivityIcon";
 import TestimonialCard from "../_components/TestimonialCard";
+import type { CategoryIconName } from "../_components/CategoryIcon";
 
 const FaqDemo = dynamic(() => import("../FaqDemo"));
 const Popup = dynamic(() => import("../_components/Popup"));
@@ -77,6 +79,14 @@ const SOCIAL_ICONS = [
   { file: "/icons/social/linkedin.svg", label: "LinkedIn" },
   { file: "/icons/social/email.svg", label: "Email" },
   { file: "/icons/social/location.svg", label: "Location" },
+] as const;
+
+const COMPONENT_ICON_VARIANTS = [
+  { file: "/icons/variants/workshop/knitting-variant-1.svg", label: "Knitting variant 1" },
+  { file: "/icons/variants/workshop/pottery-variant-1.svg", label: "Pottery variant 1" },
+  { file: "/icons/variants/workshop/pottery-variant-3.svg", label: "Pottery variant 3" },
+  { file: "/icons/variants/social/email-variant-2.svg", label: "Email variant 2" },
+  { file: "/icons/variants/social/linkedin-variant-2.svg", label: "LinkedIn variant 2" },
 ] as const;
 
 export default function ComponentsPage() {
@@ -648,10 +658,10 @@ export default function ComponentsPage() {
         <FaqDemo />
       </section>
 
-      <h2 className="ds-section-title ds-group-title">Iconography</h2>
+      <h2 className="ds-section-title ds-group-title">UI Icons</h2>
 
       <section id="icons" className="ds-section">
-        <h3 className="ds-subsection-title">Icons</h3>
+        <h3 className="ds-subsection-title">UI and action icons</h3>
         <p className="ds-section-intro">
           Functional UI glyphs and brand social icons at 24px (
           <code className="ds-code">.ds-icon-glyph--md</code>).
@@ -724,8 +734,8 @@ export default function ComponentsPage() {
                 />
               ),
             })),
-          ].map(({ label, node }) => (
-            <div className="ds-icon-item" key={label}>
+          ].map(({ label, node }, idx) => (
+            <div className="ds-icon-item" key={`${label}-${idx}`}>
               {node}
               <span>{label}</span>
             </div>
@@ -733,48 +743,55 @@ export default function ComponentsPage() {
         </div>
       </section>
 
-      <section id="headline-underline" className="ds-section">
-        <h3 className="ds-subsection-title">Headline underline</h3>
-        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
-          Sketched double underline for hero and section headings. Always sits
-          directly beneath the headline copy, not as a standalone icon.
+      <section id="component-icons" className="ds-section">
+        <h3 className="ds-subsection-title">Component-specific icons</h3>
+        <p className="ds-section-intro">
+          Filled workshop and activity glyphs used in category chips, cards, and
+          filter patterns.
         </p>
-        <div className="ds-headline-with-underline">
-          <p className="fe-h3">Example headline</p>
-          <span className="ds-headline-underline ds-headline-underline--demo" aria-hidden="true" />
+        <div className="ds-icon-demo">
+          {[
+            ...[
+              "balance-wellness",
+              "movement",
+              "arts-crafts",
+              "expression",
+              "music",
+            ].map((name) => ({
+              key: `cat-${name}`,
+              label: name,
+              node: <CategoryIcon name={name as CategoryIconName} chip />,
+            })),
+            ...ACTIVITY_NAMES.map((name) => ({
+              key: `activity-${name}`,
+              label: ACTIVITY_LABELS[name],
+              node: <ActivityIcon name={name} chip />,
+            })),
+          ].map(({ key, label, node }) => (
+            <div className="ds-icon-item" key={key}>
+              {node}
+              <span>{label}</span>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section id="illustrations" className="ds-section">
-        <h3 className="ds-subsection-title">Line illustrations</h3>
+      <section id="component-icon-variants" className="ds-section">
+        <h3 className="ds-subsection-title">Component icon variants (Canva export)</h3>
         <p className="ds-section-intro">
-          Decorative hand-drawn doodles in brand orange: warmth, never
-          wayfinding. Use sparingly behind blobs and beside headings. Exact
-          artwork is maintained in Figma.
+          Additional exported variants are cataloged as alternatives. Primary
+          production defaults remain in <code className="ds-code">/icons/social</code>{" "}
+          and <code className="ds-code">/icons/workshop</code>.
         </p>
         <div className="ds-icon-demo">
-          {(
-            [
-              { file: "flower.svg", label: "Flower" },
-              { file: "group.svg", label: "Group" },
-              { file: "cloud.svg", label: "Cloud" },
-              { file: "smiley.svg", label: "Smiley" },
-              { file: "knitting-line.svg", label: "Knitting" },
-              { file: "accents/doodle-swirl.svg", label: "Swirl" },
-              { file: "chess.svg", label: "Chess" },
-            ] satisfies ReadonlyArray<{
-              file: string;
-              label: string;
-            }>
-          ).map(({ file, label }) => (
+          {COMPONENT_ICON_VARIANTS.map(({ file, label }) => (
             <div className="ds-icon-item" key={file}>
-              <span
-                className="ds-illo-mark"
-                style={{
-                  maskImage: `url(/illustrations/${file})`,
-                  WebkitMaskImage: `url(/illustrations/${file})`,
-                }}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={file}
+                alt=""
                 aria-hidden="true"
+                className="ds-icon-glyph--md"
               />
               <span>{label}</span>
             </div>

@@ -12,14 +12,14 @@ Start notes for the next release here.
 
 ## [1.1.0] - 2026-07-28
 
-Workshop icon scale guide, activity icons, refreshed artwork, and headline underline.
+Release polish for cards, icon architecture, and asset updates ahead of the 1.1.0 ship.
 
-- **Add**: Show workshop and UI icons at small, medium, and large sizes in the prototype, and add new composite layout patterns that use them in context.
-- **Add**: Ship activity-level workshop icons (knitting, pottery, chess, thread, and writing) alongside the five main categories.
-- **Change**: Refresh prototype photos and decorative artwork from the latest brand exports, cropped and compressed for fast loading.
-- **Change**: Adopt the new double-line headline underline under hero and section headings across the prototype.
-- **Change**: Replace social and contact icons with the latest brand SVG exports and document the three icon size tiers.
-- **Fix**: Remove the separate v1.0.0 migration note; the changelog remains the single release reference.
+- **Change**: Replace the homepage and pattern hero blob image with the updated Community Cafe asset and set a neutral headline for broader reuse.
+- **Fix**: Improve workshop-card responsiveness so badges do not overlap, long labels truncate cleanly, and price plus booking action no longer compete for space.
+- **Fix**: Restore stable icon rendering on benefit and get-involved pattern cards, with decorative marks anchored correctly to card layouts.
+- **Change**: Reorganize prototype icon documentation so UI/action icons and component-specific icons are separated from illustrations and decorative assets.
+- **Add**: Import and catalog the latest Canva icon and doodle variants as documented alternatives while keeping canonical defaults for production use.
+- **Fix**: Align accessibility interaction coverage with responsive behavior so search keyboard navigation is validated at desktop layout widths.
 
 ## [1.0.0] - 2026-07-18 🎉
 

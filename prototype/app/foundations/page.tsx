@@ -283,7 +283,8 @@ export default function TokensPage() {
       <p className="ds-intro">
         The visual base of the system: colour, typography, spacing, radius, and
         shadows, defined as design tokens and exposed as CSS custom properties.
-        Iconography and illustrations live under Components.
+        UI icons live under Components. Illustrations, accents, and other
+        decorative assets live under Visual Elements.
       </p>
 
       <section id="colors" className="ds-section">

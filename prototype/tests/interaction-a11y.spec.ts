@@ -42,6 +42,7 @@ test.describe("interactive accessibility", () => {
   });
 
   test("search combobox supports keyboard navigation", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto("/foundations");
     const search = page.getByRole("combobox", {
       name: "Search the design system",
