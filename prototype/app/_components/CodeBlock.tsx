@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import Prism from "prismjs";
 import "prismjs/components/prism-css";
-import "prismjs/themes/prism-tomorrow.css";
 
 export default function CodeBlock({
   code,
@@ -12,13 +12,17 @@ export default function CodeBlock({
   code: string;
   language?: string;
 }) {
+  const pathname = usePathname();
   const ref = useRef<HTMLElement>(null);
   const [copied, setCopied] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
-  useEffect(() => {
-    if (ref.current) Prism.highlightElement(ref.current);
-  }, [code]);
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    el.textContent = code;
+    Prism.highlightElement(el);
+  }, [code, pathname]);
 
   useEffect(() => () => clearTimeout(timer.current), []);
 
@@ -61,9 +65,7 @@ export default function CodeBlock({
         role="region"
         aria-label={`${language} code sample`}
       >
-        <code ref={ref} className={`language-${language}`}>
-          {code}
-        </code>
+        <code ref={ref} className={`language-${language}`} />
       </pre>
       <span aria-live="polite" className="ds-visually-hidden">
         {copied ? "Copied to clipboard" : ""}

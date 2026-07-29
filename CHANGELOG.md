@@ -13,6 +13,8 @@ Start notes for the next release here.
 - **Change**: Make the mobile hamburger button neutral, so navigation stays visually separate from primary call-to-action buttons.
 - **Change**: Consolidate the full icon catalog on Visual Elements with GitHub folder links for each icon family, and trim duplicate icon grids from Components.
 - **Add**: Ship three live-site patterns on the Patterns page (stats strip, benefit grid, and events switcher).
+- **Fix**: Restore browser back navigation after using in-page section links or search results with hashes.
+- **Fix**: Restore CSS token-colour highlighting in Foundations code samples after client-side navigation.
 
 ## [1.1.0] - 2026-07-28
 
