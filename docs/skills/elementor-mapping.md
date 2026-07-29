@@ -1,4 +1,6 @@
-# Elementor Mapping Workflow
+# Elementor Mapping Workflow (manual fallback)
+
+> **No dedicated auto-loaded skill.** This file is the manual fallback for keeping Elementor Global Colors and Global Fonts aligned with this repo’s tokens.
 
 Keep Elementor Global Colors and Global Fonts aligned with this repo’s tokens.
 
