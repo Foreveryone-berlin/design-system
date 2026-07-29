@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
-import Link from "next/link";
-import FeIcon, { CATEGORY_LABELS, CATEGORY_NAMES } from "../_components/FeIcon";
+import FeIcon from "../_components/FeIcon";
 import TestimonialCard from "../_components/TestimonialCard";
 
 const FaqDemo = dynamic(() => import("../FaqDemo"));
@@ -507,32 +506,6 @@ export default function ComponentsPage() {
       <section id="faq" className="ds-section">
         <h3 className="ds-subsection-title">FAQ / Accordion</h3>
         <FaqDemo />
-      </section>
-
-      <section id="icon-preview" className="ds-section">
-        <h2 className="ds-section-title">Icon preview</h2>
-        <p className="ds-section-intro">
-          Icons in component context. The full icon catalog (category, activity,
-          social, UI glyphs, and documented variants) lives on{" "}
-          <Link href="/visual-elements">Visual Elements</Link>, including GitHub
-          folder links for non-developer download.
-        </p>
-        <div className="ds-icon-specimens">
-          {CATEGORY_NAMES.slice(0, 3).map((name) => (
-            <figure key={name} className="ds-icon-specimen">
-              <span className="ds-icon-chip" aria-hidden="true">
-                <FeIcon set="category" name={name} size="lg" chip={false} />
-              </span>
-              <figcaption>{CATEGORY_LABELS[name]}</figcaption>
-            </figure>
-          ))}
-          <figure className="ds-icon-specimen">
-            <span className="ds-icon-chip" aria-hidden="true">
-              <FeIcon set="activity" name="pottery" size="lg" chip={false} />
-            </span>
-            <figcaption>Pottery (activity)</figcaption>
-          </figure>
-        </div>
       </section>
 
       <h2 className="ds-section-title ds-group-title">Overlays</h2>
