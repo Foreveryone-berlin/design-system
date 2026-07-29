@@ -48,7 +48,7 @@ When changing team-wide agent behavior, keep these surfaces aligned in the same 
 - **Path-scoped rules:** [`.cursor/rules/*.mdc`](../../.cursor/rules/) **and** [`.claude/rules/*.md`](../../.claude/rules/) (each `.md` file notes its `.mdc` mirror).
 - **Skills:** edit [`.claude/skills/<name>/SKILL.md`](../../.claude/skills/) only; Cursor IDE and CLI auto-load from there. No `.cursor/skills/` copy.
 
-Optional sanity check before merge: compare substantive sections of `CLAUDE.md` and `.cursor/AGENTS.md` (excluding the Cursor precedence block).
+Optional sanity check before merge: compare substantive sections of `docs/AGENTS.md`, root `AGENTS.md`, `CLAUDE.md`, and `.cursor/AGENTS.md` (excluding the Cursor precedence block).
 
 Tool loading matrix: [README.md](README.md).
 
@@ -57,6 +57,6 @@ Keep root `AGENTS.md`, `CLAUDE.md`, `.cursor/AGENTS.md` pins, and this contract 
 ## Cursor CLI
 
 - **Model:** Composer 2.5 standard (`maxMode: false` via dotfiles defaults).
-- **Context:** loads root `AGENTS.md` + `.cursor/AGENTS.md` + project skills from `.claude/skills/`.
+- **Context:** loads root `AGENTS.md` + `CLAUDE.md` + project skills from `.claude/skills/` (not `.cursor/AGENTS.md`).
 - **Headless:** `agent -p --force` from repo root; long jobs use `bash scripts/optimize-run.sh` (sequential optimize domains) or repo-specific `*-fanout.sh` when file ownership overlaps.
-- **Autonomous jobs:** see dotfiles `docs/cursor-cli-playbook.md` for job-scoped merge/deploy rules.
+- **Autonomous jobs:** see the Cursor CLI playbook in the shared dotfiles (external to this repo) for job-scoped merge/deploy rules.
