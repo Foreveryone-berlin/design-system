@@ -85,7 +85,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body suppressHydrationWarning>
-        <a href="#main-content" className="ds-skip-link">
+        <a href="#main-content" className="fe-skip-link">
           Skip to content
         </a>
         <ViewTransitions />
