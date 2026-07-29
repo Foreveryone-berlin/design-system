@@ -3,6 +3,7 @@
 @import "../../css/base.css";
 @import "../../css/typography.css";
 @import "../../css/utilities.css";
+@import "prismjs/themes/prism-tomorrow.css";
 
 /* ---- Accessibility: visible keyboard focus ---- */
 /* Global fallback so every interactive element shows a clear focus ring when
@@ -2498,6 +2499,55 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
   word-break: break-word;
   word-spacing: normal;
   font-family: "Fira Code", "JetBrains Mono", "SF Mono", Consolas, monospace;
+}
+
+/* Scoped Prism token colours so highlighting survives client navigations even
+   when the theme chunk loads late or React re-paints the code element. */
+.ds-code-block-wrap .token.comment,
+.ds-code-block-wrap .token.prolog,
+.ds-code-block-wrap .token.doctype,
+.ds-code-block-wrap .token.cdata {
+  color: #999;
+}
+
+.ds-code-block-wrap .token.punctuation {
+  color: #ccc;
+}
+
+.ds-code-block-wrap .token.property,
+.ds-code-block-wrap .token.tag,
+.ds-code-block-wrap .token.boolean,
+.ds-code-block-wrap .token.number,
+.ds-code-block-wrap .token.constant,
+.ds-code-block-wrap .token.symbol,
+.ds-code-block-wrap .token.deleted {
+  color: #f8c555;
+}
+
+.ds-code-block-wrap .token.selector,
+.ds-code-block-wrap .token.attr-name,
+.ds-code-block-wrap .token.string,
+.ds-code-block-wrap .token.char,
+.ds-code-block-wrap .token.builtin,
+.ds-code-block-wrap .token.inserted {
+  color: #7ec699;
+}
+
+.ds-code-block-wrap .token.atrule,
+.ds-code-block-wrap .token.attr-value,
+.ds-code-block-wrap .token.keyword {
+  color: #cc99cd;
+}
+
+.ds-code-block-wrap .token.function,
+.ds-code-block-wrap .token.class-name {
+  color: #f08d49;
+}
+
+.ds-code-block-wrap .token.regex,
+.ds-code-block-wrap .token.important,
+.ds-code-block-wrap .token.variable {
+  color: #e2777a;
 }
 
 .ds-code-block-wrap {
