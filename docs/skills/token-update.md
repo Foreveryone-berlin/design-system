@@ -16,7 +16,7 @@ Use this when adding or changing design tokens (colors, typography, spacing, rad
 5. **Use the variable** in `css/` (e.g. `typography.css`, `utilities.css`, `elementor-overrides.css`) via `var(--name-from-build)`.
 6. **Update Elementor** if the token maps to a Global Color or Global Font (see [Elementor mapping](elementor-mapping.md)).
 7. **Update CHANGELOG.md** under the current in-flight version section with the token change.
-8. **Sync Figma** if design source changed (see `figma/sync-guide.md`).
+8. **Sync Figma** if design source changed (see [`figma/sync-guide.md`](../../figma/sync-guide.md)).
 
 ## Naming
 
