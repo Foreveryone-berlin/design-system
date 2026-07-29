@@ -10,6 +10,7 @@
 
 Start notes for the next release here.
 
+- **Fix**: Unify every prototype icon behind a single type-safe `FeIcon` component, fixing the double-chip clipping bug and removing the icon variant catalog; only canonical category, activity, social, and UI icons remain.
 - **Change**: Make the mobile hamburger button neutral, so navigation stays visually separate from primary call-to-action buttons.
 - **Change**: Consolidate the full icon catalog on Visual Elements with GitHub folder links for each icon family, and trim duplicate icon grids from Components.
 - **Add**: Ship three live-site patterns on the Patterns page (stats strip, benefit grid, and events switcher).
