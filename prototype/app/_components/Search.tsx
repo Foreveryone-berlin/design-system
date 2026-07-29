@@ -46,17 +46,18 @@ export default function Search({
     setOpen(false);
     setQuery("");
     onNavigate?.();
-    router.push(entry.href);
 
-    // The heading IDs are assigned on the destination page by OnThisPage's
-    // mount effect, so the #hash target does not exist yet when router.push
-    // runs (and Next's client navigation does not scroll to the hash on its
-    // own). Wait for the element to appear, then scroll to it and move focus
-    // there for keyboard users. scroll-margin-top on the headings clears the
-    // sticky header; prefers-reduced-motion is honoured via scroll-behavior in
-    // globals.css.
-    const hash = entry.href.split("#")[1];
+    const hashIndex = entry.href.indexOf("#");
+    const path = hashIndex === -1 ? entry.href : entry.href.slice(0, hashIndex);
+    const hash = hashIndex === -1 ? "" : entry.href.slice(hashIndex + 1);
+
+    router.push(path);
+
     if (!hash) return;
+
+    // Heading IDs are assigned on the destination page after mount. Wait for
+    // the target, scroll/focus, then reflect the hash with replaceState so back
+    // through the sidebar does not stop on intermediate hash-only entries.
     let frames = 0;
     const findAndScroll = () => {
       const target = document.getElementById(hash);
@@ -65,6 +66,7 @@ export default function Search({
         if (!target.hasAttribute("tabindex"))
           target.setAttribute("tabindex", "-1");
         target.focus({ preventScroll: true });
+        history.replaceState(null, "", `${path}#${hash}`);
         return;
       }
       if (frames++ < 40) requestAnimationFrame(findAndScroll);
