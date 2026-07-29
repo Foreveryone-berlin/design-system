@@ -764,7 +764,7 @@ summary:focus-visible,
   letter-spacing: var(--letter-spacing-tight);
   color: var(--color-theme-2);
   margin: 0 0 var(--spacing-10);
-  font-size: clamp(1.75rem, 4vw + 1rem, 2.75rem);
+  font-size: clamp(1.5rem, 3vw + 1rem, 2.75rem);
 }
 
 /* Headline + sketched underline as one unit (underline spans headline text width). */
@@ -783,7 +783,7 @@ summary:focus-visible,
 }
 
 .ds-headline-with-underline .ds-hero-title {
-  font-size: clamp(1.75rem, 11cqi, 2.75rem);
+  font-size: clamp(1.5rem, 10cqi, 2.75rem);
 }
 
 /* Sketched brand underline tucked under a headline (see SheLeads). */
@@ -2060,8 +2060,8 @@ a.ds-btn {
 }
 .ds-blob {
   display: inline-block;
-  width: 110px;
-  height: 110px;
+  width: 160px;
+  height: 160px;
   background-color: var(--color-light-purple);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
