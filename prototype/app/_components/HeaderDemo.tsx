@@ -16,7 +16,7 @@ const navLinks: NavItem[] = [
   { href: "#link-1", label: "Link 1" },
   {
     href: "#link-2",
-    label: "Link 2",
+    label: "Submenu 1",
     children: [
       { href: "#item-1", label: "Item 1" },
       { href: "#item-2", label: "Item 2" },
@@ -26,15 +26,15 @@ const navLinks: NavItem[] = [
   },
   {
     href: "#link-3",
-    label: "Link 3",
+    label: "Submenu 2",
     children: [
       { href: "#sub-1", label: "Item 1" },
       { href: "#sub-2", label: "Item 2" },
       { href: "#sub-3", label: "Item 3" },
     ],
   },
-  { href: "#link-4", label: "Link 4" },
-  { href: "#link-5", label: "Link 5" },
+  { href: "#link-4", label: "Link 3" },
+  { href: "#link-5", label: "Link 4" },
 ];
 
 export default function HeaderDemo() {
