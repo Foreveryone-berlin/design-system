@@ -10,6 +10,10 @@
 
 Start notes for the next release here.
 
+- **Change**: Make the mobile hamburger button neutral, so navigation stays visually separate from primary call-to-action buttons.
+- **Change**: Consolidate the full icon catalog on Visual Elements with GitHub folder links for each icon family, and trim duplicate icon grids from Components.
+- **Add**: Ship three live-site patterns on the Patterns page (stats strip, benefit grid, and events switcher).
+
 ## [1.1.0] - 2026-07-28
 
 Release polish for cards, icon architecture, and asset updates ahead of the 1.1.0 ship.
@@ -25,11 +29,9 @@ Release polish for cards, icon architecture, and asset updates ahead of the 1.1.
 
 Credits page refresh, accessibility enforcement, and button spec alignment.
 
-- **Change**: Refresh the Credits page so design-system contributors are listed by name and role, with links to the main site and app surfaces.
-- **Change**: Credit Cursor alongside Claude Code under the tools this system was built with.
+- **Change**: Refresh the Credits page so design-system contributors are listed by name and role, and credit Cursor alongside Claude Code under the tools this system was built with.
 - **Fix**: Match button documentation states to the current primary and secondary button behavior in the prototype.
 - **Fix**: Respect reduced-motion preferences for accordion and mobile menu animation in shared component styles.
-- **Add**: Add accessibility validation steps, alt-text guidance for WordPress editors, and a conformance register for known gaps.
 - **Fix**: Keep the "Link copied" label fully inside its highlighted background beside section headings.
 
 ## [0.26.1] - 2026-07-18

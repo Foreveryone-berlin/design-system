@@ -836,7 +836,7 @@ summary:focus-visible,
 }
 
 .ds-section {
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--spacing-16);
   min-width: 0;
   overflow: hidden;
 }
@@ -1950,6 +1950,42 @@ a.ds-btn {
   line-height: var(--line-height-snug);
 }
 
+.ds-icon-chip--neutral {
+  background: var(--color-white);
+  border: 1px solid var(--color-theme-7);
+  color: var(--color-brand-dark);
+}
+
+.ds-icon-chip--variant {
+  opacity: 0.85;
+}
+
+.ds-icon-variant-tag {
+  display: block;
+  margin-top: var(--spacing-1);
+  font-size: 0.625rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-brand-dark);
+}
+
+.ds-icon-set-action {
+  margin: var(--spacing-4) 0 var(--spacing-6);
+  font-size: var(--font-size-sm);
+}
+
+.ds-icon-set-action a {
+  color: var(--color-brand-secondary);
+  font-weight: var(--font-weight-medium);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.ds-icon-set-action a:hover {
+  color: var(--color-brand-primary);
+}
+
 .ds-illo-specimens,
 .ds-accent-specimens {
   display: flex;
@@ -2750,4 +2786,60 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
   .ds-overview-card:hover {
     transform: none;
   }
+}
+
+/* ---- Pattern page: benefit grid, events switcher, cafe card ---- */
+.ds-benefit-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-4);
+}
+
+.ds-benefit-grid .fe-card-benefit {
+  align-items: flex-start;
+}
+
+.ds-benefit-grid .fe-card-benefit__icon {
+  flex-shrink: 0;
+}
+
+@media (min-width: 48rem) {
+  .ds-benefit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .ds-benefit-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.ds-events-switcher__toggle {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+  padding: var(--spacing-1);
+  border-radius: var(--radius-pill);
+  background: var(--color-theme-5);
+  border: 1px solid var(--color-theme-7);
+}
+
+.ds-events-switcher__kind {
+  border: none;
+  background: transparent;
+  color: var(--color-brand-dark);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-2) var(--spacing-5);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.ds-events-switcher__kind.is-active {
+  background: var(--color-brand-secondary);
+  color: var(--color-white);
 }
