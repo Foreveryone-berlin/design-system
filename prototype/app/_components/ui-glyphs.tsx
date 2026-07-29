@@ -62,6 +62,16 @@ export const UI_GLYPHS: { label: string; path: ReactNode }[] = [
       </>
     ),
   },
+  {
+    label: "Copy",
+    path: (
+      <>
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+      </>
+    ),
+  },
+  { label: "Check", path: <polyline points="20 6 9 17 4 12" /> },
 ];
 
 export const FILE_GLYPHS = [
@@ -75,15 +85,5 @@ export const SOCIAL_ICONS = [
   { file: "/icons/social/linkedin.svg", label: "LinkedIn" },
   { file: "/icons/social/email.svg", label: "Email" },
   { file: "/icons/social/location.svg", label: "Location" },
-] as const;
-
-export const WORKSHOP_VARIANTS = [
-  { file: "/icons/variants/workshop/knitting-variant-1.svg", label: "Knitting variant 1" },
-  { file: "/icons/variants/workshop/pottery-variant-1.svg", label: "Pottery variant 1" },
-  { file: "/icons/variants/workshop/pottery-variant-3.svg", label: "Pottery variant 3" },
-] as const;
-
-export const SOCIAL_VARIANTS = [
-  { file: "/icons/variants/social/email-variant-2.svg", label: "Email variant 2" },
-  { file: "/icons/variants/social/linkedin-variant-2.svg", label: "LinkedIn variant 2" },
+  { file: "/icons/social/whatsapp.svg", label: "WhatsApp" },
 ] as const;

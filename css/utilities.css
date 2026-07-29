@@ -127,10 +127,10 @@
   color: var(--color-white);
   cursor: not-allowed;
 }
-.fe-icon-btn .fe-social-icon-glyph {
+/* Generic mask glyph used for every file-based icon (category, activity, social, variant).
+   The component sets mask-image inline; the parent control sets colour and size. */
+.fe-icon-glyph {
   display: block;
-  width: 1.25rem;
-  height: 1.25rem;
   background-color: currentColor;
   mask-size: contain;
   -webkit-mask-size: contain;
@@ -138,6 +138,23 @@
   -webkit-mask-repeat: no-repeat;
   mask-position: center;
   -webkit-mask-position: center;
+}
+.fe-icon-glyph--sm {
+  width: 1rem;
+  height: 1rem;
+}
+.fe-icon-glyph--md {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.fe-icon-glyph--lg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.fe-icon-btn .fe-icon-glyph {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 /* Filled brand icon (category / functional markers — brand guide: orange + white glyph) */
@@ -172,7 +189,7 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
-.fe-icon-btn--filled-brand .fe-category-icon-glyph {
+.fe-icon-btn--filled-brand .fe-icon-glyph {
   width: 1.25rem;
   height: 1.25rem;
 }
@@ -191,7 +208,7 @@
   width: 1.5rem;
   height: 1.5rem;
 }
-.fe-workshop-icon--sm .fe-category-icon-glyph {
+.fe-workshop-icon--sm .fe-icon-glyph {
   width: 0.875rem;
   height: 0.875rem;
 }
@@ -199,7 +216,7 @@
   width: 2.5rem;
   height: 2.5rem;
 }
-.fe-workshop-icon--md .fe-category-icon-glyph {
+.fe-workshop-icon--md .fe-icon-glyph {
   width: 1.25rem;
   height: 1.25rem;
 }
@@ -207,7 +224,7 @@
   width: 5rem;
   height: 5rem;
 }
-.fe-workshop-icon--lg .fe-category-icon-glyph {
+.fe-workshop-icon--lg .fe-icon-glyph {
   width: 3.25rem;
   height: 3.25rem;
 }

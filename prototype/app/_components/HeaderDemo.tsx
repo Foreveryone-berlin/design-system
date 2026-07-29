@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import FeIcon from "./FeIcon";
 
 interface NavItem {
   href: string;
@@ -118,19 +119,12 @@ export default function HeaderDemo() {
                   aria-controls={dropdownId(href)}
                 >
                   {label}
-                  <svg
+                  <FeIcon
+                    set="ui"
+                    name="chevron-down"
+                    size="md"
                     className={`fe-nav-chevron${openSub === href ? " is-open" : ""}`}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
+                  />
                 </button>
                 {openSub === href && (
                   <div
@@ -198,19 +192,12 @@ export default function HeaderDemo() {
                   aria-controls={`${dropdownId(href)}-mobile`}
                 >
                   {label}
-                  <svg
+                  <FeIcon
+                    set="ui"
+                    name="chevron-down"
+                    size="md"
                     className={`fe-nav-chevron${openSubMobile === href ? " is-open" : ""}`}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
+                  />
                 </button>
                 {openSubMobile === href && (
                   <div

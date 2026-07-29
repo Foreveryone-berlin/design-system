@@ -4,6 +4,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Prism from "prismjs";
 import "prismjs/components/prism-css";
+import FeIcon from "./FeIcon";
 
 export default function CodeBlock({
   code,
@@ -47,14 +48,9 @@ export default function CodeBlock({
       >
         <span aria-hidden="true">
           {copied ? (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="20 6 9 17 4 12" />
-            </svg>
+            <FeIcon set="ui" name="check" size="sm" />
           ) : (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-            </svg>
+            <FeIcon set="ui" name="copy" size="sm" />
           )}
         </span>
         <span className="ds-code-copy__label">{copied ? "Copied" : "Copy"}</span>
