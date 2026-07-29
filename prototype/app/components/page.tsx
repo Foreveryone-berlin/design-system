@@ -1,85 +1,11 @@
-import type { ReactNode } from "react";
 import dynamic from "next/dynamic";
-import CategoryIcon from "../_components/CategoryIcon";
-import ActivityIcon, { ACTIVITY_LABELS, ACTIVITY_NAMES } from "../_components/ActivityIcon";
+import Link from "next/link";
+import CategoryIcon, { CATEGORY_NAMES, CATEGORY_LABELS } from "../_components/CategoryIcon";
+import ActivityIcon from "../_components/ActivityIcon";
 import TestimonialCard from "../_components/TestimonialCard";
-import type { CategoryIconName } from "../_components/CategoryIcon";
 
 const FaqDemo = dynamic(() => import("../FaqDemo"));
 const Popup = dynamic(() => import("../_components/Popup"));
-
-// Functional UI glyphs from the Figma icon set, inline so they inherit
-// currentColor and the 24x24 / stroke-2 geometry used across the system.
-const UI_ICONS: { label: string; path: ReactNode }[] = [
-  { label: "Chevron down", path: <polyline points="6 9 12 15 18 9" /> },
-  {
-    label: "Check circle",
-    path: (
-      <>
-        <circle cx="12" cy="12" r="9" />
-        <polyline points="8.5 12.5 11 15 16 9.5" />
-      </>
-    ),
-  },
-  {
-    label: "Clock",
-    path: (
-      <>
-        <circle cx="12" cy="12" r="9" />
-        <polyline points="12 7 12 12 15.5 14" />
-      </>
-    ),
-  },
-  {
-    label: "Location pin",
-    path: (
-      <>
-        <path d="M12 21s-6.5-5.6-6.5-10.5a6.5 6.5 0 1 1 13 0C18.5 15.4 12 21 12 21z" />
-        <circle cx="12" cy="10.5" r="2.5" />
-      </>
-    ),
-  },
-  { label: "Close", path: <path d="M6 6l12 12M18 6L6 18" /> },
-  {
-    label: "Mail",
-    path: (
-      <>
-        <rect x="3" y="5" width="18" height="14" rx="2" />
-        <polyline points="3 7 12 13 21 7" />
-      </>
-    ),
-  },
-  { label: "Plus", path: <path d="M12 5v14M5 12h14" /> },
-  { label: "Minus", path: <path d="M5 12h14" /> },
-  {
-    label: "Phone",
-    path: (
-      <path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L16 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
-    ),
-  },
-  {
-    label: "Play",
-    path: <path d="M8 5.5v13l11-6.5z" fill="currentColor" stroke="none" />,
-  },
-  {
-    label: "Instagram",
-    path: (
-      <>
-        <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
-        <circle cx="12" cy="12" r="4" />
-        <circle cx="17" cy="7" r="1" fill="currentColor" stroke="none" />
-      </>
-    ),
-  },
-];
-
-const SOCIAL_ICONS = [
-  { file: "/icons/social/facebook.svg", label: "Facebook" },
-  { file: "/icons/social/instagram.svg", label: "Instagram" },
-  { file: "/icons/social/linkedin.svg", label: "LinkedIn" },
-  { file: "/icons/social/email.svg", label: "Email" },
-  { file: "/icons/social/location.svg", label: "Location" },
-] as const;
 
 export default function ComponentsPage() {
   return (
@@ -650,121 +576,29 @@ export default function ComponentsPage() {
         <FaqDemo />
       </section>
 
-      <h2 className="ds-section-title ds-group-title">UI Icons</h2>
-
-      <section id="icons" className="ds-section">
-        <h3 className="ds-subsection-title">UI and action icons</h3>
+      <section id="icon-preview" className="ds-section">
+        <h2 className="ds-section-title">Icon preview</h2>
         <p className="ds-section-intro">
-          Functional UI glyphs and brand social icons at 24px (
-          <code className="ds-code">.ds-icon-glyph--md</code>).
+          Icons in component context. The full icon catalog (category, activity,
+          social, UI glyphs, and documented variants) lives on{" "}
+          <Link href="/visual-elements">Visual Elements</Link>, including GitHub
+          folder links for non-developer download.
         </p>
-        <div className="ds-icon-demo">
-          {[
-            {
-              label: "Favicon",
-              node: (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src="/favicon.svg"
-                  alt=""
-                  aria-hidden="true"
-                  className="ds-icon-glyph--md"
-                />
-              ),
-            },
-            {
-              label: "Arrow right",
-              node: (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src="/icons/arrow-right.svg"
-                  alt=""
-                  aria-hidden="true"
-                  className="ds-icon-glyph--md"
-                />
-              ),
-            },
-            {
-              label: "External link",
-              node: (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src="/icons/external-link.svg"
-                  alt=""
-                  aria-hidden="true"
-                  className="ds-icon-glyph--md"
-                />
-              ),
-            },
-            ...UI_ICONS.map(({ label, path }) => ({
-              label,
-              node: (
-                <svg
-                  className="ds-icon-glyph--md"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  {path}
-                </svg>
-              ),
-            })),
-            ...SOCIAL_ICONS.map(({ file, label }) => ({
-              label,
-              node: (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={file}
-                  alt=""
-                  aria-hidden="true"
-                  className="ds-icon-glyph--md"
-                />
-              ),
-            })),
-          ].map(({ label, node }, idx) => (
-            <div className="ds-icon-item" key={`${label}-${idx}`}>
-              {node}
-              <span>{label}</span>
-            </div>
+        <div className="ds-icon-specimens">
+          {CATEGORY_NAMES.slice(0, 3).map((name) => (
+            <figure key={name} className="ds-icon-specimen">
+              <span className="ds-icon-chip" aria-hidden="true">
+                <CategoryIcon name={name} />
+              </span>
+              <figcaption>{CATEGORY_LABELS[name]}</figcaption>
+            </figure>
           ))}
-        </div>
-      </section>
-
-      <section id="component-icons" className="ds-section">
-        <h3 className="ds-subsection-title">Component-specific icons</h3>
-        <p className="ds-section-intro">
-          Filled workshop and activity glyphs used in category chips, cards, and
-          filter patterns.
-        </p>
-        <div className="ds-icon-list">
-          {[
-            ...[
-              "balance-wellness",
-              "movement",
-              "arts-crafts",
-              "expression",
-              "music",
-            ].map((name) => ({
-              key: `cat-${name}`,
-              label: name,
-              node: <CategoryIcon name={name as CategoryIconName} chip={false} />,
-            })),
-            ...ACTIVITY_NAMES.map((name) => ({
-              key: `activity-${name}`,
-              label: ACTIVITY_LABELS[name],
-              node: <ActivityIcon name={name} chip={false} />,
-            })),
-          ].map(({ key, label, node }) => (
-            <div className="ds-icon-list__row" key={key}>
-              <span className="ds-icon-list__glyph" aria-hidden="true">{node}</span>
-              <span className="ds-icon-list__label">{label}</span>
-            </div>
-          ))}
+          <figure className="ds-icon-specimen">
+            <span className="ds-icon-chip" aria-hidden="true">
+              <ActivityIcon name="pottery" />
+            </span>
+            <figcaption>Pottery (activity)</figcaption>
+          </figure>
         </div>
       </section>
 

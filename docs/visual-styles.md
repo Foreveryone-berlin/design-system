@@ -72,8 +72,11 @@ Beyond categories, the system uses a small set of UI glyphs (seen in the brand g
 | External link | outbound links | `external-link.svg` |
 
 Prototype IA split:
-- `prototype/app/components/page.tsx` catalogs **UI/action icons** and **component-specific icons**.
-- `prototype/app/visual-elements/page.tsx` catalogs **illustrations**, **decorative accents**, and **graphic shapes**.
+- `prototype/app/visual-elements/page.tsx` is the **single source of truth** for the full icon catalog: category icons, activity icons, social icons, UI glyphs, and documented variants. Each icon family includes a **Browse this icon set on GitHub** link to the matching folder on the `main` branch (`prototype/public/icons/categories`, `workshop`, `social`, `variants`, or the icons root for UI file glyphs).
+- `prototype/app/components/page.tsx` keeps a compact **icon preview** plus in-context icon button examples; point readers to Visual Elements for downloads.
+- `prototype/app/visual-elements/page.tsx` also catalogs **illustrations**, **decorative accents**, and **graphic shapes** (illustration assets stay separate from the icon catalog).
+
+**Downloading icons (non-developers):** open [Visual Elements](/visual-elements) in the prototype, find the icon family you need, and use the **Browse this icon set on GitHub** link beneath that grid. On GitHub, open individual SVG files and use **Download raw file** (or copy the file from the folder tree). Canonical sets are for production; variant folders are optional alternatives only.
 
 ### Line illustrations (doodles)
 
