@@ -1,8 +1,12 @@
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import HeaderDemo from "../_components/HeaderDemo";
-import ActivityIcon, { type ActivityIconName } from "../_components/ActivityIcon";
-import CategoryIcon, { CATEGORY_LABELS, type CategoryIconName } from "../_components/CategoryIcon";
+import FeIcon, {
+  CATEGORY_LABELS,
+  type ActivityIconName,
+  type CategoryIconName,
+  type SocialIconName,
+} from "../_components/FeIcon";
 import { hero as heroCopy } from "@/content/site-copy";
 
 const StatCounter = dynamic(() => import("../_components/StatCounter"));
@@ -23,52 +27,45 @@ const benefits: {
   title: string;
   body: string;
   icon:
-    | { type: "category"; name: CategoryIconName }
-    | { type: "activity"; name: ActivityIconName };
+    | { set: "category"; name: CategoryIconName }
+    | { set: "activity"; name: ActivityIconName };
 }[] = [
   {
     title: "Meet People Offline",
     body: "A safe space to make genuine, real-life connections.",
-    icon: { type: "category", name: "movement" },
+    icon: { set: "category", name: "movement" },
   },
   {
     title: "Learn Something New",
     body: "Try pottery, yoga, chess, and more in a welcoming group.",
-    icon: { type: "activity", name: "pottery" },
+    icon: { set: "activity", name: "pottery" },
   },
   {
     title: "Boost Mental Wellbeing",
     body: "Creative connection that helps you recharge and belong.",
-    icon: { type: "category", name: "balance-wellness" },
+    icon: { set: "category", name: "balance-wellness" },
   },
   {
     title: "No Expectations",
     body: "Drop in when it suits you. No membership, no pressure.",
-    icon: { type: "category", name: "expression" },
+    icon: { set: "category", name: "expression" },
   },
   {
     title: "Beginner-Friendly",
     body: "Every workshop welcomes first-timers. Come as you are.",
-    icon: { type: "activity", name: "knitting" },
+    icon: { set: "activity", name: "knitting" },
   },
   {
     title: "Fair Pricing",
     body: "Most sessions from €8, with free spots where we can.",
-    icon: { type: "category", name: "music" },
+    icon: { set: "category", name: "music" },
   },
 ];
 
-function SocialIconButton({ src, label }: { src: string; label: string }) {
+function SocialIconButton({ name, label }: { name: SocialIconName; label: string }) {
   return (
     <button type="button" className="fe-icon-btn" aria-label={label}>
-      <span
-        className="fe-social-icon-glyph"
-        style={{
-          maskImage: `url(${src})`,
-          WebkitMaskImage: `url(${src})`,
-        }}
-        aria-hidden="true"
-      />
+      <FeIcon set="social" name={name} size="md" />
     </button>
   );
 }
@@ -137,8 +134,8 @@ export default function PatternsPage() {
                   Torstraße 52, 10119 Berlin
                 </p>
                 <div className="fe-footer__social">
-                  <SocialIconButton src="/icons/social/instagram.svg" label="Instagram" />
-                  <SocialIconButton src="/icons/social/linkedin.svg" label="LinkedIn" />
+                  <SocialIconButton name="instagram" label="Instagram" />
+                  <SocialIconButton name="linkedin" label="LinkedIn" />
                 </div>
               </div>
               <div className="fe-footer__column">
@@ -233,10 +230,10 @@ export default function PatternsPage() {
           {benefits.map((item) => (
             <div className="fe-card-benefit" key={item.title}>
               <span className="fe-card-benefit__icon" aria-hidden="true">
-                {item.icon.type === "category" ? (
-                  <CategoryIcon name={item.icon.name} size="sm" chip />
+                {item.icon.set === "category" ? (
+                  <FeIcon set="category" name={item.icon.name} size="sm" chip />
                 ) : (
-                  <ActivityIcon name={item.icon.name} size="sm" chip />
+                  <FeIcon set="activity" name={item.icon.name} size="sm" chip />
                 )}
               </span>
               <div className="fe-card-benefit__content">
@@ -271,10 +268,10 @@ export default function PatternsPage() {
           </div>
           <div className="ds-hero-image-wrap">
             <Image
-              src="/images/Group_2.png"
-              alt="A group of people together at a ForEveryone community gathering."
+              src="/images/community-cafe-home.png"
+              alt="A warm community gathering in a bright cafe."
               width={1090}
-              height={770}
+              height={1094}
               sizes="(max-width: 1024px) 100vw, 320px"
             />
           </div>

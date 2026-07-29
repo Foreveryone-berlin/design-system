@@ -1,24 +1,25 @@
-import CategoryIcon, {
-  CATEGORY_NAMES,
-  CATEGORY_LABELS,
-} from "../_components/CategoryIcon";
-import ActivityIcon, {
+import FeIcon, {
   ACTIVITY_LABELS,
   ACTIVITY_NAMES,
-} from "../_components/ActivityIcon";
+  CATEGORY_LABELS,
+  CATEGORY_NAMES,
+  FILE_LABELS,
+  FILE_NAMES,
+  SOCIAL_LABELS,
+  SOCIAL_NAMES,
+  UI_LABELS,
+  UI_NAMES,
+  type FileIconName,
+  type SocialIconName,
+  type UiGlyphName,
+} from "../_components/FeIcon";
 import IconGithubBrowseLink from "../_components/IconGithubBrowseLink";
-import {
-  FILE_GLYPHS,
-  SOCIAL_ICONS,
-  SOCIAL_VARIANTS,
-  UI_GLYPHS,
-  WORKSHOP_VARIANTS,
-} from "../_components/ui-glyphs";
+import { FILE_GLYPHS, SOCIAL_ICONS, UI_GLYPHS } from "../_components/ui-glyphs";
 
 export const metadata = {
   title: "Visual Elements",
   description:
-    "The four ForEveryone visual-element families plus the full icon catalog: category, activity, social, UI glyphs, and documented variants.",
+    "The four ForEveryone visual-element families plus the canonical icon catalog: category, activity, social, and UI glyphs.",
 };
 
 // Doodle strokes + sparkle/asterisk/music-note decorations (Brand Book v1.0
@@ -73,32 +74,16 @@ const accentVariants = [
   { src: "/illustrations/variants/accents/headline-underline-variant-1.svg", label: "Headline underline variant 1" },
 ];
 
-function VariantGlyph({ src, label }: { src: string; label: string }) {
-  return (
-    <figure className="ds-icon-specimen">
-      <span className="ds-icon-chip ds-icon-chip--variant" aria-hidden="true">
-        <span
-          className="fe-category-icon-glyph"
-          style={{
-            display: "block",
-            backgroundColor: "currentColor",
-            maskImage: `url(${src})`,
-            WebkitMaskImage: `url(${src})`,
-            maskSize: "contain",
-            WebkitMaskSize: "contain",
-            maskRepeat: "no-repeat",
-            WebkitMaskRepeat: "no-repeat",
-            maskPosition: "center",
-            WebkitMaskPosition: "center",
-          }}
-        />
-      </span>
-      <figcaption>
-        {label}
-        <span className="ds-icon-variant-tag">Variant</span>
-      </figcaption>
-    </figure>
-  );
+function labelToFileName(label: string): FileIconName {
+  return FILE_NAMES.find((n) => FILE_LABELS[n] === label) ?? "arrow-right";
+}
+
+function labelToSocialName(label: string): SocialIconName {
+  return SOCIAL_NAMES.find((n) => SOCIAL_LABELS[n] === label) ?? "email";
+}
+
+function labelToUiName(label: string): UiGlyphName {
+  return UI_NAMES.find((n) => UI_LABELS[n] === label) ?? "chevron-down";
 }
 
 export default function VisualElementsPage() {
@@ -128,7 +113,7 @@ export default function VisualElementsPage() {
           {CATEGORY_NAMES.map((name) => (
             <figure key={name} className="ds-icon-specimen">
               <span className="ds-icon-chip" aria-hidden="true">
-                <CategoryIcon name={name} />
+                <FeIcon set="category" name={name} size="lg" chip={false} />
               </span>
               <figcaption>{CATEGORY_LABELS[name]}</figcaption>
             </figure>
@@ -165,7 +150,7 @@ export default function VisualElementsPage() {
           {ACTIVITY_NAMES.map((name) => (
             <figure key={name} className="ds-icon-specimen">
               <span className="ds-icon-chip" aria-hidden="true">
-                <ActivityIcon name={name} />
+                <FeIcon set="activity" name={name} size="lg" chip={false} />
               </span>
               <figcaption>{ACTIVITY_LABELS[name]}</figcaption>
             </figure>
@@ -177,17 +162,21 @@ export default function VisualElementsPage() {
       <section className="ds-section">
         <h2 className="ds-section-title">Social icons</h2>
         <p className="fe-body">
-          <strong>Canonical set ({SOCIAL_ICONS.length} icons).</strong> Brand
+          <strong>Canonical set ({SOCIAL_NAMES.length} icons).</strong> Brand
           social and contact glyphs for footer rows, icon buttons, and outbound
           links. Render inside <code className="ds-code">.fe-icon-btn</code> with
           an accessible label.
         </p>
         <div className="ds-icon-specimens">
-          {SOCIAL_ICONS.map(({ file, label }) => (
-            <figure key={file} className="ds-icon-specimen">
+          {SOCIAL_ICONS.map(({ label }) => (
+            <figure key={label} className="ds-icon-specimen">
               <span className="ds-icon-chip ds-icon-chip--neutral" aria-hidden="true">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={file} alt="" className="ds-icon-glyph--md" />
+                <FeIcon
+                  set="social"
+                  name={labelToSocialName(label)}
+                  size="lg"
+                  chip={false}
+                />
               </span>
               <figcaption>{label}</figcaption>
             </figure>
@@ -205,70 +194,20 @@ export default function VisualElementsPage() {
           <code className="ds-code">currentColor</code>; file glyphs ship at 24px.
         </p>
         <div className="ds-icon-demo">
-          {FILE_GLYPHS.map(({ label, src }) => (
-            <div className="ds-icon-item" key={src}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={src} alt="" aria-hidden="true" className="ds-icon-glyph--md" />
+          {FILE_GLYPHS.map(({ label }) => (
+            <div className="ds-icon-item" key={label}>
+              <FeIcon set="file" name={labelToFileName(label)} size="md" />
               <span>{label}</span>
             </div>
           ))}
-          {UI_GLYPHS.map(({ label, path }) => (
+          {UI_GLYPHS.map(({ label }) => (
             <div className="ds-icon-item" key={label}>
-              <svg
-                className="ds-icon-glyph--md"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-                focusable="false"
-              >
-                {path}
-              </svg>
+              <FeIcon set="ui" name={labelToUiName(label)} size="md" />
               <span>{label}</span>
             </div>
           ))}
         </div>
         <IconGithubBrowseLink />
-      </section>
-
-      <section className="ds-section">
-        <h2 className="ds-section-title">Icon variant catalog</h2>
-        <p className="fe-body">
-          <strong>
-            Optional alternatives ({WORKSHOP_VARIANTS.length + SOCIAL_VARIANTS.length}{" "}
-            files).
-          </strong>{" "}
-          Canva and Figma exports kept for editorial flexibility.{" "}
-          <strong>Do not use variants in production</strong> unless design
-          explicitly selects one; the canonical sets above remain the defaults.
-        </p>
-
-        <h3 className="ds-subsection-title">Workshop variants</h3>
-        <div className="ds-icon-specimens">
-          {WORKSHOP_VARIANTS.map(({ file, label }) => (
-            <VariantGlyph key={file} src={file} label={label} />
-          ))}
-        </div>
-
-        <h3 className="ds-subsection-title">Social variants</h3>
-        <div className="ds-icon-specimens">
-          {SOCIAL_VARIANTS.map(({ file, label }) => (
-            <figure key={file} className="ds-icon-specimen">
-              <span className="ds-icon-chip ds-icon-chip--neutral ds-icon-chip--variant" aria-hidden="true">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={file} alt="" className="ds-icon-glyph--md" />
-              </span>
-              <figcaption>
-                {label}
-                <span className="ds-icon-variant-tag">Variant</span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-        <IconGithubBrowseLink folder="variants" />
       </section>
 
       <section className="ds-section">
