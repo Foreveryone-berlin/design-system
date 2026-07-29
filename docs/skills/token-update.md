@@ -1,4 +1,6 @@
-# Token Update Workflow
+# Token Update Workflow (manual fallback)
+
+> **Authoritative source:** `scripts/build-css.js`, `scripts/build-spec.js`, and the token rules in `docs/AGENTS.md`. This file is a manual fallback for humans and for agents that do not auto-load project skills.
 
 Use this when adding or changing design tokens (colors, typography, spacing, radius, shadows, motion).
 
