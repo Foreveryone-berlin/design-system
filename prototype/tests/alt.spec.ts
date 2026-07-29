@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test("homepage hero photo has meaningful alt text", async ({ page }) => {
   await page.goto("/");
-  const hero = page.locator('img[src*="Group_2"]').first();
+  const hero = page.locator('img[src*="community-cafe-home"]').first();
   await expect(hero).toBeVisible();
   const alt = await hero.getAttribute("alt");
   expect(alt?.trim().length).toBeGreaterThan(10);
