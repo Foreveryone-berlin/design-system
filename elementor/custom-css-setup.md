@@ -30,7 +30,7 @@ Use this only when your theme setup cannot enqueue CSS from `functions.php`. `wp
 
 ## Elementor Fallback: Paste `:root` Block
 
-If enqueueing is not available yet, open **Elementor > Site Settings > Custom CSS** and paste the current generated `:root` block from [`css/custom-properties.css`](../../css/custom-properties.css). Do not hand-edit the pasted CSS; rerun `node scripts/build-css.js` whenever tokens change and paste the updated block.
+If enqueueing is not available yet, open **Elementor > Site Settings > Custom CSS** and paste the current generated `:root` block from [`css/custom-properties.css`](../css/custom-properties.css). Do not hand-edit the pasted CSS; rerun `node scripts/build-css.js` whenever tokens change and paste the updated block.
 
 ```bash
 # Example: copy the generated file contents to paste into Elementor
