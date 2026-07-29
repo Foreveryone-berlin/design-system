@@ -8,25 +8,12 @@
 
 ## [Unreleased]
 
-Start notes for the next release here.
-
-- **Fix**: Unify every prototype icon behind a single type-safe `FeIcon` component, fixing the double-chip clipping bug and removing the icon variant catalog; only canonical category, activity, social, and UI icons remain.
-- **Change**: Make the mobile hamburger button neutral, so navigation stays visually separate from primary call-to-action buttons.
-- **Change**: Consolidate the full icon catalog on Visual Elements with GitHub folder links for each icon family, and trim duplicate icon grids from Components.
-- **Add**: Ship three live-site patterns on the Patterns page (stats strip, benefit grid, and events switcher).
-- **Fix**: Restore browser back navigation after using in-page section links or search results with hashes.
-- **Fix**: Restore CSS token-colour highlighting in Foundations code samples after client-side navigation.
-
-## [1.1.0] - 2026-07-28
-
-Release polish for cards, icon architecture, and asset updates ahead of the 1.1.0 ship.
-
-- **Change**: Replace the homepage and pattern hero blob image with the updated Community Cafe asset and set a neutral headline for broader reuse.
-- **Fix**: Improve workshop-card responsiveness so badges do not overlap, long labels truncate cleanly, and price plus booking action no longer compete for space.
-- **Fix**: Restore stable icon rendering on benefit and get-involved pattern cards, with decorative marks anchored correctly to card layouts.
-- **Change**: Reorganize prototype icon documentation so UI/action icons and component-specific icons are separated from illustrations and decorative assets.
-- **Add**: Import and catalog the latest Canva icon and doodle variants as documented alternatives while keeping canonical defaults for production use.
-- **Fix**: Align accessibility interaction coverage with responsive behavior so search keyboard navigation is validated at desktop layout widths.
+- **Change**: Refresh the homepage and pattern hero with the updated Community Cafe blob image and a neutral headline for broader reuse.
+- **Change**: Reorganize the prototype icon catalog on the Visual Elements page, separating UI/action icons and component-specific icons from illustrations and decorative assets, and trim duplicate icon grids from Components.
+- **Add**: Ship three live-site patterns on the Patterns page (stats strip, benefit grid, and events switcher) and import and catalog the latest Canva icon and doodle variants as documented alternatives while keeping canonical defaults for production.
+- **Fix**: Unify every prototype icon behind a single type-safe `FeIcon` component, fixing the double-chip clipping bug and restoring stable icon rendering on benefit and get-involved cards with decorative marks anchored correctly.
+- **Fix**: Improve workshop-card responsiveness so badges do not overlap, long labels truncate cleanly, and the price plus booking action no longer compete for space, and make the mobile hamburger button neutral so navigation stays visually separate from primary call-to-action buttons.
+- **Fix**: Restore browser back navigation after in-page section links or search results with hashes, restore CSS token-colour highlighting in Foundations code samples after client-side navigation, and align accessibility interaction coverage with responsive behavior so search keyboard navigation is validated at desktop layout widths.
 
 ## [1.0.0] - 2026-07-18 🎉
 
