@@ -91,7 +91,7 @@ Prototype IA split:
 - `prototype/app/components/page.tsx` keeps a compact **icon preview** plus in-context icon button examples; point readers to Visual Elements for downloads.
 - `prototype/app/visual-elements/page.tsx` also catalogs **illustrations**, **decorative accents**, and **graphic shapes** (illustration assets stay separate from the icon catalog).
 
-**Downloading icons (non-developers):** open [Visual Elements](/visual-elements) in the prototype, find the icon family you need, and use the **Browse this icon set on GitHub** link beneath that grid. On GitHub, open individual SVG files and use **Download raw file** (or copy the file from the folder tree). Only the canonical sets are for production.
+**Downloading icons (non-developers):** open [Visual Elements](https://design.foreveryone.berlin/visual-elements) in the prototype, find the icon family you need, and use the **Browse this icon set on GitHub** link beneath that grid. On GitHub, open individual SVG files and use **Download raw file** (or copy the file from the folder tree). Only the canonical sets are for production.
 
 ### Line illustrations (doodles)
 
