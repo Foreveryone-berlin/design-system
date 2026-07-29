@@ -17,14 +17,14 @@ Portable task contract: [agents/agent-contract.md](agents/agent-contract.md).
 Paths are repo-relative from project root unless noted.
 
 |root:{README.md,CHANGELOG.md,AGENTS.md,CLAUDE.md,llms.txt}
-|docs:{AGENTS.md,audit.md,brand-book-references.md,color-audit-2026.md,contributing.md,cursor-plan-prompt.md,getting-started.md,logo-usage.md,official-references.md,pr-and-merge-workflow.md,prototype-deploy.md,token-naming.md,validation.md,visual-styles.md}
+|docs:{AGENTS.md,brand-book-references.md,color-audit-2026.md,contributing.md,getting-started.md,logo-usage.md,official-references.md,pr-and-merge-workflow.md,prototype-deploy.md,token-naming.md,validation.md,visual-styles.md}
 |docs/agents:{README.md,agent-contract.md,runtime-policy.md,redesign-from-this-system.md}
 |spec:{tokens.json,principles.md}
 |spec/components:{README.md,button.md,tag-pill.md,card.md,input.md,faq.md}
 |spec/patterns:{README.md}
 |docs/decisions:{001-token-format.md}
 |docs/skills:{README.md,token-update.md,elementor-mapping.md,release.md}
-|claude:{rules/git.md,rules/general.md,rules/css.md,rules/tokens.md,skills/ship-release/SKILL.md,skills/optimize-prototype/SKILL.md}
+|.claude:{rules/git.md,rules/general.md,rules/css.md,rules/tokens.md,skills/ship-release/SKILL.md,skills/optimize-prototype/SKILL.md}
 |cursor:{AGENTS.md,rules/git.mdc,rules/general.mdc,rules/css.mdc,rules/tokens.mdc}
 |elementor:{global-colors.md,global-fonts.md,custom-css-setup.md}
 |elementor/templates:{README.md}
