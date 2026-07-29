@@ -14,28 +14,28 @@ interface NavItem {
 // slot. Labels are generic placeholders on purpose so the pattern reads as
 // reusable shape, not a specific site's information architecture.
 const navLinks: NavItem[] = [
-  { href: "#link-1", label: "Link 1" },
+  { href: "#link-1", label: "Link" },
   {
     href: "#link-2",
-    label: "Submenu 1",
+    label: "Submenu",
     children: [
-      { href: "#item-1", label: "Item 1" },
-      { href: "#item-2", label: "Item 2" },
-      { href: "#item-3", label: "Item 3" },
-      { href: "#item-4", label: "Item 4" },
+      { href: "#item-1", label: "Item" },
+      { href: "#item-2", label: "Item" },
+      { href: "#item-3", label: "Item" },
+      { href: "#item-4", label: "Item" },
     ],
   },
   {
     href: "#link-3",
-    label: "Submenu 2",
+    label: "Submenu",
     children: [
-      { href: "#sub-1", label: "Item 1" },
-      { href: "#sub-2", label: "Item 2" },
-      { href: "#sub-3", label: "Item 3" },
+      { href: "#sub-1", label: "Item" },
+      { href: "#sub-2", label: "Item" },
+      { href: "#sub-3", label: "Item" },
     ],
   },
-  { href: "#link-4", label: "Link 3" },
-  { href: "#link-5", label: "Link 4" },
+  { href: "#link-4", label: "Link" },
+  { href: "#link-5", label: "Link" },
 ];
 
 export default function HeaderDemo() {
