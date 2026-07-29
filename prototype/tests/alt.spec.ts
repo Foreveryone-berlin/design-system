@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test("homepage hero photo has meaningful alt text", async ({ page }) => {
   await page.goto("/");
-  const hero = page.locator('img[src*="community-cafe"]').first();
+  const hero = page.locator('img[src*="Group_2"]').first();
   await expect(hero).toBeVisible();
   const alt = await hero.getAttribute("alt");
   expect(alt?.trim().length).toBeGreaterThan(10);
@@ -20,7 +20,7 @@ test("patterns workshop cards expose non-empty photo alt text", async ({
   page,
 }) => {
   await page.goto("/patterns");
-  const cards = page.locator("#events .fe-card__media img");
+  const cards = page.locator("#events-workshops-switcher .fe-card__media img");
   const count = await cards.count();
   expect(count).toBeGreaterThan(0);
 
