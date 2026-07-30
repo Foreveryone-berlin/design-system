@@ -8,7 +8,7 @@
 
 ## [Unreleased]
 
-Start notes for the next release here.
+- **Remove**: Drop Cursor and Claude Code from the Credits “Built with” list so the public site does not attribute agents as product contributors.
 
 ## [1.1.0] - 2026-07-30
 
@@ -25,7 +25,7 @@ Prototype artwork, icon reliability, and pattern polish for the public design sy
 
 Credits page refresh, accessibility enforcement, and button spec alignment.
 
-- **Change**: Refresh the Credits page so design-system contributors are listed by name and role, and credit Cursor alongside Claude Code under the tools this system was built with.
+- **Change**: Refresh the Credits page so design-system contributors are listed by name and role.
 - **Fix**: Match button documentation states to the current primary and secondary button behavior in the prototype.
 - **Fix**: Respect reduced-motion preferences for accordion and mobile menu animation in shared component styles.
 - **Fix**: Keep the "Link copied" label fully inside its highlighted background beside section headings.
@@ -84,7 +84,7 @@ Prototype accessibility polish from the terminal optimize pass.
 
 ## [0.24.1] - 2026-07-06
 
-Run prototype optimize passes from the Cursor terminal.
+Run prototype optimize passes from the terminal.
 
 - **Behind the scenes**: Add a terminal workflow so audits can run step by step from the command line.
 - **Behind the scenes**: Add an optimize skill that works in both the terminal and the IDE.
@@ -92,10 +92,10 @@ Run prototype optimize passes from the Cursor terminal.
 
 ## [0.24.0] - 2026-07-06
 
-Agent parity: Cursor IDE, Cursor CLI, and Claude Code share the same instructions.
+Agent parity: IDE, CLI, and Claude Code share the same instructions.
 
-- **Behind the scenes**: Align Cursor and Claude agent instructions so both tools get the same commands, quality rules, and release workflows.
-- **Behind the scenes**: Document that Cursor picks up project skills from the same folder as Claude Code.
+- **Behind the scenes**: Align IDE/CLI and Claude agent instructions so both tools get the same commands, quality rules, and release workflows.
+- **Behind the scenes**: Document that the IDE picks up project skills from the same folder as Claude Code.
 - **Docs**: Add a cross-tool maintenance checklist so agent files stay in sync.
 
 ## [0.23.0] - 2026-06-19

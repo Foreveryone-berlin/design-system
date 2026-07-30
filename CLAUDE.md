@@ -42,7 +42,7 @@ Cursor IDE and CLI auto-load project skills from `.claude/skills/`.
 
 - Branch from **`develop`**, not `main`. Prefixes: `feature/`, `fix/`, `docs/`, `chore/`.
 - Conventional Commits; use `.github/PULL_REQUEST_TEMPLATE.md` for PRs.
-- Never add Claude co-author trailers or "Generated with Claude Code" attribution unless the user explicitly asks.
+- Never add agent attribution: no `Co-authored-by: Cursor` / `@cursoragent` / Made/Generated with Cursor, and no Claude co-author trailers or "Generated with Claude Code" unless the user explicitly asks.
 - When the user explicitly asks to ship / merge to develop / open and merge a PR, use `bash scripts/pr-and-merge.sh` (see `docs/pr-and-merge-workflow.md`).
 - Changelog: any `tokens/` or `css/` change → update `## [Unreleased]` in `CHANGELOG.md`.
 

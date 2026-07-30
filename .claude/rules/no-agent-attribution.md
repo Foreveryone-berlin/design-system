@@ -1,0 +1,14 @@
+# No agent attribution (mirrors `.cursor/rules/no-agent-attribution.mdc`)
+
+Never put Cursor Agent, `@cursoragent`, `cursoragent@cursor.com`, Claude, or any coding agent in GitHub **Contributors**, commit authors, committers, or co-authors.
+
+Forbidden in commits, commit trailers, PR titles, PR bodies, and PR comments:
+
+- `Co-authored-by: Cursor <cursoragent@cursor.com>`
+- `Co-authored-by: Cursor Agent` (any form)
+- `Generated with Cursor` / `Made-with: Cursor` / `Made with Cursor` / `Made with [Cursor](...)`
+- Equivalent Claude or other-agent attribution trailers or footers
+
+After `gh pr create`, strip any injected footer (dotfiles: `node scripts/strip-pr-attribution.mjs`) before the PR is done.
+
+Do not add agent marketing or "built by agent" lines to commit messages or PR descriptions.

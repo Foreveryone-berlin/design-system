@@ -42,6 +42,7 @@ Common mistakes:
 
 - Branch from **`develop`**, never `main`. Names: `feature/*`, `fix/*`, `docs/*`, `chore/*`.
 - Conventional Commits. PRs use `.github/PULL_REQUEST_TEMPLATE.md`.
+- Never add agent attribution (`Co-authored-by: Cursor`, `@cursoragent`, Made/Generated with Cursor).
 - Solo merge to develop: `bash scripts/pr-and-merge.sh` (see [docs/pr-and-merge-workflow.md](docs/pr-and-merge-workflow.md)).
 - Changelog: any `tokens/` or `css/` change → update `## [Unreleased]` in `CHANGELOG.md`.
 

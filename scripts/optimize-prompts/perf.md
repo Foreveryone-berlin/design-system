@@ -4,7 +4,7 @@ Audit and fix performance in `prototype/`. Read repo `AGENTS.md`, `CLAUDE.md`, a
 
 ## Hard rules
 
-- Never use em-dash (U+2014). No Claude attribution trailers.
+- Never use em-dash (U+2014). No agent attribution trailers (Cursor, Claude, `@cursoragent`, Made/Generated with Cursor).
 - Authored CSS uses `var(--token)` only; logical properties; mobile-first; no `!important`.
 - Do not hand-edit `css/custom-properties.css` (generated).
 - Prototype stays `robots: noindex, nofollow`; do not add a sitemap.
