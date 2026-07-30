@@ -9,9 +9,13 @@ import { normalizeSvg } from "./svg-normalize.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
-const ICON_DIRS = [
+const MASK_ASSET_DIRS = [
   path.join(ROOT, "prototype", "public", "icons", "categories"),
   path.join(ROOT, "prototype", "public", "icons", "workshop"),
+  path.join(ROOT, "prototype", "public", "illustrations"),
+  path.join(ROOT, "prototype", "public", "illustrations", "accents"),
+  path.join(ROOT, "prototype", "public", "illustrations", "variants", "accents"),
+  path.join(ROOT, "prototype", "public", "illustrations", "variants", "line"),
 ];
 
 let failures = 0;
@@ -66,7 +70,8 @@ console.log("svg-normalize tests\n");
   }
 }
 
-for (const dir of ICON_DIRS) {
+for (const dir of MASK_ASSET_DIRS) {
+  if (!fs.existsSync(dir)) continue;
   const files = fs.readdirSync(dir).filter((f) => f.endsWith(".svg"));
   for (const file of files) {
     const full = path.join(dir, file);
