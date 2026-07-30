@@ -59,6 +59,7 @@
     border-color var(--transition-base),
     color var(--transition-base);
   text-decoration: none;
+  white-space: nowrap;
 }
 .fe-btn-secondary:hover,
 .fe-btn-secondary.is-hover {
@@ -126,6 +127,35 @@
   color: var(--color-white);
   cursor: not-allowed;
 }
+/* Generic mask glyph used for every file-based icon (category, activity, social, variant).
+   The component sets mask-image inline; the parent control sets colour and size. */
+.fe-icon-glyph {
+  display: block;
+  background-color: currentColor;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+}
+.fe-icon-glyph--sm {
+  width: 1rem;
+  height: 1rem;
+}
+.fe-icon-glyph--md {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.fe-icon-glyph--lg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.fe-icon-btn .fe-icon-glyph {
+  width: 1.25rem;
+  height: 1.25rem;
+}
 
 /* Filled brand icon (category / functional markers — brand guide: orange + white glyph) */
 .fe-icon-btn--filled-brand {
@@ -158,6 +188,45 @@
 .fe-icon-btn--filled-brand:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+.fe-icon-btn--filled-brand .fe-icon-glyph {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Workshop / category icon chips (three size tiers — see docs/visual-styles.md) */
+.fe-workshop-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-circle);
+  background-color: var(--color-accent-icon);
+  color: var(--color-white);
+  flex-shrink: 0;
+}
+.fe-workshop-icon--sm {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.fe-workshop-icon--sm .fe-icon-glyph {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+.fe-workshop-icon--md {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.fe-workshop-icon--md .fe-icon-glyph {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.fe-workshop-icon--lg {
+  width: 5rem;
+  height: 5rem;
+}
+.fe-workshop-icon--lg .fe-icon-glyph {
+  width: 3.25rem;
+  height: 3.25rem;
 }
 
 /* Play Button */
@@ -210,6 +279,7 @@
 .fe-tag-pill {
   display: inline-flex;
   align-items: center;
+  gap: var(--spacing-2);
   padding: var(--spacing-1) var(--spacing-3);
   border-radius: var(--radius-pill);
   font-size: var(--font-size-xs);
@@ -318,6 +388,7 @@
   position: absolute;
   top: var(--spacing-3);
   left: var(--spacing-3);
+  max-inline-size: calc(50% - var(--spacing-4));
   padding: var(--spacing-1) var(--spacing-3);
   background-color: var(--color-background-default);
   color: var(--color-brand-dark);
@@ -325,40 +396,28 @@
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-bold);
   border-radius: var(--radius-pill);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-/* Category chip with filled (orange) icon + Charcoal label on Warm White.
-   Implements brand guide "Filled Icons: Functional markers (e.g. Painting,
-   Pottery) used for categorisation. These must be Orange, with high-contrast
-   labels". */
+/* Category label chip on card media (Charcoal label on Warm White). */
 .fe-card-category {
   position: absolute;
   top: var(--spacing-3);
   right: var(--spacing-3);
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-2);
-  padding: var(--spacing-1) var(--spacing-3) var(--spacing-1) var(--spacing-1);
+  max-inline-size: calc(50% - var(--spacing-4));
+  padding: var(--spacing-1) var(--spacing-3);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   border-radius: var(--radius-pill);
   background-color: var(--color-background-default);
   color: var(--color-brand-dark);
   box-shadow: var(--shadow-sm);
-}
-.fe-card-category__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: var(--radius-circle);
-  background-color: var(--color-accent-icon);
-  color: var(--color-white);
-  flex-shrink: 0;
-}
-.fe-card-category__icon .fe-category-icon-glyph {
-  width: 0.875rem;
-  height: 0.875rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .fe-card__body {
   padding: var(--spacing-5);
@@ -376,13 +435,19 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-4);
+  flex-wrap: wrap;
   margin-top: var(--spacing-4);
   padding-top: var(--spacing-4);
   border-top: 1px solid var(--color-theme-7);
 }
 .fe-card-price__amount {
+  flex: 0 0 auto;
   font-weight: var(--font-weight-bold);
   color: var(--color-theme-2);
+}
+.fe-card-price .fe-btn-secondary {
+  margin-inline-start: auto;
+  flex-shrink: 0;
 }
 
 /* Benefit / Get-involved Card */
@@ -400,8 +465,16 @@
 }
 .fe-card-benefit__illustration {
   flex-shrink: 0;
-  width: 6rem;
-  height: auto;
+  display: block;
+  width: 2.75rem;
+  height: 2.75rem;
+  background-color: var(--color-brand-primary);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }
 
 /* Card Get Involved */
@@ -789,11 +862,30 @@
   width: 2.5rem;
   height: 2.5rem;
   padding: 0;
-  background-color: var(--color-brand-secondary);
-  border: none;
-  border-radius: var(--radius-circle);
-  color: var(--color-white);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-theme-7);
+  border-radius: var(--radius-md);
+  color: var(--color-brand-dark);
   cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.fe-header__menu-btn:hover,
+.fe-header__menu-btn.is-hover {
+  background-color: var(--color-theme-6);
+  border-color: var(--color-theme-6);
+}
+
+.fe-header__menu-btn:focus-visible,
+.fe-header__menu-btn.is-focus {
+  outline: none;
+  border-color: var(--color-focus-button);
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--color-focus-button) 20%, transparent);
 }
 
 /* Hamburger icon animation */
@@ -810,7 +902,7 @@
   display: block;
   width: 1.125rem;
   height: 0.125rem;
-  background: var(--color-white);
+  background: currentColor;
   border-radius: 0.0625rem;
   transition:
     transform 0.3s ease,

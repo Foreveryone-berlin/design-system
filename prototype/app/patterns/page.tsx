@@ -1,104 +1,87 @@
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import HeaderDemo from "../_components/HeaderDemo";
-import CategoryIcon from "../_components/CategoryIcon";
+import FeIcon, {
+  CATEGORY_LABELS,
+  type SocialIconName,
+} from "../_components/FeIcon";
+import { hero as heroCopy } from "@/content/site-copy";
 
-// Check-circle used on the workshop-card date row (per Figma), inline so it
-// inherits currentColor and the system's 24x24 / stroke-2 geometry.
-function CheckCircle() {
-  return (
-    <svg
-      width={18}
-      height={18}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <circle cx="12" cy="12" r="9" />
-      <polyline points="8.5 12.5 11 15 16 9.5" />
-    </svg>
-  );
-}
+const StatCounter = dynamic(() => import("../_components/StatCounter"));
+const EventsWorkshopsSwitcher = dynamic(
+  () => import("../_components/EventsWorkshopsSwitcher"),
+);
 
-// Three distinct upcoming-workshop cards, each with its own photo, category,
-// and details, so the grid reads as a real programme rather than one repeated
-// card. Photos are ForEveryone workshop images, resized and cropped to the
-// card ratio; see prototype/public/images/ASSETS.md.
-const upcomingWorkshops = [
+const PATTERNS_HERO_HEADLINE = "Tokens, Components, and Patterns";
+
+const liveStats = [
+  { value: "200+", label: "Monthly participants" },
+  { value: "12+", label: "Locations" },
+  { value: "40+", label: "Workshops & events" },
+  { value: "100+", label: "Volunteers" },
+];
+
+/** Line illustrations (atmospheric + functional doodles), not decorative accents. */
+const benefits: {
+  title: string;
+  body: string;
+  illoSrc: string;
+}[] = [
   {
-    image: "/images/workshop-pottery.jpg",
-    alt: "People shaping clay together at a table in a bright art studio.",
-    category: "arts-crafts" as const,
-    categoryLabel: "Arts and Crafts",
-    spots: "3 free spots",
-    date: "Sunday, Sept 15 · 14:00–17:00",
-    title: "Pottery and Clay Morning",
-    blurb: "A hands-on, welcoming clay session for all levels. No experience needed.",
-    price: "From €10",
+    title: "Meet People Offline",
+    body: "A safe space to make genuine, real-life connections.",
+    illoSrc: "/illustrations/smiley.svg",
   },
   {
-    image: "/images/workshop-group.jpg",
-    alt: "Community members laughing around a table in the cafe.",
-    category: "wellness" as const,
-    categoryLabel: "Balance and Wellness",
-    spots: "5 free spots",
-    date: "Tuesday, Sept 17 · 18:30–20:00",
-    title: "Community Connection Evening",
-    blurb: "A relaxed evening to meet new faces over coffee. All are welcome.",
-    price: "From €8",
+    title: "Learn Something New",
+    body: "Try pottery, yoga, chess, and more in a welcoming group.",
+    illoSrc: "/illustrations/flower.svg",
   },
   {
-    image: "/images/workshop-drawing.jpg",
-    alt: "People holding up colourful portrait drawings at an outdoor table.",
-    category: "expression" as const,
-    categoryLabel: "Expression",
-    spots: "2 free spots",
-    date: "Saturday, Sept 21 · 11:00–13:00",
-    title: "Drawing and Expression",
-    blurb: "Playful portrait drawing in the open air. Bring yourself, we bring the rest.",
-    price: "Free",
+    title: "Boost Mental Wellbeing",
+    body: "Creative connection that helps you recharge and belong.",
+    illoSrc: "/illustrations/sprout.svg",
+  },
+  {
+    title: "No Expectations",
+    body: "Drop in when it suits you. No membership, no pressure.",
+    illoSrc: "/illustrations/cloud.svg",
+  },
+  {
+    title: "Beginner-Friendly",
+    body: "Every workshop welcomes first-timers. Come as you are.",
+    illoSrc: "/illustrations/coffee-cup.svg",
+  },
+  {
+    title: "Fair Pricing",
+    body: "Most sessions from €8, with free spots where we can.",
+    illoSrc: "/illustrations/donation-box.svg",
   },
 ];
 
+function SocialIconButton({ name, label }: { name: SocialIconName; label: string }) {
+  return (
+    <button type="button" className="fe-icon-btn" aria-label={label}>
+      <FeIcon set="social" name={name} size="md" />
+    </button>
+  );
+}
+
 export default function PatternsPage() {
+  const [headlineFirst, ...headlineRest] = PATTERNS_HERO_HEADLINE.split(" ");
+
   return (
     <>
       <h1 className="ds-page-title">Patterns</h1>
       <p className="ds-intro">
         Composite UI patterns that combine tokens and components into reusable
-        layouts: headers, footers, workshop cards, and more.
-      </p>
-      <p
-        className="fe-body"
-        style={{
-          fontSize: "var(--font-size-sm)",
-          color: "var(--color-theme-8)",
-        }}
-      >
-        The header and footer below are structural examples: the ForEveryone
-        logo sits in the brand slot, while the navigation, columns, and links use
-        placeholder content to show the reusable shape rather than a specific
-        site map.
+        layouts from the live ForEveryone site: headers, stats, benefit grids,
+        event switchers, and more.
       </p>
 
       <section id="header-pattern" className="ds-section">
         <h2 className="ds-section-title">Header (desktop &amp; mobile)</h2>
         <HeaderDemo />
-        <p
-          className="fe-body"
-          style={{
-            marginTop: "var(--spacing-4)",
-            fontSize: "var(--font-size-sm)",
-            color: "var(--color-theme-8)",
-          }}
-        >
-          Mobile: logo + hamburger. Desktop: nav links, dropdowns, and a CTA
-          slot.
-        </p>
       </section>
 
       <section id="footer-pattern" className="ds-section">
@@ -136,24 +119,47 @@ export default function PatternsPage() {
               <div className="fe-footer__column">
                 <p className="fe-footer__column-title">Contact</p>
                 <p className="fe-body" style={{ fontSize: "var(--font-size-sm)" }}>
-                  hello@example.com
+                  hello@foreveryone.berlin
                 </p>
-                <p className="fe-body" style={{ marginTop: "var(--spacing-2)", fontSize: "var(--font-size-sm)" }}>
-                  Example Strasse 52, 10115 Berlin
+                <p
+                  className="fe-body"
+                  style={{
+                    marginTop: "var(--spacing-2)",
+                    fontSize: "var(--font-size-sm)",
+                  }}
+                >
+                  Torstraße 52, 10119 Berlin
                 </p>
+                <div className="fe-footer__social">
+                  <SocialIconButton name="instagram" label="Instagram" />
+                  <SocialIconButton name="linkedin" label="LinkedIn" />
+                </div>
               </div>
               <div className="fe-footer__column">
-                <p className="fe-body" style={{ marginBottom: "var(--spacing-4)", fontSize: "var(--font-size-sm)" }}>
+                <p
+                  className="fe-body"
+                  style={{
+                    marginBottom: "var(--spacing-4)",
+                    fontSize: "var(--font-size-sm)",
+                  }}
+                >
                   Sign up for occasional updates.
                 </p>
                 <div className="fe-footer__newsletter">
-                  <input type="email" className="fe-input" placeholder="Your email" aria-label="Email" />
-                  <button type="button" className="ds-btn ds-btn--primary">Subscribe</button>
+                  <input
+                    type="email"
+                    className="fe-input"
+                    placeholder="Your email"
+                    aria-label="Email"
+                  />
+                  <button type="button" className="ds-btn ds-btn--primary">
+                    Subscribe
+                  </button>
                 </div>
               </div>
             </div>
             <div className="fe-footer__bottom">
-              <span>&copy; 2025 Example Organisation. All rights reserved.</span>
+              <span>&copy; 2025 ForEveryone Berlin. All rights reserved.</span>
               <div className="fe-footer__legal">
                 <a href="#privacy">Privacy</a>
                 <a href="#legal">Legal notice</a>
@@ -163,151 +169,119 @@ export default function PatternsPage() {
         </footer>
       </section>
 
-      <section id="workshop-card" className="ds-section">
-        <h2 className="ds-section-title">Workshop card (full)</h2>
-        {/* Pad the wrapper so the card's hover-lift shadow clears the section's
-            overflow:hidden clip. */}
-        <div style={{ padding: "var(--spacing-2)", maxWidth: "23rem" }}>
-        <div className="fe-card" style={{ maxWidth: "22rem" }}>
-          <div className="fe-card__media">
-            <Image
-              src="/images/workshop-group.jpg"
-              alt="Community members laughing around a table in the ForEveryone cafe"
-              width={360}
-              height={225}
-              sizes="360px"
-            />
-            <span className="fe-card-badge">2 free spots</span>
-            <span className="fe-card-category">
-              <span className="fe-card-category__icon" aria-hidden="true">
-                <CategoryIcon name="wellness" />
-              </span>
-              Balance and Wellness
-            </span>
-          </div>
-          <div className="fe-card__body">
-            <div className="fe-card-meta">
-              <CheckCircle /> Sunday, Sept 15 &middot; 14:00–17:00
+      <section id="stats-strip" className="ds-section">
+        <h2 className="ds-section-title">Stats strip with animated counters</h2>
+        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
+          Compact KPI row for home and campaign pages. Counters animate on
+          scroll; reduced-motion users see the final value immediately.
+        </p>
+        <div className="ds-stats" aria-label="ForEveryone impact in numbers">
+          {liveStats.map((stat) => (
+            <div key={stat.label} className="ds-stat">
+              <p className="ds-stat-value">
+                <StatCounter value={stat.value} />
+              </p>
+              <p className="ds-stat-label">{stat.label}</p>
             </div>
-            <h3 className="fe-h3" style={{ margin: "0 0 var(--spacing-2)" }}>
-              Pottery Workshop
-            </h3>
-            <p
-              className="fe-body"
-              style={{ margin: 0, fontSize: "var(--font-size-sm)", color: "var(--color-brand-dark)" }}
-            >
-              A hands-on, welcoming clay workshop for all levels. No experience needed.
-            </p>
-            <div className="fe-card-price" style={{ justifyContent: "flex-end" }}>
-              <a href="#book" className="fe-btn-secondary">Book Workshop &rarr;</a>
-            </div>
-          </div>
-        </div>
+          ))}
         </div>
       </section>
 
-      <section id="events" className="ds-section">
-        <h2 className="ds-section-title">Upcoming workshops</h2>
-        <div className="fe-event-tabs" role="group" aria-label="Filter events">
-          {["This Week", "This Month", "Next Month", "Choose Date"].map(
-            (tab, i) => (
+      <section id="category-filter" className="ds-section">
+        <h2 className="ds-section-title">Category filter bar</h2>
+        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
+          Interactive category pills. Active state uses the category fill colour.
+        </p>
+        <div
+          className="ds-icon-in-context-row"
+          style={{ flexWrap: "wrap", gap: "var(--spacing-2)" }}
+        >
+          {(["balance-wellness", "movement", "arts-crafts", "expression", "music"] as const).map(
+            (cat, i) => (
               <button
-                key={tab}
+                key={cat}
                 type="button"
+                className={`fe-tag-pill fe-tag-pill--${
+                  cat === "balance-wellness"
+                    ? "balance"
+                    : cat === "arts-crafts"
+                      ? "arts"
+                      : cat
+                }${i === 0 ? " active" : ""}`}
                 aria-pressed={i === 0}
-                className={`fe-event-tab${i === 0 ? " is-active" : ""}`}
               >
-                {tab}
+                {CATEGORY_LABELS[cat]}
               </button>
             ),
           )}
         </div>
-        <div className="ds-events-grid">
-          {upcomingWorkshops.map((w) => (
-            <div className="fe-card" key={w.title}>
-              <div className="fe-card__media">
-                <Image
-                  src={w.image}
-                  alt={w.alt}
-                  width={360}
-                  height={200}
-                  sizes="(max-width: 768px) 100vw, 320px"
-                />
-                <span className="fe-card-badge">{w.spots}</span>
-                <span className="fe-card-category">
-                  <span className="fe-card-category__icon" aria-hidden="true">
-                    <CategoryIcon name={w.category} />
-                  </span>
-                  {w.categoryLabel}
-                </span>
-              </div>
-              <div className="fe-card__body">
-                <div className="fe-card-meta">
-                  <CheckCircle /> {w.date}
-                </div>
+      </section>
+
+      <section id="benefit-grid" className="ds-section">
+        <h2 className="ds-section-title">Benefit grid (6-point value proposition)</h2>
+        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
+          Two-by-three card grid with line-illustration leads (not decorative
+          accent marks) and short copy from the live-site value proposition.
+        </p>
+        <div className="ds-benefit-grid">
+          {benefits.map((item) => (
+            <div className="fe-card-benefit" key={item.title}>
+              <span
+                className="fe-card-benefit__illustration"
+                style={{
+                  maskImage: `url(${item.illoSrc})`,
+                  WebkitMaskImage: `url(${item.illoSrc})`,
+                }}
+                aria-hidden="true"
+              />
+              <div className="fe-card-benefit__content">
                 <h3 className="fe-h3" style={{ margin: "0 0 var(--spacing-2)" }}>
-                  {w.title}
+                  {item.title}
                 </h3>
-                <p
-                  className="fe-body"
-                  style={{
-                    margin: 0,
-                    fontSize: "var(--font-size-sm)",
-                    color: "var(--color-brand-dark)",
-                  }}
-                >
-                  {w.blurb}
+                <p className="fe-body" style={{ margin: 0 }}>
+                  {item.body}
                 </p>
-                <div className="fe-card-price">
-                  <span className="fe-card-price__amount">{w.price}</span>
-                  <a href="#join" className="fe-btn-secondary">
-                    Book Workshop &rarr;
-                  </a>
-                </div>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="benefit-cards" className="ds-section">
-        <h2 className="ds-section-title">Card benefit &amp; get involved</h2>
-        <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-4)" }}>
-          <div className="fe-card-benefit">
-            <div className="fe-card-benefit__content">
-              <h3 className="fe-h3" style={{ margin: "0 0 var(--spacing-2)" }}>Meet People Offline</h3>
-              <p className="fe-body" style={{ margin: 0 }}>
-                A safe space to make genuine, real-life connections.
-              </p>
+      <section id="hero-pattern" className="ds-section">
+        <h2 className="ds-section-title">Hero with blob photo</h2>
+        <div className="ds-pattern-hero-specimen">
+          <div>
+            <div className="ds-headline-with-underline">
+              <h2 className="ds-hero-title">
+                {headlineFirst}
+                <br />
+                {headlineRest.join(" ")}
+              </h2>
             </div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <span
-              className="fe-card-benefit__illustration ds-illo-mark"
-              style={{
-                maskImage: "url(/illustrations/flower.svg)",
-                WebkitMaskImage: "url(/illustrations/flower.svg)",
-              }}
-              aria-hidden="true"
-            />
+            <p className="ds-intro">{heroCopy.tagline}</p>
+            <button type="button" className="fe-btn-primary">
+              Explore components
+            </button>
           </div>
-          <div className="fe-card-get-involved">
-            <div className="fe-card-get-involved__content">
-              <h3 className="fe-card-get-involved__title">Lead a Workshop or Event</h3>
-              <p className="fe-card-get-involved__body">
-                Help locals and internationals find belonging by sharing your hobby.
-              </p>
-            </div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <span
-              className="fe-card-benefit__illustration ds-illo-mark"
-              style={{
-                maskImage: "url(/illustrations/smiley.svg)",
-                WebkitMaskImage: "url(/illustrations/smiley.svg)",
-              }}
-              aria-hidden="true"
+          <div className="ds-hero-image-wrap">
+            <Image
+              src="/images/community-cafe-home.png"
+              alt="A warm community gathering in a bright cafe."
+              width={1090}
+              height={1094}
+              sizes="(max-width: 1024px) 100vw, 320px"
             />
           </div>
         </div>
+      </section>
+
+      <section id="events-workshops-switcher" className="ds-section">
+        <h2 className="ds-section-title">Events and workshops switcher block</h2>
+        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
+          One block with a top-level Events vs Workshops toggle and date tabs over the
+          card grid.
+        </p>
+        <EventsWorkshopsSwitcher />
       </section>
     </>
   );

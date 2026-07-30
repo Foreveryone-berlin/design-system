@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import Image from "next/image";
+import FeIcon from "./FeIcon";
 
 export default function Popup() {
   const [open, setOpen] = useState(false);
@@ -59,7 +61,7 @@ export default function Popup() {
             onClick={close}
             aria-label="Close"
           >
-            <span aria-hidden="true">&times;</span>
+            <FeIcon set="ui" name="close" size="md" />
           </button>
 
           <h3 id="fe-popup-title" className="fe-popup__title">
@@ -67,9 +69,8 @@ export default function Popup() {
           </h3>
 
           <div className="fe-popup__illustration" aria-hidden="true">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/icons/megaphone.png"
+            <Image
+              src="/illustrations/megaphone.png"
               alt=""
               width={234}
               height={184}
