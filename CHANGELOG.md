@@ -8,12 +8,18 @@
 
 ## [Unreleased]
 
-- **Change**: Refresh the homepage and pattern hero with the updated Community Cafe blob image, a fluid clamp-sized headline that scales down on small screens, and a sketched underline stretched to the headline text width.
-- **Change**: Reorganize the prototype icon catalog on the Visual Elements page, separating UI/action icons and component-specific icons from illustrations and decorative assets, and trim duplicate icon grids from Components.
-- **Add**: Ship three live-site patterns on the Patterns page (stats strip, benefit grid with line-illustration leads, and events switcher) and import and catalog the latest Canva icon and doodle variants as documented alternatives while keeping canonical defaults for production.
-- **Fix**: Unify every prototype icon behind a single type-safe `FeIcon` component, and repair SVG masks for category icons, workshop icons, line illustrations, and decorative accents so Illustrator clip leftovers no longer hide glyphs.
-- **Fix**: Improve workshop-card responsiveness so badges do not overlap, long labels truncate cleanly, and the price plus booking action no longer compete for space, and make the mobile hamburger button neutral so navigation stays visually separate from primary call-to-action buttons.
-- **Fix**: Restore browser back navigation after in-page section links or search results with hashes, restore CSS token-colour highlighting in Foundations code samples after client-side navigation, and align accessibility interaction coverage with responsive behavior so search keyboard navigation is validated at desktop layout widths.
+Start notes for the next release here.
+
+## [1.1.0] - 2026-07-30
+
+Prototype artwork, icon reliability, and pattern polish for the public design system release.
+
+- **Change**: Refresh the homepage and pattern hero with the new Community Cafe imagery, responsive headline sizing, and a headline-width sketched underline.
+- **Add**: Ship live pattern specimens for stats, benefit cards, and the events and workshops switcher, and add direct GitHub browse links for illustration and accent sets in Visual Elements.
+- **Change**: Reorganize the Visual Elements and Components icon documentation so functional icon families stay separate from illustrations and decorative assets.
+- **Fix**: Unify prototype icon rendering under one shared icon component and restore category, workshop, line-illustration, and decorative SVG masks so every set renders reliably.
+- **Fix**: Improve workshop-card responsiveness and related navigation polish so mobile controls, badges, labels, and actions stay readable and distinct.
+- **Fix**: Restore heading-link feedback, browser-back behavior, syntax highlighting, and accessibility coverage so navigation and documentation interactions stay stable across browsers.
 
 ## [1.0.0] - 2026-07-18 🎉
 
