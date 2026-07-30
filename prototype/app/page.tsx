@@ -24,8 +24,8 @@ export default function Home() {
             {headlineFirst}
             <br />
             {headlineRest.join(" ")}
-            <span className="ds-headline-underline" aria-hidden="true" />
           </h1>
+          <span className="ds-headline-underline" aria-hidden="true" />
         </div>
           <span className="ds-hero-version">v{version}</span>
           <p className="ds-intro">{heroCopy.tagline}</p>
