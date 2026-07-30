@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   images: {
-    formats: ["image/avif", "image/webp"],
+    formats: ["image/webp"],
     deviceSizes: [390, 640, 768, 1024, 1280, 1440],
     imageSizes: [32, 64, 96, 128, 256, 360],
   },

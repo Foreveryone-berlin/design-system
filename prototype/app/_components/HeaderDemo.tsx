@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import FeIcon from "./FeIcon";
 
 interface NavItem {
   href: string;
@@ -13,28 +14,28 @@ interface NavItem {
 // slot. Labels are generic placeholders on purpose so the pattern reads as
 // reusable shape, not a specific site's information architecture.
 const navLinks: NavItem[] = [
-  { href: "#link-1", label: "Link 1" },
+  { href: "#link-1", label: "Link" },
   {
     href: "#link-2",
-    label: "Link 2",
+    label: "Submenu",
     children: [
-      { href: "#item-1", label: "Item 1" },
-      { href: "#item-2", label: "Item 2" },
-      { href: "#item-3", label: "Item 3" },
-      { href: "#item-4", label: "Item 4" },
+      { href: "#item-1", label: "Item" },
+      { href: "#item-2", label: "Item" },
+      { href: "#item-3", label: "Item" },
+      { href: "#item-4", label: "Item" },
     ],
   },
   {
     href: "#link-3",
-    label: "Link 3",
+    label: "Submenu",
     children: [
-      { href: "#sub-1", label: "Item 1" },
-      { href: "#sub-2", label: "Item 2" },
-      { href: "#sub-3", label: "Item 3" },
+      { href: "#sub-1", label: "Item" },
+      { href: "#sub-2", label: "Item" },
+      { href: "#sub-3", label: "Item" },
     ],
   },
-  { href: "#link-4", label: "Link 4" },
-  { href: "#link-5", label: "Link 5" },
+  { href: "#link-4", label: "Link" },
+  { href: "#link-5", label: "Link" },
 ];
 
 export default function HeaderDemo() {
@@ -118,19 +119,12 @@ export default function HeaderDemo() {
                   aria-controls={dropdownId(href)}
                 >
                   {label}
-                  <svg
+                  <FeIcon
+                    set="ui"
+                    name="chevron-down"
+                    size="md"
                     className={`fe-nav-chevron${openSub === href ? " is-open" : ""}`}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
+                  />
                 </button>
                 {openSub === href && (
                   <div
@@ -198,19 +192,12 @@ export default function HeaderDemo() {
                   aria-controls={`${dropdownId(href)}-mobile`}
                 >
                   {label}
-                  <svg
+                  <FeIcon
+                    set="ui"
+                    name="chevron-down"
+                    size="md"
                     className={`fe-nav-chevron${openSubMobile === href ? " is-open" : ""}`}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
+                  />
                 </button>
                 {openSubMobile === href && (
                   <div

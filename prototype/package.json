@@ -1,6 +1,6 @@
 {
   "name": "foreveryone-design-system-prototype",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,7 +11,7 @@
     "test:e2e:report": "playwright show-report"
   },
   "dependencies": {
-    "next": "^15.5.20",
+    "next": "^15.5.22",
     "prismjs": "^1.30.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"

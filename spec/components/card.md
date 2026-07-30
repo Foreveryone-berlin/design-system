@@ -4,7 +4,7 @@
 
 `.fe-card` — the base content card (workshop card, content block). Variants:
 `.fe-card-benefit` and `.fe-card-get-involved` use a Soft Lavender background;
-`.fe-card-category` carries a category icon + label.
+`.fe-card-category` carries a category label on the card media.
 
 ## Anatomy
 
@@ -28,8 +28,7 @@
   the event, the alt describes the scene.
 - **Decorative illustration** (benefit/get-involved doodles): `alt=""` and
   `aria-hidden="true"` when the card heading already conveys meaning.
-- **Category icon:** Always pair with visible category label text; mark the icon
-  `aria-hidden="true"`.
+- **Category label:** Visible text on `.fe-card-category`; no icon required.
 - **Actions:** Use real links or buttons with visible labels; one clear action
   per card.
 

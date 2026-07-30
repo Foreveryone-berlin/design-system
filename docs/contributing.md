@@ -13,7 +13,7 @@ For step-by-step workflows (token updates, Elementor mapping, releases), see [do
 3. Use naming: `feature/*`, `fix/*`, `docs/*`, `chore/*`.
 4. Make focused changes.
 5. Run `node scripts/build-css.js` if tokens changed.
-6. Update `CHANGELOG.md` under the current in-flight version section (e.g. `## [0.10.0] - Unreleased`).
+6. Update `CHANGELOG.md` under the current in-flight version section (e.g. `## [Unreleased]`).
 7. Open a pull request using `.github/PULL_REQUEST_TEMPLATE.md`.
 
 ## Commit Messages

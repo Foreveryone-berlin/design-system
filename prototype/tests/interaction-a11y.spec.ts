@@ -42,6 +42,7 @@ test.describe("interactive accessibility", () => {
   });
 
   test("search combobox supports keyboard navigation", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto("/foundations");
     const search = page.getByRole("combobox", {
       name: "Search the design system",
@@ -53,5 +54,27 @@ test.describe("interactive accessibility", () => {
     await search.press("Enter");
 
     await expect(page).toHaveURL(/\/foundations#colour-ramps/);
+  });
+
+  test("sidebar navigation restores the previous page on browser back", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1400, height: 900 });
+    await page.goto("/patterns");
+    await expect(page.locator("#main-content h1")).toHaveText("Patterns");
+
+    await page
+      .locator(".ds-on-this-page__link")
+      .first()
+      .click();
+    await page
+      .locator(".ds-sidebar__link--child", { hasText: "Components" })
+      .click();
+    await page.waitForURL("**/components");
+    await expect(page.locator("#main-content h1")).toHaveText("Components");
+
+    await page.goBack();
+    await expect(page).toHaveURL(/\/patterns/);
+    await expect(page.locator("#main-content h1")).toHaveText("Patterns");
   });
 });

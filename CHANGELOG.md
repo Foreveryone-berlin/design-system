@@ -10,17 +10,24 @@
 
 Start notes for the next release here.
 
-## [1.0.0] - 2026-07-18
+## [1.1.0] - 2026-07-30
+
+Prototype artwork, icon reliability, and pattern polish for the public design system release.
+
+- **Change**: Refresh the homepage and pattern hero with the new Community Cafe imagery, responsive headline sizing, and a headline-width sketched underline.
+- **Add**: Ship live pattern specimens for stats, benefit cards, and the events and workshops switcher, and add direct GitHub browse links for illustration and accent sets in Visual Elements.
+- **Change**: Reorganize the Visual Elements and Components icon documentation so functional icon families stay separate from illustrations and decorative assets.
+- **Fix**: Unify prototype icon rendering under one shared icon component and restore category, workshop, line-illustration, and decorative SVG masks so every set renders reliably.
+- **Fix**: Improve workshop-card responsiveness and related navigation polish so mobile controls, badges, labels, and actions stay readable and distinct.
+- **Fix**: Restore heading-link feedback, browser-back behavior, syntax highlighting, and accessibility coverage so navigation and documentation interactions stay stable across browsers.
+
+## [1.0.0] - 2026-07-18 🎉
 
 Credits page refresh, accessibility enforcement, and button spec alignment.
 
-Migration note: [v1.0.0 migration note](docs/releases/v1.0.0-migration.md).
-
-- **Change**: Refresh the Credits page so design-system contributors are listed by name and role, with links to the main site and app surfaces.
-- **Change**: Credit Cursor alongside Claude Code under the tools this system was built with.
+- **Change**: Refresh the Credits page so design-system contributors are listed by name and role, and credit Cursor alongside Claude Code under the tools this system was built with.
 - **Fix**: Match button documentation states to the current primary and secondary button behavior in the prototype.
 - **Fix**: Respect reduced-motion preferences for accordion and mobile menu animation in shared component styles.
-- **Add**: Add accessibility validation steps, alt-text guidance for WordPress editors, and a conformance register for known gaps.
 - **Fix**: Keep the "Link copied" label fully inside its highlighted background beside section headings.
 
 ## [0.26.1] - 2026-07-18

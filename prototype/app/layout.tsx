@@ -6,6 +6,7 @@ import MobileNav from "./_components/MobileNav";
 import HeadingAnchors from "./_components/HeadingAnchors";
 import OnThisPage from "./_components/OnThisPage";
 import ViewTransitions from "./_components/ViewTransitions";
+import NavigationHistory from "./_components/NavigationHistory";
 import packageJson from "@/package.json";
 
 const outfit = Outfit({
@@ -84,10 +85,11 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body suppressHydrationWarning>
-        <a href="#main-content" className="ds-skip-link">
+        <a href="#main-content" className="fe-skip-link">
           Skip to content
         </a>
         <ViewTransitions />
+        <NavigationHistory />
         <HeadingAnchors />
         <MobileNav />
         <div className="ds-layout" suppressHydrationWarning>
