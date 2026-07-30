@@ -3,6 +3,7 @@
 @import "../../css/base.css";
 @import "../../css/typography.css";
 @import "../../css/utilities.css";
+@import "prismjs/themes/prism-tomorrow.css";
 
 /* ---- Accessibility: visible keyboard focus ---- */
 /* Global fallback so every interactive element shows a clear focus ring when
@@ -23,7 +24,7 @@ summary:focus-visible,
 /* ---- Accessibility: skip to main content ---- */
 /* Visually hidden until focused; jumps keyboard users past the nav.
    Requires the skip anchor + a matching #main-content target in markup. */
-.ds-skip-link {
+.fe-skip-link {
   position: absolute;
   inset-block-start: var(--spacing-2);
   inset-inline-start: var(--spacing-2);
@@ -41,7 +42,7 @@ summary:focus-visible,
   transition: transform var(--transition-fast);
 }
 
-.ds-skip-link:focus-visible {
+.fe-skip-link:focus-visible {
   transform: translateY(0);
 }
 
@@ -763,33 +764,34 @@ summary:focus-visible,
   letter-spacing: var(--letter-spacing-tight);
   color: var(--color-theme-2);
   margin: 0 0 var(--spacing-10);
-  font-size: clamp(1.75rem, 4vw + 1rem, 2.75rem);
+  /* Scales down on narrow viewports; caps at ~2.75rem on desktop. */
+  font-size: clamp(1.25rem, 0.85rem + 3vw, 2.75rem);
 }
 
-/* Headline + sketched underline as one unit (underline spans headline text width). */
+/* Headline + sketched underline as one unit.
+   Wrapper shrink-wraps to the headline text; underline stretches to that width. */
 .ds-headline-with-underline {
+  display: block;
+  width: fit-content;
   max-width: 100%;
   margin-bottom: var(--spacing-4);
-  container-type: inline-size;
 }
 
 .ds-headline-with-underline .ds-hero-title,
 .ds-headline-with-underline .fe-h3 {
-  display: inline-block;
+  display: block;
+  width: fit-content;
   max-width: 100%;
   margin-bottom: 0;
-  vertical-align: top;
 }
 
-.ds-headline-with-underline .ds-hero-title {
-  font-size: clamp(1.75rem, 11cqi, 2.75rem);
-}
-
-/* Sketched brand underline tucked under a headline (see SheLeads). */
+/* Sketched brand underline tucked under a headline (see SheLeads).
+   Stretches to the headline text width; height follows the SVG aspect (500×54). */
 .ds-headline-underline {
   display: block;
   width: 100%;
-  height: 1.35rem;
+  aspect-ratio: 500 / 54;
+  height: auto;
   margin: var(--spacing-2) 0 0;
   background-color: var(--color-brand-primary);
   -webkit-mask-image: url(/illustrations/headline-underline.svg);
@@ -798,8 +800,8 @@ summary:focus-visible,
   mask-repeat: no-repeat;
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
-  -webkit-mask-position: left bottom;
-  mask-position: left bottom;
+  -webkit-mask-position: left center;
+  mask-position: left center;
 }
 
 .ds-hero-with-image .ds-headline-with-underline {
@@ -836,7 +838,7 @@ summary:focus-visible,
 }
 
 .ds-section {
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--spacing-16);
   min-width: 0;
   overflow: hidden;
 }
@@ -1940,7 +1942,7 @@ a.ds-btn {
   background: var(--color-accent-icon);
   color: var(--color-white);
 }
-.ds-icon-chip .fe-category-icon-glyph {
+.ds-icon-chip .fe-icon-glyph {
   width: 52px;
   height: 52px;
 }
@@ -1948,6 +1950,42 @@ a.ds-btn {
   font-size: var(--font-size-xs);
   color: var(--color-theme-8);
   line-height: var(--line-height-snug);
+}
+
+.ds-icon-chip--neutral {
+  background: var(--color-white);
+  border: 1px solid var(--color-theme-7);
+  color: var(--color-brand-dark);
+}
+
+.ds-icon-chip--variant {
+  opacity: 0.85;
+}
+
+.ds-icon-variant-tag {
+  display: block;
+  margin-top: var(--spacing-1);
+  font-size: 0.625rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-brand-dark);
+}
+
+.ds-icon-set-action {
+  margin: var(--spacing-4) 0 var(--spacing-6);
+  font-size: var(--font-size-sm);
+}
+
+.ds-icon-set-action a {
+  color: var(--color-brand-secondary);
+  font-weight: var(--font-weight-medium);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.ds-icon-set-action a:hover {
+  color: var(--color-brand-primary);
 }
 
 .ds-illo-specimens,
@@ -1993,16 +2031,16 @@ a.ds-btn {
   mask-size: 100% 100%;
 }
 .ds-accent-mark {
-  width: 3rem;
-  height: 3rem;
+  width: 4.5rem;
+  height: 4.5rem;
 }
 .ds-accent-mark--wide {
-  width: 6rem;
+  width: 9rem;
 }
-/* Underline specimens: 2× .ds-accent-mark--wide (6rem → 12rem); must follow base sizes. */
+/* Underline specimens: 2× .ds-accent-mark--wide (9rem → 18rem); must follow base sizes. */
 .ds-accent-mark--underline {
-  width: 12rem;
-  height: 1.25rem;
+  width: 18rem;
+  height: 1.75rem;
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
 }
@@ -2023,8 +2061,8 @@ a.ds-btn {
 }
 .ds-blob {
   display: inline-block;
-  width: 110px;
-  height: 110px;
+  width: 160px;
+  height: 160px;
   background-color: var(--color-light-purple);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
@@ -2242,7 +2280,7 @@ a.ds-btn {
   color: var(--color-brand-primary);
   flex-shrink: 0;
 }
-.ds-icon-list__glyph .fe-category-icon-glyph {
+.ds-icon-list__glyph .fe-icon-glyph {
   width: 100%;
   height: 100%;
 }
@@ -2462,6 +2500,55 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
   word-break: break-word;
   word-spacing: normal;
   font-family: "Fira Code", "JetBrains Mono", "SF Mono", Consolas, monospace;
+}
+
+/* Scoped Prism token colours so highlighting survives client navigations even
+   when the theme chunk loads late or React re-paints the code element. */
+.ds-code-block-wrap .token.comment,
+.ds-code-block-wrap .token.prolog,
+.ds-code-block-wrap .token.doctype,
+.ds-code-block-wrap .token.cdata {
+  color: #999;
+}
+
+.ds-code-block-wrap .token.punctuation {
+  color: #ccc;
+}
+
+.ds-code-block-wrap .token.property,
+.ds-code-block-wrap .token.tag,
+.ds-code-block-wrap .token.boolean,
+.ds-code-block-wrap .token.number,
+.ds-code-block-wrap .token.constant,
+.ds-code-block-wrap .token.symbol,
+.ds-code-block-wrap .token.deleted {
+  color: #f8c555;
+}
+
+.ds-code-block-wrap .token.selector,
+.ds-code-block-wrap .token.attr-name,
+.ds-code-block-wrap .token.string,
+.ds-code-block-wrap .token.char,
+.ds-code-block-wrap .token.builtin,
+.ds-code-block-wrap .token.inserted {
+  color: #7ec699;
+}
+
+.ds-code-block-wrap .token.atrule,
+.ds-code-block-wrap .token.attr-value,
+.ds-code-block-wrap .token.keyword {
+  color: #cc99cd;
+}
+
+.ds-code-block-wrap .token.function,
+.ds-code-block-wrap .token.class-name {
+  color: #f08d49;
+}
+
+.ds-code-block-wrap .token.regex,
+.ds-code-block-wrap .token.important,
+.ds-code-block-wrap .token.variable {
+  color: #e2777a;
 }
 
 .ds-code-block-wrap {
@@ -2750,4 +2837,60 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
   .ds-overview-card:hover {
     transform: none;
   }
+}
+
+/* ---- Pattern page: benefit grid, events switcher, cafe card ---- */
+.ds-benefit-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-4);
+}
+
+.ds-benefit-grid .fe-card-benefit {
+  align-items: flex-start;
+}
+
+.ds-benefit-grid .fe-card-benefit__illustration {
+  flex-shrink: 0;
+}
+
+@media (min-width: 48rem) {
+  .ds-benefit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .ds-benefit-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.ds-events-switcher__toggle {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+  padding: var(--spacing-1);
+  border-radius: var(--radius-pill);
+  background: var(--color-theme-5);
+  border: 1px solid var(--color-theme-7);
+}
+
+.ds-events-switcher__kind {
+  border: none;
+  background: transparent;
+  color: var(--color-brand-dark);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-2) var(--spacing-5);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.ds-events-switcher__kind.is-active {
+  background: var(--color-brand-secondary);
+  color: var(--color-white);
 }

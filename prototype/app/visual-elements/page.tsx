@@ -1,12 +1,25 @@
-import CategoryIcon, {
-  CATEGORY_NAMES,
+import FeIcon, {
+  ACTIVITY_LABELS,
+  ACTIVITY_NAMES,
   CATEGORY_LABELS,
-} from "../_components/CategoryIcon";
+  CATEGORY_NAMES,
+  FILE_LABELS,
+  FILE_NAMES,
+  SOCIAL_LABELS,
+  SOCIAL_NAMES,
+  UI_LABELS,
+  UI_NAMES,
+  type FileIconName,
+  type SocialIconName,
+  type UiGlyphName,
+} from "../_components/FeIcon";
+import IconGithubBrowseLink from "../_components/IconGithubBrowseLink";
+import { FILE_GLYPHS, SOCIAL_ICONS, UI_GLYPHS } from "../_components/ui-glyphs";
 
 export const metadata = {
   title: "Visual Elements",
   description:
-    "The four ForEveryone visual-element families: workshop icons, line illustrations, decorative accent marks, and graphic shapes (blobs vs waves).",
+    "The four ForEveryone visual-element families plus the canonical icon catalog: category, activity, social, and UI glyphs.",
 };
 
 // Doodle strokes + sparkle/asterisk/music-note decorations (Brand Book v1.0
@@ -46,12 +59,6 @@ const functionalDoodles = [
   { src: "/illustrations/donation-box.svg", label: "Donation box" },
 ];
 
-const lineIllustrationVariants = [
-  { src: "/illustrations/variants/line/flower-variant-1.svg", label: "Flower variant 1" },
-  { src: "/illustrations/variants/line/flower-variant-2.svg", label: "Flower variant 2" },
-  { src: "/illustrations/variants/line/sprout-variant-1.svg", label: "Sprout variant 1" },
-];
-
 const accentVariants = [
   { src: "/illustrations/variants/accents/doodle-arrow-variant-1.svg", label: "Arrow variant 1" },
   { src: "/illustrations/variants/accents/doodle-circle-variant-2.svg", label: "Circle variant 2" },
@@ -67,14 +74,27 @@ const accentVariants = [
   { src: "/illustrations/variants/accents/headline-underline-variant-1.svg", label: "Headline underline variant 1" },
 ];
 
+function labelToFileName(label: string): FileIconName {
+  return FILE_NAMES.find((n) => FILE_LABELS[n] === label) ?? "arrow-right";
+}
+
+function labelToSocialName(label: string): SocialIconName {
+  return SOCIAL_NAMES.find((n) => SOCIAL_LABELS[n] === label) ?? "email";
+}
+
+function labelToUiName(label: string): UiGlyphName {
+  return UI_NAMES.find((n) => UI_LABELS[n] === label) ?? "chevron-down";
+}
+
 export default function VisualElementsPage() {
   return (
     <>
       <h1 className="ds-page-title">Visual Elements</h1>
       <p className="ds-intro">
-        ForEveryone uses four distinct visual-element families. Each has a defined
-        role and must not be used interchangeably: <strong>workshop icons</strong>{" "}
-        and <strong>graphic shapes</strong> are functional or structural;{" "}
+        ForEveryone uses four distinct visual-element families plus a complete icon
+        catalog. Each family has a defined role and must not be used
+        interchangeably: <strong>workshop icons</strong> and{" "}
+        <strong>graphic shapes</strong> are functional or structural;{" "}
         <strong>illustrations</strong> and <strong>accent marks</strong> are
         atmospheric. Orange (<code>#FF7A3A</code>) is prioritised throughout, with
         no shadows, gradients, or outlines. Rules from the Brand Book v1.0
@@ -82,24 +102,24 @@ export default function VisualElementsPage() {
       </p>
 
       <section className="ds-section">
-        <h2 className="ds-section-title">Workshop icons</h2>
+        <h2 className="ds-section-title">Category icons</h2>
         <p className="fe-body">
-          <strong>Functional.</strong> Solid, orange icons that help people spot a
-          workshop or programme category at a glance. They are{" "}
-          <strong>always paired with a category label</strong>, placed in margins
-          or alongside text, and never used for decoration. Filled silhouettes
-          only &mdash; never outline, shadow, or gradient.
+          <strong>Canonical set ({CATEGORY_NAMES.length} icons).</strong> Solid,
+          orange category silhouettes always paired with a category label. Use in
+          tag pills, card badges, and filter bars. These are the production
+          defaults.
         </p>
         <div className="ds-icon-specimens">
           {CATEGORY_NAMES.map((name) => (
             <figure key={name} className="ds-icon-specimen">
               <span className="ds-icon-chip" aria-hidden="true">
-                <CategoryIcon name={name} />
+                <FeIcon set="category" name={name} size="lg" chip={false} />
               </span>
               <figcaption>{CATEGORY_LABELS[name]}</figcaption>
             </figure>
           ))}
         </div>
+        <IconGithubBrowseLink folder="categories" />
         <div className="ds-dodont">
           <div className="ds-dodont__do">
             <p className="ds-dodont__label">Do</p>
@@ -116,6 +136,78 @@ export default function VisualElementsPage() {
             </ul>
           </div>
         </div>
+      </section>
+
+      <section className="ds-section">
+        <h2 className="ds-section-title">Activity icons</h2>
+        <p className="fe-body">
+          <strong>Canonical set ({ACTIVITY_NAMES.length} icons).</strong>{" "}
+          Activity-level filled glyphs for specific workshops (pottery, knitting,
+          writing, and more). Use when the subcategory is more specific than the
+          top-level category chip.
+        </p>
+        <div className="ds-icon-specimens">
+          {ACTIVITY_NAMES.map((name) => (
+            <figure key={name} className="ds-icon-specimen">
+              <span className="ds-icon-chip" aria-hidden="true">
+                <FeIcon set="activity" name={name} size="lg" chip={false} />
+              </span>
+              <figcaption>{ACTIVITY_LABELS[name]}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <IconGithubBrowseLink folder="workshop" />
+      </section>
+
+      <section className="ds-section">
+        <h2 className="ds-section-title">Social icons</h2>
+        <p className="fe-body">
+          <strong>Canonical set ({SOCIAL_NAMES.length} icons).</strong> Brand
+          social and contact glyphs for footer rows, icon buttons, and outbound
+          links. Render inside <code className="ds-code">.fe-icon-btn</code> with
+          an accessible label.
+        </p>
+        <div className="ds-icon-specimens">
+          {SOCIAL_ICONS.map(({ label }) => (
+            <figure key={label} className="ds-icon-specimen">
+              <span className="ds-icon-chip ds-icon-chip--neutral" aria-hidden="true">
+                <FeIcon
+                  set="social"
+                  name={labelToSocialName(label)}
+                  size="lg"
+                  chip={false}
+                />
+              </span>
+              <figcaption>{label}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <IconGithubBrowseLink folder="social" />
+      </section>
+
+      <section className="ds-section">
+        <h2 className="ds-section-title">UI glyphs</h2>
+        <p className="fe-body">
+          <strong>Functional set ({UI_GLYPHS.length + FILE_GLYPHS.length}{" "}
+          glyphs).</strong> Stroke icons and file-based arrows for navigation,
+          forms, media controls, and CTAs. Inline SVGs inherit{" "}
+          <code className="ds-code">currentColor</code>; file glyphs ship at 24px.
+        </p>
+        <div className="ds-icon-demo">
+          {FILE_GLYPHS.map(({ label }) => (
+            <div className="ds-icon-item" key={label}>
+              <FeIcon set="file" name={labelToFileName(label)} size="md" />
+              <span>{label}</span>
+            </div>
+          ))}
+          {UI_GLYPHS.map(({ label }) => (
+            <div className="ds-icon-item" key={label}>
+              <FeIcon set="ui" name={labelToUiName(label)} size="md" />
+              <span>{label}</span>
+            </div>
+          ))}
+        </div>
+        <IconGithubBrowseLink />
       </section>
 
       <section className="ds-section">
@@ -139,6 +231,7 @@ export default function VisualElementsPage() {
             </figure>
           ))}
         </div>
+        <IconGithubBrowseLink path="illustrations" />
         <h3 className="ds-subsection-title">Functional doodles</h3>
         <p className="fe-body">
           These are line-style graphics used as functional motifs in specific
@@ -156,6 +249,7 @@ export default function VisualElementsPage() {
             </figure>
           ))}
         </div>
+        <IconGithubBrowseLink path="illustrations" />
       </section>
 
       <section className="ds-section">
@@ -180,6 +274,7 @@ export default function VisualElementsPage() {
             </figure>
           ))}
         </div>
+        <IconGithubBrowseLink path="illustrations/accents" />
         <h3 className="ds-subsection-title">Decorative variant catalog</h3>
         <p className="fe-body">
           Additional Canva exports are kept as documented variants for editorial
@@ -199,19 +294,7 @@ export default function VisualElementsPage() {
             </figure>
           ))}
         </div>
-        <h3 className="ds-subsection-title">Line-illustration variant catalog</h3>
-        <div className="ds-illo-specimens">
-          {lineIllustrationVariants.map((illo) => (
-            <figure key={illo.label} className="ds-illo-specimen">
-              <span
-                className="ds-illo-mark"
-                style={{ maskImage: `url(${illo.src})`, WebkitMaskImage: `url(${illo.src})` }}
-                aria-hidden="true"
-              />
-              <figcaption>{illo.label}</figcaption>
-            </figure>
-          ))}
-        </div>
+        <IconGithubBrowseLink path="illustrations/variants/accents" />
       </section>
 
       <section className="ds-section">

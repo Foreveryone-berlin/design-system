@@ -8,28 +8,20 @@
 
 ## [Unreleased]
 
-Start notes for the next release here.
-
-## [1.1.0] - 2026-07-28
-
-Release polish for cards, icon architecture, and asset updates ahead of the 1.1.0 ship.
-
-- **Change**: Replace the homepage and pattern hero blob image with the updated Community Cafe asset and set a neutral headline for broader reuse.
-- **Fix**: Improve workshop-card responsiveness so badges do not overlap, long labels truncate cleanly, and price plus booking action no longer compete for space.
-- **Fix**: Restore stable icon rendering on benefit and get-involved pattern cards, with decorative marks anchored correctly to card layouts.
-- **Change**: Reorganize prototype icon documentation so UI/action icons and component-specific icons are separated from illustrations and decorative assets.
-- **Add**: Import and catalog the latest Canva icon and doodle variants as documented alternatives while keeping canonical defaults for production use.
-- **Fix**: Align accessibility interaction coverage with responsive behavior so search keyboard navigation is validated at desktop layout widths.
+- **Change**: Refresh the homepage and pattern hero with the updated Community Cafe blob image, a fluid clamp-sized headline that scales down on small screens, and a sketched underline stretched to the headline text width.
+- **Change**: Reorganize the prototype icon catalog on the Visual Elements page, separating UI/action icons and component-specific icons from illustrations and decorative assets, and trim duplicate icon grids from Components.
+- **Add**: Ship three live-site patterns on the Patterns page (stats strip, benefit grid with line-illustration leads, and events switcher) and import and catalog the latest Canva icon and doodle variants as documented alternatives while keeping canonical defaults for production.
+- **Fix**: Unify every prototype icon behind a single type-safe `FeIcon` component, and repair SVG masks for category icons, workshop icons, line illustrations, and decorative accents so Illustrator clip leftovers no longer hide glyphs.
+- **Fix**: Improve workshop-card responsiveness so badges do not overlap, long labels truncate cleanly, and the price plus booking action no longer compete for space, and make the mobile hamburger button neutral so navigation stays visually separate from primary call-to-action buttons.
+- **Fix**: Restore browser back navigation after in-page section links or search results with hashes, restore CSS token-colour highlighting in Foundations code samples after client-side navigation, and align accessibility interaction coverage with responsive behavior so search keyboard navigation is validated at desktop layout widths.
 
 ## [1.0.0] - 2026-07-18 🎉
 
 Credits page refresh, accessibility enforcement, and button spec alignment.
 
-- **Change**: Refresh the Credits page so design-system contributors are listed by name and role, with links to the main site and app surfaces.
-- **Change**: Credit Cursor alongside Claude Code under the tools this system was built with.
+- **Change**: Refresh the Credits page so design-system contributors are listed by name and role, and credit Cursor alongside Claude Code under the tools this system was built with.
 - **Fix**: Match button documentation states to the current primary and secondary button behavior in the prototype.
 - **Fix**: Respect reduced-motion preferences for accordion and mobile menu animation in shared component styles.
-- **Add**: Add accessibility validation steps, alt-text guidance for WordPress editors, and a conformance register for known gaps.
 - **Fix**: Keep the "Link copied" label fully inside its highlighted background beside section headings.
 
 ## [0.26.1] - 2026-07-18

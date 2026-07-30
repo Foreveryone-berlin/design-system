@@ -12,14 +12,15 @@ in the prototype.
 
 **Workshop icon set (filled, solid, orange + white glyph)** ships in
 `prototype/public/icons/categories/` (five canonical categories) and
-`prototype/public/icons/workshop/` (activity/subcategory glyphs). Renders via
-`CategoryIcon` and `ActivityIcon` (CSS mask + `currentColor`) inside
-`.fe-card-category__icon`, `.fe-workshop-icon`, or `.fe-icon-btn--filled-brand`,
-with orange (`var(--color-accent-icon)`) ground + white glyph. Per Brand Book p.24
-these are **solid filled** silhouettes — never outline/stroke, never shadow/gradient.
-Add a category by dropping a **filled** SVG (`fill="currentColor"`) into
-`prototype/public/icons/categories/` and extending `CategoryIcon`. Re-import from
-Figma with `node scripts/import-figma-elements.mjs` or from a desktop SVG drop with
+`prototype/public/icons/workshop/` (activity/subcategory glyphs). Renders via the
+single `FeIcon` component (`prototype/app/_components/FeIcon.tsx`) using CSS mask +
+`currentColor` inside `.fe-card-category__icon`, `.fe-workshop-icon`, or
+`.fe-icon-btn--filled-brand`, with orange (`var(--color-accent-icon)`) ground + white
+glyph. Per Brand Book p.24 these are **solid filled** silhouettes — never
+outline/stroke, never shadow/gradient. Add a category by dropping a **filled** SVG
+(`fill="currentColor"`) into `prototype/public/icons/categories/` and extending the
+`category` name union in `FeIcon`. Re-import from Figma with
+`node scripts/import-figma-elements.mjs` or from a desktop SVG drop with
 `node scripts/import-desktop-elements.mjs --source=PATH` (see **Refreshing visual-element SVGs** below).
 
 ## Iconography and illustration
@@ -36,11 +37,11 @@ Per Brand Book v1.0 p.24, workshop categories use a fixed, **filled solid** oran
 | Expression | `expression` | `Expression` |
 | Music | `music` | `Music` |
 
-The five filled SVGs ship in `prototype/public/icons/categories/` and `CategoryIcon` loads them via CSS mask (white glyph on orange ground). Legacy names (`painting`, `pottery`, `wellness`, `language`) remain as **aliases** mapping onto the canonical glyphs so existing usages and live content keep working. **Balance and Wellness** still uses the in-repo redraw (`balance-wellness.svg`); no matching glyph was in the July 2026 Figma element export.
+The five filled SVGs ship in `prototype/public/icons/categories/` and `FeIcon` loads them via CSS mask (white glyph on orange ground). Legacy names (`painting`, `pottery`, `wellness`, `language`) remain as **aliases** mapping onto the canonical glyphs so existing usages and live content keep working. **Balance and Wellness** still uses the in-repo redraw (`balance-wellness.svg`); no matching glyph was in the July 2026 Figma element export.
 
 ### Activity / subcategory icons
 
-Beyond the five canonical categories, activity-specific filled icons (knitting, pottery, thread, chess, writing) live in `prototype/public/icons/workshop/` and render via `ActivityIcon`. Use them on activity cards and filter bars where the subcategory is more specific than the top-level category.
+Beyond the five canonical categories, activity-specific filled icons (knitting, pottery, thread, chess, writing) live in `prototype/public/icons/workshop/` and render via `FeIcon` with `set="activity"`. Use them on activity cards and filter bars where the subcategory is more specific than the top-level category.
 
 ### Icon size tiers
 
@@ -52,7 +53,21 @@ Three size modifiers align with common component contexts (see `/visual-elements
 | Medium | `.fe-workshop-icon--md` | 40×40px | 20px | Icon button (`.fe-icon-btn--filled-brand`) |
 | Large | `.fe-workshop-icon--lg` | 80×80px | 52px | Visual-elements specimen, card hero badge |
 
-Glyph-only rendering (no orange chip) is available via `chip={false}` on `CategoryIcon` / `ActivityIcon` when the parent already supplies the orange ground (e.g. `.fe-card-category__icon`).
+Glyph-only rendering (no orange chip) is available via `chip={false}` on `FeIcon` when the parent already supplies the orange ground (e.g. `.fe-card-category__icon`).
+
+### Unified icon component
+
+The prototype renders every icon through the single `FeIcon` component (`prototype/app/_components/FeIcon.tsx`):
+
+| Family | Asset folder | Render path | Use case |
+|--------|--------------|-------------|----------|
+| `category` | `public/icons/categories/` | CSS mask | Top-level category chips, tags, badges |
+| `activity` | `public/icons/workshop/` | CSS mask | Subcategory/workshop-specific glyphs |
+| `social` | `public/icons/social/` | CSS mask | Footer and contact icon buttons |
+| `ui` | inline paths in `ui-glyphs.tsx` | inline SVG | Navigation, controls, copy/check, play, close |
+| `file` | `public/icons/arrow-right.svg`, `external-link.svg` | `<img>` | CTA and outbound-link glyphs |
+
+`FeIcon` takes a type-safe `set` + `name`, plus `size` (`sm`, `md`, `lg`) and `chip` (`true` wraps the glyph in the orange `.fe-workshop-icon` chip). Use `chip={false}` when the icon lives inside a parent that already sets the ground and colour, such as `.ds-icon-chip` or `.fe-icon-btn`. The legacy `CategoryIcon` and `ActivityIcon` components have been removed; all call sites now use `FeIcon`.
 
 ### Category tag colours (hover / active)
 
@@ -64,16 +79,19 @@ Beyond categories, the system uses a small set of UI glyphs (seen in the brand g
 
 | Icon | Where | Asset / class |
 |------|-------|----------------|
-| Icon button (states: default/hover/focused/disabled) | quiet actions, social | `.fe-icon-btn` (+ `--filled-brand` for always-on orange) |
-| Social network | footer row | `icons/social/*.svg` inside `.fe-icon-btn` with `aria-label` |
-| Play button | media/video affordances | filled orange circle + white triangle glyph |
-| Dropdown chevron | nav dropdowns, selects, FAQ accordions | inline chevron SVG, rotates on open |
-| Arrow (right) | "Book Now" / "Explore all" CTAs | `arrow-right.svg` |
-| External link | outbound links | `external-link.svg` |
+| Icon button (states: default/hover/focused/disabled) | quiet actions, social | `.fe-icon-btn` (+ `--filled-brand` for always-on orange) with `FeIcon` |
+| Social network | footer row | `FeIcon set="social"` inside `.fe-icon-btn` with `aria-label` |
+| Play button | media/video affordances | `FeIcon set="ui" name="play"` inside filled orange circle |
+| Dropdown chevron | nav dropdowns, selects, FAQ accordions | `FeIcon set="ui" name="chevron-down"`, rotates on open via CSS |
+| Arrow (right) | "Book Now" / "Explore all" CTAs | `FeIcon set="file" name="arrow-right"` |
+| External link | outbound links | `FeIcon set="file" name="external-link"` |
 
 Prototype IA split:
-- `prototype/app/components/page.tsx` catalogs **UI/action icons** and **component-specific icons**.
-- `prototype/app/visual-elements/page.tsx` catalogs **illustrations**, **decorative accents**, and **graphic shapes**.
+- `prototype/app/visual-elements/page.tsx` is the **single source of truth** for the canonical icon catalog: category icons, activity icons, social icons, and UI glyphs. Each icon family includes a **Browse this icon set on GitHub** link to the matching folder on the `main` branch (`prototype/public/icons/categories`, `workshop`, `social`, or the icons root for UI file glyphs).
+- `prototype/app/components/page.tsx` keeps a compact **icon preview** plus in-context icon button examples; point readers to Visual Elements for downloads.
+- `prototype/app/visual-elements/page.tsx` also catalogs **illustrations**, **decorative accents**, and **graphic shapes** (illustration assets stay separate from the icon catalog).
+
+**Downloading icons (non-developers):** open [Visual Elements](https://design.foreveryone.berlin/visual-elements) in the prototype, find the icon family you need, and use the **Browse this icon set on GitHub** link beneath that grid. On GitHub, open individual SVG files and use **Download raw file** (or copy the file from the folder tree). Only the canonical sets are for production.
 
 ### Line illustrations (doodles)
 
@@ -81,8 +99,8 @@ Prototype IA split:
 - **Colour:** Drawn in **brand orange** (decorative use), matching the filled-illustration family; do not recolour to blue.
 - **Shipped atmospheric set** in `prototype/public/illustrations/`: `flower.svg`, `smiley.svg`, `cloud.svg`, `sprout.svg`, plus contextual scene marks (`group.svg`, `knitting-line.svg`, `pottery-line.svg`, `movement-line.svg`, `chess.svg`). Import via `scripts/import-figma-elements.mjs` or `scripts/import-desktop-elements.mjs`. `coffee-cup.svg` and `donation-box.svg` ship in the same folder but are functional/UI doodles, not atmospheric line illustrations. `vase.svg` and `qr-foreveryone.svg` remain in-repo redraws. Figma remains the source of truth for any new or updated artwork.
 - **Variant catalog:** additional Canva exports live in `prototype/public/illustrations/variants/line/` and are shown on the Visual Elements page as optional alternatives.
-- **Headline underline:** `headline-underline.svg` (from `Doodle_Double_Underlines_2_2`) sits under a heading via `.ds-headline-underline` on the home hero and pattern specimens. The import script repairs SVGO-stripped fills on this asset automatically.
-- **Usage:** Supporting hero sections, empty states, editorial blocks — avoid competing with primary CTAs; pair with blob shapes rather than stacking on busy imagery.
+- **Headline underline:** `headline-underline.svg` (from `Doodle_Double_Underlines_2_2`) sits under a heading via `.ds-headline-underline` on the home hero and pattern specimens, stretched to the headline text width. The import script repairs SVGO-stripped fills on this asset automatically.
+- **Usage:** Supporting hero sections, empty states, editorial blocks, and **benefit / get-involved card leads** (`.fe-card-benefit__illustration`) — avoid competing with primary CTAs; pair with blob shapes rather than stacking on busy imagery. Do **not** substitute decorative accent marks here.
 
 ### Filled icons (functional)
 
@@ -118,6 +136,7 @@ Brand Book v1.0 p.26 — used sparingly, orange prioritised, never the focal poi
 - **Doodle strokes:** `doodle-underline.svg`, `doodle-arrow.svg`, `doodle-circle.svg` — hand-drawn marks beneath headings/titles for a playful, handmade feel.
 - **Sparkle / asterisk / music note:** `sparkle.svg`, `asterisk.svg`, `music-note.svg` — small marks that add energy to titles and announcements.
 - **Variant catalog:** alternate decorative exports are stored in `prototype/public/illustrations/variants/accents/` and cataloged in the Visual Elements specimens.
+- **Do not** use accent marks (or their variants) as benefit-card leads; those slots use **line illustrations**. Accents stay on headings, titles, and announcements.
 
 ## Photography (editorial)
 
@@ -132,9 +151,10 @@ When placing images inside blob or rounded masks:
 
 | Pattern | Class / approach |
 |--------|-------------------|
-| Category / filled orange icon control | `.fe-icon-btn--filled-brand`, `.fe-workshop-icon--sm|--md|--lg` (+ SVG with `fill="currentColor"`) |
-| Social / neutral icon control | `.fe-icon-btn` |
-| Decorative page bands | See `fe-page-bg-lavender`, `fe-page-bg-soft-lavender` in `css/base.css` |
+| Category / filled orange icon control | `FeIcon` with `set="category"`, plus `.fe-icon-btn--filled-brand` or `.fe-workshop-icon--sm|--md|--lg` |
+| Social / neutral icon control | `FeIcon` with `set="social"` inside `.fe-icon-btn` |
+| Benefit / get-involved card lead | Line illustration via `.fe-card-benefit__illustration` (not accent marks) |
+| Decorative accent on a heading | `.ds-accent-mark` / assets under `illustrations/accents/` |
 | Composite layout patterns | Prototype `/patterns`; catalog in [`spec/patterns/README.md`](../spec/patterns/README.md) |
 
 Elementor: when adding custom classes to icon widgets, use the same class names the child theme enqueues from `utilities.css` (see [custom-css-setup.md](../elementor/custom-css-setup.md)).
@@ -155,6 +175,6 @@ node scripts/import-desktop-elements.mjs --source="C:/Users/marco/Desktop"
 ```
 
 Maps filenames like `Icon_Knitting_2.svg`, `Facebook.svg`, and `Doodle_Double_Underlines_2_2.svg` into `prototype/public/`. Post-processes `headline-underline.svg` after SVGO so fills survive.
-Variant exports (for example `Doodle_Sparkle_1.svg`, `Doodle_Double_Underlines_1.svg`, `Icon_Pottery_3.svg`) are mapped into `prototype/public/illustrations/variants/` and `prototype/public/icons/variants/`.
+Variant exports (for example `Doodle_Sparkle_1.svg`, `Doodle_Double_Underlines_1.svg`) are mapped into `prototype/public/illustrations/variants/`.
 
 The Figma script maps zip filenames to `prototype/public/` paths, strips Figma canvas backgrounds, recolors brand fills to `currentColor`, and optionally runs SVGO. It does **not** replace assets with no zip counterpart (Balance and Wellness category icon, blob shapes 5–7, wave corner variants, UI icons, favicon, QR code, or vase illustration). Update the mapping table in `scripts/import-figma-elements.mjs` when Figma adds or renames exports.

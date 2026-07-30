@@ -1,8 +1,8 @@
 # Claude Code — ForEveryone Berlin design system
 
-Focused entry for [Claude Code](https://code.claude.com/docs). Full index and rules: **[docs/AGENTS.md](docs/AGENTS.md)**. Do not duplicate long indexes here—read that file for retrieval paths.
+Focused entry for [Claude Code](https://code.claude.com/docs). Full index and rules: **[docs/AGENTS.md](docs/AGENTS.md)**. Do not duplicate long indexes here; read that file for retrieval paths.
 
-**Maintenance:** When stack pins, commands, or git summary change, update **this file**, root [AGENTS.md](AGENTS.md), and [.cursor/AGENTS.md](.cursor/AGENTS.md), plus matching sections in [docs/AGENTS.md](docs/AGENTS.md) as needed.
+**Maintenance:** When stack pins, commands, or git summary change, update this file, root [AGENTS.md](AGENTS.md), and [.cursor/AGENTS.md](.cursor/AGENTS.md), plus matching sections in [docs/AGENTS.md](docs/AGENTS.md) as needed.
 
 ## What this repo is
 
@@ -38,21 +38,13 @@ Common mistakes:
 
 Cursor IDE and CLI auto-load project skills from `.claude/skills/`.
 
-## Prototype quality baseline
-
-An optimization pass (performance, accessibility, SEO, code quality) established these conventions in `prototype/`. Keep them when adding pages or components:
-
-- **Images:** raster images use `next/image` with explicit `width`/`height` (not `fill`, since the wrappers have no fixed height). Inline SVGs stay as `<img>` (no `dangerouslyAllowSVG`).
-- **Accessibility:** `globals.css` provides a global `:focus-visible` ring, a `.ds-skip-link` (its target is `#main-content` on `<main>` in `layout.tsx`), and a `prefers-reduced-motion` block. Icon-only buttons need `aria-label`; nav links set `aria-current="page"`; the dialog is a native `<dialog>` via `Popup`; hidden mobile-nav regions use `inert`.
-- **Metadata:** `layout.tsx` holds a title template, canonical, OG/Twitter, and a Next 15 `export const viewport` (theme-color). `app/manifest.ts` is the web manifest. The site is intentionally `robots: noindex, nofollow` (internal design system); do not make it indexable, and do not add a sitemap.
-- **Verify visually:** run the screenshot command into `OUT_DIR=baseline` before changes and `OUT_DIR=after` post-change, then diff. CLI: `bash scripts/optimize-run.sh`. IDE: `/optimize-prototype` skill (`.claude/skills/optimize-prototype/`).
-
 ## Git and PR rules
 
 - Branch from **`develop`**, not `main`. Prefixes: `feature/`, `fix/`, `docs/`, `chore/`.
 - Conventional Commits; use `.github/PULL_REQUEST_TEMPLATE.md` for PRs.
-- Never add Claude co-author trailers or “Generated with Claude Code” attribution unless the user explicitly asks.
+- Never add Claude co-author trailers or "Generated with Claude Code" attribution unless the user explicitly asks.
 - When the user explicitly asks to ship / merge to develop / open and merge a PR, use `bash scripts/pr-and-merge.sh` (see `docs/pr-and-merge-workflow.md`).
+- Changelog: any `tokens/` or `css/` change → update `## [Unreleased]` in `CHANGELOG.md`.
 
 ## Key docs
 

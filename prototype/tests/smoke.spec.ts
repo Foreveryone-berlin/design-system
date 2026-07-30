@@ -37,6 +37,6 @@ for (const route of routes) {
 
 test("homepage hero image is reachable", async ({ page }) => {
   await page.goto("/");
-  const hero = page.locator('img[src*="community-cafe"]').first();
+  const hero = page.locator('img[src*="community-cafe-home"]').first();
   await expect(hero).toBeVisible();
 });

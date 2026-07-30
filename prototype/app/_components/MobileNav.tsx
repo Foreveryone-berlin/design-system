@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { navGroups, overviewLink } from "./nav-sections";
 import Search from "./Search";
+import FeIcon from "./FeIcon";
 
 const MOBILE_QUERY = "(max-width: 47.99rem)";
 
@@ -114,19 +115,12 @@ export default function MobileNav() {
               >
                 <summary className="ds-mobile-nav__group-title">
                   {group.label}
-                  <svg
+                  <FeIcon
+                    set="ui"
+                    name="chevron-down"
+                    size="md"
                     className="ds-mobile-nav__group-chevron"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
+                  />
                 </summary>
                 <ul
                   className="ds-mobile-nav__group-list"

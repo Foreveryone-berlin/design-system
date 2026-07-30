@@ -39,9 +39,12 @@ export default function OnThisPage() {
     return () => observer.disconnect();
   }, [pathname]);
 
-  function handleClick(id: string) {
+  function handleClick(event: React.MouseEvent<HTMLAnchorElement>, id: string) {
+    event.preventDefault();
     const target = document.getElementById(id);
     if (!target) return;
+    target.scrollIntoView({ block: "start" });
+    history.replaceState(null, "", `#${id}`);
     if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
     target.focus({ preventScroll: true });
   }
@@ -68,7 +71,7 @@ export default function OnThisPage() {
                   activeId === h.id ? " is-active" : ""
                 }`}
                 aria-current={activeId === h.id ? "location" : undefined}
-                onClick={() => handleClick(h.id)}
+                onClick={(event) => handleClick(event, h.id)}
               >
                 {h.text}
               </a>
