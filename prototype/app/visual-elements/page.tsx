@@ -231,6 +231,7 @@ export default function VisualElementsPage() {
             </figure>
           ))}
         </div>
+        <IconGithubBrowseLink path="illustrations" />
         <h3 className="ds-subsection-title">Functional doodles</h3>
         <p className="fe-body">
           These are line-style graphics used as functional motifs in specific
@@ -248,6 +249,7 @@ export default function VisualElementsPage() {
             </figure>
           ))}
         </div>
+        <IconGithubBrowseLink path="illustrations" />
       </section>
 
       <section className="ds-section">
@@ -272,6 +274,7 @@ export default function VisualElementsPage() {
             </figure>
           ))}
         </div>
+        <IconGithubBrowseLink path="illustrations/accents" />
         <h3 className="ds-subsection-title">Decorative variant catalog</h3>
         <p className="fe-body">
           Additional Canva exports are kept as documented variants for editorial
@@ -291,6 +294,7 @@ export default function VisualElementsPage() {
             </figure>
           ))}
         </div>
+        <IconGithubBrowseLink path="illustrations/variants/accents" />
       </section>
 
       <section className="ds-section">
