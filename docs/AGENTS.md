@@ -17,28 +17,28 @@ Portable task contract: [agents/agent-contract.md](agents/agent-contract.md).
 Paths are repo-relative from project root unless noted.
 
 |root:{README.md,CHANGELOG.md,AGENTS.md,CLAUDE.md,llms.txt}
-|docs:{AGENTS.md,audit.md,brand-book-references.md,color-audit-2026.md,contributing.md,cursor-plan-prompt.md,getting-started.md,logo-usage.md,official-references.md,pr-and-merge-workflow.md,prototype-deploy.md,token-naming.md,validation.md,visual-styles.md}
+|docs:{AGENTS.md,brand-book-references.md,color-audit-2026.md,contributing.md,getting-started.md,logo-usage.md,official-references.md,pr-and-merge-workflow.md,prototype-deploy.md,token-naming.md,validation.md,visual-styles.md}
 |docs/agents:{README.md,agent-contract.md,runtime-policy.md,redesign-from-this-system.md}
 |spec:{tokens.json,principles.md}
-|spec/components:{README.md,button.md,tag-pill.md,card.md,input.md,faq.md}
+|spec/components:{README.md,button.md,tag-pill.md,card.md,input.md,faq.md,header.md,footer.md,dropdown.md,popup.md}
 |spec/patterns:{README.md}
 |docs/decisions:{001-token-format.md}
 |docs/skills:{README.md,token-update.md,elementor-mapping.md,release.md}
-|claude:{rules/git.md,rules/general.md,rules/css.md,rules/tokens.md,skills/ship-release/SKILL.md,skills/optimize-prototype/SKILL.md}
+|.claude:{rules/git.md,rules/general.md,rules/css.md,rules/tokens.md,skills/ship-release/SKILL.md,skills/optimize-prototype/SKILL.md}
 |cursor:{AGENTS.md,rules/git.mdc,rules/general.mdc,rules/css.mdc,rules/tokens.mdc}
 |elementor:{global-colors.md,global-fonts.md,custom-css-setup.md}
 |elementor/templates:{README.md}
 |figma:{sync-guide.md,token-export-instructions.md}
 |tokens:{index.json,colors.json,typography.json,spacing.json,radius.json,shadows.json,motion.json}
 |css:{custom-properties.css,base.css,typography.css,utilities.css,elementor-overrides.css}
-|scripts:{build-css.js,build-css.test.js,pr-and-merge.sh}
+|scripts:{build-css.js,build-css.test.js,build-spec.js,pr-and-merge.sh,optimize-run.sh,import-figma-elements.mjs,import-desktop-elements.mjs,svg-normalize.mjs}
 |prototype:{README.md,next.config.ts,package.json,tsconfig.json,playwright.config.ts}
 |prototype/app:{layout.tsx,page.tsx,globals.css,manifest.ts,FaqDemo.tsx}
-|prototype/app/_components:{ActivityIcon.tsx,CategoryIcon.tsx,CodeBlock.tsx,HeaderDemo.tsx,MobileNav.tsx,MotionSpecimens.tsx,Navigation.tsx,ObfuscatedEmail.tsx,OnThisPage.tsx,Popup.tsx,StatCounter.tsx,TestimonialCard.tsx,ViewTransitions.tsx}
+|prototype/app/_components:{FeIcon.tsx,CodeBlock.tsx,HeaderDemo.tsx,MobileNav.tsx,MotionSpecimens.tsx,Navigation.tsx,ObfuscatedEmail.tsx,OnThisPage.tsx,Popup.tsx,Search.tsx,HeadingAnchors.tsx,EventsWorkshopsSwitcher.tsx,NavigationHistory.tsx,IconGithubBrowseLink.tsx,LogoClearSpace.tsx,StatCounter.tsx,TestimonialCard.tsx,ViewTransitions.tsx,ui-glyphs.tsx,page-headings.ts,nav-sections.ts,search-index.ts,slugify.ts}
 |prototype/app:{components,patterns,foundations,guidelines,governance,accessibility,credits,brand,logo,visual-elements,print}/page.tsx
 |prototype/content:{site-copy.ts}
 |prototype/tests:{a11y.spec.ts,smoke.spec.ts}
-|prototype/scripts:{screenshot.mjs,build-og-card.mjs}
+|prototype/scripts:{screenshot.mjs,screenshot-patterns-tones.mjs,build-og-card.mjs}
 |prototype/public/images:{ASSETS.md}
 
 ---
@@ -72,7 +72,7 @@ Paths are repo-relative from project root unless noted.
 
 **Elementor:** Breakpoints — mobile under 767px, tablet 768–1024px, desktop over 1025px. Prefer logical properties; mobile-first min-width. `!important` only to beat Elementor inline styles; comment why. Globals live in DB; align with tokens per `elementor/global-colors.md` and `elementor/global-fonts.md`.
 
-**Changelog:** Any change under `tokens/` or `css/` requires a `CHANGELOG.md` update under the current in-flight version section (e.g. `## [0.10.0] - Unreleased`) (per project rules).
+**Changelog:** Any change under `tokens/` or `css/` requires a `CHANGELOG.md` update under the current in-flight version section (e.g. `## [Unreleased]`).
 
 **Git:** Branch from `develop` (not `main`). Conventional Commits. PRs use `.github/PULL_REQUEST_TEMPLATE.md`. Solo merge to develop: `bash scripts/pr-and-merge.sh` from repo root. Detail: `docs/pr-and-merge-workflow.md`.
 

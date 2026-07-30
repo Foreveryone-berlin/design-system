@@ -2,6 +2,9 @@ import { test, expect } from "@playwright/test";
 
 test("Link copied pill fully contains its label", async ({ page }) => {
   await page.goto("/", { waitUntil: "domcontentloaded" });
+  await page.waitForFunction(
+    () => Boolean(document.querySelector("#mission-heading .ds-heading-anchor")),
+  );
 
   const anchor = page.locator("#mission-heading .ds-heading-anchor");
   await expect(anchor).toBeVisible();
@@ -50,6 +53,9 @@ test.describe("clipboard interaction", () => {
 
     await context.grantPermissions(["clipboard-read", "clipboard-write"]);
     await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.waitForFunction(
+      () => Boolean(document.querySelector("#mission-heading .ds-heading-anchor")),
+    );
 
     const anchor = page.locator("#mission-heading .ds-heading-anchor");
     await expect(anchor).toBeVisible();

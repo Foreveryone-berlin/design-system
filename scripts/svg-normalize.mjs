@@ -119,10 +119,17 @@ export function normalizeSvg(raw, kind) {
   svg = svg.replace(/fill="#fff"/gi, 'fill="none"');
 
   if (stripDefs) {
+    // Illustrator nests clip rects in <defs> and references them from <clipPath>
+    // + style="clip-path:…". Strip defs first, then remove orphan clip scaffolding
+    // so CSS mask-image glyphs stay visible.
     svg = svg.replace(/<defs>[\s\S]*?<\/defs>/gi, "");
+    svg = svg.replace(/<clipPath[\s\S]*?<\/clipPath>/gi, "");
+    svg = svg.replace(/\sstyle="[^"]*clip-path:[^"]*"/gi, "");
     svg = svg.replace(/<g clip-path="url\([^)]+\)">/gi, "<g>");
     svg = svg.replace(/clip-path="url\([^)]+\)"/gi, "");
     svg = svg.replace(/clip-rule="nonzero"/gi, "");
+    svg = svg.replace(/\sxlink:href="[^"]*"/gi, "");
+    svg = svg.replace(/<g>\s*<\/g>/gi, "");
   }
 
   const waveAttrs = kind === "wave" ? ' preserveAspectRatio="none"' : "";
