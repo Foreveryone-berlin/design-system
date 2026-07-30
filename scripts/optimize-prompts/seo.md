@@ -4,7 +4,7 @@ Audit and fix SEO metadata in `prototype/`. Read repo `AGENTS.md`, `CLAUDE.md`, 
 
 ## Hard rules
 
-- Never use em-dash (U+2014). No Claude attribution trailers.
+- Never use em-dash (U+2014). No agent attribution trailers (Cursor, Claude, `@cursoragent`, Made/Generated with Cursor).
 - Prototype stays **`robots: noindex, nofollow`**; do not add a sitemap.
 - Dev server is on **:3100**; do not start another.
 - Edit **only your files**; report issues in other files without fixing them.
