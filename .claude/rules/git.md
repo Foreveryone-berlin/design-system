@@ -7,5 +7,6 @@
 - Never commit directly to `main` or `develop`
 - PR descriptions must use the PR template
 - Tag releases on `main` with semver: v1.0.0
+- Never add agent attribution (`Co-authored-by: Cursor`, `@cursoragent`, Made/Generated with Cursor, Claude trailers). Hard fail; strip before commit/PR is done.
 
 **Merge current branch into develop (solo dev):** When the user asks to merge this/current branch into develop, open a PR and merge it, or "ship to develop", or "create PR and close/merge it", run from repo root: `bash scripts/pr-and-merge.sh`. That script pushes, creates a PR (using the PR template), and merges it. Do not open the browser; the script does everything via `gh`.

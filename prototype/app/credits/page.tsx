@@ -59,14 +59,6 @@ const stack: { name: string; role: ReactNode }[] = [
     ),
   },
   { name: "Playwright + axe-core", role: "End-to-end and accessibility testing" },
-  {
-    name: "Cursor",
-    role: "IDE and CLI agent-assisted development of tokens, CSS, and the prototype",
-  },
-  {
-    name: "Claude Code",
-    role: "Agent-assisted development of tokens, CSS, and the prototype",
-  },
 ];
 
 const tools = [

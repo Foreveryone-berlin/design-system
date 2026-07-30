@@ -74,7 +74,7 @@ Paths are repo-relative from project root unless noted.
 
 **Changelog:** Any change under `tokens/` or `css/` requires a `CHANGELOG.md` update under the current in-flight version section (e.g. `## [Unreleased]`).
 
-**Git:** Branch from `develop` (not `main`). Conventional Commits. PRs use `.github/PULL_REQUEST_TEMPLATE.md`. Solo merge to develop: `bash scripts/pr-and-merge.sh` from repo root. Detail: `docs/pr-and-merge-workflow.md`.
+**Git:** Branch from `develop` (not `main`). Conventional Commits. PRs use `.github/PULL_REQUEST_TEMPLATE.md`. Never add agent attribution (`Co-authored-by: Cursor`, `@cursoragent`, Made/Generated with Cursor). Solo merge to develop: `bash scripts/pr-and-merge.sh` from repo root. Detail: `docs/pr-and-merge-workflow.md`.
 
 **Workflows:** Token changes → `docs/skills/token-update.md`. Elementor sync → `docs/skills/elementor-mapping.md`. Release → `docs/skills/release.md` (automated end-to-end via the `ship-release` skill, `.claude/skills/ship-release/`; Cursor and Claude auto-load; deploy is Vercel on push to `main`, `release.yml` only creates the GitHub Release). Prototype audit → `optimize-prototype` skill (`.claude/skills/optimize-prototype/`).
 

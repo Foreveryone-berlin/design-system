@@ -21,6 +21,7 @@ Portable rules for AI agents (Cursor agent, Claude Code, and similar). Cursor pa
 - Branch from **`develop`**, not `main`. Names: `feature/*`, `fix/*`, `docs/*`, `chore/*`.
 - Conventional Commits; use `.github/PULL_REQUEST_TEMPLATE.md` for PRs.
 - When the user explicitly asks to ship to develop / merge / open and merge a PR, run `bash scripts/pr-and-merge.sh` from repo root (solo workflow). See [`docs/pr-and-merge-workflow.md`](../pr-and-merge-workflow.md).
+- **No agent attribution:** never add `Co-authored-by: Cursor`, `@cursoragent`, Made/Generated with Cursor, Claude trailers, or any copy that puts an agent in GitHub Contributors. Strip injected PR footers before the PR is done.
 
 ## Verification
 
