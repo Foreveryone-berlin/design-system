@@ -3,8 +3,6 @@ import dynamic from "next/dynamic";
 import HeaderDemo from "../_components/HeaderDemo";
 import FeIcon, {
   CATEGORY_LABELS,
-  type ActivityIconName,
-  type CategoryIconName,
   type SocialIconName,
 } from "../_components/FeIcon";
 import { hero as heroCopy } from "@/content/site-copy";
@@ -23,42 +21,41 @@ const liveStats = [
   { value: "100+", label: "Volunteers" },
 ];
 
+/** Line illustrations (atmospheric + functional doodles), not decorative accents. */
 const benefits: {
   title: string;
   body: string;
-  icon:
-    | { set: "category"; name: CategoryIconName }
-    | { set: "activity"; name: ActivityIconName };
+  illoSrc: string;
 }[] = [
   {
     title: "Meet People Offline",
     body: "A safe space to make genuine, real-life connections.",
-    icon: { set: "category", name: "movement" },
+    illoSrc: "/illustrations/smiley.svg",
   },
   {
     title: "Learn Something New",
     body: "Try pottery, yoga, chess, and more in a welcoming group.",
-    icon: { set: "activity", name: "pottery" },
+    illoSrc: "/illustrations/flower.svg",
   },
   {
     title: "Boost Mental Wellbeing",
     body: "Creative connection that helps you recharge and belong.",
-    icon: { set: "category", name: "balance-wellness" },
+    illoSrc: "/illustrations/sprout.svg",
   },
   {
     title: "No Expectations",
     body: "Drop in when it suits you. No membership, no pressure.",
-    icon: { set: "category", name: "expression" },
+    illoSrc: "/illustrations/cloud.svg",
   },
   {
     title: "Beginner-Friendly",
     body: "Every workshop welcomes first-timers. Come as you are.",
-    icon: { set: "activity", name: "knitting" },
+    illoSrc: "/illustrations/coffee-cup.svg",
   },
   {
     title: "Fair Pricing",
     body: "Most sessions from €8, with free spots where we can.",
-    icon: { set: "category", name: "music" },
+    illoSrc: "/illustrations/donation-box.svg",
   },
 ];
 
@@ -223,19 +220,20 @@ export default function PatternsPage() {
       <section id="benefit-grid" className="ds-section">
         <h2 className="ds-section-title">Benefit grid (6-point value proposition)</h2>
         <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
-          Two-by-three card grid with a category or activity icon lead and short
-          copy from the live-site value proposition.
+          Two-by-three card grid with line-illustration leads (not decorative
+          accent marks) and short copy from the live-site value proposition.
         </p>
         <div className="ds-benefit-grid">
           {benefits.map((item) => (
             <div className="fe-card-benefit" key={item.title}>
-              <span className="fe-card-benefit__icon" aria-hidden="true">
-                {item.icon.set === "category" ? (
-                  <FeIcon set="category" name={item.icon.name} size="sm" chip />
-                ) : (
-                  <FeIcon set="activity" name={item.icon.name} size="sm" chip />
-                )}
-              </span>
+              <span
+                className="fe-card-benefit__illustration"
+                style={{
+                  maskImage: `url(${item.illoSrc})`,
+                  WebkitMaskImage: `url(${item.illoSrc})`,
+                }}
+                aria-hidden="true"
+              />
               <div className="fe-card-benefit__content">
                 <h3 className="fe-h3" style={{ margin: "0 0 var(--spacing-2)" }}>
                   {item.title}

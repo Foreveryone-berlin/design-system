@@ -100,7 +100,7 @@ Prototype IA split:
 - **Shipped atmospheric set** in `prototype/public/illustrations/`: `flower.svg`, `smiley.svg`, `cloud.svg`, `sprout.svg`, plus contextual scene marks (`group.svg`, `knitting-line.svg`, `pottery-line.svg`, `movement-line.svg`, `chess.svg`). Import via `scripts/import-figma-elements.mjs` or `scripts/import-desktop-elements.mjs`. `coffee-cup.svg` and `donation-box.svg` ship in the same folder but are functional/UI doodles, not atmospheric line illustrations. `vase.svg` and `qr-foreveryone.svg` remain in-repo redraws. Figma remains the source of truth for any new or updated artwork.
 - **Variant catalog:** additional Canva exports live in `prototype/public/illustrations/variants/line/` and are shown on the Visual Elements page as optional alternatives.
 - **Headline underline:** `headline-underline.svg` (from `Doodle_Double_Underlines_2_2`) sits under a heading via `.ds-headline-underline` on the home hero and pattern specimens. The import script repairs SVGO-stripped fills on this asset automatically.
-- **Usage:** Supporting hero sections, empty states, editorial blocks — avoid competing with primary CTAs; pair with blob shapes rather than stacking on busy imagery.
+- **Usage:** Supporting hero sections, empty states, editorial blocks, and **benefit / get-involved card leads** (`.fe-card-benefit__illustration`) — avoid competing with primary CTAs; pair with blob shapes rather than stacking on busy imagery. Do **not** substitute decorative accent marks here.
 
 ### Filled icons (functional)
 
@@ -136,6 +136,7 @@ Brand Book v1.0 p.26 — used sparingly, orange prioritised, never the focal poi
 - **Doodle strokes:** `doodle-underline.svg`, `doodle-arrow.svg`, `doodle-circle.svg` — hand-drawn marks beneath headings/titles for a playful, handmade feel.
 - **Sparkle / asterisk / music note:** `sparkle.svg`, `asterisk.svg`, `music-note.svg` — small marks that add energy to titles and announcements.
 - **Variant catalog:** alternate decorative exports are stored in `prototype/public/illustrations/variants/accents/` and cataloged in the Visual Elements specimens.
+- **Do not** use accent marks (or their variants) as benefit-card leads; those slots use **line illustrations**. Accents stay on headings, titles, and announcements.
 
 ## Photography (editorial)
 
@@ -152,7 +153,8 @@ When placing images inside blob or rounded masks:
 |--------|-------------------|
 | Category / filled orange icon control | `FeIcon` with `set="category"`, plus `.fe-icon-btn--filled-brand` or `.fe-workshop-icon--sm|--md|--lg` |
 | Social / neutral icon control | `FeIcon` with `set="social"` inside `.fe-icon-btn` |
-| Decorative page bands | See `fe-page-bg-lavender`, `fe-page-bg-soft-lavender` in `css/base.css` |
+| Benefit / get-involved card lead | Line illustration via `.fe-card-benefit__illustration` (not accent marks) |
+| Decorative accent on a heading | `.ds-accent-mark` / assets under `illustrations/accents/` |
 | Composite layout patterns | Prototype `/patterns`; catalog in [`spec/patterns/README.md`](../spec/patterns/README.md) |
 
 Elementor: when adding custom classes to icon widgets, use the same class names the child theme enqueues from `utilities.css` (see [custom-css-setup.md](../elementor/custom-css-setup.md)).

@@ -2030,16 +2030,16 @@ a.ds-btn {
   mask-size: 100% 100%;
 }
 .ds-accent-mark {
-  width: 3rem;
-  height: 3rem;
+  width: 4.5rem;
+  height: 4.5rem;
 }
 .ds-accent-mark--wide {
-  width: 6rem;
+  width: 9rem;
 }
-/* Underline specimens: 2× .ds-accent-mark--wide (6rem → 12rem); must follow base sizes. */
+/* Underline specimens: 2× .ds-accent-mark--wide (9rem → 18rem); must follow base sizes. */
 .ds-accent-mark--underline {
-  width: 12rem;
-  height: 1.25rem;
+  width: 18rem;
+  height: 1.75rem;
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
 }
@@ -2849,7 +2849,7 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
   align-items: flex-start;
 }
 
-.ds-benefit-grid .fe-card-benefit__icon {
+.ds-benefit-grid .fe-card-benefit__illustration {
   flex-shrink: 0;
 }
 
