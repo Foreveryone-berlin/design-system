@@ -465,8 +465,16 @@
 }
 .fe-card-benefit__illustration {
   flex-shrink: 0;
-  width: 6rem;
-  height: 6rem;
+  display: block;
+  width: 2.75rem;
+  height: 2.75rem;
+  background-color: var(--color-brand-primary);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }
 
 /* Card Get Involved */
