@@ -764,33 +764,34 @@ summary:focus-visible,
   letter-spacing: var(--letter-spacing-tight);
   color: var(--color-theme-2);
   margin: 0 0 var(--spacing-10);
-  font-size: clamp(1.5rem, 3vw + 1rem, 2.75rem);
+  /* Scales down on narrow viewports; caps at ~2.75rem on desktop. */
+  font-size: clamp(1.25rem, 0.85rem + 3vw, 2.75rem);
 }
 
-/* Headline + sketched underline as one unit (underline spans headline text width). */
+/* Headline + sketched underline as one unit.
+   Wrapper shrink-wraps to the headline text; underline stretches to that width. */
 .ds-headline-with-underline {
+  display: block;
+  width: fit-content;
   max-width: 100%;
   margin-bottom: var(--spacing-4);
-  container-type: inline-size;
 }
 
 .ds-headline-with-underline .ds-hero-title,
 .ds-headline-with-underline .fe-h3 {
-  display: inline-block;
+  display: block;
+  width: fit-content;
   max-width: 100%;
   margin-bottom: 0;
-  vertical-align: top;
 }
 
-.ds-headline-with-underline .ds-hero-title {
-  font-size: clamp(1.5rem, 10cqi, 2.75rem);
-}
-
-/* Sketched brand underline tucked under a headline (see SheLeads). */
+/* Sketched brand underline tucked under a headline (see SheLeads).
+   Stretches to the headline text width; height follows the SVG aspect (500×54). */
 .ds-headline-underline {
   display: block;
   width: 100%;
-  height: 1.35rem;
+  aspect-ratio: 500 / 54;
+  height: auto;
   margin: var(--spacing-2) 0 0;
   background-color: var(--color-brand-primary);
   -webkit-mask-image: url(/illustrations/headline-underline.svg);
@@ -799,8 +800,8 @@ summary:focus-visible,
   mask-repeat: no-repeat;
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
-  -webkit-mask-position: left bottom;
-  mask-position: left bottom;
+  -webkit-mask-position: left center;
+  mask-position: left center;
 }
 
 .ds-hero-with-image .ds-headline-with-underline {

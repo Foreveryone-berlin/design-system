@@ -8,7 +8,7 @@
 
 ## [Unreleased]
 
-- **Change**: Refresh the homepage and pattern hero with the updated Community Cafe blob image and a neutral headline for broader reuse.
+- **Change**: Refresh the homepage and pattern hero with the updated Community Cafe blob image, a fluid clamp-sized headline that scales down on small screens, and a sketched underline stretched to the headline text width.
 - **Change**: Reorganize the prototype icon catalog on the Visual Elements page, separating UI/action icons and component-specific icons from illustrations and decorative assets, and trim duplicate icon grids from Components.
 - **Add**: Ship three live-site patterns on the Patterns page (stats strip, benefit grid with line-illustration leads, and events switcher) and import and catalog the latest Canva icon and doodle variants as documented alternatives while keeping canonical defaults for production.
 - **Fix**: Unify every prototype icon behind a single type-safe `FeIcon` component, and repair SVG masks for category icons, workshop icons, line illustrations, and decorative accents so Illustrator clip leftovers no longer hide glyphs.

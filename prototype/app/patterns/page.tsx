@@ -256,7 +256,6 @@ export default function PatternsPage() {
                 {headlineFirst}
                 <br />
                 {headlineRest.join(" ")}
-                <span className="ds-headline-underline" aria-hidden="true" />
               </h2>
             </div>
             <p className="ds-intro">{heroCopy.tagline}</p>
