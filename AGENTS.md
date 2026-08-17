@@ -42,6 +42,7 @@ Common mistakes:
 
 - Branch from **`develop`**, never `main`. Names: `feature/*`, `fix/*`, `docs/*`, `chore/*`.
 - Conventional Commits. PRs use `.github/PULL_REQUEST_TEMPLATE.md`.
+- Never add agent attribution (`Co-authored-by: Cursor`, `@cursoragent`, Made/Generated with Cursor).
 - Solo merge to develop: `bash scripts/pr-and-merge.sh` (see [docs/pr-and-merge-workflow.md](docs/pr-and-merge-workflow.md)).
 - Changelog: any `tokens/` or `css/` change → update `## [Unreleased]` in `CHANGELOG.md`.
 
@@ -87,7 +88,7 @@ Paths are repo-relative from project root.
 |scripts:{build-css.js,build-css.test.js,build-spec.js,pr-and-merge.sh,optimize-run.sh,import-figma-elements.mjs,import-desktop-elements.mjs,svg-normalize.mjs}
 |prototype:{README.md,next.config.ts,package.json,tsconfig.json,playwright.config.ts}
 |prototype/app:{layout.tsx,page.tsx,globals.css,manifest.ts,FaqDemo.tsx}
-|prototype/app/_components:{FeIcon.tsx,CodeBlock.tsx,HeaderDemo.tsx,MobileNav.tsx,MotionSpecimens.tsx,Navigation.tsx,ObfuscatedEmail.tsx,OnThisPage.tsx,Popup.tsx,Search.tsx,HeadingAnchors.tsx,EventsWorkshopsSwitcher.tsx,NavigationHistory.tsx,IconGithubBrowseLink.tsx,LogoClearSpace.tsx,StatCounter.tsx,TestimonialCard.tsx,ViewTransitions.tsx,ui-glyphs.tsx,page-headings.ts,nav-sections.ts,search-index.ts,slugify.ts}
+|prototype/app/_components:{FeIcon.tsx,CodeBlock.tsx,HeaderDemo.tsx,MobileNav.tsx,MotionSpecimens.tsx,Navigation.tsx,ObfuscatedEmail.tsx,OnThisPage.tsx,Popup.tsx,Search.tsx,HeadingAnchors.tsx,EventsWorkshopsSwitcher.tsx,NavigationHistory.tsx,AssetTile.tsx,LogoClearSpace.tsx,StatCounter.tsx,TestimonialCard.tsx,ViewTransitions.tsx,ui-glyphs.ts,ui-glyph-markup.ts,page-headings.ts,nav-sections.ts,search-index.ts,slugify.ts}
 |prototype/app:{components,patterns,foundations,guidelines,governance,accessibility,credits,brand,logo,visual-elements,print}/page.tsx
 |prototype/content:{site-copy.ts}
 |prototype/tests:{a11y.spec.ts,smoke.spec.ts}

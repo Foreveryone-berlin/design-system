@@ -8,7 +8,16 @@
 
 ## [Unreleased]
 
-Start notes for the next release here.
+## [1.2.0] - 2026-08-17
+
+Downloadable artwork, course-page layouts, and a new share card.
+
+- **Remove**: Drop Cursor and Claude Code from the Credits “Built with” list so the public site does not attribute agents as product contributors.
+- **Change**: Show three course-page layouts from the live workshop pages on Patterns (a facts card, a week-by-week step sequence, and a split list band) and drop the six-point benefit grid; the benefit card stays available for the live site.
+- **Change**: Give the repository a new share card, so GitHub and link previews show the ForEveryone headline on the lime doodle artwork.
+- **Fix**: Make every icon, illustration, accent, blob, and wave in Visual Elements save with a single click, in its brand colour instead of black, and drop the GitHub links that used to hand people a web page instead of a working file.
+- **Fix**: Stack the workshop facts card and the impact numbers into fewer columns as soon as the space around them is narrow, so values stop being cut off.
+- **Change**: Refresh the prototype's underlying libraries and clear every known security advisory.
 
 ## [1.1.0] - 2026-07-30
 
@@ -25,7 +34,7 @@ Prototype artwork, icon reliability, and pattern polish for the public design sy
 
 Credits page refresh, accessibility enforcement, and button spec alignment.
 
-- **Change**: Refresh the Credits page so design-system contributors are listed by name and role, and credit Cursor alongside Claude Code under the tools this system was built with.
+- **Change**: Refresh the Credits page so design-system contributors are listed by name and role.
 - **Fix**: Match button documentation states to the current primary and secondary button behavior in the prototype.
 - **Fix**: Respect reduced-motion preferences for accordion and mobile menu animation in shared component styles.
 - **Fix**: Keep the "Link copied" label fully inside its highlighted background beside section headings.
@@ -84,7 +93,7 @@ Prototype accessibility polish from the terminal optimize pass.
 
 ## [0.24.1] - 2026-07-06
 
-Run prototype optimize passes from the Cursor terminal.
+Run prototype optimize passes from the terminal.
 
 - **Behind the scenes**: Add a terminal workflow so audits can run step by step from the command line.
 - **Behind the scenes**: Add an optimize skill that works in both the terminal and the IDE.
@@ -92,10 +101,10 @@ Run prototype optimize passes from the Cursor terminal.
 
 ## [0.24.0] - 2026-07-06
 
-Agent parity: Cursor IDE, Cursor CLI, and Claude Code share the same instructions.
+Agent parity: IDE, CLI, and Claude Code share the same instructions.
 
-- **Behind the scenes**: Align Cursor and Claude agent instructions so both tools get the same commands, quality rules, and release workflows.
-- **Behind the scenes**: Document that Cursor picks up project skills from the same folder as Claude Code.
+- **Behind the scenes**: Align IDE/CLI and Claude agent instructions so both tools get the same commands, quality rules, and release workflows.
+- **Behind the scenes**: Document that the IDE picks up project skills from the same folder as Claude Code.
 - **Docs**: Add a cross-tool maintenance checklist so agent files stay in sync.
 
 ## [0.23.0] - 2026-06-19

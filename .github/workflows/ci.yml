@@ -15,13 +15,16 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: .nvmrc
 
       - name: Build tokens to CSS
         run: node scripts/build-css.js
 
       - name: Validate tokens + generated CSS
         run: node scripts/build-css.test.js
+
+      - name: Validate SVG assets
+        run: node scripts/svg-validate.test.js
 
       - name: Detect token drift
         run: |
@@ -42,7 +45,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: .nvmrc
           cache: npm
           cache-dependency-path: prototype/package-lock.json
 
@@ -61,7 +64,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: .nvmrc
           cache: npm
           cache-dependency-path: prototype/package-lock.json
 

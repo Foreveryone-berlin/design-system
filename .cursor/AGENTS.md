@@ -61,6 +61,7 @@ Cursor IDE auto-loads project skills from `.claude/skills/`.
 - Branch from **`develop`**, not `main`. Prefixes: `feature/`, `fix/`, `docs/`, `chore/`.
 - Conventional Commits; use `.github/PULL_REQUEST_TEMPLATE.md` for PRs.
 - When the user explicitly asks to ship / merge to develop / open and merge a PR, use `bash scripts/pr-and-merge.sh` (see `docs/pr-and-merge-workflow.md`).
+- Never add agent attribution (`Co-authored-by: Cursor`, `@cursoragent`, Made/Generated with Cursor). Hard fail.
 - Changelog: any `tokens/` or `css/` change → update `## [Unreleased]` in `CHANGELOG.md`.
 
 ## Key docs
