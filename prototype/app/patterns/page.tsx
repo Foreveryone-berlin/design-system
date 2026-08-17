@@ -21,42 +21,67 @@ const liveStats = [
   { value: "100+", label: "Volunteers" },
 ];
 
-/** Line illustrations (atmospheric + functional doodles), not decorative accents. */
-const benefits: {
-  title: string;
-  body: string;
-  illoSrc: string;
-}[] = [
+// Specimen copy is deliberately placeholder: these blocks document layout and
+// semantics, not live workshop content. Labels stay real because they define
+// the pattern; values do not.
+const workshopFacts: { label: string; value: string; illoSrc: string }[] = [
   {
-    title: "Meet People Offline",
-    body: "A safe space to make genuine, real-life connections.",
-    illoSrc: "/illustrations/smiley.svg",
-  },
-  {
-    title: "Learn Something New",
-    body: "Try pottery, yoga, chess, and more in a welcoming group.",
-    illoSrc: "/illustrations/flower.svg",
-  },
-  {
-    title: "Boost Mental Wellbeing",
-    body: "Creative connection that helps you recharge and belong.",
-    illoSrc: "/illustrations/sprout.svg",
-  },
-  {
-    title: "No Expectations",
-    body: "Drop in when it suits you. No membership, no pressure.",
+    label: "Location",
+    value: "Placeholder venue, Berlin",
     illoSrc: "/illustrations/cloud.svg",
   },
   {
-    title: "Beginner-Friendly",
-    body: "Every workshop welcomes first-timers. Come as you are.",
+    label: "Dates",
+    value: "Placeholder date range",
+    illoSrc: "/illustrations/flower.svg",
+  },
+  {
+    label: "Duration",
+    value: "Placeholder duration",
+    illoSrc: "/illustrations/sprout.svg",
+  },
+  {
+    label: "Group size",
+    value: "Placeholder group size",
+    illoSrc: "/illustrations/smiley.svg",
+  },
+  {
+    label: "Language",
+    value: "Placeholder language",
     illoSrc: "/illustrations/coffee-cup.svg",
   },
   {
-    title: "Fair Pricing",
-    body: "Most sessions from €8, with free spots where we can.",
+    label: "Price",
+    value: "From €00 per session",
     illoSrc: "/illustrations/donation-box.svg",
   },
+];
+
+const courseSteps = [
+  {
+    title: "Step One",
+    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel sapien a nulla fermentum tincidunt.",
+  },
+  {
+    title: "Step Two",
+    body: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.",
+  },
+  {
+    title: "Step Three",
+    body: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.",
+  },
+  {
+    title: "Step Four",
+    body: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.",
+  },
+];
+
+const listItems = [
+  "List item one",
+  "List item two",
+  "List item three",
+  "List item four",
+  "List item five",
 ];
 
 function SocialIconButton({ name, label }: { name: SocialIconName; label: string }) {
@@ -217,36 +242,6 @@ export default function PatternsPage() {
         </div>
       </section>
 
-      <section id="benefit-grid" className="ds-section">
-        <h2 className="ds-section-title">Benefit grid (6-point value proposition)</h2>
-        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
-          Two-by-three card grid with line-illustration leads (not decorative
-          accent marks) and short copy from the live-site value proposition.
-        </p>
-        <div className="ds-benefit-grid">
-          {benefits.map((item) => (
-            <div className="fe-card-benefit" key={item.title}>
-              <span
-                className="fe-card-benefit__illustration"
-                style={{
-                  maskImage: `url(${item.illoSrc})`,
-                  WebkitMaskImage: `url(${item.illoSrc})`,
-                }}
-                aria-hidden="true"
-              />
-              <div className="fe-card-benefit__content">
-                <h3 className="fe-h3" style={{ margin: "0 0 var(--spacing-2)" }}>
-                  {item.title}
-                </h3>
-                <p className="fe-body" style={{ margin: 0 }}>
-                  {item.body}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section id="hero-pattern" className="ds-section">
         <h2 className="ds-section-title">Hero with blob photo</h2>
         <div className="ds-pattern-hero-specimen">
@@ -282,6 +277,98 @@ export default function PatternsPage() {
           card grid.
         </p>
         <EventsWorkshopsSwitcher />
+      </section>
+
+      <section id="facts-card" className="ds-section">
+        <h2 className="ds-section-title">Workshop facts card</h2>
+        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
+          The &ldquo;Course Details&rdquo; block from a workshop landing page:
+          six label-and-value tiles led by a line illustration, closed by a
+          booking action. Marked up as a description list, so each value is
+          programmatically tied to its label. Values shown are placeholders.
+        </p>
+        <div className="fe-facts-card">
+          <dl className="fe-facts-card__grid">
+            {workshopFacts.map((fact) => (
+              <div
+                className="fe-facts-card__item"
+                key={fact.label}
+                style={
+                  {
+                    "--fe-facts-illo": `url(${fact.illoSrc})`,
+                  } as React.CSSProperties
+                }
+              >
+                <dt className="fe-facts-card__label">{fact.label}</dt>
+                <dd className="fe-facts-card__value">{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="fe-facts-card__cta">
+            <button type="button" className="fe-btn-primary">
+              Book your spot
+            </button>
+          </p>
+        </div>
+      </section>
+
+      <section id="step-progression" className="ds-section">
+        <h2 className="ds-section-title">Step progression (week by week)</h2>
+        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
+          Numbered sequence for multi-week courses. Steps alternate sides on
+          desktop with a doodle-arrow connector between them; below 1024px they
+          stack in one column and the connectors are dropped.
+        </p>
+        <ol className="fe-steps">
+          {courseSteps.map((step, i) => (
+            <li className="fe-step-item" key={step.title}>
+              <div className="fe-step">
+                <h3 className="fe-step__title fe-h3">
+                  <span className="fe-step__number" aria-hidden="true">
+                    {i + 1}
+                  </span>
+                  Week {i + 1}. {step.title}
+                </h3>
+                <p className="fe-step__body">{step.body}</p>
+              </div>
+              {i < courseSteps.length - 1 ? (
+                <span
+                  className="fe-step__connector"
+                  style={{
+                    maskImage: "url(/illustrations/accents/doodle-arrow.svg)",
+                    WebkitMaskImage:
+                      "url(/illustrations/accents/doodle-arrow.svg)",
+                  }}
+                  aria-hidden="true"
+                />
+              ) : null}
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section id="split-list-band" className="ds-section">
+        <h2 className="ds-section-title">Split list band</h2>
+        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
+          Heading on the left, checked list on the right, on the decorative soft
+          background. Used for &ldquo;Who is this for&rdquo;, &ldquo;What you
+          will learn&rdquo;, and &ldquo;Everything you need is included&rdquo;.
+          Pass two columns when the items are short labels.
+        </p>
+        <div className="fe-split-list">
+          <h3 className="fe-split-list__heading fe-h3">Section Heading</h3>
+          <div>
+            <p className="fe-split-list__lead">Placeholder lead line.</p>
+            <ul className="fe-split-list__items">
+              {listItems.map((item) => (
+                <li className="fe-split-list__item" key={item}>
+                  <FeIcon set="ui" name="check" size="sm" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </section>
     </>
   );
