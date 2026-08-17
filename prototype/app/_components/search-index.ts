@@ -74,9 +74,11 @@ const pages: PageDef[] = [
       "Footer",
       "Stats strip with animated counters",
       "Category filter bar",
-      "Benefit grid (6-point value proposition)",
       "Hero with blob photo",
       "Events and workshops switcher block",
+      "Workshop facts card",
+      "Step progression (week by week)",
+      "Split list band",
     ],
   },
   {

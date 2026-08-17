@@ -13,8 +13,9 @@ import FeIcon, {
   type SocialIconName,
   type UiGlyphName,
 } from "../_components/FeIcon";
-import IconGithubBrowseLink from "../_components/IconGithubBrowseLink";
+import AssetTile, { AssetDownloadMarker } from "../_components/AssetTile";
 import { FILE_GLYPHS, SOCIAL_ICONS, UI_GLYPHS } from "../_components/ui-glyphs";
+import { UI_GLYPH_DIR } from "../_components/ui-glyph-markup";
 
 export const metadata = {
   title: "Visual Elements",
@@ -74,6 +75,59 @@ const accentVariants = [
   { src: "/illustrations/variants/accents/headline-underline-variant-1.svg", label: "Headline underline variant 1" },
 ];
 
+const WAVES = [
+  { file: "wave-h1", label: "Wave crest 1" },
+  { file: "wave-h2", label: "Wave crest 2" },
+  { file: "wave-h3", label: "Wave crest 3" },
+];
+
+const WAVE_CORNERS = [
+  { file: "wave-corner-tr", label: "Corner wave, top right" },
+  { file: "wave-corner-br", label: "Corner wave, bottom right" },
+];
+
+/**
+ * Accent marks are catalogued in a table for the same reason the UI glyphs are:
+ * a wrapped grid of near-identical orange strokes is hard to scan, and the
+ * doodle and variant sets are read as inventories, not as specimens.
+ */
+function AccentTable({
+  rows,
+}: {
+  rows: { src: string; label: string; wide?: boolean; underline?: boolean }[];
+}) {
+  return (
+    <div className="ds-table-wrap">
+      <table className="ds-table ds-glyph-table ds-glyph-table--marks">
+        <thead>
+          <tr>
+            <th scope="col">Mark</th>
+            <th scope="col">Name</th>
+            <th scope="col">File</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((a) => (
+            <tr key={a.label}>
+              <td className="ds-glyph-table__mark">
+                <span
+                  className="ds-glyph-table__accent"
+                  style={{ maskImage: `url(${a.src})`, WebkitMaskImage: `url(${a.src})` }}
+                  aria-hidden="true"
+                />
+              </td>
+              <th scope="row">{a.label}</th>
+              <td>
+                <AssetDownloadMarker src={a.src} label={a.label} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function labelToFileName(label: string): FileIconName {
   return FILE_NAMES.find((n) => FILE_LABELS[n] === label) ?? "arrow-right";
 }
@@ -100,6 +154,10 @@ export default function VisualElementsPage() {
         no shadows, gradients, or outlines. Rules from the Brand Book v1.0
         (p.24&ndash;27).
       </p>
+      <p className="fe-callout">
+        <strong>Need a file?</strong> Click any icon, illustration, or shape on
+        this page to save it, ready to use and already in its brand colour.
+      </p>
 
       <section className="ds-section">
         <h2 className="ds-section-title">Category icons</h2>
@@ -111,15 +169,18 @@ export default function VisualElementsPage() {
         </p>
         <div className="ds-icon-specimens">
           {CATEGORY_NAMES.map((name) => (
-            <figure key={name} className="ds-icon-specimen">
+            <AssetTile
+              key={name}
+              className="ds-icon-specimen"
+              src={`/icons/categories/${name}.svg`}
+              label={CATEGORY_LABELS[name]}
+            >
               <span className="ds-icon-chip" aria-hidden="true">
                 <FeIcon set="category" name={name} size="lg" chip={false} />
               </span>
-              <figcaption>{CATEGORY_LABELS[name]}</figcaption>
-            </figure>
+            </AssetTile>
           ))}
         </div>
-        <IconGithubBrowseLink folder="categories" />
         <div className="ds-dodont">
           <div className="ds-dodont__do">
             <p className="ds-dodont__label">Do</p>
@@ -148,15 +209,18 @@ export default function VisualElementsPage() {
         </p>
         <div className="ds-icon-specimens">
           {ACTIVITY_NAMES.map((name) => (
-            <figure key={name} className="ds-icon-specimen">
+            <AssetTile
+              key={name}
+              className="ds-icon-specimen"
+              src={`/icons/workshop/${name}.svg`}
+              label={ACTIVITY_LABELS[name]}
+            >
               <span className="ds-icon-chip" aria-hidden="true">
                 <FeIcon set="activity" name={name} size="lg" chip={false} />
               </span>
-              <figcaption>{ACTIVITY_LABELS[name]}</figcaption>
-            </figure>
+            </AssetTile>
           ))}
         </div>
-        <IconGithubBrowseLink folder="workshop" />
       </section>
 
       <section className="ds-section">
@@ -167,22 +231,35 @@ export default function VisualElementsPage() {
           links. Render inside <code className="ds-code">.fe-icon-btn</code> with
           an accessible label.
         </p>
-        <div className="ds-icon-specimens">
-          {SOCIAL_ICONS.map(({ label }) => (
-            <figure key={label} className="ds-icon-specimen">
-              <span className="ds-icon-chip ds-icon-chip--neutral" aria-hidden="true">
-                <FeIcon
-                  set="social"
-                  name={labelToSocialName(label)}
-                  size="lg"
-                  chip={false}
-                />
-              </span>
-              <figcaption>{label}</figcaption>
-            </figure>
-          ))}
+        <div className="ds-table-wrap">
+          <table className="ds-table ds-glyph-table">
+            <thead>
+              <tr>
+                <th scope="col">Glyph</th>
+                <th scope="col">Name</th>
+                <th scope="col">File</th>
+              </tr>
+            </thead>
+            <tbody>
+              {SOCIAL_ICONS.map(({ file, label }) => (
+                <tr key={label}>
+                  <td className="ds-glyph-table__mark">
+                    <FeIcon
+                      set="social"
+                      name={labelToSocialName(label)}
+                      size="md"
+                      chip={false}
+                    />
+                  </td>
+                  <th scope="row">{label}</th>
+                  <td>
+                    <AssetDownloadMarker src={file} label={label} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-        <IconGithubBrowseLink folder="social" />
       </section>
 
       <section className="ds-section">
@@ -193,21 +270,47 @@ export default function VisualElementsPage() {
           forms, media controls, and CTAs. Inline SVGs inherit{" "}
           <code className="ds-code">currentColor</code>; file glyphs ship at 24px.
         </p>
-        <div className="ds-icon-demo">
-          {FILE_GLYPHS.map(({ label }) => (
-            <div className="ds-icon-item" key={label}>
-              <FeIcon set="file" name={labelToFileName(label)} size="md" />
-              <span>{label}</span>
-            </div>
-          ))}
-          {UI_GLYPHS.map(({ label }) => (
-            <div className="ds-icon-item" key={label}>
-              <FeIcon set="ui" name={labelToUiName(label)} size="md" />
-              <span>{label}</span>
-            </div>
-          ))}
+        <div className="ds-table-wrap">
+          <table className="ds-table ds-glyph-table">
+            <thead>
+              <tr>
+                <th scope="col">Glyph</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">File</th>
+              </tr>
+            </thead>
+            <tbody>
+              {FILE_GLYPHS.map(({ label, src }) => (
+                <tr key={label}>
+                  <td className="ds-glyph-table__mark">
+                    <FeIcon set="file" name={labelToFileName(label)} size="md" />
+                  </td>
+                  <th scope="row">{label}</th>
+                  <td>File</td>
+                  <td>
+                    <AssetDownloadMarker src={src} label={label} />
+                  </td>
+                </tr>
+              ))}
+              {UI_GLYPHS.map(({ label, name }) => (
+                <tr key={label}>
+                  <td className="ds-glyph-table__mark">
+                    <FeIcon set="ui" name={labelToUiName(label)} size="md" />
+                  </td>
+                  <th scope="row">{label}</th>
+                  <td>Stroke</td>
+                  <td>
+                    <AssetDownloadMarker
+                      src={`${UI_GLYPH_DIR}/${name}.svg`}
+                      label={label}
+                    />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-        <IconGithubBrowseLink />
       </section>
 
       <section className="ds-section">
@@ -221,17 +324,20 @@ export default function VisualElementsPage() {
         </p>
         <div className="ds-illo-specimens">
           {illustrations.map((illo) => (
-            <figure key={illo.label} className="ds-illo-specimen">
+            <AssetTile
+              key={illo.label}
+              className="ds-illo-specimen"
+              src={illo.src}
+              label={illo.label}
+            >
               <span
                 className="ds-illo-mark"
                 style={{ maskImage: `url(${illo.src})`, WebkitMaskImage: `url(${illo.src})` }}
                 aria-hidden="true"
               />
-              <figcaption>{illo.label}</figcaption>
-            </figure>
+            </AssetTile>
           ))}
         </div>
-        <IconGithubBrowseLink path="illustrations" />
         <h3 className="ds-subsection-title">Functional doodles</h3>
         <p className="fe-body">
           These are line-style graphics used as functional motifs in specific
@@ -239,17 +345,20 @@ export default function VisualElementsPage() {
         </p>
         <div className="ds-illo-specimens">
           {functionalDoodles.map((illo) => (
-            <figure key={illo.label} className="ds-illo-specimen">
+            <AssetTile
+              key={illo.label}
+              className="ds-illo-specimen"
+              src={illo.src}
+              label={illo.label}
+            >
               <span
                 className="ds-illo-mark"
                 style={{ maskImage: `url(${illo.src})`, WebkitMaskImage: `url(${illo.src})` }}
                 aria-hidden="true"
               />
-              <figcaption>{illo.label}</figcaption>
-            </figure>
+            </AssetTile>
           ))}
         </div>
-        <IconGithubBrowseLink path="illustrations" />
       </section>
 
       <section className="ds-section">
@@ -260,41 +369,14 @@ export default function VisualElementsPage() {
           headings) and <strong>sparkle, asterisk, and music-note</strong>{" "}
           decorations on titles and announcements. Orange is prioritised.
         </p>
-        <div className="ds-accent-specimens">
-          {accents.map((a) => (
-            <figure key={a.label} className="ds-accent-specimen">
-              <span
-                className={`ds-accent-mark${
-                  a.wide ? " ds-accent-mark--wide" : ""
-                }${a.underline ? " ds-accent-mark--underline" : ""}`}
-                style={{ maskImage: `url(${a.src})`, WebkitMaskImage: `url(${a.src})` }}
-                aria-hidden="true"
-              />
-              <figcaption>{a.label}</figcaption>
-            </figure>
-          ))}
-        </div>
-        <IconGithubBrowseLink path="illustrations/accents" />
+        <AccentTable rows={accents} />
+
         <h3 className="ds-subsection-title">Decorative variant catalog</h3>
         <p className="fe-body">
           Additional Canva exports are kept as documented variants for editorial
           and campaign flexibility.
         </p>
-        <div className="ds-accent-specimens">
-          {accentVariants.map((a) => (
-            <figure key={a.label} className="ds-accent-specimen">
-              <span
-                className={`ds-accent-mark${
-                  a.label.toLowerCase().includes("underline") ? " ds-accent-mark--underline" : ""
-                }`}
-                style={{ maskImage: `url(${a.src})`, WebkitMaskImage: `url(${a.src})` }}
-                aria-hidden="true"
-              />
-              <figcaption>{a.label}</figcaption>
-            </figure>
-          ))}
-        </div>
-        <IconGithubBrowseLink path="illustrations/variants/accents" />
+        <AccentTable rows={accentVariants} />
       </section>
 
       <section className="ds-section">
@@ -313,16 +395,23 @@ export default function VisualElementsPage() {
           blocks behind text. Approved fills: Soft Lavender, Lime Green, or Warm
           White &mdash; never Orange behind the full wordmark.
         </p>
-        <div className="ds-blob-specimens" aria-hidden="true">
+        <div className="ds-blob-specimens">
           {[1, 2, 3, 4, 5, 6, 7].map((n) => (
-            <span
+            <AssetTile
               key={n}
-              className="ds-blob"
-              style={{
-                maskImage: `url(/illustrations/blobs/blob-${n}.svg)`,
-                WebkitMaskImage: `url(/illustrations/blobs/blob-${n}.svg)`,
-              }}
-            />
+              className="ds-blob-specimen"
+              src={`/illustrations/blobs/blob-${n}.svg`}
+              label={`Blob ${n}`}
+            >
+              <span
+                className="ds-blob"
+                aria-hidden="true"
+                style={{
+                  maskImage: `url(/illustrations/blobs/blob-${n}.svg)`,
+                  WebkitMaskImage: `url(/illustrations/blobs/blob-${n}.svg)`,
+                }}
+              />
+            </AssetTile>
           ))}
         </div>
 
@@ -332,30 +421,46 @@ export default function VisualElementsPage() {
           always in Lime Green. Three full-width crest patterns plus two corner
           waves that fill a top or bottom corner of the page.
         </p>
-        <div className="ds-wave-specimens" aria-hidden="true">
-          {["wave-h1", "wave-h2", "wave-h3"].map((w) => (
-            <div className="ds-wave-chip" key={w}>
-              <span
-                className="ds-wave-shape"
-                style={{
-                  maskImage: `url(/illustrations/waves/${w}.svg)`,
-                  WebkitMaskImage: `url(/illustrations/waves/${w}.svg)`,
-                }}
-              />
-            </div>
+        <div className="ds-wave-specimens">
+          {WAVES.map(({ file, label }) => (
+            <AssetTile
+              key={file}
+              className="ds-wave-specimen"
+              src={`/illustrations/waves/${file}.svg`}
+              label={label}
+            >
+              <span className="ds-wave-chip">
+                <span
+                  className="ds-wave-shape"
+                  aria-hidden="true"
+                  style={{
+                    maskImage: `url(/illustrations/waves/${file}.svg)`,
+                    WebkitMaskImage: `url(/illustrations/waves/${file}.svg)`,
+                  }}
+                />
+              </span>
+            </AssetTile>
           ))}
         </div>
-        <div className="ds-wave-corners" aria-hidden="true">
-          {["wave-corner-tr", "wave-corner-br"].map((w) => (
-            <div className="ds-wave-corner-chip" key={w}>
-              <span
-                className="ds-wave-corner"
-                style={{
-                  maskImage: `url(/illustrations/waves/${w}.svg)`,
-                  WebkitMaskImage: `url(/illustrations/waves/${w}.svg)`,
-                }}
-              />
-            </div>
+        <div className="ds-wave-corners">
+          {WAVE_CORNERS.map(({ file, label }) => (
+            <AssetTile
+              key={file}
+              className="ds-wave-corner-specimen"
+              src={`/illustrations/waves/${file}.svg`}
+              label={label}
+            >
+              <span className="ds-wave-corner-chip">
+                <span
+                  className="ds-wave-corner"
+                  aria-hidden="true"
+                  style={{
+                    maskImage: `url(/illustrations/waves/${file}.svg)`,
+                    WebkitMaskImage: `url(/illustrations/waves/${file}.svg)`,
+                  }}
+                />
+              </span>
+            </AssetTile>
           ))}
         </div>
         <p className="fe-callout">

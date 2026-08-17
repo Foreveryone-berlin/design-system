@@ -64,7 +64,7 @@ The prototype renders every icon through the single `FeIcon` component (`prototy
 | `category` | `public/icons/categories/` | CSS mask | Top-level category chips, tags, badges |
 | `activity` | `public/icons/workshop/` | CSS mask | Subcategory/workshop-specific glyphs |
 | `social` | `public/icons/social/` | CSS mask | Footer and contact icon buttons |
-| `ui` | inline paths in `ui-glyphs.tsx` | inline SVG | Navigation, controls, copy/check, play, close |
+| `ui` | inline paths in `ui-glyph-markup.ts`, mirrored to `public/icons/ui/*.svg` | inline SVG | Navigation, controls, copy/check, play, close |
 | `file` | `public/icons/arrow-right.svg`, `external-link.svg` | `<img>` | CTA and outbound-link glyphs |
 
 `FeIcon` takes a type-safe `set` + `name`, plus `size` (`sm`, `md`, `lg`) and `chip` (`true` wraps the glyph in the orange `.fe-workshop-icon` chip). Use `chip={false}` when the icon lives inside a parent that already sets the ground and colour, such as `.ds-icon-chip` or `.fe-icon-btn`. The legacy `CategoryIcon` and `ActivityIcon` components have been removed; all call sites now use `FeIcon`.
@@ -87,11 +87,13 @@ Beyond categories, the system uses a small set of UI glyphs (seen in the brand g
 | External link | outbound links | `FeIcon set="file" name="external-link"` |
 
 Prototype IA split:
-- `prototype/app/visual-elements/page.tsx` is the **single source of truth** for the canonical icon catalog: category icons, activity icons, social icons, and UI glyphs. Each icon family includes a **Browse this icon set on GitHub** link to the matching folder on the `main` branch (`prototype/public/icons/categories`, `workshop`, `social`, or the icons root for UI file glyphs).
+- `prototype/app/visual-elements/page.tsx` is the **single source of truth** for the canonical icon catalog: category icons, activity icons, social icons, and UI glyphs. Every specimen is itself a download control (`AssetTile`): the whole tile is an `<a download>` and the caption reads `Name - SVG ↓`, underlined, in the label's own colour, so a dense grid gains no extra link rows. The 13 stroke glyphs render inline from `app/_components/ui-glyph-markup.ts`; `node prototype/scripts/build-ui-glyphs.mjs` writes the same markup to `prototype/public/icons/ui/*.svg` so they download like every other family, and `npm test` runs it with `--check` so a shipped file can never drift from what the page renders.
 - `prototype/app/components/page.tsx` keeps a compact **icon preview** plus in-context icon button examples; point readers to Visual Elements for downloads.
 - `prototype/app/visual-elements/page.tsx` also catalogs **illustrations**, **decorative accents**, and **graphic shapes** (illustration assets stay separate from the icon catalog).
 
-**Downloading icons (non-developers):** open [Visual Elements](https://design.foreveryone.berlin/visual-elements) in the prototype, find the icon family you need, and use the **Browse this icon set on GitHub** link beneath that grid. On GitHub, open individual SVG files and use **Download raw file** (or copy the file from the folder tree). Only the canonical sets are for production.
+**Downloading icons (non-developers):** open [Visual Elements](https://design.foreveryone.berlin/visual-elements), find the icon you need, and click it. The file saves straight from the page, already in its brand colour. Only the canonical sets are for production.
+
+**Asset colour when opened on its own:** shipped SVGs paint with `currentColor` so CSS masks and inline use can tint them from a token, which would otherwise render a downloaded file black. Each asset therefore carries a root `color` presentation attribute holding its family default: orange `#FF7A3A` for category, activity, illustration, and accent assets; Soft Lavender `#E5DCFF` for blobs; Lime Green `#D4E6A8` for waves; Charcoal `#1E1E1E` for social. Presentation attributes carry zero specificity, so any CSS `color` rule still wins. `scripts/svg-normalize.mjs` stamps it on import (`STANDALONE_COLOR`), `node scripts/svg-standalone-color.mjs` backfills existing assets, and `npm test` runs it with `--check`. Never save an asset from a `github.com/…/blob/…` page: that view is HTML, so the saved `.svg` fails as "XML Parsing Error: not well-formed". Use **Download raw file** instead.
 
 ### Line illustrations (doodles)
 

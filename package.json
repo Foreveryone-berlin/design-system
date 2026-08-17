@@ -1,19 +1,19 @@
 {
   "name": "foreveryone-design-system",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "description": "Design system for foreveryone.berlin: DTCG tokens, generated CSS custom properties, Elementor/Figma docs, and a Next.js prototype.",
   "scripts": {
     "build": "node scripts/build-css.js && node scripts/build-spec.js",
     "build:css": "node scripts/build-css.js",
     "build:spec": "node scripts/build-spec.js",
-    "test": "node scripts/build-css.test.js && node scripts/svg-normalize.test.js",
+    "test": "node scripts/build-css.test.js && node scripts/svg-normalize.test.js && node scripts/svg-validate.test.js && node scripts/svg-standalone-color.mjs --check && node prototype/scripts/build-ui-glyphs.mjs --check",
     "prototype:dev": "npm --prefix prototype run dev",
     "prototype:build": "npm --prefix prototype run build",
     "prototype:lint": "npm --prefix prototype run lint"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=24"
   },
   "license": "SEE LICENSE FILE"
 }

@@ -1183,6 +1183,217 @@
   color: var(--color-brand-primary);
 }
 
+/* ── Course / workshop detail patterns ─────────────────────────────────────── */
+
+/* Facts card — the "Course Details" block on a workshop landing page: a grid of
+   icon + label + value tiles over a full-width booking CTA. Marked up as a <dl>
+   because each tile is a label/value pair. */
+/* The tile count follows the card's own width, not the viewport: the card sits
+   in a sidebar-narrowed column on docs pages and in full-width or two-thirds
+   Elementor containers on the site, where a viewport breakpoint would hand a
+   700px column the three-column layout and overflow it. */
+.fe-facts-card {
+  container: fe-facts-card / inline-size;
+}
+.fe-facts-card__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-4);
+  margin: 0;
+}
+/* The <dl> and its wrapper <div>s must contain nothing but <dt>/<dd> pairs
+   (WCAG 1.3.1, axe definition-list), so the line illustration is drawn as a
+   ::before on the label from the --fe-facts-illo custom property. */
+.fe-facts-card__item {
+  background: var(--color-very-light-gray);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-5);
+}
+.fe-facts-card__label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-theme-2);
+  margin: 0 0 var(--spacing-1);
+}
+.fe-facts-card__label::before {
+  content: "";
+  flex-shrink: 0;
+  display: block;
+  width: 1.75rem;
+  height: 1.75rem;
+  background-color: var(--color-brand-primary);
+  -webkit-mask-image: var(--fe-facts-illo);
+  mask-image: var(--fe-facts-illo);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+.fe-facts-card__value {
+  margin: 0;
+  margin-inline-start: calc(1.75rem + var(--spacing-4));
+  font-size: var(--font-size-sm);
+  color: var(--color-theme-4);
+}
+.fe-facts-card__cta {
+  display: flex;
+  justify-content: center;
+  margin-block-start: var(--spacing-6);
+}
+
+/* Step progression — the "What you'll learn" week-by-week sequence. Steps
+   alternate sides on wide screens with a doodle-arrow connector between them;
+   below the tablet breakpoint they stack into a single column and the
+   connectors are dropped so the vertical rhythm stays readable. */
+.fe-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-5);
+}
+.fe-step-item {
+  display: flex;
+  flex-direction: column;
+}
+.fe-step {
+  background: var(--color-accent);
+  border: 1px solid var(--color-theme-7);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+}
+.fe-step__title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  margin: 0 0 var(--spacing-2);
+}
+.fe-step__number {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-circle);
+  background: var(--color-background-title);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-theme-2);
+}
+.fe-step__body {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-theme-4);
+}
+.fe-step__connector {
+  display: none;
+  width: 3rem;
+  height: 2.5rem;
+  background-color: var(--color-brand-primary);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+/* Split list band — heading on the left, list on the right, on the decorative
+   soft background. Used for "Who is this for", "What you'll learn", and
+   "Everything you need is included". */
+.fe-split-list {
+  background: var(--color-background-soft);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-8);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-6);
+}
+.fe-split-list__heading {
+  margin: 0;
+}
+.fe-split-list__lead {
+  margin: 0 0 var(--spacing-4);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-theme-2);
+}
+.fe-split-list__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-3);
+}
+.fe-split-list__items--two-col {
+  grid-template-columns: 1fr;
+}
+.fe-split-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  font-size: var(--font-size-sm);
+  color: var(--color-theme-4);
+}
+.fe-split-list__item svg {
+  flex-shrink: 0;
+  margin-block-start: 0.15em;
+  color: var(--color-brand-primary);
+}
+
+/* Facts tiles step 1 → 2 → 3 columns rather than jumping straight to three,
+   which crowds the label/value pairs. Measured against the card (see
+   .fe-facts-card), so a narrow column stacks even on a wide screen. */
+@container fe-facts-card (min-width: 30rem) {
+  .fe-facts-card__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@container fe-facts-card (min-width: 46rem) {
+  .fe-facts-card__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .fe-split-list {
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--spacing-8);
+  }
+  .fe-split-list__items--two-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .fe-steps {
+    gap: var(--spacing-2);
+  }
+  .fe-step {
+    width: 60%;
+  }
+  .fe-step-item:nth-child(even) .fe-step {
+    margin-inline-start: auto;
+  }
+  .fe-step__connector {
+    display: block;
+    margin-inline: auto;
+  }
+  /* Mirror the arrow so it always points toward the next step's side. */
+  .fe-step-item:nth-child(even) .fe-step__connector {
+    transform: scaleX(-1);
+  }
+}
+
 /* ── Accessibility helpers ─────────────────────────────────────────────────── */
 
 /* Visually hidden but available to screen readers and live regions. */

@@ -1562,7 +1562,10 @@ a.ds-btn {
   gap: var(--spacing-6);
   margin-bottom: var(--spacing-8);
 }
-@media (min-width: 36rem) {
+/* Keyed to the content column, not the viewport: the sidebar takes ~22rem, so a
+   viewport breakpoint puts four stat tiles into a column that only fits two and
+   the values clip. */
+@container ds-content (min-width: 56rem) {
   .ds-stats {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -1946,11 +1949,6 @@ a.ds-btn {
   width: 52px;
   height: 52px;
 }
-.ds-icon-specimen figcaption {
-  font-size: var(--font-size-xs);
-  color: var(--color-theme-8);
-  line-height: var(--line-height-snug);
-}
 
 .ds-icon-chip--neutral {
   background: var(--color-white);
@@ -1972,46 +1970,28 @@ a.ds-btn {
   color: var(--color-brand-dark);
 }
 
-.ds-icon-set-action {
-  margin: var(--spacing-4) 0 var(--spacing-6);
-  font-size: var(--font-size-sm);
-}
-
-.ds-icon-set-action a {
-  color: var(--color-brand-secondary);
-  font-weight: var(--font-weight-medium);
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
-}
-
-.ds-icon-set-action a:hover {
-  color: var(--color-brand-primary);
-}
-
-.ds-illo-specimens,
-.ds-accent-specimens {
+.ds-illo-specimens {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-6);
   margin: var(--spacing-4) 0;
 }
-.ds-illo-specimen,
-.ds-accent-specimen {
+.ds-illo-specimen {
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--spacing-2);
 }
-.ds-illo-specimen img,
-.ds-accent-specimen img {
+.ds-illo-specimen img {
   height: auto;
 }
 /* Orange line-art marks tinted via CSS mask from the brand token, so a single
    currentColor SVG asset renders in brand orange without baking in the hex. */
-.ds-illo-mark,
-.ds-accent-mark {
+.ds-illo-mark {
   display: block;
+  width: 5rem;
+  height: 5rem;
   background-color: var(--color-brand-primary);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
@@ -2020,34 +2000,106 @@ a.ds-btn {
   -webkit-mask-size: contain;
   mask-size: contain;
 }
-.ds-illo-mark {
-  width: 5rem;
-  height: 5rem;
-}
 .ds-illo-mark--wide {
   width: 20rem;
   height: 2rem;
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
 }
-.ds-accent-mark {
-  width: 4.5rem;
-  height: 4.5rem;
+/* Every specimen is itself the download control (see AssetTile): no per-item
+   link row, so a dense catalog stays a grid of icons. The `SVG ↓` hint rides in
+   the label and only appears on hover/focus — and permanently where hover does
+   not exist. Saves the asset the page just rendered, so the downloaded bytes are
+   always real SVG: GitHub's file view is an HTML page and saving it yields HTML
+   with an .svg name, which fails to parse as XML. */
+.ds-asset-tile {
+  color: inherit;
+  text-decoration: none;
+  border-radius: var(--radius-md);
 }
-.ds-accent-mark--wide {
-  width: 9rem;
-}
-/* Underline specimens: 2× .ds-accent-mark--wide (9rem → 18rem); must follow base sizes. */
-.ds-accent-mark--underline {
-  width: 18rem;
-  height: 1.75rem;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-}
-.ds-illo-specimen figcaption,
-.ds-accent-specimen figcaption {
+
+/* The marker rides next to the name in the label's own colour, not link blue:
+   it reads as part of the caption ("Movement SVG ↓") rather than as a second
+   link competing with it, so a grid of fifty specimens stays quiet. */
+.ds-asset-tile__label {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  column-gap: var(--spacing-1);
   font-size: var(--font-size-xs);
   color: var(--color-theme-8);
+  line-height: var(--line-height-snug);
+  text-align: center;
+}
+
+.ds-asset-tile__hint {
+  color: var(--color-neutral-500);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  transition: color var(--transition-fast);
+}
+
+/* Pointing at the tile promotes the marker to the label's own Charcoal, so the
+   whole caption reads as one active control. */
+.ds-asset-tile:hover .ds-asset-tile__hint,
+.ds-asset-tile:focus-visible .ds-asset-tile__hint,
+.ds-asset-tile:active .ds-asset-tile__hint {
+  color: var(--color-theme-8);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-asset-tile__hint {
+    transition: none;
+  }
+}
+
+.ds-asset-tile:focus-visible {
+  outline: 2px solid var(--color-brand-secondary);
+  outline-offset: 3px;
+}
+
+/* UI glyphs are catalogued in a table rather than a wrapped row: 15 functional
+   marks read as an ordered list, not a specimen grid. */
+.ds-glyph-table {
+  max-width: 46ch;
+}
+.ds-glyph-table td,
+.ds-glyph-table th {
+  vertical-align: middle;
+  padding-block: var(--spacing-2);
+}
+.ds-glyph-table__mark {
+  width: 3rem;
+  color: var(--color-theme-2);
+}
+.ds-glyph-table__mark svg,
+.ds-glyph-table__mark img {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.ds-asset-tile--marker {
+  display: inline-block;
+}
+/* Accent rows: the marks vary from a square sparkle to an 18rem underline, so
+   the cell fixes the box and `contain` keeps each one's aspect ratio. */
+.ds-glyph-table--marks .ds-glyph-table__mark {
+  width: 9rem;
+}
+.ds-glyph-table__accent {
+  display: block;
+  width: 8rem;
+  height: 2.25rem;
+  background-color: var(--color-brand-primary);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: left center;
+  mask-position: left center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }
 
 /* Blob specimens — the seven organic Soft Lavender shapes (Brand Book v1.0
@@ -2058,6 +2110,22 @@ a.ds-btn {
   align-items: center;
   gap: var(--spacing-5);
   margin: var(--spacing-4) 0;
+}
+.ds-blob-specimen,
+.ds-wave-specimen,
+.ds-wave-corner-specimen {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+.ds-blob-specimen,
+.ds-wave-corner-specimen {
+  align-items: center;
+  text-align: center;
+}
+.ds-wave-specimen .ds-asset-tile__label {
+  justify-content: flex-start;
 }
 .ds-blob {
   display: inline-block;
@@ -2242,25 +2310,6 @@ a.ds-btn {
   text-underline-offset: 0.125rem;
 }
 
-/* Icons demo */
-.ds-icon-demo {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--spacing-4);
-}
-.ds-icon-item {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-2);
-  color: var(--color-brand-dark);
-  font-size: var(--font-size-sm);
-}
-.ds-icon-item svg {
-  width: 1.5rem;
-  height: 1.5rem;
-  color: var(--color-theme-2);
-}
 .ds-icon-list {
   display: flex;
   flex-direction: column;
@@ -2840,32 +2889,6 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
 }
 
 /* ---- Pattern page: benefit grid, events switcher, cafe card ---- */
-.ds-benefit-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-4);
-}
-
-.ds-benefit-grid .fe-card-benefit {
-  align-items: flex-start;
-}
-
-.ds-benefit-grid .fe-card-benefit__illustration {
-  flex-shrink: 0;
-}
-
-@media (min-width: 48rem) {
-  .ds-benefit-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 64rem) {
-  .ds-benefit-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 .ds-events-switcher__toggle {
   display: inline-flex;
   flex-wrap: wrap;

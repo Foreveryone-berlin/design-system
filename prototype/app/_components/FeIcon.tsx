@@ -1,4 +1,5 @@
-import { FILE_GLYPHS, SOCIAL_ICONS, UI_GLYPHS } from "./ui-glyphs";
+import { FILE_GLYPHS, SOCIAL_ICONS } from "./ui-glyphs";
+import { UI_GLYPH_MARKUP, UI_GLYPH_ROOT } from "./ui-glyph-markup";
 
 export type IconSize = "sm" | "md" | "lg";
 
@@ -235,24 +236,19 @@ export default function FeIcon(props: FeIconProps) {
   const { set, name, size = "md", chip = false, className, style } = props;
 
   if (set === "ui") {
-    const label = UI_LABELS[name];
-    const glyph = UI_GLYPHS.find((g) => g.label === label);
-    if (!glyph) return null;
+    const markup = UI_GLYPH_MARKUP[name];
+    if (!markup) return null;
     return (
       <svg
         className={`ds-icon-glyph--${size}${className ? ` ${className}` : ""}`}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={2}
-        strokeLinecap="round"
-        strokeLinejoin="round"
         aria-hidden="true"
         focusable="false"
         style={style}
-      >
-        {glyph.path}
-      </svg>
+        {...UI_GLYPH_ROOT}
+        // Static, repo-authored artwork from ui-glyph-markup.ts, shared verbatim
+        // with the standalone .svg files so the two can never drift.
+        dangerouslySetInnerHTML={{ __html: markup }}
+      />
     );
   }
 
