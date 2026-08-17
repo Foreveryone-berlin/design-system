@@ -34,7 +34,7 @@ Paths are repo-relative from project root unless noted.
 |scripts:{build-css.js,build-css.test.js,build-spec.js,pr-and-merge.sh,optimize-run.sh,import-figma-elements.mjs,import-desktop-elements.mjs,svg-normalize.mjs}
 |prototype:{README.md,next.config.ts,package.json,tsconfig.json,playwright.config.ts}
 |prototype/app:{layout.tsx,page.tsx,globals.css,manifest.ts,FaqDemo.tsx}
-|prototype/app/_components:{FeIcon.tsx,CodeBlock.tsx,HeaderDemo.tsx,MobileNav.tsx,MotionSpecimens.tsx,Navigation.tsx,ObfuscatedEmail.tsx,OnThisPage.tsx,Popup.tsx,Search.tsx,HeadingAnchors.tsx,EventsWorkshopsSwitcher.tsx,NavigationHistory.tsx,IconGithubBrowseLink.tsx,LogoClearSpace.tsx,StatCounter.tsx,TestimonialCard.tsx,ViewTransitions.tsx,ui-glyphs.tsx,page-headings.ts,nav-sections.ts,search-index.ts,slugify.ts}
+|prototype/app/_components:{FeIcon.tsx,CodeBlock.tsx,HeaderDemo.tsx,MobileNav.tsx,MotionSpecimens.tsx,Navigation.tsx,ObfuscatedEmail.tsx,OnThisPage.tsx,Popup.tsx,Search.tsx,HeadingAnchors.tsx,EventsWorkshopsSwitcher.tsx,NavigationHistory.tsx,AssetTile.tsx,LogoClearSpace.tsx,StatCounter.tsx,TestimonialCard.tsx,ViewTransitions.tsx,ui-glyphs.ts,ui-glyph-markup.ts,page-headings.ts,nav-sections.ts,search-index.ts,slugify.ts}
 |prototype/app:{components,patterns,foundations,guidelines,governance,accessibility,credits,brand,logo,visual-elements,print}/page.tsx
 |prototype/content:{site-copy.ts}
 |prototype/tests:{a11y.spec.ts,smoke.spec.ts}
@@ -68,7 +68,7 @@ Paths are repo-relative from project root unless noted.
 
 **CSS layers:** `base.css` reset/body; `typography.css` heading/body/label/tag utilities (`.fe-h1`, `.fe-body`, …); `utilities.css` components (buttons, cards, inputs, FAQ, dropdown, header, footer, nav, sections); `elementor-overrides.css` low-specificity `.elementor-*` tweaks. All authored values use `var(--…)` from custom properties — no raw hex or font-family names outside generated file.
 
-**Prefix:** Public classes use `fe-` (ForEveryone). Examples in `utilities.css`: `.fe-btn-primary`, `.fe-btn-secondary`, `.fe-icon-btn`, `.fe-icon-btn--filled-brand`, `.fe-play-btn`, `.fe-card`, `.fe-card-benefit`, `.fe-card-get-involved`, `.fe-input` (+ error/disabled), `.fe-faq-item`, `.fe-dropdown`, `.fe-nav-link`, `.fe-header`, `.fe-footer`, `.fe-tag-pill` (+ variants), `.fe-section`, `.fe-container`. Visual rules for icons/blobs/photos: `docs/visual-styles.md`.
+**Prefix:** Public classes use `fe-` (ForEveryone). Examples in `utilities.css`: `.fe-btn-primary`, `.fe-btn-secondary`, `.fe-icon-btn`, `.fe-icon-btn--filled-brand`, `.fe-play-btn`, `.fe-card`, `.fe-card-benefit`, `.fe-card-get-involved`, `.fe-facts-card` (+ `__grid`/`__label`/`__value`), `.fe-steps` (+ `.fe-step`, `.fe-step__connector`), `.fe-split-list` (+ `__items`/`__item`), `.fe-input` (+ error/disabled), `.fe-faq-item`, `.fe-dropdown`, `.fe-nav-link`, `.fe-header`, `.fe-footer`, `.fe-tag-pill` (+ variants), `.fe-section`, `.fe-container`. Prototype-only documentation chrome uses `ds-` and lives in `prototype/app/globals.css`, never in `css/`. Visual rules for icons/blobs/photos: `docs/visual-styles.md`.
 
 **Elementor:** Breakpoints — mobile under 767px, tablet 768–1024px, desktop over 1025px. Prefer logical properties; mobile-first min-width. `!important` only to beat Elementor inline styles; comment why. Globals live in DB; align with tokens per `elementor/global-colors.md` and `elementor/global-fonts.md`.
 
