@@ -22,8 +22,18 @@ Recommended alt text (one sentence; describe activity and setting):
 - `yoga-wellbeing.jpg` Balance and Wellness / Yoga and Wellbeing Session card image from `23-06-11_Yoga_wellbeing-for-everyone_Berlin_Fotogr.jpg` (1600×1067).
 - `workshop-pottery.jpg` Upcoming-workshop card (Arts and Crafts): from `Pottery_group.jpg`, cropped to 720×450 (mozjpeg q80).
 - `workshop-drawing.jpg` Upcoming-workshop card (Expression): from `Pottery_couple1.jpg`, cropped to 640×400 with a small tone lift (mozjpeg q82).
-- `social-preview.jpg` Open Graph / Twitter / GitHub social card: bold "Design System" headline, layered lavender/lime/orange brand blobs, a token colour-swatch row, and the ForEveryone wordmark, at 1200x630 (1.91:1) per OG best practice (~48 KB). Also upload this file as the GitHub repo social preview (Settings → General → Social preview).
-- `readme-hero.jpg` README hero on GitHub, same composition at 1500x720 (~2.08:1, ~56 KB). Regenerate both cards (design-system-driven HTML rendered with Chromium) via `node scripts/build-og-card.mjs`, then convert the temp PNGs to JPG with ImageMagick (`-resize`, `-quality 84`).
+- `social-preview.jpg` Open Graph / Twitter / GitHub social card, `doodle-v1` composition: "ForEveryone Design System" over a Lime Green field, an orange doodle underline, sprout/smiley/swirl marks on the right, a Warm White wave band, at 1200x630 (1.91:1) per OG best practice (~53 KB). No wordmark lockup: the headline already carries the brand name. Also upload this file as the GitHub repo social preview (Settings → General → Social preview).
+- `readme-hero.jpg` README hero on GitHub, same composition at 1500x720 (~2.08:1, ~63 KB). Regenerate both cards (design-system-driven HTML rendered with Chromium) via `node scripts/build-og-card.mjs [variant] [outDir]`, then convert the temp PNGs to JPG with ImageMagick (`-resize`, `-quality 84 -strip`). Variants: `doodle` (shipped composition), `blobs` (default flag value, layered brand blobs with a swatch row), `ramp` (OKLCH token scales), `type` (type-scale specimen). Colours are read from the generated `css/custom-properties.css`, so a token change flows into the cards; never hardcode hex in the generator.
+
+**Logo-free doodle studies.** `doodle-v1` is the shipped composition; v2 and v3 are kept as comparison candidates. Same palette, marks, and left-aligned stack as `doodle`, but the wordmark lockup is dropped because the headline already reads "ForEveryone", and the hand-drawn marks are scaled up so they read as composition rather than decoration. Headline weight stays at 700. Both sizes of each study render from one config in `prototype/scripts/build-og-card.mjs`:
+
+| Study | Files | What changes vs `doodle` |
+|-------|-------|--------------------------|
+| `doodle-v1` steady **(shipped)** | `social-preview-doodle-v1.jpg`, `readme-hero-doodle-v1.jpg` — byte-identical to `social-preview.jpg` / `readme-hero.jpg` | Original type size; marks about a third larger; stack lifted clear of the wave band. |
+| `doodle-v2` cluster | `social-preview-doodle-v2.jpg`, `readme-hero-doodle-v2.jpg` | Headline at 0.92x; marks ~1.6x and grouped tighter into a right-hand column. |
+| `doodle-v3` airy | `social-preview-doodle-v3.jpg`, `readme-hero-doodle-v3.jpg` | Headline at 0.88x and top-anchored; largest marks, spread as a diagonal; subline drops toward the wave band. |
+
+Render a study with `node scripts/build-og-card.mjs doodle-v1 <outDir>` (then the same ImageMagick step as above). To adopt one, copy its two JPGs over `social-preview.jpg` / `readme-hero.jpg`, which are what `app/layout.tsx` (`openGraph` / `twitter`) and the root `README.md` reference.
 
 **Logo system** (`logo/`):
 - `logo/foreveryone-horizontal.png` — primary horizontal lockup; the official `foreveryone-logo.png` with transparent margins trimmed. Default everywhere.
