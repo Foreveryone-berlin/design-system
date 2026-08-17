@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-08-17
+
+Downloadable artwork, course-page layouts, and a new share card.
+
 - **Remove**: Drop Cursor and Claude Code from the Credits “Built with” list so the public site does not attribute agents as product contributors.
 - **Change**: Show three course-page layouts from the live workshop pages on Patterns (a facts card, a week-by-week step sequence, and a split list band) and drop the six-point benefit grid; the benefit card stays available for the live site.
 - **Change**: Give the repository a new share card, so GitHub and link previews show the ForEveryone headline on the lime doodle artwork.
