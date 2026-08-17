@@ -1,6 +1,6 @@
 # ForEveryone Berlin Design System
 
-![ForEveryone Design System card: a bold "Design System" headline on a warm-white ground with layered lavender, lime, and orange brand blobs, a row of token colour swatches, and the ForEveryone wordmark.](prototype/public/images/readme-hero.jpg)
+![ForEveryone Design System card: a bold "ForEveryone Design System" headline on a lime-green ground, underlined with an orange hand-drawn stroke, with sprout, smiley, and swirl doodles on the right and a warm-white wave along the bottom.](prototype/public/images/readme-hero.jpg)
 
 This is the shared look and feel for [foreveryone.berlin](https://foreveryone.berlin/), an open, inclusive community space in Berlin. It keeps the brand's colours, type, and reusable building blocks in one place, so everything we make looks like it belongs together. It is here for designers, developers, and anyone curious about how the brand fits together.
 
@@ -21,6 +21,8 @@ Technical detail; non-developers can skip this.
 - **CI:** GitHub Actions for token build + test + prototype build, and auto-release on `v*.*.*` tag.
 
 ### Quick start
+
+Requires **Node 24** (pinned in [`.nvmrc`](.nvmrc); run `nvm use` to match CI).
 
 ```bash
 # Build CSS custom properties from tokens
