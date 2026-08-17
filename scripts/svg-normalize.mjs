@@ -5,6 +5,25 @@ const require = createRequire(import.meta.url);
 export const RECOLOR_BRAND = ["#ff7a3a", "#FF7A3A", "#f47a3f", "#F47A3F", "#d4e6a8", "#D4E6A8"];
 export const RECOLOR_DARK = ["#1e1e1e", "#1E1E1E"];
 
+/**
+ * Fill used when the asset is opened on its own (downloaded file, `<img>`,
+ * Figma/Canva import). Paths stay `currentColor` so CSS mask/inline use keeps
+ * tinting from a token; this is the `color` presentation attribute on the root,
+ * which any CSS `color` rule overrides because presentation attributes carry
+ * zero specificity. Without it a standalone asset resolves `currentColor` to the
+ * initial value and renders black.
+ */
+export const STANDALONE_COLOR = {
+  category: "#FF7A3A", // Brand orange — filled category markers
+  workshop: "#FF7A3A", // Brand orange — activity glyphs
+  illo: "#FF7A3A", // Brand orange — line illustrations
+  accent: "#FF7A3A", // Brand orange — doodle strokes and decorations
+  blob: "#E5DCFF", // Soft Lavender — blobs must never be orange (Brand Book p.27)
+  wave: "#D4E6A8", // Lime Green — wave dividers are always lime
+  social: "#1E1E1E", // Charcoal — social/contact glyphs are neutral
+  ui: "#1E1E1E", // Charcoal — functional stroke glyphs are neutral
+};
+
 /** Figma exports use clipPath rects; crop viewBox before defs are stripped. */
 export function extractClipViewBox(svg) {
   const clipRects = [];
@@ -135,23 +154,13 @@ export function normalizeSvg(raw, kind) {
   const waveAttrs = kind === "wave" ? ' preserveAspectRatio="none"' : "";
   const focusable =
     kind === "category" || kind === "workshop" ? ' focusable="false"' : "";
+  const standalone = STANDALONE_COLOR[kind];
+  const colorAttr = standalone ? ` color="${standalone}"` : "";
 
-  if (kind === "category" || kind === "workshop") {
-    svg = svg.replace(
-      /<svg[^>]*>/i,
-      `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"${focusable}${waveAttrs}>`,
-    );
-  } else if (kind === "social") {
-    svg = svg.replace(
-      /<svg[^>]*>/i,
-      `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"${waveAttrs}>`,
-    );
-  } else {
-    svg = svg.replace(
-      /<svg[^>]*>/i,
-      `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"${waveAttrs}>`,
-    );
-  }
+  svg = svg.replace(
+    /<svg[^>]*>/i,
+    `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"${colorAttr} aria-hidden="true"${focusable}${waveAttrs}>`,
+  );
 
   if (cropViewBox) {
     svg = applyViewBox(svg, cropViewBox);
