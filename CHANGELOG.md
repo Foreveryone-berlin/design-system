@@ -9,6 +9,11 @@
 ## [Unreleased]
 
 - **Remove**: Drop Cursor and Claude Code from the Credits “Built with” list so the public site does not attribute agents as product contributors.
+- **Change**: Show three course-page layouts from the live workshop pages on Patterns (a facts card, a week-by-week step sequence, and a split list band) and drop the six-point benefit grid; the benefit card stays available for the live site.
+- **Change**: Give the repository a new share card, so GitHub and link previews show the ForEveryone headline on the lime doodle artwork.
+- **Fix**: Make every icon, illustration, accent, blob, and wave in Visual Elements save with a single click, in its brand colour instead of black, and drop the GitHub links that used to hand people a web page instead of a working file.
+- **Fix**: Stack the workshop facts card and the impact numbers into fewer columns as soon as the space around them is narrow, so values stop being cut off.
+- **Change**: Refresh the prototype's underlying libraries and clear every known security advisory.
 
 ## [1.1.0] - 2026-07-30
 
