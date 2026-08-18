@@ -1349,6 +1349,89 @@
   color: var(--color-brand-primary);
 }
 
+/* ── People / profile patterns ─────────────────────────────────────────────── */
+
+/* One person block for the two densities the live site already uses: the "Meet
+   our team" roster on the About page (photo + name + role) and the facilitator
+   block on a course page (photo + name + bio). Role and bio are both optional,
+   so the same markup covers a roster, a single facilitator, and a byline.
+   Names stay Charcoal: the brand guide makes orange decorative only, and orange
+   name text on Warm White is far short of the 4.5:1 body-text ratio. */
+.fe-person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-4);
+  text-align: center;
+}
+/* Circular frame. A portrait with a transparent background (the avatar
+   placeholders) shows the tinted disc; a photograph covers it. One class both
+   ways, so swapping placeholders for real portraits is only a file change. */
+.fe-person__photo {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 9rem;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--radius-circle);
+  background: var(--color-very-light-gray);
+}
+.fe-person__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.fe-person__name {
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-snug);
+  color: var(--color-theme-2);
+}
+.fe-person__role {
+  margin: var(--spacing-2) 0 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-theme-4);
+}
+.fe-person__bio {
+  margin: var(--spacing-3) 0 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-theme-4);
+}
+
+/* Card variant: the facilitator block on a course page. The bio is aligned to
+   the start because centred copy stops being readable past two lines. */
+.fe-person--card {
+  background: var(--color-accent);
+  border: 1px solid var(--color-theme-7);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+}
+.fe-person--card .fe-person__photo {
+  max-width: 7rem;
+}
+.fe-person--card .fe-person__bio {
+  text-align: start;
+}
+
+/* Roster grid: one column on a phone, two on a tablet, four on desktop, which
+   is the density the About page team section uses. */
+.fe-people-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-8);
+}
+/* Bio cards need the extra measure, so this variant stops at two columns (see
+   the desktop block below) and sits tighter than the roster. */
+.fe-people-grid--cards {
+  gap: var(--spacing-6);
+}
+
 /* Facts tiles step 1 → 2 → 3 columns rather than jumping straight to three,
    which crowds the label/value pairs. Measured against the card (see
    .fe-facts-card), so a narrow column stacks even on a wide screen. */
@@ -1372,6 +1455,9 @@
   .fe-split-list__items--two-col {
     grid-template-columns: repeat(2, 1fr);
   }
+  .fe-people-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1391,6 +1477,13 @@
   /* Mirror the arrow so it always points toward the next step's side. */
   .fe-step-item:nth-child(even) .fe-step__connector {
     transform: scaleX(-1);
+  }
+  .fe-people-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  /* Held back from the four-column roster: a bio needs the wider measure. */
+  .fe-people-grid--cards {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

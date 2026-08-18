@@ -84,6 +84,30 @@ const listItems = [
   "List item five",
 ];
 
+// Placeholder portraits: five generic silhouettes under /illustrations/avatars,
+// cycled so a roster reads as a roster rather than one icon repeated. The live
+// site replaces the src with a real photograph; nothing else changes.
+const teamRoster = Array.from({ length: 8 }, (_, i) => ({
+  name: `Name Placeholder ${i + 1}`,
+  role: "Role placeholder",
+  avatar: `/illustrations/avatars/avatar-${(i % 5) + 1}.svg`,
+}));
+
+const facilitators = [
+  {
+    name: "Name Placeholder",
+    role: "Role placeholder",
+    avatar: "/illustrations/avatars/avatar-2.svg",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel sapien a nulla fermentum tincidunt, ut enim ad minim veniam quis nostrud.",
+  },
+  {
+    name: "Name Placeholder",
+    role: "Role placeholder",
+    avatar: "/illustrations/avatars/avatar-3.svg",
+    bio: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
+  },
+];
+
 function SocialIconButton({ name, label }: { name: SocialIconName; label: string }) {
   return (
     <button type="button" className="fe-icon-btn" aria-label={label}>
@@ -369,6 +393,56 @@ export default function PatternsPage() {
             </ul>
           </div>
         </div>
+      </section>
+
+      <section id="team-grid" className="ds-section">
+        <h2 className="ds-section-title">Team roster grid</h2>
+        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
+          The &ldquo;Meet our team&rdquo; roster: a circular portrait over a name
+          and a role, four across on desktop, two on tablet, one on a phone.
+          Marked up as a list, portraits take an empty <code>alt</code>, and
+          names stay Charcoal because orange is decorative only.
+        </p>
+        <ul className="fe-people-grid">
+          {teamRoster.map((person) => (
+            <li className="fe-person" key={person.name}>
+              <span className="fe-person__photo">
+                {/* Plain <img>: the placeholders are SVG, which the Next image
+                    optimizer refuses by default, and there is nothing to
+                    optimize in a vector. Same call as FeIcon's file set. */}
+                <img src={person.avatar} alt="" width={144} height={144} />
+              </span>
+              <div>
+                <p className="fe-person__name">{person.name}</p>
+                <p className="fe-person__role">{person.role}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section id="profile-cards" className="ds-section">
+        <h2 className="ds-section-title">Profile cards with bio</h2>
+        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
+          The same person block on a card surface with a short bio, as course
+          pages introduce facilitators. Two columns from tablet up and no
+          further, because a bio needs the wider measure; the bio aligns to the
+          start while the portrait and name stay centred.
+        </p>
+        <ul className="fe-people-grid fe-people-grid--cards">
+          {facilitators.map((person, i) => (
+            <li className="fe-person fe-person--card" key={i}>
+              <span className="fe-person__photo">
+                <img src={person.avatar} alt="" width={112} height={112} />
+              </span>
+              <div>
+                <p className="fe-person__name">{person.name}</p>
+                <p className="fe-person__role">{person.role}</p>
+                <p className="fe-person__bio">{person.bio}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </section>
     </>
   );
