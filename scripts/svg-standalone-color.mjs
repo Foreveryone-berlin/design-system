@@ -28,6 +28,7 @@ export const ASSET_KINDS = [
   ["icons/ui", "ui"],
   ["illustrations", "illo"],
   ["illustrations/accents", "accent"],
+  ["illustrations/avatars", "illo"],
   ["illustrations/variants/accents", "accent"],
   ["illustrations/variants/line", "illo"],
   ["illustrations/blobs", "blob"],
