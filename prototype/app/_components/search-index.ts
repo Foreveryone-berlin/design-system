@@ -79,6 +79,8 @@ const pages: PageDef[] = [
       "Workshop facts card",
       "Step progression (week by week)",
       "Split list band",
+      "Team roster grid",
+      "Profile cards with bio",
     ],
   },
   {
