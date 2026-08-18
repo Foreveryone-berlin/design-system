@@ -149,6 +149,14 @@ When placing images inside blob or rounded masks:
 - These are **content** guidelines for editors and designers — not enforced in CSS.
 - **Prototype assets:** photographs and social previews used by `design.foreveryone.berlin` are tracked in [`prototype/public/images/ASSETS.md`](../prototype/public/images/ASSETS.md) (hero, Open Graph card, etc.).
 
+### Portrait placeholders
+
+`prototype/public/illustrations/avatars/avatar-1.svg` … `avatar-6.svg` are six generic head-and-shoulders silhouettes (short hair, bob, top bun, cap, side ponytail, curly) for the person patterns on `/patterns`. They exist so a roster specimen documents the layout without putting anyone's face in the design system, and they follow the illustration family convention: `fill="currentColor"` with the orange standalone `color` attribute.
+
+- **Use for:** prototype specimens, Figma-to-Elementor mockups, and any slot waiting on a real portrait.
+- **Do not** ship them on the live site, and do not add them to the Visual Elements download catalog: they are placeholders, not brand artwork.
+- The silhouettes have transparent backgrounds; the tinted disc behind them comes from `.fe-person__photo`, so swapping in a real photograph is only a file change.
+
 ## CSS quick reference
 
 | Pattern | Class / approach |
@@ -157,6 +165,7 @@ When placing images inside blob or rounded masks:
 | Social / neutral icon control | `FeIcon` with `set="social"` inside `.fe-icon-btn` |
 | Benefit / get-involved card lead | Line illustration via `.fe-card-benefit__illustration` (not accent marks) |
 | Decorative accent on a heading | `.ds-accent-mark` / assets under `illustrations/accents/` |
+| Person: photo + name + optional role and bio | `.fe-person` (`--card` for the bio variant) inside `.fe-people-grid` (`--cards`); portraits from `illustrations/avatars/` until real photos land |
 | Composite layout patterns | Prototype `/patterns`; catalog in [`spec/patterns/README.md`](../spec/patterns/README.md) |
 
 Elementor: when adding custom classes to icon widgets, use the same class names the child theme enqueues from `utilities.css` (see [custom-css-setup.md](../elementor/custom-css-setup.md)).
