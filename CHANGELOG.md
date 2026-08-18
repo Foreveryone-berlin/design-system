@@ -10,7 +10,7 @@
 
 - **Add**: Show a team roster layout on Patterns, with a round portrait, a name, and a role, four across on desktop and stacking down to one on a phone.
 - **Add**: Show the same person block as a card with a short bio, the way facilitators are introduced on a course page.
-- **Add**: Ship six generic portrait placeholders so the new layouts can be documented without putting anyone's photo in the design system.
+- **Add**: Ship five generic portrait placeholders so the new layouts can be documented without putting anyone's photo in the design system.
 - **Docs**: Bring the pattern catalog back in line with the Patterns page and note that names in these layouts stay charcoal, because orange is decorative only and too light for readable text.
 
 ## [1.2.0] - 2026-08-17
