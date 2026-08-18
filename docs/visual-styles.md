@@ -151,7 +151,7 @@ When placing images inside blob or rounded masks:
 
 ### Portrait placeholders
 
-`prototype/public/illustrations/avatars/avatar-1.svg` … `avatar-6.svg` are six generic head-and-shoulders silhouettes (short hair, bob, top bun, cap, side ponytail, curly) for the person patterns on `/patterns`. They exist so a roster specimen documents the layout without putting anyone's face in the design system, and they follow the illustration family convention: `fill="currentColor"` with the orange standalone `color` attribute.
+`prototype/public/illustrations/avatars/avatar-1.svg` … `avatar-5.svg` are five generic head-and-shoulders silhouettes (short hair, bob, top bun, side ponytail, curly) for the person patterns on `/patterns`. They exist so a roster specimen documents the layout without putting anyone's face in the design system, and they follow the illustration family convention: `fill="currentColor"` with the orange standalone `color` attribute.
 
 - **Use for:** prototype specimens, Figma-to-Elementor mockups, and any slot waiting on a real portrait.
 - **Do not** ship them on the live site, and do not add them to the Visual Elements download catalog: they are placeholders, not brand artwork.

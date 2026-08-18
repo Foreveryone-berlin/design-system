@@ -84,13 +84,13 @@ const listItems = [
   "List item five",
 ];
 
-// Placeholder portraits: six generic silhouettes under /illustrations/avatars,
+// Placeholder portraits: five generic silhouettes under /illustrations/avatars,
 // cycled so a roster reads as a roster rather than one icon repeated. The live
 // site replaces the src with a real photograph; nothing else changes.
 const teamRoster = Array.from({ length: 8 }, (_, i) => ({
   name: `Name Placeholder ${i + 1}`,
   role: "Role placeholder",
-  avatar: `/illustrations/avatars/avatar-${(i % 6) + 1}.svg`,
+  avatar: `/illustrations/avatars/avatar-${(i % 5) + 1}.svg`,
 }));
 
 const facilitators = [
@@ -103,7 +103,7 @@ const facilitators = [
   {
     name: "Name Placeholder",
     role: "Role placeholder",
-    avatar: "/illustrations/avatars/avatar-4.svg",
+    avatar: "/illustrations/avatars/avatar-3.svg",
     bio: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
   },
 ];
@@ -400,11 +400,8 @@ export default function PatternsPage() {
         <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
           The &ldquo;Meet our team&rdquo; roster: a circular portrait over a name
           and a role, four across on desktop, two on tablet, one on a phone.
-          Marked up as a list so assistive tech announces how many people are in
-          it. The portrait carries an empty <code>alt</code> because the name and
-          role sit beside it as text, and names stay Charcoal rather than orange:
-          the brand guide makes orange decorative only, and it falls well short
-          of the contrast ratio body text needs.
+          Marked up as a list, portraits take an empty <code>alt</code>, and
+          names stay Charcoal because orange is decorative only.
         </p>
         <ul className="fe-people-grid">
           {teamRoster.map((person) => (
@@ -427,10 +424,10 @@ export default function PatternsPage() {
       <section id="profile-cards" className="ds-section">
         <h2 className="ds-section-title">Profile cards with bio</h2>
         <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
-          The same person block on a card surface with a short bio, as the
-          facilitator introductions on a course page use it. Two columns from
-          tablet up and no further, because a bio needs the wider measure; the
-          bio text aligns to the start while the portrait and name stay centred.
+          The same person block on a card surface with a short bio, as course
+          pages introduce facilitators. Two columns from tablet up and no
+          further, because a bio needs the wider measure; the bio aligns to the
+          start while the portrait and name stay centred.
         </p>
         <ul className="fe-people-grid fe-people-grid--cards">
           {facilitators.map((person, i) => (
