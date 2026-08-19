@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+## [1.3.1] - 2026-08-19
+
+A fix for the arrows in the week-by-week step sequence.
+
 - **Fix**: Turn the connecting arrows in the week-by-week step sequence the right way round, so they lead down from the first step to the next, and give them space so they no longer touch the boxes.
 
 ## [1.3.0] - 2026-08-18
