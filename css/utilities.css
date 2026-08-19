@@ -1470,13 +1470,21 @@
   .fe-step-item:nth-child(even) .fe-step {
     margin-inline-start: auto;
   }
+  /* Keep the connector clear of the box above; the list gap handles the space
+     below it, so the arrow sits evenly between the two steps. */
+  .fe-step-item {
+    gap: var(--spacing-2);
+  }
   .fe-step__connector {
     display: block;
     margin-inline: auto;
+    /* The asset is drawn tail-at-bottom, tip-at-top, so flip it vertically to
+       make the sequence read downward from the first step. */
+    transform: scaleY(-1);
   }
   /* Mirror the arrow so it always points toward the next step's side. */
   .fe-step-item:nth-child(even) .fe-step__connector {
-    transform: scaleX(-1);
+    transform: scale(-1, -1);
   }
   .fe-people-grid {
     grid-template-columns: repeat(4, 1fr);
