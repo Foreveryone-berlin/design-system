@@ -4,7 +4,7 @@
 //
 //   node prototype/scripts/build-guide-og.mjs [variant] [outDir]
 //
-//   variant: photo (default) | doodle | blobs | all
+//   variant: doodle (default, shipped) | photo | blobs | all
 //   outDir:  where the JPGs land (default: .artifacts/images — gitignored)
 //
 // This card is a *website* asset, not a design-system asset: the default output
@@ -24,8 +24,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, "..", "..");
 const publicDir = join(__dirname, "..", "public");
 
-const VARIANTS = ["photo", "doodle", "blobs"];
-const arg = process.argv[2] ?? "photo";
+const VARIANTS = ["doodle", "photo", "blobs"];
+const arg = process.argv[2] ?? "doodle";
 const requested = arg === "all" ? VARIANTS : [arg];
 for (const v of requested) {
   if (!VARIANTS.includes(v)) {
