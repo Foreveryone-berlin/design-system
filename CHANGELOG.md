@@ -8,6 +8,8 @@
 
 ## [Unreleased]
 
+- **Fix**: Turn the connecting arrows in the week-by-week step sequence the right way round, so they lead down from the first step to the next, and give them space so they no longer touch the boxes.
+
 ## [1.3.0] - 2026-08-18
 
 People patterns: a team roster and a profile card with a bio.
