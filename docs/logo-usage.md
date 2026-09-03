@@ -36,9 +36,9 @@ colour. There are no exceptions.
 
 | Background | Logo colour | Notes |
 |---|---|---|
-| Lime Green `#D4E6A8` | Charcoal `#1E1E1E` | Light background |
+| Lime Green `#D4E6AB` | Charcoal `#1E1E1E` | Light background |
 | Soft Lavender `#E5DCFF` | Charcoal `#1E1E1E` | Light background. Never use Lavender `#D5C5FF` as a logo background — use Soft Lavender. |
-| Warm White `#FDFCF7` | Charcoal `#1E1E1E` | Light background |
+| Warm White `#FDFCF6` | Charcoal `#1E1E1E` | Light background |
 | Blue `#3F00EB` | White `#FFFFFF` | Pure white, **not** Warm White |
 | Orange `#FF7A3A` | White **standalone icon only** | Social profile images + print covers; **no text** on the orange background; never the full wordmark |
 
