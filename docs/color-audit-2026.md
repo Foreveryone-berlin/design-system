@@ -4,6 +4,32 @@ Official **7-color brand table** cross-checked against [`tokens/colors.json`](..
 
 > **Source of truth:** **ForEveryone Brand Book v1.0 (June 2026)** — see [`docs/brand-book-references.md`](brand-book-references.md). The Brand Book confirms the seven hexes below unchanged from the earlier Quick Brand Guidelines v2.0 (April 2026), which is now a superseded condensed reference only.
 
+## September 2026 reconciliation (brand board)
+
+The live brand board carries a 2026 palette that had drifted from the repo. Two of the seven canonical hexes were one digit off and are now corrected; eight further board colours had no token at all and were added.
+
+**Corrected:**
+
+| Colour | Was | Now | Contrast on Charcoal |
+|---|---|---|---|
+| Warm white (`color.accent`, `color.background-default`) | `#FDFCF7` | `#FDFCF6` | 16.22:1 |
+| Lime green (`color.light-green`, `color.background-title`, `color.status.success`, `color.green.500`) | `#D4E6A8` | `#D4E6AB` | 12.47:1 |
+
+**Added** (decorative and extended-palette use; none replaces a canonical brand colour):
+
+| Token | Hex | Board row | Contrast |
+|---|---|---|---|
+| `color.teal-deep` | `#0F6E6E` | Primary | 6.04:1 on white text |
+| `color.magenta` | `#BE2A6B` | Primary | 5.63:1 on white text |
+| `color.navy` | `#1F3A6E` | Primary | 11.12:1 on white text |
+| `color.blush` | `#FADCD2` | Secondary | 12.89:1 on Charcoal |
+| `color.yellow` | `#F6C445` | Secondary | 10.24:1 on Charcoal |
+| `color.red` | `#C43A2E` | Secondary | 5.26:1 on white text |
+| `color.warm-grey-light` | `#C9BFAE` | Neutral | 9.17:1 on Charcoal |
+| `color.warm-grey` | `#989389` | Neutral | 5.45:1 on Charcoal |
+
+`color.teal-deep` is distinct from the existing decorative `color.teal` (`#03C9D3`, Elementor Custom 6), and `color.red` is distinct from `color.status.error` (`#DC2626`, the form-error signal). The board also shows a fourth interface state, **Announce**, alongside Success/Warning/Error; that panel is a flattened image on the board, so the colour→state mapping is not yet readable and `color.status` is unchanged.
+
 ## Phase 0 decisions (implementation authority)
 
 1. **Scope:** The seven swatches are the **canonical brand colors** for hex alignment. **Legacy** tokens (pink, teal, purple, decorative theme blues/greys, `focus-button`, `light-orange`, etc.) **remain** for Elementor slots and existing utilities until a separate deprecation pass; they are **not** in the 7-color table.
@@ -17,8 +43,8 @@ Official **7-color brand table** cross-checked against [`tokens/colors.json`](..
 | Orange | `#FF7A3A` | `color.brand-primary` | `#FF7A3A` | Keep hex; refresh `$description` |
 | Blue | `#3F00EB` | `color.brand-secondary` | `#3F00EB` | Keep hex; note alerts + white type |
 | Charcoal | `#1E1E1E` | `color.brand-dark`, `color.theme-2`, `color.theme-8` | `#404040`, `#3A3A3A`, `#424242` | **Align** to charcoal for primary/support text |
-| Warm white | `#FDFCF7` | `color.accent` | `#F1F1EA` | **Align** (Elementor Global 4) |
-| Lime green | `#D4E6A8` | `color.light-green`, `color.status.success` | `#F1F7E5`, `#D4E8A8` | **Align** (surfaces + success) |
+| Warm white | `#FDFCF6` | `color.accent` | `#F1F1EA` | **Align** (Elementor Global 4) |
+| Lime green | `#D4E6AB` | `color.light-green`, `color.status.success` | `#F1F7E5`, `#D4E8A8` | **Align** (surfaces + success) |
 | Lavender | `#D5C5FF` | `color.light-purple` | `#D9CCFB` | **Align** |
 | Soft lavender | `#E5DCFF` | `color.soft-lavender` *(new)* | — | **Add** + `build-css.js` key |
 
@@ -45,9 +71,9 @@ Source: **Brand Book v1.0 (June 2026)**, p.18 (accessibility combinations) and p
 
 | Background           | Text       | Token alias                    | Use                                    |
 |----------------------|------------|--------------------------------|----------------------------------------|
-| Warm White `#FDFCF7` | Charcoal   | `--color-background-default`   | Text-heavy content                     |
+| Warm White `#FDFCF6` | Charcoal   | `--color-background-default`   | Text-heavy content                     |
 | Soft Lavender `#E5DCFF` | Charcoal | `--color-background-soft`     | Cards, decorative content blocks       |
-| Lime Green `#D4E6A8` | Charcoal   | `--color-background-title`     | Title areas only                       |
+| Lime Green `#D4E6AB` | Charcoal   | `--color-background-title`     | Title areas only                       |
 | Blue `#3F00EB`       | White      | `--color-background-alert`     | Special announcements / alerts         |
 | Charcoal `#1E1E1E`   | Warm White | `--color-brand-dark` + `--color-accent` | Dark sections (rare)         |
 
