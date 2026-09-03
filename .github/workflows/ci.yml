@@ -17,14 +17,13 @@ jobs:
         with:
           node-version-file: .nvmrc
 
+      - run: npm ci
+
       - name: Build tokens to CSS
         run: node scripts/build-css.js
 
-      - name: Validate tokens + generated CSS
-        run: node scripts/build-css.test.js
-
-      - name: Validate SVG assets
-        run: node scripts/svg-validate.test.js
+      - name: Validate tokens, generated CSS, and SVG assets
+        run: npm test
 
       - name: Detect token drift
         run: |

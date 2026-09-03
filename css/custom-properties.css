@@ -10,18 +10,26 @@
   --color-brand-primary: oklch(0.726 0.179 43.9);
   --color-brand-secondary: oklch(0.4486 0.2813 275.3);
   --color-brand-dark: oklch(0.235 0 89.9);
-  --color-accent: oklch(0.99 0.007 97.3);
+  --color-accent: oklch(0.99 0.008 98.9);
   --color-focus-button: oklch(0.616 0.149 44.3);
   --color-light-purple: oklch(0.856 0.081 297.3);
   --color-soft-lavender: oklch(0.912 0.048 297.2);
   --color-lavender-official: oklch(0.89 0.067 305.3);
-  --color-light-green: oklch(0.896 0.083 121.2);
+  --color-light-green: oklch(0.897 0.08 121.8);
   --color-light-orange: oklch(0.908 0.052 46.9);
   --color-pink: oklch(0.792 0.107 357.1);
   --color-teal: oklch(0.7606 0.1291 201.2);
   --color-purple: oklch(0.732 0.153 327);
   --color-very-light-gray: oklch(0.976 0 89.9);
   --color-light-gray: oklch(0.885 0 89.9);
+  --color-teal-deep: oklch(0.4891 0.0798 194.9);
+  --color-magenta: oklch(0.54 0.189 359.6);
+  --color-navy: oklch(0.357 0.096 262.1);
+  --color-blush: oklch(0.917 0.036 39.3);
+  --color-yellow: oklch(0.8432 0.1494 86.5);
+  --color-red: oklch(0.552 0.177 29);
+  --color-warm-grey-light: oklch(0.808 0.026 81.1);
+  --color-warm-grey: oklch(0.665 0.016 84.6);
   --color-theme-1: oklch(0.532 0.142 247.7);
   --color-theme-2: oklch(0.235 0 89.9);
   --color-theme-4: oklch(0.427 0.016 266.5);
@@ -32,9 +40,9 @@
   /* ── Colors: Semantic (2026 brand guide) ─────────────────────────────── */
   /* Use these instead of raw brand colors for backgrounds and accents.    */
   /* --color-brand-primary (orange) is DECORATIVE ONLY — never a bg.       */
-  --color-background-default: oklch(0.99 0.007 97.3);
+  --color-background-default: oklch(0.99 0.008 98.9);
   --color-background-soft: oklch(0.912 0.048 297.2);
-  --color-background-title: oklch(0.896 0.083 121.2);
+  --color-background-title: oklch(0.897 0.08 121.8);
   --color-background-alert: oklch(0.4486 0.2813 275.3);
   --color-accent-icon: oklch(0.726 0.179 43.9);
   --color-accent-border: oklch(0.726 0.179 43.9);
@@ -43,7 +51,7 @@
 
   /* ── Colors: Status ──────────────────────────────────────────────────── */
   --color-status-error:   oklch(0.577 0.215 27.3);
-  --color-status-success: oklch(0.896 0.083 121.2);
+  --color-status-success: oklch(0.897 0.08 121.8);
   --color-status-warning: oklch(0.822 0.107 46.2);
 
   /* ── Colors: Base ────────────────────────────────────────────────────── */
@@ -96,7 +104,7 @@
   --color-green-200: oklch(0.958 0.034 119.8);
   --color-green-300: oklch(0.937 0.05 120.8);
   --color-green-400: oklch(0.917 0.067 120.4);
-  --color-green-500: oklch(0.896 0.083 121.2);
+  --color-green-500: oklch(0.897 0.08 121.8);
   --color-green-600: oklch(0.759 0.07 120.8);
   --color-green-700: oklch(0.614 0.055 121.5);
   --color-green-800: oklch(0.461 0.04 120.7);

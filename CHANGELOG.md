@@ -8,6 +8,13 @@
 
 ## [Unreleased]
 
+2026 palette expansion and colour corrections.
+
+- **Add**: Bring eight new colours from the 2026 brand board into the token set: Deep Teal, Magenta, Navy, Blush, Yellow, Red, and two warm greys.
+- **Fix**: Correct Warm White and Lime Green hex values to match the 2026 palette on the brand board (#FDFCF6, #D4E6AB).
+- **Add**: Show the new 2026 palette colours as swatches on Foundations and list their approved background + text pairings.
+
+
 ## [1.3.1] - 2026-08-19
 
 A fix for the arrows in the week-by-week step sequence.
