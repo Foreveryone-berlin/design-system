@@ -6,9 +6,9 @@ export const metadata = {
 
 const cmyk = [
   { name: "Orange", hex: "#FF7A3A", home: "0 / 51 / 80 / 0", press: "0 / 65 / 84 / 0" },
-  { name: "Lime Green", hex: "#D4E6A8", home: "9 / 0 / 36 / 0", press: "18 / 0 / 43 / 0" },
+  { name: "Lime Green", hex: "#D4E6AB", home: "9 / 0 / 36 / 0", press: "18 / 0 / 43 / 0" },
   { name: "Soft Lavender", hex: "#E5DCFF", home: "6 / 12 / 0 / 0", press: "16 / 22 / 0 / 0" },
-  { name: "Warm White", hex: "#FDFCF7", home: "0 / 0 / 2 / 1", press: "0 / 0 / 3 / 1" },
+  { name: "Warm White", hex: "#FDFCF6", home: "0 / 0 / 2 / 1", press: "0 / 0 / 3 / 1" },
   { name: "Charcoal", hex: "#1E1E1E", home: "0 / 0 / 0 / 88", press: "0 / 0 / 0 / 88" },
 ];
 

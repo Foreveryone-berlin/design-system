@@ -16,7 +16,7 @@ const primaryRoles = [
   {
     name: "Lime Green",
     var: "var(--color-light-green)",
-    hex: "#D4E6A8",
+    hex: "#D4E6AB",
     role: "Background",
     text: "charcoal",
     usage: "Title slides, key layouts, and blob shapes.",
@@ -45,7 +45,7 @@ const neutralSecondaryRoles = [
   {
     name: "Warm White",
     var: "var(--color-accent)",
-    hex: "#FDFCF7",
+    hex: "#FDFCF6",
     role: "Background",
     text: "charcoal",
     usage: "Default background for text-heavy content. Always pair with Charcoal text.",
@@ -91,6 +91,14 @@ const colorSwatches = [
   { token: "focus-button", var: "var(--color-focus-button)" },
   { token: "status-error", var: "var(--color-status-error)" },
   { token: "teal", var: "var(--color-teal)" },
+  { token: "teal-deep", var: "var(--color-teal-deep)" },
+  { token: "magenta", var: "var(--color-magenta)" },
+  { token: "navy", var: "var(--color-navy)" },
+  { token: "blush", var: "var(--color-blush)" },
+  { token: "yellow", var: "var(--color-yellow)" },
+  { token: "red", var: "var(--color-red)" },
+  { token: "warm-grey-light", var: "var(--color-warm-grey-light)" },
+  { token: "warm-grey", var: "var(--color-warm-grey)" },
   { token: "theme-1", var: "var(--color-theme-1)" },
   { token: "theme-4", var: "var(--color-theme-4)" },
   { token: "theme-8", var: "var(--color-theme-8)" },
@@ -101,7 +109,7 @@ const colorSwatches = [
 const rampHex: Record<string, Record<string, string>> = {
   neutral: { "50": "#FAFAFA", "100": "#F5F5F5", "200": "#E5E5E5", "300": "#D4D4D4", "400": "#A3A3A3", "500": "#737373", "600": "#525252", "700": "#404040", "800": "#262626", "900": "#1E1E1E" },
   orange: { "50": "#FFF2EB", "100": "#FFE4D8", "150": "#FFD7C4", "200": "#FFCAB0", "300": "#FFAF89", "400": "#FF9561", "500": "#FF7A3A", "600": "#CC622E", "700": "#994923", "800": "#663117", "900": "#33180C" },
-  green: { "50": "#FBFCF6", "100": "#F6FAEE", "150": "#F2F7E5", "200": "#EEF5DC", "300": "#E5F0CB", "400": "#DDEBB9", "500": "#D4E6A8", "600": "#AAB886", "700": "#7F8A65", "800": "#555C43", "900": "#2A2E22" },
+  green: { "50": "#FBFCF6", "100": "#F6FAEE", "150": "#F2F7E5", "200": "#EEF5DC", "300": "#E5F0CB", "400": "#DDEBB9", "500": "#D4E6AB", "600": "#AAB886", "700": "#7F8A65", "800": "#555C43", "900": "#2A2E22" },
   blue: { "50": "#ECE5FD", "100": "#D9CCFB", "150": "#C5B2F9", "200": "#B299F7", "300": "#8C66F3", "400": "#6533EF", "500": "#3F00EB", "600": "#3200BC", "700": "#26008D", "800": "#19005E", "900": "#0D002F" },
   lavender: { "50": "#FBF9FF", "100": "#F7F3FF", "150": "#F2EEFF", "200": "#EEE8FF", "300": "#E6DCFF", "400": "#DDD1FF", "500": "#D5C5FF", "600": "#AA9ECC", "700": "#807699", "800": "#554F66", "900": "#2B2733" },
 };
@@ -164,19 +172,29 @@ const colorCode = `/* Brand */
 --color-brand-primary: oklch(0.726 0.179 43.9);    /* #FF7A3A */
 --color-brand-secondary: oklch(0.4486 0.2813 275.3); /* #3F00EB */
 --color-brand-dark: oklch(0.235 0 89.9);           /* #1E1E1E */
---color-accent: oklch(0.99 0.007 97.3);            /* #FDFCF7 */
+--color-accent: oklch(0.99 0.008 98.9);            /* #FDFCF6 */
 --color-focus-button: oklch(0.616 0.149 44.3);     /* #CC622E */
 
 /* Tints & Accents */
 --color-light-purple: oklch(0.856 0.081 297.3);    /* #D5C5FF */
 --color-soft-lavender: oklch(0.912 0.048 297.2);   /* #E5DCFF */
---color-light-green: oklch(0.896 0.083 121.2);     /* #D4E6A8 */
+--color-light-green: oklch(0.897 0.08 121.8);      /* #D4E6AB */
 --color-light-orange: oklch(0.908 0.052 46.9);     /* #FFD7C4 */
 --color-pink: oklch(0.792 0.107 357.1);            /* #F39EBC */
 --color-teal: oklch(0.7606 0.1291 201.2);          /* #03C9D3 */
 --color-purple: oklch(0.732 0.153 327);            /* #DA83DA */
 --color-very-light-gray: oklch(0.976 0 89.9);      /* #F7F7F7 */
 --color-light-gray: oklch(0.885 0 89.9);           /* #D9D9D9 */
+
+/* 2026 palette (brand board) */
+--color-teal-deep: oklch(0.4891 0.0798 194.9);     /* #0F6E6E */
+--color-magenta: oklch(0.54 0.189 359.6);          /* #BE2A6B */
+--color-navy: oklch(0.357 0.096 262.1);            /* #1F3A6E */
+--color-blush: oklch(0.917 0.036 39.3);            /* #FADCD2 */
+--color-yellow: oklch(0.8432 0.1494 86.5);         /* #F6C445 */
+--color-red: oklch(0.552 0.177 29);                /* #C43A2E */
+--color-warm-grey-light: oklch(0.808 0.026 81.1);  /* #C9BFAE */
+--color-warm-grey: oklch(0.665 0.016 84.6);        /* #989389 */
 
 /* Theme (Elementor) */
 --color-theme-1: oklch(0.532 0.142 247.7);         /* #0170B9 */
@@ -188,7 +206,7 @@ const colorCode = `/* Brand */
 
 /* Status */
 --color-status-error: oklch(0.577 0.215 27.3);     /* #DC2626 */
---color-status-success: oklch(0.896 0.083 121.2);  /* #D4E6A8 */
+--color-status-success: oklch(0.897 0.08 121.8);   /* #D4E6AB */
 --color-status-warning: oklch(0.822 0.107 46.2);   /* #FFAF89 */
 
 /* Base */
@@ -454,6 +472,66 @@ export default function TokensPage() {
           >
             <strong>Charcoal</strong>
             <span>Warm White text — dark sections (rare)</span>
+          </div>
+          <div
+            className="ds-combo"
+            style={{
+              background: "var(--color-teal-deep)",
+              color: "var(--color-white)",
+            }}
+          >
+            <strong>Deep Teal</strong>
+            <span>White text — dark accent sections</span>
+          </div>
+          <div
+            className="ds-combo"
+            style={{
+              background: "var(--color-magenta)",
+              color: "var(--color-white)",
+            }}
+          >
+            <strong>Magenta</strong>
+            <span>White text — highlight sections</span>
+          </div>
+          <div
+            className="ds-combo"
+            style={{
+              background: "var(--color-navy)",
+              color: "var(--color-white)",
+            }}
+          >
+            <strong>Navy</strong>
+            <span>White text — dark ground</span>
+          </div>
+          <div
+            className="ds-combo"
+            style={{
+              background: "var(--color-blush)",
+              color: "var(--color-brand-dark)",
+            }}
+          >
+            <strong>Blush</strong>
+            <span>Charcoal text — soft warm ground</span>
+          </div>
+          <div
+            className="ds-combo"
+            style={{
+              background: "var(--color-yellow)",
+              color: "var(--color-brand-dark)",
+            }}
+          >
+            <strong>Yellow</strong>
+            <span>Charcoal text — never white text</span>
+          </div>
+          <div
+            className="ds-combo"
+            style={{
+              background: "var(--color-red)",
+              color: "var(--color-white)",
+            }}
+          >
+            <strong>Red</strong>
+            <span>White text — secondary accent</span>
           </div>
           <div
             className="ds-combo ds-combo--disallowed"

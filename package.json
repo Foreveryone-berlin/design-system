@@ -12,6 +12,9 @@
     "prototype:build": "npm --prefix prototype run build",
     "prototype:lint": "npm --prefix prototype run lint"
   },
+  "dependencies": {
+    "svg-path-bbox": "^2.1.0"
+  },
   "engines": {
     "node": ">=24"
   },
