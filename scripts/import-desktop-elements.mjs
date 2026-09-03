@@ -101,12 +101,6 @@ const MAP = {
     target: "illustrations/variants/accents/emphasis-lines-variant-4.svg",
     kind: "accent",
   },
-
-  Icon_Knitting: { target: "icons/variants/workshop/knitting-variant-1.svg", kind: "workshop" },
-  Icon_Pottery_1: { target: "icons/variants/workshop/pottery-variant-1.svg", kind: "workshop" },
-  Icon_Pottery_3: { target: "icons/variants/workshop/pottery-variant-3.svg", kind: "workshop" },
-  Email_2: { target: "icons/variants/social/email-variant-2.svg", kind: "social" },
-  Linkedin_2: { target: "icons/variants/social/linkedin-variant-2.svg", kind: "social" },
 };
 
 function optimizeWithSvgo(filePath) {
