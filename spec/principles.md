@@ -11,9 +11,9 @@ this system. Tokens are in [tokens.json](tokens.json); CSS variables are in
 
 | Background | CSS var | Text | Contrast |
 |---|---|---|---|
-| Warm White `#FDFCF7` | `--color-background-default` | Charcoal | 16.22:1 |
+| Warm White `#FDFCF6` | `--color-background-default` | Charcoal | 16.22:1 |
 | Soft Lavender `#E5DCFF` | `--color-background-soft` | Charcoal | 12.71:1 |
-| Lime Green `#D4E6A8` | `--color-background-title` | Charcoal | 12.45:1 |
+| Lime Green `#D4E6AB` | `--color-background-title` | Charcoal | 12.47:1 |
 | Blue `#3F00EB` | `--color-background-alert` | White `#FFFFFF` | 8.71:1 |
 | Charcoal `#1E1E1E` | `--color-brand-dark` | Warm White | (rare dark sections) |
 

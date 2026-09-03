@@ -41,7 +41,6 @@ const pages: PageDef[] = [
       "Activity icons",
       "Social icons",
       "UI glyphs",
-      "Icon variant catalog",
       "Line illustrations",
       "Functional doodles",
       "Decorative accent marks",
