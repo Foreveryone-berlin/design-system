@@ -48,6 +48,26 @@ Common mistakes:
 
 Full detail: [docs/AGENTS.md](docs/AGENTS.md), [docs/agents/agent-contract.md](docs/agents/agent-contract.md).
 
+## Release
+
+Run by the user-level `ship` skill on its release track. This section is what that skill cannot derive from the repo on its own; [docs/skills/release.md](docs/skills/release.md) is the manual fallback.
+
+- **Branch model:** `develop` is the integration branch, `main` is production. There is no staging branch.
+- **Deploy trigger:** Vercel auto-deploys `main` on push. No GitHub Action deploys anything; `.github/workflows/release.yml` only publishes the GitHub Release from a `v*.*.*` tag, so the tag push is the release step, not the deploy.
+- **Version files:** `package.json` and `prototype/package.json`, both to `X.Y.Z`.
+- **Changelog:** date the `## [X.Y.Z] - YYYY-MM-DD` section to the plain-language standard at the top of [`CHANGELOG.md`](CHANGELOG.md) (at most six short bullets, no file paths or token IDs in the summary list). Leave `## [Unreleased]` in place.
+- **Gates:** `npm run build` (CSS + spec) clean with no unintended diff, plus the prototype axe gate: `cd prototype && npm install`, then with the dev server up `PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e`.
+- **Generated files:** after any `tokens/` or `css/` change run `node scripts/build-css.js` (or `npm run build`) in the same commit. Never hand-edit `css/custom-properties.css`.
+- **Promotion:** PR `develop` → `main` with the PR template body; wait for the required CI in `ci.yml`; `gh pr merge <id> --merge`, or `--squash --admin` where main protection requires the bypass. Never direct-push to `main`.
+- **Verify the deploy**, which is not a CI step: confirm `design.foreveryone.berlin` is live and its home hero shows `vX.Y.Z`, and that the legacy host still redirects.
+
+```bash
+curl -sI -H "Host: fe-design-system.vercel.app" https://fe-design-system.vercel.app/ | grep -i "^location\|^HTTP"
+# expect: HTTP/2 301 and location: https://design.foreveryone.berlin/
+```
+
+See [docs/prototype-deploy.md](docs/prototype-deploy.md). This is not a published package; there is no `npm publish` step.
+
 ## Key docs
 
 | Topic | File |
