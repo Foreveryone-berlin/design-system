@@ -19,7 +19,7 @@ The user wants to optimize/audit the prototype for performance, accessibility, S
 
 ### Job-scope override (autonomous jobs)
 
-When executing the **Cursor CLI Opus replacement** job (dotfiles `docs/cursor-cli-playbook.md`), the orchestrator may commit, push, and open PRs. Interactive sessions keep the rule above.
+When executing the **Cursor CLI Opus replacement** job, the orchestrator may commit, push, and open PRs. Interactive sessions keep the rule above.
 
 - Authored CSS uses `var(--token)` custom properties only (no raw hex or font-family), logical properties, mobile-first min-width, no `!important`. `css/custom-properties.css` is generated; never hand-edit it.
 - The prototype is intentionally `robots: noindex, nofollow`; keep it that way and do not add a sitemap.

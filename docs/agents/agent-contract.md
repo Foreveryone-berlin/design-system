@@ -57,7 +57,7 @@ Keep root `AGENTS.md`, `CLAUDE.md`, `.cursor/AGENTS.md` pins, and this contract 
 
 ## Cursor CLI
 
-- **Model:** Composer 2.5 standard (`maxMode: false` via dotfiles defaults).
+- **Model:** Composer 2.5 standard (`maxMode: false`).
 - **Context:** loads root `AGENTS.md` + `CLAUDE.md` + project skills from `.claude/skills/` (not `.cursor/AGENTS.md`).
 - **Headless:** `agent -p --force` from repo root; long jobs use `bash scripts/optimize-run.sh` (sequential optimize domains) or repo-specific `*-fanout.sh` when file ownership overlaps.
-- **Autonomous jobs:** see the Cursor CLI playbook in the shared dotfiles (external to this repo) for job-scoped merge/deploy rules.
+- **Autonomous jobs:** job-scoped merge/deploy rules come from the operator's own Cursor CLI playbook, external to this repo.
