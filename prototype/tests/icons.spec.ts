@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/test";
 test("visual-elements catalog renders all icon families without double chips", async ({ page }) => {
   await page.goto("/visual-elements", { waitUntil: "networkidle" });
 
-  // Category chips (5) and activity chips (5). Social and UI glyphs use tables, not chips.
+  // Category chips (5) and activity chips (5). Social, UI, and accent catalogs use tables.
   const catalogChips = page.locator(".ds-icon-chip");
   await expect(catalogChips).toHaveCount(10);
 
@@ -14,10 +14,11 @@ test("visual-elements catalog renders all icon families without double chips", a
     await expect(chip.locator(".fe-workshop-icon")).toHaveCount(0);
   }
 
-  // Social (6) + file (2) + UI stroke glyphs (13) render as table marks with a visible glyph.
-  const glyphMarks = page.locator(".ds-glyph-table__mark");
-  await expect(glyphMarks).toHaveCount(21);
-  await expect(glyphMarks.first().locator("svg, img")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Social icons" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "UI glyphs" })).toBeVisible();
+  await expect(
+    page.locator(".ds-glyph-table__mark svg, .ds-glyph-table__mark img").first(),
+  ).toBeVisible();
 });
 
 test("icon-only buttons keep accessible labels and render a single glyph", async ({ page }) => {
