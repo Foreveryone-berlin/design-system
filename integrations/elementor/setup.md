@@ -30,7 +30,7 @@ Use this only when your theme setup cannot enqueue CSS from `functions.php`. `wp
 
 ## Elementor Fallback: Paste `:root` Block
 
-If enqueueing is not available yet, open **Elementor > Site Settings > Custom CSS** and paste the current generated `:root` block from [`css/custom-properties.css`](../css/custom-properties.css). Do not hand-edit the pasted CSS; rerun `node scripts/build-css.js` whenever tokens change and paste the updated block.
+If enqueueing is not available yet, open **Elementor > Site Settings > Custom CSS** and paste the current generated `:root` block from [`css/custom-properties.css`](../../css/custom-properties.css). Do not hand-edit the pasted CSS; rerun `node scripts/build-css.js` whenever tokens change and paste the updated block.
 
 ```bash
 # Example: copy the generated file contents to paste into Elementor
@@ -46,23 +46,15 @@ The child theme should load `css/utilities.css` (or a bundle that includes it) s
 - **`.fe-icon-btn--filled-brand`** — **filled orange** circular control for **category / functional** icons per the brand visual styles; white glyph via `currentColor`.
 - **`.fe-workshop-icon--sm`**, **`.fe-workshop-icon--md`**, **`.fe-workshop-icon--lg`** — orange chip + white glyph at tag (24px), icon-button (40px), and specimen (80px) sizes. Pair with category or activity SVGs from `icons/categories/` or `icons/workshop/`.
 
-See [docs/visual-styles.md](../docs/visual-styles.md). Place the SVG inside the widget with `fill="currentColor"` (and `aria-hidden="true"` if the button has an `aria-label`).
+See [docs/visual-styles.md](../../docs/visual-styles.md). Place the SVG inside the widget with `fill="currentColor"` (and `aria-hidden="true"` if the button has an `aria-label`).
 
 ## Skip link (accessibility)
 
-Load `css/utilities.css` (or your bundled design-system CSS) so `.fe-skip-link` is available. Add this as the **first element inside `<body>`** in the child theme header template:
+The skip-link CSS ships as `.fe-skip-link` in `css/utilities.css`, but the host page must supply the markup. The requirement and the snippets are platform-neutral and live in [docs/integration-checklist.md](../../docs/integration-checklist.md); on this target, add them to the child theme header template.
 
-```html
-<a href="#main-content" class="fe-skip-link">Skip to content</a>
-```
+## Elementor overrides stylesheet
 
-Ensure the primary content wrapper uses:
-
-```html
-<main id="main-content" tabindex="-1">…</main>
-```
-
-The skip link is visually hidden until focused. Tab once from the page load to verify it appears and jumps past navigation.
+[`css/integrations/elementor.css`](../../css/integrations/elementor.css) maps Elementor's own DOM (`.elementor-section`, `.elementor-nav-menu`, the Form and Accordion widgets) onto design-system values. No build step emits it, so copy it into the child theme alongside the other CSS layers. It targets the legacy `.elementor-section` markup, not the current `.e-con` container model.
 
 ## Validation Checklist
 
@@ -70,3 +62,4 @@ The skip link is visually hidden until focused. Tab once from the page load to v
 2. Hard refresh site and clear caches.
 3. In devtools, inspect `:root` and confirm custom properties are present.
 4. Check button, heading, and input styles in Elementor preview.
+5. Run [docs/integration-checklist.md](../../docs/integration-checklist.md) on a staging page.

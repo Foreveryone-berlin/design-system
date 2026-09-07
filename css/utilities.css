@@ -1190,7 +1190,7 @@
    because each tile is a label/value pair. */
 /* The tile count follows the card's own width, not the viewport: the card sits
    in a sidebar-narrowed column on docs pages and in full-width or two-thirds
-   Elementor containers on the site, where a viewport breakpoint would hand a
+   host layout columns on consuming sites, where a viewport breakpoint would hand a
    700px column the three-column layout and overflow it. */
 .fe-facts-card {
   container: fe-facts-card / inline-size;
@@ -1512,7 +1512,7 @@
 
 /* Skip link: add <a href="#main-content" class="fe-skip-link">Skip to content</a>
    as the first focusable element and id="main-content" tabindex="-1" on <main>.
-   See elementor/custom-css-setup.md. */
+   See docs/integration-checklist.md. */
 .fe-skip-link {
   position: absolute;
   inset-block-start: var(--spacing-2);

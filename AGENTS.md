@@ -8,15 +8,16 @@ This repo-root mirror exists for tools that only read `AGENTS.md` at the reposit
 
 ## What this repo is
 
-Design system for [foreveryone.berlin](https://foreveryone.berlin/) — WordPress + Elementor Pro + child theme on the live site; **this repo** holds tokens, CSS, Elementor/Figma docs, and a **Next.js prototype** (`prototype/`). Figma = visual source of truth; repo = implementation source of truth.
+Platform-neutral design system for [foreveryone.berlin](https://foreveryone.berlin/): **this repo** holds tokens, generated CSS custom properties, `fe-*` utilities, Figma sync notes, per-platform integration guides, and a **Next.js prototype** (`prototype/`). Consumed by the prototype, by any framework or plain-CSS app, and by host platforms listed in [integrations/README.md](integrations/README.md). Figma = visual source of truth; repo = implementation source of truth.
 
 ## Stack pin
 
 ```text
 Tokens|W3C DTCG JSON ($value, $type, $description) | refs {category.tier.variant}
 CSS|authored: var(--*) only | css/custom-properties.css GENERATED — edit tokens + build
-Classes|fe-* | Elementor bp: mobile <767 | tablet 768–1024 | desktop >1025
+Classes|fe-* | Breakpoints (mobile-first min-width): 640 | 768 | 1024
 Prototype|Next.js — see prototype/package.json
+Platform code|css/integrations/*.css + integrations/<target>/ ONLY — keep css/ and tokens/ neutral
 ```
 
 Common mistakes:
@@ -24,6 +25,7 @@ Common mistakes:
 - Editing `css/custom-properties.css` by hand — run `node scripts/build-css.js` after token changes.
 - Hardcoding hex or `font-family` in authored CSS — use variables from `custom-properties.css`.
 - Skipping `CHANGELOG.md` when touching `tokens/` or implementation `css`.
+- Putting platform-specific selectors, slot numbers, or product names in `tokens/`, `spec/`, or the shared `css/*.css` — they belong in `css/integrations/` and `integrations/<target>/`.
 
 ## Commands (repo root unless noted)
 
@@ -48,6 +50,26 @@ Common mistakes:
 
 Full detail: [docs/AGENTS.md](docs/AGENTS.md), [docs/agents/agent-contract.md](docs/agents/agent-contract.md).
 
+## Release
+
+Run by the user-level `ship` skill on its release track. This section is what that skill cannot derive from the repo on its own; [docs/skills/release.md](docs/skills/release.md) is the manual fallback.
+
+- **Branch model:** `develop` is the integration branch, `main` is production. There is no staging branch.
+- **Deploy trigger:** Vercel auto-deploys `main` on push. No GitHub Action deploys anything; `.github/workflows/release.yml` only publishes the GitHub Release from a `v*.*.*` tag, so the tag push is the release step, not the deploy.
+- **Version files:** `package.json` and `prototype/package.json`, both to `X.Y.Z`.
+- **Changelog:** date the `## [X.Y.Z] - YYYY-MM-DD` section to the plain-language standard at the top of [`CHANGELOG.md`](CHANGELOG.md) (at most six short bullets, no file paths or token IDs in the summary list). Leave `## [Unreleased]` in place.
+- **Gates:** `npm run build` (CSS + spec) clean with no unintended diff, plus the prototype axe gate: `cd prototype && npm install`, then with the dev server up `PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e`.
+- **Generated files:** after any `tokens/` or `css/` change run `node scripts/build-css.js` (or `npm run build`) in the same commit. Never hand-edit `css/custom-properties.css`.
+- **Promotion:** PR `develop` → `main` with the PR template body; wait for the required CI in `ci.yml`; `gh pr merge <id> --merge`, or `--squash --admin` where main protection requires the bypass. Never direct-push to `main`.
+- **Verify the deploy**, which is not a CI step: confirm `design.foreveryone.berlin` is live and its home hero shows `vX.Y.Z`, and that the legacy host still redirects.
+
+```bash
+curl -sI -H "Host: fe-design-system.vercel.app" https://fe-design-system.vercel.app/ | grep -i "^location\|^HTTP"
+# expect: HTTP/2 301 and location: https://design.foreveryone.berlin/
+```
+
+See [docs/prototype-deploy.md](docs/prototype-deploy.md). This is not a published package; there is no `npm publish` step.
+
 ## Key docs
 
 | Topic | File |
@@ -57,12 +79,14 @@ Full detail: [docs/AGENTS.md](docs/AGENTS.md), [docs/agents/agent-contract.md](d
 | Runtime policy | [docs/agents/runtime-policy.md](docs/agents/runtime-policy.md) |
 | PR / merge workflow | [docs/pr-and-merge-workflow.md](docs/pr-and-merge-workflow.md) |
 | Token update workflow | [docs/skills/token-update.md](docs/skills/token-update.md) |
+| Integration targets | [integrations/README.md](integrations/README.md) |
+| Per-target release checks | [docs/integration-checklist.md](docs/integration-checklist.md) |
 | Cursor agent precedence shim | [.cursor/AGENTS.md](.cursor/AGENTS.md) |
 | Claude Code entry | [CLAUDE.md](CLAUDE.md) |
 
 ## Retrieval-led reasoning
 
-**IMPORTANT:** Prefer retrieval-led reasoning from **[docs/AGENTS.md](docs/AGENTS.md)** for any design-system, token, CSS, Elementor, Figma, or prototype (Next.js) tasks. Use the index below to find the right file instead of guessing.
+**IMPORTANT:** Prefer retrieval-led reasoning from **[docs/AGENTS.md](docs/AGENTS.md)** for any design-system, token, CSS, integration, Figma, or prototype (Next.js) tasks. Use the index below to find the right file instead of guessing.
 
 ---
 
@@ -71,20 +95,21 @@ Full detail: [docs/AGENTS.md](docs/AGENTS.md), [docs/agents/agent-contract.md](d
 Paths are repo-relative from project root.
 
 |root:{README.md,CHANGELOG.md,AGENTS.md,CLAUDE.md,llms.txt}
-|docs:{AGENTS.md,brand-book-references.md,color-audit-2026.md,contributing.md,getting-started.md,logo-usage.md,official-references.md,pr-and-merge-workflow.md,prototype-deploy.md,token-naming.md,validation.md,visual-styles.md}
+|docs:{AGENTS.md,brand-book-references.md,color-audit-2026.md,contributing.md,getting-started.md,integration-checklist.md,logo-usage.md,pr-and-merge-workflow.md,prototype-deploy.md,token-naming.md,validation.md,visual-styles.md}
 |docs/agents:{README.md,agent-contract.md,runtime-policy.md,redesign-from-this-system.md}
 |spec:{tokens.json,principles.md}
 |spec/components:{README.md,button.md,tag-pill.md,card.md,input.md,faq.md,header.md,footer.md,dropdown.md,popup.md}
 |spec/patterns:{README.md}
 |docs/decisions:{001-token-format.md}
-|docs/skills:{README.md,token-update.md,elementor-mapping.md,release.md}
+|docs/skills:{README.md,token-update.md,release.md}
 |.claude:{rules/git.md,rules/general.md,rules/css.md,rules/tokens.md,skills/ship-release/SKILL.md,skills/optimize-prototype/SKILL.md}
 |cursor:{AGENTS.md,rules/git.mdc,rules/general.mdc,rules/css.mdc,rules/tokens.mdc}
-|elementor:{global-colors.md,global-fonts.md,custom-css-setup.md}
-|elementor/templates:{README.md}
+|integrations:{README.md}
+|integrations/elementor:{setup.md,global-colors.md,global-fonts.md,mapping.md,references.md}
 |figma:{sync-guide.md,token-export-instructions.md}
 |tokens:{index.json,colors.json,typography.json,spacing.json,radius.json,shadows.json,motion.json}
-|css:{custom-properties.css,base.css,typography.css,utilities.css,elementor-overrides.css}
+|css:{custom-properties.css,base.css,typography.css,utilities.css}
+|css/integrations:{elementor.css}
 |scripts:{build-css.js,build-css.test.js,build-spec.js,pr-and-merge.sh,optimize-run.sh,import-figma-elements.mjs,import-desktop-elements.mjs,svg-normalize.mjs}
 |prototype:{README.md,next.config.ts,package.json,tsconfig.json,playwright.config.ts}
 |prototype/app:{layout.tsx,page.tsx,globals.css,manifest.ts,FaqDemo.tsx}

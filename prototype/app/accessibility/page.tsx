@@ -200,7 +200,7 @@ export default function AccessibilityPage() {
           at No. 52 Cafe&rdquo; says more than &ldquo;people in a room&rdquo;. On
           social platforms (Instagram, Facebook, LinkedIn) add alt text in the
           post&rsquo;s advanced settings; on the website the web team manages alt
-          text in WordPress &mdash; send suggested alt text alongside each image.
+          text in the CMS &mdash; send suggested alt text alongside each image.
         </p>
       </section>
 

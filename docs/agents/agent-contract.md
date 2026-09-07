@@ -4,8 +4,10 @@ Portable rules for AI agents (Cursor agent, Claude Code, and similar). Cursor pa
 
 ## Product context
 
-- **Org / site:** [foreveryone.berlin](https://foreveryone.berlin/) — WordPress + Elementor Pro + child theme on the live site.
-- **This repo:** **Design tokens** (JSON), **generated and hand-authored CSS**, **Elementor/Figma docs**, and a **Next.js prototype** under `prototype/` (not production WordPress).
+- **Org:** [foreveryone.berlin](https://foreveryone.berlin/), an open, inclusive community space in Berlin.
+- **This repo:** a platform-neutral design system: **design tokens** (DTCG JSON), **generated and hand-authored CSS**, **Figma sync notes**, **per-platform integration guides** under `integrations/`, and a **Next.js prototype** under `prototype/`.
+- **Consumers:** the prototype, any framework or plain-CSS app, and host platforms listed in [`../../integrations/README.md`](../../integrations/README.md). This repo hosts none of them in production.
+- **Boundary:** `tokens/`, `spec/`, `docs/`, and the shared `css/*.css` layers carry nothing platform-specific. Host-platform selectors, slot numbers, and product names live in `integrations/<target>/` and `css/integrations/<target>.css`.
 
 ## Task template (non-trivial work)
 
@@ -27,11 +29,12 @@ Portable rules for AI agents (Cursor agent, Claude Code, and similar). Cursor pa
 
 - **Tokens:** after any `tokens/*.json` edit, run `node scripts/build-css.js` and confirm `css/custom-properties.css` updated as expected.
 - **Prototype:** from `prototype/`, `npm run build` or `npm run lint` when you change app code.
-- **CSS:** no raw hex or font-family literals in authored layers (only `var(--…)`).
+- **CSS:** no raw hex or font-family literals in authored layers (only `var(--…)`), and no host-platform selectors outside `css/integrations/`.
+- **Integrations:** if a change affects a consuming target, say which one in the PR and run [`docs/integration-checklist.md`](../integration-checklist.md) against it.
 
 ## Documentation and retrieval
 
-- Prefer [`docs/AGENTS.md`](../AGENTS.md) and linked files over model memory for tokens, CSS layers, Elementor breakpoints, and prototype layout.
+- Prefer [`docs/AGENTS.md`](../AGENTS.md) and linked files over model memory for tokens, CSS layers, breakpoints, integration targets, and prototype layout.
 - **Figma** is the visual source of truth; **this repo** is the implementation source of truth.
 
 ## Cross-tool layout
@@ -57,7 +60,7 @@ Keep root `AGENTS.md`, `CLAUDE.md`, `.cursor/AGENTS.md` pins, and this contract 
 
 ## Cursor CLI
 
-- **Model:** Composer 2.5 standard (`maxMode: false` via dotfiles defaults).
+- **Model:** Composer 2.5 standard (`maxMode: false`).
 - **Context:** loads root `AGENTS.md` + `CLAUDE.md` + project skills from `.claude/skills/` (not `.cursor/AGENTS.md`).
 - **Headless:** `agent -p --force` from repo root; long jobs use `bash scripts/optimize-run.sh` (sequential optimize domains) or repo-specific `*-fanout.sh` when file ownership overlaps.
-- **Autonomous jobs:** see the Cursor CLI playbook in the shared dotfiles (external to this repo) for job-scoped merge/deploy rules.
+- **Autonomous jobs:** job-scoped merge/deploy rules come from the operator's own Cursor CLI playbook, external to this repo.

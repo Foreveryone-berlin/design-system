@@ -2,7 +2,7 @@
 
 # ForEveryone Design System
 
-This is the shared look and feel for [foreveryone.berlin](https://foreveryone.berlin/), an open, inclusive community space in Berlin. It keeps the brand's colours, type, and reusable building blocks in one place, so everything we make looks like it belongs together. It is here for designers, developers, and anyone curious about how the brand fits together.
+This is the shared look and feel for [foreveryone.berlin](https://foreveryone.berlin/), an open, inclusive community space in Berlin. It keeps the brand's colours, type, and reusable building blocks in one place, so everything we make looks like it belongs together, whatever it is built with. It is here for designers, developers, and anyone curious about how the brand fits together.
 
 You can see it all in action on the live preview: **[design.foreveryone.berlin](https://design.foreveryone.berlin)**
 
@@ -17,7 +17,7 @@ Technical detail; non-developers can skip this.
 - **CSS:** Authored layers in `css/*.css` (variables only, no raw values).
 - **Prototype:** Next.js 15 + TypeScript (App Router) in `prototype/`.
 - **Hosting:** Vercel at `design.foreveryone.berlin` (legacy `fe-design-system.vercel.app` 301-redirects there).
-- **Production target:** WordPress + Elementor Pro on `foreveryone.berlin` (global colors, global fonts, custom CSS).
+- **Consumers:** the Next.js prototype, any framework or plain-CSS app, and host platforms listed in [`integrations/`](integrations/). All read the same generated CSS; platform-specific material lives under that folder.
 - **CI:** GitHub Actions for token build + test + prototype build, and auto-release on `v*.*.*` tag.
 
 ### Quick start
@@ -41,7 +41,7 @@ Root `package.json` script aliases: `npm run build`, `npm test`, `npm run protot
 2. [`scripts/build-css.js`](scripts/build-css.js) reads [`tokens/index.json`](tokens/index.json) imports.
 3. The script generates [`css/custom-properties.css`](css/custom-properties.css) (the `:root` block). **Do not hand-edit it.**
 4. Authored layers in [`css/*.css`](css/) consume variables via `var(--…)`.
-5. The marketing site and the Next.js prototype both read from the same generated file.
+5. Every consumer reads from the same generated file.
 
 `scripts/build-css.test.js` validates the DTCG shape and smoke-checks the generated CSS.
 
@@ -51,9 +51,10 @@ Root `package.json` script aliases: `npm run build`, `npm test`, `npm run protot
 foreveryone-design-system/
 ├── tokens/          # Source-of-truth token JSON (DTCG)
 ├── css/             # Generated + authored CSS
+│   └── integrations/#   ↳ per-platform override layers
 ├── scripts/         # Build, test, and PR helpers
 ├── prototype/       # Next.js preview app
-├── elementor/       # Global colors / fonts / custom CSS for the marketing site
+├── integrations/    # Per-platform guides (see integrations/README.md)
 ├── figma/           # Tokens Studio sync notes
 ├── docs/            # Guides, ADRs, agent contracts
 │   ├── AGENTS.md    #   ↳ full docs index + domain rules
@@ -67,8 +68,10 @@ foreveryone-design-system/
 
 ## Integrations
 
+- **How to consume the system** (plain CSS, React/Next.js, or a CMS): [`docs/getting-started.md`](docs/getting-started.md), then [`integrations/README.md`](integrations/README.md).
+- **Pre-release checks for any consuming surface:** [`docs/integration-checklist.md`](docs/integration-checklist.md).
 - **Figma + Tokens Studio:** [`figma/sync-guide.md`](figma/sync-guide.md) and [`figma/token-export-instructions.md`](figma/token-export-instructions.md).
-- **Marketing site:** Global colors [`elementor/global-colors.md`](elementor/global-colors.md), global fonts [`elementor/global-fonts.md`](elementor/global-fonts.md), CSS setup [`elementor/custom-css-setup.md`](elementor/custom-css-setup.md). Reference docs: [`docs/official-references.md`](docs/official-references.md).
+- **Host-platform targets** (setup, globals, sync): [`integrations/`](integrations/).
 - **Visual styles** (icons, blobs, photography, category icon set): [`docs/visual-styles.md`](docs/visual-styles.md).
 - **Logo usage** (X measurement, safe zone, min sizes, white-on-orange exception): [`docs/logo-usage.md`](docs/logo-usage.md).
 - **Color audit** (2026 brand-guide alignment + approved bg ⇄ text combinations): [`docs/color-audit-2026.md`](docs/color-audit-2026.md).
@@ -110,7 +113,7 @@ With thanks to Rie, Roxana, Didem, Pedram, Marco, and Angelina.
 Dual-licensed in a single [LICENSE](LICENSE) file:
 
 - **Software** (`scripts/`, `prototype/`): **MIT**.
-- **Design system** (`tokens/`, `css/`, `figma/`, `elementor/`, `docs/`, agent docs, `.claude/` and `.cursor/` rules): **CC BY-NC 4.0** ([summary](https://creativecommons.org/licenses/by-nc/4.0/)).
+- **Design system** (`tokens/`, `css/`, `figma/`, `integrations/`, `docs/`, agent docs, `.claude/` and `.cursor/` rules): **CC BY-NC 4.0** ([summary](https://creativecommons.org/licenses/by-nc/4.0/)).
 
 ## Changelog
 

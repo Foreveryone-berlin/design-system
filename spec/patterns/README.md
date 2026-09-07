@@ -18,4 +18,4 @@ Composite layouts on `/patterns` in the Next.js prototype, in page order. Each p
 
 The benefit grid (`.ds-benefit-grid` with `.fe-card-benefit`) left the Patterns page in 1.2.0; the benefit card itself stays available for the live site and is documented on `/components`.
 
-Elementor: map patterns to sections/widgets manually; see [elementor/custom-css-setup.md](../../elementor/custom-css-setup.md).
+Host platforms map patterns to their own sections or widgets manually; see [integrations/README.md](../../integrations/README.md).

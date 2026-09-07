@@ -21,21 +21,6 @@ const contributors = [
 const stack: { name: string; role: ReactNode }[] = [
   { name: "Figma", role: "Visual source of truth for the design system" },
   {
-    name: "WordPress + Elementor Pro",
-    role: (
-      <>
-        Marketing site at{" "}
-        <a
-          href="https://foreveryone.berlin"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          foreveryone.berlin
-        </a>
-      </>
-    ),
-  },
-  {
     name: "Next.js",
     role: (
       <>
@@ -59,6 +44,32 @@ const stack: { name: string; role: ReactNode }[] = [
     ),
   },
   { name: "Playwright + axe-core", role: "End-to-end and accessibility testing" },
+];
+
+const consumers: { name: string; role: ReactNode }[] = [
+  {
+    name: "foreveryone.berlin",
+    role: (
+      <>
+        Marketing site at{" "}
+        <a
+          href="https://foreveryone.berlin"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          foreveryone.berlin
+        </a>
+        ; host-platform docs under{" "}
+        <a
+          href={`${REPO_URL}/tree/main/integrations`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          integrations/
+        </a>
+      </>
+    ),
+  },
 ];
 
 const tools = [
@@ -121,6 +132,17 @@ export default function CreditsPage() {
         </ul>
       </section>
 
+      <section id="consumers" className="ds-section">
+        <h2 className="ds-section-title">Consumers</h2>
+        <ul className="ds-rule-list">
+          {consumers.map(({ name, role }) => (
+            <li key={name}>
+              <strong>{name}</strong> &mdash; {role}
+            </li>
+          ))}
+        </ul>
+      </section>
+
       <section id="tools" className="ds-section">
         <h2 className="ds-section-title">Accessibility tooling</h2>
         <ul className="ds-rule-list">
@@ -143,7 +165,7 @@ export default function CreditsPage() {
             <code>prototype/</code>): MIT.
           </li>
           <li>
-            <strong>Design system</strong> (tokens, CSS, Figma, Elementor, and
+            <strong>Design system</strong> (tokens, CSS, Figma, integrations, and
             docs):{" "}
             <a
               href="https://creativecommons.org/licenses/by-nc/4.0/"

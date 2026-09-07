@@ -9,6 +9,6 @@ Forbidden in commits, commit trailers, PR titles, PR bodies, and PR comments:
 - `Generated with Cursor` / `Made-with: Cursor` / `Made with Cursor` / `Made with [Cursor](...)`
 - Equivalent Claude or other-agent attribution trailers or footers
 
-After `gh pr create`, strip any injected footer (dotfiles: `node scripts/strip-pr-attribution.mjs`) before the PR is done.
+After `gh pr create`, strip any injected footer before the PR is done.
 
 Do not add agent marketing or "built by agent" lines to commit messages or PR descriptions.

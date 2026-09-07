@@ -16,7 +16,7 @@ If any instruction conflicts, use this order:
 
 ## Mandatory reads for Cursor agent
 
-- Runtime context, docs index, token/CSS/Elementor rules: **`docs/AGENTS.md`**
+- Runtime context, docs index, token/CSS/integration rules: **`docs/AGENTS.md`**
 - Task shape and verification: **`docs/agents/agent-contract.md`**
 - Sandbox / autonomy and risk tiers: **`docs/agents/runtime-policy.md`**
 - Merge-to-develop solo workflow: **`docs/pr-and-merge-workflow.md`**
@@ -24,15 +24,16 @@ If any instruction conflicts, use this order:
 
 ## What this repo is
 
-Design system for [foreveryone.berlin](https://foreveryone.berlin/) — WordPress + Elementor Pro + child theme on the live site; **this repo** holds tokens, CSS, Elementor/Figma docs, and a **Next.js prototype** (`prototype/`). Figma = visual source of truth; repo = implementation source of truth.
+Platform-neutral design system for [foreveryone.berlin](https://foreveryone.berlin/): **this repo** holds tokens, generated CSS custom properties, `fe-*` utilities, Figma sync notes, per-platform integration guides, and a **Next.js prototype** (`prototype/`). Consumed by the prototype, by any framework or plain-CSS app, and by host platforms listed in [integrations/README.md](../integrations/README.md). Figma = visual source of truth; repo = implementation source of truth.
 
 ## Stack pin
 
 ```text
 Tokens|W3C DTCG JSON ($value, $type, $description) | refs {category.tier.variant}
 CSS|authored: var(--*) only | css/custom-properties.css GENERATED — edit tokens + build
-Classes|fe-* | Elementor bp: mobile <767 | tablet 768–1024 | desktop >1025
+Classes|fe-* | Breakpoints (mobile-first min-width): 640 | 768 | 1024
 Prototype|Next.js — see prototype/package.json
+Platform code|css/integrations/*.css + integrations/<target>/ ONLY — keep css/ and tokens/ neutral
 ```
 
 Common mistakes:
@@ -40,6 +41,7 @@ Common mistakes:
 - Editing `css/custom-properties.css` by hand — run `node scripts/build-css.js` after token changes.
 - Hardcoding hex or `font-family` in authored CSS — use variables from `custom-properties.css`.
 - Skipping `CHANGELOG.md` when touching `tokens/` or implementation `css`.
+- Putting platform-specific selectors, slot numbers, or product names in `tokens/`, `spec/`, or the shared `css/*.css` — they belong in `css/integrations/` and `integrations/<target>/`.
 
 ## Commands
 
@@ -74,11 +76,13 @@ Cursor IDE auto-loads project skills from `.claude/skills/`.
 | Cross-tool map | `docs/agents/README.md` |
 | PR workflow | `docs/pr-and-merge-workflow.md` |
 | Token workflow | `docs/skills/token-update.md` |
+| Integration targets | `integrations/README.md` |
+| Per-target release checks | `docs/integration-checklist.md` |
 | Release workflow | `docs/skills/release.md` |
 | Visual styles | `docs/visual-styles.md` |
 
 ## Retrieval-led reasoning
 
-**IMPORTANT:** For tokens, CSS, Elementor, Figma, or Next.js prototype tasks, follow retrieval-led reasoning from **`docs/AGENTS.md`** (and the files it indexes) before relying on model memory.
+**IMPORTANT:** For tokens, CSS, integration, Figma, or Next.js prototype tasks, follow retrieval-led reasoning from **`docs/AGENTS.md`** (and the files it indexes) before relying on model memory.
 
 Path-scoped reminders: [`.cursor/rules/`](rules/) (`.mdc`). Claude parity: [`.claude/rules/`](../.claude/rules/) (Markdown).

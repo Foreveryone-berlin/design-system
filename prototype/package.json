@@ -1,9 +1,9 @@
 {
   "name": "foreveryone-design-system-prototype",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "private": true,
   "engines": {
-    "node": ">=24"
+    "node": "24.x"
   },
   "scripts": {
     "dev": "next dev",

@@ -1,5 +1,8 @@
 /* ==========================================================================
-   ForEveryone Berlin — Elementor Overrides
+   ForEveryone Berlin — WordPress + Elementor Pro integration layer
+   Maps Elementor's own DOM onto design-system values. Not part of the shared
+   CSS layer: nothing outside this target should load it, and no build step
+   emits it. Setup: integrations/elementor/setup.md
    Keep selectors low-specificity and mobile-first.
    ========================================================================== */
 
