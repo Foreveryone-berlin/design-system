@@ -1,8 +1,8 @@
 # Component contracts
 
 Deterministic specs for the shipped `.fe-*` component classes (defined in
-`css/utilities.css`, consumed by the Next.js prototype and the Elementor child
-theme). Each contract gives the **one correct class**, the anatomy, the states,
+`css/utilities.css`, consumed by the Next.js prototype and any host that loads
+the shared CSS). Each contract gives the **one correct class**, the anatomy, the states,
 do/don't, and a minimal snippet so an agent reproduces the component without
 guessing.
 

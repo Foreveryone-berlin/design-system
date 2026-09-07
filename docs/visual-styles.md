@@ -123,7 +123,7 @@ Brand Book v1.0 p.27 defines two graphic-shape types with distinct roles that **
 
 - **Role:** Organic, rounded **containers** for photos and **colour blocks** behind text; soften photography and frame imagery.
 - **Colors:** Decorative blobs use the brand accent family: **orange**, **lavender**, **lime** — map to `var(--color-brand-primary)`, `var(--color-light-purple)`, `var(--color-light-green)` (and large soft surfaces: `var(--color-soft-lavender)` where appropriate).
-- **Implementation:** Organic silhouettes via large `border-radius`, SVG masks, or clip-path. Exact paths often live in **Figma exports** or Elementor image widgets + custom CSS; no single token defines every blob — keep shapes aligned with Figma components.
+- **Implementation:** Organic silhouettes via large `border-radius`, SVG masks, or clip-path. Exact paths often live in **Figma exports** or host-page image widgets + custom CSS; no single token defines every blob — keep shapes aligned with Figma components.
 
 ### Wave shapes
 
@@ -153,7 +153,7 @@ When placing images inside blob or rounded masks:
 
 `prototype/public/illustrations/avatars/avatar-1.svg` … `avatar-5.svg` are five generic head-and-shoulders silhouettes (short hair, bob, top bun, side ponytail, curly) for the person patterns on `/patterns`. They exist so a roster specimen documents the layout without putting anyone's face in the design system, and they follow the illustration family convention: `fill="currentColor"` with the orange standalone `color` attribute.
 
-- **Use for:** prototype specimens, Figma-to-Elementor mockups, and any slot waiting on a real portrait.
+- **Use for:** prototype specimens, Figma-to-production mockups, and any slot waiting on a real portrait.
 - **Do not** ship them on the live site, and do not add them to the Visual Elements download catalog: they are placeholders, not brand artwork.
 - The silhouettes have transparent backgrounds; the tinted disc behind them comes from `.fe-person__photo`, so swapping in a real photograph is only a file change.
 
@@ -168,7 +168,7 @@ When placing images inside blob or rounded masks:
 | Person: photo + name + optional role and bio | `.fe-person` (`--card` for the bio variant) inside `.fe-people-grid` (`--cards`); portraits from `illustrations/avatars/` until real photos land |
 | Composite layout patterns | Prototype `/patterns`; catalog in [`spec/patterns/README.md`](../spec/patterns/README.md) |
 
-Elementor: when adding custom classes to icon widgets, use the same class names the child theme enqueues from `utilities.css` (see [custom-css-setup.md](../elementor/custom-css-setup.md)).
+Host platforms: apply the same `.fe-*` class names from `utilities.css` in the target's markup. Per-target setup: [integrations/README.md](../integrations/README.md).
 
 ## Refreshing visual-element SVGs from Figma
 

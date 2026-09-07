@@ -10,7 +10,7 @@ Same *shape* as the agent docs in the parcelLab **`parcellab-website`** repo: ca
 | **Medium** | `tokens/*.json`, authored `css/*.css` (not generated), `prototype/**`, `scripts/build-css.js`, local `npm run dev` / `npm run build` in `prototype/` | Work on a feature branch; run `node scripts/build-css.js` after token edits; ask before `git push --force`, major dependency bumps in `prototype/`, or bulk token deletion. |
 | **High** | Production secrets, credentials, destructive git on shared branches, deleting large token sets without explicit confirmation | Require explicit human confirmation before each step. |
 
-This repo does **not** host production WordPress; treat **live Elementor / WP** changes as **High** risk when the task is “apply to production” (coordination is out-of-repo).
+This repo hosts none of its consuming targets in production. Treat a change to any **live consuming target** as **High** risk when the task is “apply to production”, since coordination is out-of-repo. See [`../../integrations/README.md`](../../integrations/README.md) for the current target list.
 
 ## Ask once per session
 

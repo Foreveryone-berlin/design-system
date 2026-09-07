@@ -10,7 +10,7 @@ Last reviewed: 2026-07-18
 
 | ID | Area | Gap | Mitigation / owner |
 |----|------|-----|-------------------|
-| A11Y-001 | WordPress skip link | Skip-link markup and CSS ship in shared utilities; child theme must add the anchor and `#main-content` on `<main>`. | Follow [elementor/custom-css-setup.md](../elementor/custom-css-setup.md). |
+| A11Y-001 | Host skip link | Skip-link markup and CSS ship in shared utilities; the host page must add the anchor and `#main-content` on `<main>`. | Follow [integration-checklist.md](integration-checklist.md); per-target notes in [integrations/README.md](../integrations/README.md). |
 | A11Y-002 | Contrast specimens | Foundations colour ramps and component state matrices intentionally show non-conformant pairings for documentation. | Excluded from automated axe scans; not used on the live marketing site. |
 | A11Y-003 | Manual assistive-tech checks | Keyboard and screen-reader spot checks are not fully scripted. | Run the checklist in [validation.md](validation.md) before release. |
 
@@ -24,4 +24,4 @@ Last reviewed: 2026-07-18
 ## Scope
 
 - **Prototype** (`design.foreveryone.berlin`): primary verification surface for this register.
-- **Live site** (`foreveryone.berlin`): WordPress + Elementor; follow [docs/skills/elementor-mapping.md](skills/elementor-mapping.md) accessibility checklist after CSS or pattern changes.
+- **Live marketing site** (`foreveryone.berlin`): one consuming target; after CSS or pattern changes run [integration-checklist.md](integration-checklist.md) and that target's sync from [integrations/README.md](../integrations/README.md).

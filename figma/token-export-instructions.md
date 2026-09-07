@@ -32,7 +32,7 @@ This guide covers exporting design tokens from Figma using Tokens Studio.
 4. Smoke-check key UI classes in:
    - `css/typography.css`
    - `css/utilities.css`
-   - `css/elementor-overrides.css`
+   - `css/integrations/` (per-target layers only; shared CSS stays platform-neutral)
 5. Update `CHANGELOG.md` under `[Unreleased]`.
 
 ## Common Pitfalls

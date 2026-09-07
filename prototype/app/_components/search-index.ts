@@ -176,6 +176,7 @@ const pages: PageDef[] = [
     sections: [
       "Contributors",
       "Built with",
+      "Consumers",
       "Accessibility tooling",
       "Licence",
     ],

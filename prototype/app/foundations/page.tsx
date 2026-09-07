@@ -196,7 +196,7 @@ const colorCode = `/* Brand */
 --color-warm-grey-light: oklch(0.808 0.026 81.1);  /* #C9BFAE */
 --color-warm-grey: oklch(0.665 0.016 84.6);        /* #989389 */
 
-/* Theme (Elementor) */
+/* Theme (legacy host compatibility) */
 --color-theme-1: oklch(0.532 0.142 247.7);         /* #0170B9 */
 --color-theme-2: oklch(0.235 0 89.9);              /* #1E1E1E */
 --color-theme-4: oklch(0.427 0.016 266.5);         /* #4B4F58 */
@@ -362,7 +362,7 @@ export default function TokensPage() {
 
         <h3 className="ds-subsection-title">All colour tokens</h3>
         <p className="ds-section-intro">
-          The full set of CSS custom properties, including theme (Elementor) and
+          The full set of CSS custom properties, including theme and
           status colours.
         </p>
         <div className="ds-swatch-grid">

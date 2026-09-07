@@ -1,6 +1,6 @@
-# Official References
+# Elementor and WordPress reference links
 
-Canonical documentation from Elementor and WordPress for integrating this design system.
+Vendor documentation for the WordPress + Elementor Pro target. These are external references for this one integration, not the design system's own docs; see [`integrations/README.md`](../README.md) for the other targets.
 
 ## Elementor
 

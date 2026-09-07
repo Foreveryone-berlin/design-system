@@ -15,8 +15,7 @@ CI runs the same accessibility suite on pull requests to `develop` and `main`.
 
 ## Manual / external
 
-- **Elementor**: Global Colors and Global Fonts match [elementor/global-colors.md](../elementor/global-colors.md) and [elementor/global-fonts.md](../elementor/global-fonts.md). Run the accessibility checklist in [docs/skills/elementor-mapping.md](skills/elementor-mapping.md).
-- **Live site**: After enqueueing design system CSS, verify buttons, headings, inputs, section spacing, skip link, and image alt text on a few pages.
+- **Any consuming target**: Run [integration-checklist.md](integration-checklist.md) (token CSS loaded, skip link, focus order, icon labels, accordion semantics, alt text, layout spot check), then that target's own steps from [integrations/README.md](../integrations/README.md).
 - **Keyboard walkthrough**: Tab through header, mobile menu, search, FAQ accordion, and popup on `/components` and `/patterns`; confirm visible focus and logical order.
 - **Screen reader spot check** (optional): VoiceOver or NVDA on homepage hero, workshop card, and mobile navigation.
 - **Figma**: If tokens or components changed, sync with [figma/sync-guide.md](../figma/sync-guide.md).
