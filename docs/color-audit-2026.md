@@ -1,6 +1,6 @@
 # Color audit — brand palette vs repo (2026)
 
-Official **7-color brand table** cross-checked against [`tokens/colors.json`](../tokens/colors.json) and Elementor mapping.
+Official **7-color brand table** cross-checked against [`tokens/colors.json`](../tokens/colors.json). Host-platform colour-slot maps live under [`integrations/`](../integrations/).
 
 > **Source of truth:** **ForEveryone Brand Book v1.0 (June 2026)** — see [`docs/brand-book-references.md`](brand-book-references.md). The Brand Book confirms the seven hexes below unchanged from the earlier Quick Brand Guidelines v2.0 (April 2026), which is now a superseded condensed reference only.
 
@@ -28,11 +28,11 @@ The live brand board carries a 2026 palette that had drifted from the repo. Two 
 | `color.warm-grey-light` | `#C9BFAE` | Neutral | 9.17:1 on Charcoal |
 | `color.warm-grey` | `#989389` | Neutral | 5.45:1 on Charcoal |
 
-`color.teal-deep` is distinct from the existing decorative `color.teal` (`#03C9D3`, Elementor Custom 6), and `color.red` is distinct from `color.status.error` (`#DC2626`, the form-error signal). The board also shows a fourth interface state, **Announce**, alongside Success/Warning/Error; that panel is a flattened image on the board, so the colour→state mapping is not yet readable and `color.status` is unchanged.
+`color.teal-deep` is distinct from the existing decorative `color.teal` (`#03C9D3`), and `color.red` is distinct from `color.status.error` (`#DC2626`, the form-error signal). The board also shows a fourth interface state, **Announce**, alongside Success/Warning/Error; that panel is a flattened image on the board, so the colour→state mapping is not yet readable and `color.status` is unchanged.
 
 ## Phase 0 decisions (implementation authority)
 
-1. **Scope:** The seven swatches are the **canonical brand colors** for hex alignment. **Legacy** tokens (pink, teal, purple, decorative theme blues/greys, `focus-button`, `light-orange`, etc.) **remain** for Elementor slots and existing utilities until a separate deprecation pass; they are **not** in the 7-color table.
+1. **Scope:** The seven swatches are the **canonical brand colors** for hex alignment. **Legacy** tokens (pink, teal, purple, decorative theme blues/greys, `focus-button`, `light-orange`, etc.) **remain** for existing utilities and host-platform maps until a separate deprecation pass; they are **not** in the 7-color table.
 2. **Orange (`#FF7A3A`):** Decorative-only per Brand Book v1.0. **Web primary text buttons** use Blue fill with white text (`.fe-btn-primary`, as before 0.25.0; restored in 0.25.1). Orange remains for icon fills, borders, and accents.
 3. **Figma:** Assume Figma variables match this table; repo values were updated to the guide hexes below. Reconcile in Figma if any path still differs.
 
@@ -43,7 +43,7 @@ The live brand board carries a 2026 palette that had drifted from the repo. Two 
 | Orange | `#FF7A3A` | `color.brand-primary` | `#FF7A3A` | Keep hex; refresh `$description` |
 | Blue | `#3F00EB` | `color.brand-secondary` | `#3F00EB` | Keep hex; note alerts + white type |
 | Charcoal | `#1E1E1E` | `color.brand-dark`, `color.theme-2`, `color.theme-8` | `#404040`, `#3A3A3A`, `#424242` | **Align** to charcoal for primary/support text |
-| Warm white | `#FDFCF6` | `color.accent` | `#F1F1EA` | **Align** (Elementor Global 4) |
+| Warm white | `#FDFCF6` | `color.accent` | `#F1F1EA` | **Align** |
 | Lime green | `#D4E6AB` | `color.light-green`, `color.status.success` | `#F1F7E5`, `#D4E8A8` | **Align** (surfaces + success) |
 | Lavender | `#D5C5FF` | `color.light-purple` | `#D9CCFB` | **Align** |
 | Soft lavender | `#E5DCFF` | `color.soft-lavender` *(new)* | — | **Add** + `build-css.js` key |
@@ -52,7 +52,7 @@ The live brand board carries a 2026 palette that had drifted from the repo. Two 
 
 | Token | Verdict |
 |-------|---------|
-| `focus-button`, `light-orange`, `pink`, `teal`, `purple`, `very-light-gray`, `light-gray` | **Keep** (Elementor custom slots / UI) |
+| `focus-button`, `light-orange`, `pink`, `teal`, `purple`, `very-light-gray`, `light-gray` | **Keep** (UI / accent surfaces; host-platform slot maps live under `integrations/`) |
 | `theme-1`, `theme-4`, `theme-5`, `theme-7` | **Keep**; `theme-2`/`theme-8` hex synced to charcoal; `theme-4` remains mid UI text |
 | `status.error`, `status.warning` | **Keep** (not in brand table; functional) |
 | `base.white`, `base.black` | **Keep**; white pairs with `brand-secondary` per guide |
@@ -84,4 +84,4 @@ Live demo: `/tokens#color-combinations` in the prototype renders the five valid 
 
 ## Follow-up for editors
 
-After deploy, **Elementor > Global Colors** must be updated manually to match [`elementor/global-colors.md`](../elementor/global-colors.md) hex values.
+After deploy, sync any host-platform globals that map these tokens; see [`integrations/README.md`](../integrations/README.md).

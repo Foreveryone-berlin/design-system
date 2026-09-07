@@ -26,7 +26,7 @@ outline-only at rest.
 | Active / focus-visible | Pressed fill `--color-focus-button` (#CC622E), white text; no gold ring on pill buttons (outline suppressed; fill is the indicator). |
 | Disabled | Primary: `--color-light-purple` fill, white text. Secondary: light-purple border and text, transparent fill. |
 
-Hover and pressed fills are legacy UI choices (Elementor / live-site parity)
+Hover and pressed fills are legacy UI choices kept for live-site parity
 pending brand-book interactive-state rules. Orange at rest as a CTA fill is
 disallowed; Orange on hover is intentional for primary/secondary pills.
 

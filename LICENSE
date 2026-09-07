@@ -14,7 +14,7 @@ Creative Commons Attribution-NonCommercial 4.0 International — CC BY-NC 4.0 (s
   • tokens/
   • css/ (including generated css/custom-properties.css)
   • figma/
-  • elementor/
+  • integrations/
   • docs/
   • Root documentation and agent/IDE guidance: README.md, CHANGELOG.md, AGENTS.md, CLAUDE.md, `.codex/`, `.claude/`, `.cursor/`
 

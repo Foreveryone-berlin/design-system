@@ -6,15 +6,16 @@ Focused entry for [Claude Code](https://code.claude.com/docs). Full index and ru
 
 ## What this repo is
 
-Design system for [foreveryone.berlin](https://foreveryone.berlin/) — WordPress + Elementor Pro + child theme on the live site; **this repo** holds tokens, CSS, Elementor/Figma docs, and a **Next.js prototype** (`prototype/`). Figma = visual source of truth; repo = implementation source of truth.
+Platform-neutral design system for [foreveryone.berlin](https://foreveryone.berlin/): **this repo** holds tokens, generated CSS custom properties, `fe-*` utilities, Figma sync notes, per-platform integration guides, and a **Next.js prototype** (`prototype/`). Consumed by the prototype, by any framework or plain-CSS app, and by host platforms listed in [integrations/README.md](integrations/README.md). Figma = visual source of truth; repo = implementation source of truth.
 
 ## Stack pin
 
 ```text
 Tokens|W3C DTCG JSON ($value, $type, $description) | refs {category.tier.variant}
 CSS|authored: var(--*) only | css/custom-properties.css GENERATED — edit tokens + build
-Classes|fe-* | Elementor bp: mobile <767 | tablet 768–1024 | desktop >1025
+Classes|fe-* | Breakpoints (mobile-first min-width): 640 | 768 | 1024
 Prototype|Next.js — see prototype/package.json
+Platform code|css/integrations/*.css + integrations/<target>/ ONLY — keep css/ and tokens/ neutral
 ```
 
 Common mistakes:
@@ -22,6 +23,7 @@ Common mistakes:
 - Editing `css/custom-properties.css` by hand — run `node scripts/build-css.js` after token changes.
 - Hardcoding hex or `font-family` in authored CSS — use variables from `custom-properties.css`.
 - Skipping `CHANGELOG.md` when touching `tokens/` or implementation `css/`.
+- Putting platform-specific selectors, slot numbers, or product names in `tokens/`, `spec/`, or the shared `css/*.css` — they belong in `css/integrations/` and `integrations/<target>/`.
 
 ## Commands
 
@@ -56,12 +58,14 @@ Cursor IDE and CLI auto-load project skills from `.claude/skills/`.
 | Cross-tool map | `docs/agents/README.md` |
 | PR workflow | `docs/pr-and-merge-workflow.md` |
 | Token pipeline skill | `docs/skills/token-update.md` |
-| Elementor mapping skill | `docs/skills/elementor-mapping.md` |
+| Integration targets | `integrations/README.md` |
+| Per-target release checks | `docs/integration-checklist.md` |
+| Per-target sync | `integrations/README.md` |
 | Release skill | `docs/skills/release.md` |
 | Icons, blobs, photography | `docs/visual-styles.md` |
 
 ## Retrieval-led reasoning
 
-**IMPORTANT:** For tokens, CSS, Elementor, Figma, or Next.js work, open files from **`docs/AGENTS.md`** (documentation index) instead of relying on training data alone.
+**IMPORTANT:** For tokens, CSS, integration, Figma, or Next.js work, open files from **`docs/AGENTS.md`** (documentation index) instead of relying on training data alone.
 
 Path-scoped reminders: [`.claude/rules/`](.claude/rules/). Cursor parity: [`.cursor/rules/`](.cursor/rules/) (`.mdc`).

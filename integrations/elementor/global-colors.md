@@ -7,8 +7,8 @@ Elementor reference: <https://elementor.com/help/theme-style-global-settings/>
 ## Before You Start
 
 1. In WordPress admin, open **Elementor > Site Settings > Global Colors**.
-2. Open [`css/custom-properties.css`](../css/custom-properties.css) to cross-check values.
-3. Confirm the child theme is enqueueing the token CSS file (see [`elementor/custom-css-setup.md`](./custom-css-setup.md)).
+2. Open [`css/custom-properties.css`](../../css/custom-properties.css) to cross-check values.
+3. Confirm the child theme is enqueueing the token CSS file (see [`setup.md`](./setup.md)).
 
 ## Global Color Slot Mapping
 
@@ -35,7 +35,7 @@ Add a **Custom** or **Global** swatch in Elementor if your plan allows more slot
 
 - **Soft Lavender** -> `color.soft-lavender` -> `#E5DCFF` — large readable lavender backgrounds (social/layout); pair with Charcoal text.
 
-Until that slot exists in Elementor, the value still ships in `css/custom-properties.css` as `--color-soft-lavender` for the child theme / custom CSS.
+Until that slot exists in Elementor, the value still ships in [`css/custom-properties.css`](../../css/custom-properties.css) as `--color-soft-lavender` for the child theme / custom CSS.
 
 ## WordPress / Elementor Theme Colors
 
@@ -72,7 +72,7 @@ These are the Astra/Elementor theme-level colors used by the site:
 ## Notes
 
 - Elementor stores these values in database options, not in CSS variables.
-- This mapping must stay aligned with `tokens/colors.json`.
+- This mapping must stay aligned with [`tokens/colors.json`](../../tokens/colors.json). **This file is the single home for slot numbers**; token `$description` text stays semantic and does not name Elementor slots.
 - If token values change, update both Elementor Global Colors and `CHANGELOG.md`.
-- Brand palette audit: [`docs/color-audit-2026.md`](../docs/color-audit-2026.md).
-- Brand authority matrix: [`docs/brand-book-references.md`](../docs/brand-book-references.md) (Brand Book v1.0 is the source of truth).
+- Brand palette audit: [`docs/color-audit-2026.md`](../../docs/color-audit-2026.md).
+- Brand authority matrix: [`docs/brand-book-references.md`](../../docs/brand-book-references.md) (Brand Book v1.0 is the source of truth).

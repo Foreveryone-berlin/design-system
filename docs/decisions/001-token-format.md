@@ -7,8 +7,8 @@
 
 ForEveryone needs a maintainable design token system that can be used by:
 
-- Developers implementing CSS and WordPress theme styles
-- Elementor editors applying global settings
+- Developers implementing CSS in any framework or plain-CSS app
+- Editors syncing host-platform globals from `integrations/`
 - Designers working in Figma with Tokens Studio
 
 The format must be readable, portable, and tooling-friendly without a complex build stack.
