@@ -1,9 +1,10 @@
 # ForEveryone Berlin — Design System
 
-> Token-driven, digital-first design system for foreveryone.berlin (WordPress +
-> Elementor Pro live site, plus a Next.js prototype). Figma is the visual source
-> of truth; this repository is the implementation source of truth. The brand
-> spec is the ForEveryone Brand Book v1.0 (June 2026).
+> Token-driven, digital-first design system for foreveryone.berlin. Platform-
+> neutral tokens and CSS, consumed by the Next.js prototype, any framework or
+> plain-CSS app, and host platforms documented under integrations/. Figma is the
+> visual source of truth; this repository is the implementation source of truth.
+> The brand spec is the ForEveryone Brand Book v1.0 (June 2026).
 
 This file is the entry point for AI agents and engineers adopting the system.
 Read the spec files below before generating UI, then follow the principles and

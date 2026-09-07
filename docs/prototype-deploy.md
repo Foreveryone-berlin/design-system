@@ -10,6 +10,7 @@ The Next.js prototype in `prototype/` is deployed to Vercel as project `fe-desig
 | Root Directory | `prototype` |
 | Build Command | `next build` (default) |
 | Install Command | `npm ci` (default) |
+| Node.js Version | `24.x` (project setting; `engines.node` in `prototype/package.json` pins the build and overrides the setting) |
 | Production Branch | `main` |
 | Domains | `design.foreveryone.berlin` (primary), `fe-design-system.vercel.app` (auto, kept for redirect only) |
 

@@ -61,12 +61,12 @@ Details:
 
 -
 
-## Elementor action required?
+## Consuming-target action required?
 
 - [x] No
 - [ ] Yes (describe below)
 
-If yes, what needs to be updated in Elementor?
+If yes, which target and what needs updating?
 
 -
 
@@ -75,7 +75,7 @@ If yes, what needs to be updated in Elementor?
 - [ ] Yes
 - [x] No
 
-## Tested on live site?
+## Tested on affected consuming target(s)?
 
 - [ ] Yes
 - [x] No

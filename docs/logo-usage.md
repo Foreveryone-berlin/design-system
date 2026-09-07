@@ -141,4 +141,4 @@ approximations to be replaced with official vectors from the brand team.
 
 - [`docs/visual-styles.md`](visual-styles.md) — illustrations, blobs, photography.
 - [`docs/color-audit-2026.md`](color-audit-2026.md) — approved background ⇄ text combinations.
-- [`elementor/global-colors.md`](../elementor/global-colors.md) — Global 2 (Orange) is decorative only.
+- [`integrations/README.md`](../integrations/README.md) — host-platform colour maps (orange stays decorative only on mapped globals).

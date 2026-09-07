@@ -1,8 +1,9 @@
 # General (mirrors `.cursor/rules/general.mdc`)
 
-- This is a WordPress/Elementor design system repo for ForEveryone Berlin (https://foreveryone.berlin/)
+- This is the platform-neutral design system repo for ForEveryone Berlin (https://foreveryone.berlin/): DTCG tokens, generated CSS custom properties, `fe-*` CSS utilities, and a Next.js prototype
 - Canonical long-form agent context: `docs/AGENTS.md`; root `AGENTS.md` mirrors the retrieval index for tools that only load repo-root `AGENTS.md`
-- The stack is: WordPress + Elementor Pro + custom CSS + child theme
+- Consumers: the Next.js prototype in `prototype/`, any framework or plain-CSS app, and host platforms listed in `integrations/README.md`. Platform-specific code and docs go in `integrations/<target>/` and `css/integrations/<target>.css` only.
+- Never put a platform-specific selector, slot number, or product name in `tokens/`, `spec/`, `docs/`, or the shared `css/*.css`
 - Figma is source of truth for visual decisions. The repo is source of truth for implementation.
 - Never modify files in `tokens/` without updating `CHANGELOG.md`
 - Never hardcode hex values or font names in CSS files — always use CSS custom properties from `css/custom-properties.css`
