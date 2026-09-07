@@ -16,7 +16,7 @@
     "svg-path-bbox": "^2.1.0"
   },
   "engines": {
-    "node": ">=24"
+    "node": "24.x"
   },
   "license": "SEE LICENSE FILE"
 }
