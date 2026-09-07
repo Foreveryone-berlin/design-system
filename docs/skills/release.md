@@ -29,7 +29,7 @@ Ship a version from `develop` to `main` and tag it (e.g. v1.0.0).
 
 4. **Open a pull request**
    - Base: `main`. Compare: `develop`.
-   - Use the [PR template](../../.github/PULL_REQUEST_TEMPLATE.md): what changed, token impact, Elementor action, Figma updated, tested, CHANGELOG updated.
+   - Use the [PR template](../../.github/PULL_REQUEST_TEMPLATE.md): what changed, token impact, consuming-target action, Figma updated, tested, CHANGELOG updated.
 
 5. **Review and merge**
    - After approval, merge the PR into `main` (merge commit or squash per team preference).

@@ -6,7 +6,7 @@ Which document governs which brand domain, and how the repo relates to each.
 
 1. **Figma** — visual source of truth for design decisions (layouts, exact shapes, artwork).
 2. **ForEveryone Brand Book v1.0 (June 2026)** — the authoritative written brand spec: voice, naming, logo rules, colour, typography, visual elements, imagery ethics, print rules. This is the current canonical brand reference for everything in this repo.
-3. **This repository** — implementation source of truth: tokens, generated CSS, Elementor/Figma docs, and the Next.js prototype. The repo translates the Brand Book into a **digital-first** system.
+3. **This repository** — implementation source of truth: tokens, generated CSS, Figma sync, per-platform integrations, and the Next.js prototype. The repo translates the Brand Book into a **digital-first** system.
 
 ## Document status
 

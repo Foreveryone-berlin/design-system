@@ -65,4 +65,4 @@ If Figma and repo diverge:
    - token changes (if any)
    - rebuilt `css/custom-properties.css`
    - changelog entry
-4. Confirm in Elementor UI global mappings still match.
+4. Confirm any host-platform global mappings still match (see [integrations/README.md](../integrations/README.md)).
