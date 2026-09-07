@@ -4,7 +4,7 @@ Thanks for contributing to the ForEveryone Berlin design system.
 
 ## Skills & Workflows
 
-For step-by-step workflows (token updates, Elementor mapping, releases), see [docs/skills/](skills/).
+For step-by-step workflows (token updates, releases), see [docs/skills/](skills/). Per-platform sync steps live under [integrations/](../integrations/).
 
 ## Workflow
 
@@ -22,16 +22,16 @@ Use Conventional Commits:
 
 - `feat: add spacing scale tokens`
 - `fix: correct input focus border state`
-- `docs: update Elementor global colors guide`
+- `docs: update host-platform global colors guide`
 - `chore: improve token build script logging`
 
 ## Pull Request Expectations
 
 - Describe what changed and why.
 - Declare token impact (new/modified/removed).
-- Specify Elementor action required (yes/no).
+- Specify whether any consuming target needs a follow-up action (yes/no).
 - Confirm whether Figma was updated.
-- Confirm live-site testing status.
+- Confirm testing on affected consuming targets.
 - Confirm changelog update status.
 
 ## Quality Checklist
@@ -39,8 +39,9 @@ Use Conventional Commits:
 - No hardcoded hex values in CSS (except generated `custom-properties.css`).
 - No direct font-family literals outside token variables.
 - New tokens include `$description`.
+- Token `$description` text stays semantic (no host-platform slot names).
 - Docs remain aligned with implementation.
 
-## Official References
+## Integrations
 
-Elementor/WordPress docs: [docs/official-references.md](official-references.md).
+Target-specific setup and vendor docs: [integrations/README.md](../integrations/README.md).
