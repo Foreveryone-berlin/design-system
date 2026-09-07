@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+## [1.4.1] - 2026-09-07
+
+Platform-neutral framing for the design system.
+
 - **Docs**: Frame the system as platform-neutral; move host-platform material under integrations and stop naming host slots in shared tokens and preview copy.
 
 ## [1.4.0] - 2026-09-03
