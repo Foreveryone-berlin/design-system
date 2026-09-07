@@ -3,12 +3,12 @@ import { test, expect } from "@playwright/test";
 test("visual-elements catalog renders all icon families without double chips", async ({ page }) => {
   await page.goto("/visual-elements", { waitUntil: "networkidle" });
 
-  // Category chips (5), activity chips (5), social chips (6)
+  // Category chips (5) and activity chips (5). Social icons render in a table, not chips.
   const catalogChips = page.locator(".ds-icon-chip");
-  await expect(catalogChips).toHaveCount(16);
+  await expect(catalogChips).toHaveCount(10);
 
   // Each catalog chip should contain exactly one icon glyph, never a nested orange chip.
-  for (let i = 0; i < 16; i++) {
+  for (let i = 0; i < 10; i++) {
     const chip = catalogChips.nth(i);
     await expect(chip.locator("> *")).toHaveCount(1);
     await expect(chip.locator(".fe-workshop-icon")).toHaveCount(0);
