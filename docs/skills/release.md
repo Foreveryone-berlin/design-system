@@ -1,10 +1,10 @@
 # Release Workflow (manual fallback)
 
-> **Authoritative skill:** [`.claude/skills/ship-release/SKILL.md`](../../.claude/skills/ship-release/SKILL.md). This file is a manual fallback for humans and for agents that do not auto-load project skills.
+> **Authoritative skill:** the user-level `ship` skill. There is no project release skill in `.claude/skills/`. This file is the manual fallback and the reference for what the flow does.
 
 Ship a version from `develop` to `main` and tag it (e.g. v1.0.0).
 
-> The `ship-release` skill drives this whole flow end-to-end on a trigger phrase ("ship it", "cut release", "release X.Y.Z"). Deploy is by Vercel (push to `main`); `.github/workflows/release.yml` only creates the GitHub Release from the tag. The manual steps below remain the fallback and the reference for what the skill does.
+> The `ship` skill drives this whole flow end-to-end on a trigger phrase ("ship it", "cut release", "release X.Y.Z"), reading this repo's release contract from `AGENTS.md`. Deploy is by Vercel (push to `main`); `.github/workflows/release.yml` only creates the GitHub Release from the tag. The manual steps below remain the fallback.
 
 ## Prerequisites
 

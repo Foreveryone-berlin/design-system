@@ -10,17 +10,20 @@ Use:
 
 Examples:
 
-- `color.primary.500`
-- `color.secondary.lavender.400`
+- `color.orange.500`
+- `color.lavender.400`
 - `font.size.xl`
 - `motion.transition.base`
 
 ## Naming Principles
 
-- Prefer semantic purpose over visual color names.
-- Use numeric scales for tonal steps (`50`, `100`, `500`, etc.).
+- Ramp families are named by hue (`orange`, `green`, `blue`, `lavender`, `neutral`) with
+  numeric tonal steps (`50`, `100`, `500`, …). `500` is the brand "main" step.
+- Semantic names carry the purpose (`color.background-title`, `color.accent-icon`,
+  `color.status.warning`) and **reference** the ramp step they use rather than repeating its
+  value: `"$value": "{color.green.500}"`.
 - Keep naming predictable between Figma (`/`) and repo (`.`).
-- Avoid ambiguous labels like `big`, `small`, `orange`, `purple`.
+- Avoid ambiguous size labels like `big` or `small`.
 
 ## Valid Categories in This Repo
 
@@ -33,7 +36,14 @@ Examples:
 
 ## Figma Mapping Rule
 
-- Figma: `color/primary/500`
-- Repo: `color.primary.500`
+Figma uses `/`, the repo uses `.`, and the family names differ. The real mapping:
+
+| Figma variable | Repo token |
+| --- | --- |
+| `Primary/500` | `color.orange.500` |
+| `Secondary/green/500_main` | `color.green.500` |
+| `Secondary/blue/500` | `color.blue.500` |
+| `Secondary/purple/500_Lavender_main` | `color.lavender.500` |
+| `Neutral/900` | `color.neutral.900` |
 
 If a new token is introduced, use this mapping and document the semantic reason in `$description`.
