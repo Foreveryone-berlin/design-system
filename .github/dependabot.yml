@@ -1,0 +1,41 @@
+# Dependency and security updates.
+#
+# target-branch is set on every entry on purpose: this repo's default branch is
+# `main`, but `develop` is the integration branch and the only one contributors
+# branch from. Without it Dependabot would open PRs against `main` and bypass
+# the workflow entirely.
+#
+# Note: this file enables *version* updates. Dependabot **security** alerts and
+# security updates are repository settings (Settings -> Code security), not
+# config, and have to be switched on there for security-only PRs to appear.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    target-branch: develop
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(deps)"
+
+  - package-ecosystem: npm
+    directory: /prototype
+    target-branch: develop
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(deps)"
+    ignore:
+      # engines.node is 24.x in both manifests, so the types track the runtime.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: github-actions
+    directory: /
+    target-branch: develop
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: "chore(ci)"
