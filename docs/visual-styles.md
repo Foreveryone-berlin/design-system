@@ -170,6 +170,15 @@ When placing images inside blob or rounded masks:
 
 Host platforms: apply the same `.fe-*` class names from `utilities.css` in the target's markup. Per-target setup: [integrations/README.md](../integrations/README.md).
 
+## Other element sources (not import paths)
+
+Two non-Figma libraries exist and are easy to mistake for a source of truth. Neither is:
+
+- **Canva "Elements Template Guide & Resource"** (design `DAGv9G5X55E`) is the team's working library for social posts, posters and flyers. It holds categories this repo does not cover, notably a workshop-activity line set and a music instrument set. Its contents are **Canva stock elements**, licensed for use inside Canva and not for redistribution in this repository. Do not extract vectors from it. Audited in [canva-icon-gap-audit.md](canva-icon-gap-audit.md).
+- **The Google Drive folder** that Canva page 10 names as the canonical icon source is currently unreachable, and the icon files elsewhere in Drive are raster Instagram highlight covers, not vector workshop icons.
+
+Anything from either library has to arrive through Figma and the import scripts below, after a licensing decision where Canva stock is involved.
+
 ## Refreshing visual-element SVGs from Figma
 
 When design ships an updated **ForEveryone Elements** export:
