@@ -8,6 +8,14 @@
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-09-08
+
+A testimonial slider, and testimonials promoted into the shared component library.
+
+- **Add**: Add a testimonial slider that shows one short quote at a time, with dots to move between them; it can be swiped, scrolled, or driven from the keyboard.
+- **Add**: Add a centred display style for short testimonials, with the quote mark above the text, alongside the existing left-aligned card.
+- **Add**: Publish the testimonial as a documented component so other sites can use it, not just the prototype preview.
+
 ## [1.4.1] - 2026-09-07
 
 Platform-neutral framing for the design system.
