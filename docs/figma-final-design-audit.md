@@ -71,6 +71,12 @@ documented rule, that rule wins and the Figma side is what needs correcting.
   matches `.fe-label` exactly. `.fe-tag` deliberately sits one weight up at 500, and moving
   it to 400 would leave two utilities identical in every property. Which Figma style maps to
   which utility needs a designer's answer before either moves.
+- **Finding 11 — fixed.** The 18 non-ramp colour tokens that held a byte-identical copy of a
+  ramp value are now DTCG references (`{color.orange.500}` and so on). `custom-properties.css`
+  and `spec/tokens.json` rebuild byte-identical, so no value moved; a future ramp change now
+  propagates instead of splitting. Tokens with no exact ramp counterpart (`color.accent`,
+  `color.soft-lavender`, `color.very-light-gray`, `color.light-gray`, the 2026 accents, print
+  and doc greys) keep literal values.
 
 ## Component parity: high
 
@@ -93,12 +99,11 @@ No Code Connect exists in the repo (no `*.figma.ts` / `*.figma.js`), so
 | # | Work | Size |
 | --- | --- | --- |
 | 1 | Correct the mapping table in `figma/sync-guide.md` and the naming note in `docs/AGENTS.md` (finding 10) | S |
-| 2 | Convert the semantic tokens in finding 11 to DTCG references so ramp changes propagate | S |
-| 3 | Add Code Connect for the `Style Guide` components, so design-to-code on page frames returns `fe-*` classes | M |
-| 4 | Figma-side cleanup of findings 5–8 plus the layer-name typos (`Worckshop_card`, `Dropdawn`, `Catagary-label`, `Desabled`, `Hove`). Edits the designers' source of truth, so agree it first | S + sign-off |
-| 5 | State-parity pass on the Figma Default/Hover/Active/Focused/Disabled matrices, and decide whether `Label-emotions` and `Header-Item` need repo equivalents | M |
-| 6 | Extract section patterns with no `fe-*` equivalent: newsletter popup, the three Thank You confirmations, `Landing Page - Google Ads`, `SheLeads` | M–L |
-| 7 | Document how the 426px mobile artboard maps onto the 640/768/1024 min-width breakpoints | S, docs |
+| 2 | Add Code Connect for the `Style Guide` components, so design-to-code on page frames returns `fe-*` classes | M |
+| 3 | Figma-side cleanup of findings 5–8 plus the layer-name typos (`Worckshop_card`, `Dropdawn`, `Catagary-label`, `Desabled`, `Hove`). Edits the designers' source of truth, so agree it first | S + sign-off |
+| 4 | State-parity pass on the Figma Default/Hover/Active/Focused/Disabled matrices, and decide whether `Label-emotions` and `Header-Item` need repo equivalents | M |
+| 5 | Extract section patterns with no `fe-*` equivalent: newsletter popup, the three Thank You confirmations, `Landing Page - Google Ads`, `SheLeads` | M–L |
+| 6 | Document how the 426px mobile artboard maps onto the 640/768/1024 min-width breakpoints | S, docs |
 
 Building the marketing pages themselves belongs in `integrations/elementor/`, not here:
 `prototype/` is the design-system documentation site, and page-specific markup in the shared
