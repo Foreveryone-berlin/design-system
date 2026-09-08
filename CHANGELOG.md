@@ -8,6 +8,8 @@
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-09-08
+
 A testimonial slider, and testimonials promoted into the shared component library.
 
 - **Add**: Add a testimonial slider that shows one short quote at a time, with dots to move between them; it can be swiped, scrolled, or driven from the keyboard.
