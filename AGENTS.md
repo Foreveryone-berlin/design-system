@@ -38,7 +38,7 @@ Common mistakes:
 | Prototype e2e + axe (LOCAL) | with dev server up: `cd prototype && PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e` |
 | Screenshot key pages | `cd prototype && OUT_DIR=baseline BASE_URL=http://localhost:3100 node scripts/screenshot.mjs` |
 | Solo merge to `develop` | `bash scripts/pr-and-merge.sh` |
-| Ship release | `ship-release` skill (`.claude/skills/ship-release/`); triggers: "ship it", "cut release" |
+| Ship release | user-level `ship` skill; triggers: "ship it", "cut release", "release X.Y.Z". Manual fallback: [docs/skills/release.md](docs/skills/release.md) |
 
 ## Git and PR rules (summary)
 
@@ -95,14 +95,14 @@ See [docs/prototype-deploy.md](docs/prototype-deploy.md). This is not a publishe
 Paths are repo-relative from project root.
 
 |root:{README.md,CHANGELOG.md,AGENTS.md,CLAUDE.md,llms.txt}
-|docs:{AGENTS.md,brand-book-references.md,color-audit-2026.md,contributing.md,figma-final-design-audit.md,getting-started.md,integration-checklist.md,logo-usage.md,pr-and-merge-workflow.md,prototype-deploy.md,token-naming.md,validation.md,visual-styles.md}
+|docs:{AGENTS.md,a11y-conformance.md,brand-book-references.md,canva-icon-gap-audit.md,color-audit-2026.md,contributing.md,figma-final-design-audit.md,getting-started.md,integration-checklist.md,logo-usage.md,pr-and-merge-workflow.md,prototype-deploy.md,token-naming.md,validation.md,visual-styles.md}
 |docs/agents:{README.md,agent-contract.md,runtime-policy.md,redesign-from-this-system.md}
 |spec:{tokens.json,principles.md}
 |spec/components:{README.md,button.md,tag-pill.md,card.md,input.md,faq.md,header.md,footer.md,dropdown.md,popup.md,testimonial.md}
 |spec/patterns:{README.md}
 |docs/decisions:{001-token-format.md}
 |docs/skills:{README.md,token-update.md,release.md}
-|.claude:{rules/git.md,rules/general.md,rules/css.md,rules/tokens.md,skills/ship-release/SKILL.md,skills/optimize-prototype/SKILL.md}
+|.claude:{settings.json,rules/git.md,rules/general.md,rules/css.md,rules/tokens.md,skills/optimize-prototype/SKILL.md}
 |cursor:{AGENTS.md,rules/git.mdc,rules/general.mdc,rules/css.mdc,rules/tokens.mdc}
 |integrations:{README.md}
 |integrations/elementor:{setup.md,global-colors.md,global-fonts.md,mapping.md,references.md}

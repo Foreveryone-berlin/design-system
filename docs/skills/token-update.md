@@ -23,5 +23,5 @@ Use this when adding or changing design tokens (colors, typography, spacing, rad
 
 ## Naming
 
-- Pattern: `{category}.{tier}.{variant}` (e.g. `color.primary.500`, `font.size.xl`).
+- Pattern: `{category}.{tier}.{variant}` (e.g. `color.orange.500`, `font.size.xl`).
 - See [docs/token-naming.md](../token-naming.md).

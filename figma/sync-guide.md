@@ -52,13 +52,25 @@ Entry points in the website file (`U6oj7xy85cfOQV1o0XtTKC`):
 
 ## Variable Group Mapping
 
-- Figma `color/primary/500` -> repo `color.primary.500`
-- Figma `color/secondary/lavender/400` -> repo `color.secondary.lavender.400`
-- Figma `font/family/heading` -> repo `font.family.heading`
-- Figma `spacing/6` -> repo `spacing.6`
-- Figma `radius/pill` -> repo `radius.pill`
-- Figma `shadow/card` -> repo `shadow.card`
-- Figma `motion/transition/base` -> repo `motion.transition.base`
+Figma uses `/`, the repo uses `.`, and the colour family names differ. The mapping as it
+actually stands in the website file:
+
+| Figma variable | Repo token |
+| --- | --- |
+| `Primary/50…900` | `color.orange.50…900` |
+| `Secondary/green/50…800` | `color.green.50…800` |
+| `Secondary/blue/50…900` | `color.blue.50…900` |
+| `Secondary/purple/50…900` | `color.lavender.50…900` |
+| `Neutral/50…1000` | `color.neutral.50…900`, `color.base.black` |
+
+There is no `color.primary.*` or `color.secondary.*` in `tokens/`. Semantic names
+(`color.brand-primary`, `color.background-title`, `color.accent-icon`, …) reference the ramp
+step they use rather than repeating its value.
+
+Non-colour categories map one to one on name, with `/` becoming `.`: `font.family.heading`,
+`spacing.6`, `radius.pill`, `shadow.card`, `motion.transition.base`. Note that the Figma file
+currently defines **no** spacing or radius variables, so those repo tokens have no Figma
+counterpart to sync against.
 
 ## Sync Flow
 
