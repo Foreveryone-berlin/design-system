@@ -97,11 +97,20 @@ covered by `FeIcon` and `prototype/public/icons/**`.
 No Code Connect exists in the repo (no `*.figma.ts` / `*.figma.js`), so
 `get_design_context` on a page frame returns generic CSS rather than `fe-*` class names.
 
+**Code Connect is blocked by the Figma plan, not by us.** `get_code_connect_suggestions` on
+the Buttons component set (`937:7300`) returns: "You need a Dev or Full seat on an
+Organization or Enterprise plan to use Code Connect." Both teams on the account
+(`Marco's team`, `Sinfonia Leipzig`) are on the `starter` tier. Authoring `.figma.ts`
+templates now would produce files that cannot be published or read back, so this stays
+parked until the plan changes. Nothing else in the Figma MCP wiring depends on it: reading
+structure, variables and styles works on the current plan, which is how this audit was
+produced.
+
 ## Recommended follow-ups, ranked
 
 | # | Work | Size |
 | --- | --- | --- |
-| 1 | Add Code Connect for the `Style Guide` components, so design-to-code on page frames returns `fe-*` classes | M |
+| 1 | Add Code Connect for the `Style Guide` components, so design-to-code on page frames returns `fe-*` classes. **Blocked:** needs a Dev or Full seat on an Organization or Enterprise Figma plan | M, blocked |
 | 2 | Figma-side cleanup of findings 5–8 plus the layer-name typos (`Worckshop_card`, `Dropdawn`, `Catagary-label`, `Desabled`, `Hove`). Edits the designers' source of truth, so agree it first | S + sign-off |
 | 3 | State-parity pass on the Figma Default/Hover/Active/Focused/Disabled matrices, and decide whether `Label-emotions` and `Header-Item` need repo equivalents | M |
 | 4 | Extract section patterns with no `fe-*` equivalent: newsletter popup, the three Thank You confirmations, `Landing Page - Google Ads`, `SheLeads` | M–L |
