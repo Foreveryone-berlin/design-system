@@ -56,6 +56,37 @@ test.describe("interactive accessibility", () => {
     await expect(page).toHaveURL(/\/foundations#colour-ramps/);
   });
 
+  test("testimonial slider dots move the track and mark the current slide", async ({
+    page,
+  }) => {
+    await page.goto("/components");
+    const dots = page.locator("#testimonial-slider .fe-testimonial-slider__dot");
+    await expect(dots).toHaveCount(5);
+    await expect(dots.nth(0)).toHaveAttribute("aria-current", "true");
+
+    await dots.nth(2).click();
+
+    // Auto-retrying assertions absorb the snap settle without a fixed timeout.
+    await expect(dots.nth(2)).toHaveAttribute("aria-current", "true");
+    await expect(dots.nth(0)).toHaveAttribute("aria-current", "false");
+  });
+
+  test("testimonial slider scroll region is keyboard reachable and named", async ({
+    page,
+  }) => {
+    await page.goto("/components");
+    const viewport = page.locator(
+      "#testimonial-slider .fe-testimonial-slider__viewport",
+    );
+    // Without tabindex="0" axe raises scrollable-region-focusable at serious
+    // impact, which fails the CI a11y gate.
+    await expect(viewport).toHaveAttribute("tabindex", "0");
+    await expect(viewport).toHaveAttribute("aria-label", "Testimonials");
+
+    await viewport.focus();
+    await expect(viewport).toBeFocused();
+  });
+
   test("sidebar navigation restores the previous page on browser back", async ({
     page,
   }) => {

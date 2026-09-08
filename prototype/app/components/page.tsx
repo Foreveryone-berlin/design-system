@@ -1,6 +1,24 @@
 import dynamic from "next/dynamic";
 import FeIcon from "../_components/FeIcon";
 import TestimonialCard from "../_components/TestimonialCard";
+import TestimonialSlider from "../_components/TestimonialSlider";
+
+// Specimen copy is deliberately placeholder: this documents the slider's
+// layout, motion, and keyboard contract, not live workshop testimonials. Five
+// entries so the dot row matches the reference composition.
+const sliderTestimonials = [
+  { quote: "It was beautiful making connections." },
+  { quote: "I left with clay on my hands and a lighter head." },
+  {
+    quote: "Everyone was welcome, and it showed.",
+    attribution: "Placeholder Name, Participant",
+  },
+  { quote: "Two hours that did not feel like a workshop." },
+  {
+    quote: "I came on my own and did not stay on my own.",
+    attribution: "Placeholder Name, Participant",
+  },
+];
 
 const FaqDemo = dynamic(() => import("../FaqDemo"));
 const Popup = dynamic(() => import("../_components/Popup"));
@@ -501,6 +519,16 @@ export default function ComponentsPage() {
           attribution. Matches the live-site style.
         </p>
         <TestimonialCard />
+      </section>
+
+      <section id="testimonial-slider" className="ds-section">
+        <h3 className="ds-subsection-title">Testimonial slider</h3>
+        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
+          One short quote at a time on a scroll-snap track: swipe, arrow-key, or
+          use the dots. Manual only, so it needs no pause control; smooth
+          scrolling turns off under <code>prefers-reduced-motion</code>.
+        </p>
+        <TestimonialSlider items={sliderTestimonials} />
       </section>
 
       <section id="faq" className="ds-section">
