@@ -1,6 +1,6 @@
 {
   "name": "foreveryone-design-system",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "private": true,
   "description": "Design system for foreveryone.berlin: DTCG tokens, generated CSS custom properties, Figma sync, per-platform integrations, and a Next.js prototype.",
   "scripts": {
