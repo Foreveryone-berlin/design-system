@@ -11,6 +11,10 @@
     "claude-design": {
       "type": "http",
       "url": "https://api.anthropic.com/v1/design/mcp"
+    },
+    "figma": {
+      "type": "http",
+      "url": "https://mcp.figma.com/mcp"
     }
   }
 }
