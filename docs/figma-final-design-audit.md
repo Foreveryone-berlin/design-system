@@ -52,6 +52,26 @@ No ramp work is needed.
 | 10 | Wrong mapping in our own docs | variable is `Primary/500` | token is `color.orange.500`; there is no `color.primary.*`. Both [`figma/sync-guide.md`](../figma/sync-guide.md) and this index's naming note document `color/primary/500` → `color.primary.500` |
 | 11 | Semantic tokens are copies | — | `color.brand-primary`, `color.focus-button`, `color.light-orange`, `color.light-green`, `color.soft-lavender`, `color.brand-dark`, `color.theme-5/7` hold literal duplicates of ramp values instead of `{color.orange.500}` style DTCG references |
 
+### Resolutions
+
+Not every divergence resolves towards Figma. Where the design system carries its own
+documented rule, that rule wins and the Figma side is what needs correcting.
+
+- **Finding 1 — no change.** The palette is the design system's, not Figma's.
+  `color.status.error` and `color.red` keep their repo values.
+- **Finding 2 — fixed.** `shadow.header` now carries the Figma effect
+  (`3px 4px 30px rgba(0,0,0,0.25)`). Nothing in `docs/` or `spec/` justified the previous
+  softer value, so it was drift rather than a decision.
+- **Finding 3 — no change; Figma is wrong here.** `font.lineHeight.normal` records that
+  Brand Book v1.0 p.22 requires body line-height **not below 1.5**. Figma's `_Body text R`,
+  `_Buttons` and `_Inputs` at 1.4 sit under that floor, and dropping to 1.4 would also
+  weaken WCAG 1.4.12 text spacing. Body, buttons and inputs stay at 1.5; the Figma text
+  styles are the side to fix.
+- **Finding 4 — mapping question, not drift.** Figma `_Tags` (12px, weight 400) already
+  matches `.fe-label` exactly. `.fe-tag` deliberately sits one weight up at 500, and moving
+  it to 400 would leave two utilities identical in every property. Which Figma style maps to
+  which utility needs a designer's answer before either moves.
+
 ## Component parity: high
 
 `Components 👌` defines Buttons (Primary/Secondary × Default/Hover/Focused/Disabled, plus an
@@ -72,7 +92,7 @@ No Code Connect exists in the repo (no `*.figma.ts` / `*.figma.js`), so
 
 | # | Work | Size |
 | --- | --- | --- |
-| 1 | Fix findings 1–4 in `tokens/`, rebuild, changelog; correct the mapping table in `figma/sync-guide.md` and the naming note in `docs/AGENTS.md` (finding 10) | S |
+| 1 | Correct the mapping table in `figma/sync-guide.md` and the naming note in `docs/AGENTS.md` (finding 10) | S |
 | 2 | Convert the semantic tokens in finding 11 to DTCG references so ramp changes propagate | S |
 | 3 | Add Code Connect for the `Style Guide` components, so design-to-code on page frames returns `fe-*` classes | M |
 | 4 | Figma-side cleanup of findings 5–8 plus the layer-name typos (`Worckshop_card`, `Dropdawn`, `Catagary-label`, `Desabled`, `Hove`). Edits the designers' source of truth, so agree it first | S + sign-off |

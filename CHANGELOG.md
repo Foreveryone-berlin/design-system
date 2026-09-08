@@ -8,6 +8,8 @@
 
 ## [Unreleased]
 
+- **Fix**: Give the site header the drop shadow the design file specifies, so it lifts off the page the way the design shows instead of sitting almost flat.
+
 ## [1.5.0] - 2026-09-08
 
 A testimonial slider, and testimonials promoted into the shared component library.
