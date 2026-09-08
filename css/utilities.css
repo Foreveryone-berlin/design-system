@@ -787,7 +787,8 @@
    2.4.11 non-text 3:1 threshold on white), KEYBOARD ONLY (:focus-visible). A
    thin 0.125rem outline at 0.1875rem offset. Buttons and inputs instead reuse
    their own focused fill / border treatment on :focus-visible (defined
-   per-component above), so only tag pills and nav links carry the gold ring. */
+   per-component above), so only tag pills, nav links, and the testimonial
+   slider's scroll viewport and dots carry the gold ring. */
 .fe-tag-pill:focus-visible,
 .fe-nav-link:focus-visible {
   outline: 0.125rem solid var(--color-focus-visible-accent);
@@ -1495,6 +1496,193 @@
   }
 }
 
+/* ── Testimonial ───────────────────────────────────────────────────────────── */
+
+/* Static multi-up grid. The slider below is the one-at-a-time alternative. */
+.fe-testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-6);
+}
+
+.fe-testimonial {
+  margin: 0;
+  padding: var(--spacing-8) var(--spacing-6);
+  background: var(--color-theme-5);
+  border: 1px solid var(--color-theme-7);
+  border-radius: var(--radius-card);
+  /* Body copy stays left-aligned (Brand Book v1.0 p.23: never centre-align body
+     copy of three or more lines). The large quote mark leads the card. */
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+}
+
+.fe-testimonial__marks {
+  font-size: var(--font-size-3xl);
+  line-height: var(--line-height-snug);
+  color: var(--color-brand-primary);
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  /* Decorative glyph tracking: no letter-spacing token covers it (tight is
+     -0.02em, normal is 0em), so this stays a raw value on purpose. */
+  letter-spacing: 0.1em;
+}
+
+.fe-testimonial__quote {
+  margin: 0;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-theme-8);
+  max-width: 48ch;
+}
+
+.fe-testimonial__attribution {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-theme-2);
+}
+
+/* Centred display variant for the slider and hero pull-quotes: the glyph sits
+   above a short, centred quote with no card chrome. Valid ONLY for quotes of
+   two lines or fewer — the Brand Book v1.0 p.23 ban on centred body copy starts
+   at three lines, which the 32ch measure keeps us inside. Longer quotes must
+   use the default card variant. */
+.fe-testimonial--quote {
+  align-items: center;
+  text-align: center;
+  background: transparent;
+  /* Not `border: 0` — keeping the 1px box model means a quote slide and a card
+     slide are the same width, so snap positions do not drift. */
+  border-color: transparent;
+  gap: var(--spacing-3);
+}
+
+.fe-testimonial--quote .fe-testimonial__quote {
+  font-size: var(--font-size-2xl);
+  max-width: 32ch;
+  margin-inline: auto;
+}
+
+/* Manual scroll-snap slider: one quote at a time, driven by native scrolling
+   (swipe, arrow keys) plus the dot buttons. No autoplay, so it needs no pause
+   control (WCAG 2.2.2). Works with zero JS; the dots are the enhancement. */
+.fe-testimonial-slider__viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  /* Smooth scroll lives in CSS, not JS: dot handlers assign scrollLeft with no
+     `behavior` argument, so the reduced-motion override at the end of this file
+     is the whole opt-out. Never pass behavior: "smooth" from script — it
+     bypasses both this property and the media query. */
+  scroll-behavior: smooth;
+  /* Stops a touch swipe from chaining into the page scroll or the browser's
+     back-navigation gesture. */
+  overscroll-behavior-x: contain;
+  /* The dots are the visible affordance. Safe only because the viewport is
+     focusable and shows a focus ring — see the :focus-visible rule below. */
+  scrollbar-width: none;
+}
+
+.fe-testimonial-slider__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.fe-testimonial-slider__viewport:focus-visible {
+  outline: 0.125rem solid var(--color-focus-visible-accent);
+  outline-offset: 0.1875rem;
+  border-radius: var(--radius-card);
+}
+
+/* If a peek / multi-up variant is ever wanted, add
+   `container: fe-testimonial-slider / inline-size` to .fe-testimonial-slider and
+   `@container fe-testimonial-slider (inline-size >= 48rem) {
+      .fe-testimonial-slider__slide { flex-basis: 50% } }` — mirrors
+   .fe-facts-card. Do not reach for a viewport breakpoint here. */
+.fe-testimonial-slider__track {
+  display: flex;
+  gap: var(--spacing-6);
+  /* Paired with role="list" in the markup: list-style: none strips list
+     semantics in WebKit/VoiceOver, and the list role is what announces
+     "3 of 5" without any extra ARIA. */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fe-testimonial-slider__slide {
+  /* One slide at every width. A percentage basis resolves against the
+     scroller's own inline size, so a narrow host column and a full-width page
+     both show exactly one quote — no container query, no breakpoint. */
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fe-testimonial-slider__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-1);
+  margin-block-start: var(--spacing-4);
+}
+
+/* The button is the 44px touch target; ::before is the visual dot. Sizing the
+   button itself down to the dot would leave a 12px target (WCAG 2.5.8). */
+.fe-testimonial-slider__dot {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: var(--spacing-4);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: var(--line-height-snug);
+}
+
+.fe-testimonial-slider__dot::before {
+  content: "";
+  display: block;
+  inline-size: var(--spacing-3);
+  block-size: var(--spacing-3);
+  border-radius: var(--radius-circle);
+  background-color: var(--color-neutral-400);
+  transition:
+    background-color var(--transition-base),
+    inline-size var(--transition-base);
+}
+
+.fe-testimonial-slider__dot:hover::before {
+  background-color: var(--color-neutral-500);
+}
+
+/* The current dot changes BOTH fill and shape, so the state never rests on
+   colour alone (WCAG 1.4.1). --color-accent-icon, not --color-brand-primary:
+   a dot fill is a background, and brand primary is decorative-only. */
+.fe-testimonial-slider__dot[aria-current="true"]::before {
+  background-color: var(--color-accent-icon);
+  inline-size: var(--spacing-6);
+  border-radius: var(--radius-pill);
+}
+
+.fe-testimonial-slider__dot:focus-visible {
+  outline: 0.125rem solid var(--color-focus-visible-accent);
+  outline-offset: 0.1875rem;
+  border-radius: var(--radius-circle);
+}
+
+.fe-testimonial-slider__dot:focus {
+  outline: none;
+}
+
 /* ── Accessibility helpers ─────────────────────────────────────────────────── */
 
 /* Visually hidden but available to screen readers and live regions. */
@@ -1544,11 +1732,22 @@
   .fe-hamburger__line,
   .fe-nav-chevron,
   .fe-nav-link,
-  .fe-skip-link {
+  .fe-skip-link,
+  /* The dot transition lives on the pseudo-element, so the bare class would be
+     a silent no-op here. */
+  .fe-testimonial-slider__dot::before {
     transition: none;
   }
 
   .fe-faq-item:hover {
     transform: none;
+  }
+
+  /* Dot handlers assign scrollLeft with no `behavior` argument, so killing
+     smooth scroll here is the entire opt-out — there is no JS to guard. This
+     layer has no wildcard reset, so a host that loads only css/*.css gets no
+     protection without this rule. */
+  .fe-testimonial-slider__viewport {
+    scroll-behavior: auto;
   }
 }
