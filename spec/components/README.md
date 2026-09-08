@@ -14,6 +14,7 @@ names. Obey [../principles.md](../principles.md).
 | Button | `.fe-btn-primary`, `.fe-btn-secondary` | [button.md](button.md) |
 | Category tag | `.fe-tag-pill` | [tag-pill.md](tag-pill.md) |
 | Card | `.fe-card` | [card.md](card.md) |
+| Testimonial | `.fe-testimonial`, `.fe-testimonial-slider` | [testimonial.md](testimonial.md) |
 | Input | `.fe-input` | [input.md](input.md) |
 | FAQ accordion | `.fe-faq-item` | [faq.md](faq.md) |
 | Header | `.fe-header` | [header.md](header.md) |

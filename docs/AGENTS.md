@@ -22,7 +22,7 @@ Paths are repo-relative from project root unless noted.
 |docs:{AGENTS.md,brand-book-references.md,color-audit-2026.md,contributing.md,getting-started.md,integration-checklist.md,logo-usage.md,pr-and-merge-workflow.md,prototype-deploy.md,token-naming.md,validation.md,visual-styles.md}
 |docs/agents:{README.md,agent-contract.md,runtime-policy.md,redesign-from-this-system.md}
 |spec:{tokens.json,principles.md}
-|spec/components:{README.md,button.md,tag-pill.md,card.md,input.md,faq.md,header.md,footer.md,dropdown.md,popup.md}
+|spec/components:{README.md,button.md,tag-pill.md,card.md,input.md,faq.md,header.md,footer.md,dropdown.md,popup.md,testimonial.md}
 |spec/patterns:{README.md}
 |docs/decisions:{001-token-format.md}
 |docs/skills:{README.md,token-update.md,release.md}
@@ -37,7 +37,7 @@ Paths are repo-relative from project root unless noted.
 |scripts:{build-css.js,build-css.test.js,build-spec.js,pr-and-merge.sh,optimize-run.sh,import-figma-elements.mjs,import-desktop-elements.mjs,svg-normalize.mjs}
 |prototype:{README.md,next.config.ts,package.json,tsconfig.json,playwright.config.ts}
 |prototype/app:{layout.tsx,page.tsx,globals.css,manifest.ts,FaqDemo.tsx}
-|prototype/app/_components:{FeIcon.tsx,CodeBlock.tsx,HeaderDemo.tsx,MobileNav.tsx,MotionSpecimens.tsx,Navigation.tsx,ObfuscatedEmail.tsx,OnThisPage.tsx,Popup.tsx,Search.tsx,HeadingAnchors.tsx,EventsWorkshopsSwitcher.tsx,NavigationHistory.tsx,AssetTile.tsx,LogoClearSpace.tsx,StatCounter.tsx,TestimonialCard.tsx,ViewTransitions.tsx,ui-glyphs.ts,ui-glyph-markup.ts,page-headings.ts,nav-sections.ts,search-index.ts,slugify.ts}
+|prototype/app/_components:{FeIcon.tsx,CodeBlock.tsx,HeaderDemo.tsx,MobileNav.tsx,MotionSpecimens.tsx,Navigation.tsx,ObfuscatedEmail.tsx,OnThisPage.tsx,Popup.tsx,Search.tsx,HeadingAnchors.tsx,EventsWorkshopsSwitcher.tsx,NavigationHistory.tsx,AssetTile.tsx,LogoClearSpace.tsx,StatCounter.tsx,TestimonialCard.tsx,TestimonialSlider.tsx,ViewTransitions.tsx,ui-glyphs.ts,ui-glyph-markup.ts,page-headings.ts,nav-sections.ts,search-index.ts,slugify.ts}
 |prototype/app:{components,patterns,foundations,guidelines,governance,accessibility,credits,brand,logo,visual-elements,print}/page.tsx
 |prototype/content:{site-copy.ts}
 |prototype/tests:{a11y.spec.ts,smoke.spec.ts}
@@ -71,7 +71,7 @@ Paths are repo-relative from project root unless noted.
 
 **CSS layers:** `base.css` reset/body; `typography.css` heading/body/label/tag utilities (`.fe-h1`, `.fe-body`, …); `utilities.css` components (buttons, cards, inputs, FAQ, dropdown, header, footer, nav, sections). These three are platform-neutral. Per-target layers live in `css/integrations/` (currently `elementor.css`, low-specificity `.elementor-*` tweaks, loaded only by that target). All authored values use `var(--…)` from custom properties — no raw hex or font-family names outside generated file.
 
-**Prefix:** Public classes use `fe-` (ForEveryone). Examples in `utilities.css`: `.fe-btn-primary`, `.fe-btn-secondary`, `.fe-icon-btn`, `.fe-icon-btn--filled-brand`, `.fe-play-btn`, `.fe-card`, `.fe-card-benefit`, `.fe-card-get-involved`, `.fe-facts-card` (+ `__grid`/`__label`/`__value`), `.fe-steps` (+ `.fe-step`, `.fe-step__connector`), `.fe-split-list` (+ `__items`/`__item`), `.fe-person` (+ `__photo`/`__name`/`__role`/`__bio`, `--card`), `.fe-people-grid` (+ `--cards`), `.fe-input` (+ error/disabled), `.fe-faq-item`, `.fe-dropdown`, `.fe-nav-link`, `.fe-header`, `.fe-footer`, `.fe-tag-pill` (+ variants), `.fe-section`, `.fe-container`. Prototype-only documentation chrome uses `ds-` and lives in `prototype/app/globals.css`, never in `css/`. Visual rules for icons/blobs/photos: `docs/visual-styles.md`.
+**Prefix:** Public classes use `fe-` (ForEveryone). Examples in `utilities.css`: `.fe-btn-primary`, `.fe-btn-secondary`, `.fe-icon-btn`, `.fe-icon-btn--filled-brand`, `.fe-play-btn`, `.fe-card`, `.fe-card-benefit`, `.fe-card-get-involved`, `.fe-facts-card` (+ `__grid`/`__label`/`__value`), `.fe-steps` (+ `.fe-step`, `.fe-step__connector`), `.fe-split-list` (+ `__items`/`__item`), `.fe-person` (+ `__photo`/`__name`/`__role`/`__bio`, `--card`), `.fe-people-grid` (+ `--cards`), `.fe-input` (+ error/disabled), `.fe-faq-item`, `.fe-dropdown`, `.fe-nav-link`, `.fe-header`, `.fe-footer`, `.fe-tag-pill` (+ variants), `.fe-testimonial` (+ `__marks`/`__quote`/`__attribution`, `--quote`), `.fe-testimonial-grid`, `.fe-testimonial-slider` (+ `__viewport`/`__track`/`__slide`/`__dots`/`__dot`), `.fe-section`, `.fe-container`. Prototype-only documentation chrome uses `ds-` and lives in `prototype/app/globals.css`, never in `css/`. Visual rules for icons/blobs/photos: `docs/visual-styles.md`.
 
 **Breakpoints:** Mobile-first `min-width` only. The shared layer breaks at **640px, 768px, 1024px** (`css/utilities.css`); the `ds-` prototype chrome additionally uses 1200px and 1600px plus container queries (`prototype/app/globals.css`). There are no breakpoint tokens. Prefer logical properties (`margin-inline`, `padding-block`). Where a component must respond to its own column rather than the viewport, use a container query, not a media query. A host platform's own editor breakpoints are that target's config, not the system's: see `integrations/README.md`.
 
