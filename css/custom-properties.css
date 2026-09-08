@@ -204,7 +204,7 @@
   --shadow-md:   0 4px 12px rgba(0,0,0,0.08);
   --shadow-lg:   0 8px 24px rgba(0,0,0,0.12);
   --shadow-card:   0 2px 8px rgba(0,0,0,0.08);  /* workshop card */
-  --shadow-header: 0 2px 12px rgba(0,0,0,0.1);
+  --shadow-header: 3px 4px 30px rgba(0,0,0,0.25);
 
   /* ── Motion ──────────────────────────────────────────────────────────── */
   --transition-fast: 150ms ease;
