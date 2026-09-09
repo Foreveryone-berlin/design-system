@@ -54,20 +54,6 @@ const RAMP_NEUTRAL = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
 function shell({ w, h, body, extraCss = "", footer = true }) {
   const pad = w >= 1500 ? 96 : 76;
-  // README hero only (w >= 1500; the social card is 1200 wide). The composition
-  // ends in a Warm White wave band, so on GitHub's white page the bottom edge
-  // dissolves and the card reads as having no boundary. GitHub strips `style`
-  // from markdown-embedded HTML, so the border has to be baked into the asset.
-  //
-  // Inset rather than added canvas: `box-sizing: border-box` above keeps the
-  // output exactly w x h, so the documented ratio and the OG size contract
-  // hold, and `.content { inset:0 }` resolves inside the border.
-  //
-  // 3px here is 3px in the final JPG (rendered at deviceScaleFactor 2, then
-  // halved by the ImageMagick -resize step), which is ~1.8px at GitHub's ~890px
-  // README column: visible without reading as a frame.
-  const frame =
-    w >= 1500 ? "border:3px solid var(--color-warm-grey-light);" : "";
   return `<!doctype html><html><head><meta charset="utf-8">${FONT_LINKS}
 <style>
 ${tokenCss}
@@ -78,7 +64,6 @@ body {
   background:var(--color-accent);
   font-family:'Outfit',sans-serif;
   color:var(--color-brand-dark);
-  ${frame}
 }
 .content { position:absolute; inset:0; padding:${pad}px;
            display:flex; flex-direction:column; justify-content:center; }
