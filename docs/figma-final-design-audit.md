@@ -97,14 +97,10 @@ covered by `FeIcon` and `prototype/public/icons/**`.
 No Code Connect exists in the repo (no `*.figma.ts` / `*.figma.js`), so
 `get_design_context` on a page frame returns generic CSS rather than `fe-*` class names.
 
-**Code Connect is blocked by the Figma plan, not by us.** `get_code_connect_suggestions` on
-the Buttons component set (`937:7300`) returns: "You need a Dev or Full seat on an
-Organization or Enterprise plan to use Code Connect." Both teams on the account
-(`Marco's team`, `Sinfonia Leipzig`) are on the `starter` tier. Authoring `.figma.ts`
-templates now would produce files that cannot be published or read back, so this stays
-parked until the plan changes. Nothing else in the Figma MCP wiring depends on it: reading
-structure, variables and styles works on the current plan, which is how this audit was
-produced.
+Code Connect needs a Dev or Full seat on an Organization or Enterprise plan;
+the account is on `starter`, so `get_code_connect_suggestions` is refused and any
+`.figma.ts` written now could not be published or read back. Parked until the plan
+changes. Reading structure, variables and styles is unaffected.
 
 ## Recommended follow-ups, ranked
 
