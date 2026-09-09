@@ -28,9 +28,8 @@ against Figma no longer needs a manual export.
   job.
 - If you also run Figma's MCP server at user level (via the Figma plugin or desktop app),
   its tools appear a second time under a different prefix. Disable one of the two.
-- Reading structure, variables, styles and screenshots works on the current `starter` plan.
-  **Code Connect does not**: it needs a Dev or Full seat on an Organization or Enterprise
-  plan. See `docs/figma-final-design-audit.md`.
+- Reads work on the current `starter` plan; Code Connect needs a Dev or Full seat on an
+  Organization or Enterprise plan. See `docs/figma-final-design-audit.md`.
 
 Entry points in the website file (`U6oj7xy85cfOQV1o0XtTKC`):
 
