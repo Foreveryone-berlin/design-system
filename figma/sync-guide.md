@@ -13,6 +13,31 @@ This document defines how ForEveryone design tokens are synchronized between Fig
 - Plugin: **Tokens Studio for Figma** (free tier supported).
 - Repo token format: W3C Design Token Community Group style JSON.
 - Build step: `node scripts/build-css.js`.
+- Read access for agents: the **Figma MCP server**, declared in `.mcp.json` (see below).
+
+## Figma MCP server (read access)
+
+`.mcp.json` declares a `figma` HTTP MCP server at `https://mcp.figma.com/mcp`, and
+`.claude/settings.json` pre-approves it so nobody has to enable it by hand. It lets an agent
+read the file's structure, variables, text styles, and effects directly, so verifying tokens
+against Figma no longer needs a manual export.
+
+- Authorization is per person over OAuth on first use. No Figma token is stored in the repo.
+- It is read access for auditing. It does **not** replace the flow below: changes to
+  `tokens/` still land through a reviewed PR, and writes back into Figma stay a designer's
+  job.
+- If you also run Figma's MCP server at user level (via the Figma plugin or desktop app),
+  its tools appear a second time under a different prefix. Disable one of the two.
+- Reads work on the current `starter` plan; Code Connect needs a Dev or Full seat on an
+  Organization or Enterprise plan. See `docs/figma-final-design-audit.md`.
+
+Entry points in the website file (`U6oj7xy85cfOQV1o0XtTKC`):
+
+| Node | What it is |
+| --- | --- |
+| `876:5564` | the `Final Design` canvas: every page design, desktop and mobile |
+| `938:7171` | the `Style Guide` section: components, colours, typography, spacing |
+| `937:7300` | the Buttons component set |
 
 ## Initial Plugin Setup
 
@@ -29,13 +54,25 @@ This document defines how ForEveryone design tokens are synchronized between Fig
 
 ## Variable Group Mapping
 
-- Figma `color/primary/500` -> repo `color.primary.500`
-- Figma `color/secondary/lavender/400` -> repo `color.secondary.lavender.400`
-- Figma `font/family/heading` -> repo `font.family.heading`
-- Figma `spacing/6` -> repo `spacing.6`
-- Figma `radius/pill` -> repo `radius.pill`
-- Figma `shadow/card` -> repo `shadow.card`
-- Figma `motion/transition/base` -> repo `motion.transition.base`
+Figma uses `/`, the repo uses `.`, and the colour family names differ. The mapping as it
+actually stands in the website file:
+
+| Figma variable | Repo token |
+| --- | --- |
+| `Primary/50…900` | `color.orange.50…900` |
+| `Secondary/green/50…800` | `color.green.50…800` |
+| `Secondary/blue/50…900` | `color.blue.50…900` |
+| `Secondary/purple/50…900` | `color.lavender.50…900` |
+| `Neutral/50…1000` | `color.neutral.50…900`, `color.base.black` |
+
+There is no `color.primary.*` or `color.secondary.*` in `tokens/`. Semantic names
+(`color.brand-primary`, `color.background-title`, `color.accent-icon`, …) reference the ramp
+step they use rather than repeating its value.
+
+Non-colour categories map one to one on name, with `/` becoming `.`: `font.family.heading`,
+`spacing.6`, `radius.pill`, `shadow.card`, `motion.transition.base`. Note that the Figma file
+currently defines **no** spacing or radius variables, so those repo tokens have no Figma
+counterpart to sync against.
 
 ## Sync Flow
 

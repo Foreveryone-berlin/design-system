@@ -32,7 +32,6 @@ CLAUDE.local.md
 # Claude Code per-machine permissions (do not commit)
 .claude/settings.local.json
 
-# Secrets: BrowserStack MCP credentials (see .env.example)
 .env
 
 # Local artifact hub

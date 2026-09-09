@@ -39,51 +39,41 @@ if [ -n "$PR_MERGED" ]; then
   exit 0
 fi
 
-# Build body from .github/PULL_REQUEST_TEMPLATE.md (required by workspace rules)
+# Build body from .github/PULL_REQUEST_TEMPLATE.md (required by workspace rules).
+# Only the sections this script can fill from the branch itself; the template
+# says to delete what does not apply, so the rest are left out rather than
+# emitted as an empty or "No" answer.
 TITLE=$(git log -1 --pretty=format:%s)
+WHY=$(git log -1 --pretty=format:%b | sed '/^$/d')
+[ -z "$WHY" ] && WHY="-"
 BASE_REF=develop
 git rev-parse --verify --quiet origin/develop >/dev/null && BASE_REF=origin/develop
 CHANGES=$(git log "$BASE_REF..HEAD" --pretty=format:"- %s" 2>/dev/null)
 [ -z "$CHANGES" ] && CHANGES="-"
 
-BODY="## What changed
+FILES=$(git diff --name-only "$BASE_REF..HEAD" 2>/dev/null)
+CHECKS="- [ ] CI is the gate here: tokens build + test, prototype lint + build, prototype a11y e2e"
+if printf '%s\n' "$FILES" | grep -qE '^(tokens/|css/)'; then
+  if printf '%s\n' "$FILES" | grep -qx 'CHANGELOG.md'; then
+    CHECKS="$CHECKS
+- [x] \`CHANGELOG.md\` updated, as a \`tokens/\` or \`css/\` change requires"
+  else
+    CHECKS="$CHECKS
+- [ ] **\`CHANGELOG.md\` is not in this branch, but \`tokens/\` or \`css/\` changed. Add the entry before merging.**"
+  fi
+fi
+
+BODY="## Why
+
+$WHY
+
+## What changed
 
 $CHANGES
 
-## Token impact
+## Checks
 
-- [ ] New tokens
-- [ ] Modified tokens
-- [ ] Removed tokens
-- [x] No token changes
-
-Details:
-
--
-
-## Consuming-target action required?
-
-- [x] No
-- [ ] Yes (describe below)
-
-If yes, which target and what needs updating?
-
--
-
-## Figma updated?
-
-- [ ] Yes
-- [x] No
-
-## Tested on affected consuming target(s)?
-
-- [ ] Yes
-- [x] No
-
-## CHANGELOG updated?
-
-- [ ] Yes
-- [x] No
+$CHECKS
 "
 
 echo "Creating PR into develop..."
