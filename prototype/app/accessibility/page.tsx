@@ -149,6 +149,25 @@ export default function AccessibilityPage() {
             serious or critical WCAG 2.1 AA violations.
           </li>
           <li>
+            <strong>Cross-browser:</strong>{" "}
+            <a
+              href="https://playwright.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Playwright
+            </a>{" "}
+            runs the end-to-end and axe pass over key routes;{" "}
+            <a
+              href="https://github.com/remorses/playwriter"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Playwriter
+            </a>{" "}
+            drives a real browser for live spot checks.
+          </li>
+          <li>
             <strong>Contrast:</strong> colour pairings are checked with the{" "}
             <a
               href="https://webaim.org/resources/contrastchecker/"

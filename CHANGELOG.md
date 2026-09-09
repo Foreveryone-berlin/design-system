@@ -8,6 +8,7 @@
 
 ## [Unreleased]
 
+- **Change**: Name the browser-testing tools we actually use on the credits and accessibility pages.
 - **Fix**: Give the site header the drop shadow the design file specifies, so it lifts off the page the way the design shows instead of sitting almost flat.
 - **Change**: Take the thin grey outline off the header card at the top of the project page, so the artwork sits on the page unframed again.
 - **Change**: Move the prototype onto the current version of its web framework, keeping the preview site on supported software.
