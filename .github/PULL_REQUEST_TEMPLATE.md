@@ -24,14 +24,6 @@ One or two sentences. Link the issue, audit finding, or doc that asked for this.
 
 What was added, renamed, or removed, and what a consumer has to do about it.
 
-## Consumers
-
-Which target in `integrations/` acts on this, and what it must update.
-
-## Figma
-
-In sync, or the designer follow-up this needs.
-
 ## Screenshots
 
 Before and after, at the breakpoints the change affects.
