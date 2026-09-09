@@ -84,9 +84,14 @@ const tools = [
     role: "Automated WCAG 2.1 AA checks in CI",
   },
   {
-    name: "BrowserStack MCP",
-    href: "https://github.com/browserstack/mcp-server",
-    role: "MCP server for cross-browser and accessibility checks",
+    name: "Playwright",
+    href: "https://playwright.dev",
+    role: "Cross-browser end-to-end runs and screenshot baselines",
+  },
+  {
+    name: "Playwriter",
+    href: "https://github.com/remorses/playwriter",
+    role: "Drives the real browser for live spot checks",
   },
 ];
 
