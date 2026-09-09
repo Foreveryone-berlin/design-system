@@ -15,7 +15,7 @@ Technical detail; non-developers can skip this.
 - **Tokens:** W3C DTCG JSON (`tokens/*.json`) with `$value`, `$type`, `$description`.
 - **Build:** Node script `scripts/build-css.js` generates `css/custom-properties.css`.
 - **CSS:** Authored layers in `css/*.css` (variables only, no raw values).
-- **Prototype:** Next.js 15 + TypeScript (App Router) in `prototype/`.
+- **Prototype:** Next.js 16 + TypeScript (App Router) in `prototype/`.
 - **Hosting:** Vercel at `design.foreveryone.berlin` (legacy `fe-design-system.vercel.app` 301-redirects there).
 - **Consumers:** the Next.js prototype, any framework or plain-CSS app, and host platforms listed in [`integrations/`](integrations/). All read the same generated CSS; platform-specific material lives under that folder.
 - **CI:** GitHub Actions for token build + test + prototype build, and auto-release on `v*.*.*` tag.
