@@ -15,7 +15,7 @@ Technical detail; non-developers can skip this.
 - **Tokens:** W3C DTCG JSON (`tokens/*.json`) with `$value`, `$type`, `$description`.
 - **Build:** Node script `scripts/build-css.js` generates `css/custom-properties.css`.
 - **CSS:** Authored layers in `css/*.css` (variables only, no raw values).
-- **Prototype:** Next.js 15 + TypeScript (App Router) in `prototype/`.
+- **Prototype:** Next.js 16 + TypeScript (App Router) in `prototype/`.
 - **Hosting:** Vercel at `design.foreveryone.berlin` (legacy `fe-design-system.vercel.app` 301-redirects there).
 - **Consumers:** the Next.js prototype, any framework or plain-CSS app, and host platforms listed in [`integrations/`](integrations/). All read the same generated CSS; platform-specific material lives under that folder.
 - **CI:** GitHub Actions for token build + test + prototype build, and auto-release on `v*.*.*` tag.
@@ -94,7 +94,7 @@ foreveryone-design-system/
 - **Cursor IDE:** [`.cursor/AGENTS.md`](.cursor/AGENTS.md) + path-scoped rules in [`.cursor/rules/`](.cursor/rules/).
 - **Cursor CLI:** [`AGENTS.md`](AGENTS.md) + [`CLAUDE.md`](CLAUDE.md) + [`.cursor/rules/`](.cursor/rules/) (does not read `.cursor/AGENTS.md`).
 - **Claude Code:** [`CLAUDE.md`](CLAUDE.md) + path-scoped rules in [`.claude/rules/`](.claude/rules/).
-- **Project skills (both tools):** [`.claude/skills/`](.claude/skills/) (`ship-release`, `optimize-prototype`); Cursor auto-loads from this folder.
+- **Project skills (both tools):** [`.claude/skills/`](.claude/skills/) (`optimize-prototype`); Cursor auto-loads from this folder.
 - **Agent contract + runtime policy:** [`docs/agents/`](docs/agents/).
 - **Repeatable workflows:** [`docs/skills/`](docs/skills/).
 

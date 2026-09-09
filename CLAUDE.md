@@ -36,7 +36,7 @@ Common mistakes:
 | Screenshot key pages at 3 breakpoints | `cd prototype && OUT_DIR=baseline BASE_URL=http://localhost:3100 node scripts/screenshot.mjs` |
 | Prototype e2e + axe (LOCAL, not prod) | with dev server up: `cd prototype && PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e` |
 | Solo PR + merge to `develop` | `bash scripts/pr-and-merge.sh` |
-| Ship a full release (develop→main→tag→Vercel) | `ship-release` skill (`.claude/skills/ship-release/`); triggers: "ship it", "cut release" |
+| Ship a full release (develop→main→tag→Vercel) | user-level `ship` skill; triggers: "ship it", "cut release", "release X.Y.Z". Manual fallback: [docs/skills/release.md](docs/skills/release.md) |
 
 Cursor IDE and CLI auto-load project skills from `.claude/skills/`.
 
