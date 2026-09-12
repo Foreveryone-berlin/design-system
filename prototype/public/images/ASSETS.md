@@ -12,7 +12,7 @@ Downloaded 2026-09-12 from `images.unsplash.com` at `?w=2400&q=85`, then cropped
 
 | File | Slot | Photographer | Unsplash photo | Crop |
 |------|------|--------------|----------------|------|
-| `hero-cafe.jpg` | Home hero and the `/patterns` "Hero with blob photo" specimen | Toa Heftiba ([@heftiba](https://unsplash.com/@heftiba)) | [`6bKpHAun4d8`](https://unsplash.com/photos/6bKpHAun4d8) (`photo-1485182708500-e8f1f318ba72`) | 1090×1094, cover, attention |
+| `hero-cafe.jpg` | Home hero and the `/patterns` "Hero with blob photo" specimen | Toa Heftiba ([@heftiba](https://unsplash.com/@heftiba)) | [`0baDgWmslZ8`](https://unsplash.com/photos/0baDgWmslZ8) (`photo-1582298537624-c6a00f906e51`) | 1090×1094, cover, right |
 | `card-pottery.jpg` | Switcher card, Arts and Crafts | Pew Nguyen ([@nguyentrungnguyen](https://unsplash.com/@nguyentrungnguyen)) | [`QTuikYkByFs`](https://unsplash.com/photos/QTuikYkByFs) (`photo-1673339065001-a30d6c343cdd`) | 720×450, cover, attention, brightness ×1.12 |
 | `card-wellbeing.jpg` | Switcher card, Balance and Wellness | Jaspinder Singh ([@jaspindersingh](https://unsplash.com/@jaspindersingh)) | [`vpVE1Xk1eR4`](https://unsplash.com/photos/vpVE1Xk1eR4) (`photo-1683056255281-e52a141924f0`) | 720×450, cover, attention |
 | `card-drawing.jpg` | Switcher card, Expression | Júlia Assis ([@julia_assis](https://unsplash.com/@julia_assis)) | [`D9xb8dJYp5E`](https://unsplash.com/photos/D9xb8dJYp5E) (`photo-1770739879041-22f0dfc37301`) | 720×450, cover, attention |

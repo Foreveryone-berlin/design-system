@@ -41,6 +41,23 @@ test.describe("interactive accessibility", () => {
     await expect(page.locator("#ds-mobile-nav")).toBeVisible();
   });
 
+  test("on-this-page disclosure works below the rail breakpoint", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/patterns");
+
+    const compact = page.locator(".ds-on-this-page--compact");
+    await expect(compact).toBeVisible();
+    await expect(page.locator(".ds-on-this-page--rail")).toBeHidden();
+
+    await compact.locator("summary").click();
+    await expect(compact).toHaveAttribute("open", "");
+    await compact.locator(".ds-on-this-page__link").first().click();
+    await expect(page).toHaveURL(/\/patterns#/);
+    await expect(compact).not.toHaveAttribute("open");
+  });
+
   test("search combobox supports keyboard navigation", async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto("/foundations");
@@ -95,7 +112,7 @@ test.describe("interactive accessibility", () => {
     await expect(page.locator("#main-content h1")).toHaveText("Patterns");
 
     await page
-      .locator(".ds-on-this-page__link")
+      .locator(".ds-on-this-page--rail .ds-on-this-page__link")
       .first()
       .click();
     await page
