@@ -2,26 +2,32 @@
 
 Images in this folder are for **design system prototype use only** (design.foreveryone.berlin).
 
-- **Source:** foreveryone.berlin (hero, workshop/cafe, community).
-- **Usage:** Local prototype only; do not hot-link from production.
-- **Production:** Final assets for the live site should be sourced from the main site or asset pipeline.
+## Photography
 
-**Current assets:**
+Every photograph here is **licensed stock under the [Unsplash License](https://unsplash.com/license)**: free for commercial and non-commercial use, no permission or attribution required, no model release needed from us. Attribution is recorded below anyway, because a provenance record is what makes the licence checkable later.
 
-Recommended alt text (one sentence; describe activity and setting):
+**Sourcing rule.** A photograph only enters this repo with a licence recorded in this file. Own event photography needs a named photographer and a recorded participant consent before it can be committed; without both, use stock. Never commit a photo whose rights cannot be stated in one line here.
 
-| File | Alt text |
-|------|----------|
-| `community-cafe-home.png` | A warm community gathering in a bright cafe. |
-| `yoga-wellbeing.jpg` | People practising yoga together in a bright ForEveryone wellness session. |
-| `workshop-pottery.jpg` | People shaping clay together at a table in a bright art studio. |
-| `workshop-drawing.jpg` | People holding up colourful portrait drawings at an outdoor table. |
-| `Group_2.png` | A group of people together at a ForEveryone community gathering. |
+Downloaded 2026-09-12 from `images.unsplash.com` at `?w=2400&q=85`, then cropped and encoded with `sharp` (mozjpeg, progressive, q82). Originals are kept locally in the gitignored `_originals/`.
 
-- `community-cafe-home.png` homepage and hero-pattern image from desktop export (1090×1094 RGBA).
-- `yoga-wellbeing.jpg` Balance and Wellness / Yoga and Wellbeing Session card image from `23-06-11_Yoga_wellbeing-for-everyone_Berlin_Fotogr.jpg` (1600×1067).
-- `workshop-pottery.jpg` Upcoming-workshop card (Arts and Crafts): from `Pottery_group.jpg`, cropped to 720×450 (mozjpeg q80).
-- `workshop-drawing.jpg` Upcoming-workshop card (Expression): from `Pottery_couple1.jpg`, cropped to 640×400 with a small tone lift (mozjpeg q82).
+| File | Slot | Photographer | Unsplash photo | Crop |
+|------|------|--------------|----------------|------|
+| `hero-cafe.jpg` | Home hero and the `/patterns` "Hero with blob photo" specimen | Toa Heftiba ([@heftiba](https://unsplash.com/@heftiba)) | [`6bKpHAun4d8`](https://unsplash.com/photos/6bKpHAun4d8) (`photo-1485182708500-e8f1f318ba72`) | 1090×1094, cover, attention |
+| `card-pottery.jpg` | Switcher card, Arts and Crafts | Pew Nguyen ([@nguyentrungnguyen](https://unsplash.com/@nguyentrungnguyen)) | [`QTuikYkByFs`](https://unsplash.com/photos/QTuikYkByFs) (`photo-1673339065001-a30d6c343cdd`) | 720×450, cover, attention, brightness ×1.12 |
+| `card-wellbeing.jpg` | Switcher card, Balance and Wellness | Jaspinder Singh ([@jaspindersingh](https://unsplash.com/@jaspindersingh)) | [`vpVE1Xk1eR4`](https://unsplash.com/photos/vpVE1Xk1eR4) (`photo-1683056255281-e52a141924f0`) | 720×450, cover, attention |
+| `card-drawing.jpg` | Switcher card, Expression | Júlia Assis ([@julia_assis](https://unsplash.com/@julia_assis)) | [`D9xb8dJYp5E`](https://unsplash.com/photos/D9xb8dJYp5E) (`photo-1770739879041-22f0dfc37301`) | 720×450, cover, attention |
+| `card-community-evening.jpg` | Switcher card, Community Cafe Evening event | Yael Hofnung ([@yayosh](https://unsplash.com/@yayosh)) | [`TiuO1945oQ8`](https://unsplash.com/photos/TiuO1945oQ8) (`photo-1660807304251-9e2012336d19`) | 720×450 from a 2400×1500 band at y=1400, so no head is clipped |
+
+Alt text lives next to each `src` in the components, not here: `app/page.tsx`, `app/patterns/page.tsx`, and the `listings` array in `app/_components/EventsWorkshopsSwitcher.tsx`.
+
+`hero-cafe.jpg` is also the photo inlined by `prototype/scripts/build-guide-og.mjs` for its `photo` card variant.
+
+Card luminance is kept within a narrow band so the four cards read as one row; check a new pick with `node scripts/normalize-workshop-tones.mjs --dry-run`, which reports the mean and the card-crop mean per file.
+
+## Generated cards
+
+These are rendered from the design system by Node scripts, not photographed.
+
 - `social-preview.jpg` Open Graph / Twitter / GitHub social card, `doodle-v1` composition: "ForEveryone Design System" over a Lime Green field, an orange doodle underline, sprout/smiley/swirl marks on the right, a Warm White wave band, at 1200x630 (1.91:1) per OG best practice (~53 KB). No wordmark lockup: the headline already carries the brand name. Also upload this file as the GitHub repo social preview (Settings → General → Social preview).
 - `readme-hero.jpg` README hero on GitHub, same composition at 1500x720 (~2.08:1, ~63 KB). Regenerate both cards (design-system-driven HTML rendered with Chromium) via `node scripts/build-og-card.mjs [variant] [outDir]`, then convert the temp PNGs to JPG with ImageMagick (`-resize`, `-quality 84 -strip`). Variants: `doodle` (shipped composition), `blobs` (default flag value, layered brand blobs with a swatch row), `ramp` (OKLCH token scales), `type` (type-scale specimen). Colours are read from the generated `css/custom-properties.css`, so a token change flows into the cards; never hardcode hex in the generator.
 

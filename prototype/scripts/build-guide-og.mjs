@@ -44,7 +44,7 @@ function dataUri(relPath, mime) {
 }
 const svgUri = (p) => dataUri(p, "image/svg+xml");
 const logoUri = dataUri("images/logo/foreveryone-horizontal.png", "image/png");
-const photoUri = dataUri("images/community-cafe.png", "image/png");
+const photoUri = dataUri("images/hero-cafe.jpg", "image/jpeg");
 
 // Filson Pro is licensed and not vendored in this repo, so the cards render in
 // Outfit — the closest free geometric sans — as a documented stand-in.

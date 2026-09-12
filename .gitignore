@@ -9,7 +9,9 @@ Thumbs.db
 NUL
 prototype/undefined/
 
-# Local backups from image tone scripts (sources stay in git history)
+# Full-size photo sources and local image-script backups. Deliberately untracked:
+# the repo carries only the cropped, encoded output, and the licence and Unsplash
+# photo id in prototype/public/images/ASSETS.md are what make a source re-fetchable.
 prototype/public/images/_originals/
 prototype/public/images/_reference/
 
