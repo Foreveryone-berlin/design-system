@@ -16,53 +16,34 @@ const repoRoot = path.resolve(__dirname, "..");
 const imagesDir = path.join(repoRoot, "prototype/public/images");
 const originalsDir = path.join(imagesDir, "_originals");
 
+/**
+ * The Unsplash sources in `_originals/` are already evenly exposed, so every
+ * entry skips: the gamma and brightness lifts here were tuned to the old brand
+ * exports and would blow out these frames. What the script still earns its keep
+ * for is the luminance report, which is how a new pick is checked against the
+ * cards already shipping. Give an entry a `build` only if a future source
+ * actually needs correcting.
+ */
 const RECIPES = {
-  "workshop-group.jpg": {
-    note: "Balance and Wellness card; yoga/wellbeing photo from brand export",
-    skip: false,
-    build(src) {
-      return sharp(src).modulate({ brightness: 1.05, saturation: 1.04 });
-    },
-    encode(pipeline) {
-      return pipeline.jpeg({ quality: 82, mozjpeg: true, progressive: true });
-    },
-  },
-  "workshop-pottery.jpg": {
-    note: "First card in upcoming workshops; natural-tone lift for desktop contrast",
-    skip: false,
-    build(src) {
-      return sharp(src)
-        .gamma(1.16)
-        .modulate({ brightness: 1.2, saturation: 1.06 });
-    },
-    encode(pipeline) {
-      return pipeline.jpeg({ quality: 82, mozjpeg: true, progressive: true });
-    },
-  },
-  "workshop-drawing.jpg": {
-    note: "Outdoor shot; leave original bytes (skip)",
+  "card-wellbeing.jpg": {
+    note: "Balance and Wellness card; Unsplash source needs no lift",
     skip: true,
   },
-  "community-cafe.png": {
-    note: "Home hero blob from Desktop community-cafe-home.png; tone-matched to workshop cards",
-    source: "community-cafe-home.png",
-    skip: false,
-    build(src) {
-      return sharp(src)
-        .rotate()
-        .gamma(1.14)
-        .modulate({ brightness: 1.24, saturation: 1.06 });
-    },
-    encode(pipeline) {
-      return pipeline.png({
-        compressionLevel: 9,
-        adaptiveFiltering: true,
-        palette: true,
-        quality: 100,
-        colors: 256,
-        effort: 10,
-      });
-    },
+  "card-pottery.jpg": {
+    note: "Arts and Crafts card; Unsplash source needs no lift",
+    skip: true,
+  },
+  "card-drawing.jpg": {
+    note: "Expression card; Unsplash source needs no lift",
+    skip: true,
+  },
+  "card-community-evening.jpg": {
+    note: "Community Cafe event card; Unsplash source needs no lift",
+    skip: true,
+  },
+  "hero-cafe.jpg": {
+    note: "Home and /patterns hero blob; Unsplash source needs no lift",
+    skip: true,
   },
 };
 
