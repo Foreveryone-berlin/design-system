@@ -22,9 +22,9 @@ const outRoot = path.join(
 
 const BASE_URL = process.env.BASE_URL ?? "http://localhost:3100";
 const FILES = [
-  "yoga-wellbeing.jpg",
-  "workshop-pottery.jpg",
-  "workshop-drawing.jpg",
+  "card-wellbeing.jpg",
+  "card-pottery.jpg",
+  "card-drawing.jpg",
 ];
 
 const viewports = [

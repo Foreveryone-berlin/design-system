@@ -149,6 +149,15 @@ When placing images inside blob or rounded masks:
 - These are **content** guidelines for editors and designers — not enforced in CSS.
 - **Prototype assets:** photographs and social previews used by `design.foreveryone.berlin` are tracked in [`prototype/public/images/ASSETS.md`](../prototype/public/images/ASSETS.md) (hero, Open Graph card, etc.).
 
+### Sourcing and rights
+
+A photograph enters this repo only with its licence recorded in [`prototype/public/images/ASSETS.md`](../prototype/public/images/ASSETS.md): photographer, source, licence name, and the crop applied. Two routes qualify.
+
+- **Licensed stock.** The prototype photography is [Unsplash License](https://unsplash.com/license) stock: free for commercial use, no attribution required, no model release needed from us. Unsplash+ images are a paid licence and are **not** used.
+- **Own photography.** Needs a named photographer and a recorded participant consent, matching the consent policy the `/governance` page states. Without both, use stock.
+
+Never commit a photograph whose rights cannot be stated in one line in `ASSETS.md`. The repo is public and every Vercel preview publishes what it contains.
+
 ### Portrait placeholders
 
 `prototype/public/illustrations/avatars/avatar-1.svg` … `avatar-5.svg` are five generic head-and-shoulders silhouettes (short hair, bob, top bun, side ponytail, curly) for the person patterns on `/patterns`. They exist so a roster specimen documents the layout without putting anyone's face in the design system, and they follow the illustration family convention: `fill="currentColor"` with the orange standalone `color` attribute.

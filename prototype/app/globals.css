@@ -1528,14 +1528,27 @@ a.ds-btn {
   justify-self: start;
   min-width: 0;
 }
+/* The hero photo sits in an organic blob container (Brand Book v1.0 p.27). The
+   silhouette used to be baked into the hero PNG's alpha channel, which tied the
+   shape to one photograph; it is a mask here, so swapping the photo is a file
+   change and the shape stays with the design system. */
 .ds-hero-image-wrap {
-  aspect-ratio: 1090 / 1094;
-  border-radius: var(--radius-xl);
+  /* The blob's own ratio, so mask-size: contain fills the box edge to edge
+     instead of letterboxing the shape inside a square. */
+  aspect-ratio: 120 / 130;
   overflow: hidden;
   width: 100%;
   max-width: 320px;
   min-width: 0;
   justify-self: start;
+  -webkit-mask-image: url(/illustrations/blobs/blob-6.svg);
+  mask-image: url(/illustrations/blobs/blob-6.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }
 /* Split layout tracks the content column (sidebar + optional TOC), not the viewport. */
 @container ds-content (min-width: 40rem) {

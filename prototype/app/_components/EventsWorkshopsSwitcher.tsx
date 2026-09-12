@@ -19,8 +19,8 @@ type Listing = {
 
 const listings: Listing[] = [
   {
-    image: "/images/workshop-pottery.jpg",
-    alt: "People shaping clay together at a table in a bright art studio.",
+    image: "/images/card-pottery.jpg",
+    alt: "Two clay-covered hands shaping a pot with a wooden tool in a pottery studio.",
     category: "arts-crafts",
     categoryLabel: "Arts and Crafts",
     spots: "3 free spots",
@@ -31,8 +31,8 @@ const listings: Listing[] = [
     kind: "workshop",
   },
   {
-    image: "/images/yoga-wellbeing.jpg",
-    alt: "People practice yoga and wellbeing exercises together in a bright studio.",
+    image: "/images/card-wellbeing.jpg",
+    alt: "Three people stretching forward on mats together in a bright, airy studio.",
     category: "balance-wellness",
     categoryLabel: "Balance and Wellness",
     spots: "5 free spots",
@@ -43,8 +43,8 @@ const listings: Listing[] = [
     kind: "workshop",
   },
   {
-    image: "/images/workshop-drawing.jpg",
-    alt: "People holding up colourful portrait drawings at an outdoor table.",
+    image: "/images/card-drawing.jpg",
+    alt: "People painting small canvases on easels at an outdoor art session in a park.",
     category: "expression",
     categoryLabel: "Expression",
     spots: "2 free spots",
@@ -55,8 +55,8 @@ const listings: Listing[] = [
     kind: "workshop",
   },
   {
-    image: "/images/Group_2.png",
-    alt: "A group of people together at a ForEveryone community gathering.",
+    image: "/images/card-community-evening.jpg",
+    alt: "Four people laughing around a wooden table over a card and board game.",
     category: "balance-wellness",
     categoryLabel: "Balance and Wellness",
     spots: "Open to all",
