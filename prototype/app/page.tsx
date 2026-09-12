@@ -8,6 +8,7 @@ import packageJson from "@/package.json";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
+import PhotoCredit from "./_components/PhotoCredit";
 
 const StatCounter = dynamic(() => import("./_components/StatCounter"));
 
@@ -33,14 +34,16 @@ export default function Home() {
         <div className="ds-hero-image-wrap">
           <Image
             src="/images/hero-cafe.jpg"
-            alt="People talking and working at tables in a bright, busy community cafe."
+            alt="Five friends sitting around a wooden table talking over coffee."
             width={1090}
             height={1094}
             priority
-            sizes="(max-width: 1024px) 100vw, 320px"
+            sizes="(max-width: 1024px) 100vw, 26rem"
           />
         </div>
       </section>
+
+      <PhotoCredit />
 
       <p className="ds-intro">{designSystemIntro}</p>
 
