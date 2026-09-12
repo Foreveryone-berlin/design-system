@@ -162,6 +162,37 @@ export default function CreditsPage() {
         </ul>
       </section>
 
+      <section id="photography" className="ds-section">
+        <h2 className="ds-section-title">Photography</h2>
+        <p className="ds-section-intro">
+          Prototype photographs on this site are{" "}
+          <a
+            href="https://unsplash.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Unsplash
+          </a>{" "}
+          stock, used under the{" "}
+          <a
+            href="https://unsplash.com/license"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Unsplash License
+          </a>
+          . Photographer names and photo links are recorded in{" "}
+          <a
+            href={`${REPO_URL}/blob/main/prototype/public/images/ASSETS.md`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ASSETS.md
+          </a>
+          .
+        </p>
+      </section>
+
       <section id="license" className="ds-section">
         <h2 className="ds-section-title">Licence</h2>
         <ul className="ds-rule-list">
