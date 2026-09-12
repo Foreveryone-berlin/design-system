@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+## [1.7.0] - 2026-09-12
+
+Licensed stock photography in place of the unconfirmed event photos.
+
 - **Change**: Replace every photograph in the prototype with licensed stock, so the home page and the pattern examples only ever show pictures we hold clear rights to use.
 - **Add**: Record the photographer, source, and licence for each photograph, and set the rule that a picture may not enter the design system without one.
 
