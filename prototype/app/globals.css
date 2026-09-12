@@ -5,6 +5,11 @@
 @import "../../css/utilities.css";
 @import "prismjs/themes/prism-tomorrow.css";
 
+/* Sticky mobile chrome: header height, reused by the On-this-page bar. */
+:root {
+  --ds-mobile-header-height: 4.0625rem;
+}
+
 /* ---- Accessibility: visible keyboard focus ---- */
 /* Global fallback so every interactive element shows a clear focus ring when
    reached by keyboard; component-specific overrides (e.g. .ds-btn) still win.
@@ -173,10 +178,9 @@ summary:focus-visible,
 .ds-content-row {
   flex: 1;
   display: flex;
+  flex-direction: column;
   min-width: 0;
-  align-items: flex-start;
-  /* Anchor content + TOC to the left; keep free space on the right at very
-     wide viewports instead of centering the reading column. */
+  align-items: stretch;
   justify-content: flex-start;
 }
 .ds-content-row .ds-page {
@@ -186,20 +190,100 @@ summary:focus-visible,
      instead of centering; max-width still bounds the reading width. */
   margin-inline: 0;
 }
+@media (min-width: 1200px) {
+  .ds-content-row {
+    flex-direction: row;
+    align-items: flex-start;
+    /* Anchor content + TOC to the left; keep free space on the right at very
+       wide viewports instead of centering the reading column. */
+    justify-content: flex-start;
+  }
+}
 @media (min-width: 1600px) {
   .ds-content-row .ds-page {
     max-width: 88rem;
   }
 }
 
-/* On this page (in-page table of contents) */
-.ds-on-this-page {
+/* On this page (in-page table of contents).
+   --compact: full-width sticky disclosure above main, below 1200px.
+   --rail: sticky right column from 1200px. */
+.ds-on-this-page--compact {
+  order: -1;
+  flex: none;
+  width: 100%;
+  margin: 0;
+  padding: var(--spacing-3) var(--section-padding-x-mobile);
+  border-bottom: 1px solid var(--color-theme-7);
+  position: sticky;
+  /* Tablet band (sidebar visible, no mobile header): stick to the top. */
+  top: 0;
+  z-index: 90;
+  background: var(--color-accent);
+  /* Keep an open list from eating the whole viewport while stuck. */
+  max-height: min(70vh, 100%);
+  overflow-y: auto;
+}
+@media (max-width: 47.99rem) {
+  /* Sit under the sticky mobile header. */
+  .ds-on-this-page--compact {
+    top: var(--ds-mobile-header-height);
+  }
+}
+.ds-on-this-page--rail {
   display: none;
 }
+.ds-on-this-page__title {
+  display: block;
+  margin: 0 0 var(--spacing-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-theme-4);
+}
+.ds-on-this-page--compact > .ds-on-this-page__title {
+  margin: 0;
+  line-height: 1.4;
+  cursor: pointer;
+  list-style: none;
+}
+.ds-on-this-page--compact[open] > .ds-on-this-page__title {
+  margin-bottom: var(--spacing-3);
+}
+.ds-on-this-page--compact > .ds-on-this-page__title::-webkit-details-marker {
+  display: none;
+}
+.ds-on-this-page--compact > .ds-on-this-page__title::after {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  margin-inline-start: var(--spacing-2);
+  border-inline-end: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-0.15em) rotate(45deg);
+  vertical-align: middle;
+  transition: transform var(--transition-fast);
+}
+.ds-on-this-page--compact[open] > .ds-on-this-page__title::after {
+  transform: translateY(0.1em) rotate(225deg);
+}
+.ds-on-this-page--compact .ds-on-this-page__list {
+  padding-bottom: var(--spacing-2);
+}
+@media (min-width: 48rem) {
+  .ds-on-this-page--compact {
+    padding-inline: var(--section-padding-x-desktop);
+  }
+}
 @media (min-width: 1200px) {
-  .ds-on-this-page {
+  .ds-on-this-page--compact {
+    display: none;
+  }
+  .ds-on-this-page--rail {
     display: block;
-    flex-shrink: 0;
+    flex: 0 0 15rem;
     width: 15rem;
     position: sticky;
     top: 0;
@@ -210,7 +294,8 @@ summary:focus-visible,
   }
 }
 @media (min-width: 1600px) {
-  .ds-on-this-page {
+  .ds-on-this-page--rail {
+    flex-basis: 17rem;
     width: 17rem;
   }
 }
@@ -225,14 +310,6 @@ summary:focus-visible,
 }
 .fe-footer__newsletter .ds-btn--primary {
   font-size: var(--font-size-xs);
-}
-.ds-on-this-page__title {
-  margin: 0 0 var(--spacing-3);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-bold);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-theme-4);
 }
 .ds-on-this-page__list {
   list-style: none;
@@ -565,6 +642,8 @@ summary:focus-visible,
   padding: var(--spacing-3) var(--spacing-4);
   align-items: center;
   justify-content: space-between;
+  min-height: var(--ds-mobile-header-height);
+  box-sizing: border-box;
 }
 
 .ds-mobile-header__logo {
@@ -1528,21 +1607,17 @@ a.ds-btn {
   justify-self: start;
   min-width: 0;
 }
-/* The hero photo sits in an organic blob container (Brand Book v1.0 p.27). The
-   silhouette used to be baked into the hero PNG's alpha channel, which tied the
-   shape to one photograph; it is a mask here, so swapping the photo is a file
-   change and the shape stays with the design system. */
+/* Hero photo in an organic blob mask (Brand Book v1.0 p.27). blob-4.svg
+   is near-square, so the cafe crop fills without heavy letterboxing. */
 .ds-hero-image-wrap {
-  /* The blob's own ratio, so mask-size: contain fills the box edge to edge
-     instead of letterboxing the shape inside a square. */
-  aspect-ratio: 120 / 130;
+  aspect-ratio: 320 / 333;
   overflow: hidden;
   width: 100%;
-  max-width: 320px;
+  max-width: 26rem;
   min-width: 0;
   justify-self: start;
-  -webkit-mask-image: url(/illustrations/blobs/blob-6.svg);
-  mask-image: url(/illustrations/blobs/blob-6.svg);
+  -webkit-mask-image: url(/illustrations/blobs/blob-4.svg);
+  mask-image: url(/illustrations/blobs/blob-4.svg);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
@@ -1553,19 +1628,40 @@ a.ds-btn {
 /* Split layout tracks the content column (sidebar + optional TOC), not the viewport. */
 @container ds-content (min-width: 40rem) {
   .ds-hero-with-image {
-    grid-template-columns: minmax(0, 1fr) minmax(0, min(320px, 42%));
+    grid-template-columns: minmax(0, 1fr) minmax(0, min(26rem, 46%));
     align-items: start;
   }
   .ds-hero-image-wrap {
     justify-self: end;
-    width: min(320px, 100%);
+    width: min(26rem, 100%);
   }
 }
 .ds-hero-image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: right center;
   display: block;
+}
+
+.ds-photo-credit {
+  margin: var(--spacing-3) 0 var(--spacing-6);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-snug);
+  color: var(--color-theme-4);
+}
+.ds-hero-with-image + .ds-photo-credit {
+  margin-top: calc(-1 * var(--spacing-6));
+  margin-bottom: var(--spacing-8);
+}
+.ds-pattern-hero-specimen + .ds-photo-credit,
+.ds-events-switcher + .ds-photo-credit {
+  margin-top: var(--spacing-4);
+}
+.ds-photo-credit a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
 }
 
 /* Stats strip */
@@ -2439,12 +2535,12 @@ svg.ds-icon-glyph--lg {
 }
 @container ds-content (min-width: 40rem) {
   .ds-pattern-hero-specimen {
-    grid-template-columns: minmax(0, 1fr) minmax(0, min(320px, 42%));
+    grid-template-columns: minmax(0, 1fr) minmax(0, min(26rem, 46%));
     align-items: center;
   }
   .ds-pattern-hero-specimen .ds-hero-image-wrap {
     justify-self: end;
-    width: min(320px, 100%);
+    width: min(26rem, 100%);
   }
 }
 .fe-footer__social {
