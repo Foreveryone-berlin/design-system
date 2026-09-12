@@ -4,9 +4,17 @@
 
 **Audience:** Non-developer stakeholders (designers and leaders). Write so a reader who does not touch code can tell what changed.
 
-**Standard:** At most 6 bullets per release, one plain sentence each. Keep the imperative voice (add, fix, raise) and the date on each version. No file paths, token IDs, or build/CI mechanics in the visible list.
+**Standard:** At most 6 bullets per release, one plain sentence each. Keep the imperative voice (add, fix, raise) and the date on each version. No file paths, token IDs, or build/CI mechanics in the visible list. Regenerating `readme-hero` / `social-preview` with a frame or crop tweak alone does not earn a bullet.
 
 ## [Unreleased]
+
+## [1.7.1] - 2026-09-12
+
+Small-screen navigation, clearer photography credit, and a larger blob-masked hero photo.
+
+- **Fix**: Show an “On this page” menu on small screens so in-page sections stay reachable when the side rail is hidden.
+- **Add**: Credit Unsplash for the prototype photographs on the Credits page and under every photo specimen (home, hero pattern, and workshop cards).
+- **Change**: Mask the home and pattern hero photos with the design-system blob shape, at a larger size so the crop reads clearly.
 
 ## [1.7.0] - 2026-09-12
 

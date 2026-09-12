@@ -54,6 +54,16 @@ const RAMP_NEUTRAL = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
 function shell({ w, h, body, extraCss = "", footer = true }) {
   const pad = w >= 1500 ? 96 : 76;
+  // Both targets (social 1200 and README 1500). The doodle composition ends in a
+  // Warm White wave band, so on GitHub's white README (and on many link-preview
+  // surfaces) the bottom edge dissolves and the card reads as having no
+  // boundary. GitHub strips `style` from markdown-embedded HTML, so the frame
+  // has to be baked into the asset.
+  //
+  // Drawn as an overlay rather than a body border so the outer bitmap stays a
+  // full w×h rectangle (JPG has no alpha) while the stroke itself is rounded.
+  // 3px here is 3px in the final JPG (rendered at deviceScaleFactor 2, then
+  // halved by the ImageMagick -resize step). Radius is the hero-block token.
   return `<!doctype html><html><head><meta charset="utf-8">${FONT_LINKS}
 <style>
 ${tokenCss}
@@ -64,6 +74,11 @@ body {
   background:var(--color-accent);
   font-family:'Outfit',sans-serif;
   color:var(--color-brand-dark);
+}
+body::after {
+  content:""; position:absolute; inset:0; z-index:20; pointer-events:none;
+  border:3px solid var(--color-warm-grey-light);
+  border-radius:var(--radius-xl);
 }
 .content { position:absolute; inset:0; padding:${pad}px;
            display:flex; flex-direction:column; justify-content:center; }

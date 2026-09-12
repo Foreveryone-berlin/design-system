@@ -1,6 +1,7 @@
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import HeaderDemo from "../_components/HeaderDemo";
+import PhotoCredit from "../_components/PhotoCredit";
 import FeIcon, {
   CATEGORY_LABELS,
   type SocialIconName,
@@ -285,13 +286,14 @@ export default function PatternsPage() {
           <div className="ds-hero-image-wrap">
             <Image
               src="/images/hero-cafe.jpg"
-              alt="People talking and working at tables in a bright, busy community cafe."
+              alt="Five friends sitting around a wooden table talking over coffee."
               width={1090}
               height={1094}
-              sizes="(max-width: 1024px) 100vw, 320px"
+              sizes="(max-width: 1024px) 100vw, 26rem"
             />
           </div>
         </div>
+        <PhotoCredit />
       </section>
 
       <section id="events-workshops-switcher" className="ds-section">
@@ -301,6 +303,7 @@ export default function PatternsPage() {
           card grid.
         </p>
         <EventsWorkshopsSwitcher />
+        <PhotoCredit />
       </section>
 
       <section id="facts-card" className="ds-section">
