@@ -8,6 +8,12 @@
 
 ## [Unreleased]
 
+## [1.7.1] - 2026-09-12
+
+A visible edge on the share cards.
+
+- **Fix**: Give the README hero and the social share card a light rounded outline so their edges stay visible on a white page and in link previews.
+
 ## [1.7.0] - 2026-09-12
 
 Licensed stock photography in place of the unconfirmed event photos.
