@@ -178,6 +178,7 @@ const pages: PageDef[] = [
       "Built with",
       "Consumers",
       "Accessibility tooling",
+      "Photography",
       "Licence",
     ],
   },

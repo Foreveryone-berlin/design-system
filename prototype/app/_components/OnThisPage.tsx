@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { collectPageHeadings } from "./page-headings";
 
@@ -10,6 +10,7 @@ export default function OnThisPage() {
   const pathname = usePathname();
   const [headings, setHeadings] = useState<Heading[]>([]);
   const [activeId, setActiveId] = useState<string>("");
+  const compactRef = useRef<HTMLDetailsElement>(null);
 
   useEffect(() => {
     const main = document.getElementById("main-content");
@@ -39,7 +40,11 @@ export default function OnThisPage() {
     return () => observer.disconnect();
   }, [pathname]);
 
-  function handleClick(event: React.MouseEvent<HTMLAnchorElement>, id: string) {
+  function handleClick(
+    event: React.MouseEvent<HTMLAnchorElement>,
+    id: string,
+    closeCompact: boolean,
+  ) {
     event.preventDefault();
     const target = document.getElementById(id);
     if (!target) return;
@@ -47,38 +52,62 @@ export default function OnThisPage() {
     history.replaceState(null, "", `#${id}`);
     if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
     target.focus({ preventScroll: true });
+    // Compact disclosure: collapse after a jump so the stuck bar does not
+    // cover the section the user just navigated to.
+    if (closeCompact && compactRef.current?.open) {
+      compactRef.current.open = false;
+    }
   }
 
   if (pathname === "/" || headings.length < 2) return null;
 
-  return (
-    <aside className="ds-on-this-page" aria-labelledby="ds-otp-title">
-      <p id="ds-otp-title" className="ds-on-this-page__title">
-        On this page
-      </p>
-      <nav aria-label="On this page">
-        <ul className="ds-on-this-page__list">
-          {headings.map((h) => (
-            <li
-              key={h.id}
-              className={`ds-on-this-page__item${
-                h.level === 3 ? " ds-on-this-page__item--sub" : ""
+  const list = (idPrefix: string, closeCompact: boolean) => (
+    <nav aria-label="On this page">
+      <ul className="ds-on-this-page__list">
+        {headings.map((h) => (
+          <li
+            key={`${idPrefix}-${h.id}`}
+            className={`ds-on-this-page__item${
+              h.level === 3 ? " ds-on-this-page__item--sub" : ""
+            }`}
+          >
+            <a
+              href={`#${h.id}`}
+              className={`ds-on-this-page__link${
+                activeId === h.id ? " is-active" : ""
               }`}
+              aria-current={activeId === h.id ? "location" : undefined}
+              onClick={(event) => handleClick(event, h.id, closeCompact)}
             >
-              <a
-                href={`#${h.id}`}
-                className={`ds-on-this-page__link${
-                  activeId === h.id ? " is-active" : ""
-                }`}
-                aria-current={activeId === h.id ? "location" : undefined}
-                onClick={(event) => handleClick(event, h.id)}
-              >
-                {h.text}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </aside>
+              {h.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+
+  // Compact disclosure for narrow viewports (CSS shows it below 1200px and
+  // stacks it above main). Sticky rail for wide viewports. Two trees so the
+  // rail never depends on <details open> hydration.
+  return (
+    <>
+      <details
+        ref={compactRef}
+        className="ds-on-this-page ds-on-this-page--compact"
+      >
+        <summary className="ds-on-this-page__title">On this page</summary>
+        {list("compact", true)}
+      </details>
+      <aside
+        className="ds-on-this-page ds-on-this-page--rail"
+        aria-labelledby="ds-otp-title"
+      >
+        <p id="ds-otp-title" className="ds-on-this-page__title">
+          On this page
+        </p>
+        {list("rail", false)}
+      </aside>
+    </>
   );
 }
