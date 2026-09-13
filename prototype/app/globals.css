@@ -334,6 +334,12 @@ summary:focus-visible,
   padding-left: var(--spacing-5);
   font-size: var(--font-size-xs);
 }
+/* Compact disclosure only (below 1200px): looser rows so the list reads as
+   separate items and each link clears a comfortable touch target. */
+.ds-on-this-page--compact .ds-on-this-page__link {
+  padding-block: var(--spacing-3);
+  line-height: var(--line-height-normal);
+}
 .ds-on-this-page__link:hover {
   color: var(--color-brand-dark);
 }
