@@ -8,6 +8,12 @@
 
 ## [Unreleased]
 
+## [1.7.2] - 2026-09-13
+
+Roomier in-page navigation on phones and tablets.
+
+- **Change**: Space out the “On this page” entries on small screens so they are easier to read and tap.
+
 ## [1.7.1] - 2026-09-12
 
 Small-screen navigation, clearer photography credit, and a larger blob-masked hero photo.
