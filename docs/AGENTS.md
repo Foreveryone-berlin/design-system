@@ -24,7 +24,8 @@ Paths are repo-relative from project root unless noted.
 |spec:{tokens.json,principles.md}
 |spec/components:{README.md,button.md,tag-pill.md,card.md,input.md,faq.md,header.md,footer.md,dropdown.md,popup.md,testimonial.md}
 |spec/patterns:{README.md}
-|docs/decisions:{001-token-format.md}
+|docs/decisions:{001-token-format.md,002-retire-no52-cafe.md}
+|docs/archive:{no52-cafe.md}
 |docs/skills:{README.md,token-update.md,release.md}
 |.claude:{settings.json,rules/git.md,rules/general.md,rules/css.md,rules/tokens.md,skills/optimize-prototype/SKILL.md}
 |cursor:{AGENTS.md,rules/git.mdc,rules/general.mdc,rules/css.mdc,rules/tokens.mdc}

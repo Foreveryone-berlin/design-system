@@ -38,7 +38,7 @@ const RECIPES = {
     skip: true,
   },
   "card-community-evening.jpg": {
-    note: "Community Cafe event card; Unsplash source needs no lift",
+    note: "Community Games event card; Unsplash source needs no lift",
     skip: true,
   },
   "hero-cafe.jpg": {

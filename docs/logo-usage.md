@@ -1,7 +1,7 @@
 # Logo usage
 
-Source: **ForEveryone Brand Book v1.0 (June 2026)**, p.10–15 (Logo system, variations,
-background combinations, incorrect usage, No. 52 Cafe logos). See
+Source: **ForEveryone Brand Book v1.0 (June 2026)**, p.10–14 (Logo system, variations,
+background combinations, incorrect usage). See
 [`docs/brand-book-references.md`](brand-book-references.md) for the authority matrix.
 The repo ships `prototype/public/images/foreveryone-logo.png` (600×110, RGBA) and uses it
 in the prototype sidebar + mobile header. This document records the rules the Brand Book
@@ -64,20 +64,6 @@ illegible. Always place it on a brand-coloured **blob** shape over the photo
 - Never use the older version of the mark with sharp edges; the current mark
   has rounded forms (Brand Book v1.0 p.14).
 
-## No. 52 Cafe logos
-
-No. 52 Cafe has its own mark (Brand Book v1.0 p.15):
-
-- **Primary:** the `No. 52` wordmark for cafe signage, menus, and social media.
-- **Secondary (compact):** `52` set inside the circular `o`, for small or square
-  formats (favicons, profile pictures). Use the wordmark wherever it fits; use
-  the compact mark only when it does not.
-- **Clear space:** X = **half the height of the `N`** in `No. 52`, on all sides.
-- **Minimum sizes:** primary 32 px / 8 mm; secondary 40 px / 10 mm.
-- **Colour:** Charcoal on light backgrounds (Lime, Soft Lavender, Warm White);
-  White on Blue or photographic overlays. Background-combination and
-  incorrect-usage rules above apply equally.
-
 ## Incorrect usage (do not)
 
 Brand Book v1.0 p.14 — never: stretch/distort, rotate/tilt, change transparency,
@@ -126,19 +112,16 @@ When the logo sits inside a link to the homepage, the link's accessible name can
   (icon over wordmark), composed from the official icon + wordmark.
 - `prototype/public/images/logo/foreveryone-standalone.png` — standalone icon,
   cropped from the official lockup.
-- `prototype/public/images/logo/no52-wordmark.svg`,
-  `prototype/public/images/logo/no52-compact.svg` — **approximate** No. 52 Cafe
-  marks pending official vector files.
 - `prototype/public/favicon.png` and `apple-touch-icon.png` — synced from
   foreveryone.berlin, used as the standalone icon at favicon sizes.
 
 All assets are registered in
 [`prototype/public/images/ASSETS.md`](../prototype/public/images/ASSETS.md).
-The ForEveryone lockups derive from the official PNG; the No. 52 marks are
-approximations to be replaced with official vectors from the brand team.
+The ForEveryone lockups derive from the official PNG.
 
 ## Related
 
+- [`docs/archive/no52-cafe.md`](archive/no52-cafe.md) — retired No. 52 Cafe mark and naming rules, kept for signage still in circulation.
 - [`docs/visual-styles.md`](visual-styles.md) — illustrations, blobs, photography.
 - [`docs/color-audit-2026.md`](color-audit-2026.md) — approved background ⇄ text combinations.
 - [`integrations/README.md`](../integrations/README.md) — host-platform colour maps (orange stays decorative only on mapped globals).
