@@ -8,11 +8,15 @@
 
 ## [Unreleased]
 
-- **Change**: Reframe the blob-masked hero photo so the hard wall edge on its right no longer cuts across the shape.
-- **Change**: Show the accent marks, social icons, and UI glyphs larger in the Visual Elements catalog, so each one is legible at a glance.
-- **Add**: The newsletter popup's megaphone as a scalable vector, catalogued with the other functional doodles.
+## [1.8.0] - 2026-09-14
+
+No. 52 Cafe guidance retired, the popup megaphone added as a vector, and a clearer element catalog.
+
 - **Remove**: Retire the No. 52 Cafe naming, logo, and cafe-signs guidance from the design system, keeping a dated archive for signage still in circulation.
+- **Add**: The newsletter popup's megaphone as a scalable vector, catalogued with the other functional doodles.
+- **Change**: Show the accent marks, social icons, and UI glyphs larger in the Visual Elements catalog, so each one is legible at a glance.
 - **Change**: Tighten the Visual Elements introduction.
+- **Change**: Reframe the blob-masked hero photo so the hard wall edge on its right no longer cuts across the shape.
 
 ## [1.7.2] - 2026-09-13
 
