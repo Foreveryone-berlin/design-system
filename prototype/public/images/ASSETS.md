@@ -16,7 +16,7 @@ Downloaded 2026-09-12 from `images.unsplash.com` at `?w=2400&q=85`, then cropped
 | `card-pottery.jpg` | Switcher card, Arts and Crafts | Pew Nguyen ([@nguyentrungnguyen](https://unsplash.com/@nguyentrungnguyen)) | [`QTuikYkByFs`](https://unsplash.com/photos/QTuikYkByFs) (`photo-1673339065001-a30d6c343cdd`) | 720×450, cover, attention, brightness ×1.12 |
 | `card-wellbeing.jpg` | Switcher card, Balance and Wellness | Jaspinder Singh ([@jaspindersingh](https://unsplash.com/@jaspindersingh)) | [`vpVE1Xk1eR4`](https://unsplash.com/photos/vpVE1Xk1eR4) (`photo-1683056255281-e52a141924f0`) | 720×450, cover, attention |
 | `card-drawing.jpg` | Switcher card, Expression | Júlia Assis ([@julia_assis](https://unsplash.com/@julia_assis)) | [`D9xb8dJYp5E`](https://unsplash.com/photos/D9xb8dJYp5E) (`photo-1770739879041-22f0dfc37301`) | 720×450, cover, attention |
-| `card-community-evening.jpg` | Switcher card, Community Cafe Evening event | Yael Hofnung ([@yayosh](https://unsplash.com/@yayosh)) | [`TiuO1945oQ8`](https://unsplash.com/photos/TiuO1945oQ8) (`photo-1660807304251-9e2012336d19`) | 720×450 from a 2400×1500 band at y=1400, so no head is clipped |
+| `card-community-evening.jpg` | Switcher card, Community Games Evening event | Yael Hofnung ([@yayosh](https://unsplash.com/@yayosh)) | [`TiuO1945oQ8`](https://unsplash.com/photos/TiuO1945oQ8) (`photo-1660807304251-9e2012336d19`) | 720×450 from a 2400×1500 band at y=1400, so no head is clipped |
 
 Alt text lives next to each `src` in the components, not here: `app/page.tsx`, `app/patterns/page.tsx`, and the `listings` array in `app/_components/EventsWorkshopsSwitcher.tsx`.
 
@@ -48,10 +48,8 @@ Render a study with `node scripts/build-og-card.mjs doodle-v1 <outDir>` (then th
 - `logo/foreveryone-standalone.png` — standalone icon, cropped from the official lockup. Favicons, very small marks, social profile images.
 - `logo/foreveryone-wordmark.png` — wordmark only, cropped from the official lockup (used to compose the stacked variant).
 - `logo/foreveryone-stacked.png` — stacked lockup (icon over wordmark), composed from the official icon + wordmark crops. Square / portrait slots.
-- `logo/no52-wordmark.svg` — in-repo redraw of the No. 52 Cafe **primary** wordmark, traced from Brand Book v1.0 p.15 (the "No52" ligature: heavy N, raised superscript 'o', large overlapping 5 and 2). `currentColor`, self-contained vector paths (no web font). Official vector is in Google Drive / Canva Brand Kit (access-restricted); replace for production use.
-- `logo/no52-compact.svg` — in-repo redraw of the No. 52 **compact** mark, traced from Brand Book v1.0 p.15 (the "Secondary": heavy N joined to a solid disc holding a reversed-out '52'). `currentColor`, self-contained vector paths. Same access caveat as above.
 
-The ForEveryone lockups above are derived from the official `foreveryone-logo.png`; the No. 52 marks are Brand-Book-traced redraws pending the official Brand Kit vectors. See [`docs/logo-usage.md`](../../../docs/logo-usage.md).
+The ForEveryone lockups above are derived from the official `foreveryone-logo.png`. See [`docs/logo-usage.md`](../../../docs/logo-usage.md). The retired No. 52 Cafe marks are recorded in [`docs/archive/no52-cafe.md`](../../../docs/archive/no52-cafe.md); they were documented here but never actually shipped in this folder.
 
 **Current icons:**
 - `../favicon.png` — site favicon synced from foreveryone.berlin.

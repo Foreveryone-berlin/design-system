@@ -565,7 +565,7 @@ export default function TokensPage() {
           </div>
           <div>
             <div className="fe-label">Heading 1 &middot; Bold</div>
-            <h3 className="fe-h2">Upcoming Workshop at No. 52</h3>
+            <h3 className="fe-h2">Upcoming Workshop in Neuk&ouml;lln</h3>
           </div>
           <div>
             <div className="fe-label">Heading 2 &middot; Bold</div>
@@ -574,7 +574,7 @@ export default function TokensPage() {
           <div>
             <div className="fe-label">Subheading &middot; Medium</div>
             <p className="fe-body fe-body--medium">
-              Every Thursday &middot; Free Entry &middot; No. 52 Cafe
+              Every Thursday &middot; Free Entry &middot; All Welcome
             </p>
           </div>
           <div>

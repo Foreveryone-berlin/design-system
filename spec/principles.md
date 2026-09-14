@@ -75,14 +75,14 @@ this system. Tokens are in [tokens.json](tokens.json); CSS variables are in
 
 ## Logo — at a glance
 
-| | ForEveryone | No. 52 Cafe |
-|---|---|---|
-| Primary format | Horizontal (default) | `No. 52` wordmark |
-| Secondary | Stacked, standalone icon | `52` inside the `o` (compact) |
-| Min digital | 32px wide | 32px (primary) / 40px (secondary) |
-| Min print | 8mm wide | 8mm (primary) / 10mm (secondary) |
-| Approved colours | Charcoal, White | Charcoal, White |
-| Safe zone | 1X = cap-height of F, all sides | ½ height of N, all sides |
+| | ForEveryone |
+|---|---|
+| Primary format | Horizontal (default) |
+| Secondary | Stacked, standalone icon |
+| Min digital | 32px wide |
+| Min print | 8mm wide |
+| Approved colours | Charcoal, White |
+| Safe zone | 1X = cap-height of F, all sides |
 
 - One background → one logo colour (see Colour pairings). Standalone white icon
   only on Orange, no text. On photos, place the logo on a brand-coloured blob

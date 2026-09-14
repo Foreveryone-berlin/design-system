@@ -58,6 +58,7 @@ const illustrations = [
 const functionalDoodles = [
   { src: "/illustrations/coffee-cup.svg", label: "Coffee cup" },
   { src: "/illustrations/donation-box.svg", label: "Donation box" },
+  { src: "/illustrations/megaphone.svg", label: "Megaphone" },
 ];
 
 const accentVariants = [
@@ -111,7 +112,9 @@ function AccentTable({
             <tr key={a.label}>
               <td className="ds-glyph-table__mark">
                 <span
-                  className="ds-glyph-table__accent"
+                  className={`ds-glyph-table__accent${
+                    a.underline ? " ds-glyph-table__accent--underline" : ""
+                  }`}
                   style={{ maskImage: `url(${a.src})`, WebkitMaskImage: `url(${a.src})` }}
                   aria-hidden="true"
                 />
@@ -145,14 +148,12 @@ export default function VisualElementsPage() {
     <>
       <h1 className="ds-page-title">Visual Elements</h1>
       <p className="ds-intro">
-        ForEveryone uses four distinct visual-element families plus a complete icon
-        catalog. Each family has a defined role and must not be used
-        interchangeably: <strong>workshop icons</strong> and{" "}
-        <strong>graphic shapes</strong> are functional or structural;{" "}
-        <strong>illustrations</strong> and <strong>accent marks</strong> are
-        atmospheric. Orange (<code>#FF7A3A</code>) is prioritised throughout, with
-        no shadows, gradients, or outlines. Rules from the Brand Book v1.0
-        (p.24&ndash;27).
+        Four visual-element families plus the icon catalog, never
+        interchangeable: <strong>workshop icons</strong> and{" "}
+        <strong>graphic shapes</strong> are functional,{" "}
+        <strong>illustrations</strong> and <strong>accent marks</strong>{" "}
+        atmospheric. Orange (<code>#FF7A3A</code>) throughout; no shadows,
+        gradients, or outlines. Brand Book v1.0, p.24&ndash;27.
       </p>
       <p className="fe-callout">
         <strong>Need a file?</strong> Click any icon, illustration, or shape on

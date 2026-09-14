@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
-import Image from "next/image";
 import FeIcon from "./FeIcon";
 
 export default function Popup() {
@@ -68,13 +67,12 @@ export default function Popup() {
             Subscribe to our Newsletter
           </h3>
 
+          {/* Plain <img>: an SVG needs no raster pipeline, and next/image would
+              reject it without `dangerouslyAllowSVG`. Width comes from
+              `.fe-popup__illustration`. */}
           <div className="fe-popup__illustration" aria-hidden="true">
-            <Image
-              src="/illustrations/megaphone.png"
-              alt=""
-              width={234}
-              height={184}
-            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/illustrations/megaphone.svg" alt="" width={152} height={127} />
           </div>
 
           <p className="fe-popup__lede">
