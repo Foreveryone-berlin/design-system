@@ -128,8 +128,8 @@ export default function Home() {
           <Link href="/print" className="ds-overview-card">
             <h3 className="ds-overview-card__title">Print &amp; Media</h3>
             <p className="ds-overview-card__desc">
-              The digital to print boundary: Young Serif, CMYK values, document
-              greys, and cafe signs.
+              The digital to print boundary: Young Serif, CMYK values, and
+              document greys.
             </p>
             <span className="ds-overview-card__link">View print &rarr;</span>
           </Link>

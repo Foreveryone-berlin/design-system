@@ -21,15 +21,18 @@ Which document governs which brand domain, and how the repo relates to each.
 | Domain | Governed by | Repo implementation |
 |---|---|---|
 | Brand voice, tone, personality | Brand Book p.8–9 | `/brand` page; `docs` |
-| Naming (ForEveryone, No. 52 Cafe, UK English) | Brand Book p.6 | `/brand`, `/guidelines` |
-| Logo system, variations, safe zone, incorrect usage, No. 52 logos | Brand Book p.10–15 | [`logo-usage.md`](logo-usage.md); `/foundations` logo section |
+| Naming (ForEveryone, UK English) | Brand Book p.6 | `/brand`, `/guidelines` |
+| Logo system, variations, safe zone, incorrect usage | Brand Book p.10–14 | [`logo-usage.md`](logo-usage.md); `/foundations` logo section |
 | Colour palette + accessibility pairings | Brand Book p.16–19 | [`color-audit-2026.md`](color-audit-2026.md); `tokens/colors.json`; `/foundations`, `/accessibility` |
 | Typography (Filson Pro digital; Young Serif print) | Brand Book p.20–23 | `tokens/typography.json`; `/foundations` |
 | Visual elements (workshop icons, illustrations, accent marks, blobs, waves) | Brand Book p.24–27 | [`visual-styles.md`](visual-styles.md); `/visual-elements` |
 | Imagery, photography ethics, alt text | Brand Book p.28–32, 37 | `/accessibility` (alt text), `/governance` (ethics), `visual-styles.md` |
 | Layout, grid, QR codes | Brand Book p.33–34 | `/foundations` layout section |
-| Print & physical (CMYK, print purple, document greys, cafe signs) | Brand Book p.16–17, 38 | `/print` page; print-namespaced tokens |
+| Print & physical (CMYK, print purple, document greys) | Brand Book p.16–17 | `/print` page; print-namespaced tokens |
 | Contacts, permissions, versioning | Brand Book p.39–41 | `/governance`; `CHANGELOG.md` |
+
+Brand Book p.15 (No. 52 Cafe logos) and p.38 (cafe signs) are retired: see
+[`archive/no52-cafe.md`](archive/no52-cafe.md).
 
 ## Re-audit status
 
@@ -37,7 +40,7 @@ A full page-by-page re-audit of Brand Book v1.0 against the implemented pages an
 
 ## Digital vs print boundary
 
-The Brand Book covers both digital and print. This repo is **digital-first**: print-only specifications (Young Serif typeface, CMYK values, the print purple substitute for Blue, document-chrome greys, mm sizes, cafe signs, Canva workflows) are documented on the `/print` page and namespaced in tokens (`color.print.*`, `color.doc.*`) so digital components never consume them. See the `/print` page and `tokens/colors.json` descriptions.
+The Brand Book covers both digital and print. This repo is **digital-first**: print-only specifications (Young Serif typeface, CMYK values, the print purple substitute for Blue, document-chrome greys, mm sizes, Canva workflows) are documented on the `/print` page and namespaced in tokens (`color.print.*`, `color.doc.*`) so digital components never consume them. See the `/print` page and `tokens/colors.json` descriptions.
 
 ## People
 

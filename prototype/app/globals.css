@@ -930,6 +930,7 @@ summary:focus-visible,
 
 .ds-intro + .ds-section {
   margin-top: var(--spacing-8);
+  margin-bottom: var(--spacing-8);
 }
 
 /* Patterns page: header demo needs visible overflow so the dropdown menu
@@ -1642,11 +1643,15 @@ a.ds-btn {
     width: min(26rem, 100%);
   }
 }
+/* The photo is wider than the blob frame only by ~4%, so object-position alone
+   cannot clear the wall corner on its right edge. Oversize the image past the
+   frame instead: the wrap's overflow:hidden crops the right ~16%, which drops
+   the hard vertical line out of the blob's right lobe. */
 .ds-hero-image-wrap img {
-  width: 100%;
+  width: 119%;
   height: 100%;
   object-fit: cover;
-  object-position: right center;
+  object-position: left center;
   display: block;
 }
 
@@ -2187,7 +2192,7 @@ a.ds-btn {
   padding-block: var(--spacing-2);
 }
 .ds-glyph-table__mark {
-  width: 3rem;
+  width: 4rem;
   color: var(--color-theme-2);
 }
 .ds-glyph-table__mark svg,
@@ -2196,18 +2201,31 @@ a.ds-btn {
   width: 1.5rem;
   height: 1.5rem;
 }
+/* A catalog row reads as a specimen, not as an inline glyph, so social, file
+   and UI icons run larger here than the sizes they ship at in the UI. Scoped to
+   the table: the shared `fe-icon-glyph--*` and prototype `ds-icon-glyph--*`
+   sizes stay as every other consumer sees them. */
+.ds-glyph-table__mark .fe-icon-glyph,
+.ds-glyph-table__mark svg.ds-icon-glyph--md,
+.ds-glyph-table__mark img.ds-icon-glyph--md {
+  width: 2.25rem;
+  height: 2.25rem;
+}
 .ds-asset-tile--marker {
   display: inline-block;
 }
 /* Accent rows: the marks vary from a square sparkle to an 18rem underline, so
    the cell fixes the box and `contain` keeps each one's aspect ratio. */
+.ds-glyph-table--marks {
+  max-width: 58ch;
+}
 .ds-glyph-table--marks .ds-glyph-table__mark {
-  width: 9rem;
+  width: 12rem;
 }
 .ds-glyph-table__accent {
   display: block;
-  width: 8rem;
-  height: 2.25rem;
+  width: 11rem;
+  height: 3.5rem;
   background-color: var(--color-brand-primary);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
@@ -2215,6 +2233,12 @@ a.ds-btn {
   mask-position: left center;
   -webkit-mask-size: contain;
   mask-size: contain;
+}
+/* The two underline strokes already run the full width of the cell, so the
+   larger specimen box would only stretch them. They keep the original size. */
+.ds-glyph-table__accent--underline {
+  width: 8rem;
+  height: 2.25rem;
 }
 
 /* Blob specimens — the seven organic Soft Lavender shapes (Brand Book v1.0
@@ -2885,9 +2909,12 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
   margin: var(--spacing-6) 0 var(--spacing-5);
 }
 
+/* 5.7rem, not 8.75rem: the illustration is now a trimmed vector with no
+   transparent margin of its own, so it fills the box the padded PNG left
+   mostly empty. This keeps the megaphone at the size it has always rendered. */
 .fe-popup__illustration svg,
 .fe-popup__illustration img {
-  width: 8.75rem;
+  width: 5.7rem;
   height: auto;
 }
 
@@ -2960,7 +2987,7 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
   }
 }
 
-/* ---- Pattern page: benefit grid, events switcher, cafe card ---- */
+/* ---- Pattern page: benefit grid, events switcher, event card ---- */
 .ds-events-switcher__toggle {
   display: inline-flex;
   flex-wrap: wrap;

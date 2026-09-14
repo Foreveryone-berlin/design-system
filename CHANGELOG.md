@@ -8,6 +8,12 @@
 
 ## [Unreleased]
 
+- **Change**: Reframe the blob-masked hero photo so the hard wall edge on its right no longer cuts across the shape.
+- **Change**: Show the accent marks, social icons, and UI glyphs larger in the Visual Elements catalog, so each one is legible at a glance.
+- **Add**: The newsletter popup's megaphone as a scalable vector, catalogued with the other functional doodles.
+- **Remove**: Retire the No. 52 Cafe naming, logo, and cafe-signs guidance from the design system, keeping a dated archive for signage still in circulation.
+- **Change**: Tighten the Visual Elements introduction.
+
 ## [1.7.2] - 2026-09-13
 
 Roomier in-page navigation on phones and tablets.

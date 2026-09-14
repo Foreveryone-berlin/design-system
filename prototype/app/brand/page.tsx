@@ -283,17 +283,6 @@ export default function BrandPage() {
           Foreveryone &middot; FOREVERYONE
         </p>
 
-        <h3 className="ds-subsection-title">Our cafe</h3>
-        <p className="fe-body">
-          Always write <strong>No. 52 Cafe</strong> or <strong>No. 52</strong> for
-          short. Cafe is spelled <strong>without an accent</strong>, and there is a
-          space between &lsquo;No.&rsquo; and &lsquo;52&rsquo;.
-        </p>
-        <p className="fe-body">
-          <strong>Incorrect:</strong> No.52 Caf&eacute; &middot; No52 &middot;
-          No.52 &middot; Pavillon Caf&eacute; &middot; KARUNA Pavillon
-        </p>
-
         <h3 className="ds-subsection-title">Social media &amp; digital</h3>
         <ul className="ds-rule-list">
           <li>
