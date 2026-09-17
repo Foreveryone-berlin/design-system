@@ -114,13 +114,14 @@ const pages: PageDef[] = [
     route: "/print",
     title: "Print & Media",
     description:
-      "The digital to print boundary: Young Serif, CMYK values, document greys.",
+      "The digital to print boundary: Young Serif, CMYK values, document greys, cafe signs.",
     sections: [
       "Digital vs print at a glance",
       "Young Serif (print only)",
       "CMYK values",
       "Print purple (substitutes Blue)",
       "Document greys",
+      "Cafe signs",
       "Adjusting photos (Canva)",
     ],
   },

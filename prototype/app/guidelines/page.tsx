@@ -121,8 +121,8 @@ export default function GuidelinesPage() {
       <section className="ds-section">
         <h2 className="ds-section-title">How to represent us</h2>
         <p className="fe-body">
-          Naming rules (ForEveryone as one word, handles, hashtags, and the
-          UK-English standard) now live on the{" "}
+          Naming rules (ForEveryone as one word, No. 52 Cafe spacing and spelling,
+          handles, hashtags, and the UK-English standard) now live on the{" "}
           <a href="/brand">About &amp; Brand</a> page alongside our brand
           personality and voice &amp; tone.
         </p>
