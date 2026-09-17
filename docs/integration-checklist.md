@@ -45,7 +45,7 @@ The trigger is a `<button>` with `aria-expanded` and `aria-controls`; collapsed 
 
 ## 6. Images and alt text
 
-- Meaningful photos get a one-sentence alt describing the activity and the setting. "Two people cooking together in a community kitchen" says more than "people in a room".
+- Meaningful photos get a one-sentence alt describing the activity and the setting. "Two people cooking together at No. 52 Cafe" says more than "people in a room".
 - Purely decorative graphics use an empty `alt`.
 - For a photo inside a blob mask, the alt text belongs on the photo, not on the decorative shape.
 - See [`prototype/public/images/ASSETS.md`](../prototype/public/images/ASSETS.md) and [logo-usage.md](logo-usage.md).

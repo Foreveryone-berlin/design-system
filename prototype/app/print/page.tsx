@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Print & Media",
   description:
-    "The digital ↔ print boundary: what is print/physical-only (Young Serif, CMYK, print purple, document greys) and must not be used on the web.",
+    "The digital ↔ print boundary: what is print/physical-only (Young Serif, CMYK, print purple, document greys, cafe signs) and must not be used on the web.",
 };
 
 const cmyk = [
@@ -162,6 +162,24 @@ export default function PrintPage() {
           boxes, reference notes. They are <strong>not</strong> part of the
           ForEveryone brand palette and must not appear in product UI.
         </p>
+      </section>
+
+      <section className="ds-section">
+        <h2 className="ds-section-title">Cafe signs</h2>
+        <ul className="ds-rule-list">
+          <li>Keep signage simple, clear, playful, and welcoming.</li>
+          <li>
+            Make information easy to read at a glance: clean layout, strong
+            hierarchy, minimal clutter.
+          </li>
+          <li>
+            Place the ForEveryone and No. 52 logos where they don&rsquo;t distract
+            from the main message.
+          </li>
+          <li>
+            Confirm the print method and CMYK values with Roxana before starting.
+          </li>
+        </ul>
       </section>
 
       <section className="ds-section">

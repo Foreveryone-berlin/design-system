@@ -216,8 +216,7 @@ export default function AccessibilityPage() {
         </div>
         <p className="fe-callout">
           <strong>Example:</strong> &ldquo;A group of people laughing while painting
-          at a community workshop&rdquo; says more than &ldquo;people in a
-          room&rdquo;. On
+          at No. 52 Cafe&rdquo; says more than &ldquo;people in a room&rdquo;. On
           social platforms (Instagram, Facebook, LinkedIn) add alt text in the
           post&rsquo;s advanced settings; on the website the web team manages alt
           text in the CMS &mdash; send suggested alt text alongside each image.
