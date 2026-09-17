@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+## [1.8.1] - 2026-09-17
+
+No. 52 Cafe guidance back in the live design system.
+
 - **Fix**: Restore the No. 52 Cafe naming, logo, and cafe-signs guidance to the live design system.
 
 ## [1.8.0] - 2026-09-14
