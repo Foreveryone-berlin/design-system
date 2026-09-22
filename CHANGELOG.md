@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+## [1.8.3] - 2026-09-22
+
+Clearer project guidance and a protected internal prototype.
+
 - **Change**: Clarify the project’s setup guidance, contributor credits, and licence terms.
 - **Change**: Block search crawlers and AI tools from accessing the internal prototype.
 - **Fix**: Keep the prototype FAQ accordion responsive when it is opened and closed quickly on mobile Safari.
