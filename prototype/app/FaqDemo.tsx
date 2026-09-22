@@ -42,7 +42,11 @@ export default function FaqDemo() {
           <button
             type="button"
             className="fe-faq-item__trigger"
-            onClick={() => setActiveId(activeId === item.id ? null : item.id)}
+            onClick={() =>
+              setActiveId((currentId) =>
+                currentId === item.id ? null : item.id,
+              )
+            }
             aria-expanded={activeId === item.id}
             aria-controls={`${item.id}-content`}
             id={`${item.id}-trigger`}
