@@ -8,6 +8,8 @@
 
 ## [Unreleased]
 
+- **Fix**: Use the circled ForEveryone mark for browser and installed-app icons.
+
 ## [1.8.1] - 2026-09-17
 
 No. 52 Cafe guidance back in the live design system.
