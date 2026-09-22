@@ -10,13 +10,13 @@ export const metadata: Metadata = {
 const REPO_URL = "https://github.com/Foreveryone-berlin/design-system";
 
 const contributors = [
-  { name: "Angelina Andriianova", role: "UX/UI design" },
-  { name: "Didem Odemis", role: "UX/UI design" },
-  { name: "Marco Pontili", role: "Web lead and implementation" },
-  { name: "Pedram Madani", role: "Tech lead" },
-  { name: "Rie Takeuchi", role: "Brand and visual design lead" },
+  { name: "Rie Takeuchi", role: "Brand and Visual Design Lead" },
   { name: "Roxana Sillmen", role: "Co-founder" },
-];
+  { name: "Marco Pontili", role: "Web Lead and Implementation" },
+  { name: "Pedram Madani", role: "Technology Lead" },
+  { name: "Angelina Andriianova", role: "UX/UI Designer" },
+  { name: "Didem Odemis", role: "UX/UI Designer" },
+] as const;
 
 const stack: { name: string; role: ReactNode }[] = [
   { name: "Figma", role: "Visual source of truth for the design system" },
@@ -100,14 +100,14 @@ export default function CreditsPage() {
     <>
       <h1 className="ds-page-title">Credits</h1>
       <p className="ds-intro">
-        Who built this design system, the tools we used, and how it is licensed.
+        The people, tools, and licences behind the ForEveryone design system.
       </p>
 
       <section id="contributors" className="ds-section">
         <h2 className="ds-section-title">Contributors</h2>
         <p className="ds-section-intro">
-          The people who shaped this design system through brand, UX/UI, and web
-          work. Meet the rest of the team on{" "}
+          Six people shaped this system through brand, design, technology, and
+          implementation work. Meet the wider team on{" "}
           <a
             href="https://foreveryone.berlin/about-us"
             target="_blank"
@@ -120,7 +120,7 @@ export default function CreditsPage() {
         <ul className="ds-rule-list">
           {contributors.map(({ name, role }) => (
             <li key={name}>
-              <strong>{name}</strong> &mdash; {role}
+              <strong>{name}</strong>: {role}
             </li>
           ))}
         </ul>
@@ -131,7 +131,7 @@ export default function CreditsPage() {
         <ul className="ds-rule-list">
           {stack.map(({ name, role }) => (
             <li key={name}>
-              <strong>{name}</strong> &mdash; {role}
+              <strong>{name}</strong>: {role}
             </li>
           ))}
         </ul>
@@ -142,7 +142,7 @@ export default function CreditsPage() {
         <ul className="ds-rule-list">
           {consumers.map(({ name, role }) => (
             <li key={name}>
-              <strong>{name}</strong> &mdash; {role}
+              <strong>{name}</strong>: {role}
             </li>
           ))}
         </ul>
@@ -155,8 +155,8 @@ export default function CreditsPage() {
             <li key={name}>
               <a href={href} target="_blank" rel="noopener noreferrer">
                 {name}
-              </a>{" "}
-              &mdash; {role}
+              </a>
+              : {role}
             </li>
           ))}
         </ul>
@@ -197,18 +197,20 @@ export default function CreditsPage() {
         <h2 className="ds-section-title">Licence</h2>
         <ul className="ds-rule-list">
           <li>
-            <strong>Software</strong> (<code>scripts/</code>,{" "}
-            <code>prototype/</code>): MIT.
+            <strong>Code and prototype</strong> (<code>scripts/</code>,{" "}
+            <code>prototype/</code>): MIT License. You may use, modify, and
+            distribute the software.
           </li>
           <li>
-            <strong>Design system</strong> (tokens, CSS, Figma, integrations, and
-            docs):{" "}
+            <strong>Design system materials</strong> (tokens, CSS, Figma,
+            integrations, and docs): CC BY-NC 4.0. You may share and adapt these
+            materials for non-commercial use with attribution.{" "}
             <a
               href="https://creativecommons.org/licenses/by-nc/4.0/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              CC BY-NC 4.0
+              License summary
             </a>
             .
           </li>

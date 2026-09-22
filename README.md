@@ -6,10 +6,6 @@ This is the shared look and feel for [foreveryone.berlin](https://foreveryone.be
 
 You can see it all in action on the live preview: **[design.foreveryone.berlin](https://design.foreveryone.berlin)**
 
-## For developers
-
-Technical detail; non-developers can skip this.
-
 ### Tech stack
 
 - **Tokens:** W3C DTCG JSON (`tokens/*.json`) with `$value`, `$type`, `$description`.
@@ -22,7 +18,7 @@ Technical detail; non-developers can skip this.
 
 ### Quick start
 
-Requires **Node 24** (pinned in [`.nvmrc`](.nvmrc); run `nvm use` to match CI).
+Requires **Node 24 or newer**.
 
 ```bash
 # Build CSS custom properties from tokens
@@ -35,7 +31,7 @@ cd prototype && npm install && npm run dev
 
 Root `package.json` script aliases: `npm run build`, `npm test`, `npm run prototype:dev`, `npm run prototype:build`, `npm run prototype:lint`.
 
-### How tokens work
+### How design tokens work
 
 1. Token values live in [`tokens/*.json`](tokens/) (W3C DTCG shape: `$value`, `$type`, `$description`).
 2. [`scripts/build-css.js`](scripts/build-css.js) reads [`tokens/index.json`](tokens/index.json) imports.
@@ -106,14 +102,16 @@ See [`docs/contributing.md`](docs/contributing.md) for workflow, commit conventi
 
 This design system is a community effort. Built with care by the people who make ForEveryone Berlin what it is: a warm, open space where everyone belongs.
 
-With thanks to Rie, Roxana, Didem, Pedram, Marco, and Angelina.
+With thanks to Rie, Roxana, Marco, Pedram, Angelina, and Didem.
 
 ## License
 
 Dual-licensed in a single [LICENSE](LICENSE) file:
 
 - **Software** (`scripts/`, `prototype/`): **MIT**.
-- **Design system** (`tokens/`, `css/`, `figma/`, `integrations/`, `docs/`, agent docs, `.claude/` and `.cursor/` rules): **CC BY-NC 4.0** ([summary](https://creativecommons.org/licenses/by-nc/4.0/)).
+- **Code and prototype:** MIT License. You may use, modify, and distribute the software.
+- **Design system materials** (`tokens/`, `css/`, `figma/`, `integrations/`, `docs/`, agent docs, `.claude/` and `.cursor/` rules): CC BY-NC 4.0. You may share and adapt these materials for non-commercial use with attribution. See the [license summary](https://creativecommons.org/licenses/by-nc/4.0/).
+- See the [`LICENSE`](LICENSE) file for the complete terms.
 
 ## Changelog
 

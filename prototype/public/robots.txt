@@ -140,6 +140,6 @@ User-agent: YouBot
 User-agent: ZanistaBot
 Disallow: /
 
-# Block all other crawlers (internal prototype, not a public site)
+# Block all other crawlers because this is an internal prototype.
 User-agent: *
 Disallow: /
