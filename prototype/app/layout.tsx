@@ -35,9 +35,27 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: [{ url: "/favicon.png", type: "image/png" }],
-    apple: [{ url: "/apple-touch-icon.png", type: "image/png" }],
-    shortcut: [{ url: "/favicon.png", type: "image/png" }],
+    icon: [
+      {
+        url: "https://foreveryone.berlin/wp-content/uploads/2026/09/cropped-foreveryone-favicon-circled-32x32.png",
+        type: "image/png",
+        sizes: "32x32",
+      },
+      {
+        url: "https://foreveryone.berlin/wp-content/uploads/2026/09/cropped-foreveryone-favicon-circled-192x192.png",
+        type: "image/png",
+        sizes: "192x192",
+      },
+    ],
+    apple: [
+      {
+        url: "https://foreveryone.berlin/wp-content/uploads/2026/09/cropped-foreveryone-favicon-circled-180x180.png",
+        type: "image/png",
+        sizes: "180x180",
+      },
+    ],
+    shortcut:
+      "https://foreveryone.berlin/wp-content/uploads/2026/09/cropped-foreveryone-favicon-circled-32x32.png",
   },
   openGraph: {
     type: "website",
