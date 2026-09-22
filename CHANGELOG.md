@@ -8,6 +8,12 @@
 
 ## [Unreleased]
 
+## [1.8.2] - 2026-09-22
+
+Circled browser and installed-app icon.
+
+- **Fix**: Use the circled ForEveryone mark for browser and installed-app icons.
+
 ## [1.8.1] - 2026-09-17
 
 No. 52 Cafe guidance back in the live design system.

@@ -12,19 +12,19 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#FF7A3A",
     icons: [
       {
-        src: "/favicon.svg",
-        type: "image/svg+xml",
-        sizes: "any",
-        purpose: "any",
-      },
-      {
-        src: "/favicon.png",
+        src: "https://foreveryone.berlin/wp-content/uploads/2026/09/cropped-foreveryone-favicon-circled-32x32.png",
         type: "image/png",
-        sizes: "512x512",
+        sizes: "32x32",
         purpose: "any",
       },
       {
-        src: "/apple-touch-icon.png",
+        src: "https://foreveryone.berlin/wp-content/uploads/2026/09/cropped-foreveryone-favicon-circled-192x192.png",
+        type: "image/png",
+        sizes: "192x192",
+        purpose: "any",
+      },
+      {
+        src: "https://foreveryone.berlin/wp-content/uploads/2026/09/cropped-foreveryone-favicon-circled-180x180.png",
         type: "image/png",
         sizes: "180x180",
         purpose: "maskable",
