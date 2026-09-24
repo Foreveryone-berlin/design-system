@@ -44,6 +44,25 @@ The two biggest gaps are whole categories the repo has essentially no coverage o
 - **p11 is a print colour page** giving separate CMYK/RGB/Hex values for *Home Printer* vs *Print Services*: orange `#F79348` / `#F3793E`, green `#E7F0C1` / `#D4E5A7`, lavender `#EADEEE` / `#D0C3E0`, and a deep purple `#635BA8`. The repo has `--color-print-purple-home` and `--color-print-purple-press`, which is the same home-vs-press split, so this page is the upstream source for those tokens. **Two of these are not obviously in the repo**: the home/press orange and green pairs.
   Deliberately not acted on: a second worktree (`design-system-canva-audit`, branch `docs/canva-gap-audit`) currently holds uncommitted changes to `tokens/colors.json`, so touching colour tokens here would collide. Reported only.
 
+## Provenance: why none of this can be imported yet
+
+Every candidate source was checked. All four are dead ends, which is the single most important outcome of this audit: **the gaps above cannot be closed by an import, only by a design decision.**
+
+| Source | Status | Detail |
+|---|---|---|
+| Canva elements guide artwork | **Not redistributable** | These are Canva *stock library* elements, not commissioned ForEveryone artwork. Page 2 shows one selected in the editor as "Blob Star Shape … Free for Canva Teams". That licence covers use inside Canva; it does not cover extracting the vectors into this repository, which ships under a proprietary `LICENSE` (© ForEveryone Berlin). |
+| Google Drive folder named on p10 | **Inaccessible** | `1GfvE0YABDxPH1TM_Vx8fu7a05hfe6mXs` returns "Requested entity was not found" for this account. The guide names it as the canonical icon source, so the canonical source is currently unreachable. |
+| Other icon files in Drive | **Wrong assets, wrong format** | A Drive-wide search returns only raster PNGs: `Transparent Icon-0X.png` and `Highlights and Whatsapp Finals White Icons-XX.png`, which are Instagram highlight covers and social marks. None are the workshop or music line icons, and none are vector. |
+| Authoring them in-repo | **Would invent brand artwork** | The shipped assets are designer exports with organic hand-drawn bezier paths, not geometric primitives (compare `waves/wave-h1.svg` or `accents/sparkle.svg`). `docs/AGENTS.md` makes Figma the source of truth for visual decisions, so drawing replacements here would be inventing brand design, not implementing it. |
+
+### What actually unblocks each gap
+
+1. **Workshop and music sets (the big gap).** Someone with Drive access re-shares the p10 folder, or design exports the set from Figma. Then `scripts/import-figma-elements.mjs` or `scripts/import-desktop-elements.mjs` handles the import as documented in `docs/visual-styles.md`.
+2. **If the intent is to keep using the Canva stock look**, that needs a licensing decision first, not an engineering one. Canva stock elements would have to be either licensed for redistribution or replaced with originals commissioned in the same style.
+3. **Waves, sparkle outlines, arrow curvatures.** Smaller and lower risk, but still designer work for the same reason: they are drawn marks, not parametric shapes.
+
+Nothing in this repository should change until one of those happens. This audit is therefore the deliverable, and the promotion tables above are a brief for design rather than a work queue for engineering.
+
 ## If these get promoted
 
 Adding icons is not a drop-in-a-file operation in this repo:
