@@ -8,6 +8,14 @@
 
 ## [Unreleased]
 
+## [1.8.4] - 2026-09-24
+
+Recorded provenance for the icon gaps, on current prototype software.
+
+- **Add**: Record where the workshop and music icons the team uses in Canva come from, and why they cannot be brought into the system as they stand.
+- **Change**: Flag the Canva elements library and the shared Drive folder as working libraries rather than sources the system imports from.
+- **Behind the scenes**: Update prototype dependencies within their current major versions.
+
 ## [1.8.3] - 2026-09-22
 
 Clearer project guidance and a protected internal prototype.
