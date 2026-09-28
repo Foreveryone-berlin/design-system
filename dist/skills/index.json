@@ -1,0 +1,45 @@
+{
+  "name": "foreveryone-design-system",
+  "version": "1.9.0",
+  "docs": "https://design.foreveryone.berlin",
+  "tokens": "tokens.json",
+  "agentsBlock": "AGENTS.foreveryone.md",
+  "shared": [
+    "_shared/conventions.md"
+  ],
+  "skills": [
+    {
+      "name": "fe-core",
+      "description": "Core conventions for consuming the ForEveryone Berlin design system. Use when importing CSS variables, resolving tokens, choosing fe-* classes, or deciding whether a colour or font is allowed.",
+      "path": "fe-core/SKILL.md",
+      "foreveryone": ">=1.9.0 <2.0.0",
+      "requires": [],
+      "docs": [
+        "llms.txt",
+        "spec/principles.md",
+        "spec/tokens.json"
+      ],
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "fe-redesign",
+      "description": "Restyle an existing web app to the ForEveryone Berlin design system. Use when replacing ad-hoc colours, fonts, and components with tokens and fe-* contracts from this repo.",
+      "path": "fe-redesign/SKILL.md",
+      "foreveryone": ">=1.9.0 <2.0.0",
+      "requires": [
+        "fe-core"
+      ],
+      "docs": [
+        "llms.txt",
+        "spec/principles.md",
+        "spec/tokens.json",
+        "docs/agents/redesign-from-this-system.md"
+      ],
+      "files": [
+        "SKILL.md"
+      ]
+    }
+  ]
+}

@@ -48,6 +48,12 @@ const blockedUserAgentPattern = new RegExp(
 );
 
 export function proxy(request: NextRequest) {
+  const pathname = request.nextUrl.pathname;
+  // Consumer skill payload and agent entry must stay readable by AI crawlers.
+  if (pathname === "/llms.txt" || pathname === "/skills" || pathname.startsWith("/skills/")) {
+    return NextResponse.next();
+  }
+
   const userAgent = request.headers.get("user-agent") ?? "";
 
   if (blockedUserAgentPattern.test(userAgent)) {

@@ -1,4 +1,4 @@
-![ForEveryone Design System card: a bold "ForEveryone Design System" headline on a lime-green ground, underlined with an orange hand-drawn stroke, with sprout, smiley, and swirl doodles on the right and a warm-white wave along the bottom.](prototype/public/images/readme-hero.jpg)
+![ForEveryone Design System card: a bold "ForEveryone Design System" headline on a lime-green ground, underlined with an orange hand-drawn stroke, with sprout, smiley, and swirl doodles on the right and a warm-white wave along the bottom.](prototype/public/images/readme-hero.png)
 
 # ForEveryone Design System
 
@@ -72,7 +72,7 @@ foreveryone-design-system/
 - **Logo usage** (X measurement, safe zone, min sizes, white-on-orange exception): [`docs/logo-usage.md`](docs/logo-usage.md).
 - **Color audit** (2026 brand-guide alignment + approved bg ⇄ text combinations): [`docs/color-audit-2026.md`](docs/color-audit-2026.md).
 - **Brand source of truth** (authority matrix; Brand Book v1.0 governs): [`docs/brand-book-references.md`](docs/brand-book-references.md).
-- **For AI agents** (consume the system / redesign an app): [`llms.txt`](llms.txt), [`spec/`](spec/) (machine-readable tokens, principles, component contracts), and [`docs/agents/redesign-from-this-system.md`](docs/agents/redesign-from-this-system.md).
+- **For AI agents** (consume the system / redesign an app): installable skills via [`docs/ai-skills.md`](docs/ai-skills.md) (`node bin/fe-ds.mjs skills install`), plus [`llms.txt`](llms.txt), [`spec/`](spec/), and [`docs/agents/redesign-from-this-system.md`](docs/agents/redesign-from-this-system.md).
 
 ## Git workflow
 
@@ -91,6 +91,7 @@ foreveryone-design-system/
 - **Cursor CLI:** [`AGENTS.md`](AGENTS.md) + [`CLAUDE.md`](CLAUDE.md) + [`.cursor/rules/`](.cursor/rules/) (does not read `.cursor/AGENTS.md`).
 - **Claude Code:** [`CLAUDE.md`](CLAUDE.md) + path-scoped rules in [`.claude/rules/`](.claude/rules/).
 - **Project skills (both tools):** [`.claude/skills/`](.claude/skills/) (`optimize-prototype`); Cursor auto-loads from this folder.
+- **Consumer AI skills:** [`docs/ai-skills.md`](docs/ai-skills.md) (`skills/`, `fe-ds` CLI). Distinct from maintainer workflows in [`docs/skills/`](docs/skills/).
 - **Agent contract + runtime policy:** [`docs/agents/`](docs/agents/).
 - **Repeatable workflows:** [`docs/skills/`](docs/skills/).
 
@@ -108,9 +109,9 @@ With thanks to Rie, Roxana, Marco, Pedram, Angelina, and Didem.
 
 Dual-licensed in a single [LICENSE](LICENSE) file:
 
-- **Software** (`scripts/`, `prototype/`): **MIT**.
+- **Software** (`scripts/`, `bin/`, `prototype/`): **MIT**.
 - **Code and prototype:** MIT License. You may use, modify, and distribute the software.
-- **Design system materials** (`tokens/`, `css/`, `figma/`, `integrations/`, `docs/`, agent docs, `.claude/` and `.cursor/` rules): CC BY-NC 4.0. You may share and adapt these materials for non-commercial use with attribution. See the [license summary](https://creativecommons.org/licenses/by-nc/4.0/).
+- **Design system materials** (`tokens/`, `css/`, `figma/`, `integrations/`, `docs/`, `skills/`, agent docs, `.claude/` and `.cursor/` rules): CC BY-NC 4.0. You may share and adapt these materials for non-commercial use with attribution. See the [license summary](https://creativecommons.org/licenses/by-nc/4.0/).
 - See the [`LICENSE`](LICENSE) file for the complete terms.
 
 ## Changelog
