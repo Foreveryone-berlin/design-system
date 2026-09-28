@@ -107,6 +107,14 @@ export default function Home() {
             </p>
             <span className="ds-overview-card__link">View patterns &rarr;</span>
           </Link>
+          <Link href="/ai-skills" className="ds-overview-card">
+            <h3 className="ds-overview-card__title">AI skills</h3>
+            <p className="ds-overview-card__desc">
+              Guides for AI agents: core conventions for new UI, and a
+              workflow for restyling an existing app.
+            </p>
+            <span className="ds-overview-card__link">View AI skills &rarr;</span>
+          </Link>
           <Link href="/brand" className="ds-overview-card">
             <h3 className="ds-overview-card__title">About &amp; Brand</h3>
             <p className="ds-overview-card__desc">

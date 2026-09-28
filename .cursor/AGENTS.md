@@ -50,6 +50,8 @@ Common mistakes:
 | Build CSS from tokens | `node scripts/build-css.js` |
 | Build agent token spec | `node scripts/build-spec.js` → `spec/tokens.json` |
 | Build both | `npm run build` |
+| Build consumer AI skills | `npm run skills:build` |
+| Install consumer skills | `node bin/fe-ds.mjs skills install` |
 | Prototype dev | `cd prototype && npm install && npm run dev` |
 | Screenshot key pages | `cd prototype && OUT_DIR=baseline BASE_URL=http://localhost:3100 node scripts/screenshot.mjs` |
 | Prototype e2e + axe (LOCAL) | with dev server up: `cd prototype && PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e` |
@@ -79,6 +81,7 @@ Cursor IDE auto-loads project skills from `.claude/skills/`.
 | Integration targets | `integrations/README.md` |
 | Per-target release checks | `docs/integration-checklist.md` |
 | Release workflow | `docs/skills/release.md` |
+| Consumer AI skills | `docs/ai-skills.md` |
 | Visual styles | `docs/visual-styles.md` |
 
 ## Retrieval-led reasoning

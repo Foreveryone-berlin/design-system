@@ -19,7 +19,7 @@ Portable task contract: [agents/agent-contract.md](agents/agent-contract.md).
 Paths are repo-relative from project root unless noted.
 
 |root:{README.md,CHANGELOG.md,AGENTS.md,CLAUDE.md,llms.txt}
-|docs:{AGENTS.md,a11y-conformance.md,brand-book-references.md,canva-icon-gap-audit.md,color-audit-2026.md,contributing.md,figma-final-design-audit.md,getting-started.md,integration-checklist.md,logo-usage.md,pr-and-merge-workflow.md,prototype-deploy.md,token-naming.md,validation.md,visual-styles.md}
+|docs:{AGENTS.md,a11y-conformance.md,ai-skills.md,brand-book-references.md,canva-icon-gap-audit.md,color-audit-2026.md,contributing.md,figma-final-design-audit.md,getting-started.md,integration-checklist.md,logo-usage.md,pr-and-merge-workflow.md,prototype-deploy.md,token-naming.md,validation.md,visual-styles.md}
 |docs/agents:{README.md,agent-contract.md,runtime-policy.md,redesign-from-this-system.md}
 |spec:{tokens.json,principles.md}
 |spec/components:{README.md,button.md,tag-pill.md,card.md,input.md,faq.md,header.md,footer.md,dropdown.md,popup.md,testimonial.md}
@@ -34,11 +34,13 @@ Paths are repo-relative from project root unless noted.
 |tokens:{index.json,colors.json,typography.json,spacing.json,radius.json,shadows.json,motion.json}
 |css:{custom-properties.css,base.css,typography.css,utilities.css}
 |css/integrations:{elementor.css}
-|scripts:{build-css.js,build-css.test.js,build-spec.js,pr-and-merge.sh,optimize-run.sh,import-figma-elements.mjs,import-desktop-elements.mjs,svg-normalize.mjs}
+|scripts:{build-css.js,build-css.test.js,build-spec.js,build-skills.mjs,build-skills.test.mjs,pr-and-merge.sh,optimize-run.sh,import-figma-elements.mjs,import-desktop-elements.mjs,svg-normalize.mjs}
+|skills:{_shared/conventions.md,fe-core/SKILL.md,fe-redesign/SKILL.md}
+|bin:{fe-ds.mjs}
 |prototype:{README.md,next.config.ts,package.json,tsconfig.json,playwright.config.ts}
 |prototype/app:{layout.tsx,page.tsx,globals.css,manifest.ts,FaqDemo.tsx}
 |prototype/app/_components:{FeIcon.tsx,CodeBlock.tsx,HeaderDemo.tsx,MobileNav.tsx,MotionSpecimens.tsx,Navigation.tsx,ObfuscatedEmail.tsx,OnThisPage.tsx,Popup.tsx,Search.tsx,HeadingAnchors.tsx,EventsWorkshopsSwitcher.tsx,NavigationHistory.tsx,AssetTile.tsx,LogoClearSpace.tsx,StatCounter.tsx,TestimonialCard.tsx,TestimonialSlider.tsx,ViewTransitions.tsx,ui-glyphs.ts,ui-glyph-markup.ts,page-headings.ts,nav-sections.ts,search-index.ts,slugify.ts}
-|prototype/app:{components,patterns,foundations,guidelines,governance,accessibility,credits,brand,logo,visual-elements,print}/page.tsx
+|prototype/app:{components,patterns,foundations,guidelines,governance,ai-skills,accessibility,credits,brand,logo,visual-elements,print}/page.tsx
 |prototype/content:{site-copy.ts}
 |prototype/tests:{a11y.spec.ts,smoke.spec.ts}
 |prototype/scripts:{screenshot.mjs,screenshot-patterns-tones.mjs,build-og-card.mjs}
@@ -52,7 +54,9 @@ Paths are repo-relative from project root unless noted.
 | --- | --- |
 | Regenerate CSS custom properties from tokens | `node scripts/build-css.js` (repo root) |
 | Regenerate the machine-readable token spec for agents | `node scripts/build-spec.js` (repo root) — writes `spec/tokens.json` |
-| Build both (CSS + spec) | `npm run build` (repo root) |
+| Build both (CSS + spec + skills) | `npm run build` (repo root) |
+| Build consumer AI skills payload | `npm run skills:build` → `dist/skills/` + `prototype/public/skills/` |
+| Install consumer skills into a project | `node bin/fe-ds.mjs skills install` |
 | Prototype dev server | `cd prototype && npm install && npm run dev` |
 | Prototype e2e + axe (against LOCAL, not prod) | `cd prototype` then with the dev server up: `PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e` |
 | Screenshot key pages at 3 breakpoints | `cd prototype && OUT_DIR=baseline BASE_URL=http://localhost:3100 node scripts/screenshot.mjs` |
