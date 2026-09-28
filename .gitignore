@@ -40,6 +40,9 @@ CLAUDE.local.md
 /.artifacts/*
 !/.artifacts/README.md
 
+# Skills test temp output
+.tmp/
+
 # Local design references (Figma is source of truth; not tracked)
 # Figma element export drop (tracked assets live under prototype/public/)
 ForEveryone_Elements.zip

@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+Installable AI skills for AI agents.
+
+- **Add**: Guides for AI agents that build or restyle UI with this system, installable from a clone or readable on the live site.
+
 ## [1.8.4] - 2026-09-24
 
 Recorded provenance for the icon gaps, on current prototype software.

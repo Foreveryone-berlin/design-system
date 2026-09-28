@@ -8,6 +8,7 @@ This repository mixes design-system materials and software. Different paths use 
 
 MIT License (see **MIT License** heading below)
   • scripts/
+  • bin/
   • prototype/ (the Next.js app; npm dependencies stay under their own licenses)
 
 Creative Commons Attribution-NonCommercial 4.0 International — CC BY-NC 4.0 (see **Creative Commons Attribution-NonCommercial 4.0 International** heading below)
@@ -16,6 +17,7 @@ Creative Commons Attribution-NonCommercial 4.0 International — CC BY-NC 4.0 (s
   • figma/
   • integrations/
   • docs/
+  • skills/ (consumer AI skill sources and built payload under dist/skills/ and prototype/public/skills/)
   • Root documentation and agent/IDE guidance: README.md, CHANGELOG.md, AGENTS.md, CLAUDE.md, `.codex/`, `.claude/`, `.cursor/`
 
 If you reuse material that spans both areas, you must comply with the terms of each license that applies. Trademarks and branding (e.g. "ForEveryone Berlin") are not granted by these licenses alone.

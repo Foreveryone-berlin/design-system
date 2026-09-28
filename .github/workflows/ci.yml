@@ -22,6 +22,9 @@ jobs:
       - name: Build tokens to CSS
         run: node scripts/build-css.js
 
+      - name: Build agent skills
+        run: npm run skills:build
+
       - name: Validate tokens, generated CSS, and SVG assets
         run: npm test
 
@@ -30,6 +33,14 @@ jobs:
           if ! git diff --quiet -- css/custom-properties.css; then
             echo "::error::css/custom-properties.css is out of sync with tokens/*.json. Run 'node scripts/build-css.js' and commit."
             git --no-pager diff -- css/custom-properties.css
+            exit 1
+          fi
+
+      - name: Detect skills drift
+        run: |
+          if ! git diff --quiet -- dist/skills prototype/public/skills prototype/public/llms.txt; then
+            echo "::error::skills payload is out of sync. Run 'npm run skills:build' and commit dist/skills, prototype/public/skills, and prototype/public/llms.txt."
+            git --no-pager diff -- dist/skills prototype/public/skills prototype/public/llms.txt
             exit 1
           fi
 
