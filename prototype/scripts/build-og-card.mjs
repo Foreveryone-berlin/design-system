@@ -54,31 +54,25 @@ const RAMP_NEUTRAL = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
 function shell({ w, h, body, extraCss = "", footer = true }) {
   const pad = w >= 1500 ? 96 : 76;
-  // Both targets (social 1200 and README 1500). The doodle composition ends in a
-  // Warm White wave band, so on GitHub's white README (and on many link-preview
-  // surfaces) the bottom edge dissolves and the card reads as having no
-  // boundary. GitHub strips `style` from markdown-embedded HTML, so the frame
-  // has to be baked into the asset.
-  //
-  // Drawn as an overlay rather than a body border so the outer bitmap stays a
-  // full w×h rectangle (JPG has no alpha) while the stroke itself is rounded.
-  // 3px here is 3px in the final JPG (rendered at deviceScaleFactor 2, then
-  // halved by the ImageMagick -resize step). Radius is the hero-block token.
+  // Both targets (social 1200 and README 1500). GitHub strips `style` from
+  // markdown-embedded HTML, so rounded corners have to be baked into the asset.
+  // Do not put the fill on `body`: the body/html background is propagated to the
+  // canvas as a full rectangle and ignores border-radius. Clip on an inner
+  // `.card` instead; keep html/body transparent so omitBackground yields real
+  // alpha in the corner wedges. README ships that PNG; social is flattened onto
+  // white and encoded as JPG (OG crawlers often mishandle transparency).
   return `<!doctype html><html><head><meta charset="utf-8">${FONT_LINKS}
 <style>
 ${tokenCss}
 * { margin:0; padding:0; box-sizing:border-box; }
-html,body { width:${w}px; height:${h}px; }
-body {
-  position:relative; overflow:hidden;
+html,body { width:${w}px; height:${h}px; background:transparent; }
+.card {
+  position:relative; width:100%; height:100%; overflow:hidden;
+  border-radius:var(--radius-xl);
+  clip-path:inset(0 round var(--radius-xl));
   background:var(--color-accent);
   font-family:'Outfit',sans-serif;
   color:var(--color-brand-dark);
-}
-body::after {
-  content:""; position:absolute; inset:0; z-index:20; pointer-events:none;
-  border:3px solid var(--color-warm-grey-light);
-  border-radius:var(--radius-xl);
 }
 .content { position:absolute; inset:0; padding:${pad}px;
            display:flex; flex-direction:column; justify-content:center; }
@@ -89,9 +83,9 @@ body::after {
         -webkit-mask-position:center; mask-position:center;
         -webkit-mask-size:contain; mask-size:contain; }
 ${extraCss}
-</style></head><body>${body}
+</style></head><body><div class="card">${body}
 ${footer ? `<div class="foot"><img src="${logoUri}" alt="ForEveryone"></div>` : ""}
-</body></html>`;
+</div></body></html>`;
 }
 
 /** Current composition: blob field, headline, swatch ramp, wordmark. */
@@ -193,7 +187,7 @@ function doodleCard({ w, h }) {
     // it, which is the only place on this card where it lands on a flat ground.
     footer: true,
     extraCss: `
-body { background:var(--color-background-title); }
+.card { background:var(--color-background-title); }
 .wave { position:absolute; left:0; right:0; bottom:0; height:${h * 0.3}px;
         background-color:var(--color-accent);
         -webkit-mask-image:url("${svgUri("illustrations/waves/wave-h1.svg")}");
@@ -255,7 +249,7 @@ function doodleStudy({ w, h }, cfg) {
     // wave band would say the brand name twice.
     footer: false,
     extraCss: `
-body { background:var(--color-background-title); }
+.card { background:var(--color-background-title); }
 .wave { position:absolute; left:0; right:0; bottom:0; height:${h * 0.3}px;
         background-color:var(--color-accent);
         -webkit-mask-image:url("${svgUri("illustrations/waves/wave-h1.svg")}");
@@ -394,7 +388,13 @@ for (const t of targets) {
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(400);
   const file = join(outDir, `${variant}-${t.name}.png`);
-  await page.screenshot({ path: file, clip: { x: 0, y: 0, width: t.w, height: t.h } });
+  // omitBackground keeps html's transparent corners as alpha so the bitmap
+  // silhouette is rounded, not a white-filled rectangle.
+  await page.screenshot({
+    path: file,
+    clip: { x: 0, y: 0, width: t.w, height: t.h },
+    omitBackground: true,
+  });
   console.log(file);
   await page.close();
 }

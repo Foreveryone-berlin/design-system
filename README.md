@@ -1,4 +1,4 @@
-![ForEveryone Design System card: a bold "ForEveryone Design System" headline on a lime-green ground, underlined with an orange hand-drawn stroke, with sprout, smiley, and swirl doodles on the right and a warm-white wave along the bottom.](prototype/public/images/readme-hero.jpg)
+![ForEveryone Design System card: a bold "ForEveryone Design System" headline on a lime-green ground, underlined with an orange hand-drawn stroke, with sprout, smiley, and swirl doodles on the right and a warm-white wave along the bottom.](prototype/public/images/readme-hero.png)
 
 # ForEveryone Design System
 
