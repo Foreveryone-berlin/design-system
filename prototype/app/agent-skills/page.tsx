@@ -2,18 +2,18 @@ import type { Metadata } from "next";
 import CodeBlock from "../_components/CodeBlock";
 
 export const metadata: Metadata = {
-  title: "AI skills",
+  title: "Agent skills",
   description:
     "Guides for AI agents that build or restyle UI with this design system: core conventions, and a redesign workflow.",
 };
 
 const REPO_DOCS =
-  "https://github.com/Foreveryone-berlin/design-system/blob/develop/docs/ai-skills.md";
+  "https://github.com/Foreveryone-berlin/design-system/blob/develop/docs/agent-skills.md";
 
-export default function AiSkillsPage() {
+export default function AgentSkillsPage() {
   return (
     <>
-      <h1 className="ds-page-title">AI skills</h1>
+      <h1 className="ds-page-title">Agent skills</h1>
       <p className="ds-intro">
         Guides for AI agents that build or restyle UI with this system: core
         conventions, and a redesign workflow. The rules match what is already in{" "}
@@ -94,7 +94,7 @@ export default function AiSkillsPage() {
           its <code>AGENTS.md</code>. Cursor, Claude Code, and Codex folders are
           updated too when they already exist. Details and options:{" "}
           <a href={REPO_DOCS} target="_blank" rel="noopener noreferrer">
-            docs/ai-skills.md
+            docs/agent-skills.md
           </a>
           .
         </p>

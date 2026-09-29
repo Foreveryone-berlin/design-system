@@ -12,7 +12,7 @@ const routes = [
   "/guidelines",
   "/accessibility",
   "/governance",
-  "/ai-skills",
+  "/agent-skills",
   "/credits",
 ] as const;
 

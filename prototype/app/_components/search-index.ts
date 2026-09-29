@@ -169,8 +169,8 @@ const pages: PageDef[] = [
     ],
   },
   {
-    route: "/ai-skills",
-    title: "AI skills",
+    route: "/agent-skills",
+    title: "Agent skills",
     description:
       "Guides for AI agents: core conventions for new UI, and a redesign workflow.",
     sections: ["Core", "Redesign", "Install", "On this site"],
