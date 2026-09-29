@@ -48,7 +48,7 @@ role, and component has one correct answer.
 - Brand authority matrix: [docs/brand-book-references.md](docs/brand-book-references.md)
 - Colour audit + approved pairings: [docs/color-audit-2026.md](docs/color-audit-2026.md)
 - Live prototype: the Next.js app in `prototype/` (routes: foundations, components,
-  patterns, brand, logo, visual-elements, print, accessibility, governance, ai-skills).
+  patterns, brand, logo, visual-elements, print, accessibility, governance, agent-skills).
 
 ## Agent skills
 
@@ -61,5 +61,5 @@ node path/to/design-system/bin/fe-ds.mjs skills install
 ```
 
 Manifest: [skills/index.json](https://design.foreveryone.berlin/skills/index.json).
-How-to: [docs/ai-skills.md](docs/ai-skills.md). Distinct from maintainer workflows in
+How-to: [docs/agent-skills.md](docs/agent-skills.md). Distinct from maintainer workflows in
 `docs/skills/` and `.claude/skills/`.

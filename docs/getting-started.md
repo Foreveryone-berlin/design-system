@@ -49,7 +49,7 @@ High-level rules for **icons** (line vs filled, social vs category), **blob shap
 
 How to load the system from plain CSS, React/Next.js, or a CMS: [integrations/README.md](../integrations/README.md). Pre-release checks for any consuming surface: [integration-checklist.md](integration-checklist.md).
 
-## Consumer AI skills
+## Consumer agent skills
 
 AI agents can follow this system via the `fe-core` and `fe-redesign` skills.
-Details: [ai-skills.md](ai-skills.md).
+Details: [agent-skills.md](agent-skills.md).

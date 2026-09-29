@@ -8,6 +8,12 @@
 
 ## [Unreleased]
 
+## [1.9.1] - 2026-09-29
+
+Call the installable guides agent skills instead of AI skills.
+
+- **Change**: Rename the installable guides and the prototype page to agent skills, and send visitors from the old page address to the new one.
+
 ## [1.9.0] - 2026-09-28
 
 Installable AI skills for AI agents.

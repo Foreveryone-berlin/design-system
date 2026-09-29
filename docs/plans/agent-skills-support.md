@@ -1,17 +1,17 @@
-# Support consumer AI skills (v1)
+# Support consumer agent skills (v1)
 
-Shipped plan for installable consumer AI skills, adapted from the bullframe.css skills pipeline.
+Shipped plan for installable consumer agent skills, adapted from the bullframe.css skills pipeline.
 
 ## Checklist
 
 - [x] Add `skills/_shared/conventions.md`, `skills/fe-core/SKILL.md`, `skills/fe-redesign/SKILL.md`
 - [x] Add `scripts/build-skills.mjs`; wire into `npm run build`; commit `dist/skills` + sync to `prototype/public/skills` (+ `llms.txt`)
 - [x] Exempt `/skills/*` and `/llms.txt` from `Content-Signal: ai-input=no` and from `proxy.ts` bot 403
-- [x] Add lean prototype `/ai-skills` page + nav/search/smoke/a11y wiring; short home or governance pointer
-- [x] New **AI** nav group for `/ai-skills`
+- [x] Add lean prototype `/agent-skills` page + nav/search/smoke/a11y wiring; short home or governance pointer
+- [x] New **Agents** nav group for `/agent-skills`
 - [x] Add `bin/fe-ds.mjs` (list/path/install); `package.json` bin; LICENSE path for `bin/`
 - [x] CI drift check for skills trees; LICENSE path list for `skills/` and `bin/`
-- [x] Update README (flat, no bloat), `docs/ai-skills.md` + AGENTS/llms mirrors, CHANGELOG `[Unreleased]` (no premature version bump)
+- [x] Update README (flat, no bloat), `docs/agent-skills.md` + AGENTS/llms mirrors, CHANGELOG `[Unreleased]` (no premature version bump)
 - [x] Frontmatter + build output + CLI `--dry-run` checks wired into `npm test`
 
 ## Verified assumptions
@@ -91,7 +91,7 @@ Commit both `dist/skills/` and `prototype/public/skills/` (and `prototype/public
 
 ### Human-facing page (prototype UI)
 
-Add a lean Guidance page at [prototype/app/ai-skills/page.tsx](../../prototype/app/ai-skills/page.tsx), same tone as [docs/ai-skills.md](../ai-skills.md):
+Add a lean Guidance page at [prototype/app/agent-skills/page.tsx](../../prototype/app/agent-skills/page.tsx), same tone as [docs/agent-skills.md](../agent-skills.md):
 
 - What the skills are (`fe-core`, `fe-redesign`)
 - Install from clone: `node bin/fe-ds.mjs skills install`
@@ -100,7 +100,7 @@ Add a lean Guidance page at [prototype/app/ai-skills/page.tsx](../../prototype/a
 
 Wire it into the IA with a dedicated nav group:
 
-- [prototype/app/_components/nav-sections.ts](../../prototype/app/_components/nav-sections.ts): new **AI** group with `/ai-skills`
+- [prototype/app/_components/nav-sections.ts](../../prototype/app/_components/nav-sections.ts): new **Agents** group with `/agent-skills`
 - [prototype/app/_components/search-index.ts](../../prototype/app/_components/search-index.ts) and page-headings if present
 - [prototype/tests/smoke.spec.ts](../../prototype/tests/smoke.spec.ts) and [prototype/tests/a11y.spec.ts](../../prototype/tests/a11y.spec.ts) route lists
 - One short pointer from the home overview or Governance “source of truth” section (not both; prefer home overview card if it stays balanced)
@@ -126,11 +126,11 @@ Root `package.json`: `"bin": { "fe-ds": "bin/fe-ds.mjs" }`, remain `private: tru
 
 ### README (replace, do not grow)
 
-Touch only the existing AI / agents bits in [README.md](../../README.md). Swap or tighten lines in **AI coding assistants** and the **For AI agents** consumer bullet so they mention installable skills and point at `docs/ai-skills.md`. Do not add a new top-level section, table, or long install walkthrough. Net README line count stays flat or shrinks.
+Touch only the existing AI / agents bits in [README.md](../../README.md). Swap or tighten lines in **AI coding assistants** and the **For AI agents** consumer bullet so they mention installable skills and point at `docs/agent-skills.md`. Do not add a new top-level section, table, or long install walkthrough. Net README line count stays flat or shrinks.
 
 ### Docs
 
-- New [docs/ai-skills.md](../ai-skills.md): clone install first, then site URLs; distinguish consumer `skills/` vs maintainer [docs/skills/](../skills/) vs `.claude/skills/optimize-prototype`
+- New [docs/agent-skills.md](../agent-skills.md): clone install first, then site URLs; distinguish consumer `skills/` vs maintainer [docs/skills/](../skills/) vs `.claude/skills/optimize-prototype`
 - Link it from [docs/getting-started.md](../getting-started.md) (one short bullet or sentence) and from the docs index in [docs/AGENTS.md](../AGENTS.md)
 - [llms.txt](../../llms.txt): add an **Agent skills** section (install command + `/skills/index.json`)
 - Command / index pins in root [AGENTS.md](../../AGENTS.md), [CLAUDE.md](../../CLAUDE.md), [.cursor/AGENTS.md](../../.cursor/AGENTS.md) only where `skills:build` / `fe-ds` belong in the commands table
@@ -138,13 +138,13 @@ Touch only the existing AI / agents bits in [README.md](../../README.md). Swap o
 
 ### Changelog
 
-- [CHANGELOG.md](../../CHANGELOG.md) under `## [Unreleased]`: one plain-language bullet for consumer AI skills (install CLI + site payload). No file-path dump; match the changelog style at the top of that file.
+- [CHANGELOG.md](../../CHANGELOG.md) under `## [Unreleased]`: one plain-language bullet for consumer agent skills (install CLI + site payload). No file-path dump; match the changelog style at the top of that file.
 
 ## Defaults locked for v1
 
 - Distribution: **clone CLI first**, site mirror second; **no npm publish**
 - Skills: **`fe-core` + `fe-redesign` only**
 - Machine surface: **`tokens.json` only** (no `fe-*` class api.json)
-- Site: **static `/skills/` + `/llms.txt`**, access exemptions, and a **`/ai-skills` page** under a new **AI** nav group in the prototype
-- Docs surface: **README updated in place (no bloat)**, full how-to in `docs/ai-skills.md`, **CHANGELOG [Unreleased]** bullet, prototype `/ai-skills` page
+- Site: **static `/skills/` + `/llms.txt`**, access exemptions, and a **`/agent-skills` page** under a new **Agents** nav group in the prototype
+- Docs surface: **README updated in place (no bloat)**, full how-to in `docs/agent-skills.md`, **CHANGELOG [Unreleased]** bullet, prototype `/agent-skills` page
 - Maintainer `optimize-prototype` and `docs/skills/*` unchanged in role
