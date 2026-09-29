@@ -1,6 +1,6 @@
 {
   "name": "foreveryone-design-system",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "docs": "https://design.foreveryone.berlin",
   "tokens": "tokens.json",
   "agentsBlock": "AGENTS.foreveryone.md",
