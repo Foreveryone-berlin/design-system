@@ -3,6 +3,15 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: "/ai-skills",
+        destination: "/agent-skills",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     const noIndex = {
       key: "X-Robots-Tag",

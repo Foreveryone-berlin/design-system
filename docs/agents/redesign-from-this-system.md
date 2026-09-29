@@ -83,5 +83,5 @@ so it never drifts from the source tokens. Regenerate it whenever tokens change
 (alongside `node scripts/build-css.js`).
 
 The installable form of this workflow is the consumer skill **`fe-redesign`**
-(requires `fe-core`). See [docs/ai-skills.md](../ai-skills.md) and
+(requires `fe-core`). See [docs/agent-skills.md](../agent-skills.md) and
 `node bin/fe-ds.mjs skills install`.

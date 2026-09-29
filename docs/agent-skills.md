@@ -1,4 +1,4 @@
-# Consumer AI skills
+# Consumer agent skills
 
 Guides for AI agents that build or restyle UI with this design system. The rules
 match what is already in `llms.txt`, the token list, and the component docs.
@@ -52,7 +52,7 @@ After deploy, agents that only have the hostname can read:
 - <https://design.foreveryone.berlin/llms.txt>
 - <https://design.foreveryone.berlin/skills/index.json>
 - <https://design.foreveryone.berlin/skills/tokens.json>
-- Prototype page: <https://design.foreveryone.berlin/ai-skills>
+- Prototype page: <https://design.foreveryone.berlin/agent-skills>
 
 Those paths omit the site-wide `Content-Signal: ai-input=no` and are exempt from the
 AI-crawler 403 in `prototype/proxy.ts`.
