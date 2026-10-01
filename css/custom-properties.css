@@ -159,6 +159,8 @@
   --font-size-2xl:  1.5rem;  /* 24px */
   --font-size-3xl:  3rem;      /* 48px — H2 section headers */
   --font-size-4xl:  5.25rem;   /* 84px — H1 hero */
+  --font-size-h1-mobile: 3rem;  /* 48px: H1 below 768px */
+  --font-size-h2-mobile: 2rem;  /* 32px: H2 below 768px */
 
   /* ── Typography: Line Heights ────────────────────────────────────────── */
   --line-height-tight:  0.8;   /* H1 */

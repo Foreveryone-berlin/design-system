@@ -1,7 +1,8 @@
-/* Headings */
+/* Headings: mobile size by default, desktop size from 768px (Figma 426px
+   mobile artboard sits below 768px). */
 .fe-h1 {
   font-family: var(--font-family-heading);
-  font-size: var(--font-size-4xl);
+  font-size: var(--font-size-h1-mobile);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-tight);
@@ -17,10 +18,18 @@
 }
 .fe-h2 {
   font-family: var(--font-family-heading);
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-h2-mobile);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-snug);
   letter-spacing: var(--letter-spacing-tight);
+}
+@media (min-width: 768px) {
+  .fe-h1 {
+    font-size: var(--font-size-4xl);
+  }
+  .fe-h2 {
+    font-size: var(--font-size-3xl);
+  }
 }
 .fe-h3 {
   font-family: var(--font-family-heading);

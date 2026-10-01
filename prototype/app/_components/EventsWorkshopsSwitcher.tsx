@@ -140,7 +140,7 @@ export default function EventsWorkshopsSwitcher() {
               <div className="fe-card-price">
                 <span className="fe-card-price__amount">{item.price}</span>
                 <a href="#events-workshops-switcher" className="fe-btn-secondary">
-                  {kind === "event" ? "View Event" : "Book Workshop"} &rarr;
+                  {kind === "event" ? "View Event" : "Book workshop"} &rarr;
                 </a>
               </div>
             </div>

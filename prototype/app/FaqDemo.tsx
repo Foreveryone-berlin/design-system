@@ -13,7 +13,7 @@ const faqItems = [
     id: "faq-2",
     question: "How do I book a spot?",
     answer:
-      "Use the Book Now button on any workshop card. You'll receive a confirmation email with details.",
+      "Use the Book workshop button on any workshop card. You'll receive a confirmation email with details.",
   },
   {
     id: "faq-3",

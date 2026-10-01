@@ -44,6 +44,6 @@ Other controls (category tags, nav links) use the gold
 ## Minimal snippet
 
 ```html
-<button class="fe-btn-primary">Book now</button>
+<button class="fe-btn-primary">Book workshop</button>
 <button class="fe-btn-secondary">Learn more</button>
 ```

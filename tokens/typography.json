@@ -21,7 +21,9 @@
       "xl": { "$value": "1.25rem", "$type": "dimension", "$description": "20px - H3" },
       "2xl": { "$value": "1.5rem", "$type": "dimension" },
       "3xl": { "$value": "3rem", "$type": "dimension", "$description": "48px - H2 section headers" },
-      "4xl": { "$value": "5.25rem", "$type": "dimension", "$description": "84px - H1 hero" }
+      "4xl": { "$value": "5.25rem", "$type": "dimension", "$description": "84px - H1 hero" },
+      "h1-mobile": { "$value": "{font.size.3xl}", "$type": "dimension", "$description": "48px - H1 below 768px (Figma 426px mobile artboard); 4xl from 768px up" },
+      "h2-mobile": { "$value": "2rem", "$type": "dimension", "$description": "32px - H2 below 768px (Figma 426px mobile artboard); 3xl from 768px up" }
     },
     "lineHeight": {
       "tight": { "$value": "0.8", "$type": "number", "$description": "80% - H1" },

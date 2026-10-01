@@ -40,10 +40,10 @@ export default function ComponentsPage() {
           style={{ display: "flex", flexWrap: "wrap", gap: "var(--spacing-4)" }}
         >
           <button type="button" className="fe-btn-primary">
-            Book Event
+            Book workshop
           </button>
           <button type="button" className="fe-btn-secondary">
-            Book Event
+            Book workshop
           </button>
         </div>
         <div
@@ -92,7 +92,7 @@ export default function ComponentsPage() {
                 className={`fe-btn-primary${state && state !== "disabled" ? ` ${state}` : ""}`}
                 disabled={state === "disabled"}
               >
-                Book Event
+                Book workshop
               </button>
             </span>
           ))}
@@ -105,7 +105,7 @@ export default function ComponentsPage() {
                 className={`fe-btn-secondary${state && state !== "disabled" ? ` ${state}` : ""}`}
                 disabled={state === "disabled"}
               >
-                Book Event
+                Book workshop
               </button>
             </span>
           ))}
@@ -146,9 +146,9 @@ export default function ComponentsPage() {
           markers use{" "}
           <code className="ds-code">.fe-icon-btn--filled-brand</code> (orange
           ground, white glyph via <code className="ds-code">currentColor</code>
-          ). The WhatsApp slot adds{" "}
-          <code className="ds-code">.fe-icon-btn--whatsapp</code>; both social
-          buttons darken on hover and press. The play button ships in two sizes
+          ). Social buttons, WhatsApp included, use the plain neutral{" "}
+          <code className="ds-code">.fe-icon-btn</code> with no network colour
+          and darken on hover and press. The play button ships in two sizes
           (<code className="ds-code">.fe-play-btn</code> and{" "}
           <code className="ds-code">--lg</code>) and now has a real hover and
           pressed state. See{" "}
@@ -165,11 +165,7 @@ export default function ComponentsPage() {
           <button type="button" className="fe-icon-btn" aria-label="Instagram">
             <FeIcon set="social" name="instagram" size="md" />
           </button>
-          <button
-            type="button"
-            className="fe-icon-btn fe-icon-btn--whatsapp"
-            aria-label="WhatsApp"
-          >
+          <button type="button" className="fe-icon-btn" aria-label="WhatsApp">
             <FeIcon set="social" name="whatsapp" size="md" />
           </button>
           <button
