@@ -83,7 +83,7 @@ Beyond categories, the system uses a small set of UI glyphs (seen in the brand g
 | Social network | footer row | `FeIcon set="social"` inside `.fe-icon-btn` with `aria-label` |
 | Play button | media/video affordances | `FeIcon set="ui" name="play"` inside filled orange circle |
 | Dropdown chevron | nav dropdowns, selects, FAQ accordions | `FeIcon set="ui" name="chevron-down"`, rotates on open via CSS |
-| Arrow (right) | "Book Now" / "Explore all" CTAs | `FeIcon set="file" name="arrow-right"` |
+| Arrow (right) | "Book workshop" / "Explore all" CTAs | `FeIcon set="file" name="arrow-right"` |
 | External link | outbound links | `FeIcon set="file" name="external-link"` |
 
 Prototype IA split:

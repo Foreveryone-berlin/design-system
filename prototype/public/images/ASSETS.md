@@ -51,6 +51,12 @@ Render a study with `node scripts/build-og-card.mjs doodle-v1 <outDir>` (then re
 
 The ForEveryone lockups above are derived from the official `foreveryone-logo.png`. See [`docs/logo-usage.md`](../../../docs/logo-usage.md).
 
+**Partner and funder marks** (`logo/`):
+
+| File | Mark | Source | Format | Rules |
+|------|------|--------|--------|-------|
+| `logo/eu-cofunded-badge.png` | "Co-funded by the European Union" with the EU flag | Supplied by ForEveryone, 2026-10-01 | 228×49 raster PNG with alpha | EU emblem usage rules apply: do not recolour, crop, distort, or separate the flag from its statement. Interim file: replace it with the official vector version from the EU. No UI uses it yet. |
+
 **Current icons:**
 - `../favicon.png` — site favicon synced from foreveryone.berlin.
 - `../apple-touch-icon.png` — Apple touch icon synced from foreveryone.berlin.

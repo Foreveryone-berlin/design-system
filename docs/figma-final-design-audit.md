@@ -80,6 +80,17 @@ documented rule, that rule wins and the Figma side is what needs correcting.
   propagates instead of splitting. Tokens with no exact ramp counterpart (`color.accent`,
   `color.soft-lavender`, `color.very-light-gray`, `color.light-gray`, the 2026 accents, print
   and doc greys) keep literal values.
+- **Unbound text greys, mapped.** Page text uses two greys with no Figma variable and no
+  repo token. No colour token is added; each maps to the nearest existing token by OKLCH
+  distance (deltaE OK, against every `color.neutral.*` and `color.theme-*` value):
+
+  | Figma hex | OKLCH | Use token | deltaE OK | Runner-up |
+  | --- | --- | --- | --- | --- |
+  | `#5C5C6F` | `oklch(0.482 0.030 285.2)` | `color.neutral.600` | 0.053 | `color.theme-4`, 0.057 |
+  | `#303044` | `oklch(0.318 0.035 284.2)` | `color.neutral.800` | 0.061 | `color.neutral.700`, 0.064 |
+
+  Both Figma greys carry a slight blue-violet cast (chroma ~0.03) that the achromatic
+  neutral ramp drops; the lightness step is the closer match.
 
 ## Component parity: high
 
@@ -110,7 +121,7 @@ changes. Reading structure, variables and styles is unaffected.
 | 2 | Figma-side cleanup of findings 5–8 plus the layer-name typos (`Worckshop_card`, `Dropdawn`, `Catagary-label`, `Desabled`, `Hove`). Edits the designers' source of truth, so agree it first | S + sign-off |
 | 3 | State-parity pass on the Figma Default/Hover/Active/Focused/Disabled matrices, and decide whether `Label-emotions` and `Header-Item` need repo equivalents | M |
 | 4 | Extract section patterns with no `fe-*` equivalent: newsletter popup, the three Thank You confirmations, `Landing Page - Google Ads`, `SheLeads` | M–L |
-| 5 | Document how the 426px mobile artboard maps onto the 640/768/1024 min-width breakpoints | S, docs |
+| 5 | ~~Document how the 426px mobile artboard maps onto the 640/768/1024 min-width breakpoints~~ **Done.** The 426px artboard maps to everything below 768px. `.fe-h1` and `.fe-h2` use the mobile sizes there (`font.size.h1-mobile` 48px, `font.size.h2-mobile` 32px) and switch to the desktop sizes (`font.size.4xl` 84px, `font.size.3xl` 48px) at 768px | S, docs |
 
 Building the marketing pages themselves belongs in `integrations/elementor/`, not here:
 `prototype/` is the design-system documentation site, and page-specific markup in the shared

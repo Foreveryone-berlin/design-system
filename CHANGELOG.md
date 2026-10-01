@@ -8,6 +8,11 @@
 
 ## [Unreleased]
 
+- **Change**: Show page and section headings at the smaller Figma mobile sizes on phones, switching to the full desktop sizes on tablets and up.
+- **Change**: Use "Book workshop" as the one booking button label everywhere, and keep the WhatsApp button in the same neutral style as the other social buttons.
+- **Add**: Record which existing greys stand in for the two unmatched text greys in the Figma page designs.
+- **Add**: The "Co-funded by the European Union" badge as an interim image, with its source and usage rules recorded.
+
 ## [1.9.1] - 2026-09-29
 
 Call the installable guides agent skills instead of AI skills.
