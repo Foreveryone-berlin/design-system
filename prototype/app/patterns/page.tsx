@@ -333,7 +333,7 @@ export default function PatternsPage() {
           </dl>
           <p className="fe-facts-card__cta">
             <button type="button" className="fe-btn-primary">
-              Book your spot
+              Book workshop
             </button>
           </p>
         </div>

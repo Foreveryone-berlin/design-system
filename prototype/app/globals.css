@@ -301,7 +301,7 @@ summary:focus-visible,
 }
 
 /* Pattern CTAs: the demos now sit in a narrower column (On this page rail),
-   so the header "Book a Workshop" and footer "Subscribe" buttons drop their
+   so the header "Book workshop" and footer "Subscribe" buttons drop their
    trailing arrow (markup) and use a smaller label to avoid crowding. */
 .fe-header__cta {
   font-size: var(--font-size-xs);

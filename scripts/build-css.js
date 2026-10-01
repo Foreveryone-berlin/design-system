@@ -174,6 +174,8 @@ ${rampCss}
   --font-size-2xl:  ${getTokenValue(tokens, "font.size.2xl")};  /* 24px */
   --font-size-3xl:  ${getTokenValue(tokens, "font.size.3xl")};      /* 48px — H2 section headers */
   --font-size-4xl:  ${getTokenValue(tokens, "font.size.4xl")};   /* 84px — H1 hero */
+  --font-size-h1-mobile: ${getTokenValue(tokens, "font.size.h1-mobile")};  /* 48px: H1 below 768px */
+  --font-size-h2-mobile: ${getTokenValue(tokens, "font.size.h2-mobile")};  /* 32px: H2 below 768px */
 
   /* ── Typography: Line Heights ────────────────────────────────────────── */
   --line-height-tight:  ${getTokenValue(tokens, "font.lineHeight.tight")};   /* H1 */

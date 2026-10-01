@@ -46,4 +46,16 @@ Figma uses `/`, the repo uses `.`, and the family names differ. The real mapping
 | `Secondary/purple/500_Lavender_main` | `color.lavender.500` |
 | `Neutral/900` | `color.neutral.900` |
 
+Figma page text also uses two greys bound to no variable. They map to the nearest existing
+token (deltaE OK in OKLCH; detail in [`figma-final-design-audit.md`](figma-final-design-audit.md)):
+
+| Figma hex | Repo token | deltaE OK |
+| --- | --- | --- |
+| `#5C5C6F` | `color.neutral.600` | 0.053 |
+| `#303044` | `color.neutral.800` | 0.061 |
+
+Breakpoint-specific sizes take a `-mobile` suffix on the semantic role, so
+`font.size.h1-mobile` and `font.size.h2-mobile` hold the heading sizes below 768px and the
+scale steps (`font.size.4xl`, `font.size.3xl`) hold the desktop sizes.
+
 If a new token is introduced, use this mapping and document the semantic reason in `$description`.
