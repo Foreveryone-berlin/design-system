@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+## [1.10.0] - 2026-10-01
+
+Mobile heading sizes, one booking CTA label, and Figma grey mapping.
+
 - **Change**: Show page and section headings at the smaller Figma mobile sizes on phones, switching to the full desktop sizes on tablets and up.
 - **Change**: Use "Book workshop" as the one booking button label everywhere, and keep the WhatsApp button in the same neutral style as the other social buttons.
 - **Add**: Record which existing greys stand in for the two unmatched text greys in the Figma page designs.
