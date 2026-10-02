@@ -23,6 +23,7 @@ Run the platform-neutral checks in [`docs/integration-checklist.md`](../docs/int
 | [`elementor/global-fonts.md`](elementor/global-fonts.md) | Token to Global Font slot mapping, plus font-loading prerequisites. |
 | [`elementor/mapping.md`](elementor/mapping.md) | The sync workflow to run after token changes. |
 | [`elementor/references.md`](elementor/references.md) | Official Elementor and WordPress documentation links. |
+| [`elementor/pages/our-workshops/`](elementor/pages/our-workshops/) | Our Workshops redesign: design source, preview build, and the record of its Elementor draft. |
 | [`../css/integrations/elementor.css`](../css/integrations/elementor.css) | Low-specificity overrides that map Elementor's own DOM onto design-system values. |
 
 Notes for this target:

@@ -8,6 +8,8 @@
 
 ## [Unreleased]
 
+- **Add**: A redesign of the Our Workshops page in the style of the Clay Connections course page, with a draft built in the site editor for review.
+
 ## [1.10.0] - 2026-10-01
 
 Mobile heading sizes, one booking CTA label, and Figma grey mapping.
