@@ -8,6 +8,12 @@
 
 ## [Unreleased]
 
+## [1.10.1] - 2026-10-04
+
+Node 24 pin aligned with the project engines field.
+
+- **Behind the scenes**: Pin the local Node version to the 24 major, matching the project's engines field.
+
 ## [1.10.0] - 2026-10-01
 
 Mobile heading sizes, one booking CTA label, and Figma grey mapping.
