@@ -458,6 +458,7 @@ export default function TokensPage() {
             style={{
               background: "var(--color-background-default)",
               color: "var(--color-brand-dark)",
+              border: "1px solid var(--color-theme-7)",
             }}
           >
             <strong>Warm White</strong>
