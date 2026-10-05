@@ -23,6 +23,17 @@ jobs:
         id: notes
         run: |
           VERSION="${{ steps.version.outputs.version }}"
+          # Title matches the dated heading without the ## prefix, e.g. [1.10.2] - 2026-10-05
+          HEADER=$(awk "/^## \[${VERSION}\]/{sub(/^## /, \"\"); print; exit}" CHANGELOG.md)
+          if [ -z "$HEADER" ]; then
+            echo "Missing CHANGELOG heading for ${VERSION}" >&2
+            exit 1
+          fi
+          {
+            echo "title<<EOF"
+            echo "$HEADER"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
           # Grab everything between the matching ## [X.Y.Z] header and the next ## header
           NOTES=$(awk "/^## \[${VERSION}\]/{found=1; next} found && /^## /{exit} found{print}" CHANGELOG.md)
           # Keep the full section (summary paragraph + bullets); drop leading/trailing blank lines
@@ -35,5 +46,5 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release create "$GITHUB_REF_NAME" \
-            --title "${{ steps.version.outputs.version }}" \
+            --title "${{ steps.notes.outputs.title }}" \
             --notes-file release-notes.txt
