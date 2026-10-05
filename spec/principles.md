@@ -1,6 +1,7 @@
 # Design principles (deterministic rules for agents)
 
-Source of truth: ForEveryone Brand Book v1.0 (June 2026). These are the
+Source of truth: ForEveryone Brand Book v1.0 (June 2026), with the colour rules
+superseded by the October 2026 palette update (ahead of Brand Book v2.0). These are the
 non-negotiable rules an agent must apply when generating or redesigning UI with
 this system. Tokens are in [tokens.json](tokens.json); CSS variables are in
 `css/custom-properties.css`.
@@ -11,11 +12,13 @@ this system. Tokens are in [tokens.json](tokens.json); CSS variables are in
 
 | Background | CSS var | Text | Contrast |
 |---|---|---|---|
-| Warm White `#FDFCF6` | `--color-background-default` | Charcoal | 16.22:1 |
-| Soft Lavender `#E5DCFF` | `--color-background-soft` | Charcoal | 12.71:1 |
-| Lime Green `#D4E6AB` | `--color-background-title` | Charcoal | 12.47:1 |
+| Warm White `#FDFCF7` | `--color-background-default` | Charcoal | 16.23:1 |
+| Lavender `#E5DCFF` | `--color-background-soft` | Charcoal | 12.71:1 |
+| Lime Green `#D4E6A8` | `--color-background-title` | Charcoal | 12.45:1 |
+| Pink `#FADCD2` | `--color-blush` | Charcoal | 12.89:1 |
+| Navy `#1F3A6E` | `--color-navy` | White `#FFFFFF` | 11.12:1 |
+| Teal `#0F6E6E` | `--color-teal-deep` | White `#FFFFFF` | 6.04:1 |
 | Blue `#3F00EB` | `--color-background-alert` | White `#FFFFFF` | 8.71:1 |
-| Charcoal `#1E1E1E` | `--color-brand-dark` | Warm White | (rare dark sections) |
 
 ### Never use (fails contrast)
 
@@ -26,17 +29,25 @@ this system. Tokens are in [tokens.json](tokens.json); CSS variables are in
 
 ### Colour rules
 
-- **Orange** (`--color-brand-primary`) is **decorative only**: filled icons,
-  blobs, accents, borders. Never a text background. Orange icons always carry a
-  text label. Only structural exceptions: the QR-code border, and the white
-  standalone logo icon on orange (no text).
-- **Blue** (`--color-brand-secondary`) is for announcements/alerts only; always
-  pair with pure white text.
-- **Lavender** (`--color-light-purple`) is never a background; use **Soft
-  Lavender** (`--color-soft-lavender`) for backgrounds. Never put Lavender
-  accents on a Soft Lavender background (too close in tone).
-- **Charcoal** (`--color-brand-dark`) is primary text on light backgrounds;
-  never a background colour.
+- **Orange** (`--color-brand-primary`) is **accent only** and must appear in
+  every layout: filled icons, blobs, marks, borders. Never text, buttons, or
+  links, and never a full background behind text. Only structural exceptions:
+  the QR-code border, and the white standalone logo icon on orange (no text).
+- **Warm White, Lavender, Lime Green** are the default backgrounds; Charcoal
+  text only.
+- **Navy, Teal** are occasional backgrounds for covers and standout moments;
+  white text only.
+- **Blue** (`--color-brand-secondary`) is flexible: backgrounds and primary
+  buttons, white text only. Digital only, never print. Button hover and pressed
+  states step down the Blue ramp (`--color-blue-600`, `--color-blue-700`).
+- **Pink** (`--color-blush`) is for occasional backgrounds and supportive UI
+  (charts, tags, chips, active states); Charcoal text only.
+- **Yellow** (`--color-yellow`) is decorative shapes and marks on Navy or Teal
+  only; never text or a background.
+- **Charcoal** (`--color-brand-dark`) and **White** (`--color-white`) are text
+  and logo only; never a full background. Use Warm White for page backgrounds.
+- `--color-light-purple` (`#D5C5FF`) and other colours outside this list are
+  pending Brand Book v2.0; do not use them in new work.
 - **Extending the palette:** work in OKLCH — hold hue and lightness, step the
   chroma. Never invent hex values.
 
@@ -72,6 +83,8 @@ this system. Tokens are in [tokens.json](tokens.json); CSS variables are in
   `--font-family-accent`) are **print/physical only** and must never appear in
   web UI. Blue is substituted by print purple in CMYK; document greys are Brand
   Book chrome, not the brand palette.
+- Print values for the October 2026 colours are still being set: confirm with
+  the brand team before using any of them in print.
 
 ## Logo — at a glance
 

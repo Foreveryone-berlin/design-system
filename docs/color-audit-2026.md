@@ -4,31 +4,27 @@ Official **7-color brand table** cross-checked against [`tokens/colors.json`](..
 
 > **Source of truth:** **ForEveryone Brand Book v1.0 (June 2026)** — see [`docs/brand-book-references.md`](brand-book-references.md). The Brand Book confirms the seven hexes below unchanged from the earlier Quick Brand Guidelines v2.0 (April 2026), which is now a superseded condensed reference only.
 
-## September 2026 reconciliation (brand board)
+## October 2026 palette update
 
-The live brand board carries a 2026 palette that had drifted from the repo. Two of the seven canonical hexes were one digit off and are now corrected; eight further board colours had no token at all and were added.
+Announced by the brand team ahead of Brand Book v2.0 and loaded into the Canva Brand Kit. It applies to digital work now; print values are still being determined, so print use needs sign-off from the brand team (see the prototype Print page). It supersedes the September 2026 brand-board reconciliation: Warm White and Lime Green return to `#FDFCF7` and `#D4E6A8`.
 
-**Corrected:**
-
-| Colour | Was | Now | Contrast on Charcoal |
+| Colour | Hex | Token | Rule |
 |---|---|---|---|
-| Warm white (`color.accent`, `color.background-default`) | `#FDFCF7` | `#FDFCF6` | 16.22:1 |
-| Lime green (`color.light-green`, `color.background-title`, `color.status.success`, `color.green.500`) | `#D4E6A8` | `#D4E6AB` | 12.47:1 |
+| Orange | `#FF7A3A` | `color.brand-primary` | Accent only; must appear in every layout, printed piece, and social post. Never text, buttons, or links; never a full background behind text. |
+| Lime Green | `#D4E6A8` | `color.light-green`, `color.background-title` | Default background; Charcoal text only. |
+| Lavender | `#E5DCFF` | `color.soft-lavender`, `color.background-soft` | Default background; Charcoal text only. |
+| Warm White | `#FDFCF7` | `color.accent`, `color.background-default` | Default background; Charcoal text only. Replaces white for full backgrounds. |
+| Navy | `#1F3A6E` | `color.navy` | Occasional backgrounds for covers and standout moments; white text only. |
+| Teal | `#0F6E6E` | `color.teal-deep` | Occasional backgrounds for covers and standout moments; white text only. |
+| Blue | `#3F00EB` | `color.brand-secondary`, `color.background-alert` | Flexible use, no longer announcements-only; white text only; digital only, never print. |
+| Charcoal | `#1E1E1E` | `color.brand-dark` | Text and logo only; never a full background. |
+| White | `#FFFFFF` | `color.base.white` | Text and logo only; never a full background. |
+| Pink (secondary) | `#FADCD2` | `color.blush` | Occasional backgrounds and supportive elements (charts, UI); Charcoal text only. |
+| Yellow (secondary) | `#FFD84D` | `color.yellow` | Decorative shapes and marks on Navy or Teal only; never text or a background. |
 
-**Added** (decorative and extended-palette use; none replaces a canonical brand colour):
+**Interactive states.** Orange left every button, link, tag, and dropdown. Button hover and pressed states step down the Blue ramp (`color.blue.600` `#3200BC`, `color.blue.700` `#26008D`); tag, chip, and active-item tints use Pink. Page and header backgrounds moved from white to Warm White.
 
-| Token | Hex | Board row | Contrast |
-|---|---|---|---|
-| `color.teal-deep` | `#0F6E6E` | Primary | 6.04:1 on white text |
-| `color.magenta` | `#BE2A6B` | Primary | 5.63:1 on white text |
-| `color.navy` | `#1F3A6E` | Primary | 11.12:1 on white text |
-| `color.blush` | `#FADCD2` | Secondary | 12.89:1 on Charcoal |
-| `color.yellow` | `#F6C445` | Secondary | 10.24:1 on Charcoal |
-| `color.red` | `#C43A2E` | Secondary | 5.26:1 on white text |
-| `color.warm-grey-light` | `#C9BFAE` | Neutral | 9.17:1 on Charcoal |
-| `color.warm-grey` | `#989389` | Neutral | 5.45:1 on Charcoal |
-
-`color.teal-deep` is distinct from the existing decorative `color.teal` (`#03C9D3`), and `color.red` is distinct from `color.status.error` (`#DC2626`, the form-error signal). The board also shows a fourth interface state, **Announce**, alongside Success/Warning/Error; that panel is a flattened image on the board, so the colour→state mapping is not yet readable and `color.status` is unchanged.
+**Pending Brand Book v2.0.** Tokens outside the list above stay in place for existing consumers and are marked pending in their descriptions: `magenta`, `red`, `warm-grey-light`, `warm-grey`, `pink` (`#F39EBC`), `teal` (`#03C9D3`), `purple`, `light-purple` (`#D5C5FF`), `lavender-official`.
 
 ## Phase 0 decisions (implementation authority)
 
@@ -43,8 +39,8 @@ The live brand board carries a 2026 palette that had drifted from the repo. Two 
 | Orange | `#FF7A3A` | `color.brand-primary` | `#FF7A3A` | Keep hex; refresh `$description` |
 | Blue | `#3F00EB` | `color.brand-secondary` | `#3F00EB` | Keep hex; note alerts + white type |
 | Charcoal | `#1E1E1E` | `color.brand-dark`, `color.theme-2`, `color.theme-8` | `#404040`, `#3A3A3A`, `#424242` | **Align** to charcoal for primary/support text |
-| Warm white | `#FDFCF6` | `color.accent` | `#F1F1EA` | **Align** |
-| Lime green | `#D4E6AB` | `color.light-green`, `color.status.success` | `#F1F7E5`, `#D4E8A8` | **Align** (surfaces + success) |
+| Warm white | `#FDFCF7` | `color.accent` | `#F1F1EA` | **Align** |
+| Lime green | `#D4E6A8` | `color.light-green`, `color.status.success` | `#F1F7E5`, `#D4E8A8` | **Align** (surfaces + success) |
 | Lavender | `#D5C5FF` | `color.light-purple` | `#D9CCFB` | **Align** |
 | Soft lavender | `#E5DCFF` | `color.soft-lavender` *(new)* | — | **Add** + `build-css.js` key |
 
@@ -61,26 +57,28 @@ The live brand board carries a 2026 palette that had drifted from the repo. Two 
 
 ## Accessibility / pairings (from guide)
 
-- Charcoal text on warm white, lime, soft lavender backgrounds.
-- White (`#FFF`) on Blue for alerts/special panels.
-- **Orange is decorative only as of May 2026.** Orange-as-background with white text is disallowed. Primary CTA style is Blue fill with white text (reverted in 0.25.1). Category tag Music uses pink, not alert blue.
+- Charcoal text on Warm White, Lime Green, Lavender, and Pink backgrounds.
+- White (`#FFF`) on Blue, Navy, and Teal.
+- **Orange is accent only as of October 2026.** Never text, buttons, links, or a background behind text. Primary CTA style is Blue fill with white text. Category tag Music uses pink.
 
 ## Approved background ⇄ text combinations
 
-Source: **Brand Book v1.0 (June 2026)**, p.18 (accessibility combinations) and p.16–17 (palette). Codified as semantic tokens in `tokens/colors.json` (`background-default|soft|title|alert`, `accent-icon|border`) and surfaced as CSS variables `--color-background-*`, `--color-accent-*`.
+Source: **October 2026 palette update**, replacing Brand Book v1.0 p.18 until Brand Book v2.0. Codified as semantic tokens in `tokens/colors.json` (`background-default|soft|title|alert`, `accent-icon|border`) and surfaced as CSS variables `--color-background-*`, `--color-accent-*`.
 
-| Background           | Text       | Token alias                    | Use                                    |
-|----------------------|------------|--------------------------------|----------------------------------------|
-| Warm White `#FDFCF6` | Charcoal   | `--color-background-default`   | Text-heavy content                     |
-| Soft Lavender `#E5DCFF` | Charcoal | `--color-background-soft`     | Cards, decorative content blocks       |
-| Lime Green `#D4E6AB` | Charcoal   | `--color-background-title`     | Title areas only                       |
-| Blue `#3F00EB`       | White      | `--color-background-alert`     | Special announcements / alerts         |
-| Charcoal `#1E1E1E`   | Warm White | `--color-brand-dark` + `--color-accent` | Dark sections (rare)         |
+| Background | Text | Token alias | Use |
+|---|---|---|---|
+| Warm White `#FDFCF7` | Charcoal | `--color-background-default` | Default background |
+| Lavender `#E5DCFF` | Charcoal | `--color-background-soft` | Default background |
+| Lime Green `#D4E6A8` | Charcoal | `--color-background-title` | Default background |
+| Pink `#FADCD2` | Charcoal | `--color-blush` | Supportive UI, charts |
+| Navy `#1F3A6E` | White | `--color-navy` | Covers, standout moments |
+| Teal `#0F6E6E` | White | `--color-teal-deep` | Covers, standout moments |
+| Blue `#3F00EB` | White | `--color-background-alert` | Digital only |
 
-**Disallowed:** Orange `#FF7A3A` as background with white text (low contrast).
-Orange + Charcoal is allowed only inside small filled-icon glyphs (orange shape, white glyph) or as decorative accent borders — never as a section or button background containing text.
+**Disallowed:** Orange `#FF7A3A` behind text, and on buttons or links in any state. Yellow `#FFD84D` as text or a background. White and Charcoal as full backgrounds.
+Orange is allowed in filled-icon glyphs (orange shape, white glyph), blobs, marks, and decorative borders.
 
-Live demo: `/tokens#color-combinations` in the prototype renders the five valid pairs and the disallowed orange-background case for editor reference.
+Live demo: `/foundations#color-combinations` in the prototype renders the valid pairs and the disallowed orange-background case for editor reference.
 
 ## Follow-up for editors
 

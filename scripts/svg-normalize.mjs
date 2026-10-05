@@ -7,8 +7,8 @@ export const RECOLOR_BRAND = [
   "#FF7A3A",
   "#f47a3f",
   "#F47A3F",
-  "#d4e6ab",
-  "#D4E6AB",
+  "#d4e6a8",
+  "#D4E6A8",
   // Pre-2026 lime green; still arrives in older Figma exports.
   "#d4e6a8",
   "#D4E6A8",
@@ -29,7 +29,7 @@ export const STANDALONE_COLOR = {
   illo: "#FF7A3A", // Brand orange — line illustrations
   accent: "#FF7A3A", // Brand orange — doodle strokes and decorations
   blob: "#E5DCFF", // Soft Lavender — blobs must never be orange (Brand Book p.27)
-  wave: "#D4E6AB", // Lime Green — wave dividers are always lime
+  wave: "#D4E6A8", // Lime Green: wave dividers are always lime
   social: "#1E1E1E", // Charcoal — social/contact glyphs are neutral
   ui: "#1E1E1E", // Charcoal — functional stroke glyphs are neutral
 };

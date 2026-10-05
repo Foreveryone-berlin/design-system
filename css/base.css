@@ -21,7 +21,7 @@ body {
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-normal);
   color: var(--color-theme-2);
-  background-color: var(--color-white);
+  background-color: var(--color-background-default);
 }
 
 img,

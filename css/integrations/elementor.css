@@ -24,9 +24,9 @@
   }
 }
 
-/* Navbar standardization: clean white by default, shadow after scroll state */
+/* Navbar standardization: Warm White by default, shadow after scroll state */
 .elementor-location-header {
-  background-color: var(--color-white);
+  background-color: var(--color-background-default);
   transition:
     box-shadow var(--transition-base),
     background-color var(--transition-base);

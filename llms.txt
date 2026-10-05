@@ -28,12 +28,14 @@ role, and component has one correct answer.
   new shade already belongs to the system.
 - **Never use `surface: "print"` tokens on the web** (Young Serif
   `--font-family-accent`, `--color-print-*`, `--color-doc-*`).
-- **Orange (`--color-brand-primary`) is decorative only** — never a text
-  background. The only structural exceptions are the QR-code border and the
-  white standalone logo icon on orange (no text). Orange icons always carry a
-  label.
-- **Blue (`--color-brand-secondary`) is for announcements/alerts only**, always
-  with pure white text.
+- **Orange (`--color-brand-primary`) is accent only**: never text, buttons, or
+  links, and never a full background behind text. The only structural
+  exceptions are the QR-code border and the white standalone logo icon on
+  orange (no text). Orange icons always carry a label.
+- **Blue (`--color-brand-secondary`) is flexible on digital surfaces**, always
+  with pure white text; never print.
+- **White and Charcoal are text and logo only**; use Warm White for full
+  backgrounds.
 - **Body text is Charcoal on light backgrounds**; body line-height is never
   below 1.5; letter-spacing is 0%.
 
