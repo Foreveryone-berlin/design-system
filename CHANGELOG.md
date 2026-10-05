@@ -5,7 +5,6 @@
 - **Length:** Keep each bullet on one line, max 120 characters (link URLs do not count toward the cap, only the visible text does).
 - **Links:** Add inline markdown links for related PRs, docs, and external references when they help the reader.
 - **Audience:** Non-developer stakeholders (designers and leaders). Write so a reader who does not touch code can tell what changed.
-- **Standard:** At most 6 bullets per release, one plain sentence each. Keep the imperative voice (add, fix, raise) and the date on each version. No file paths, token IDs, or build/CI mechanics in the visible list. Regenerating `readme-hero` / `social-preview` with a frame or crop tweak alone does not earn a bullet.
 
 ## [Unreleased]
 
