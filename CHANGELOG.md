@@ -14,7 +14,7 @@
 - Return Warm White to #FDFCF7 and Lime Green to #D4E6A8, matching the Canva Brand Kit.
 - Change Yellow to #FFD84D and limit it to decorative marks on Navy or Teal.
 - Take Orange off links, tags, dropdowns, and resting button fills.
-- Bring Orange back on button hover and pressed states, pending brand-team confirmation.
+- Bring Orange back on buttons: hover and pressed fills, the Orange outline button, and the filled icon button.
 - Use Pink #FADCD2 for tag, chip, and active-item tints that used light orange.
 - Use Warm White instead of white for page and header backgrounds.
 - Let Blue be used freely on digital surfaces, no longer only for announcements.
