@@ -58,7 +58,7 @@ export default function ComponentsPage() {
             Primary
           </button>
           <button type="button" className="ds-btn ds-btn--orange">
-            Orange
+            Charcoal
           </button>
           <button type="button" className="ds-btn ds-btn--secondary">
             Secondary
@@ -110,7 +110,7 @@ export default function ComponentsPage() {
             </span>
           ))}
 
-          <span className="ds-state-grid__row-label">Orange</span>
+          <span className="ds-state-grid__row-label">Charcoal</span>
           {["", "is-hover", "is-focus", "disabled"].map((state) => (
             <span className="ds-state-grid__cell" key={`o-${state}`}>
               <button
@@ -118,7 +118,7 @@ export default function ComponentsPage() {
                 className={`ds-btn ds-btn--orange${state && state !== "disabled" ? ` ${state}` : ""}`}
                 disabled={state === "disabled"}
               >
-                Orange
+                Charcoal
               </button>
             </span>
           ))}
@@ -144,7 +144,7 @@ export default function ComponentsPage() {
           Neutral circular controls use{" "}
           <code className="ds-code">.fe-icon-btn</code>. Category-style filled
           markers use{" "}
-          <code className="ds-code">.fe-icon-btn--filled-brand</code> (orange
+          <code className="ds-code">.fe-icon-btn--filled-brand</code> (Blue
           ground, white glyph via <code className="ds-code">currentColor</code>
           ). Social buttons, WhatsApp included, use the plain neutral{" "}
           <code className="ds-code">.fe-icon-btn</code> with no network colour
@@ -407,8 +407,8 @@ export default function ComponentsPage() {
       <section id="badges" className="ds-section">
         <h3 className="ds-subsection-title">Badges &amp; labels</h3>
         <p className="ds-section-intro">
-          The &ldquo;Joy&rdquo; brand badge sits on an orange ground with a
-          high-contrast Charcoal label (orange fills never carry white text).
+          The &ldquo;Joy&rdquo; brand badge sits on a Pink ground with a
+          high-contrast Charcoal label (Orange is never behind text).
           Label cards group a key with its value.
         </p>
         <div
@@ -449,8 +449,8 @@ export default function ComponentsPage() {
       <section id="nav-states" className="ds-section">
         <h3 className="ds-subsection-title">Nav link states</h3>
         <p className="ds-section-intro">
-          Header and footer nav links: Default, Hover (orange underline grows
-          in), and Disabled. The underline is a decorative accent, not the link
+          Header and footer nav links: Default, Hover (Charcoal underline grows
+          in), and Disabled. Orange is never used on links; the underline stays the link
           colour. Focus is keyboard-only &mdash; Tab to the link below to see the
           gold <code className="ds-code">:focus-visible</code> ring.
         </p>

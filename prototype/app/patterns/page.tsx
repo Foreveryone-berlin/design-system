@@ -404,7 +404,7 @@ export default function PatternsPage() {
           The &ldquo;Meet our team&rdquo; roster: a circular portrait over a name
           and a role, four across on desktop, two on tablet, one on a phone.
           Marked up as a list, portraits take an empty <code>alt</code>, and
-          names stay Charcoal because orange is decorative only.
+          names stay Charcoal because orange is accent only.
         </p>
         <ul className="fe-people-grid">
           {teamRoster.map((person) => (
