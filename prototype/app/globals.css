@@ -1387,7 +1387,7 @@ a.ds-btn {
 }
 
 .ds-btn--primary:hover {
-  background: var(--color-brand-primary);
+  background: var(--color-blue-600);
 }
 
 .ds-btn--secondary {
@@ -1412,24 +1412,24 @@ a.ds-btn {
 .ds-btn--orange {
   background: transparent;
   color: var(--color-brand-dark);
-  box-shadow: inset 0 0 0 2px var(--color-accent-border);
+  box-shadow: inset 0 0 0 2px var(--color-brand-dark);
 }
 
 .ds-btn--orange:hover {
-  background: var(--color-light-orange);
+  background: var(--color-blush);
 }
 
 /* Static state previews for the component state matrix. .is-hover / .is-focus
    mirror the real :hover / focused fills so each state is visible at once;
    disabled is the real attribute. */
 .ds-btn--primary.is-hover {
-  background: var(--color-brand-primary);
+  background: var(--color-blue-600);
 }
 .ds-btn--secondary.is-hover {
   background: var(--color-theme-7);
 }
 .ds-btn--orange.is-hover {
-  background: var(--color-light-orange);
+  background: var(--color-blush);
 }
 .ds-btn--outline.is-hover {
   background: var(--color-light-purple);
@@ -1438,7 +1438,7 @@ a.ds-btn {
    the static demo of the same fill. */
 .ds-btn--primary.is-focus,
 .ds-btn--primary:focus-visible {
-  background: var(--color-focus-button);
+  background: var(--color-blue-700);
 }
 .ds-btn--secondary.is-focus,
 .ds-btn--secondary:focus-visible {
@@ -1446,7 +1446,7 @@ a.ds-btn {
 }
 .ds-btn--orange.is-focus,
 .ds-btn--orange:focus-visible {
-  background: var(--color-light-orange);
+  background: var(--color-blush);
 }
 .ds-btn--outline.is-focus,
 .ds-btn--outline:focus-visible {
