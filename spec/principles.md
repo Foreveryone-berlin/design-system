@@ -39,7 +39,7 @@ this system. Tokens are in [tokens.json](tokens.json); CSS variables are in
   white text only.
 - **Blue** (`--color-brand-secondary`) is flexible: backgrounds and primary
   buttons, white text only. Digital only, never print. Button hover and pressed
-  states use Orange (`--color-brand-primary`, `--color-focus-button`), pending brand-team confirmation.
+  states step down the Blue ramp (`--color-blue-600`, `--color-blue-700`).
 - **Pink** (`--color-blush`) is for occasional backgrounds and supportive UI
   (charts, tags, chips, active states); Charcoal text only.
 - **Yellow** (`--color-yellow`) is decorative shapes and marks on Navy or Teal

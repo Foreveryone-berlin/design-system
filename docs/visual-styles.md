@@ -113,7 +113,7 @@ Prototype IA split:
 ### Social / neutral icon buttons
 
 - **Role:** Footer/social and “quiet” actions.
-- **CSS:** Base class `.fe-icon-btn`: neutral surface, orange on **hover**. `.fe-icon-btn--filled-brand` is the always-on orange variant.
+- **CSS:** Base class `.fe-icon-btn`: neutral surface, Blue on **hover**. `.fe-icon-btn--filled-brand` is the always-on Blue variant. Orange is never a button fill.
 
 ## Graphic shapes: blobs vs waves
 
