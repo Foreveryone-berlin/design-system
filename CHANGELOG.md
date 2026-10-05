@@ -8,17 +8,11 @@
 
 ## [Unreleased]
 
+## [1.10.2] - 2026-10-05
+
 ### Changed
 
-- Adopt the October 2026 colour palette and its usage rules ([colour audit](docs/color-audit-2026.md)).
-- Return Warm White to #FDFCF7 and Lime Green to #D4E6A8, matching the Canva Brand Kit.
-- Change Yellow to #FFD84D and limit it to decorative marks on Navy or Teal.
-- Take Orange off links, tags, dropdowns, and resting button fills.
-- Bring Orange back on buttons: hover and pressed fills, the Orange outline button, and the filled icon button.
-- Use Pink #FADCD2 for tag, chip, and active-item tints that used light orange.
-- Use Warm White instead of white for page and header backgrounds.
-- Let Blue be used freely on digital surfaces, no longer only for announcements.
-- Mark colours outside the new palette as pending Brand Book v2.0.
+- Standardize the changelog on Keep a Changelog sections, preamble, and inline links ([#199](https://github.com/Foreveryone-berlin/design-system/pull/199), [#200](https://github.com/Foreveryone-berlin/design-system/pull/200), [#201](https://github.com/Foreveryone-berlin/design-system/pull/201), [#202](https://github.com/Foreveryone-berlin/design-system/pull/202), [#203](https://github.com/Foreveryone-berlin/design-system/pull/203)).
 
 ## [1.10.1] - 2026-10-04
 
