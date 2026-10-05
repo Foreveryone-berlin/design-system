@@ -22,17 +22,17 @@ outline-only at rest.
 | State | Behaviour |
 |---|---|
 | Default | Primary: Blue fill, white text. Secondary: Blue outline, Blue text, transparent fill. |
-| Hover | Blue 600 (`--color-blue-600`, #3200BC) fill, white text (secondary: fill + border). |
-| Active / focus-visible | Pressed fill Blue 700 (`--color-blue-700`, #26008D), white text; no gold ring on pill buttons (outline suppressed; fill is the indicator). |
+| Hover | Orange (`--color-brand-primary`, #FF7A3A) fill, white text (secondary: fill + border). |
+| Active / focus-visible | Pressed fill `--color-focus-button` (#CC622E), white text; no gold ring on pill buttons (outline suppressed; fill is the indicator). |
 | Disabled | Primary: `--color-light-purple` fill, white text. Secondary: light-purple border and text, transparent fill. |
 
-Orange is never used on buttons in any state (October 2026 palette).
+Orange appears on hover and pressed states only, never as the resting fill. Pending brand-team confirmation that the October 2026 "never use Orange for buttons" rule allows interactive states.
 
 ## Do / don't
 
 - Do: one primary action per view; pair with a secondary for the alternative.
 - Do: keep label text Filson Pro, sentence case.
-- Don't: use Orange on a button in any state; don't add new button hues
+- Don't: use Orange as the resting button fill; don't add new button hues
   outside the state table.
 - Don't: remove the focused/pressed fill on pill buttons.
 

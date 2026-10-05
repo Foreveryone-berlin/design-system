@@ -58,7 +58,7 @@ export default function ComponentsPage() {
             Primary
           </button>
           <button type="button" className="ds-btn ds-btn--orange">
-            Charcoal
+            Orange
           </button>
           <button type="button" className="ds-btn ds-btn--secondary">
             Secondary
@@ -110,7 +110,7 @@ export default function ComponentsPage() {
             </span>
           ))}
 
-          <span className="ds-state-grid__row-label">Charcoal</span>
+          <span className="ds-state-grid__row-label">Orange</span>
           {["", "is-hover", "is-focus", "disabled"].map((state) => (
             <span className="ds-state-grid__cell" key={`o-${state}`}>
               <button
@@ -118,7 +118,7 @@ export default function ComponentsPage() {
                 className={`ds-btn ds-btn--orange${state && state !== "disabled" ? ` ${state}` : ""}`}
                 disabled={state === "disabled"}
               >
-                Charcoal
+                Orange
               </button>
             </span>
           ))}

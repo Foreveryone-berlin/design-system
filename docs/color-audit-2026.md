@@ -22,7 +22,7 @@ Announced by the brand team ahead of Brand Book v2.0 and loaded into the Canva B
 | Pink (secondary) | `#FADCD2` | `color.blush` | Occasional backgrounds and supportive elements (charts, UI); Charcoal text only. |
 | Yellow (secondary) | `#FFD84D` | `color.yellow` | Decorative shapes and marks on Navy or Teal only; never text or a background. |
 
-**Interactive states.** Orange left every button, link, tag, and dropdown. Button hover and pressed states step down the Blue ramp (`color.blue.600` `#3200BC`, `color.blue.700` `#26008D`); tag, chip, and active-item tints use Pink. Page and header backgrounds moved from white to Warm White.
+**Interactive states.** Orange left every resting button fill, link, tag, and dropdown. Button hover and pressed states keep Orange (`color.brand-primary`, `color.focus-button`) pending brand-team confirmation; tag, chip, and active-item tints use Pink. Page and header backgrounds moved from white to Warm White.
 
 **Pending Brand Book v2.0.** Tokens outside the list above stay in place for existing consumers and are marked pending in their descriptions: `magenta`, `red`, `warm-grey-light`, `warm-grey`, `pink` (`#F39EBC`), `teal` (`#03C9D3`), `purple`, `light-purple` (`#D5C5FF`), `lavender-official`.
 
@@ -75,7 +75,7 @@ Source: **October 2026 palette update**, replacing Brand Book v1.0 p.18 until Br
 | Teal `#0F6E6E` | White | `--color-teal-deep` | Covers, standout moments |
 | Blue `#3F00EB` | White | `--color-background-alert` | Digital only |
 
-**Disallowed:** Orange `#FF7A3A` behind text, and on buttons or links in any state. Yellow `#FFD84D` as text or a background. White and Charcoal as full backgrounds.
+**Disallowed:** Orange `#FF7A3A` behind text, as a resting button fill, and on links. Yellow `#FFD84D` as text or a background. White and Charcoal as full backgrounds.
 Orange is allowed in filled-icon glyphs (orange shape, white glyph), blobs, marks, and decorative borders.
 
 Live demo: `/foundations#color-combinations` in the prototype renders the valid pairs and the disallowed orange-background case for editor reference.

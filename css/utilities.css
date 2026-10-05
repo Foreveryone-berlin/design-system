@@ -20,14 +20,14 @@
 }
 .fe-btn-primary:hover,
 .fe-btn-primary.is-hover {
-  background-color: var(--color-blue-600);
+  background-color: var(--color-brand-primary);
 }
 /* Focused/pressed fill (matches the style guide). Keyboard focus reuses this
    fill instead of a gold ring; .is-focus is the static demo of the same fill. */
 .fe-btn-primary:active,
 .fe-btn-primary:focus-visible,
 .fe-btn-primary.is-focus {
-  background-color: var(--color-blue-700);
+  background-color: var(--color-focus-button);
 }
 .fe-btn-primary:focus {
   outline: none;
@@ -63,15 +63,15 @@
 }
 .fe-btn-secondary:hover,
 .fe-btn-secondary.is-hover {
-  background-color: var(--color-blue-600);
-  border-color: var(--color-blue-600);
+  background-color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
   color: var(--color-white);
 }
 .fe-btn-secondary:active,
 .fe-btn-secondary:focus-visible,
 .fe-btn-secondary.is-focus {
-  background-color: var(--color-blue-700);
-  border-color: var(--color-blue-700);
+  background-color: var(--color-focus-button);
+  border-color: var(--color-focus-button);
   color: var(--color-white);
 }
 .fe-btn-secondary:focus {
@@ -105,16 +105,16 @@
 }
 .fe-icon-btn:hover,
 .fe-icon-btn.is-hover {
-  background-color: var(--color-blue-600);
-  border-color: var(--color-blue-600);
+  background-color: var(--color-accent-icon);
+  border-color: var(--color-accent-icon);
   color: var(--color-white);
 }
 .fe-icon-btn:active,
 .fe-icon-btn:focus-visible,
 .fe-icon-btn.is-pressed,
 .fe-icon-btn.is-focus {
-  background-color: var(--color-blue-700);
-  border-color: var(--color-blue-700);
+  background-color: var(--color-focus-button);
+  border-color: var(--color-focus-button);
   color: var(--color-white);
 }
 .fe-icon-btn:focus {
@@ -157,7 +157,7 @@
   height: 1.25rem;
 }
 
-/* Filled brand icon button: Blue + white glyph (Orange is never a button fill) */
+/* Filled brand icon (category / functional markers: orange + white glyph) */
 .fe-icon-btn--filled-brand {
   display: inline-flex;
   align-items: center;
@@ -165,8 +165,8 @@
   width: 2.5rem;
   height: 2.5rem;
   padding: 0;
-  background-color: var(--color-brand-secondary);
-  border: 2px solid var(--color-brand-secondary);
+  background-color: var(--color-accent-icon);
+  border: 2px solid var(--color-accent-icon);
   border-radius: var(--radius-circle);
   color: var(--color-white);
   cursor: pointer;
@@ -178,8 +178,8 @@
 }
 .fe-icon-btn--filled-brand:hover,
 .fe-icon-btn--filled-brand:focus-visible {
-  background-color: var(--color-blue-700);
-  border-color: var(--color-blue-700);
+  background-color: var(--color-focus-button);
+  border-color: var(--color-focus-button);
   color: var(--color-white);
 }
 .fe-icon-btn--filled-brand:focus {
@@ -248,13 +248,13 @@
 }
 .fe-play-btn:hover,
 .fe-play-btn.is-hover {
-  background-color: var(--color-blue-600);
+  background-color: var(--color-brand-primary);
 }
 .fe-play-btn:active,
 .fe-play-btn:focus-visible,
 .fe-play-btn.is-pressed,
 .fe-play-btn.is-focus {
-  background-color: var(--color-blue-700);
+  background-color: var(--color-focus-button);
 }
 .fe-play-btn:focus {
   outline: none;
