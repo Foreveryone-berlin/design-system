@@ -20,6 +20,14 @@
 - Let Blue be used freely on digital surfaces, no longer only for announcements.
 - Mark colours outside the new palette as pending Brand Book v2.0.
 
+## [1.10.2] - 2026-10-05
+
+### Changed
+
+- Rewrite the changelog into Keep a Changelog sections (Added, Changed, Removed, Fixed, Security) ([#199](https://github.com/Foreveryone-berlin/design-system/pull/199)).
+- Add a Format, Voice, Length, Links, and Audience preamble at the top of the changelog ([#200](https://github.com/Foreveryone-berlin/design-system/pull/200), [#201](https://github.com/Foreveryone-berlin/design-system/pull/201), [#202](https://github.com/Foreveryone-berlin/design-system/pull/202)).
+- Add inline links for related PRs, docs, and references throughout the changelog ([#203](https://github.com/Foreveryone-berlin/design-system/pull/203)).
+
 ## [1.10.1] - 2026-10-04
 
 ### Changed
