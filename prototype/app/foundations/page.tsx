@@ -1,54 +1,65 @@
 import CodeBlock from "../_components/CodeBlock";
 
-// Primary palette with the Brand Book v1.0 (p.16) role + usage line for each
-// colour, so the "what is this colour for" decision is visible up front rather
-// than only as a small badge on a swatch.
+// Primary palette (October 2026 update, ahead of Brand Book v2.0) with the role
+// + usage line for each colour, so the "what is this colour for" decision is
+// visible up front rather than only as a small badge on a swatch.
 const primaryRoles = [
   {
     name: "Orange",
     var: "var(--color-brand-primary)",
     hex: "#FF7A3A",
-    role: "Decorative",
+    role: "Accent only",
     text: "charcoal",
     usage:
-      "Icons, accents, and borders. Decorative only — never use it behind standalone text.",
+      "Must appear in every layout, printed piece, and social post. Never for text, buttons, or links, and never a full background behind text.",
   },
   {
     name: "Lime Green",
     var: "var(--color-light-green)",
-    hex: "#D4E6AB",
+    hex: "#D4E6A8",
     role: "Background",
     text: "charcoal",
-    usage: "Title slides, key layouts, and blob shapes.",
+    usage: "Default background for most layouts, documents, and posts. Charcoal text only.",
   },
   {
-    name: "Soft Lavender",
+    name: "Lavender",
     var: "var(--color-soft-lavender)",
     hex: "#E5DCFF",
     role: "Background",
     text: "charcoal",
-    usage: "Social media posts, layouts, and blob shapes.",
+    usage: "Default background for most layouts, documents, and posts. Charcoal text only.",
   },
-  {
-    name: "Lavender",
-    var: "var(--color-light-purple)",
-    hex: "#D5C5FF",
-    role: "Decorative",
-    text: "charcoal",
-    usage:
-      "Icons, accents, and borders. Never use it as a background colour — use Soft Lavender instead.",
-  },
-];
-
-// Neutral and the single secondary colour, with their Brand Book roles (p.17).
-const neutralSecondaryRoles = [
   {
     name: "Warm White",
     var: "var(--color-accent)",
-    hex: "#FDFCF6",
+    hex: "#FDFCF7",
     role: "Background",
     text: "charcoal",
-    usage: "Default background for text-heavy content. Always pair with Charcoal text.",
+    usage: "Default background, and the replacement for white as a full background. Charcoal text only.",
+  },
+  {
+    name: "Navy",
+    var: "var(--color-navy)",
+    hex: "#1F3A6E",
+    role: "Standout background",
+    text: "white",
+    usage: "Occasional backgrounds for covers and standout moments. White text only.",
+  },
+  {
+    name: "Teal",
+    var: "var(--color-teal-deep)",
+    hex: "#0F6E6E",
+    role: "Standout background",
+    text: "white",
+    usage: "Occasional backgrounds for covers and standout moments. White text only.",
+  },
+  {
+    name: "Blue",
+    var: "var(--color-brand-secondary)",
+    hex: "#3F00EB",
+    role: "Digital only",
+    text: "white",
+    usage: "Flexible use, including backgrounds and primary buttons. White text only. Never print.",
   },
   {
     name: "Charcoal",
@@ -56,17 +67,35 @@ const neutralSecondaryRoles = [
     hex: "#1E1E1E",
     role: "Text & logo",
     text: "white",
-    usage:
-      "Primary text and logo colour. Use on light backgrounds — never as a background itself.",
+    usage: "Text and logo only; never a full background.",
   },
   {
-    name: "Blue",
-    var: "var(--color-brand-secondary)",
-    hex: "#3F00EB",
-    role: "Announcements & alerts",
-    text: "white",
-    usage:
-      "Strictly for special announcements and alerts. Never in general layouts, social posts, or regular communications.",
+    name: "White",
+    var: "var(--color-white)",
+    hex: "#FFFFFF",
+    role: "Text & logo",
+    text: "charcoal",
+    usage: "Text and logo only; never a full background. Use Warm White for backgrounds.",
+  },
+];
+
+// Secondary colours (October 2026 update).
+const neutralSecondaryRoles = [
+  {
+    name: "Pink",
+    var: "var(--color-blush)",
+    hex: "#FADCD2",
+    role: "Supportive",
+    text: "charcoal",
+    usage: "Occasional backgrounds and supportive elements: graphs, charts, and UI elements. Charcoal text only.",
+  },
+  {
+    name: "Yellow",
+    var: "var(--color-yellow)",
+    hex: "#FFD84D",
+    role: "Decorative",
+    text: "charcoal",
+    usage: "Decorative shapes, marks, and accents on Navy or Teal only. Never text and never a background.",
   },
 ];
 
@@ -109,7 +138,7 @@ const colorSwatches = [
 const rampHex: Record<string, Record<string, string>> = {
   neutral: { "50": "#FAFAFA", "100": "#F5F5F5", "200": "#E5E5E5", "300": "#D4D4D4", "400": "#A3A3A3", "500": "#737373", "600": "#525252", "700": "#404040", "800": "#262626", "900": "#1E1E1E" },
   orange: { "50": "#FFF2EB", "100": "#FFE4D8", "150": "#FFD7C4", "200": "#FFCAB0", "300": "#FFAF89", "400": "#FF9561", "500": "#FF7A3A", "600": "#CC622E", "700": "#994923", "800": "#663117", "900": "#33180C" },
-  green: { "50": "#FBFCF6", "100": "#F6FAEE", "150": "#F2F7E5", "200": "#EEF5DC", "300": "#E5F0CB", "400": "#DDEBB9", "500": "#D4E6AB", "600": "#AAB886", "700": "#7F8A65", "800": "#555C43", "900": "#2A2E22" },
+  green: { "50": "#FBFCF6", "100": "#F6FAEE", "150": "#F2F7E5", "200": "#EEF5DC", "300": "#E5F0CB", "400": "#DDEBB9", "500": "#D4E6A8", "600": "#AAB886", "700": "#7F8A65", "800": "#555C43", "900": "#2A2E22" },
   blue: { "50": "#ECE5FD", "100": "#D9CCFB", "150": "#C5B2F9", "200": "#B299F7", "300": "#8C66F3", "400": "#6533EF", "500": "#3F00EB", "600": "#3200BC", "700": "#26008D", "800": "#19005E", "900": "#0D002F" },
   lavender: { "50": "#FBF9FF", "100": "#F7F3FF", "150": "#F2EEFF", "200": "#EEE8FF", "300": "#E6DCFF", "400": "#DDD1FF", "500": "#D5C5FF", "600": "#AA9ECC", "700": "#807699", "800": "#554F66", "900": "#2B2733" },
 };
@@ -172,13 +201,13 @@ const colorCode = `/* Brand */
 --color-brand-primary: oklch(0.726 0.179 43.9);    /* #FF7A3A */
 --color-brand-secondary: oklch(0.4486 0.2813 275.3); /* #3F00EB */
 --color-brand-dark: oklch(0.235 0 89.9);           /* #1E1E1E */
---color-accent: oklch(0.99 0.008 98.9);            /* #FDFCF6 */
+--color-accent: oklch(0.99 0.007 97.3);            /* #FDFCF7 */
 --color-focus-button: oklch(0.616 0.149 44.3);     /* #CC622E */
 
 /* Tints & Accents */
 --color-light-purple: oklch(0.856 0.081 297.3);    /* #D5C5FF */
 --color-soft-lavender: oklch(0.912 0.048 297.2);   /* #E5DCFF */
---color-light-green: oklch(0.897 0.08 121.8);      /* #D4E6AB */
+--color-light-green: oklch(0.896 0.083 121.2);      /* #D4E6A8 */
 --color-light-orange: oklch(0.908 0.052 46.9);     /* #FFD7C4 */
 --color-pink: oklch(0.792 0.107 357.1);            /* #F39EBC */
 --color-teal: oklch(0.7606 0.1291 201.2);          /* #03C9D3 */
@@ -191,7 +220,7 @@ const colorCode = `/* Brand */
 --color-magenta: oklch(0.54 0.189 359.6);          /* #BE2A6B */
 --color-navy: oklch(0.357 0.096 262.1);            /* #1F3A6E */
 --color-blush: oklch(0.917 0.036 39.3);            /* #FADCD2 */
---color-yellow: oklch(0.8432 0.1494 86.5);         /* #F6C445 */
+--color-yellow: oklch(0.892 0.157 93);         /* #FFD84D */
 --color-red: oklch(0.552 0.177 29);                /* #C43A2E */
 --color-warm-grey-light: oklch(0.808 0.026 81.1);  /* #C9BFAE */
 --color-warm-grey: oklch(0.665 0.016 84.6);        /* #989389 */
@@ -206,7 +235,7 @@ const colorCode = `/* Brand */
 
 /* Status */
 --color-status-error: oklch(0.577 0.215 27.3);     /* #DC2626 */
---color-status-success: oklch(0.897 0.08 121.8);   /* #D4E6AB */
+--color-status-success: oklch(0.896 0.083 121.2);   /* #D4E6A8 */
 --color-status-warning: oklch(0.822 0.107 46.2);   /* #FFAF89 */
 
 /* Base */
@@ -310,14 +339,15 @@ export default function TokensPage() {
         <p className="ds-section-intro">
           Every brand colour has one job. The role on each card below is the
           first decision: a <strong>background</strong> colour can sit behind
-          text, a <strong>decorative</strong> colour cannot, and Blue is held
-          back for announcements and alerts (Brand Book v1.0 p.16&ndash;17).
+          text, an <strong>accent</strong> colour cannot (October 2026 palette
+          update, ahead of Brand Book v2.0). Print values are still being set:
+          confirm with the brand team before using these colours in print.
         </p>
 
         <h3 className="ds-subsection-title">Primary colours</h3>
         <p className="ds-section-intro">
-          These four form the primary palette: covers, social posts, blob
-          shapes, key layouts, and decorative elements.
+          The primary palette: covers, social posts, blob shapes, key layouts,
+          and decorative elements.
         </p>
         <div className="ds-role-grid">
           {primaryRoles.map((c) => (
@@ -337,10 +367,10 @@ export default function TokensPage() {
           ))}
         </div>
 
-        <h3 className="ds-subsection-title">Neutral &amp; secondary colours</h3>
+        <h3 className="ds-subsection-title">Secondary colours</h3>
         <p className="ds-section-intro">
-          Neutrals are the foundation of every layout; they support the primary
-          palette without competing with it. Blue is the only secondary colour.
+          Secondary colours support the primary palette without competing with
+          it.
         </p>
         <div className="ds-role-grid">
           {neutralSecondaryRoles.map((c) => (
@@ -384,7 +414,7 @@ export default function TokensPage() {
         <p className="ds-section-intro">
           Numeric tints (50–900) from the 2026 style guide. 500 is the brand
           &ldquo;main&rdquo; for orange, green, blue, and lavender; neutral 900
-          is Charcoal. Orange stays decorative, never a text background.
+          is Charcoal. Orange stays accent only, never behind text.
         </p>
         <div className="ds-ramps">
           {colorRamps.map(({ family, steps }) => (
@@ -419,8 +449,8 @@ export default function TokensPage() {
             color: "var(--color-theme-8)",
           }}
         >
-          Background ⇄ text pairs allowed by the 2026 brand guide. Orange is
-          decorative only — never use it as a background containing text.
+          Background ⇄ text pairs allowed by the October 2026 palette. Orange
+          is accent only: never behind text, and never on buttons or links.
         </p>
         <div className="ds-combos">
           <div
@@ -431,7 +461,7 @@ export default function TokensPage() {
             }}
           >
             <strong>Warm White</strong>
-            <span>Charcoal text — text-heavy content</span>
+            <span>Charcoal text: default background</span>
           </div>
           <div
             className="ds-combo"
@@ -440,8 +470,8 @@ export default function TokensPage() {
               color: "var(--color-brand-dark)",
             }}
           >
-            <strong>Soft Lavender</strong>
-            <span>Charcoal text — cards, decorative blocks</span>
+            <strong>Lavender</strong>
+            <span>Charcoal text: default background</span>
           </div>
           <div
             className="ds-combo"
@@ -451,47 +481,17 @@ export default function TokensPage() {
             }}
           >
             <strong>Lime Green</strong>
-            <span>Charcoal text — title areas</span>
+            <span>Charcoal text: default background</span>
           </div>
           <div
             className="ds-combo"
             style={{
-              background: "var(--color-background-alert)",
-              color: "var(--color-white)",
+              background: "var(--color-blush)",
+              color: "var(--color-brand-dark)",
             }}
           >
-            <strong>Blue</strong>
-            <span>White text — announcements / alerts only</span>
-          </div>
-          <div
-            className="ds-combo"
-            style={{
-              background: "var(--color-brand-dark)",
-              color: "var(--color-accent)",
-            }}
-          >
-            <strong>Charcoal</strong>
-            <span>Warm White text — dark sections (rare)</span>
-          </div>
-          <div
-            className="ds-combo"
-            style={{
-              background: "var(--color-teal-deep)",
-              color: "var(--color-white)",
-            }}
-          >
-            <strong>Deep Teal</strong>
-            <span>White text — dark accent sections</span>
-          </div>
-          <div
-            className="ds-combo"
-            style={{
-              background: "var(--color-magenta)",
-              color: "var(--color-white)",
-            }}
-          >
-            <strong>Magenta</strong>
-            <span>White text — highlight sections</span>
+            <strong>Pink</strong>
+            <span>Charcoal text: supportive UI, charts</span>
           </div>
           <div
             className="ds-combo"
@@ -501,37 +501,38 @@ export default function TokensPage() {
             }}
           >
             <strong>Navy</strong>
-            <span>White text — dark ground</span>
+            <span>White text: covers, standout moments</span>
           </div>
           <div
             className="ds-combo"
             style={{
-              background: "var(--color-blush)",
-              color: "var(--color-brand-dark)",
-            }}
-          >
-            <strong>Blush</strong>
-            <span>Charcoal text — soft warm ground</span>
-          </div>
-          <div
-            className="ds-combo"
-            style={{
-              background: "var(--color-yellow)",
-              color: "var(--color-brand-dark)",
-            }}
-          >
-            <strong>Yellow</strong>
-            <span>Charcoal text — never white text</span>
-          </div>
-          <div
-            className="ds-combo"
-            style={{
-              background: "var(--color-red)",
+              background: "var(--color-teal-deep)",
               color: "var(--color-white)",
             }}
           >
-            <strong>Red</strong>
-            <span>White text — secondary accent</span>
+            <strong>Teal</strong>
+            <span>White text: covers, standout moments</span>
+          </div>
+          <div
+            className="ds-combo"
+            style={{
+              background: "var(--color-background-alert)",
+              color: "var(--color-white)",
+            }}
+          >
+            <strong>Blue</strong>
+            <span>White text: digital only, never print</span>
+          </div>
+          <div
+            className="ds-combo"
+            style={{
+              background: "var(--color-navy)",
+              color: "var(--color-white)",
+              boxShadow: "inset 0 -0.5rem 0 var(--color-yellow)",
+            }}
+          >
+            <strong>Yellow</strong>
+            <span>Decorative marks on Navy or Teal only; never text or a background</span>
           </div>
           <div
             className="ds-combo ds-combo--disallowed"
@@ -543,8 +544,8 @@ export default function TokensPage() {
           >
             <strong>Orange #FF7A3A</strong>
             <span>
-              Disallowed as background. Decorative only: icons, blobs, borders,
-              accents.
+              Disallowed behind text and on buttons or links. Accent only:
+              icons, blobs, borders, marks.
             </span>
           </div>
         </div>

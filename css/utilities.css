@@ -20,14 +20,14 @@
 }
 .fe-btn-primary:hover,
 .fe-btn-primary.is-hover {
-  background-color: var(--color-brand-primary);
+  background-color: var(--color-blue-600);
 }
 /* Focused/pressed fill (matches the style guide). Keyboard focus reuses this
    fill instead of a gold ring; .is-focus is the static demo of the same fill. */
 .fe-btn-primary:active,
 .fe-btn-primary:focus-visible,
 .fe-btn-primary.is-focus {
-  background-color: var(--color-focus-button);
+  background-color: var(--color-blue-700);
 }
 .fe-btn-primary:focus {
   outline: none;
@@ -63,15 +63,15 @@
 }
 .fe-btn-secondary:hover,
 .fe-btn-secondary.is-hover {
-  background-color: var(--color-brand-primary);
-  border-color: var(--color-brand-primary);
+  background-color: var(--color-blue-600);
+  border-color: var(--color-blue-600);
   color: var(--color-white);
 }
 .fe-btn-secondary:active,
 .fe-btn-secondary:focus-visible,
 .fe-btn-secondary.is-focus {
-  background-color: var(--color-focus-button);
-  border-color: var(--color-focus-button);
+  background-color: var(--color-blue-700);
+  border-color: var(--color-blue-700);
   color: var(--color-white);
 }
 .fe-btn-secondary:focus {
@@ -105,16 +105,16 @@
 }
 .fe-icon-btn:hover,
 .fe-icon-btn.is-hover {
-  background-color: var(--color-accent-icon);
-  border-color: var(--color-accent-icon);
+  background-color: var(--color-blue-600);
+  border-color: var(--color-blue-600);
   color: var(--color-white);
 }
 .fe-icon-btn:active,
 .fe-icon-btn:focus-visible,
 .fe-icon-btn.is-pressed,
 .fe-icon-btn.is-focus {
-  background-color: var(--color-focus-button);
-  border-color: var(--color-focus-button);
+  background-color: var(--color-blue-700);
+  border-color: var(--color-blue-700);
   color: var(--color-white);
 }
 .fe-icon-btn:focus {
@@ -157,7 +157,7 @@
   height: 1.25rem;
 }
 
-/* Filled brand icon (category / functional markers — brand guide: orange + white glyph) */
+/* Filled brand icon button: Blue + white glyph (Orange is never a button fill) */
 .fe-icon-btn--filled-brand {
   display: inline-flex;
   align-items: center;
@@ -165,8 +165,8 @@
   width: 2.5rem;
   height: 2.5rem;
   padding: 0;
-  background-color: var(--color-accent-icon);
-  border: 2px solid var(--color-accent-icon);
+  background-color: var(--color-brand-secondary);
+  border: 2px solid var(--color-brand-secondary);
   border-radius: var(--radius-circle);
   color: var(--color-white);
   cursor: pointer;
@@ -178,8 +178,8 @@
 }
 .fe-icon-btn--filled-brand:hover,
 .fe-icon-btn--filled-brand:focus-visible {
-  background-color: var(--color-focus-button);
-  border-color: var(--color-focus-button);
+  background-color: var(--color-blue-700);
+  border-color: var(--color-blue-700);
   color: var(--color-white);
 }
 .fe-icon-btn--filled-brand:focus {
@@ -248,13 +248,13 @@
 }
 .fe-play-btn:hover,
 .fe-play-btn.is-hover {
-  background-color: var(--color-brand-primary);
+  background-color: var(--color-blue-600);
 }
 .fe-play-btn:active,
 .fe-play-btn:focus-visible,
 .fe-play-btn.is-pressed,
 .fe-play-btn.is-focus {
-  background-color: var(--color-focus-button);
+  background-color: var(--color-blue-700);
 }
 .fe-play-btn:focus {
   outline: none;
@@ -293,8 +293,8 @@
   border: 1px solid var(--color-theme-7);
 }
 .fe-tag-pill:hover {
-  background-color: var(--color-light-orange);
-  color: var(--color-focus-button);
+  background-color: var(--color-blush);
+  color: var(--color-brand-dark);
 }
 .fe-tag-pill.active {
   background-color: var(--color-background-title);
@@ -312,9 +312,9 @@
 }
 .fe-tag-pill--movement.active,
 .fe-tag-pill--movement:hover {
-  background-color: var(--color-orange-300);
+  background-color: var(--color-blush);
   color: var(--color-brand-dark);
-  border-color: var(--color-orange-300);
+  border-color: var(--color-blush);
 }
 .fe-tag-pill--arts.active,
 .fe-tag-pill--arts:hover {
@@ -324,9 +324,9 @@
 }
 .fe-tag-pill--expression.active,
 .fe-tag-pill--expression:hover {
-  background-color: var(--color-light-orange);
-  color: var(--color-brand-dark);
-  border-color: var(--color-light-orange);
+  background-color: var(--color-teal-deep);
+  color: var(--color-white);
+  border-color: var(--color-teal-deep);
 }
 .fe-tag-pill--music.active,
 .fe-tag-pill--music:hover {
@@ -340,16 +340,17 @@
   border-color: var(--color-green-500);
 }
 .fe-tag-pill--movement.is-focus {
-  background-color: var(--color-orange-300);
-  border-color: var(--color-orange-300);
+  background-color: var(--color-blush);
+  border-color: var(--color-blush);
 }
 .fe-tag-pill--arts.is-focus {
   background-color: var(--color-lavender-500);
   border-color: var(--color-lavender-500);
 }
 .fe-tag-pill--expression.is-focus {
-  background-color: var(--color-light-orange);
-  border-color: var(--color-light-orange);
+  background-color: var(--color-teal-deep);
+  border-color: var(--color-teal-deep);
+  color: var(--color-white);
 }
 .fe-tag-pill--music.is-focus {
   background-color: var(--color-pink);
@@ -691,7 +692,7 @@
   background-color: var(--color-theme-5);
 }
 .fe-dropdown-item.is-active {
-  background-color: var(--color-light-orange);
+  background-color: var(--color-blush);
   color: var(--color-brand-dark);
   font-weight: var(--font-weight-medium);
 }
@@ -701,8 +702,8 @@
   cursor: not-allowed;
 }
 
-/* Joy badge — small brand pill. Orange ground with a high-contrast Charcoal
-   label (brand rule for orange fills: never white text on orange). */
+/* Joy badge: small brand pill. Pink ground with a Charcoal label (Orange is
+   never a background behind text). */
 .fe-badge {
   display: inline-flex;
   align-items: center;
@@ -716,7 +717,7 @@
   color: var(--color-brand-dark);
 }
 .fe-badge--joy {
-  background-color: var(--color-accent-icon);
+  background-color: var(--color-blush);
   color: var(--color-brand-dark);
 }
 .fe-badge--blue {
@@ -759,10 +760,10 @@
   font-weight: var(--font-weight-regular);
   color: var(--color-theme-2);
   text-decoration: none;
-  /* Orange underline grows in on hover/focus (decorative accent, not the link colour). */
+  /* Charcoal underline grows in on hover/focus (Orange is never used on links). */
   background-image: linear-gradient(
-    var(--color-accent-border),
-    var(--color-accent-border)
+    var(--color-theme-2),
+    var(--color-theme-2)
   );
   background-repeat: no-repeat;
   background-position: 0 100%;
@@ -800,7 +801,7 @@
 
 /* Header */
 .fe-header {
-  background-color: var(--color-white);
+  background-color: var(--color-background-default);
   padding-block: var(--spacing-3);
   padding-inline: var(--spacing-4);
   box-shadow: var(--shadow-header);
@@ -843,13 +844,14 @@
   font-size: var(--font-size-sm);
   /* Keep each label on one line so the demo menu never wraps. */
   white-space: nowrap;
-  /* No growing-underline accent on the header-pattern menu; hover shifts the
-     label to the orange accent instead. */
+  /* No growing-underline accent on the header-pattern menu; hover underlines
+     the label instead. */
   background-image: none;
 }
 .fe-header__nav .fe-nav-link:hover,
 .fe-header__nav .fe-nav-link.is-hover {
-  color: var(--color-brand-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
 }
 .fe-header__actions {
   display: flex;
@@ -884,9 +886,9 @@
 .fe-header__menu-btn:focus-visible,
 .fe-header__menu-btn.is-focus {
   outline: none;
-  border-color: var(--color-focus-button);
+  border-color: var(--color-focus-visible-accent);
   box-shadow: 0 0 0 3px
-    color-mix(in srgb, var(--color-focus-button) 20%, transparent);
+    color-mix(in srgb, var(--color-focus-visible-accent) 20%, transparent);
 }
 
 /* Hamburger icon animation */
@@ -950,7 +952,7 @@
   position: absolute;
   top: calc(100% + var(--spacing-3));
   left: 0;
-  background: var(--color-light-orange);
+  background: var(--color-blush);
   border: none;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
@@ -967,8 +969,8 @@
   color: var(--color-theme-4);
   font-weight: var(--font-weight-medium);
   white-space: nowrap;
-  /* No growing-underline accent in the dropdown — hover goes straight to the
-     orange fill below. */
+  /* No growing-underline accent in the dropdown; hover goes straight to the
+     Blue fill below. */
   background-image: none;
   transition:
     background-color var(--transition-fast),
@@ -976,14 +978,14 @@
 }
 .fe-header__dropdown .fe-nav-link:hover,
 .fe-header__dropdown .fe-nav-link:focus {
-  background-color: var(--color-brand-primary);
+  background-color: var(--color-brand-secondary);
   color: var(--color-white);
 }
 .fe-header__dropdown .fe-nav-link:active {
-  background-color: var(--color-focus-button);
+  background-color: var(--color-blue-700);
   color: var(--color-white);
 }
-/* The orange :focus fill is the visible focus indicator here, so suppress the
+/* The Blue :focus fill is the visible focus indicator here, so suppress the
    gold keyboard ring on dropdown links. */
 .fe-header__dropdown .fe-nav-link:focus-visible,
 .fe-header__mobile-sub .fe-nav-link:focus-visible {
@@ -1026,7 +1028,7 @@
     color var(--transition-fast);
 }
 .fe-header__mobile-nav .fe-header__dropdown-trigger[aria-expanded="true"] {
-  background-color: var(--color-light-orange);
+  background-color: var(--color-blush);
 }
 .fe-header__mobile-sub {
   display: flex;
@@ -1181,7 +1183,7 @@
   text-decoration: none;
 }
 .fe-footer__legal a:hover {
-  color: var(--color-brand-primary);
+  text-decoration: underline;
 }
 
 /* ── Course / workshop detail patterns ─────────────────────────────────────── */

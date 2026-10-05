@@ -93,7 +93,7 @@ Prototype IA split:
 
 **Downloading icons (non-developers):** open [Visual Elements](https://design.foreveryone.berlin/visual-elements), find the icon you need, and click it. The file saves straight from the page, already in its brand colour. Only the canonical sets are for production.
 
-**Asset colour when opened on its own:** shipped SVGs paint with `currentColor` so CSS masks and inline use can tint them from a token, which would otherwise render a downloaded file black. Each asset therefore carries a root `color` presentation attribute holding its family default: orange `#FF7A3A` for category, activity, illustration, and accent assets; Soft Lavender `#E5DCFF` for blobs; Lime Green `#D4E6AB` for waves; Charcoal `#1E1E1E` for social. Presentation attributes carry zero specificity, so any CSS `color` rule still wins. `scripts/svg-normalize.mjs` stamps it on import (`STANDALONE_COLOR`), `node scripts/svg-standalone-color.mjs` backfills existing assets, and `npm test` runs it with `--check`. Never save an asset from a `github.com/…/blob/…` page: that view is HTML, so the saved `.svg` fails as "XML Parsing Error: not well-formed". Use **Download raw file** instead.
+**Asset colour when opened on its own:** shipped SVGs paint with `currentColor` so CSS masks and inline use can tint them from a token, which would otherwise render a downloaded file black. Each asset therefore carries a root `color` presentation attribute holding its family default: orange `#FF7A3A` for category, activity, illustration, and accent assets; Soft Lavender `#E5DCFF` for blobs; Lime Green `#D4E6A8` for waves; Charcoal `#1E1E1E` for social. Presentation attributes carry zero specificity, so any CSS `color` rule still wins. `scripts/svg-normalize.mjs` stamps it on import (`STANDALONE_COLOR`), `node scripts/svg-standalone-color.mjs` backfills existing assets, and `npm test` runs it with `--check`. Never save an asset from a `github.com/…/blob/…` page: that view is HTML, so the saved `.svg` fails as "XML Parsing Error: not well-formed". Use **Download raw file** instead.
 
 ### Line illustrations (doodles)
 
@@ -107,13 +107,13 @@ Prototype IA split:
 ### Filled icons (functional)
 
 - **Role:** Wayfinding and **categorization** (e.g. workshop types: painting, pottery).
-- **Color:** Filled functional markers **must use brand orange** (`var(--color-brand-primary)`). Icons should use `currentColor` on a control whose text/icon color is set to white on that orange ground (see `.fe-icon-btn--filled-brand` in `css/utilities.css`).
+- **Color:** Filled functional markers **must use brand orange** (`var(--color-brand-primary)`). Icons should use `currentColor` on a control whose text/icon color is set to white on that orange ground (see `.fe-workshop-icon` in `css/utilities.css`). Orange markers are decorative, never clickable buttons.
 - **Labels:** Pair with **high-contrast** copy — default body/label text should use Charcoal (`var(--color-brand-dark)` / `var(--color-theme-2)`) on light surfaces per the color palette.
 
 ### Social / neutral icon buttons
 
-- **Role:** Footer/social and “quiet” actions where orange fill is **not** required by brand.
-- **CSS:** Base class `.fe-icon-btn` — neutral surface, orange on **hover**. Do not replace with `.fe-icon-btn--filled-brand` unless design explicitly asks for always-on orange.
+- **Role:** Footer/social and “quiet” actions.
+- **CSS:** Base class `.fe-icon-btn`: neutral surface, Blue on **hover**. `.fe-icon-btn--filled-brand` is the always-on Blue variant. Orange is never a button fill.
 
 ## Graphic shapes: blobs vs waves
 

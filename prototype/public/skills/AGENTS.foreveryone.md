@@ -9,11 +9,12 @@ Follow these rules when writing or editing UI.
 2. **Digital surface only on the web.** Never use `surface: "print"` tokens
    (`--font-family-accent`, `--color-print-*`, `--color-doc-*`). Filson Pro is digital;
    Young Serif is print only.
-3. **Orange is decorative.** `--color-brand-primary` is never a text background. Orange
-   icons always carry a text label. Structural exceptions: QR-code border, white standalone
-   logo icon on orange (no text).
-4. **Blue is alerts only.** `--color-brand-secondary` is for announcements/alerts, always
-   with pure white text.
+3. **Orange is accent only.** `--color-brand-primary` is never text, a button, a link, or
+   a background behind text. Orange icons always carry a text label. Structural exceptions:
+   QR-code border, white standalone logo icon on orange (no text).
+4. **Blue is flexible, digital only.** `--color-brand-secondary` works for backgrounds and
+   primary buttons, always with pure white text. White and Charcoal are never full
+   backgrounds; use Warm White.
 5. **Body text is Charcoal on light backgrounds.** Body line-height never below 1.5;
    letter-spacing is 0%. Use only the approved background ⇄ text pairings in
    `spec/principles.md`.
