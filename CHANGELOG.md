@@ -10,542 +10,546 @@
 
 ## [1.10.1] - 2026-10-04
 
-Node 24 pin aligned with the project engines field.
+### Changed
 
-- **Behind the scenes**: Pin the local Node version to the 24 major, matching the project's engines field.
+- Pin the local Node version to the 24 major, matching the project's engines field.
 
 ## [1.10.0] - 2026-10-01
 
-Mobile heading sizes, one booking CTA label, and Figma grey mapping.
+### Added
 
-- **Change**: Show page and section headings at the smaller Figma mobile sizes on phones, switching to the full desktop sizes on tablets and up.
-- **Change**: Use "Book workshop" as the one booking button label everywhere, and keep the WhatsApp button in the same neutral style as the other social buttons.
-- **Add**: Record which existing greys stand in for the two unmatched text greys in the Figma page designs.
-- **Add**: The "Co-funded by the European Union" badge as an interim image, with its source and usage rules recorded.
+- Record which existing greys stand in for the two unmatched text greys in the Figma page designs.
+- The "Co-funded by the European Union" badge as an interim image, with its source and usage rules recorded.
+
+### Changed
+
+- Show page and section headings at the smaller Figma mobile sizes on phones, switching to the full desktop sizes on tablets and up.
+- Use "Book workshop" as the one booking button label everywhere, and keep the WhatsApp button in the same neutral style as the other social buttons.
 
 ## [1.9.1] - 2026-09-29
 
-Call the installable guides agent skills instead of AI skills.
+### Changed
 
-- **Change**: Rename the installable guides and the prototype page to agent skills, and send visitors from the old page address to the new one.
+- Rename the installable guides and the prototype page to agent skills, and send visitors from the old page address to the new one.
 
 ## [1.9.0] - 2026-09-28
 
-Installable AI skills for AI agents.
+### Added
 
-- **Add**: Guides for AI agents that build or restyle UI with this system, installable from a clone or readable on the live site.
+- Guides for AI agents that build or restyle UI with this system, installable from a clone or readable on the live site.
 
 ## [1.8.4] - 2026-09-24
 
-Recorded provenance for the icon gaps, on current prototype software.
+### Added
 
-- **Add**: Record where the workshop and music icons the team uses in Canva come from, and why they cannot be brought into the system as they stand.
-- **Change**: Flag the Canva elements library and the shared Drive folder as working libraries rather than sources the system imports from.
-- **Behind the scenes**: Update prototype dependencies within their current major versions.
+- Record where the workshop and music icons the team uses in Canva come from, and why they cannot be brought into the system as they stand.
+
+### Changed
+
+- Flag the Canva elements library and the shared Drive folder as working libraries rather than sources the system imports from.
+- Update prototype dependencies within their current major versions.
 
 ## [1.8.3] - 2026-09-22
 
-Clearer project guidance and a protected internal prototype.
+### Changed
 
-- **Change**: Clarify the project’s setup guidance, contributor credits, and licence terms.
-- **Change**: Block search crawlers and AI tools from accessing the internal prototype.
-- **Fix**: Keep the prototype FAQ accordion responsive when it is opened and closed quickly on mobile Safari.
+- Clarify the project’s setup guidance, contributor credits, and licence terms.
+- Block search crawlers and AI tools from accessing the internal prototype.
+
+### Fixed
+
+- Keep the prototype FAQ accordion responsive when it is opened and closed quickly on mobile Safari.
 
 ## [1.8.2] - 2026-09-22
 
-Circled browser and installed-app icon.
+### Fixed
 
-- **Fix**: Use the circled ForEveryone mark for browser and installed-app icons.
+- Use the circled ForEveryone mark for browser and installed-app icons.
 
 ## [1.8.1] - 2026-09-17
 
-No. 52 Cafe guidance back in the live design system.
+### Fixed
 
-- **Fix**: Restore the No. 52 Cafe naming, logo, and cafe-signs guidance to the live design system.
+- Restore the No. 52 Cafe naming, logo, and cafe-signs guidance to the live design system.
 
 ## [1.8.0] - 2026-09-14
 
-No. 52 Cafe guidance retired, the popup megaphone added as a vector, and a clearer element catalog.
+### Added
 
-- **Remove**: Retire the No. 52 Cafe naming, logo, and cafe-signs guidance from the design system, keeping a dated archive for signage still in circulation.
-- **Add**: The newsletter popup's megaphone as a scalable vector, catalogued with the other functional doodles.
-- **Change**: Show the accent marks, social icons, and UI glyphs larger in the Visual Elements catalog, so each one is legible at a glance.
-- **Change**: Tighten the Visual Elements introduction.
-- **Change**: Reframe the blob-masked hero photo so the hard wall edge on its right no longer cuts across the shape.
+- The newsletter popup's megaphone as a scalable vector, catalogued with the other functional doodles.
+
+### Changed
+
+- Retire the No. 52 Cafe naming, logo, and cafe-signs guidance from the design system, keeping a dated archive for signage still in circulation.
+- Show the accent marks, social icons, and UI glyphs larger in the Visual Elements catalog, so each one is legible at a glance.
+- Tighten the Visual Elements introduction.
+- Reframe the blob-masked hero photo so the hard wall edge on its right no longer cuts across the shape.
 
 ## [1.7.2] - 2026-09-13
 
-Roomier in-page navigation on phones and tablets.
+### Changed
 
-- **Change**: Space out the “On this page” entries on small screens so they are easier to read and tap.
+- Space out the “On this page” entries on small screens so they are easier to read and tap.
 
 ## [1.7.1] - 2026-09-12
 
-Small-screen navigation, clearer photography credit, and a larger blob-masked hero photo.
+### Added
 
-- **Fix**: Show an “On this page” menu on small screens so in-page sections stay reachable when the side rail is hidden.
-- **Add**: Credit Unsplash for the prototype photographs on the Credits page and under every photo specimen (home, hero pattern, and workshop cards).
-- **Change**: Mask the home and pattern hero photos with the design-system blob shape, at a larger size so the crop reads clearly.
+- Credit Unsplash for the prototype photographs on the Credits page and under every photo specimen (home, hero pattern, and workshop cards).
+
+### Changed
+
+- Mask the home and pattern hero photos with the design-system blob shape, at a larger size so the crop reads clearly.
+
+### Fixed
+
+- Show an “On this page” menu on small screens so in-page sections stay reachable when the side rail is hidden.
 
 ## [1.7.0] - 2026-09-12
 
-Licensed stock photography in place of the unconfirmed event photos.
+### Added
 
-- **Change**: Replace every photograph in the prototype with licensed stock, so the home page and the pattern examples only ever show pictures we hold clear rights to use.
-- **Add**: Record the photographer, source, and licence for each photograph, and set the rule that a picture may not enter the design system without one.
+- Record the photographer, source, and licence for each photograph, and set the rule that a picture may not enter the design system without one.
+
+### Changed
+
+- Replace every photograph in the prototype with licensed stock, so the home page and the pattern examples only ever show pictures we hold clear rights to use.
 
 ## [1.6.0] - 2026-09-09
 
-Browser-testing tools named on the credits and accessibility pages, plus a couple of visual fixes that were waiting in Unreleased.
+### Changed
 
-- **Change**: Name the browser-testing tools we actually use on the credits and accessibility pages.
-- **Fix**: Give the site header the drop shadow the design file specifies, so it lifts off the page the way the design shows instead of sitting almost flat.
-- **Change**: Take the thin grey outline off the header card at the top of the project page, so the artwork sits on the page unframed again.
-- **Change**: Move the prototype onto the current version of its web framework, keeping the preview site on supported software.
+- Name the browser-testing tools we actually use on the credits and accessibility pages.
+- Take the thin grey outline off the header card at the top of the project page, so the artwork sits on the page unframed again.
+- Move the prototype onto the current version of its web framework, keeping the preview site on supported software.
+
+### Fixed
+
+- Give the site header the drop shadow the design file specifies, so it lifts off the page the way the design shows instead of sitting almost flat.
 
 ## [1.5.0] - 2026-09-08
 
-A testimonial slider, and testimonials promoted into the shared component library.
+### Added
 
-- **Add**: Add a testimonial slider that shows one short quote at a time, with dots to move between them; it can be swiped, scrolled, or driven from the keyboard.
-- **Add**: Add a centred display style for short testimonials, with the quote mark above the text, alongside the existing left-aligned card.
-- **Add**: Publish the testimonial as a documented component so other sites can use it, not just the prototype preview.
+- Add a testimonial slider that shows one short quote at a time, with dots to move between them; it can be swiped, scrolled, or driven from the keyboard.
+- Add a centred display style for short testimonials, with the quote mark above the text, alongside the existing left-aligned card.
+- Publish the testimonial as a documented component so other sites can use it, not just the prototype preview.
 
 ## [1.4.1] - 2026-09-07
 
-Platform-neutral framing for the design system.
+### Changed
 
-- **Docs**: Frame the system as platform-neutral; move host-platform material under integrations and stop naming host slots in shared tokens and preview copy.
+- Frame the system as platform-neutral; move host-platform material under integrations and stop naming host slots in shared tokens and preview copy.
 
 ## [1.4.0] - 2026-09-03
 
-2026 palette expansion and colour corrections.
+### Added
 
-- **Add**: Bring eight new colours from the 2026 brand board into the token set: Deep Teal, Magenta, Navy, Blush, Yellow, Red, and two warm greys.
-- **Fix**: Correct Warm White and Lime Green hex values to match the 2026 palette on the brand board (#FDFCF6, #D4E6AB).
-- **Add**: Show the new 2026 palette colours as swatches on Foundations and list their approved background + text pairings.
-- **Add**: Ship the doodle Belonging Guide share card so the live funnel pages can use the approved 1200×630 artwork.
+- Bring eight new colours from the 2026 brand board into the token set: Deep Teal, Magenta, Navy, Blush, Yellow, Red, and two warm greys.
+- Show the new 2026 palette colours as swatches on Foundations and list their approved background + text pairings.
+- Ship the doodle Belonging Guide share card so the live funnel pages can use the approved 1200×630 artwork.
+
+### Fixed
+
+- Correct Warm White and Lime Green hex values to match the 2026 palette on the brand board (#FDFCF6, #D4E6AB).
 
 ## [1.3.1] - 2026-08-19
 
-A fix for the arrows in the week-by-week step sequence.
+### Fixed
 
-- **Fix**: Turn the connecting arrows in the week-by-week step sequence the right way round, so they lead down from the first step to the next, and give them space so they no longer touch the boxes.
+- Turn the connecting arrows in the week-by-week step sequence the right way round, so they lead down from the first step to the next, and give them space so they no longer touch the boxes.
 
 ## [1.3.0] - 2026-08-18
 
-People patterns: a team roster and a profile card with a bio.
+### Added
 
-- **Add**: Show a team roster layout on Patterns, with a round portrait, a name, and a role, four across on desktop and stacking down to one on a phone.
-- **Add**: Show the same person block as a card with a short bio, the way facilitators are introduced on a course page.
-- **Add**: Ship five generic portrait placeholders so the new layouts can be documented without putting anyone's photo in the design system.
-- **Docs**: Bring the pattern catalog back in line with the Patterns page and note that names in these layouts stay charcoal, because orange is decorative only and too light for readable text.
+- Show a team roster layout on Patterns, with a round portrait, a name, and a role, four across on desktop and stacking down to one on a phone.
+- Show the same person block as a card with a short bio, the way facilitators are introduced on a course page.
+- Ship five generic portrait placeholders so the new layouts can be documented without putting anyone's photo in the design system.
+
+### Changed
+
+- Bring the pattern catalog back in line with the Patterns page and note that names in these layouts stay charcoal, because orange is decorative only and too light for readable text.
 
 ## [1.2.0] - 2026-08-17
 
-Downloadable artwork, course-page layouts, and a new share card.
+### Changed
 
-- **Remove**: Drop Cursor and Claude Code from the Credits “Built with” list so the public site does not attribute agents as product contributors.
-- **Change**: Show three course-page layouts from the live workshop pages on Patterns (a facts card, a week-by-week step sequence, and a split list band) and drop the six-point benefit grid; the benefit card stays available for the live site.
-- **Change**: Give the repository a new share card, so GitHub and link previews show the ForEveryone headline on the lime doodle artwork.
-- **Fix**: Make every icon, illustration, accent, blob, and wave in Visual Elements save with a single click, in its brand colour instead of black, and drop the GitHub links that used to hand people a web page instead of a working file.
-- **Fix**: Stack the workshop facts card and the impact numbers into fewer columns as soon as the space around them is narrow, so values stop being cut off.
-- **Change**: Refresh the prototype's underlying libraries and clear every known security advisory.
+- Show three course-page layouts from the live workshop pages on Patterns (a facts card, a week-by-week step sequence, and a split list band) and drop the six-point benefit grid; the benefit card stays available for the live site.
+- Give the repository a new share card, so GitHub and link previews show the ForEveryone headline on the lime doodle artwork.
+- Refresh the prototype's underlying libraries and clear every known security advisory.
+
+### Removed
+
+- Drop Cursor and Claude Code from the Credits “Built with” list so the public site does not attribute agents as product contributors.
+
+### Fixed
+
+- Make every icon, illustration, accent, blob, and wave in Visual Elements save with a single click, in its brand colour instead of black, and drop the GitHub links that used to hand people a web page instead of a working file.
+- Stack the workshop facts card and the impact numbers into fewer columns as soon as the space around them is narrow, so values stop being cut off.
 
 ## [1.1.0] - 2026-07-30
 
-Prototype artwork, icon reliability, and pattern polish for the public design system release.
+### Added
 
-- **Change**: Refresh the homepage and pattern hero with the new Community Cafe imagery, responsive headline sizing, and a headline-width sketched underline.
-- **Add**: Ship live pattern specimens for stats, benefit cards, and the events and workshops switcher, and add direct GitHub browse links for illustration and accent sets in Visual Elements.
-- **Change**: Reorganize the Visual Elements and Components icon documentation so functional icon families stay separate from illustrations and decorative assets.
-- **Fix**: Unify prototype icon rendering under one shared icon component and restore category, workshop, line-illustration, and decorative SVG masks so every set renders reliably.
-- **Fix**: Improve workshop-card responsiveness and related navigation polish so mobile controls, badges, labels, and actions stay readable and distinct.
-- **Fix**: Restore heading-link feedback, browser-back behavior, syntax highlighting, and accessibility coverage so navigation and documentation interactions stay stable across browsers.
+- Ship live pattern specimens for stats, benefit cards, and the events and workshops switcher, and add direct GitHub browse links for illustration and accent sets in Visual Elements.
+
+### Changed
+
+- Refresh the homepage and pattern hero with the new Community Cafe imagery, responsive headline sizing, and a headline-width sketched underline.
+- Reorganize the Visual Elements and Components icon documentation so functional icon families stay separate from illustrations and decorative assets.
+
+### Fixed
+
+- Unify prototype icon rendering under one shared icon component and restore category, workshop, line-illustration, and decorative SVG masks so every set renders reliably.
+- Improve workshop-card responsiveness and related navigation polish so mobile controls, badges, labels, and actions stay readable and distinct.
+- Restore heading-link feedback, browser-back behavior, syntax highlighting, and accessibility coverage so navigation and documentation interactions stay stable across browsers.
 
 ## [1.0.0] - 2026-07-18 🎉
 
-Credits page refresh, accessibility enforcement, and button spec alignment.
+### Changed
 
-- **Change**: Refresh the Credits page so design-system contributors are listed by name and role.
-- **Fix**: Match button documentation states to the current primary and secondary button behavior in the prototype.
-- **Fix**: Respect reduced-motion preferences for accordion and mobile menu animation in shared component styles.
-- **Fix**: Keep the "Link copied" label fully inside its highlighted background beside section headings.
+- Refresh the Credits page so design-system contributors are listed by name and role.
+
+### Fixed
+
+- Match button documentation states to the current primary and secondary button behavior in the prototype.
+- Respect reduced-motion preferences for accordion and mobile menu animation in shared component styles.
+- Keep the "Link copied" label fully inside its highlighted background beside section headings.
 
 ## [0.26.1] - 2026-07-18
 
-Prototype artwork refresh from the official Figma element export.
+### Changed
 
-- **Change**: Replace workshop category icons and decorative artwork (doodles, accent marks, blobs, and wave dividers) with the official Figma element exports.
-- **Fix**: Show line illustrations on the Patterns and Components pages again; those pages had been pointing at artwork files that were not in the repo.
-- **Fix**: Place the headline underline beneath copy, stretch it to the headline width, and size the line-illustration specimen correctly in the prototype.
-- **Docs**: Update visual-styles, prototype asset notes, and the category-tag spec so the new artwork and import workflow are documented.
-- **Behind the scenes**: Add a script that normalizes Figma SVG exports for the prototype and wire category icons through the shared SVG files.
+- Replace workshop category icons and decorative artwork (doodles, accent marks, blobs, and wave dividers) with the official Figma element exports.
+- Update visual-styles, prototype asset notes, and the category-tag spec so the new artwork and import workflow are documented.
+- Add a script that normalizes Figma SVG exports for the prototype and wire category icons through the shared SVG files.
+
+### Fixed
+
+- Show line illustrations on the Patterns and Components pages again; those pages had been pointing at artwork files that were not in the repo.
+- Place the headline underline beneath copy, stretch it to the headline width, and size the line-illustration specimen correctly in the prototype.
 
 ## [0.26.0] - 2026-07-13
 
-Prototype navigation and sharing improvements, plus safer token and release tooling.
+### Added
 
-- **Add**: Show a `#` link beside section headings so readers can copy a direct page link and get clear "Link copied" feedback.
-- **Fix**: Close the mobile menu and restore page interaction when the viewport grows from phone to desktop.
-- **Fix**: Keep search keyboard shortcuts from focusing a hidden desktop search field on mobile.
-- **Fix**: Simplify header dropdown accessibility so it behaves like normal navigation links.
-- **Behind the scenes**: Resolve token references correctly when building CSS and the agent token spec.
-- **Behind the scenes**: Make the optimize workflow fail clearly when the local dev server does not start.
+- Show a `#` link beside section headings so readers can copy a direct page link and get clear "Link copied" feedback.
+
+### Changed
+
+- Resolve token references correctly when building CSS and the agent token spec.
+- Make the optimize workflow fail clearly when the local dev server does not start.
+
+### Fixed
+
+- Close the mobile menu and restore page interaction when the viewport grows from phone to desktop.
+- Keep search keyboard shortcuts from focusing a hidden desktop search field on mobile.
+- Simplify header dropdown accessibility so it behaves like normal navigation links.
 
 ## [0.25.1] - 2026-07-13
 
-Quick fix after the colour alignment release: put the action buttons back, sharpen error fields, and soften the orange focus ring on ordinary inputs.
+### Changed
 
-- **Fix**: Put the primary and secondary action buttons back to the blue-and-orange fill style used before the last release.
-- **Fix**: Make error form fields show a stronger red border and glow when you hover, focus, or press them.
-- **Fix**: Tone down the orange highlight on ordinary form fields when they are focused.
-- **Behind the scenes**: Rewrite recent release notes so they read plainly again, and keep the Music category tag on pink.
+- Rewrite recent release notes so they read plainly again, and keep the Music category tag on pink.
+
+### Fixed
+
+- Put the primary and secondary action buttons back to the blue-and-orange fill style used before the last release.
+- Make error form fields show a stronger red border and glow when you hover, focus, or press them.
+- Tone down the orange highlight on ordinary form fields when they are focused.
 
 ## [0.25.0] - 2026-07-13
 
-Align the Music category tag with the Brand Book after design review (action buttons were reverted in 0.25.1).
+### Changed
 
-- **Fix**: Change the Music category tag to pink with Charcoal text so alert blue is reserved for announcements only.
-- **Docs**: Document the category-tag colour mapping and note that interactive-state rules are still pending a future brand-book update.
+- Document the category-tag colour mapping and note that interactive-state rules are still pending a future brand-book update.
+
+### Fixed
+
+- Change the Music category tag to pink with Charcoal text so alert blue is reserved for announcements only.
 
 ## [0.24.3] - 2026-07-08
 
-Tidy the repository README.
+### Changed
 
-- Remove the brand-representation diagram so the page opens with the hero and live preview link.
-- **Behind the scenes**: Update prototype dependencies within their current major versions.
+- Update prototype dependencies within their current major versions.
 
 ## [0.24.2] - 2026-07-06
 
-Prototype accessibility polish from the terminal optimize pass.
+### Fixed
 
-- **Fix**: Improve header demo keyboard support, focus management, and ARIA for menus and search.
-- **Fix**: Fix on-this-page current-section indication for screen readers.
-- **Fix**: Respect reduced-motion for mobile navigation animation.
+- Improve header demo keyboard support, focus management, and ARIA for menus and search.
+- Fix on-this-page current-section indication for screen readers.
+- Respect reduced-motion for mobile navigation animation.
 
 ## [0.24.1] - 2026-07-06
 
-Run prototype optimize passes from the terminal.
+### Changed
 
-- **Behind the scenes**: Add a terminal workflow so audits can run step by step from the command line.
-- **Behind the scenes**: Add an optimize skill that works in both the terminal and the IDE.
-- **Docs**: Explain the terminal workflow in the agent playbook.
+- Add a terminal workflow so audits can run step by step from the command line.
+- Add an optimize skill that works in both the terminal and the IDE.
+- Explain the terminal workflow in the agent playbook.
 
 ## [0.24.0] - 2026-07-06
 
-Agent parity: IDE, CLI, and Claude Code share the same instructions.
+### Changed
 
-- **Behind the scenes**: Align IDE/CLI and Claude agent instructions so both tools get the same commands, quality rules, and release workflows.
-- **Behind the scenes**: Document that the IDE picks up project skills from the same folder as Claude Code.
-- **Docs**: Add a cross-tool maintenance checklist so agent files stay in sync.
+- Align IDE/CLI and Claude agent instructions so both tools get the same commands, quality rules, and release workflows.
+- Document that the IDE picks up project skills from the same folder as Claude Code.
+- Add a cross-tool maintenance checklist so agent files stay in sync.
 
 ## [0.23.0] - 2026-06-19
 
-A fidelity pass bringing the prototype closer to Brand Book v1.0.
+### Added
 
-- **Add**: Each colour on the Foundations page now shows its role up front so the "what is this colour for" rule is visible at a glance.
-- **Change**: Redrew the workshop category icons, line illustrations, accent marks, blob shapes, and wave dividers to match the Brand Book artwork.
-- **Fix**: Search results now scroll to the exact section heading, not just the top of the page.
-- **Fix**: Left-aligned the testimonial text, matching the rule that long body copy is never centred.
-- **Remove**: Took out the No. 52 Cafe logos block, the community-group illustration, and the print asset-library contacts section.
-- **Docs**: Added the white-space and alignment principles to the Guidelines page, and updated copy to say "non-profit social enterprise" and "designers and leaders".
+- Each colour on the Foundations page now shows its role up front so the "what is this colour for" rule is visible at a glance.
+
+### Changed
+
+- Redrew the workshop category icons, line illustrations, accent marks, blob shapes, and wave dividers to match the Brand Book artwork.
+- Took out the No. 52 Cafe logos block, the community-group illustration, and the print asset-library contacts section.
+- Added the white-space and alignment principles to the Guidelines page, and updated copy to say "non-profit social enterprise" and "designers and leaders".
+
+### Fixed
+
+- Search results now scroll to the exact section heading, not just the top of the page.
+- Left-aligned the testimonial text, matching the rule that long body copy is never centred.
 
 ## [0.22.3] - 2026-06-19
 
-Hotfix for the example header pattern.
+### Fixed
 
-- **Fix**: The header pattern's mobile menu now opens again, and the header switches to mobile based on the width of the panel it sits in, so it matches how it is embedded in the design system.
+- The header pattern's mobile menu now opens again, and the header switches to mobile based on the width of the panel it sits in, so it matches how it is embedded in the design system.
 
 ## [0.22.2] - 2026-06-19
 
-Small visual fixes after 0.22.1.
+### Fixed
 
-- **Fix**: Space out the example header, shorten its menu and button labels, and keep each label on one line.
-- **Fix**: Give the search box the same focus style as the form inputs instead of an outline ring.
-- **Fix**: Show the wave shapes larger, one per row, in soft neutral greys and light green.
+- Space out the example header, shorten its menu and button labels, and keep each label on one line.
+- Give the search box the same focus style as the form inputs instead of an outline ring.
+- Show the wave shapes larger, one per row, in soft neutral greys and light green.
 
 ## [0.22.1] - 2026-06-19
 
-Polish pass after the Clarity release: small fixes across search, navigation, and the brand assets.
+### Fixed
 
-- **Fix**: Give the search box the brand's own focus highlight instead of the browser's default blue outline.
-- **Fix**: Collapse the navigation into expandable sections on phones, so the menu is short and tidy.
-- **Fix**: Put the ForEveryone logo back into the example header and footer, and add a real, scannable QR code that opens foreveryone.berlin.
-- **Fix**: Redraw the No. 52 Cafe logos to match the Brand Book, show wave shapes in more colours and sizes, and rename the brand page to "About & Brand".
-- **Fix**: Point the BrowserStack link to the right page, refresh a workshop photo, and check every link still works.
+- Give the search box the brand's own focus highlight instead of the browser's default blue outline.
+- Collapse the navigation into expandable sections on phones, so the menu is short and tidy.
+- Put the ForEveryone logo back into the example header and footer, and add a real, scannable QR code that opens foreveryone.berlin.
+- Redraw the No. 52 Cafe logos to match the Brand Book, show wave shapes in more colours and sizes, and rename the brand page to "About & Brand".
+- Point the BrowserStack link to the right page, refresh a workshop photo, and check every link still works.
 
 ## [0.22.0] - 2026-06-19
 
-The "Clarity" release: make what already exists easy to find, easy to read, and clear.
+### Changed
 
-- **New**: Add a search box to the navigation so you can jump straight to any page or section.
-- **New**: Group the navigation into clear sections, led by Foundations, Components, and Patterns, so the menu is shorter and better ordered.
-- **Fix**: Add the four newer pages to the home overview and show three distinct workshops, each with its own photo.
-- **Fix**: Present the example header and footer as reusable templates with placeholder content, and tidy the logo "what not to do" markers.
-- **Behind the scenes**: Rewrite the changelog and repository description in plain language, and add a one-step release workflow.
+- Add a search box to the navigation so you can jump straight to any page or section.
+- Group the navigation into clear sections, led by Foundations, Components, and Patterns, so the menu is shorter and better ordered.
+- Rewrite the changelog and repository description in plain language, and add a one-step release workflow.
+
+### Fixed
+
+- Add the four newer pages to the home overview and show three distinct workshops, each with its own photo.
+- Present the example header and footer as reusable templates with placeholder content, and tidy the logo "what not to do" markers.
 
 ## [0.21.0] - 2026-06-18
 
-Bring the ForEveryone Brand Book v1.0 into the digital design system, with new pages for brand voice, logo, visual elements, and print.
+### Changed
 
-- **New**: Add a Brand & Voice page covering who we are, values, personality, and how to write in our tone.
-- **New**: Add a Logo page with the approved variants, clear-space rules, background pairings, and a what-not-to-do grid.
-- **New**: Add a Visual Elements page showing our icons, illustrations, accent marks, and shapes side by side.
-- **New**: Add a Print & Media page that marks the line between digital and print and lists the print-only colours and assets.
-- **Fix**: Redraw the workshop icons as solid orange shapes and fix two text-contrast issues so everything reads clearly.
-- **Behind the scenes**: Raise body line spacing for easier reading and add a machine-readable layer so AI tools can adopt the system.
+- Add a Brand & Voice page covering who we are, values, personality, and how to write in our tone.
+- Add a Logo page with the approved variants, clear-space rules, background pairings, and a what-not-to-do grid.
+- Add a Visual Elements page showing our icons, illustrations, accent marks, and shapes side by side.
+- Add a Print & Media page that marks the line between digital and print and lists the print-only colours and assets.
+- Raise body line spacing for easier reading and add a machine-readable layer so AI tools can adopt the system.
+
+### Fixed
+
+- Redraw the workshop icons as solid orange shapes and fix two text-contrast issues so everything reads clearly.
 
 ## [0.20.2] - 2026-06-17
 
-Tidy up navigation and button styling across the prototype.
-
-- Fold the Motion content into Foundations and drop the standalone Motion page.
-- Use the animated hamburger toggle for the mobile navigation.
-- Make the button sizes consistent across all variants.
-- Simplify the menu hover so labels turn orange instead of growing an underline.
-- Enlarge the site logo slightly in the sidebar and mobile header.
-
 ## [0.20.1] - 2026-06-16
-
-Group the Components page and refine focus and hover styling.
-
-- Group the Components page into labelled categories with a contents outline.
-- Show all four button variants together in the button matrix.
-- Fix the card hover shadow being clipped and close the header dropdown on an outside click.
-- Refine the keyboard-focus styling so each control highlights in its own colour.
-- Tidy hover effects on menu links and remove a few unused illustrations and links.
 
 ## [0.20.0] - 2026-06-16
 
-Add Motion and Credits pages, expand the component examples, and modernise the colour and focus system.
+### Changed
 
-- **New**: Add a Motion page and a Credits page, both wired into the navigation and home overview.
-- **New**: Expand the component examples with fuller button, input, tag, and icon-button states plus a richer icon gallery.
-- **New**: Add brand colour variants and a more accessible keyboard-focus highlight.
-- **Fix**: Stop several hover shadows from being clipped and correct the wordmark and close-icon colour.
-- **Behind the scenes**: Move the colour palette to a more modern colour model with no visible change, and update dependencies for security.
+- Add a Motion page and a Credits page, both wired into the navigation and home overview.
+- Expand the component examples with fuller button, input, tag, and icon-button states plus a richer icon gallery.
+- Add brand colour variants and a more accessible keyboard-focus highlight.
+- Move the colour palette to a more modern colour model with no visible change, and update dependencies for security.
+
+### Fixed
+
+- Stop several hover shadows from being clipped and correct the wordmark and close-icon colour.
 
 ## [0.19.2] - 2026-06-16
 
-Fix keyboard-focus and layout details for accessibility.
-
-- Give every control a clear keyboard-focus outline that meets accessibility contrast rules.
-- Fix the primary button so its focus state no longer shows white text on orange.
-- Cap the events grid at two columns on laptops, widening only on very large screens.
-- Update and lightly protect the footer contact address.
-
 ## [0.19.1] - 2026-06-15
-
-Fix navigation and reading-width details.
-
-- Add the Accessibility page to the mobile navigation to match the sidebar.
-- Hide the "On this page" rail on the homepage and place it neatly beside the content elsewhere.
-- Cap the reading width for comfort, widening it on very large screens.
-- Shrink and simplify the "Book a Workshop" and "Subscribe" buttons.
 
 ## [0.19.0] - 2026-06-15
 
-Add an Accessibility page and an on-page contents rail, and tighten accessibility across the prototype.
+### Changed
 
-- **New**: Add an Accessibility page with the accessibility statement, testing approach, and feedback route.
-- **New**: Add an "On this page" contents rail that follows along as you scroll, on wider screens.
-- **Fix**: Make the primary button blue with an orange hover, and fix several text-contrast issues.
-- **Fix**: Make the events filter and mobile navigation work correctly for keyboard and screen-reader users.
-- **Behind the scenes**: Add an automated accessibility check that runs over the key pages.
+- Add an Accessibility page with the accessibility statement, testing approach, and feedback route.
+- Add an "On this page" contents rail that follows along as you scroll, on wider screens.
+- Add an automated accessibility check that runs over the key pages.
+
+### Fixed
+
+- Make the primary button blue with an orange hover, and fix several text-contrast issues.
+- Make the events filter and mobile navigation work correctly for keyboard and screen-reader users.
 
 ## [0.18.0] - 2026-06-12
 
-Add brand-representation guidance.
-
-- Add a "How to represent us" section and make brand-name, cafe, and UK-spelling usage consistent across the prototype.
-
 ## [0.17.0] - 2026-06-10
-
-Refine typography weight, the headline underline, and footer details.
-
-- Cap the boldest font weight so headings stay on-brand.
-- Use the brand scribble underline beneath headlines.
-- Keep event cards full-width on tablet, going three across only on larger screens.
-- Refine the keyboard-focus highlight and make the primary button hover orange.
-- Tidy the footer wording and the at-a-glance stats layout.
 
 ## [0.16.0] - 2026-06-10
 
-Add motion and small interactive touches to the prototype.
+### Changed
 
-- **New**: Animate the mobile navigation panel and hamburger toggle, respecting reduced-motion settings.
-- **New**: Add a copy button to the token code blocks with a brief "Copied" confirmation.
-- **New**: Add a GitHub link to the footer and make the "at a glance" stats count up on scroll.
-- **Fix**: Replace the underline graphic with a crisp version and fix a few screen-reader announcements.
-- Remove the Partners strip and the EU-funding disclaimer pattern.
+- Animate the mobile navigation panel and hamburger toggle, respecting reduced-motion settings.
+- Add a copy button to the token code blocks with a brief "Copied" confirmation.
+- Add a GitHub link to the footer and make the "at a glance" stats count up on scroll.
+
+### Fixed
+
+- Replace the underline graphic with a crisp version and fix a few screen-reader announcements.
 
 ## [0.15.0] - 2026-06-09
 
-Expand the colour ramps, add illustrations, and reorganise the prototype into clearer sections.
+### Changed
 
-- **New**: Add full light-to-dark colour ramps for the five brand families with labelled swatches.
-- **New**: Add brand line illustrations and a sketched headline underline.
-- **New**: Add an Upcoming Events pattern and a button-state overview on the Components page.
-- **New**: Reorganise the prototype into Foundations, Components, Patterns, Guidelines, and Governance.
-- **Fix**: Render headlines in a single charcoal colour, keeping orange decorative-only to match the live site.
+- Add full light-to-dark colour ramps for the five brand families with labelled swatches.
+- Add brand line illustrations and a sketched headline underline.
+- Add an Upcoming Events pattern and a button-state overview on the Components page.
+- Reorganise the prototype into Foundations, Components, Patterns, Guidelines, and Governance.
+
+### Fixed
+
+- Render headlines in a single charcoal colour, keeping orange decorative-only to match the live site.
 
 ## [0.14.0] - 2026-06-04
 
-Establish a quality baseline for the prototype: faster images, richer metadata, and stronger accessibility.
+### Changed
 
-- Serve images in faster, modern formats and sized to avoid layout shift.
-- Add web manifest, theme colour, and social-sharing metadata while keeping the site unlisted from search.
-- Add an accessibility baseline: skip link, focus highlight, reduced-motion support, and clearer labels for screen readers.
-- **Behind the scenes**: Add a screenshot tool for desktop, tablet, and mobile visual checks.
+- Add a screenshot tool for desktop, tablet, and mobile visual checks.
 
 ## [0.13.3] - 2026-06-02
 
-Fix mobile navigation behaviour and a handful of build reliability issues.
+### Changed
 
-- Give the mobile menu its own state so a desktop submenu no longer opens the hidden mobile one.
-- Close the mobile menu on Escape and when changing pages, and lock the background while it is open.
-- Make collapsed FAQ answers skip over for keyboard and screen-reader users.
-- **Behind the scenes**: Fix build scripts so they run reliably on Windows and from a fresh checkout.
+- Fix build scripts so they run reliably on Windows and from a fresh checkout.
 
 ## [0.13.2] - 2026-06-02
 
-Refresh the social-sharing and README images.
+### Changed
 
-- Rebuild the social preview and README hero as a composed lavender "Design System" card.
-- **Behind the scenes**: Expand the changelog writing guidance.
+- Expand the changelog writing guidance.
 
 ## [0.13.1] - 2026-05-22
 
-Swap in a dedicated README hero image and add cross-browser checks.
+### Changed
 
-- Use a dedicated wide image for the README hero, keeping the social preview separate.
-- **Behind the scenes**: Add automated cross-browser checks across major desktop and mobile browsers.
+- Add automated cross-browser checks across major desktop and mobile browsers.
 
 ## [0.13.0] - 2026-05-22
 
-Rewrite the README and automate GitHub releases.
+### Changed
 
-- Rewrite the README in a community voice with a hero image and a tech-stack section.
-- **Behind the scenes**: Create GitHub Releases automatically from the changelog when a version is tagged.
+- Create GitHub Releases automatically from the changelog when a version is tagged.
 
 ## [0.12.0] - 2026-05-21
 
-Add meaning-based colour roles and a category-icon system, and retire colour pairings that fail contrast.
+### Changed
 
-- **New**: Add purpose-named colour roles for backgrounds and accents.
-- **New**: Add a filled category-icon system and a colour-combinations example showing the valid and disallowed pairings.
-- **Fix**: Retire orange-on-white text pairings that fail contrast, in favour of charcoal labels.
-- Refine the header dropdown, mobile menu, footer, and workshop-card styling.
-- **Behind the scenes**: Add logo-usage and colour-audit documentation.
+- Add purpose-named colour roles for backgrounds and accents.
+- Add a filled category-icon system and a colour-combinations example showing the valid and disallowed pairings.
+- Add logo-usage and colour-audit documentation.
+
+### Fixed
+
+- Retire orange-on-white text pairings that fail contrast, in favour of charcoal labels.
 
 ## [0.11.1] - 2026-05-21
 
-Align the prototype's navigation and newsletter popup with the live site.
-
-- Match the prototype menu to the live-site navigation.
-- Restyle the newsletter popup to match the live site.
-- Use a dedicated photo for the workshop card and a clearer hero image.
-
 ## [0.11.0] - 2026-05-15
 
-Point the prototype at its custom domain, align the brand palette, and add the AI-agent documentation layer.
+### Changed
 
-- Redirect the old prototype URL to the custom design.foreveryone.berlin domain.
-- Align the brand palette to the seven-colour guide and add a soft-lavender colour.
-- Swap in a community cafe photo for social sharing and the homepage hero.
-- **Behind the scenes**: Add the AI-agent documentation layout, the project licence, and automated build-and-test checks.
+- Add the AI-agent documentation layout, the project licence, and automated build-and-test checks.
 
 ## [0.10.0] - 2026-05-01
 
-Align the brand palette to the seven-colour guide and establish the AI-agent documentation layer.
+### Changed
 
-- Align the brand palette to the seven-colour guide and add a soft-lavender colour.
-- Fix the Patterns page dropdown being clipped.
-- **Behind the scenes**: Add the AI-agent documentation layout and the project licence.
+- Add the AI-agent documentation layout and the project licence.
 
 ## [0.9.1] - 2026-03-30
 
-Replace the text branding with the logo and polish the prototype.
-
-- Use the ForEveryone logo in the header and sidebar instead of text.
-- Calm the page transitions and polish icons and the footer.
-- Fix flicker on Firefox and unwanted horizontal scroll on mobile.
-
 ## [0.9.0] - 2026-03-27
-
-Put the prototype online.
-
-- Deploy the prototype so it is viewable online.
-- Sync the favicon and social-preview image from the live site.
 
 ## [0.8.0] - 2026-03-23
 
-Add an interactive header and keep the prototype out of search results.
+### Changed
 
-- **New**: Add an interactive header with an animated hamburger, slide-down mobile menu, and desktop dropdowns.
-- **New**: Add fade transitions between pages and a "View Patterns" call to action on the homepage.
-- Keep the prototype out of search engines and AI crawlers.
-- **Fix**: Replace placeholder colours with the real site palette and reorder the swatches light to dark.
-- **Fix**: Make the footer and header stack cleanly on narrow screens.
+- Add an interactive header with an animated hamburger, slide-down mobile menu, and desktop dropdowns.
+- Add fade transitions between pages and a "View Patterns" call to action on the homepage.
+
+### Fixed
+
+- Replace placeholder colours with the real site palette and reorder the swatches light to dark.
+- Make the footer and header stack cleanly on narrow screens.
 
 ## [0.7.0] - 2026-03-20
 
-Add a testimonial card and a popup modal.
+### Changed
 
-- **New**: Add a testimonial card and a contact-form popup.
-- **New**: Add syntax highlighting to the token code blocks.
+- Add a testimonial card and a contact-form popup.
+- Add syntax highlighting to the token code blocks.
 
 ## [0.6.0] - 2026-03-20
 
-Turn the prototype into a multi-page site with shared navigation.
+### Changed
 
-- **New**: Add separate Tokens, Components, and Patterns pages alongside the home overview.
-- **New**: Add a sticky desktop sidebar and a mobile hamburger menu that highlight the current page.
-- **New**: Add a shared layout with a persistent footer and an overview page with hero, stats, and cards.
+- Add separate Tokens, Components, and Patterns pages alongside the home overview.
+- Add a sticky desktop sidebar and a mobile hamburger menu that highlight the current page.
+- Add a shared layout with a persistent footer and an overview page with hero, stats, and cards.
 
 ## [0.5.1] - 2026-03-16
 
-Fix the FAQ accordion.
-
-- Fix the open FAQ item so its text stays readable.
-
 ## [0.5.0] - 2026-03-16
 
-Add the core component set.
+### Changed
 
-- **New**: Add icon and play buttons, an FAQ accordion, a dropdown, header and footer, a workshop card, category tags, and input states.
-- **New**: Add more spacing steps to the layout grid.
-- **Behind the scenes**: Generate full colour, spacing, and font-size values from the tokens.
+- Add icon and play buttons, an FAQ accordion, a dropdown, header and footer, a workshop card, category tags, and input states.
+- Add more spacing steps to the layout grid.
+- Generate full colour, spacing, and font-size values from the tokens.
 
 ## [0.4.0] - 2026-03-12
 
-Build out the homepage content.
+### Changed
 
-- **New**: Add the hero, mission, and stats content and the supporting images.
-- **New**: Add radius, shadow, and motion demos, icons, a wave section, and a footer.
-- Refocus the copy on the design system.
+- Add the hero, mission, and stats content and the supporting images.
+- Add radius, shadow, and motion demos, icons, a wave section, and a footer.
 
 ## [0.3.1] - 2026-03-12
 
-Fix a prototype loading error.
-
-- Fix a page-loading error and add instructions for running the prototype.
-
 ## [0.3.0] - 2026-03-12
 
-Set up the pull-request workflow.
+### Changed
 
-- **Behind the scenes**: Document and automate the pull-request and merge workflow.
+- Document and automate the pull-request and merge workflow.
 
 ## [0.2.0] - 2026-03-12
 
-Stand up the first prototype.
+### Changed
 
-- **New**: Add the first prototype with buttons, cards, a form, chips, a blockquote, and a hero.
+- Add the first prototype with buttons, cards, a form, chips, a blockquote, and a hero.
 
 ## [0.1.0] - 2026-03-12
 
-Lay the foundations of the design system.
+### Changed
 
-- **New**: Set up the design tokens, generated CSS, Elementor documentation, a Figma sync guide, and contributing guides.
+- Set up the design tokens, generated CSS, Elementor documentation, a Figma sync guide, and contributing guides.
