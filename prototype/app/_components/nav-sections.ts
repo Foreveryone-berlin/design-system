@@ -25,7 +25,7 @@ export const navGroups: NavGroup[] = [
     ],
   },
   {
-    label: "Agents",
+    label: "AI",
     links: [{ href: "/agent-skills", label: "Agent skills" }],
   },
   {
