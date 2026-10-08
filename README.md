@@ -13,7 +13,6 @@ You can see it all in action on the live preview: **[design.foreveryone.berlin](
 - **CSS:** Authored layers in `css/*.css` (variables only, no raw values).
 - **Prototype:** Next.js 16 + TypeScript (App Router) in `prototype/`.
 - **Hosting:** Vercel at `design.foreveryone.berlin` (legacy `fe-design-system.vercel.app` 301-redirects there).
-- **Consumers:** the Next.js prototype, any framework or plain-CSS app, and host platforms listed in [`integrations/`](integrations/). All read the same generated CSS; platform-specific material lives under that folder.
 - **CI:** GitHub Actions for token build + test + prototype build, and auto-release on `v*.*.*` tag.
 
 ### Quick start
@@ -49,16 +48,21 @@ foreveryone-design-system/
 ├── css/             # Generated + authored CSS
 │   └── integrations/#   ↳ per-platform override layers
 ├── scripts/         # Build, test, and PR helpers
+├── bin/             # fe-ds CLI (skills install, etc.)
+├── skills/          # Consumer agent skills (fe-core, fe-redesign, …)
+├── dist/skills/     # Built skill payload (mirrored to prototype/public/skills/)
 ├── prototype/       # Next.js preview app
 ├── integrations/    # Per-platform guides (see integrations/README.md)
 ├── figma/           # Tokens Studio sync notes
+├── spec/            # Agent-facing principles + flattened tokens
 ├── docs/            # Guides, ADRs, agent contracts
 │   ├── AGENTS.md    #   ↳ full docs index + domain rules
-│   └── skills/      #   ↳ repeatable workflows (tokens, releases)
+│   └── skills/      #   ↳ maintainer workflows (tokens, releases)
 ├── .cursor/         # Cursor agent (AGENTS.md + path-scoped rules)
 ├── .claude/         # Claude Code (rules + project skills)
 ├── AGENTS.md        # Repo-root mirror of docs/AGENTS.md
 ├── CLAUDE.md        # Claude Code session entry
+├── llms.txt         # Agent entry + hard rules
 └── CHANGELOG.md
 ```
 
@@ -83,17 +87,9 @@ foreveryone-design-system/
 - Solo flow: `bash scripts/pr-and-merge.sh` pushes the current branch, opens a PR, and merges it.
 - Tag `main` with `vX.Y.Z` at release; see [`docs/skills/release.md`](docs/skills/release.md).
 
-## AI coding assistants
+## Changelog
 
-- **Canonical context:** [`docs/AGENTS.md`](docs/AGENTS.md) (full documentation index + domain rules).
-- **Repo-root mirror:** [`AGENTS.md`](AGENTS.md) for tools that only auto-load root-level `AGENTS.md` (including Cursor CLI).
-- **Cursor IDE:** [`.cursor/AGENTS.md`](.cursor/AGENTS.md) + path-scoped rules in [`.cursor/rules/`](.cursor/rules/).
-- **Cursor CLI:** [`AGENTS.md`](AGENTS.md) + [`CLAUDE.md`](CLAUDE.md) + [`.cursor/rules/`](.cursor/rules/) (does not read `.cursor/AGENTS.md`).
-- **Claude Code:** [`CLAUDE.md`](CLAUDE.md) + path-scoped rules in [`.claude/rules/`](.claude/rules/).
-- **Project skills (both tools):** [`.claude/skills/`](.claude/skills/) (`optimize-prototype`); Cursor auto-loads from this folder.
-- **Consumer agent skills:** [`docs/agent-skills.md`](docs/agent-skills.md) (`skills/`, `fe-ds` CLI). Distinct from maintainer workflows in [`docs/skills/`](docs/skills/).
-- **Agent contract + runtime policy:** [`docs/agents/`](docs/agents/).
-- **Repeatable workflows:** [`docs/skills/`](docs/skills/).
+Full history in [`CHANGELOG.md`](CHANGELOG.md). GitHub Releases for each tag mirror the matching changelog section.
 
 ## Contributing
 
@@ -113,7 +109,3 @@ Dual-licensed in a single [LICENSE](LICENSE) file:
 - **Code and prototype:** MIT License. You may use, modify, and distribute the software.
 - **Design system materials** (`tokens/`, `css/`, `figma/`, `integrations/`, `docs/`, `skills/`, agent docs, `.claude/` and `.cursor/` rules): CC BY-NC 4.0. You may share and adapt these materials for non-commercial use with attribution. See the [license summary](https://creativecommons.org/licenses/by-nc/4.0/).
 - See the [`LICENSE`](LICENSE) file for the complete terms.
-
-## Changelog
-
-Full history in [`CHANGELOG.md`](CHANGELOG.md). GitHub Releases for each tag mirror the matching changelog section.

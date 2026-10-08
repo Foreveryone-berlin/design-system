@@ -8,6 +8,20 @@
 
 ## [Unreleased]
 
+### Added
+
+- Add consumer agent skills for tokens, accessibility, and components.
+
+### Changed
+
+- Clarify the Agent skills page and install path.
+- Use Book workshop as the label on every Components button specimen.
+- Make the play button glyph white on the blue play control.
+- Use the submenu fill for mobile header link hover instead of an underline.
+- Rename the Accessibility page title to Accessibility statement and refresh the review date.
+- Change the footer to ForEveryone Design System vX.Y.Z - View source on GitHub.
+- Trim the GitHub README and move Changelog before Contributing.
+
 ## [1.11.0] - 2026-10-08
 
 ### Added
