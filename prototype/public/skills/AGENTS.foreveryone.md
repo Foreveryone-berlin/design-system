@@ -31,7 +31,10 @@ Entry point: <https://design.foreveryone.berlin/llms.txt>.
 
 ### Skills
 - `fe-core`: Core conventions for consuming the ForEveryone Berlin design system. Use when importing CSS variables, resolving tokens, choosing fe-* classes, or deciding whether a colour or font is allowed.
+- `fe-a11y`: Accessibility rules for ForEveryone Berlin UI. Use when checking contrast, keyboard focus, skip links, motion preferences, alt text, or WCAG 2.1 AA conformance.
+- `fe-components`: Prefer documented fe-* component contracts for ForEveryone Berlin UI. Use when building or restyling buttons, cards, inputs, tags, FAQ, header, footer, or related patterns.
 - `fe-redesign`: Restyle an existing web app to the ForEveryone Berlin design system. Use when replacing ad-hoc colours, fonts, and components with tokens and fe-* contracts from this repo.
+- `fe-tokens`: Resolve and apply ForEveryone Berlin design tokens. Use when mapping colours, type, spacing, radius, shadow, or motion to CSS variables, or when extending a palette in OKLCH.
 
 Local copies of these skills are in `fe-skills/`.
 Published copies: <https://design.foreveryone.berlin/skills/index.json>. Refresh with `node bin/fe-ds.mjs skills install`.

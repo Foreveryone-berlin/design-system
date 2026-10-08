@@ -4,7 +4,7 @@ Tracks known gaps between the public accessibility commitment
 ([`/accessibility` on the prototype](https://design.foreveryone.berlin/accessibility))
 and current implementation. Update this file when a gap is found or closed.
 
-Last reviewed: 2026-07-18
+Last reviewed: 2026-10-08
 
 ## Open items
 
@@ -23,5 +23,5 @@ Last reviewed: 2026-07-18
 
 ## Scope
 
-- **Prototype** (`design.foreveryone.berlin`): primary verification surface for this register.
+- **Prototype** (`design.foreveryone.berlin`): primary verification surface for this register. Public statement page title is **Accessibility statement**; nav label stays **Accessibility**.
 - **Live marketing site** (`foreveryone.berlin`): one consuming target; after CSS or pattern changes run [integration-checklist.md](integration-checklist.md) and that target's sync from [integrations/README.md](../integrations/README.md).

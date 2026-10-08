@@ -55,16 +55,16 @@ export default function ComponentsPage() {
           }}
         >
           <button type="button" className="ds-btn ds-btn--primary">
-            Primary
+            Book workshop
           </button>
           <button type="button" className="ds-btn ds-btn--orange">
-            Orange
+            Book workshop
           </button>
           <button type="button" className="ds-btn ds-btn--secondary">
-            Secondary
+            Book workshop
           </button>
           <button type="button" className="ds-btn ds-btn--outline">
-            Outline
+            Book workshop
           </button>
         </div>
       </section>
@@ -118,7 +118,7 @@ export default function ComponentsPage() {
                 className={`ds-btn ds-btn--orange${state && state !== "disabled" ? ` ${state}` : ""}`}
                 disabled={state === "disabled"}
               >
-                Orange
+                Book workshop
               </button>
             </span>
           ))}
@@ -131,7 +131,7 @@ export default function ComponentsPage() {
                 className={`ds-btn ds-btn--outline${state && state !== "disabled" ? ` ${state}` : ""}`}
                 disabled={state === "disabled"}
               >
-                Outline
+                Book workshop
               </button>
             </span>
           ))}

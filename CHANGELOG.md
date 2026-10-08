@@ -8,6 +8,22 @@
 
 ## [Unreleased]
 
+## [1.12.0] - 2026-10-08
+
+### Added
+
+- Add consumer agent skills for tokens, accessibility, and components ([#219](https://github.com/Foreveryone-berlin/design-system/pull/219)).
+
+### Changed
+
+- Clarify the Agent skills page and install path ([#219](https://github.com/Foreveryone-berlin/design-system/pull/219)).
+- Use Book workshop as the label on every Components button specimen ([#219](https://github.com/Foreveryone-berlin/design-system/pull/219)).
+- Make the play button glyph white on the blue play control ([#219](https://github.com/Foreveryone-berlin/design-system/pull/219)).
+- Use the submenu fill for mobile header link hover instead of an underline ([#219](https://github.com/Foreveryone-berlin/design-system/pull/219)).
+- Rename the Accessibility page title to Accessibility statement and refresh the review date ([#219](https://github.com/Foreveryone-berlin/design-system/pull/219)).
+- Change the footer to ForEveryone Design System vX.Y.Z - View source on GitHub ([#219](https://github.com/Foreveryone-berlin/design-system/pull/219)).
+- Trim the GitHub README and move Changelog before Contributing ([#219](https://github.com/Foreveryone-berlin/design-system/pull/219)).
+
 ## [1.11.0] - 2026-10-08
 
 ### Added

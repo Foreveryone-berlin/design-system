@@ -140,9 +140,9 @@ const pages: PageDef[] = [
   },
   {
     route: "/accessibility",
-    title: "Accessibility",
+    title: "Accessibility statement",
     description:
-      "Our commitment, conformance target, what is built in, contrast, alt text, and testing.",
+      "Accessibility statement: commitment, conformance target, what is built in, contrast, alt text, and testing.",
     sections: [
       "Our commitment",
       "Conformance target",
@@ -172,8 +172,13 @@ const pages: PageDef[] = [
     route: "/agent-skills",
     title: "Agent skills",
     description:
-      "Guides for AI agents: core conventions for new UI, and a redesign workflow.",
-    sections: ["Core", "Redesign", "Install", "On this site"],
+      "Installable guides for AI agents: fe-core, fe-redesign, fe-tokens, fe-a11y, and fe-components.",
+    sections: [
+      "What these are",
+      "Skills",
+      "Install",
+      "On this site",
+    ],
   },
   {
     route: "/credits",

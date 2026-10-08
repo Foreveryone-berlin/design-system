@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Accessibility",
+  title: "Accessibility statement",
 };
 
 const REPO_URL = "https://github.com/Foreveryone-berlin/design-system";
@@ -7,7 +7,7 @@ const REPO_URL = "https://github.com/Foreveryone-berlin/design-system";
 export default function AccessibilityPage() {
   return (
     <>
-      <h1 className="ds-page-title">Accessibility</h1>
+      <h1 className="ds-page-title">Accessibility statement</h1>
       <p className="ds-intro">
         ForEveryone means everyone. This design system is built so the digital
         experience works for people using screen readers, keyboard navigation,
@@ -239,9 +239,9 @@ export default function AccessibilityPage() {
       <section className="ds-section">
         <h2 className="ds-section-title">Status</h2>
         <p className="fe-body">
-          This statement was last reviewed on <strong>18 July 2026</strong>. It
-          evolves with the design system and the forthcoming brand book. Known
-          gaps and partial conformance items are tracked in the{" "}
+          This statement was last reviewed on <strong>8 October 2026</strong>. It
+          evolves with the design system and the brand book. Known gaps and
+          partial conformance items are tracked in the{" "}
           <a href="https://github.com/Foreveryone-berlin/design-system/blob/develop/docs/a11y-conformance.md">
             accessibility conformance register
           </a>

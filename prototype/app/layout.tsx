@@ -121,12 +121,8 @@ export default function RootLayout({
             </div>
             <footer className="ds-footer" suppressHydrationWarning>
               <p className="ds-footer-version">
-                ForEveryone Design System
+                ForEveryone Design System v{version}
               </p>
-              <span className="ds-footer-sep" aria-hidden="true">
-                -
-              </span>
-              <span className="ds-footer-version">v{version}</span>
               <span className="ds-footer-sep" aria-hidden="true">
                 -
               </span>
@@ -136,7 +132,7 @@ export default function RootLayout({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                GitHub
+                View source on GitHub
               </a>
             </footer>
           </div>
