@@ -8,6 +8,20 @@
 
 ## [Unreleased]
 
+## [1.11.0] - 2026-10-08
+
+### Added
+
+- Add Claude Code and Cursor to the Credits Built with list ([#217](https://github.com/Foreveryone-berlin/design-system/pull/217)).
+- Add BrowserStack to the Credits accessibility tooling list ([#217](https://github.com/Foreveryone-berlin/design-system/pull/217)).
+
+### Changed
+
+- Rename the Agents section in the prototype navigation to AI ([#217](https://github.com/Foreveryone-berlin/design-system/pull/217)).
+- Move Playwright and Playwriter into Credits Built with, out of Accessibility tooling ([#217](https://github.com/Foreveryone-berlin/design-system/pull/217)).
+- Make the mobile menu scroll when the link list is taller than the screen ([#217](https://github.com/Foreveryone-berlin/design-system/pull/217)).
+- Remove the Consumers section from Credits, and spell Licence as License ([#217](https://github.com/Foreveryone-berlin/design-system/pull/217)).
+
 ## [1.10.2] - 2026-10-05
 
 ### Changed

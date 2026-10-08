@@ -3,6 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
+  // Repo already ships docs/AGENTS.md; do not let next dev write prototype/AGENTS.md.
+  agentRules: false,
   async redirects() {
     return [
       {
