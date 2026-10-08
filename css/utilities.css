@@ -246,6 +246,14 @@
     background-color var(--transition-fast),
     opacity var(--transition-fast);
 }
+/* Beat prototype svg.ds-icon-glyph--* { color: theme-2 } (same 0,1,1 otherwise). */
+.fe-play-btn svg.ds-icon-glyph--sm,
+.fe-play-btn svg.ds-icon-glyph--md,
+.fe-play-btn svg.ds-icon-glyph--lg {
+  color: var(--color-white);
+  fill: currentColor;
+  stroke: none;
+}
 .fe-play-btn:hover,
 .fe-play-btn.is-hover {
   background-color: var(--color-brand-primary);
@@ -1021,11 +1029,25 @@
   color: var(--color-brand-dark);
   border-bottom: 1px solid var(--color-theme-7);
   background-color: transparent;
+  background-image: none;
+  text-decoration: none;
   justify-content: center;
   text-align: center;
   transition:
     background-color var(--transition-fast),
     color var(--transition-fast);
+}
+/* Mobile drawer: hover/focus uses the same fill as an open submenu, not the
+   growing underline from the shared .fe-nav-link rule. */
+.fe-header__mobile-nav .fe-nav-link:hover,
+.fe-header__mobile-nav .fe-nav-link:focus,
+.fe-header__mobile-nav .fe-nav-link.is-hover,
+.fe-header__mobile-nav .fe-header__dropdown-trigger:hover,
+.fe-header__mobile-nav .fe-header__dropdown-trigger:focus {
+  background-color: var(--color-blush);
+  background-size: 0;
+  text-decoration: none;
+  color: var(--color-brand-dark);
 }
 .fe-header__mobile-nav .fe-header__dropdown-trigger[aria-expanded="true"] {
   background-color: var(--color-blush);
@@ -1044,6 +1066,15 @@
   justify-content: center;
   border-bottom: 1px solid var(--color-theme-7);
   background-image: none;
+  text-decoration: none;
+}
+.fe-header__mobile-sub .fe-nav-link:hover,
+.fe-header__mobile-sub .fe-nav-link:focus,
+.fe-header__mobile-sub .fe-nav-link.is-hover {
+  background-color: var(--color-blush);
+  background-size: 0;
+  text-decoration: none;
+  color: var(--color-brand-dark);
 }
 .fe-header__mobile-cta {
   margin: var(--spacing-4) var(--spacing-4) 0;

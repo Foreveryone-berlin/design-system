@@ -24,6 +24,41 @@
       ]
     },
     {
+      "name": "fe-a11y",
+      "description": "Accessibility rules for ForEveryone Berlin UI. Use when checking contrast, keyboard focus, skip links, motion preferences, alt text, or WCAG 2.1 AA conformance.",
+      "path": "fe-a11y/SKILL.md",
+      "foreveryone": ">=1.9.0 <2.0.0",
+      "requires": [
+        "fe-core"
+      ],
+      "docs": [
+        "llms.txt",
+        "spec/principles.md",
+        "docs/a11y-conformance.md",
+        "docs/validation.md"
+      ],
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "fe-components",
+      "description": "Prefer documented fe-* component contracts for ForEveryone Berlin UI. Use when building or restyling buttons, cards, inputs, tags, FAQ, header, footer, or related patterns.",
+      "path": "fe-components/SKILL.md",
+      "foreveryone": ">=1.9.0 <2.0.0",
+      "requires": [
+        "fe-core"
+      ],
+      "docs": [
+        "llms.txt",
+        "spec/components/README.md",
+        "docs/visual-styles.md"
+      ],
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
       "name": "fe-redesign",
       "description": "Restyle an existing web app to the ForEveryone Berlin design system. Use when replacing ad-hoc colours, fonts, and components with tokens and fe-* contracts from this repo.",
       "path": "fe-redesign/SKILL.md",
@@ -36,6 +71,24 @@
         "spec/principles.md",
         "spec/tokens.json",
         "docs/agents/redesign-from-this-system.md"
+      ],
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "fe-tokens",
+      "description": "Resolve and apply ForEveryone Berlin design tokens. Use when mapping colours, type, spacing, radius, shadow, or motion to CSS variables, or when extending a palette in OKLCH.",
+      "path": "fe-tokens/SKILL.md",
+      "foreveryone": ">=1.9.0 <2.0.0",
+      "requires": [
+        "fe-core"
+      ],
+      "docs": [
+        "llms.txt",
+        "spec/tokens.json",
+        "spec/principles.md",
+        "docs/token-naming.md"
       ],
       "files": [
         "SKILL.md"

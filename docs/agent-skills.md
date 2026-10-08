@@ -9,7 +9,7 @@ this repository.
 
 | Path | Audience | Role |
 | --- | --- | --- |
-| `skills/` (repo root) | **Consumers** | Installable `fe-core` / `fe-redesign` sources built to `dist/skills/` and mirrored at `/skills/` on the prototype |
+| `skills/` (repo root) | **Consumers** | Installable skill sources built to `dist/skills/` and mirrored at `/skills/` on the prototype |
 | `docs/skills/` | **Maintainers** | Workflows for this repo (token update, release) |
 | `.claude/skills/` | **Maintainers** | Project tools such as `optimize-prototype` |
 
@@ -55,13 +55,17 @@ After deploy, agents that only have the hostname can read:
 - Prototype page: <https://design.foreveryone.berlin/agent-skills>
 
 Those paths omit the site-wide `Content-Signal: ai-input=no` and are exempt from the
-AI-crawler 403 in `prototype/proxy.ts`.
+AI-crawler 403 in `prototype/proxy.ts`. The rest of the prototype stays noindex and
+blocked for search engines and AI crawlers.
 
-## Skills in v1
+## Skills
 
-- **`fe-core`** — new UI: tokens, `fe-*` components, brand colour and a11y rules.
-- **`fe-redesign`** — restyle an existing app onto ForEveryone; requires `fe-core`;
-  installable form of
-  [redesign-from-this-system.md](agents/redesign-from-this-system.md).
+| Skill | Requires | Use when |
+| --- | --- | --- |
+| **`fe-core`** | — | New UI: tokens, `fe-*` components, brand colour and a11y baselines |
+| **`fe-redesign`** | `fe-core` | Restyle an existing app onto ForEveryone ([redesign-from-this-system.md](agents/redesign-from-this-system.md)) |
+| **`fe-tokens`** | `fe-core` | Resolve or extend tokens by role; OKLCH extensions; naming |
+| **`fe-a11y`** | `fe-core` | Contrast, focus, motion, alt text, WCAG 2.1 AA checks |
+| **`fe-components`** | `fe-core` | Prefer documented `fe-*` contracts and state matrices |
 
-Machine surface for v1 is `tokens.json` only (no class `api.json` yet).
+Machine surface for tokens is `tokens.json` (no class `api.json` yet).
