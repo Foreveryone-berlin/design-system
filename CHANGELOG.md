@@ -8,6 +8,19 @@
 
 ## [Unreleased]
 
+### Added
+
+- Add Claude Code and Cursor to the Credits Built with list.
+- Add BrowserStack to the Credits accessibility tooling list.
+
+### Changed
+
+- Rename the Agents section in the prototype navigation to AI.
+- Move Playwright and Playwriter into Credits Built with, out of Accessibility tooling.
+- Make the mobile menu scroll when the link list is taller than the screen.
+- Remove the Consumers section from Credits.
+- Spell Licence as License on the Credits page.
+
 ## [1.10.2] - 2026-10-05
 
 ### Changed

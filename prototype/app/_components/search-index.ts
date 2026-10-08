@@ -179,14 +179,13 @@ const pages: PageDef[] = [
     route: "/credits",
     title: "Credits",
     description:
-      "Contributors, tools, and licence terms for the ForEveryone design system.",
+      "Contributors, tools, and license terms for the ForEveryone design system.",
     sections: [
       "Contributors",
       "Built with",
-      "Consumers",
       "Accessibility tooling",
       "Photography",
-      "Licence",
+      "License",
     ],
   },
 ];

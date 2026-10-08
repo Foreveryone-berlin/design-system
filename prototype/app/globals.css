@@ -682,6 +682,10 @@ summary:focus-visible,
   top: 100%;
   left: 0;
   right: 0;
+  max-height: calc(100dvh - var(--ds-mobile-header-height));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   background: var(--color-background-default);
   border-bottom: 1px solid var(--color-theme-7);
   box-shadow: var(--shadow-md);

@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 export const metadata: Metadata = {
   title: "Credits",
   description:
-    "Contributors, tools, and licence terms for the ForEveryone design system.",
+    "Contributors, tools, and license terms for the ForEveryone design system.",
 };
 
 const REPO_URL = "https://github.com/Foreveryone-berlin/design-system";
@@ -43,32 +43,21 @@ const stack: { name: string; role: ReactNode }[] = [
       </>
     ),
   },
-  { name: "Playwright + axe-core", role: "End-to-end and accessibility testing" },
-];
-
-const consumers: { name: string; role: ReactNode }[] = [
   {
-    name: "foreveryone.berlin",
-    role: (
-      <>
-        Marketing site at{" "}
-        <a
-          href="https://foreveryone.berlin"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          foreveryone.berlin
-        </a>
-        ; host-platform docs under{" "}
-        <a
-          href={`${REPO_URL}/tree/main/integrations`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          integrations/
-        </a>
-      </>
-    ),
+    name: "Playwright",
+    role: "End-to-end and screenshot testing",
+  },
+  {
+    name: "Playwriter",
+    role: "Drives the real browser for live spot checks",
+  },
+  {
+    name: "Claude Code",
+    role: "Coding assistance for implementation",
+  },
+  {
+    name: "Cursor",
+    role: "Coding assistance for implementation",
   },
 ];
 
@@ -84,14 +73,9 @@ const tools = [
     role: "Automated WCAG 2.1 AA checks in CI",
   },
   {
-    name: "Playwright",
-    href: "https://playwright.dev",
-    role: "Cross-browser end-to-end runs and screenshot baselines",
-  },
-  {
-    name: "Playwriter",
-    href: "https://github.com/remorses/playwriter",
-    role: "Drives the real browser for live spot checks",
+    name: "BrowserStack",
+    href: "https://www.browserstack.com/",
+    role: "Cross-browser and device accessibility checks",
   },
 ];
 
@@ -100,7 +84,7 @@ export default function CreditsPage() {
     <>
       <h1 className="ds-page-title">Credits</h1>
       <p className="ds-intro">
-        The people, tools, and licences behind the ForEveryone design system.
+        The people, tools, and licenses behind the ForEveryone design system.
       </p>
 
       <section id="contributors" className="ds-section">
@@ -130,17 +114,6 @@ export default function CreditsPage() {
         <h2 className="ds-section-title">Built with</h2>
         <ul className="ds-rule-list">
           {stack.map(({ name, role }) => (
-            <li key={name}>
-              <strong>{name}</strong>: {role}
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section id="consumers" className="ds-section">
-        <h2 className="ds-section-title">Consumers</h2>
-        <ul className="ds-rule-list">
-          {consumers.map(({ name, role }) => (
             <li key={name}>
               <strong>{name}</strong>: {role}
             </li>
@@ -194,7 +167,7 @@ export default function CreditsPage() {
       </section>
 
       <section id="license" className="ds-section">
-        <h2 className="ds-section-title">Licence</h2>
+        <h2 className="ds-section-title">License</h2>
         <ul className="ds-rule-list">
           <li>
             <strong>Code and prototype</strong> (<code>scripts/</code>,{" "}
