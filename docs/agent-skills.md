@@ -11,7 +11,7 @@ this repository.
 | --- | --- | --- |
 | `skills/` (repo root) | **Consumers** | Installable skill sources built to `dist/skills/` and mirrored at `/skills/` on the prototype |
 | `docs/skills/` | **Maintainers** | Workflows for this repo (token update, release) |
-| `.claude/skills/` | **Maintainers** | Project tools such as `optimize-prototype` |
+| `CLAUDE.md` `## Audit contract` | **Maintainers** | Prototype audit lanes, read by the user-level `site-audit` skill |
 
 Do not confuse them. This page is only about consumer skills.
 

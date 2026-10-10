@@ -26,7 +26,7 @@ Paths are repo-relative from project root unless noted.
 |spec/patterns:{README.md}
 |docs/decisions:{001-token-format.md}
 |docs/skills:{README.md,token-update.md,release.md}
-|.claude:{settings.json,rules/git.md,rules/general.md,rules/css.md,rules/tokens.md,skills/optimize-prototype/SKILL.md}
+|.claude:{settings.json,rules/git.md,rules/general.md,rules/css.md,rules/tokens.md}
 |cursor:{AGENTS.md,rules/git.mdc,rules/general.mdc,rules/css.mdc,rules/tokens.mdc}
 |integrations:{README.md}
 |integrations/elementor:{setup.md,global-colors.md,global-fonts.md,mapping.md,references.md}
@@ -85,6 +85,6 @@ Paths are repo-relative from project root unless noted.
 
 **Git:** Branch from `develop` (not `main`). Conventional Commits. PRs use `.github/PULL_REQUEST_TEMPLATE.md`. Never add agent attribution (`Co-authored-by: Cursor`, `@cursoragent`, Made/Generated with Cursor). Solo merge to develop: `bash scripts/pr-and-merge.sh` from repo root. Detail: `docs/pr-and-merge-workflow.md`.
 
-**Workflows:** Token changes → `docs/skills/token-update.md`. Per-target sync → `integrations/README.md`. Release → `docs/skills/release.md`, driven end-to-end by the user-level `ship` skill (there is no project release skill; deploy is Vercel on push to `main`, `release.yml` only creates the GitHub Release). Prototype audit → `optimize-prototype` skill (`.claude/skills/optimize-prototype/`).
+**Workflows:** Token changes → `docs/skills/token-update.md`. Per-target sync → `integrations/README.md`. Release → `docs/skills/release.md`, driven end-to-end by the user-level `ship` skill (there is no project release skill; deploy is Vercel on push to `main`, `release.yml` only creates the GitHub Release). Prototype audit → user-level `site-audit` skill, driven by `## Audit contract` in `CLAUDE.md`.
 
 **Prototype:** Next.js app under `prototype/` previews tokens/components; uses `app/globals.css` and design-system CSS patterns — consult `prototype/README.md` and match framework version in `prototype/package.json` when touching App Router/APIs.

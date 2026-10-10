@@ -8,6 +8,12 @@
 
 ## [Unreleased]
 
+## [1.12.1] - 2026-10-10
+
+### Changed
+
+- Move the prototype quality-check guide (speed, accessibility, search, code) into the main agent guide, `CLAUDE.md`.
+
 ## [1.12.0] - 2026-10-08
 
 ### Added
