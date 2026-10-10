@@ -1,6 +1,6 @@
 # Project Skills & Workflows
 
-Repeatable workflows for maintaining the ForEveryone Berlin design system. These are **manual fallbacks** for humans and for agents that do not auto-load project skills. The one auto-loaded project skill lives in `.claude/skills/optimize-prototype/` and is used by both Cursor and Claude.
+Repeatable workflows for maintaining the ForEveryone Berlin design system. These are **manual fallbacks** for humans and for agents that do not auto-load project skills. The prototype audit runs through the user-level `site-audit` skill and the `## Audit contract` in [CLAUDE.md](../../CLAUDE.md).
 
 Agent / tool context and doc index: [AGENTS.md](../AGENTS.md).
 

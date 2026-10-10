@@ -104,7 +104,7 @@ Paths are repo-relative from project root.
 |spec/patterns:{README.md}
 |docs/decisions:{001-token-format.md}
 |docs/skills:{README.md,token-update.md,release.md}
-|.claude:{settings.json,rules/git.md,rules/general.md,rules/css.md,rules/tokens.md,skills/optimize-prototype/SKILL.md}
+|.claude:{settings.json,rules/git.md,rules/general.md,rules/css.md,rules/tokens.md}
 |cursor:{AGENTS.md,rules/git.mdc,rules/general.mdc,rules/css.mdc,rules/tokens.mdc}
 |integrations:{README.md}
 |integrations/elementor:{setup.md,global-colors.md,global-fonts.md,mapping.md,references.md}

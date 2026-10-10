@@ -67,6 +67,24 @@ Cursor IDE and CLI auto-load project skills from `.claude/skills/`.
 | Consumer agent skills | `docs/agent-skills.md` |
 | Icons, blobs, photography | `docs/visual-styles.md` |
 
+## Audit contract
+
+Read by the user-level `site-audit` skill (performance, a11y, SEO, code quality) for the `prototype/` app.
+
+- Server: `cd prototype && PORT=3100 npm run dev`; one server for the whole pass.
+- Screenshots: `cd prototype && OUT_DIR=<label> BASE_URL=http://localhost:3100 node scripts/screenshot.mjs`. Pages `/`, `/tokens`, `/components`, `/patterns` at 1440, 768, 390 into `test-results/screenshots/<label>/`. Compare PNG dimensions per pair; a height change is a layout shift.
+- Checks: `node node_modules/typescript/bin/tsc --noEmit` in `prototype/`, then `PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e`.
+- Headless alternative: `bash scripts/optimize-run.sh` (flags `--skip-baseline`, `--dimension perf|a11y|seo|cleanup`, `--prompts-only`); lane prompts in `scripts/optimize-prompts/`.
+
+| Lane | Owns | Goals |
+|---|---|---|
+| Performance | `prototype/next.config.ts`, `prototype/app/{page.tsx,FaqDemo.tsx}`, `prototype/app/{foundations,components,patterns}/page.tsx` | `next/image` with width/height, CLS, needless `"use client"`, bundle |
+| Accessibility | `prototype/app/_components/**`, `prototype/app/globals.css` | Names, `aria-current`, `<dialog>` focus return, `inert`, `:focus-visible`, `.fe-skip-link`, reduced motion |
+| SEO / metadata | `prototype/app/layout.tsx`, `prototype/public/robots.txt`, `prototype/app/manifest.ts` | Title template, canonical, OG/Twitter, `viewport` theme-color, manifest |
+| Code quality | `prototype/content/site-copy.ts`, `prototype/tsconfig.json`, `prototype/package.json`, ESLint config | Unused exports (grep first), types, lint; no dependency changes |
+
+Pitfalls: authored CSS uses `var(--token)` only, logical properties, mobile-first `min-width`, no `!important`; never hand-edit `css/custom-properties.css`. The prototype stays `noindex, nofollow` with no sitemap. A skip link needs `<a href="#main-content" className="ds-skip-link">` plus `id="main-content"` and `tabIndex={-1}` on `<main>` in `layout.tsx`. `next/image` `fill` only inside a fixed-height wrapper.
+
 ## Retrieval-led reasoning
 
 **IMPORTANT:** For tokens, CSS, integration, Figma, or Next.js work, open files from **`docs/AGENTS.md`** (documentation index) instead of relying on training data alone.
