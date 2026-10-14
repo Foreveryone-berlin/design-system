@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",
-    "@playwright/test": "^1.61.1",
+    "@playwright/test": "^1.64.0",
     "@types/node": "^24.13.6",
     "@types/prismjs": "^1.26.6",
     "@types/react": "^19.3.0",
