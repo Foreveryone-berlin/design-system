@@ -59,6 +59,29 @@
       ]
     },
     {
+      "name": "fe-og-image",
+      "description": "Create on-brand ForEveryone OG images and featured-image artwork. Use for social link previews, WordPress featured images, or reusable image templates with verified copy, brand assets and export quality.",
+      "path": "fe-og-image/SKILL.md",
+      "foreveryone": ">=1.12.1 <2.0.0",
+      "requires": [
+        "fe-core"
+      ],
+      "docs": [
+        "spec/principles.md",
+        "docs/visual-styles.md",
+        "integrations/elementor/og-images.md"
+      ],
+      "files": [
+        "SKILL.md",
+        "assets/SOURCES.md",
+        "assets/doodle-underline.svg",
+        "assets/foreveryone-horizontal.png",
+        "assets/pottery-line.svg",
+        "references/production.md",
+        "scripts/compose.mjs"
+      ]
+    },
+    {
       "name": "fe-redesign",
       "description": "Restyle an existing web app to the ForEveryone Berlin design system. Use when replacing ad-hoc colours, fonts, and components with tokens and fe-* contracts from this repo.",
       "path": "fe-redesign/SKILL.md",

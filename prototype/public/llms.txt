@@ -54,7 +54,7 @@ role, and component has one correct answer.
 
 ## Agent skills
 
-Guides for AI agents (`fe-core`, `fe-redesign`) under `skills/`, built to
+Guides for AI agents (`fe-core`, `fe-redesign`, `fe-og-image`) under `skills/`, built to
 `dist/skills/` and mirrored at `/skills/` on the prototype. They package the rules
 in this file and in `spec/` for use in another project.
 
