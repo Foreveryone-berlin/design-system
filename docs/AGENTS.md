@@ -35,7 +35,7 @@ Paths are repo-relative from project root unless noted.
 |css:{custom-properties.css,base.css,typography.css,utilities.css}
 |css/integrations:{elementor.css}
 |scripts:{build-css.js,build-css.test.js,build-spec.js,build-skills.mjs,build-skills.test.mjs,pr-and-merge.sh,optimize-run.sh,import-figma-elements.mjs,import-desktop-elements.mjs,svg-normalize.mjs}
-|skills:{_shared/conventions.md,fe-core/SKILL.md,fe-redesign/SKILL.md}
+|skills:{_shared/conventions.md,fe-core/SKILL.md,fe-redesign/SKILL.md,fe-og-image/SKILL.md}
 |bin:{fe-ds.mjs}
 |prototype:{README.md,next.config.ts,package.json,tsconfig.json,playwright.config.ts}
 |prototype/app:{layout.tsx,page.tsx,globals.css,manifest.ts,FaqDemo.tsx}
@@ -66,6 +66,8 @@ Paths are repo-relative from project root unless noted.
 ---
 
 ## Condensed domain knowledge (read full files when editing)
+
+**OG images:** OG or featured-image work uses `skills/fe-og-image/SKILL.md`; host assignment follows `integrations/elementor/og-images.md`.
 
 **Token pipeline:** `tokens/*.json` (W3C DTCG: only `$value`, `$type`, `$description` per token) → run `node scripts/build-css.js` → regenerates `css/custom-properties.css` (`:root` vars). Never hand-edit `custom-properties.css`.
 

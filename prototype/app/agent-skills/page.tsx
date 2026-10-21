@@ -38,6 +38,25 @@ const SKILLS = [
     ],
   },
   {
+    id: "fe-og-image",
+    title: "fe-og-image",
+    summary: "Create on-brand OG and featured images. Requires fe-core.",
+    points: [
+      <>
+        One headline, one subject, one optional supporting line. Reuse the Clay
+        Connections composition with current digital tokens and licensed fonts.
+      </>,
+      <>
+        Generate the visual when needed; compose exact type, approved logo and
+        decorations separately. Deliver a 1200 x 630 JPEG or PNG and editable source.
+      </>,
+      <>
+        Check crop, small-card readability and image metadata. WordPress featured
+        media and the rendered OG image are verified independently.
+      </>,
+    ],
+  },
+  {
     id: "fe-redesign",
     title: "fe-redesign",
     summary: "Restyle an existing app onto ForEveryone. Requires fe-core.",

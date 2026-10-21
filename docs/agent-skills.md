@@ -63,6 +63,7 @@ blocked for search engines and AI crawlers.
 | Skill | Requires | Use when |
 | --- | --- | --- |
 | **`fe-core`** | — | New UI: tokens, `fe-*` components, brand colour and a11y baselines |
+| **`fe-og-image`** | `fe-core` | OG and featured-image generation, Clay Connections composition, export and metadata checks |
 | **`fe-redesign`** | `fe-core` | Restyle an existing app onto ForEveryone ([redesign-from-this-system.md](agents/redesign-from-this-system.md)) |
 | **`fe-tokens`** | `fe-core` | Resolve or extend tokens by role; OKLCH extensions; naming |
 | **`fe-a11y`** | `fe-core` | Contrast, focus, motion, alt text, WCAG 2.1 AA checks |
