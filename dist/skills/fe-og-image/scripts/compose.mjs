@@ -17,6 +17,9 @@ async function data(file, stretch = false) {
 export async function compose(brief, base) {
   if (!brief.headline?.trim()) throw new Error('headline is required');
   if (brief.image && !brief.imageAlt?.trim()) throw new Error('imageAlt is required for a supplied image');
+  if (!brief.image && brief.visualSubject !== 'pottery') throw new Error('image is required unless visualSubject is pottery');
+  if (brief.cta !== undefined && !brief.cta?.trim()) throw new Error('cta must contain a label');
+  if (brief.cta && !brief.support?.trim()) throw new Error('support is required with cta');
   for (const key of ['fontRegular', 'fontBold', 'tokens']) if (!brief[key]) throw new Error(`${key} is required`);
   const position = brief.imagePosition ?? '50% 50%';
   if (brief.headlineSize && !['display', 'compact'].includes(brief.headlineSize)) throw new Error('headlineSize must be display or compact');
@@ -43,7 +46,7 @@ export async function compose(brief, base) {
 @font-face{font-family:'${escape(family)}';font-weight:400;src:url('${regular}')}
 @font-face{font-family:'${escape(family)}';font-weight:700;src:url('${bold}')}
 :root{${cssVars}
---og-width:1200px;--og-height:630px;--og-inset:var(--spacing-16);--og-copy-width:600px;--og-visual-width:404px;--og-visual-height:388px;--og-title-leading:1.05;--og-title-size:var(${compact ? '--font-size-3xl' : '--font-size-4xl'});--og-support-size:var(--font-size-2xl);--og-logo-width:200px;--og-zero:0px;}
+--og-width:1200px;--og-height:630px;--og-inset:var(--spacing-16);--og-copy-width:600px;--og-visual-width:404px;--og-visual-height:${brief.cta ? '360px' : '388px'};--og-visual-top:var(${brief.cta ? '--spacing-24' : '--spacing-32'});--og-title-leading:1.05;--og-title-size:var(${compact ? '--font-size-3xl' : '--font-size-4xl'});--og-support-size:${brief.cta ? 'calc(var(--font-size-2xl) * 1.333333)' : 'var(--font-size-2xl)'};--og-logo-width:200px;--og-logo-bottom:${brief.cta ? '76px' : 'var(--og-inset)'};--og-cta-height:64px;--og-arrow-size:24px;--og-zero:0px;}
 *{box-sizing:border-box}html,body{margin:var(--og-zero);width:var(--og-width);height:var(--og-height);background:var(--color-background-default)}
 .card{position:relative;width:var(--og-width);height:var(--og-height);overflow:hidden;color:var(--color-brand-dark);font-family:var(--font-family-body);letter-spacing:var(--letter-spacing-normal)}
 .copy{position:absolute;left:var(--og-inset);top:var(--spacing-32);width:var(--og-copy-width)}
@@ -51,14 +54,17 @@ export async function compose(brief, base) {
 h1{margin:var(--og-zero);font-family:var(--font-family-heading);font-size:var(--og-title-size);font-weight:var(--font-weight-bold);line-height:var(--og-title-leading);overflow-wrap:normal}
 .underline{height:var(--spacing-4);width:100%;margin-block:var(--spacing-4);background:var(--color-brand-primary);mask:url('${underline}') center/100% 100% no-repeat}
 .support{margin:var(--og-zero);font-size:var(--og-support-size);line-height:var(--line-height-normal)}
-.visual{position:absolute;right:var(--og-inset);top:var(--spacing-32);width:var(--og-visual-width);height:var(--og-visual-height);object-fit:cover;object-position:${position};border-radius:43% 57% 51% 49% / 39% 43% 57% 61%}
+.visual{position:absolute;right:var(--og-inset);top:var(--og-visual-top);width:var(--og-visual-width);height:var(--og-visual-height);object-fit:cover;object-position:${position};border-radius:43% 57% 51% 49% / 39% 43% 57% 61%}
 .illustration{object-fit:contain;border-radius:var(--og-zero);padding:var(--spacing-8)}
-.logo{position:absolute;left:var(--og-inset);bottom:var(--og-inset);width:var(--og-logo-width);height:auto}
+.logo{position:absolute;left:var(--og-inset);bottom:var(--og-logo-bottom);width:var(--og-logo-width);height:auto}
+.cta{position:absolute;right:var(--og-inset);bottom:var(--og-inset);height:var(--og-cta-height);display:flex;align-items:center;gap:var(--spacing-4);padding-inline:var(--spacing-8);border-radius:var(--radius-pill);background:var(--color-brand-secondary);color:var(--color-base-white);font-size:var(--font-size-2xl);font-weight:var(--font-weight-bold);line-height:var(--line-height-normal);white-space:nowrap}
+.cta svg{width:var(--og-arrow-size);height:var(--og-arrow-size);flex:none}
 </style></head><body><main class='card' aria-label='${escape(brief.headline)}'>
 ${brief.label ? `<p class='label'>${escape(brief.label)}</p>` : ''}
 <div class='copy'><h1>${escape(brief.headline)}</h1><div class='underline' aria-hidden='true'></div>${brief.support ? `<p class='support'>${escape(brief.support)}</p>` : ''}</div>
 <img class='visual${brief.image ? '' : ' illustration'}' src='${visual}' alt='${escape(brief.imageAlt ?? (brief.image ? '' : 'Pottery illustration'))}'>
 <img class='logo' src='${logo}' alt='ForEveryone'>
+${brief.cta ? `<span class='cta'>${escape(brief.cta)}<svg viewBox='0 0 24 24' aria-hidden='true'><path d='M4 12h15m-6-6 6 6-6 6' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg></span>` : ''}
 </main><script>
 window.feOgValidate=async()=>{
  const issues=[];
@@ -75,6 +81,11 @@ window.feOgValidate=async()=>{
  if(copy.bottom>logo.top-24)issues.push('Shorten copy: logo clear space collision');
  if(copy.right>visual.left-24)issues.push('Copy and visual clear space collision');
  if(copy.top<64||copy.bottom>566||visual.bottom>566)issues.push('Content exceeds safe inset');
+ if(document.querySelector('.cta')){
+  const cta=box('.cta');
+  if(cta.left<logo.right+24||cta.top<visual.bottom+24)issues.push('CTA clear space collision');
+  if(cta.right>1136||cta.bottom>566||cta.left<64||cta.top<64)issues.push('CTA exceeds safe inset');
+ }
  return {ok:issues.length===0,issues,width:1200,height:630};
 };
 </script></body></html>`;
