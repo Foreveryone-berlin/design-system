@@ -20,6 +20,8 @@ Platform code|css/integrations/*.css + integrations/<target>/ ONLY — keep css/
 
 Common mistakes:
 
+- OG or featured-image work uses `skills/fe-og-image/SKILL.md`; host assignment follows `integrations/elementor/og-images.md`.
+
 - Editing `css/custom-properties.css` by hand — run `node scripts/build-css.js` after token changes.
 - Hardcoding hex or `font-family` in authored CSS — use variables from `custom-properties.css`.
 - Skipping `CHANGELOG.md` when touching `tokens/` or implementation `css/`.

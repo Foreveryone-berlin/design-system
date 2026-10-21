@@ -22,6 +22,8 @@ Platform code|css/integrations/*.css + integrations/<target>/ ONLY — keep css/
 
 Common mistakes:
 
+- OG or featured-image work uses `skills/fe-og-image/SKILL.md`; host assignment follows `integrations/elementor/og-images.md`.
+
 - Editing `css/custom-properties.css` by hand — run `node scripts/build-css.js` after token changes.
 - Hardcoding hex or `font-family` in authored CSS — use variables from `custom-properties.css`.
 - Skipping `CHANGELOG.md` when touching `tokens/` or implementation `css`.
@@ -113,7 +115,7 @@ Paths are repo-relative from project root.
 |css:{custom-properties.css,base.css,typography.css,utilities.css}
 |css/integrations:{elementor.css}
 |scripts:{build-css.js,build-css.test.js,build-spec.js,build-skills.mjs,build-skills.test.mjs,pr-and-merge.sh,optimize-run.sh,import-figma-elements.mjs,import-desktop-elements.mjs,svg-normalize.mjs}
-|skills:{_shared/conventions.md,fe-core/SKILL.md,fe-redesign/SKILL.md}
+|skills:{_shared/conventions.md,fe-core/SKILL.md,fe-redesign/SKILL.md,fe-og-image/SKILL.md}
 |bin:{fe-ds.mjs}
 |prototype:{README.md,next.config.ts,package.json,tsconfig.json,playwright.config.ts}
 |prototype/app:{layout.tsx,page.tsx,globals.css,manifest.ts,FaqDemo.tsx}
