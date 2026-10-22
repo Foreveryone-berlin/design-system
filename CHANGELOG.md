@@ -8,6 +8,21 @@
 
 ## [Unreleased]
 
+## [1.13.1] - 2026-10-22
+
+### Changed
+
+- Clarify and shorten the Agent skills page and its install guide.
+- Name all six agent skills wherever the skills are listed.
+
+### Removed
+
+- Remove an agent-skills installer option that had no effect.
+
+### Fixed
+
+- Match the agent skills' Blue rule to the brand principles: pure white text, digital only.
+
 ## [1.13.0] - 2026-10-22
 
 ### Added

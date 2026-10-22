@@ -110,8 +110,8 @@ export default function Home() {
           <Link href="/agent-skills" className="ds-overview-card">
             <h3 className="ds-overview-card__title">Agent skills</h3>
             <p className="ds-overview-card__desc">
-              Guides for AI agents: core conventions for new UI, and a
-              workflow for restyling an existing app.
+              Installable guides for AI agents: core rules, tokens, components,
+              accessibility, redesign, and OG images.
             </p>
             <span className="ds-overview-card__link">
               View agent skills &rarr;

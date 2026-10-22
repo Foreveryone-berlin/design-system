@@ -51,5 +51,5 @@ How to load the system from plain CSS, React/Next.js, or a CMS: [integrations/RE
 
 ## Consumer agent skills
 
-AI agents can follow this system via the `fe-core` and `fe-redesign` skills.
+AI agents can follow this system via six installable skills, starting with `fe-core`.
 Details: [agent-skills.md](agent-skills.md).
