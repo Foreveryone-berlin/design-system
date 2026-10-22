@@ -27,13 +27,13 @@ Defined in `prototype/vercel.json`:
       "source": "/",
       "has": [{ "type": "host", "value": "fe-design-system.vercel.app" }],
       "destination": "https://design.foreveryone.berlin/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "fe-design-system.vercel.app" }],
       "destination": "https://design.foreveryone.berlin/:path*",
-      "permanent": true
+      "statusCode": 301
     }
   ]
 }

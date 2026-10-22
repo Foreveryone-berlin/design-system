@@ -19,6 +19,10 @@
 
 - Show 100+ colour tokens on the design-system homepage.
 
+### Fixed
+
+- Match the documented permanent redirect from the legacy preview address.
+
 ### Security
 
 - Update Next.js, Sharp, and source-map-js to patched versions.
