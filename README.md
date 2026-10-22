@@ -59,7 +59,8 @@ foreveryone-design-system/
 │   ├── AGENTS.md    #   ↳ full docs index + domain rules
 │   └── skills/      #   ↳ maintainer workflows (tokens, releases)
 ├── .cursor/         # Cursor agent (AGENTS.md + path-scoped rules)
-├── .claude/         # Claude Code (rules + project skills)
+├── .claude/         # Claude Code rules, shared explicitly with Codex
+├── .agents/skills/  # Codex skill discovery (generated from skills/)
 ├── AGENTS.md        # Repo-root mirror of docs/AGENTS.md
 ├── CLAUDE.md        # Claude Code session entry
 ├── llms.txt         # Agent entry + hard rules
@@ -76,7 +77,7 @@ foreveryone-design-system/
 - **Logo usage** (X measurement, safe zone, min sizes, white-on-orange exception): [`docs/logo-usage.md`](docs/logo-usage.md).
 - **Color audit** (2026 brand-guide alignment + approved bg ⇄ text combinations): [`docs/color-audit-2026.md`](docs/color-audit-2026.md).
 - **Brand source of truth** (authority matrix; Brand Book v1.0 governs): [`docs/brand-book-references.md`](docs/brand-book-references.md).
-- **For AI agents** (consume the system / redesign an app): installable skills via [`docs/agent-skills.md`](docs/agent-skills.md) (`node bin/fe-ds.mjs skills install`), plus [`llms.txt`](llms.txt), [`spec/`](spec/), and [`docs/agents/redesign-from-this-system.md`](docs/agents/redesign-from-this-system.md).
+- **For AI agents** (consume the system / redesign an app): installable skills via [`docs/agent-skills.md`](docs/agent-skills.md) (`node bin/fe-ds.mjs skills install`), Codex loads root `AGENTS.md` and generated `.agents/skills/`; see the [tool loading matrix](docs/agents/README.md). Also see [`llms.txt`](llms.txt), [`spec/`](spec/), and [`docs/agents/redesign-from-this-system.md`](docs/agents/redesign-from-this-system.md).
 
 ## Git workflow
 
@@ -107,5 +108,5 @@ Dual-licensed in a single [LICENSE](LICENSE) file:
 
 - **Software** (`scripts/`, `bin/`, `prototype/`): **MIT**.
 - **Code and prototype:** MIT License. You may use, modify, and distribute the software.
-- **Design system materials** (`tokens/`, `css/`, `figma/`, `integrations/`, `docs/`, `skills/`, agent docs, `.claude/` and `.cursor/` rules): CC BY-NC 4.0. You may share and adapt these materials for non-commercial use with attribution. See the [license summary](https://creativecommons.org/licenses/by-nc/4.0/).
+- **Design system materials** (`tokens/`, `css/`, `figma/`, `integrations/`, `docs/`, `skills/`, agent docs, `.agents/` skills, `.claude/` and `.cursor/` rules): CC BY-NC 4.0. You may share and adapt these materials for non-commercial use with attribution. See the [license summary](https://creativecommons.org/licenses/by-nc/4.0/).
 - See the [`LICENSE`](LICENSE) file for the complete terms.

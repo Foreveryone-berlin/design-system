@@ -5,11 +5,12 @@ match what is already in `llms.txt`, the token list, and the component docs.
 Install them into another project when the agent is working there instead of in
 this repository.
 
-## Three different “skills” folders
+## Skill sources and layouts
 
 | Path | Audience | Role |
 | --- | --- | --- |
 | `skills/` (repo root) | **Consumers** | Installable skill sources built to `dist/skills/` and mirrored at `/skills/` on the prototype |
+| `.agents/skills/` | **Codex** | Generated discovery mirror of `skills/`; never edit directly |
 | `docs/skills/` | **Maintainers** | Workflows for this repo (token update, release) |
 | `CLAUDE.md` `## Audit contract` | **Maintainers** | Prototype audit lanes, read by the user-level `site-audit` skill |
 
@@ -32,8 +33,11 @@ to equip, `node bin/fe-ds.mjs skills install` is enough.
 
 `skills install` copies the payload into `fe-skills/` (or `--dir`), writes a managed
 `<!-- foreveryone:skills:start -->` … `end -->` block into the project’s `AGENTS.md`,
-and mirrors into `.claude/skills`, `.cursor/skills`, or `.agents/skills` when those
-parent folders already exist. Use `--target` to force a layout. Zero network after
+and installs `.agents/skills/` for Codex discovery even in a new project. It also
+mirrors into `.claude/skills` or `.cursor/skills` when those parent folders exist.
+Use `--target codex,agents` for Codex skills plus the managed instruction block,
+or `--target codex` for skills only. Codex loads root `AGENTS.md`, not `CLAUDE.md`
+or the editor rule directories ([official guidance](https://learn.chatgpt.com/docs/agent-configuration/agents-md)). Zero network after
 the clone; no API key; this package is private and is not published to npm.
 
 Rebuild the committed trees after editing sources:
@@ -42,7 +46,7 @@ Rebuild the committed trees after editing sources:
 npm run skills:build
 ```
 
-That regenerates `dist/skills/`, syncs `prototype/public/skills/`, and copies root
+That regenerates `dist/skills/`, `.agents/skills/`, and `prototype/public/skills/`, and copies root
 `llms.txt` to `prototype/public/llms.txt`.
 
 ## Site discovery (secondary)
@@ -63,6 +67,7 @@ blocked for search engines and AI crawlers.
 | Skill | Requires | Use when |
 | --- | --- | --- |
 | **`fe-core`** | — | New UI: tokens, `fe-*` components, brand colour and a11y baselines |
+| **`fe-og-image`** | `fe-core` | OG and featured-image generation, Clay Connections composition, export and metadata checks |
 | **`fe-redesign`** | `fe-core` | Restyle an existing app onto ForEveryone ([redesign-from-this-system.md](agents/redesign-from-this-system.md)) |
 | **`fe-tokens`** | `fe-core` | Resolve or extend tokens by role; OKLCH extensions; naming |
 | **`fe-a11y`** | `fe-core` | Contrast, focus, motion, alt text, WCAG 2.1 AA checks |

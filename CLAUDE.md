@@ -20,6 +20,8 @@ Platform code|css/integrations/*.css + integrations/<target>/ ONLY — keep css/
 
 Common mistakes:
 
+- OG or featured-image work uses `skills/fe-og-image/SKILL.md`; host assignment follows `integrations/elementor/og-images.md`.
+
 - Editing `css/custom-properties.css` by hand — run `node scripts/build-css.js` after token changes.
 - Hardcoding hex or `font-family` in authored CSS — use variables from `custom-properties.css`.
 - Skipping `CHANGELOG.md` when touching `tokens/` or implementation `css/`.
@@ -34,19 +36,20 @@ Common mistakes:
 | Build both (CSS + spec + skills) | `npm run build` |
 | Build consumer agent skills | `npm run skills:build` |
 | Install consumer skills | `node bin/fe-ds.mjs skills install` |
+| Headless prototype audit with Codex | `bash scripts/optimize-run.sh --agent codex` |
 | Prototype dev | `cd prototype && npm install && npm run dev` |
 | Screenshot key pages at 3 breakpoints | `cd prototype && OUT_DIR=baseline BASE_URL=http://localhost:3100 node scripts/screenshot.mjs` |
 | Prototype e2e + axe (LOCAL, not prod) | with dev server up: `cd prototype && PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e` |
 | Solo PR + merge to `develop` | `bash scripts/pr-and-merge.sh` |
 | Ship a full release (develop→main→tag→Vercel) | user-level `ship` skill; triggers: "ship it", "cut release", "release X.Y.Z". Manual fallback: [docs/skills/release.md](docs/skills/release.md) |
 
-Cursor IDE and CLI auto-load project skills from `.claude/skills/`.
+Consumer skill sources live in `skills/`. `npm run skills:build` generates `.agents/skills/` for Codex. Root `AGENTS.md` routes Codex to the shared rules; Claude and Cursor keep their native rule loading.
 
 ## Git and PR rules
 
 - Branch from **`develop`**, not `main`. Prefixes: `feature/`, `fix/`, `docs/`, `chore/`.
 - Conventional Commits; use `.github/PULL_REQUEST_TEMPLATE.md` for PRs.
-- Never add agent attribution: no `Co-authored-by: Cursor` / `@cursoragent` / Made/Generated with Cursor, and no Claude co-author trailers or "Generated with Claude Code" unless the user explicitly asks.
+- Never add agent attribution: no `Co-authored-by: Cursor` / `@cursoragent` / Made/Generated with Cursor, and no equivalent Claude or Codex attribution trailers.
 - When the user explicitly asks to ship / merge to develop / open and merge a PR, use `bash scripts/pr-and-merge.sh` (see `docs/pr-and-merge-workflow.md`).
 - Changelog: any `tokens/` or `css/` change → update `## [Unreleased]` in `CHANGELOG.md`.
 
@@ -74,7 +77,7 @@ Read by the user-level `site-audit` skill (performance, a11y, SEO, code quality)
 - Server: `cd prototype && PORT=3100 npm run dev`; one server for the whole pass.
 - Screenshots: `cd prototype && OUT_DIR=<label> BASE_URL=http://localhost:3100 node scripts/screenshot.mjs`. Pages `/`, `/tokens`, `/components`, `/patterns` at 1440, 768, 390 into `test-results/screenshots/<label>/`. Compare PNG dimensions per pair; a height change is a layout shift.
 - Checks: `node node_modules/typescript/bin/tsc --noEmit` in `prototype/`, then `PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e`.
-- Headless alternative: `bash scripts/optimize-run.sh` (flags `--skip-baseline`, `--dimension perf|a11y|seo|cleanup`, `--prompts-only`); lane prompts in `scripts/optimize-prompts/`.
+- Headless alternative: `bash scripts/optimize-run.sh` (flags `--skip-baseline`, `--dimension perf|a11y|seo|cleanup`, `--prompts-only`, `--agent cursor|codex`); lane prompts in `scripts/optimize-prompts/`.
 
 | Lane | Owns | Goals |
 |---|---|---|

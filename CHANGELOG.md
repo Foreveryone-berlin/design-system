@@ -8,6 +8,21 @@
 
 ## [Unreleased]
 
+## [1.13.0] - 2026-10-22
+
+### Added
+
+- Add Codex support for repository guidance and automatic skill discovery in new projects.
+- Add page-specific social image creation with designer-review layouts and destination-matched calls to action.
+
+### Changed
+
+- Show 100+ colour tokens on the design-system homepage.
+
+### Security
+
+- Update Next.js, Sharp, and source-map-js to patched versions.
+
 ## [1.12.1] - 2026-10-10
 
 ### Changed

@@ -38,6 +38,8 @@ Platform code|css/integrations/*.css + integrations/<target>/ ONLY — keep css/
 
 Common mistakes:
 
+- OG or featured-image work uses `skills/fe-og-image/SKILL.md`; host assignment follows `integrations/elementor/og-images.md`.
+
 - Editing `css/custom-properties.css` by hand — run `node scripts/build-css.js` after token changes.
 - Hardcoding hex or `font-family` in authored CSS — use variables from `custom-properties.css`.
 - Skipping `CHANGELOG.md` when touching `tokens/` or implementation `css`.
@@ -52,13 +54,14 @@ Common mistakes:
 | Build both | `npm run build` |
 | Build consumer agent skills | `npm run skills:build` |
 | Install consumer skills | `node bin/fe-ds.mjs skills install` |
+| Headless prototype audit with Codex | `bash scripts/optimize-run.sh --agent codex` |
 | Prototype dev | `cd prototype && npm install && npm run dev` |
 | Screenshot key pages | `cd prototype && OUT_DIR=baseline BASE_URL=http://localhost:3100 node scripts/screenshot.mjs` |
 | Prototype e2e + axe (LOCAL) | with dev server up: `cd prototype && PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e` |
 | Solo merge to `develop` | `bash scripts/pr-and-merge.sh` |
 | Ship release | user-level `ship` skill; triggers: "ship it", "cut release", "release X.Y.Z". Manual fallback: `docs/skills/release.md` |
 
-Cursor IDE auto-loads project skills from `.claude/skills/`.
+Consumer skill sources live in `skills/`. `npm run skills:build` generates `.agents/skills/` for Codex. Root `AGENTS.md` routes Codex to the shared rules; Claude and Cursor keep their native rule loading.
 
 ## Git and PR rules
 

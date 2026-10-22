@@ -38,6 +38,25 @@ const SKILLS = [
     ],
   },
   {
+    id: "fe-og-image",
+    title: "fe-og-image",
+    summary: "Create on-brand OG and featured images. Requires fe-core.",
+    points: [
+      <>
+        One headline, one subject, one optional supporting line. Reuse the Clay
+        Connections composition with current digital tokens and licensed fonts.
+      </>,
+      <>
+        Generate the visual when needed; compose exact type, approved logo and
+        decorations separately. Deliver a 1200 x 630 JPEG or PNG and editable source.
+      </>,
+      <>
+        Check crop, small-card readability and image metadata. WordPress featured
+        media and the rendered OG image are verified independently.
+      </>,
+    ],
+  },
+  {
     id: "fe-redesign",
     title: "fe-redesign",
     summary: "Restyle an existing app onto ForEveryone. Requires fe-core.",
@@ -125,8 +144,8 @@ export default function AgentSkillsPage() {
         <p className="fe-body">
           Consumer skills live in the repo root <code>skills/</code> folder.
           That is separate from maintainer workflows in{" "}
-          <code>docs/skills/</code> and project tools in{" "}
-          <code>.claude/skills/</code>. Every skill below requires{" "}
+          <code>docs/skills/</code>. Codex discovers the generated copies in{" "}
+          <code>.agents/skills/</code>. Every skill below requires{" "}
           <code>fe-core</code> except <code>fe-core</code> itself.
         </p>
       </section>
@@ -160,8 +179,10 @@ export default function AgentSkillsPage() {
         />
         <p className="fe-body">
           The skills are copied into that project, and a short note is added to
-          its <code>AGENTS.md</code>. Cursor, Claude Code, and Codex folders are
-          updated too when they already exist. Zero network after the clone.
+          its <code>AGENTS.md</code>. Codex skills are installed into{" "}
+          <code>.agents/skills/</code>, including in new projects. Cursor and
+          Claude Code folders are updated when they already exist. Zero network
+          after the clone.
           Details and options:{" "}
           <a href={REPO_DOCS} target="_blank" rel="noopener noreferrer">
             docs/agent-skills.md

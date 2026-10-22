@@ -2,9 +2,13 @@
 
 Canonical narrative + tables: **[docs/AGENTS.md](docs/AGENTS.md)**.
 
-This repo-root mirror exists for tools that only read `AGENTS.md` at the repository root. For the full documentation index, commands, and domain rules, open **[docs/AGENTS.md](docs/AGENTS.md)**.
+This repo-root mirror is the Codex entry point and supports tools that only read `AGENTS.md` at the repository root. For the full documentation index, commands, and domain rules, open **[docs/AGENTS.md](docs/AGENTS.md)**.
 
 **Maintenance:** When stack pins, commands, or skill triggers change, update this file together with [CLAUDE.md](CLAUDE.md) and [.cursor/AGENTS.md](.cursor/AGENTS.md). See [docs/agents/agent-contract.md](docs/agents/agent-contract.md) (Cross-tool parity).
+
+Read `docs/AGENTS.md`, `docs/agents/agent-contract.md`, and `docs/agents/runtime-policy.md` before changes. Codex does not auto-load `CLAUDE.md` or the editor rule directories. Read `.claude/rules/general.md`, `.claude/rules/git.md`, and `.claude/rules/no-agent-attribution.md` for every task; also read `.claude/rules/css.md` for CSS and `.claude/rules/tokens.md` for tokens. Prototype audits read `CLAUDE.md` under `## Audit contract`.
+
+Codex discovers skills in `.agents/skills/`, generated from `skills/` by `npm run skills:build`. Edit the sources, not the generated copies. Loading behavior: [instructions](https://learn.chatgpt.com/docs/agent-configuration/agents-md), [skills](https://learn.chatgpt.com/docs/build-skills).
 
 ## What this repo is
 
@@ -22,6 +26,8 @@ Platform code|css/integrations/*.css + integrations/<target>/ ONLY — keep css/
 
 Common mistakes:
 
+- OG or featured-image work uses `skills/fe-og-image/SKILL.md`; host assignment follows `integrations/elementor/og-images.md`.
+
 - Editing `css/custom-properties.css` by hand — run `node scripts/build-css.js` after token changes.
 - Hardcoding hex or `font-family` in authored CSS — use variables from `custom-properties.css`.
 - Skipping `CHANGELOG.md` when touching `tokens/` or implementation `css`.
@@ -36,6 +42,7 @@ Common mistakes:
 | Build both | `npm run build` |
 | Build consumer agent skills | `npm run skills:build` |
 | Install consumer skills | `node bin/fe-ds.mjs skills install` |
+| Headless prototype audit with Codex | `bash scripts/optimize-run.sh --agent codex` |
 | Prototype dev | `cd prototype && npm install && npm run dev` |
 | Prototype e2e + axe (LOCAL) | with dev server up: `cd prototype && PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e` |
 | Screenshot key pages | `cd prototype && OUT_DIR=baseline BASE_URL=http://localhost:3100 node scripts/screenshot.mjs` |
@@ -104,7 +111,8 @@ Paths are repo-relative from project root.
 |spec/patterns:{README.md}
 |docs/decisions:{001-token-format.md}
 |docs/skills:{README.md,token-update.md,release.md}
-|.claude:{settings.json,rules/git.md,rules/general.md,rules/css.md,rules/tokens.md}
+|.agents:{skills/}
+|.claude:{settings.json,rules/git.md,rules/general.md,rules/css.md,rules/tokens.md,rules/no-agent-attribution.md}
 |cursor:{AGENTS.md,rules/git.mdc,rules/general.mdc,rules/css.mdc,rules/tokens.mdc}
 |integrations:{README.md}
 |integrations/elementor:{setup.md,global-colors.md,global-fonts.md,mapping.md,references.md}
@@ -113,7 +121,7 @@ Paths are repo-relative from project root.
 |css:{custom-properties.css,base.css,typography.css,utilities.css}
 |css/integrations:{elementor.css}
 |scripts:{build-css.js,build-css.test.js,build-spec.js,build-skills.mjs,build-skills.test.mjs,pr-and-merge.sh,optimize-run.sh,import-figma-elements.mjs,import-desktop-elements.mjs,svg-normalize.mjs}
-|skills:{_shared/conventions.md,fe-core/SKILL.md,fe-redesign/SKILL.md}
+|skills:{_shared/conventions.md,fe-core/SKILL.md,fe-redesign/SKILL.md,fe-og-image/SKILL.md}
 |bin:{fe-ds.mjs}
 |prototype:{README.md,next.config.ts,package.json,tsconfig.json,playwright.config.ts}
 |prototype/app:{layout.tsx,page.tsx,globals.css,manifest.ts,FaqDemo.tsx}
