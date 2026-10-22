@@ -38,9 +38,9 @@ jobs:
 
       - name: Detect skills drift
         run: |
-          if ! git diff --quiet -- dist/skills prototype/public/skills prototype/public/llms.txt; then
-            echo "::error::skills payload is out of sync. Run 'npm run skills:build' and commit dist/skills, prototype/public/skills, and prototype/public/llms.txt."
-            git --no-pager diff -- dist/skills prototype/public/skills prototype/public/llms.txt
+          if ! git diff --quiet -- dist/skills .agents/skills prototype/public/skills prototype/public/llms.txt; then
+            echo "::error::skills payload is out of sync. Run 'npm run skills:build' and commit dist/skills, .agents/skills, prototype/public/skills, and prototype/public/llms.txt."
+            git --no-pager diff -- dist/skills .agents/skills prototype/public/skills prototype/public/llms.txt
             exit 1
           fi
 

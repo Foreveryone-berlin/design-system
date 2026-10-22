@@ -64,4 +64,6 @@ node path/to/design-system/bin/fe-ds.mjs skills install
 
 Manifest: [skills/index.json](https://design.foreveryone.berlin/skills/index.json).
 How-to: [docs/agent-skills.md](docs/agent-skills.md). Distinct from maintainer workflows in
-`docs/skills/` and `.claude/skills/`.
+`docs/skills/`. Codex loads root `AGENTS.md` and generated `.agents/skills/`;
+Claude and Cursor use their native entry files and rule directories.
+The installer creates `.agents/skills/` by default, including in new projects.
