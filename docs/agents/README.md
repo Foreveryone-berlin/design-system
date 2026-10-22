@@ -16,12 +16,15 @@ Editor-agnostic contracts for AI agents working in this design system. File layo
 
 **Claude Code rules (Markdown):** [`.claude/rules/`](../../.claude/rules/).
 
-**Project skills (both tools):** [`.claude/skills/`](../../.claude/skills/) — Cursor auto-loads via third-party skills compatibility.
+**Codex:** root [`AGENTS.md`](../../AGENTS.md) explicitly routes to the shared Markdown rules and canonical docs. It does not auto-load `CLAUDE.md` or either editor rule directory. Sequential prototype audits support `bash scripts/optimize-run.sh --agent codex`; permissions come from the installed Codex configuration.
+
+**Consumer skills:** edit `skills/`; `npm run skills:build` generates [`.agents/skills/`](../../.agents/skills/) for Codex. Other projects use the installer in [../agent-skills.md](../agent-skills.md).
 
 ## Tool loading matrix
 
 | Tool | Entry files | Rules | Skills |
 | --- | --- | --- | --- |
-| Claude Code | `CLAUDE.md`, root `AGENTS.md` | `.claude/rules/` | `.claude/skills/` |
+| Codex | root `AGENTS.md` | Shared `.claude/rules/*.md` read explicitly via root guidance | `.agents/skills/` (generated) |
+| Claude Code | `CLAUDE.md` | `.claude/rules/` | `.claude/skills/` |
 | Cursor IDE | root `AGENTS.md`, `.cursor/AGENTS.md` | `.cursor/rules/` | `.claude/skills/` (auto) |
 | Cursor CLI | root `AGENTS.md`, `CLAUDE.md` | `.cursor/rules/` | `.claude/skills/` (auto) |

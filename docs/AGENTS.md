@@ -4,7 +4,7 @@ Canonical narrative, documentation index, and domain rules for this repository.
 
 **Repo root [`AGENTS.md`](../AGENTS.md)** duplicates the retrieval index and condensed rules for tools that only read `AGENTS.md` at the repository root (see [Vercel: AGENTS.md vs skills](https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals)).
 
-**Coding agents:** [Cursor agent](https://docs.cursor.com/agent) loads repo guidance via root [`AGENTS.md`](../AGENTS.md) and [`.cursor/AGENTS.md`](../.cursor/AGENTS.md) (precedence there), and auto-attaches [`.cursor/rules/`](../.cursor/rules/) (`.mdc`) by path. [Cursor CLI](https://cursor.com/docs/cli/using) reads root [`AGENTS.md`](../AGENTS.md) and [`CLAUDE.md`](../CLAUDE.md) plus [`.cursor/rules/`](../.cursor/rules/); it does not load `.cursor/AGENTS.md`. [Claude Code](https://code.claude.com/docs) reads [`CLAUDE.md`](../CLAUDE.md) at session start and uses [`.claude/rules/`](../.claude/rules/) (Markdown). Both Cursor and Claude auto-load project skills from [`.claude/skills/`](../.claude/skills/). **Update this file** when changing shared narrative; then refresh the root mirror, `CLAUDE.md`, and `.cursor/AGENTS.md` pins if needed (see [agents/agent-contract.md](agents/agent-contract.md) Cross-tool parity).
+**Coding agents:** [Cursor agent](https://docs.cursor.com/agent) loads repo guidance via root [`AGENTS.md`](../AGENTS.md) and [`.cursor/AGENTS.md`](../.cursor/AGENTS.md) (precedence there), and auto-attaches [`.cursor/rules/`](../.cursor/rules/) (`.mdc`) by path. [Cursor CLI](https://cursor.com/docs/cli/using) reads root [`AGENTS.md`](../AGENTS.md) and [`CLAUDE.md`](../CLAUDE.md) plus [`.cursor/rules/`](../.cursor/rules/); it does not load `.cursor/AGENTS.md`. [Claude Code](https://code.claude.com/docs) reads [`CLAUDE.md`](../CLAUDE.md) at session start and uses [`.claude/rules/`](../.claude/rules/) (Markdown). [Codex](https://learn.chatgpt.com/docs/agent-configuration/agents-md) loads root `AGENTS.md`; it does not auto-load `CLAUDE.md` or either editor rule directory. Root guidance explicitly routes Codex to the shared Markdown rules. Codex discovers consumer skills in [`.agents/skills/`](../.agents/skills/), generated from `skills/` by `npm run skills:build` ([official skill discovery](https://learn.chatgpt.com/docs/build-skills)). **Update this file** when changing shared narrative; then refresh the root mirror, `CLAUDE.md`, and `.cursor/AGENTS.md` pins if needed (see [agents/agent-contract.md](agents/agent-contract.md) Cross-tool parity).
 
 Portable task contract: [agents/agent-contract.md](agents/agent-contract.md).
 
@@ -26,7 +26,8 @@ Paths are repo-relative from project root unless noted.
 |spec/patterns:{README.md}
 |docs/decisions:{001-token-format.md}
 |docs/skills:{README.md,token-update.md,release.md}
-|.claude:{settings.json,rules/git.md,rules/general.md,rules/css.md,rules/tokens.md}
+|.agents:{skills/}
+|.claude:{settings.json,rules/git.md,rules/general.md,rules/css.md,rules/tokens.md,rules/no-agent-attribution.md}
 |cursor:{AGENTS.md,rules/git.mdc,rules/general.mdc,rules/css.mdc,rules/tokens.mdc}
 |integrations:{README.md}
 |integrations/elementor:{setup.md,global-colors.md,global-fonts.md,mapping.md,references.md}
@@ -57,6 +58,7 @@ Paths are repo-relative from project root unless noted.
 | Build both (CSS + spec + skills) | `npm run build` (repo root) |
 | Build consumer agent skills payload | `npm run skills:build` → `dist/skills/` + `prototype/public/skills/` |
 | Install consumer skills into a project | `node bin/fe-ds.mjs skills install` |
+| Headless prototype audit with Codex | `bash scripts/optimize-run.sh --agent codex` |
 | Prototype dev server | `cd prototype && npm install && npm run dev` |
 | Prototype e2e + axe (against LOCAL, not prod) | `cd prototype` then with the dev server up: `PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e` |
 | Screenshot key pages at 3 breakpoints | `cd prototype && OUT_DIR=baseline BASE_URL=http://localhost:3100 node scripts/screenshot.mjs` |

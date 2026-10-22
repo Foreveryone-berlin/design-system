@@ -5,6 +5,7 @@
 #   bash scripts/optimize-run.sh --skip-baseline
 #   bash scripts/optimize-run.sh --dimension perf
 #   bash scripts/optimize-run.sh --prompts-only
+#   bash scripts/optimize-run.sh --agent codex
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -15,17 +16,11 @@ SKIP_BASELINE=0
 PROMPTS_ONLY=0
 DIMENSION=""
 DEV_PID=""
-AGENT_BIN="${AGENT_BIN:-agent}"
-if ! command -v "$AGENT_BIN" >/dev/null 2>&1; then
-  if [[ -n "${LOCALAPPDATA:-}" && -f "${LOCALAPPDATA}/cursor-agent/agent.cmd" ]]; then
-    AGENT_BIN="${LOCALAPPDATA}/cursor-agent/agent.cmd"
-  elif [[ -f "$HOME/AppData/Local/cursor-agent/agent.cmd" ]]; then
-    AGENT_BIN="$HOME/AppData/Local/cursor-agent/agent.cmd"
-  fi
-fi
-
+AGENT_KIND="cursor"
 while [[ $# -gt 0 ]]; do
   case "$1" in
+    --agent) AGENT_KIND="${2:?--agent requires cursor or codex}"; shift 2 ;;
+    --agent=*) AGENT_KIND="${1#*=}"; shift ;;
     --skip-baseline) SKIP_BASELINE=1; shift ;;
     --prompts-only) PROMPTS_ONLY=1; shift ;;
     --dimension) DIMENSION="${2:-}"; shift 2 ;;
@@ -33,6 +28,27 @@ while [[ $# -gt 0 ]]; do
     *) shift ;;
   esac
 done
+
+case "$AGENT_KIND" in
+  cursor) AGENT_BIN="${AGENT_BIN:-agent}" ;;
+  codex) AGENT_BIN="${AGENT_BIN:-codex}" ;;
+  *) echo "Unknown agent: $AGENT_KIND (use cursor or codex)" >&2; exit 1 ;;
+esac
+if [[ "$AGENT_KIND" == cursor ]] && ! command -v "$AGENT_BIN" >/dev/null 2>&1; then
+  if [[ -n "${LOCALAPPDATA:-}" && -f "${LOCALAPPDATA}/cursor-agent/agent.cmd" ]]; then
+    AGENT_BIN="${LOCALAPPDATA}/cursor-agent/agent.cmd"
+  elif [[ -f "$HOME/AppData/Local/cursor-agent/agent.cmd" ]]; then
+    AGENT_BIN="$HOME/AppData/Local/cursor-agent/agent.cmd"
+  fi
+fi
+
+run_agent() {
+  if [[ "$AGENT_KIND" == codex ]]; then
+    "$AGENT_BIN" exec --cd "$REPO_ROOT" "$1"
+  else
+    (cd "$REPO_ROOT" && "$AGENT_BIN" -p --force "$1")
+  fi
+}
 
 cleanup_dev() {
   if [[ -n "$DEV_PID" ]] && kill -0 "$DEV_PID" 2>/dev/null; then
@@ -75,12 +91,12 @@ run_agent_pass() {
   echo "=== Agent pass: $domain ==="
   local text
   text="$(cat "$prompt")"
-  "$AGENT_BIN" -p --force "$text"
+  run_agent "$text"
 }
 
 run_verify() {
   echo "=== Verify ==="
-  (cd "$PROTOTYPE" && npx tsc --noEmit && npm run build)
+  (cd "$PROTOTYPE" && node node_modules/typescript/bin/tsc --noEmit && npm run build)
   (cd "$REPO_ROOT" && npm run build)
 }
 
@@ -112,7 +128,7 @@ while read -r domain; do
 done < <(domains_to_run)
 
 echo "=== Integration pass (orchestrator) ==="
-"$AGENT_BIN" -p --force "In $REPO_ROOT/prototype, wire cross-file handoffs from the optimize skill step 3 (skip-link in layout + globals.css, image sizing handoffs). Run npx tsc --noEmit in prototype/. Do not commit."
+run_agent "In $REPO_ROOT/prototype, wire cross-file handoffs from the optimize skill step 3 (skip-link in layout + globals.css, image sizing handoffs). Run node node_modules/typescript/bin/tsc --noEmit in prototype/. Do not commit."
 
 run_verify
 run_after_shots

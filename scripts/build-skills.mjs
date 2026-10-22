@@ -4,7 +4,7 @@
  *   skills + _shared          → dist/skills/index.json
  *   _shared/conventions.md    → dist/skills/AGENTS.foreveryone.md
  *   spec/tokens.json          → dist/skills/tokens.json
- *   dist/skills/              → prototype/public/skills/
+ *   dist/skills/              → prototype/public/skills/ + .agents/skills/
  *   llms.txt                  → prototype/public/llms.txt
  *
  * Run with: `npm run skills:build`, or `--out <dir>` to build somewhere else.
@@ -108,6 +108,10 @@ await writeFile(
 );
 
 if (syncPublic) {
+  const codexSkills = path.join(repoRoot, '.agents', 'skills');
+  await rm(codexSkills, { recursive: true, force: true });
+  await mkdir(path.dirname(codexSkills), { recursive: true });
+  await cp(outDir, codexSkills, { recursive: true });
   const publicSkills = path.join(repoRoot, 'prototype', 'public', 'skills');
   await rm(publicSkills, { recursive: true, force: true });
   await mkdir(path.dirname(publicSkills), { recursive: true });
@@ -120,6 +124,6 @@ if (syncPublic) {
 
 console.log(
   `[skills] OK - ${skills.length} skills to ${path.relative(repoRoot, outDir)}${
-    syncPublic ? ' (+ prototype/public sync)' : ''
+    syncPublic ? ' (+ prototype/public and Codex sync)' : ''
   }`
 );

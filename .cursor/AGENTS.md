@@ -54,13 +54,14 @@ Common mistakes:
 | Build both | `npm run build` |
 | Build consumer agent skills | `npm run skills:build` |
 | Install consumer skills | `node bin/fe-ds.mjs skills install` |
+| Headless prototype audit with Codex | `bash scripts/optimize-run.sh --agent codex` |
 | Prototype dev | `cd prototype && npm install && npm run dev` |
 | Screenshot key pages | `cd prototype && OUT_DIR=baseline BASE_URL=http://localhost:3100 node scripts/screenshot.mjs` |
 | Prototype e2e + axe (LOCAL) | with dev server up: `cd prototype && PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e` |
 | Solo merge to `develop` | `bash scripts/pr-and-merge.sh` |
 | Ship release | user-level `ship` skill; triggers: "ship it", "cut release", "release X.Y.Z". Manual fallback: `docs/skills/release.md` |
 
-Cursor IDE auto-loads project skills from `.claude/skills/`.
+Consumer skill sources live in `skills/`. `npm run skills:build` generates `.agents/skills/` for Codex. Root `AGENTS.md` routes Codex to the shared rules; Claude and Cursor keep their native rule loading.
 
 ## Git and PR rules
 

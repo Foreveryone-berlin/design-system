@@ -1,6 +1,6 @@
 # Agent contract — ForEveryone Berlin design system
 
-Portable rules for AI agents (Cursor agent, Claude Code, and similar). Cursor path-scoped reminders under [`.cursor/rules/`](../../.cursor/rules/) stay quick enforceable reminders; this file is the narrative contract.
+Portable rules for AI agents (Codex, Cursor agent, and Claude Code). Cursor path-scoped reminders under [`.cursor/rules/`](../../.cursor/rules/) stay quick enforceable reminders; this file is the narrative contract.
 
 ## Product context
 
@@ -41,6 +41,7 @@ Portable rules for AI agents (Cursor agent, Claude Code, and similar). Cursor pa
 
 - **Canonical narrative:** [`docs/AGENTS.md`](../AGENTS.md).
 - **Root mirror:** [`AGENTS.md`](../../AGENTS.md) (retrieval index + condensed rules for tools that only read repo root).
+- **Codex:** root [`AGENTS.md`](../../AGENTS.md) routes to canonical docs and shared Markdown rules; generated skills live in `.agents/skills/`.
 - **Claude Code:** [`CLAUDE.md`](../../CLAUDE.md).
 - **Cursor agent layering:** [`.cursor/AGENTS.md`](../../.cursor/AGENTS.md) (with path-scoped reminders in [`.cursor/rules/`](../../.cursor/rules/)).
 
@@ -50,7 +51,7 @@ When changing team-wide agent behavior, keep these surfaces aligned in the same 
 
 - **Commands, stack pin, prototype baseline, skill triggers:** [`docs/AGENTS.md`](../AGENTS.md), root [`AGENTS.md`](../../AGENTS.md), [`CLAUDE.md`](../../CLAUDE.md), [`.cursor/AGENTS.md`](../../.cursor/AGENTS.md).
 - **Path-scoped rules:** [`.cursor/rules/*.mdc`](../../.cursor/rules/) **and** [`.claude/rules/*.md`](../../.claude/rules/) (each `.md` file notes its `.mdc` mirror).
-- **Skills:** edit [`.claude/skills/<name>/SKILL.md`](../../.claude/skills/) only; Cursor IDE and CLI auto-load from there. No `.cursor/skills/` copy.
+- **Skills:** edit root `skills/` only. `npm run skills:build` regenerates `dist/skills/`, `prototype/public/skills/`, and `.agents/skills/`. Consumer installs always include Codex discovery; Claude and Cursor layouts are selected when present or via `--target`.
 
 Optional sanity check before merge: compare substantive sections of `docs/AGENTS.md`, root `AGENTS.md`, `CLAUDE.md`, and `.cursor/AGENTS.md` (excluding the Cursor precedence block).
 
@@ -62,5 +63,5 @@ Keep root `AGENTS.md`, `CLAUDE.md`, `.cursor/AGENTS.md` pins, and this contract 
 
 - **Model:** Composer 2.5 standard (`maxMode: false`).
 - **Context:** loads root `AGENTS.md` + `CLAUDE.md` + project skills from `.claude/skills/` (not `.cursor/AGENTS.md`).
-- **Headless:** `agent -p --force` from repo root; long jobs use `bash scripts/optimize-run.sh` (sequential optimize domains) or repo-specific `*-fanout.sh` when file ownership overlaps.
+- **Headless:** `agent -p --force` from repo root; long jobs use `bash scripts/optimize-run.sh` (sequential optimize domains; `--agent codex` selects Codex without changing its configured permissions) or repo-specific `*-fanout.sh` when file ownership overlaps.
 - **Autonomous jobs:** job-scoped merge/deploy rules come from the operator's own Cursor CLI playbook, external to this repo.

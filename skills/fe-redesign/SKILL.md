@@ -56,7 +56,7 @@ Do:
 - Apply the colour, typography, and layout rules in spec/principles.md exactly.
 
 Never:
-- Invent hex values or font names — extend palettes in OKLCH.
+- Invent hex values or font names: extend palettes in OKLCH.
 - Use any token whose surface is "print" on the web.
 - Put text on an Orange background, or white text on a light tint.
 - Use Blue outside announcements/alerts.

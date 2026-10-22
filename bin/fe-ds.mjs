@@ -38,8 +38,8 @@ Usage
 
 Install options
   --target <list>   Comma separated: claude, cursor, codex, agents, dir.
-                    Default: agents, plus claude / cursor / codex when a
-                    .claude, .cursor, or .agents directory exists.
+                    Default: agents and codex, plus claude / cursor when a
+                    .claude or .cursor directory exists.
   --dir <path>      Where the "dir" and "agents" targets copy the skills.
                     Default: ./${LOCAL_DIR}
   --dry-run         Print what would be written and exit without writing.
@@ -176,9 +176,9 @@ async function installSkills(options) {
 
   let targets = options.targets;
   if (!targets) {
-    targets = ['agents'];
+    targets = ['agents', 'codex'];
     for (const [name, { parent }] of Object.entries(TOOL_TARGETS)) {
-      if (await exists(path.join(cwd, parent))) targets.push(name);
+      if (!targets.includes(name) && await exists(path.join(cwd, parent))) targets.push(name);
     }
   }
 
