@@ -35,7 +35,7 @@ restyle a Next.js or other web app to ForEveryone from one careful prompt.
 - Invent hex values or font names.
 - Use print tokens on the web.
 - Put text on Orange, or white text on a light tint.
-- Use Blue outside announcements/alerts.
+- Put any text but pure white on Blue, or use Blue in print.
 
 ## Ready-to-paste prompt
 
@@ -59,7 +59,7 @@ Never:
 - Invent hex values or font names: extend palettes in OKLCH.
 - Use any token whose surface is "print" on the web.
 - Put text on an Orange background, or white text on a light tint.
-- Use Blue outside announcements/alerts.
+- Put any text but pure white on Blue, or use Blue in print.
 
 Then verify: run the app, check contrast, keyboard focus, prefers-reduced-motion,
 and report a token-by-token mapping of what you changed.

@@ -33,7 +33,7 @@ ForEveryone consumer skill assumes these rules.
 - Invent hex values or font names.
 - Use `surface: "print"` tokens on the web.
 - Put text on an Orange background, or white text on a light tint.
-- Use Blue outside announcements/alerts.
+- Put any text but pure white on Blue, or use Blue in print.
 - Drop visible keyboard focus or ignore `prefers-reduced-motion`.
 
 ## Canonical docs

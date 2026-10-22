@@ -13,113 +13,89 @@ const REPO_DOCS =
 const SKILLS = [
   {
     id: "fe-core",
-    title: "fe-core",
-    summary: "Base rules for every consumer skill. Start here for new UI.",
+    summary: "Base rules for every other skill. Start here for new UI.",
     points: [
       <>
-        <strong>Tokens only.</strong> Import CSS variables once; style with{" "}
-        <code>var(--…)</code>. Do not invent hex values or font names.
+        Import the CSS variables once and style with <code>var(--…)</code>.
+        Never invent hex values or font names.
       </>,
       <>
-        <strong>
-          Prefer <code>fe-*</code> components.
-        </strong>{" "}
-        Documented buttons, cards, inputs, tags, and patterns before one-off
-        styles.
+        Prefer documented <code>fe-*</code> components over one-off styles.
       </>,
       <>
-        <strong>Colour roles.</strong> Charcoal text on light backgrounds;
-        orange is decorative only; blue is for alerts, always with white text.
+        Charcoal body text on light backgrounds. Orange is accent only, never
+        behind text. Blue takes pure white text and stays digital.
       </>,
       <>
-        <strong>Focus and motion.</strong> Keep keyboard focus visible; honour{" "}
+        Keep keyboard focus visible and honour{" "}
         <code>prefers-reduced-motion</code>.
-      </>,
-    ],
-  },
-  {
-    id: "fe-og-image",
-    title: "fe-og-image",
-    summary: "Create on-brand OG and featured images. Requires fe-core.",
-    points: [
-      <>
-        One headline, one subject, one optional supporting line. Reuse the Clay
-        Connections composition with current digital tokens and licensed fonts.
-      </>,
-      <>
-        Generate the visual when needed; compose exact type, approved logo and
-        decorations separately. Deliver a 1200 x 630 JPEG or PNG and editable source.
-      </>,
-      <>
-        Check crop, small-card readability and image metadata. WordPress featured
-        media and the rendered OG image are verified independently.
-      </>,
-    ],
-  },
-  {
-    id: "fe-redesign",
-    title: "fe-redesign",
-    summary: "Restyle an existing app onto ForEveryone. Requires fe-core.",
-    points: [
-      <>
-        <strong>Map by role.</strong> Replace ad-hoc colours and fonts with the
-        nearest tokens (background, text, accent).
-      </>,
-      <>
-        <strong>Match the contracts.</strong> Rebuild controls to documented{" "}
-        <code>fe-*</code> patterns and states.
-      </>,
-      <>
-        <strong>Type and layout.</strong> Filson Pro on the web; body
-        line-height never below 1.5; only approved colour pairings.
-      </>,
-      <>
-        <strong>Check the result.</strong> No print-only tokens on the web;
-        contrast, focus, and motion rules still hold.
       </>,
     ],
   },
   {
     id: "fe-tokens",
-    title: "fe-tokens",
-    summary: "Resolve and apply tokens by role. Requires fe-core.",
+    summary: "Pick and extend tokens by role.",
     points: [
       <>
-        Resolve names from <code>tokens.json</code>; output{" "}
+        Resolve names from <code>tokens.json</code> and output{" "}
         <code>var(--*)</code> only.
       </>,
       <>
-        Digital surface only on the web; never use <code>surface: &quot;print&quot;</code>{" "}
-        tokens.
+        Use digital tokens on the web, never <code>surface: &quot;print&quot;</code>.
       </>,
-      <>Extend missing shades in OKLCH; never invent hex or font names.</>,
-    ],
-  },
-  {
-    id: "fe-a11y",
-    title: "fe-a11y",
-    summary: "WCAG 2.1 AA, contrast, focus, motion, and alt text. Requires fe-core.",
-    points: [
-      <>Target WCAG 2.1 AA; use approved background ⇄ text pairings only.</>,
-      <>
-        Keep visible keyboard focus and honour{" "}
-        <code>prefers-reduced-motion</code>.
-      </>,
-      <>Meaningful alt text for content images; empty alt for decoration.</>,
+      <>Extend a missing shade in OKLCH instead of adding a hex value.</>,
     ],
   },
   {
     id: "fe-components",
-    title: "fe-components",
-    summary: "Prefer documented fe-* contracts and state matrices. Requires fe-core.",
+    summary: "Build controls from the documented fe-* contracts.",
     points: [
       <>
-        Follow <code>spec/components/*.md</code> before inventing classes.
+        Follow <code>spec/components/*.md</code> before inventing a class.
       </>,
-      <>Implement the full state matrix where the contract defines one.</>,
+      <>Implement every state the contract defines, not only the default.</>,
       <>
-        Icon and play buttons use the documented <code>fe-icon-btn</code> /{" "}
-        <code>fe-play-btn</code> patterns.
+        Icon and play buttons use <code>fe-icon-btn</code> and{" "}
+        <code>fe-play-btn</code>.
+      </>,
+    ],
+  },
+  {
+    id: "fe-a11y",
+    summary: "Check contrast, focus, motion, and alt text against WCAG 2.1 AA.",
+    points: [
+      <>Use approved background and text pairings only.</>,
+      <>Give icon-only controls an accessible name and keep focus visible.</>,
+      <>Write meaningful alt text for content images; leave decoration empty.</>,
+    ],
+  },
+  {
+    id: "fe-redesign",
+    summary: "Restyle an existing app onto ForEveryone.",
+    points: [
+      <>Map ad-hoc colours and fonts to the nearest token by role.</>,
+      <>
+        Rebuild controls to the <code>fe-*</code> contracts and their states.
+      </>,
+      <>Filson Pro on the web; body line-height never below 1.5.</>,
+      <>Report a token-by-token mapping of what changed.</>,
+    ],
+  },
+  {
+    id: "fe-og-image",
+    summary: "Create OG and featured images that match the page they link to.",
+    points: [
+      <>
+        Read the destination page first; one headline, one subheading, and a
+        call to action that names that page.
+      </>,
+      <>
+        Generate the photo only; set type, logo, and decorations in an editable
+        master. Export a 1200 × 630 JPEG or PNG.
+      </>,
+      <>
+        Check the image at full size and as a small card. A WordPress featured
+        image does not prove the published OG image.
       </>,
     ],
   },
@@ -130,23 +106,21 @@ export default function AgentSkillsPage() {
     <>
       <h1 className="ds-page-title">Agent skills</h1>
       <p className="ds-intro">
-        Short, installable guides for AI agents that build or restyle UI with
-        this system. The rules match{" "}
+        Short guides that teach AI agents to build or restyle UI with this
+        system. They package the rules in{" "}
         <a href="/llms.txt">
           <code>llms.txt</code>
         </a>
-        , the token list, and the component docs. Install them into another
-        project when the agent works there instead of in this repository.
+        , the token list, and the component docs for use in another project.
       </p>
 
       <section id="what-these-are" className="ds-section">
         <h2 className="ds-section-title">What these are</h2>
         <p className="fe-body">
-          Consumer skills live in the repo root <code>skills/</code> folder.
-          That is separate from maintainer workflows in{" "}
-          <code>docs/skills/</code>. Codex discovers the generated copies in{" "}
-          <code>.agents/skills/</code>. Every skill below requires{" "}
-          <code>fe-core</code> except <code>fe-core</code> itself.
+          Each skill is a folder with a <code>SKILL.md</code> file that Claude
+          Code, Cursor, and Codex discover in their skills folders. Every other
+          skill requires <code>fe-core</code>. Maintainer workflows for this
+          repository live separately in <code>docs/skills/</code>.
         </p>
       </section>
 
@@ -155,7 +129,7 @@ export default function AgentSkillsPage() {
         {SKILLS.map((skill) => (
           <div key={skill.id} id={skill.id} className="ds-section">
             <h3 className="ds-subsection-title">
-              <code>{skill.title}</code>
+              <code>{skill.id}</code>
             </h3>
             <p className="fe-body">{skill.summary}</p>
             <ul className="ds-rule-list">
@@ -170,20 +144,19 @@ export default function AgentSkillsPage() {
       <section id="install" className="ds-section">
         <h2 className="ds-section-title">Install</h2>
         <p className="fe-body">
-          Clone this repository. In the project where the skills should live,
-          run:
+          Clone this repository, then run the installer from the project that
+          needs the skills. Add <code>--dry-run</code> to preview the changes.
         </p>
         <CodeBlock
           code="node path/to/design-system/bin/fe-ds.mjs skills install"
           language="bash"
         />
         <p className="fe-body">
-          The skills are copied into that project, and a short note is added to
-          its <code>AGENTS.md</code>. Codex skills are installed into{" "}
-          <code>.agents/skills/</code>, including in new projects. Cursor and
-          Claude Code folders are updated when they already exist. Zero network
-          after the clone.
-          Details and options:{" "}
+          The installer copies the skills to <code>fe-skills/</code> and{" "}
+          <code>.agents/skills/</code>, adds a short rules block to the
+          project&apos;s <code>AGENTS.md</code>, and updates{" "}
+          <code>.claude/</code> or <code>.cursor/</code> when those folders
+          exist. It needs no network access. Options:{" "}
           <a href={REPO_DOCS} target="_blank" rel="noopener noreferrer">
             docs/agent-skills.md
           </a>
@@ -194,8 +167,8 @@ export default function AgentSkillsPage() {
       <section id="on-this-site" className="ds-section">
         <h2 className="ds-section-title">On this site</h2>
         <p className="fe-body">
-          The same starting points are also available here (narrow agent entry;
-          the rest of the prototype stays noindex and blocks AI crawlers):
+          Agents can read these files directly. The rest of the site stays
+          noindex and closed to AI crawlers, this page included.
         </p>
         <ul className="ds-rule-list">
           <li>
@@ -208,7 +181,7 @@ export default function AgentSkillsPage() {
             <a href="/skills/index.json">
               <code>/skills/index.json</code>
             </a>
-            : which skills exist
+            : skill list and versions
           </li>
           <li>
             <a href="/skills/tokens.json">

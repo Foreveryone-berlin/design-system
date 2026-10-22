@@ -172,7 +172,7 @@ const pages: PageDef[] = [
     route: "/agent-skills",
     title: "Agent skills",
     description:
-      "Installable guides for AI agents: fe-core, fe-redesign, fe-og-image, fe-tokens, fe-a11y, and fe-components.",
+      "Installable guides for AI agents: fe-core, fe-tokens, fe-components, fe-a11y, fe-redesign, and fe-og-image.",
     sections: [
       "What these are",
       "Skills",

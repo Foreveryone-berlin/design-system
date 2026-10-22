@@ -44,7 +44,7 @@ the agent can extend colour deterministically.
 - Use `surface:"print"` tokens on the web (`--font-family-accent`,
   `--color-print-*`, `--color-doc-*`).
 - Use Orange as a text/background fill, or white text on a light tint.
-- Use Blue for anything other than announcements/alerts (with white text).
+- Put any text but pure white on Blue, or use Blue in print.
 - Drop visible keyboard focus or ignore `prefers-reduced-motion`.
 
 ## Ready-to-paste prompt
@@ -69,7 +69,7 @@ Never:
   lightness, step chroma).
 - Use any token whose surface is "print" on the web.
 - Put text on an Orange background, or white text on a light tint.
-- Use Blue outside announcements/alerts.
+- Put any text but pure white on Blue, or use Blue in print.
 
 Then verify: run the app, check the documented contrast ratios hold, keyboard
 focus is visible, prefers-reduced-motion is respected, and report a token-by-
