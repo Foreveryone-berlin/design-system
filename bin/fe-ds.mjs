@@ -43,7 +43,6 @@ Install options
   --dir <path>      Where the "dir" and "agents" targets copy the skills.
                     Default: ./${LOCAL_DIR}
   --dry-run         Print what would be written and exit without writing.
-  --force           Overwrite files that already differ.
 
 Other
   --help, -h        This text
@@ -51,7 +50,7 @@ Other
 `;
 
 function parseArgs(argv) {
-  const options = { targets: null, dir: null, dryRun: false, force: false };
+  const options = { targets: null, dir: null, dryRun: false };
   const positional = [];
 
   for (let i = 0; i < argv.length; i++) {
@@ -59,7 +58,6 @@ function parseArgs(argv) {
     if (arg === '--target') options.targets = (argv[++i] ?? '').split(',').filter(Boolean);
     else if (arg === '--dir') options.dir = argv[++i];
     else if (arg === '--dry-run') options.dryRun = true;
-    else if (arg === '--force') options.force = true;
     else if (arg === '--help' || arg === '-h') options.help = true;
     else if (arg === '--version' || arg === '-v') options.version = true;
     else if (arg.startsWith('-')) options.unknown = arg;
@@ -107,14 +105,10 @@ function mergeAgentsBlock(existing, body) {
   return `${existing}${separator}${block}`;
 }
 
-async function writeFileIfNeeded(file, content, { dryRun, force }, written) {
+async function writeFileIfNeeded(file, content, { dryRun }, written) {
   const current = (await exists(file)) ? await readFile(file, 'utf8') : null;
   if (current === content) {
     written.push(`unchanged ${path.relative(process.cwd(), file)}`);
-    return;
-  }
-  if (current !== null && !force && !file.endsWith('AGENTS.md')) {
-    written.push(`skipped   ${path.relative(process.cwd(), file)} (exists, use --force)`);
     return;
   }
   written.push(
@@ -153,7 +147,7 @@ async function installToolLayout(index, parentDir, label, options, written) {
   await writeFileIfNeeded(
     path.join(root, '_shared', 'tokens.json'),
     await readFile(path.join(skillsDir, 'tokens.json'), 'utf8'),
-    { ...options, force: true },
+    options,
     written
   );
 }
@@ -223,7 +217,7 @@ async function installSkills(options) {
     await writeFileIfNeeded(
       agentsFile,
       mergeAgentsBlock(existing, body),
-      { ...options, force: true },
+      options,
       written
     );
   }

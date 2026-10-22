@@ -32,7 +32,7 @@ value from the design system.
 
 - Hand-edit `css/custom-properties.css` (regenerate from `tokens/` via `build-css.js`).
 - Use Orange as text, a button fill, a link colour, or a background behind text.
-- Put white text on a light tint, or Blue outside announcements/alerts.
+- Put white text on a light tint, or any text but pure white on Blue.
 - Ship print typefaces (Young Serif) on digital UI.
 
 ## Canonical docs
