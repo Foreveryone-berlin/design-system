@@ -8,6 +8,8 @@
 
 ## [Unreleased]
 
+## [1.13.0] - 2026-10-22
+
 ### Added
 
 - Add Codex support for repository guidance and automatic skill discovery in new projects.
