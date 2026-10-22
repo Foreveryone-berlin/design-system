@@ -12,7 +12,7 @@
         { "type": "host", "value": "fe-design-system.vercel.app" }
       ],
       "destination": "https://design.foreveryone.berlin/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/:path*",
@@ -20,7 +20,7 @@
         { "type": "host", "value": "fe-design-system.vercel.app" }
       ],
       "destination": "https://design.foreveryone.berlin/:path*",
-      "permanent": true
+      "statusCode": 301
     }
   ]
 }
