@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Shorten the README, with its header image linking to the live site.
+
 ## [1.13.1] - 2026-10-22
 
 ### Changed
