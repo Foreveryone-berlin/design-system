@@ -1,4 +1,4 @@
-![ForEveryone Design System card: a bold "ForEveryone Design System" headline on a lime-green ground, underlined with an orange hand-drawn stroke, with sprout, smiley, and swirl doodles on the right and a warm-white wave along the bottom.](prototype/public/images/readme-hero.png)
+[![ForEveryone Design System card: a bold "ForEveryone Design System" headline on a lime-green ground, underlined with an orange hand-drawn stroke, with sprout, smiley, and swirl doodles on the right and a warm-white wave along the bottom.](prototype/public/images/readme-hero.png)](https://design.foreveryone.berlin)
 
 # ForEveryone Design System
 
@@ -8,16 +8,14 @@ You can see it all in action on the live preview: **[design.foreveryone.berlin](
 
 ### Tech stack
 
-- **Tokens:** W3C DTCG JSON (`tokens/*.json`) with `$value`, `$type`, `$description`.
-- **Build:** Node script `scripts/build-css.js` generates `css/custom-properties.css`.
-- **CSS:** Authored layers in `css/*.css` (variables only, no raw values).
-- **Prototype:** Next.js 16 + TypeScript (App Router) in `prototype/`.
-- **Hosting:** Vercel at `design.foreveryone.berlin` (legacy `fe-design-system.vercel.app` 301-redirects there).
-- **CI:** GitHub Actions for token build + test + prototype build, and auto-release on `v*.*.*` tag.
+- **Tokens:** W3C DTCG JSON in `tokens/`, built into `css/custom-properties.css` by `scripts/build-css.js`.
+- **CSS:** authored layers in `css/*.css`, variables only.
+- **Prototype:** Next.js 16 + TypeScript in `prototype/`, hosted on Vercel at `design.foreveryone.berlin`.
+- **CI:** GitHub Actions for build, tests, and tag-triggered releases.
 
 ### Quick start
 
-Requires **Node 24 or newer**.
+Requires **Node 24+**.
 
 ```bash
 # Build CSS custom properties from tokens
@@ -69,24 +67,16 @@ foreveryone-design-system/
 
 ## Integrations
 
-- **How to consume the system** (plain CSS, React/Next.js, or a CMS): [`docs/getting-started.md`](docs/getting-started.md), then [`integrations/README.md`](integrations/README.md).
-- **Pre-release checks for any consuming surface:** [`docs/integration-checklist.md`](docs/integration-checklist.md).
-- **Figma + Tokens Studio:** [`figma/sync-guide.md`](figma/sync-guide.md) and [`figma/token-export-instructions.md`](figma/token-export-instructions.md).
-- **Host-platform targets** (setup, globals, sync): [`integrations/`](integrations/).
-- **Visual styles** (icons, blobs, photography, category icon set): [`docs/visual-styles.md`](docs/visual-styles.md).
-- **Logo usage** (X measurement, safe zone, min sizes, white-on-orange exception): [`docs/logo-usage.md`](docs/logo-usage.md).
-- **Color audit** (2026 brand-guide alignment + approved bg ⇄ text combinations): [`docs/color-audit-2026.md`](docs/color-audit-2026.md).
-- **Brand source of truth** (authority matrix; Brand Book v1.0 governs): [`docs/brand-book-references.md`](docs/brand-book-references.md).
-- **For AI agents** (consume the system / redesign an app): installable skills via [`docs/agent-skills.md`](docs/agent-skills.md) (`node bin/fe-ds.mjs skills install`), Codex loads root `AGENTS.md` and generated `.agents/skills/`; see the [tool loading matrix](docs/agents/README.md). Also see [`llms.txt`](llms.txt), [`spec/`](spec/), and [`docs/agents/redesign-from-this-system.md`](docs/agents/redesign-from-this-system.md).
+- **Consume the system** (plain CSS, React/Next.js, or a CMS): [`docs/getting-started.md`](docs/getting-started.md), then [`integrations/README.md`](integrations/README.md).
+- **Pre-release checks:** [`docs/integration-checklist.md`](docs/integration-checklist.md).
+- **Figma + Tokens Studio:** [`figma/sync-guide.md`](figma/sync-guide.md).
+- **Brand rules:** [`docs/brand-book-references.md`](docs/brand-book-references.md), [`docs/visual-styles.md`](docs/visual-styles.md), [`docs/logo-usage.md`](docs/logo-usage.md).
+- **For AI agents:** [`docs/agent-skills.md`](docs/agent-skills.md) (`node bin/fe-ds.mjs skills install`) and [`llms.txt`](llms.txt).
 
 ## Git workflow
 
-- `main` is the default branch (protected, release-ready). `develop` is the integration branch.
-- Branch from `develop` using `feature/*`, `fix/*`, `docs/*`, `chore/*`.
-- Use Conventional Commits.
-- PRs use [`.github/PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQUEST_TEMPLATE.md).
-- Solo flow: `bash scripts/pr-and-merge.sh` pushes the current branch, opens a PR, and merges it.
-- Tag `main` with `vX.Y.Z` at release; see [`docs/skills/release.md`](docs/skills/release.md).
+- Branch from `develop` (`feature/*`, `fix/*`, `docs/*`, `chore/*`) with Conventional Commits; `main` is release-ready.
+- `bash scripts/pr-and-merge.sh` opens and merges the PR into `develop`; releases are tagged `vX.Y.Z` on `main` ([`docs/skills/release.md`](docs/skills/release.md)).
 
 ## Changelog
 
@@ -106,7 +96,6 @@ With thanks to Rie, Roxana, Marco, Pedram, Angelina, and Didem.
 
 Dual-licensed in a single [LICENSE](LICENSE) file:
 
-- **Software** (`scripts/`, `bin/`, `prototype/`): **MIT**.
-- **Code and prototype:** MIT License. You may use, modify, and distribute the software.
+- **Software** (`scripts/`, `bin/`, `prototype/`): MIT License. You may use, modify, and distribute the software.
 - **Design system materials** (`tokens/`, `css/`, `figma/`, `integrations/`, `docs/`, `skills/`, agent docs, `.agents/` skills, `.claude/` and `.cursor/` rules): CC BY-NC 4.0. You may share and adapt these materials for non-commercial use with attribution. See the [license summary](https://creativecommons.org/licenses/by-nc/4.0/).
 - See the [`LICENSE`](LICENSE) file for the complete terms.
