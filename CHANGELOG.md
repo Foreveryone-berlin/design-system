@@ -8,6 +8,23 @@
 
 ## [Unreleased]
 
+## [1.14.0] - 2026-10-25
+
+### Added
+
+- Add reusable popup styling for sites using the design system.
+
+### Changed
+
+- Publish agent resources through GitHub only and block AI crawlers from the prototype.
+
+### Fixed
+
+- Restore menu and popup borders and correct colour names in the token list.
+- Improve page metadata, search navigation, accessible labels, and interactive demos.
+- Protect build and installation tools from unsafe paths and stale files.
+- Run the complete browser suite locally and in CI, including WCAG 2.2 AA checks.
+
 ## [1.13.2] - 2026-10-23
 
 ### Changed

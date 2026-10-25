@@ -31,9 +31,6 @@ export const metadata: Metadata = {
     email: false,
     address: false,
   },
-  alternates: {
-    canonical: "/",
-  },
   icons: {
     icon: [
       {
@@ -63,7 +60,6 @@ export const metadata: Metadata = {
     title: "ForEveryone Design System",
     description:
       "Design tokens, components, and patterns for the ForEveryone digital experience.",
-    url: "/",
     images: [
       {
         url: "/images/social-preview.jpg",

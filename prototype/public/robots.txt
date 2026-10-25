@@ -140,6 +140,8 @@ User-agent: YouBot
 User-agent: ZanistaBot
 Disallow: /
 
-# Block all other crawlers because this is an internal prototype.
+# Search engines may crawl so they see the noindex, nofollow header and meta;
+# a robots.txt block would hide it and leave bare URLs in results.
+# Agents read the design system from GitHub, not from this site.
 User-agent: *
-Disallow: /
+Allow: /

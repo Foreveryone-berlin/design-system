@@ -52,14 +52,13 @@ const pages: PageDef[] = [
     route: "/components",
     title: "Components",
     description:
-      "Buttons, inputs, cards, tags, navigation, icon preview, and overlays.",
+      "Buttons, inputs, cards, tags, navigation, and overlays.",
     sections: [
       "Actions",
       "Forms & inputs",
       "Tags & labels",
       "Navigation",
       "Content & media",
-      "Icon preview",
       "Overlays",
     ],
   },
@@ -135,6 +134,7 @@ const pages: PageDef[] = [
       "Typography",
       "Illustration & blobs",
       "Do & don't",
+      "Layout & white space",
       "How to represent us",
     ],
   },
@@ -177,7 +177,7 @@ const pages: PageDef[] = [
       "What these are",
       "Skills",
       "Install",
-      "On this site",
+      "On GitHub",
     ],
   },
   {

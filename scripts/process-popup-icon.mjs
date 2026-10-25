@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import sharp from "../prototype/node_modules/sharp/lib/index.js";
+import sharp from "../prototype/node_modules/sharp/dist/index.mjs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 

@@ -63,7 +63,7 @@ in this file and in `spec/` for use in another project.
 node path/to/design-system/bin/fe-ds.mjs skills install
 ```
 
-Manifest: [skills/index.json](https://design.foreveryone.berlin/skills/index.json).
+Manifest: [skills/index.json](https://raw.githubusercontent.com/Foreveryone-berlin/design-system/main/dist/skills/index.json).
 How-to: [docs/agent-skills.md](docs/agent-skills.md). Distinct from maintainer workflows in
 `docs/skills/`. Codex loads root `AGENTS.md` and generated `.agents/skills/`;
 Claude and Cursor use their native entry files and rule directories.

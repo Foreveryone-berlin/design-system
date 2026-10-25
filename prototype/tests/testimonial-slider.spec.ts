@@ -19,7 +19,7 @@ test("the track keeps list semantics", async ({ page }) => {
   // states role="list" explicitly. That role is what announces "3 of 5".
   const track = page.locator(`${SECTION} .fe-testimonial-slider__track`);
   await expect(track).toHaveAttribute("role", "list");
-  await expect(page.locator(`${SECTION} [role="listitem"], ${SLIDE}`).first()).toBeVisible();
+  await expect(track.getByRole("listitem").first()).toBeVisible();
   expect(await page.locator(SLIDE).count()).toBe(
     await page.locator(`${SECTION} li`).count(),
   );

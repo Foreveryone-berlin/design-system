@@ -22,11 +22,10 @@ in another project.
 | `skills/` | Consumers | Skill sources; edit only here |
 | `dist/skills/` | Installer | Generated payload with `index.json`, `tokens.json`, and the `AGENTS.md` block |
 | `.agents/skills/` | Codex in this repo | Generated mirror; never edit |
-| `prototype/public/skills/` | Site | Generated mirror served at `/skills/` |
 | `docs/skills/` | Maintainers | Workflows for this repo (token update, release); not consumer skills |
 
-After editing a source, run `npm run skills:build`. It regenerates the three
-mirrors and copies root `llms.txt` to `prototype/public/llms.txt`. `npm test`
+After editing a source, run `npm run skills:build`. It regenerates both
+generated copies. `npm test`
 fails when the Codex mirror is stale.
 
 ## Install
@@ -55,15 +54,14 @@ installer replaces the payload and the managed block in place. Codex reads root
 ([Codex AGENTS.md guide](https://learn.chatgpt.com/docs/agent-configuration/agents-md)).
 The installer needs no network or API key; the package is private and not on npm.
 
-## Site discovery
+## GitHub discovery
 
-Agents that only have the hostname can read:
+Agents that only have a URL read the public repository (branch `main`):
 
-- <https://design.foreveryone.berlin/llms.txt>
-- <https://design.foreveryone.berlin/skills/index.json>
-- <https://design.foreveryone.berlin/skills/tokens.json>
+- <https://raw.githubusercontent.com/Foreveryone-berlin/design-system/main/llms.txt>
+- <https://raw.githubusercontent.com/Foreveryone-berlin/design-system/main/dist/skills/index.json>
+- <https://raw.githubusercontent.com/Foreveryone-berlin/design-system/main/dist/skills/tokens.json>
 
-Those paths send `Content-Signal: ai-input=yes` and skip the AI-crawler 403 in
-`prototype/proxy.ts`. The rest of the prototype, including the human-readable
-[Agent skills page](https://design.foreveryone.berlin/agent-skills), stays noindex
-and closed to AI crawlers.
+The prototype at design.foreveryone.berlin is for people. It sends `noindex, nofollow`
+and `Content-Signal: ai-train=no, search=no, ai-input=no`, and `prototype/proxy.ts`
+returns 403 to AI crawlers on every path.

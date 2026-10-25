@@ -51,7 +51,7 @@ When changing team-wide agent behavior, keep these surfaces aligned in the same 
 
 - **Commands, stack pin, prototype baseline, skill triggers:** [`docs/AGENTS.md`](../AGENTS.md), root [`AGENTS.md`](../../AGENTS.md), [`CLAUDE.md`](../../CLAUDE.md), [`.cursor/AGENTS.md`](../../.cursor/AGENTS.md).
 - **Path-scoped rules:** [`.cursor/rules/*.mdc`](../../.cursor/rules/) **and** [`.claude/rules/*.md`](../../.claude/rules/) (each `.md` file notes its `.mdc` mirror).
-- **Skills:** edit root `skills/` only. `npm run skills:build` regenerates `dist/skills/`, `prototype/public/skills/`, and `.agents/skills/`. Consumer installs always include Codex discovery; Claude and Cursor layouts are selected when present or via `--target`.
+- **Skills:** edit root `skills/` only. `npm run skills:build` regenerates `dist/skills/` and `.agents/skills/`. Consumer installs always include Codex discovery; Claude and Cursor layouts are selected when present or via `--target`.
 
 Optional sanity check before merge: compare substantive sections of `docs/AGENTS.md`, root `AGENTS.md`, `CLAUDE.md`, and `.cursor/AGENTS.md` (excluding the Cursor precedence block).
 

@@ -227,4 +227,6 @@ function main() {
   console.log(`Generated ${path.relative(ROOT_DIR, OUTPUT_PATH)}`);
 }
 
-main();
+if (require.main === module) main();
+
+module.exports = { buildCss, OUTPUT_PATH };

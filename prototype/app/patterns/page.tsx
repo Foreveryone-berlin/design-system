@@ -1,12 +1,19 @@
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import HeaderDemo from "../_components/HeaderDemo";
+import CategoryFilter from "../_components/CategoryFilter";
 import PhotoCredit from "../_components/PhotoCredit";
 import FeIcon, {
-  CATEGORY_LABELS,
   type SocialIconName,
 } from "../_components/FeIcon";
 import { hero as heroCopy } from "@/content/site-copy";
+
+export const metadata = {
+  title: "Patterns",
+  description:
+    "Composite layouts from the live ForEveryone site: headers, stats, benefit grids, event switchers, and more.",
+  alternates: { canonical: "/patterns" },
+};
 
 const StatCounter = dynamic(() => import("../_components/StatCounter"));
 const EventsWorkshopsSwitcher = dynamic(
@@ -225,7 +232,7 @@ export default function PatternsPage() {
           Compact KPI row for home and campaign pages. Counters animate on
           scroll; reduced-motion users see the final value immediately.
         </p>
-        <div className="ds-stats" aria-label="ForEveryone impact in numbers">
+        <div className="ds-stats" role="group" aria-label="ForEveryone impact in numbers">
           {liveStats.map((stat) => (
             <div key={stat.label} className="ds-stat">
               <p className="ds-stat-value">
@@ -242,29 +249,7 @@ export default function PatternsPage() {
         <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
           Interactive category pills. Active state uses the category fill colour.
         </p>
-        <div
-          className="ds-icon-in-context-row"
-          style={{ flexWrap: "wrap", gap: "var(--spacing-2)" }}
-        >
-          {(["balance-wellness", "movement", "arts-crafts", "expression", "music"] as const).map(
-            (cat, i) => (
-              <button
-                key={cat}
-                type="button"
-                className={`fe-tag-pill fe-tag-pill--${
-                  cat === "balance-wellness"
-                    ? "balance"
-                    : cat === "arts-crafts"
-                      ? "arts"
-                      : cat
-                }${i === 0 ? " active" : ""}`}
-                aria-pressed={i === 0}
-              >
-                {CATEGORY_LABELS[cat]}
-              </button>
-            ),
-          )}
-        </div>
+        <CategoryFilter />
       </section>
 
       <section id="hero-pattern" className="ds-section">

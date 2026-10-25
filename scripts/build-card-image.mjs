@@ -8,7 +8,7 @@
 // Raster art is kept near native resolution (sharp); the headline is vector.
 //
 // usage: node scripts/build-card-image.mjs <source.png>
-import sharp from "../prototype/node_modules/sharp/lib/index.js";
+import sharp from "../prototype/node_modules/sharp/dist/index.mjs";
 import path from "node:path";
 import os from "node:os";
 import { fileURLToPath } from "node:url";

@@ -10,6 +10,10 @@ import Image from "next/image";
 import Link from "next/link";
 import PhotoCredit from "./_components/PhotoCredit";
 
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
 const StatCounter = dynamic(() => import("./_components/StatCounter"));
 
 export default function Home() {
@@ -47,7 +51,7 @@ export default function Home() {
 
       <p className="ds-intro">{designSystemIntro}</p>
 
-      <section className="ds-section" aria-labelledby="mission-heading">
+      <section className="ds-section" aria-label={missionCopy.title}>
         <h2 id="mission-heading" className="ds-section-title">
           {missionCopy.title}
         </h2>

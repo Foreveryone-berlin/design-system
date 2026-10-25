@@ -27,10 +27,10 @@ export default function ObfuscatedEmail() {
       className="fe-body"
       style={{ margin: 0, fontSize: "var(--font-size-sm)" }}
     >
-      {/* aria-label gives the link an accessible name before JS fills the
-          obfuscated address, so it satisfies link-name without exposing the
-          plaintext email in the served HTML. */}
-      <a ref={ref} className="fe-nav-link" href="#" aria-label="Email us" />
+      {/* No href until JS fills the address: an empty <a> is not a link, so
+          there is nothing to name and nothing that jumps to the top. The
+          visible address then is the accessible name. */}
+      <a ref={ref} className="fe-nav-link" />
       <noscript>hello[at]foreveryone[dot]berlin</noscript>
     </span>
   );

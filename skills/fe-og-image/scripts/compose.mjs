@@ -57,7 +57,7 @@ h1{margin:var(--og-zero);font-family:var(--font-family-heading);font-size:var(--
 .visual{position:absolute;right:var(--og-inset);top:var(--og-visual-top);width:var(--og-visual-width);height:var(--og-visual-height);object-fit:cover;object-position:${position};border-radius:43% 57% 51% 49% / 39% 43% 57% 61%}
 .illustration{object-fit:contain;border-radius:var(--og-zero);padding:var(--spacing-8)}
 .logo{position:absolute;left:var(--og-inset);bottom:var(--og-logo-bottom);width:var(--og-logo-width);height:auto}
-.cta{position:absolute;right:var(--og-inset);bottom:var(--og-inset);height:var(--og-cta-height);display:flex;align-items:center;gap:var(--spacing-4);padding-inline:var(--spacing-8);border-radius:var(--radius-pill);background:var(--color-brand-secondary);color:var(--color-base-white);font-size:var(--font-size-2xl);font-weight:var(--font-weight-bold);line-height:var(--line-height-normal);white-space:nowrap}
+.cta{position:absolute;right:var(--og-inset);bottom:var(--og-inset);height:var(--og-cta-height);display:flex;align-items:center;gap:var(--spacing-4);padding-inline:var(--spacing-8);border-radius:var(--radius-pill);background:var(--color-brand-secondary);color:var(--color-white);font-size:var(--font-size-2xl);font-weight:var(--font-weight-bold);line-height:var(--line-height-normal);white-space:nowrap}
 .cta svg{width:var(--og-arrow-size);height:var(--og-arrow-size);flex:none}
 </style></head><body><main class='card' aria-label='${escape(brief.headline)}'>
 ${brief.label ? `<p class='label'>${escape(brief.label)}</p>` : ''}

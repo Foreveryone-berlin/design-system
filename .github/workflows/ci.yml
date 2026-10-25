@@ -22,6 +22,9 @@ jobs:
       - name: Build tokens to CSS
         run: node scripts/build-css.js
 
+      - name: Build agent token spec
+        run: node scripts/build-spec.js
+
       - name: Build agent skills
         run: npm run skills:build
 
@@ -36,11 +39,19 @@ jobs:
             exit 1
           fi
 
+      - name: Detect spec drift
+        run: |
+          if ! git diff --quiet -- spec/tokens.json; then
+            echo "::error::spec/tokens.json is out of sync with tokens/*.json. Run 'node scripts/build-spec.js' and commit."
+            git --no-pager diff -- spec/tokens.json
+            exit 1
+          fi
+
       - name: Detect skills drift
         run: |
-          if ! git diff --quiet -- dist/skills .agents/skills prototype/public/skills prototype/public/llms.txt; then
-            echo "::error::skills payload is out of sync. Run 'npm run skills:build' and commit dist/skills, .agents/skills, prototype/public/skills, and prototype/public/llms.txt."
-            git --no-pager diff -- dist/skills .agents/skills prototype/public/skills prototype/public/llms.txt
+          if ! git diff --quiet -- dist/skills .agents/skills; then
+            echo "::error::skills payload is out of sync. Run 'npm run skills:build' and commit dist/skills and .agents/skills."
+            git --no-pager diff -- dist/skills .agents/skills
             exit 1
           fi
 
@@ -84,7 +95,7 @@ jobs:
 
       - run: npm run build
 
-      - name: Accessibility e2e (chromium)
+      - name: E2e + accessibility (chromium)
         run: |
           PORT=3100 npm run start &
           for i in $(seq 1 30); do
@@ -92,8 +103,4 @@ jobs:
             sleep 2
           done
           curl -sf http://localhost:3100/ >/dev/null
-          PLAYWRIGHT_BASE_URL=http://localhost:3100 npx playwright test \
-            tests/a11y.spec.ts \
-            tests/interaction-a11y.spec.ts \
-            tests/alt.spec.ts \
-            --project=chromium
+          PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e -- --project=chromium

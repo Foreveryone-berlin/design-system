@@ -8,7 +8,7 @@ has to stand on its own for an agent that reads nothing else.
 
 ## ForEveryone Berlin design system
 
-This project consumes the [ForEveryone Berlin design system](https://design.foreveryone.berlin).
+This project consumes the [ForEveryone Berlin design system](https://github.com/Foreveryone-berlin/design-system).
 Follow these rules when writing or editing UI.
 
 1. **Tokens only.** Never invent hex values or font names. Use CSS custom properties from
@@ -34,8 +34,8 @@ Follow these rules when writing or editing UI.
    `prefers-reduced-motion`.
 
 Machine-readable tokens: `spec/tokens.json` or
-<https://design.foreveryone.berlin/skills/tokens.json>.
-Entry point: <https://design.foreveryone.berlin/llms.txt>.
+<https://raw.githubusercontent.com/Foreveryone-berlin/design-system/main/dist/skills/tokens.json>.
+Entry point: <https://raw.githubusercontent.com/Foreveryone-berlin/design-system/main/llms.txt>.
 
 <!-- agents:end -->
 

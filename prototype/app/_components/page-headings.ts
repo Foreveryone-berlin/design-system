@@ -100,6 +100,17 @@ export function resetHeadingAnchor(anchor: HTMLAnchorElement, text: string): voi
   anchor.setAttribute("aria-label", `Copy link to ${text}`);
 }
 
+// Name the heading from its own text only. The copy-link anchor sits inside the
+// heading for layout, and would otherwise add "Copy link to X" to its name.
+function labelHeadingFromText(node: HTMLElement, id: string): void {
+  if (node.hasAttribute("aria-labelledby")) return;
+  const label = document.createElement("span");
+  label.id = `${id}-label`;
+  while (node.firstChild) label.appendChild(node.firstChild);
+  node.appendChild(label);
+  node.setAttribute("aria-labelledby", label.id);
+}
+
 function navigateToHeading(id: string): void {
   history.replaceState(null, "", `#${id}`);
   const target = document.getElementById(id);
@@ -131,6 +142,7 @@ export function ensureHeadingAnchors(
           },
         );
       });
+      labelHeadingFromText(node, id);
       node.appendChild(anchor);
     } else {
       resetHeadingAnchor(anchor, text);

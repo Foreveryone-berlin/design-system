@@ -1,7 +1,7 @@
 {
   "name": "foreveryone-design-system",
-  "version": "1.13.2",
-  "docs": "https://design.foreveryone.berlin",
+  "version": "1.14.0",
+  "docs": "https://github.com/Foreveryone-berlin/design-system",
   "tokens": "tokens.json",
   "agentsBlock": "AGENTS.foreveryone.md",
   "shared": [

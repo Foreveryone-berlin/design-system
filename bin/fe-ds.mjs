@@ -8,7 +8,7 @@
  *   node bin/fe-ds.mjs skills install [--target claude,cursor,codex,agents,dir] [--dir <path>]
  *   node bin/fe-ds.mjs skills path
  */
-import { cp, mkdir, readFile, writeFile, access } from 'node:fs/promises';
+import { cp, mkdir, readFile, rm, writeFile, access } from 'node:fs/promises';
 import { constants } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -120,9 +120,21 @@ async function writeFileIfNeeded(file, content, { dryRun }, written) {
 }
 
 async function copyTree(from, to, { dryRun }, written, label) {
+  const source = path.resolve(from);
+  const destination = path.resolve(to);
+  const overlaps = (parent, child) => {
+    const relative = path.relative(parent, child);
+    return relative === '' || (!relative.startsWith(`..${path.sep}`) && relative !== '..' && !path.isAbsolute(relative));
+  };
+  if (overlaps(source, destination) || overlaps(destination, source)) {
+    fail(`install destination overlaps the packaged skills: ${destination}`);
+  }
+  await access(source, constants.R_OK);
   written.push(`${dryRun ? 'would copy' : 'copied   '} ${label}`);
   if (dryRun) return;
   await mkdir(path.dirname(to), { recursive: true });
+  // Replace, not merge: files renamed or removed upstream must not linger.
+  await rm(to, { recursive: true, force: true });
   await cp(from, to, { recursive: true, force: true });
 }
 
@@ -212,7 +224,11 @@ async function installSkills(options) {
 
   if (targets.includes('agents')) {
     const agentsFile = path.join(cwd, 'AGENTS.md');
-    const body = await readFile(path.join(skillsDir, index.agentsBlock), 'utf8');
+    const relDir = path.relative(cwd, localDir).split(path.sep).join('/') || '.';
+    const body = (await readFile(path.join(skillsDir, index.agentsBlock), 'utf8')).replaceAll(
+      `\`${LOCAL_DIR}/\``,
+      `\`${relDir}/\``
+    );
     const existing = (await exists(agentsFile)) ? await readFile(agentsFile, 'utf8') : null;
     await writeFileIfNeeded(
       agentsFile,

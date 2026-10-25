@@ -40,7 +40,7 @@ Paths are repo-relative from project root unless noted.
 |bin:{fe-ds.mjs}
 |prototype:{README.md,next.config.ts,package.json,tsconfig.json,playwright.config.ts}
 |prototype/app:{layout.tsx,page.tsx,globals.css,manifest.ts,FaqDemo.tsx}
-|prototype/app/_components:{FeIcon.tsx,CodeBlock.tsx,HeaderDemo.tsx,MobileNav.tsx,MotionSpecimens.tsx,Navigation.tsx,ObfuscatedEmail.tsx,OnThisPage.tsx,Popup.tsx,Search.tsx,HeadingAnchors.tsx,EventsWorkshopsSwitcher.tsx,NavigationHistory.tsx,AssetTile.tsx,LogoClearSpace.tsx,StatCounter.tsx,TestimonialCard.tsx,TestimonialSlider.tsx,ViewTransitions.tsx,ui-glyphs.ts,ui-glyph-markup.ts,page-headings.ts,nav-sections.ts,search-index.ts,slugify.ts}
+|prototype/app/_components:{FeIcon.tsx,CodeBlock.tsx,HeaderDemo.tsx,MobileNav.tsx,Navigation.tsx,ObfuscatedEmail.tsx,OnThisPage.tsx,PhotoCredit.tsx,Popup.tsx,Search.tsx,HeadingAnchors.tsx,EventsWorkshopsSwitcher.tsx,CategoryFilter.tsx,NavigationHistory.tsx,AssetTile.tsx,LogoClearSpace.tsx,StatCounter.tsx,TestimonialCard.tsx,TestimonialSlider.tsx,ViewTransitions.tsx,ui-glyphs.ts,ui-glyph-markup.ts,page-headings.ts,nav-sections.ts,search-index.ts,slugify.ts}
 |prototype/app:{components,patterns,foundations,guidelines,governance,agent-skills,accessibility,credits,brand,logo,visual-elements,print}/page.tsx
 |prototype/content:{site-copy.ts}
 |prototype/tests:{a11y.spec.ts,smoke.spec.ts}
@@ -56,7 +56,7 @@ Paths are repo-relative from project root unless noted.
 | Regenerate CSS custom properties from tokens | `node scripts/build-css.js` (repo root) |
 | Regenerate the machine-readable token spec for agents | `node scripts/build-spec.js` (repo root) — writes `spec/tokens.json` |
 | Build both (CSS + spec + skills) | `npm run build` (repo root) |
-| Build consumer agent skills payload | `npm run skills:build` → `dist/skills/` + `.agents/skills/` + `prototype/public/skills/` |
+| Build consumer agent skills payload | `npm run skills:build` → `dist/skills/` + `.agents/skills/` |
 | Install consumer skills into a project | `node bin/fe-ds.mjs skills install` |
 | Headless prototype audit with Codex | `bash scripts/optimize-run.sh --agent codex` |
 | Prototype dev server | `cd prototype && npm install && npm run dev` |

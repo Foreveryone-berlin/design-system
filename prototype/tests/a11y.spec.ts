@@ -18,7 +18,7 @@ const routes = [
 ] as const;
 
 for (const route of routes) {
-  test(`${route} has no serious WCAG 2.1 AA violations`, async ({ page }) => {
+  test(`${route} has no serious WCAG 2.2 AA violations`, async ({ page }) => {
     await page.goto(route, { waitUntil: "domcontentloaded" });
     await page.waitForLoadState("networkidle", { timeout: 10_000 }).catch(() => {});
 
@@ -26,7 +26,7 @@ for (const route of routes) {
     // the components state-matrix render arbitrary sample colours/states on
     // purpose, so contrast rules do not apply to them.
     const results = await new AxeBuilder({ page })
-      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
       .exclude(".ds-ramp-step")
       .exclude(".ds-state-matrix")
       .exclude(".ds-state-grid")
