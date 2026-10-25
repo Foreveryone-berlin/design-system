@@ -14,7 +14,7 @@ in the prototype.
 `prototype/public/icons/categories/` (five canonical categories) and
 `prototype/public/icons/workshop/` (activity/subcategory glyphs). Renders via the
 single `FeIcon` component (`prototype/app/_components/FeIcon.tsx`) using CSS mask +
-`currentColor` inside `.fe-card-category__icon`, `.fe-workshop-icon`, or
+`currentColor` inside `.fe-workshop-icon` or
 `.fe-icon-btn--filled-brand`, with orange (`var(--color-accent-icon)`) ground + white
 glyph. Per Brand Book p.24 these are **solid filled** silhouettes — never
 outline/stroke, never shadow/gradient. Add a category by dropping a **filled** SVG
@@ -53,7 +53,7 @@ Three size modifiers align with common component contexts (see `/visual-elements
 | Medium | `.fe-workshop-icon--md` | 40×40px | 20px | Icon button (`.fe-icon-btn--filled-brand`) |
 | Large | `.fe-workshop-icon--lg` | 80×80px | 52px | Visual-elements specimen, card hero badge |
 
-Glyph-only rendering (no orange chip) is available via `chip={false}` on `FeIcon` when the parent already supplies the orange ground (e.g. `.fe-card-category__icon`).
+Glyph-only rendering (no orange chip) is available via `chip={false}` on `FeIcon` when the parent already supplies the orange ground (e.g. `.fe-icon-btn--filled-brand`).
 
 ### Unified icon component
 

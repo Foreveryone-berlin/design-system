@@ -245,7 +245,7 @@ export default function AccessibilityPage() {
           This statement was last reviewed on <strong>8 October 2026</strong>. It
           evolves with the design system and the brand book. Known gaps and
           partial conformance items are tracked in the{" "}
-          <a href="https://github.com/Foreveryone-berlin/design-system/blob/develop/docs/a11y-conformance.md">
+          <a href="https://github.com/Foreveryone-berlin/design-system/blob/main/docs/a11y-conformance.md">
             accessibility conformance register
           </a>
           .

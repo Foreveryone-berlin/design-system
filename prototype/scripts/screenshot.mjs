@@ -20,6 +20,8 @@ const pages = [
   { name: "guidelines", path: "/guidelines" },
   { name: "accessibility", path: "/accessibility" },
   { name: "governance", path: "/governance" },
+  { name: "agent-skills", path: "/agent-skills" },
+  { name: "credits", path: "/credits" },
 ];
 
 const viewports = [

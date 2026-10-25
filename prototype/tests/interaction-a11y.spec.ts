@@ -10,7 +10,8 @@ test.describe("interactive accessibility", () => {
 
     const dialog = page.getByRole("dialog");
     await expect(dialog).toBeVisible();
-    await expect(dialog).toHaveAttribute("aria-modal", "true");
+    // aria-modal alone proves nothing; :modal is true only after showModal().
+    expect(await dialog.evaluate((el) => el.matches(":modal"))).toBe(true);
 
     await page.keyboard.press("Escape");
     await expect(dialog).toBeHidden();
