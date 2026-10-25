@@ -2,6 +2,7 @@ export const metadata = {
   title: "Print & Media",
   description:
     "The digital ↔ print boundary: what is print/physical-only (Young Serif, CMYK, print purple, document greys, cafe signs) and must not be used on the web.",
+  alternates: { canonical: "/print" },
 };
 
 const cmyk = [

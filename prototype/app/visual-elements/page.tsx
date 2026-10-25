@@ -21,6 +21,7 @@ export const metadata = {
   title: "Visual Elements",
   description:
     "The four ForEveryone visual-element families plus the canonical icon catalog: category, activity, social, and UI glyphs.",
+  alternates: { canonical: "/visual-elements" },
 };
 
 // Doodle strokes + sparkle/asterisk/music-note decorations (Brand Book v1.0

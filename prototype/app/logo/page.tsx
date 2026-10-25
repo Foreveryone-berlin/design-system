@@ -4,6 +4,7 @@ export const metadata = {
   title: "Logo",
   description:
     "The ForEveryone logo system: variants, clear space, background combinations, photography rules, and incorrect usage.",
+  alternates: { canonical: "/logo" },
 };
 
 const atAGlance = [

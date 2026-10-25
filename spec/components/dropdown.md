@@ -6,8 +6,9 @@
 
 ## Accessibility
 
-- Container: `role="menu"` with `aria-label` describing the menu purpose.
-- Items: `role="menuitem"` on links or buttons.
+- Container: `role="group"` (or a `<nav>`) with `aria-label` describing its purpose.
+- Items: plain links or buttons. Use `role="menu"` / `role="menuitem"` only with the
+  full menu keyboard pattern (arrow keys, roving tabindex, Escape).
 - Current item: `aria-current="true"` on the active entry.
 - Disabled item: `aria-disabled="true"` (prefer not rendering as a link).
 - Keyboard: items must be reachable by Tab (or roving tabindex if implementing
@@ -21,9 +22,8 @@
 ## Minimal snippet
 
 ```html
-<div class="fe-dropdown" role="menu" aria-label="Account">
-  <a href="/profile" class="fe-dropdown-item" role="menuitem">Profile</a>
-  <a href="/settings" class="fe-dropdown-item is-active" role="menuitem"
-    aria-current="true">Settings</a>
+<div class="fe-dropdown" role="group" aria-label="Account">
+  <a href="/profile" class="fe-dropdown-item">Profile</a>
+  <a href="/settings" class="fe-dropdown-item is-active" aria-current="true">Settings</a>
 </div>
 ```

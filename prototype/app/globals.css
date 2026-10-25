@@ -1917,7 +1917,7 @@ a.ds-btn {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-4);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid color-mix(in oklch, var(--color-black) 6%, transparent);
 }
 .ds-logo-bg__mark {
   height: auto;
@@ -2346,7 +2346,7 @@ a.ds-btn {
   border-radius: 50%;
   margin-right: var(--spacing-2);
   vertical-align: middle;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid color-mix(in oklch, var(--color-black) 12%, transparent);
 }
 .ds-print-swap {
   display: flex;
@@ -2700,11 +2700,11 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
 .ds-code-block-wrap .token.prolog,
 .ds-code-block-wrap .token.doctype,
 .ds-code-block-wrap .token.cdata {
-  color: #999;
+  color: var(--color-neutral-400);
 }
 
 .ds-code-block-wrap .token.punctuation {
-  color: #ccc;
+  color: var(--color-neutral-300);
 }
 
 .ds-code-block-wrap .token.property,
@@ -2714,7 +2714,7 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
 .ds-code-block-wrap .token.constant,
 .ds-code-block-wrap .token.symbol,
 .ds-code-block-wrap .token.deleted {
-  color: #f8c555;
+  color: var(--color-yellow);
 }
 
 .ds-code-block-wrap .token.selector,
@@ -2723,24 +2723,24 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
 .ds-code-block-wrap .token.char,
 .ds-code-block-wrap .token.builtin,
 .ds-code-block-wrap .token.inserted {
-  color: #7ec699;
+  color: var(--color-green-500);
 }
 
 .ds-code-block-wrap .token.atrule,
 .ds-code-block-wrap .token.attr-value,
 .ds-code-block-wrap .token.keyword {
-  color: #cc99cd;
+  color: var(--color-purple);
 }
 
 .ds-code-block-wrap .token.function,
 .ds-code-block-wrap .token.class-name {
-  color: #f08d49;
+  color: var(--color-orange-400);
 }
 
 .ds-code-block-wrap .token.regex,
 .ds-code-block-wrap .token.important,
 .ds-code-block-wrap .token.variable {
-  color: #e2777a;
+  color: var(--color-pink);
 }
 
 .ds-code-block-wrap {
@@ -2844,7 +2844,7 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
 }
 
 .fe-popup::backdrop {
-  background: rgba(10, 10, 10, 0.55);
+  background: color-mix(in oklch, var(--color-black) 55%, transparent);
 }
 
 .fe-popup__content {

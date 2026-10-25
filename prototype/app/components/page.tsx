@@ -3,6 +3,13 @@ import FeIcon from "../_components/FeIcon";
 import TestimonialCard from "../_components/TestimonialCard";
 import TestimonialSlider from "../_components/TestimonialSlider";
 
+export const metadata = {
+  title: "Components",
+  description:
+    "Buttons, inputs, cards, tags, and more: interactive UI elements built on the design tokens.",
+  alternates: { canonical: "/components" },
+};
+
 // Specimen copy is deliberately placeholder: this documents the slider's
 // layout, motion, and keyboard contract, not live workshop testimonials. Five
 // entries so the dot row matches the reference composition.
@@ -292,24 +299,19 @@ export default function ComponentsPage() {
           Menu surface with item states: Default, Hover, Selected, and Disabled.
           Hover and selected are shown statically here.
         </p>
-        <div className="fe-dropdown" role="menu" aria-label="Dropdown states demo">
-          <a href="#dropdown" className="fe-dropdown-item" role="menuitem">
+        <div className="fe-dropdown" role="group" aria-label="Dropdown states demo">
+          <a href="#dropdown" className="fe-dropdown-item">
             Default item
           </a>
-          <a href="#dropdown" className="fe-dropdown-item is-hover" role="menuitem">
+          <a href="#dropdown" className="fe-dropdown-item is-hover">
             Hover item
           </a>
-          <a
-            href="#dropdown"
-            className="fe-dropdown-item is-active"
-            role="menuitem"
-            aria-current="true"
-          >
+          <a href="#dropdown" className="fe-dropdown-item is-active" aria-current="true">
             Selected item
           </a>
-          <span className="fe-dropdown-item" role="menuitem" aria-disabled="true">
+          <a className="fe-dropdown-item" role="link" aria-disabled="true">
             Disabled item
-          </span>
+          </a>
         </div>
       </section>
 

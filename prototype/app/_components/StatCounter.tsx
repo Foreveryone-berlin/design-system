@@ -4,11 +4,13 @@ import { useEffect, useRef, useState } from "react";
 
 function parse(value: string) {
   const m = /^(\D*)(\d[\d,]*)(.*)$/.exec(value);
-  if (!m) return { prefix: "", target: null as number | null, suffix: value };
+  if (!m) return { prefix: "", target: null as number | null, suffix: value, grouped: false };
   return {
     prefix: m[1],
     target: parseInt(m[2].replace(/,/g, ""), 10),
     suffix: m[3],
+    // Keep thousands separators while animating when the source value has them.
+    grouped: m[2].includes(","),
   };
 }
 
@@ -19,7 +21,7 @@ export default function StatCounter({
   value: string;
   duration?: number;
 }) {
-  const { prefix, target, suffix } = parse(value);
+  const { prefix, target, suffix, grouped } = parse(value);
   const [display, setDisplay] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
@@ -61,7 +63,7 @@ export default function StatCounter({
     <>
       <span ref={ref} aria-hidden="true">
         {prefix}
-        {display}
+        {grouped ? display.toLocaleString("en-US") : display}
         {suffix}
       </span>
       <span className="ds-visually-hidden">{value}</span>

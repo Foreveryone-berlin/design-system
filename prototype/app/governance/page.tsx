@@ -2,6 +2,9 @@ import packageJson from "@/package.json";
 
 export const metadata = {
   title: "Governance",
+  description:
+    "How the design system evolves: versioning, contribution, and the changelog.",
+  alternates: { canonical: "/governance" },
 };
 
 export default function GovernancePage() {

@@ -1,5 +1,8 @@
 export const metadata = {
   title: "Accessibility statement",
+  description:
+    "How the ForEveryone design system supports screen readers, keyboards, low vision, and colour-vision differences.",
+  alternates: { canonical: "/accessibility" },
 };
 
 const REPO_URL = "https://github.com/Foreveryone-berlin/design-system";
