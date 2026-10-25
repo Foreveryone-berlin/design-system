@@ -8,29 +8,22 @@
 
 ## [Unreleased]
 
+## [1.14.0] - 2026-10-25
+
 ### Added
 
-- Add the popup (`.fe-popup`) styles to the shared CSS, so any site gets the documented dialog, not just the prototype.
+- Add reusable popup styling for sites using the design system.
 
 ### Changed
 
-- Serve agent skills, the token list, and `llms.txt` from GitHub only; the prototype site no longer hosts them.
-- Close the prototype site to AI crawlers on every page, and let search engines see its noindex rule.
+- Publish agent resources through GitHub only and block AI crawlers from the prototype.
 
 ### Fixed
 
-- Fix the mobile menu button hover, which lost its white fill and showed a dark outline.
-- Restore the dashed border on the prototype popup close button.
-- Fix the agent token list naming white and black with CSS variables that do not exist.
-- Stop `npm test` from silently rewriting the generated CSS; it now fails when the file is stale.
-- Fail CI when the agent token list is out of date with the tokens.
-- Give every prototype page its own title, description, and canonical link instead of pointing all of them at the homepage.
-- Make search results land on the right section when the same heading exists on two pages, and drop a dead "Icon preview" result.
-- Stop screen readers announcing "Copy link to …" inside every section heading.
-- Make the pattern demo's category pills and date tabs respond to clicks.
-- Keep thousands separators in animated stat counters.
-- Run every prototype browser test in CI against the local build, and check WCAG 2.2 AA.
-- Make `fe-ds skills install` remove skill files deleted upstream and name the right folder when `--dir` is used.
+- Restore menu and popup borders and correct colour names in the token list.
+- Improve page metadata, search navigation, accessible labels, and interactive demos.
+- Protect build and installation tools from unsafe paths and stale files.
+- Run the complete browser suite locally and in CI, including WCAG 2.2 AA checks.
 
 ## [1.13.2] - 2026-10-23
 
