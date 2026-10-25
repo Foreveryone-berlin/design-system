@@ -48,7 +48,7 @@ foreveryone-design-system/
 ├── scripts/         # Build, test, and PR helpers
 ├── bin/             # fe-ds CLI (skills install, etc.)
 ├── skills/          # Consumer agent skills (fe-core, fe-redesign, …)
-├── dist/skills/     # Built skill payload (mirrored to prototype/public/skills/)
+├── dist/skills/     # Built skill payload, read by agents from GitHub
 ├── prototype/       # Next.js preview app
 ├── integrations/    # Per-platform guides (see integrations/README.md)
 ├── figma/           # Tokens Studio sync notes

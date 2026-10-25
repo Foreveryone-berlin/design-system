@@ -8,6 +8,11 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Serve agent skills, the token list, and `llms.txt` from GitHub only; the prototype site no longer hosts them.
+- Close the prototype site to AI crawlers on every page, and let search engines see its noindex rule.
+
 ### Fixed
 
 - Fix the mobile menu button hover, which lost its white fill and showed a dark outline.

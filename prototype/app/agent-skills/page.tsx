@@ -8,7 +8,9 @@ export const metadata: Metadata = {
 };
 
 const REPO_DOCS =
-  "https://github.com/Foreveryone-berlin/design-system/blob/develop/docs/agent-skills.md";
+  "https://github.com/Foreveryone-berlin/design-system/blob/main/docs/agent-skills.md";
+
+const RAW = "https://raw.githubusercontent.com/Foreveryone-berlin/design-system/main";
 
 const SKILLS = [
   {
@@ -108,7 +110,7 @@ export default function AgentSkillsPage() {
       <p className="ds-intro">
         Short guides that teach AI agents to build or restyle UI with this
         system. They package the rules in{" "}
-        <a href="/llms.txt">
+        <a href={`${RAW}/llms.txt`}>
           <code>llms.txt</code>
         </a>
         , the token list, and the component docs for use in another project.
@@ -164,28 +166,28 @@ export default function AgentSkillsPage() {
         </p>
       </section>
 
-      <section id="on-this-site" className="ds-section">
-        <h2 className="ds-section-title">On this site</h2>
+      <section id="on-github" className="ds-section">
+        <h2 className="ds-section-title">On GitHub</h2>
         <p className="fe-body">
-          Agents can read these files directly. The rest of the site stays
-          noindex and closed to AI crawlers, this page included.
+          Agents read these files from the public repository. This site stays
+          out of search engines and closed to AI crawlers.
         </p>
         <ul className="ds-rule-list">
           <li>
-            <a href="/llms.txt">
-              <code>/llms.txt</code>
+            <a href={`${RAW}/llms.txt`}>
+              <code>llms.txt</code>
             </a>
             : entry point and hard rules
           </li>
           <li>
-            <a href="/skills/index.json">
-              <code>/skills/index.json</code>
+            <a href={`${RAW}/dist/skills/index.json`}>
+              <code>dist/skills/index.json</code>
             </a>
             : skill list and versions
           </li>
           <li>
-            <a href="/skills/tokens.json">
-              <code>/skills/tokens.json</code>
+            <a href={`${RAW}/dist/skills/tokens.json`}>
+              <code>dist/skills/tokens.json</code>
             </a>
             : token names, values, and CSS variables
           </li>

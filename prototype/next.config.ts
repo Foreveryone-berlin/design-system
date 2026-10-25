@@ -23,23 +23,10 @@ const nextConfig: NextConfig = {
       key: "Content-Signal",
       value: "ai-train=no, search=no, ai-input=no",
     };
-    // Agent-readable skill payload and llms.txt: keep noindex, allow ai-input.
-    const allowAiInput = {
-      key: "Content-Signal",
-      value: "ai-train=no, search=no, ai-input=yes",
-    };
     return [
       {
         source: "/(.*)",
         headers: [noIndex, blockAiInput],
-      },
-      {
-        source: "/skills/:path*",
-        headers: [allowAiInput],
-      },
-      {
-        source: "/llms.txt",
-        headers: [allowAiInput],
       },
     ];
   },
