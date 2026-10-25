@@ -887,8 +887,8 @@
 
 .fe-header__menu-btn:hover,
 .fe-header__menu-btn.is-hover {
-  background-color: var(--color-theme-6);
-  border-color: var(--color-theme-6);
+  background-color: var(--color-theme-5);
+  border-color: var(--color-theme-7);
 }
 
 .fe-header__menu-btn:focus-visible,

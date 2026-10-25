@@ -2,7 +2,7 @@
 
 // Build a flattened, machine-readable token spec for agents: spec/tokens.json.
 // Generated from tokens/*.json so it never drifts. Each entry is
-// { name, css, value, type, role, surface } where surface is "digital" | "print".
+// { name, css, value, type, surface, description } where surface is "digital" | "print".
 // Run: node scripts/build-spec.js
 
 const fs = require("fs");
@@ -20,6 +20,8 @@ function isPlainObject(v) {
 function cssVarFor(group, dottedPath) {
   const parts = dottedPath.split(".");
   if (group === "color") {
+    // color.base.x → --color-x (build-css.js emits --color-white/--color-black)
+    if (parts[1] === "base") return `--color-${parts.slice(2).join("-")}`;
     // color.x → --color-x ; color.a.b → --color-a-b
     return `--color-${parts.slice(1).join("-")}`;
   }
