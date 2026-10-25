@@ -9,9 +9,9 @@ export const RECOLOR_BRAND = [
   "#F47A3F",
   "#d4e6a8",
   "#D4E6A8",
-  // Pre-2026 lime green; still arrives in older Figma exports.
-  "#d4e6a8",
-  "#D4E6A8",
+  // September 2026 lime green; still arrives in exports from that palette.
+  "#d4e6ab",
+  "#D4E6AB",
 ];
 export const RECOLOR_DARK = ["#1e1e1e", "#1E1E1E"];
 
@@ -97,6 +97,14 @@ export function extractPathViewBox(svg) {
   return `${minX - pad} ${minY - pad} ${maxX - minX + 2 * pad} ${maxY - minY + 2 * pad}`;
 }
 
+function sourceViewBox(rootTag) {
+  const viewBox = rootTag.match(/\sviewBox="([^"]*)"/i)?.[1];
+  if (viewBox) return viewBox;
+  const width = parseFloat(rootTag.match(/\swidth="([^"]*)"/i)?.[1]);
+  const height = parseFloat(rootTag.match(/\sheight="([^"]*)"/i)?.[1]);
+  return width > 0 && height > 0 ? `0 0 ${width} ${height}` : null;
+}
+
 function applyViewBox(svg, viewBox) {
   if (svg.includes('viewBox="')) {
     return svg.replace(/viewBox="[^"]*"/, `viewBox="${viewBox}"`);
@@ -122,13 +130,18 @@ function recolorHexes(svg, hexes, replacement) {
 export function normalizeSvg(raw, kind) {
   let svg = raw;
   const cropViewBox = extractClipViewBox(svg) ?? extractPathViewBox(svg);
+  // Fallback when no crop box is found: keep the source geometry.
+  const rootViewBox = sourceViewBox(svg.match(/<svg[^>]*>/i)?.[0] ?? "");
   const stripDefs = kind !== "social";
 
   svg = svg.replace(/<rect[^>]*fill="#ffffff"[^>]*\/>/gi, "");
   svg = svg.replace(/<rect[^>]*fill="#fff"[^>]*\/>/gi, "");
   svg = svg.replace(/<rect[^>]*fill="#FFFFFF"[^>]*\/>/gi, "");
   svg = svg.replace(/xmlns:xlink="[^"]*"/g, "");
-  svg = svg.replace(/\s(width|height|zoomAndPan|version)="[^"]*"/gi, "");
+  // Root-only: inner <rect>, <image>, and <use> need their width and height.
+  svg = svg.replace(/<svg[^>]*>/i, (tag) =>
+    tag.replace(/\s(width|height|zoomAndPan|version)="[^"]*"/gi, ""),
+  );
   svg = svg.replace(/<style[\s\S]*?<\/style>/gi, "");
   svg = svg.replace(/fill="#FF7A3A"/gi, 'fill="currentColor"');
   svg = svg.replace(/fill="#ff7a3a"/gi, 'fill="currentColor"');
@@ -172,8 +185,9 @@ export function normalizeSvg(raw, kind) {
     `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"${colorAttr} aria-hidden="true"${focusable}${waveAttrs}>`,
   );
 
-  if (cropViewBox) {
-    svg = applyViewBox(svg, cropViewBox);
+  const viewBox = cropViewBox ?? rootViewBox;
+  if (viewBox) {
+    svg = applyViewBox(svg, viewBox);
   }
 
   return svg.trim();

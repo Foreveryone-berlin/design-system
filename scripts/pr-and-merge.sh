@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Push current branch, open a PR into develop, and merge it.
-# Idempotent: if a PR already exists, just merge it. Trigger manually or via CI.
+# Push current branch, open a PR into develop, wait for checks, and merge it.
+# Idempotent: if a PR already exists, wait for its checks and merge it.
 # Usage: from repo root, run: bash scripts/pr-and-merge.sh
 # Requires: gh (GitHub CLI) authenticated, branch not develop/main.
 
-set -e
+set -euo pipefail
 
 BRANCH=$(git branch --show-current)
 if [ "$BRANCH" = "develop" ] || [ "$BRANCH" = "main" ]; then
@@ -22,20 +22,41 @@ if ! gh auth status &> /dev/null; then
   exit 1
 fi
 
+git fetch --quiet origin develop
+BASE_REF=origin/develop
+if [ -z "$(git rev-list "$BASE_REF..HEAD")" ]; then
+  echo "No commits ahead of $BASE_REF. Nothing to do."
+  exit 0
+fi
+
+# Three dots: compare with the branch point, not the moving tip of develop.
+FILES=$(git diff --name-only "$BASE_REF...HEAD")
+if printf '%s\n' "$FILES" | grep -qE '^(tokens/|css/)' \
+  && ! printf '%s\n' "$FILES" | grep -qx 'CHANGELOG.md'; then
+  echo "Error: tokens/ or css/ changed but CHANGELOG.md did not. Add the [Unreleased] entry first."
+  exit 1
+fi
+
+wait_and_merge() {
+  local pr="$1"
+  # Checks can take a few seconds to register after a push or PR create.
+  for _ in 1 2 3 4 5 6; do
+    gh pr checks "$pr" 2>&1 | grep -q "no checks reported" || break
+    sleep 10
+  done
+  echo "Waiting for checks on PR #$pr..."
+  gh pr checks "$pr" --watch --fail-fast --interval 15
+  gh pr merge "$pr" --merge
+  echo "Done. PR #$pr merged into develop."
+}
+
 echo "Pushing $BRANCH..."
 git push -u origin "$BRANCH"
 
 PR_NUM=$(gh pr list --base develop --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
 if [ -n "$PR_NUM" ]; then
-  echo "PR #$PR_NUM already exists. Merging..."
-  gh pr merge "$PR_NUM" --merge
-  echo "Done. PR #$PR_NUM merged into develop."
-  exit 0
-fi
-
-PR_MERGED=$(gh pr list --base develop --head "$BRANCH" --state merged --json number --jq '.[0].number // empty')
-if [ -n "$PR_MERGED" ]; then
-  echo "PR #$PR_MERGED already merged. Nothing to do."
+  echo "PR #$PR_NUM already exists."
+  wait_and_merge "$PR_NUM"
   exit 0
 fi
 
@@ -46,21 +67,13 @@ fi
 TITLE=$(git log -1 --pretty=format:%s)
 WHY=$(git log -1 --pretty=format:%b | sed '/^$/d')
 [ -z "$WHY" ] && WHY="-"
-BASE_REF=develop
-git rev-parse --verify --quiet origin/develop >/dev/null && BASE_REF=origin/develop
-CHANGES=$(git log "$BASE_REF..HEAD" --pretty=format:"- %s" 2>/dev/null)
+CHANGES=$(git log "$BASE_REF..HEAD" --pretty=format:"- %s")
 [ -z "$CHANGES" ] && CHANGES="-"
 
-FILES=$(git diff --name-only "$BASE_REF..HEAD" 2>/dev/null)
 CHECKS="- [ ] CI is the gate here: tokens build + test, prototype lint + build, prototype a11y e2e"
 if printf '%s\n' "$FILES" | grep -qE '^(tokens/|css/)'; then
-  if printf '%s\n' "$FILES" | grep -qx 'CHANGELOG.md'; then
-    CHECKS="$CHECKS
+  CHECKS="$CHECKS
 - [x] \`CHANGELOG.md\` updated, as a \`tokens/\` or \`css/\` change requires"
-  else
-    CHECKS="$CHECKS
-- [ ] **\`CHANGELOG.md\` is not in this branch, but \`tokens/\` or \`css/\` changed. Add the entry before merging.**"
-  fi
 fi
 
 BODY="## Why
@@ -77,7 +90,6 @@ $CHECKS
 "
 
 echo "Creating PR into develop..."
-gh pr create --base develop --title "$TITLE" --body "$BODY"
-echo "Merging PR..."
-gh pr merge --merge
-echo "Done. PR created and merged into develop."
+PR_URL=$(gh pr create --base develop --title "$TITLE" --body "$BODY")
+echo "$PR_URL"
+wait_and_merge "${PR_URL##*/}"

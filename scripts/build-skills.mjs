@@ -21,10 +21,19 @@ import {
 } from './lib/skills.mjs';
 
 const outFlag = process.argv.indexOf('--out');
+const outArg = outFlag === -1 ? null : process.argv[outFlag + 1];
+if (outFlag !== -1 && (!outArg || outArg.startsWith('--'))) {
+  console.error('[skills] --out needs a directory');
+  process.exit(1);
+}
 const outDir =
-  outFlag === -1
-    ? path.join(repoRoot, 'dist', 'skills')
-    : path.resolve(repoRoot, process.argv[outFlag + 1] ?? '');
+  outFlag === -1 ? path.join(repoRoot, 'dist', 'skills') : path.resolve(repoRoot, outArg);
+// outDir is wiped with rm -rf below: never let it be the repo or a parent of it.
+const relToOut = path.relative(outDir, repoRoot);
+if (!relToOut || (!relToOut.startsWith('..') && !path.isAbsolute(relToOut))) {
+  console.error(`[skills] refusing --out ${outDir}: it contains the repository`);
+  process.exit(1);
+}
 const syncPublic = outFlag === -1 && !process.argv.includes('--no-sync');
 const homepage = 'https://design.foreveryone.berlin';
 
