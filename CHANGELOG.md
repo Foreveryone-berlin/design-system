@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Add the popup (`.fe-popup`) styles to the shared CSS, so any site gets the documented dialog, not just the prototype.
+
 ### Changed
 
 - Serve agent skills, the token list, and `llms.txt` from GitHub only; the prototype site no longer hosts them.
@@ -25,6 +29,8 @@
 - Stop screen readers announcing "Copy link to …" inside every section heading.
 - Make the pattern demo's category pills and date tabs respond to clicks.
 - Keep thousands separators in animated stat counters.
+- Run every prototype browser test in CI against the local build, and check WCAG 2.2 AA.
+- Make `fe-ds skills install` remove skill files deleted upstream and name the right folder when `--dir` is used.
 
 ## [1.13.2] - 2026-10-23
 

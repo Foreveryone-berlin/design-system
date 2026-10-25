@@ -21,11 +21,19 @@ const outRoot = path.join(
 );
 
 const BASE_URL = process.env.BASE_URL ?? "http://localhost:3100";
+// Served card image → its unprocessed source in _originals/.
 const FILES = [
-  "card-wellbeing.jpg",
-  "card-pottery.jpg",
-  "card-drawing.jpg",
+  { current: "card-wellbeing.jpg", original: "us-wellbeing.jpg" },
+  { current: "card-pottery.jpg", original: "us-pottery.jpg" },
+  { current: "card-drawing.jpg", original: "us-drawing.jpg" },
 ];
+const EVENTS_SELECTOR = "#events-workshops-switcher";
+let activeBrowser;
+let interrupted = false;
+
+function checkInterrupted() {
+  if (interrupted) throw new Error("Capture interrupted");
+}
 
 const viewports = [
   { name: "desktop-1440", width: 1440, height: 900 },
@@ -33,9 +41,12 @@ const viewports = [
 ];
 
 async function capture(label) {
+  checkInterrupted();
   const browser = await chromium.launch();
+  activeBrowser = browser;
   try {
     for (const vp of viewports) {
+      checkInterrupted();
       const dir = path.join(outRoot, label, vp.name);
       await fs.mkdir(dir, { recursive: true });
       const context = await browser.newContext({
@@ -48,14 +59,14 @@ async function capture(label) {
         waitUntil: "domcontentloaded",
         timeout: 120_000,
       });
-      await page.waitForSelector("#events", { timeout: 30_000 });
+      await page.waitForSelector(EVENTS_SELECTOR, { timeout: 30_000 });
       await page.waitForTimeout(1200);
 
       const full = path.join(dir, "patterns-full.png");
       await page.screenshot({ path: full, fullPage: true });
       console.log(`saved ${full}`);
 
-      const events = page.locator("#events");
+      const events = page.locator(EVENTS_SELECTOR);
       if (await events.count()) {
         const eventsShot = path.join(dir, "events-section.png");
         await events.screenshot({ path: eventsShot });
@@ -66,41 +77,55 @@ async function capture(label) {
     }
   } finally {
     await browser.close();
+    activeBrowser = undefined;
   }
 }
 
 async function main() {
   await fs.mkdir(outRoot, { recursive: true });
 
-  const processedBackup = path.join(imagesDir, "_processed-backup");
-  await fs.mkdir(processedBackup, { recursive: true });
-  for (const f of FILES) {
-    await fs.copyFile(path.join(imagesDir, f), path.join(processedBackup, f));
+  const processedBackup = await fs.mkdtemp(path.join(imagesDir, "_processed-backup-"));
+  for (const { current } of FILES) {
+    await fs.copyFile(path.join(imagesDir, current), path.join(processedBackup, current));
   }
 
+  const putBackProcessed = async () => {
+    for (const { current } of FILES) {
+      await fs.copyFile(path.join(processedBackup, current), path.join(imagesDir, current));
+    }
+  };
+  // Ctrl+C must not leave the originals in place of the served images.
+  const onSignal = () => {
+    interrupted = true;
+    process.exitCode = 130;
+    void activeBrowser?.close().catch(() => {});
+  };
+  process.once("SIGINT", onSignal);
+  process.once("SIGTERM", onSignal);
+
   try {
-    for (const f of FILES) {
-      await fs.copyFile(path.join(originalsDir, f), path.join(imagesDir, f));
+    for (const { current, original } of FILES) {
+      checkInterrupted();
+      await fs.copyFile(path.join(originalsDir, original), path.join(imagesDir, current));
     }
     console.log("\n=== BEFORE (originals) ===");
     await capture("before");
 
-    for (const f of FILES) {
-      await fs.copyFile(path.join(processedBackup, f), path.join(imagesDir, f));
-    }
+    await putBackProcessed();
+    checkInterrupted();
     console.log("\n=== AFTER (tone-normalized) ===");
     await capture("after");
 
     console.log(`\nInspection output: ${outRoot}`);
   } finally {
-    for (const f of FILES) {
-      await fs.copyFile(path.join(processedBackup, f), path.join(imagesDir, f));
-    }
+    process.off("SIGINT", onSignal);
+    process.off("SIGTERM", onSignal);
+    await putBackProcessed();
     await fs.rm(processedBackup, { recursive: true, force: true });
   }
 }
 
 main().catch((err) => {
   console.error(err);
-  process.exit(1);
+  process.exitCode = interrupted ? 130 : 1;
 });

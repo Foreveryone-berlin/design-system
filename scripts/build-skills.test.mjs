@@ -2,7 +2,7 @@
 /* Frontmatter + build artifacts + CLI dry-run checks for consumer skills. */
 
 import { spawnSync } from 'node:child_process';
-import { existsSync, readFileSync, mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, readFileSync, mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -124,6 +124,13 @@ else {
     else fail(`Codex dependency ${rel}`, 'missing');
   }
   const firstGuidance = readFileSync(agentsFile, 'utf8');
+  const staleSkillFile = path.join(codexRoot, 'fe-core', 'removed-upstream.md');
+  const staleSharedFile = path.join(codexRoot, '_shared', 'removed-upstream.md');
+  const customSkillFile = path.join(codexRoot, 'consumer-skill', 'SKILL.md');
+  writeFileSync(staleSkillFile, 'obsolete');
+  writeFileSync(staleSharedFile, 'obsolete');
+  mkdirSync(path.dirname(customSkillFile), { recursive: true });
+  writeFileSync(customSkillFile, '# Consumer skill\n');
   const secondInstall = install();
   const secondGuidance = readFileSync(agentsFile, 'utf8');
   if (secondInstall.status === 0 && firstGuidance === secondGuidance &&
@@ -131,7 +138,30 @@ else {
       secondGuidance.split('<!-- foreveryone:skills:start -->').length === 2) {
     ok('repeat install preserves guidance and one managed block');
   } else fail('repeat install preserves guidance', secondInstall.stderr || 'guidance changed');
+  if (!existsSync(staleSkillFile) && !existsSync(staleSharedFile) && existsSync(customSkillFile)) {
+    ok('refresh removes obsolete packaged files and preserves consumer skills');
+  } else fail('refresh prunes packaged files', 'stale files remain or consumer skill removed');
 }
+
+const customInstall = spawnSync(process.execPath, [cli, 'skills', 'install', '--target', 'agents', '--dir', 'vendor/design-skills'], {
+  cwd: consumer, encoding: 'utf8',
+});
+if (customInstall.status === 0 && readFileSync(agentsFile, 'utf8').includes('`vendor/design-skills/`') &&
+    existsSync(path.join(consumer, 'vendor/design-skills/fe-core/SKILL.md'))) {
+  ok('custom directory matches the managed guidance');
+} else fail('custom directory matches the managed guidance', customInstall.stderr);
+
+const isolatedPackage = path.join(consumer, 'isolated-package');
+mkdirSync(path.join(isolatedPackage, 'bin'), { recursive: true });
+cpSync(cli, path.join(isolatedPackage, 'bin/fe-ds.mjs'));
+cpSync(path.join(repoRoot, 'dist/skills'), path.join(isolatedPackage, 'dist/skills'), { recursive: true });
+const overlapInstall = spawnSync(process.execPath, [path.join(isolatedPackage, 'bin/fe-ds.mjs'), 'skills', 'install', '--target', 'dir', '--dir', path.join(isolatedPackage, 'dist/skills')], {
+  cwd: consumer, encoding: 'utf8',
+});
+if (overlapInstall.status !== 0 && overlapInstall.stderr.includes('overlaps the packaged skills') &&
+    existsSync(path.join(isolatedPackage, 'dist/skills/fe-core/SKILL.md'))) {
+  ok('refuse an installation over the packaged source');
+} else fail('refuse an installation over the packaged source', overlapInstall.stderr);
 
 const dryConsumer = path.join(consumer, 'dry-run');
 mkdirSync(dryConsumer);
