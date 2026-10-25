@@ -8,6 +8,14 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix the mobile menu button hover, which lost its white fill and showed a dark outline.
+- Restore the dashed border on the prototype popup close button.
+- Fix the agent token list naming white and black with CSS variables that do not exist.
+- Stop `npm test` from silently rewriting the generated CSS; it now fails when the file is stale.
+- Fail CI when the agent token list is out of date with the tokens.
+
 ## [1.13.2] - 2026-10-23
 
 ### Changed

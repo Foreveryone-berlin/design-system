@@ -4,13 +4,11 @@
 
 const fs = require("fs");
 const path = require("path");
-const { execFileSync } = require("child_process");
 const { loadAllTokens, resolveTokenValue } = require("./token-utils");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const TOKENS_DIR = path.join(ROOT_DIR, "tokens");
 const OUTPUT_PATH = path.join(ROOT_DIR, "css", "custom-properties.css");
-const BUILD_SCRIPT = path.join(__dirname, "build-css.js");
 
 let failures = 0;
 let passed = 0;
@@ -92,12 +90,15 @@ for (const f of tokenFiles) {
   validateDtcg(f, json);
 }
 
-console.log("\n# build-css.js execution");
+// Generate in memory and compare: the test must not rewrite the committed file.
+console.log("\n# build-css.js output (in memory)");
+let generated = null;
 try {
-  execFileSync(process.execPath, [BUILD_SCRIPT], { stdio: "pipe" });
-  ok("build-css.js exits 0");
+  const { buildCss } = require("./build-css");
+  generated = buildCss(MERGED_TOKENS);
+  ok("buildCss() runs");
 } catch (e) {
-  fail("build-css.js exits 0", String(e.stderr || e.message));
+  fail("buildCss() runs", String(e.stack || e.message));
 }
 
 if (!fs.existsSync(OUTPUT_PATH)) {
@@ -105,6 +106,10 @@ if (!fs.existsSync(OUTPUT_PATH)) {
 } else {
   ok("custom-properties.css exists");
   const css = fs.readFileSync(OUTPUT_PATH, "utf8");
+  if (generated !== null) {
+    if (generated === css) ok("committed custom-properties.css matches tokens");
+    else fail("committed custom-properties.css matches tokens", "run node scripts/build-css.js");
+  }
 
   console.log("\n# generated CSS smoke");
   assertIncludes(css, "AUTO-GENERATED", "header banner present");
