@@ -177,7 +177,7 @@ const pages: PageDef[] = [
       "What these are",
       "Skills",
       "Install",
-      "On this site",
+      "On GitHub",
     ],
   },
   {

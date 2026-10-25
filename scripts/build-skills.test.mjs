@@ -74,8 +74,6 @@ const committed = [
   'dist/skills/index.json',
   'dist/skills/AGENTS.foreveryone.md',
   'dist/skills/tokens.json',
-  'prototype/public/skills/index.json',
-  'prototype/public/llms.txt',
 ];
 for (const rel of committed) {
   if (existsSync(path.join(repoRoot, rel))) ok(`committed ${rel}`);

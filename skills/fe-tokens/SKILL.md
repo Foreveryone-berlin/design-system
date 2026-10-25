@@ -40,4 +40,4 @@ value from the design system.
 - [`spec/tokens.json`](../../spec/tokens.json)
 - [`docs/token-naming.md`](../../docs/token-naming.md)
 - [`spec/principles.md`](../../spec/principles.md)
-- Live tokens: <https://design.foreveryone.berlin/skills/tokens.json>
+- Tokens: <https://raw.githubusercontent.com/Foreveryone-berlin/design-system/main/dist/skills/tokens.json>

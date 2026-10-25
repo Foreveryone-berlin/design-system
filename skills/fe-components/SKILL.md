@@ -38,4 +38,4 @@ Any task that adds or restyles interactive UI that already has an `fe-*` contrac
 
 - [`spec/components/README.md`](../../spec/components/README.md)
 - [`docs/visual-styles.md`](../../docs/visual-styles.md)
-- Live components: <https://design.foreveryone.berlin/components>
+- Component contracts: <https://github.com/Foreveryone-berlin/design-system/tree/main/spec/components>

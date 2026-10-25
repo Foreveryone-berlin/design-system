@@ -56,7 +56,7 @@ Paths are repo-relative from project root unless noted.
 | Regenerate CSS custom properties from tokens | `node scripts/build-css.js` (repo root) |
 | Regenerate the machine-readable token spec for agents | `node scripts/build-spec.js` (repo root) — writes `spec/tokens.json` |
 | Build both (CSS + spec + skills) | `npm run build` (repo root) |
-| Build consumer agent skills payload | `npm run skills:build` → `dist/skills/` + `.agents/skills/` + `prototype/public/skills/` |
+| Build consumer agent skills payload | `npm run skills:build` → `dist/skills/` + `.agents/skills/` |
 | Install consumer skills into a project | `node bin/fe-ds.mjs skills install` |
 | Headless prototype audit with Codex | `bash scripts/optimize-run.sh --agent codex` |
 | Prototype dev server | `cd prototype && npm install && npm run dev` |
