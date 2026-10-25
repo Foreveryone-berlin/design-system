@@ -10,7 +10,7 @@ From a feature branch, run:
 bash scripts/pr-and-merge.sh
 ```
 
-Requires `gh` CLI and `gh auth login`. The script pushes the branch, creates a PR into `develop`, and merges it.
+Requires `gh` CLI and `gh auth login`. The script fetches `develop`, refuses a `tokens/` or `css/` change without a `CHANGELOG.md` entry, pushes the branch, creates a PR into `develop`, waits for its checks, and merges it only when they pass.
 
 The body it writes covers the three sections of [`.github/PULL_REQUEST_TEMPLATE.md`](../.github/PULL_REQUEST_TEMPLATE.md) it can fill from the branch itself: **Why** from the newest commit body, **What changed** from the commit subjects, and **Checks** pointing at CI, plus a warning line when the branch touches `tokens/` or `css/` without a `CHANGELOG.md` entry. The template's optional sections (Tokens, Screenshots, Risk and rollback) are left out rather than emitted empty; add them by hand when they apply.
 

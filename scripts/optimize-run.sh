@@ -23,9 +23,9 @@ while [[ $# -gt 0 ]]; do
     --agent=*) AGENT_KIND="${1#*=}"; shift ;;
     --skip-baseline) SKIP_BASELINE=1; shift ;;
     --prompts-only) PROMPTS_ONLY=1; shift ;;
-    --dimension) DIMENSION="${2:-}"; shift 2 ;;
+    --dimension) DIMENSION="${2:?--dimension requires perf, a11y, seo, or cleanup}"; shift 2 ;;
     --dimension=*) DIMENSION="${1#*=}"; shift ;;
-    *) shift ;;
+    *) echo "Unknown option: $1" >&2; exit 1 ;;
   esac
 done
 
@@ -52,7 +52,8 @@ run_agent() {
 
 cleanup_dev() {
   if [[ -n "$DEV_PID" ]] && kill -0 "$DEV_PID" 2>/dev/null; then
-    kill "$DEV_PID" 2>/dev/null || true
+    # DEV_PID leads its own process group (set -m below); kill npm and next dev with it.
+    kill -- "-$DEV_PID" 2>/dev/null || kill "$DEV_PID" 2>/dev/null || true
   fi
 }
 trap cleanup_dev EXIT
@@ -62,8 +63,10 @@ start_dev() {
     echo "Dev server already on :3100"
     return 0
   fi
+  set -m
   (cd "$PROTOTYPE" && PORT=3100 npm run dev) >/dev/null 2>&1 &
   DEV_PID=$!
+  set +m
   for _ in $(seq 1 30); do
     curl -sf "http://localhost:3100/" >/dev/null 2>&1 && break
     sleep 2
