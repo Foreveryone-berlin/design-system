@@ -1,5 +1,12 @@
 import CodeBlock from "../_components/CodeBlock";
 
+export const metadata = {
+  title: "Foundations",
+  description:
+    "Colour, typography, spacing, radius, and shadows as design tokens and CSS custom properties.",
+  alternates: { canonical: "/foundations" },
+};
+
 // Primary palette (October 2026 update, ahead of Brand Book v2.0) with the role
 // + usage line for each colour, so the "what is this colour for" decision is
 // visible up front rather than only as a small badge on a swatch.

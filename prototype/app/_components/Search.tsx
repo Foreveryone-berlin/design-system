@@ -58,9 +58,12 @@ export default function Search({
     // Heading IDs are assigned on the destination page after mount. Wait for
     // the target, scroll/focus, then reflect the hash with replaceState so back
     // through the sidebar does not stop on intermediate hash-only entries.
+    // Match the pathname first: the same heading id can exist on the page being
+    // left, which is still mounted for a few frames after router.push.
     let frames = 0;
     const findAndScroll = () => {
-      const target = document.getElementById(hash);
+      const onDestination = window.location.pathname === path;
+      const target = onDestination ? document.getElementById(hash) : null;
       if (target) {
         target.scrollIntoView({ block: "start" });
         if (!target.hasAttribute("tabindex"))
@@ -69,7 +72,7 @@ export default function Search({
         history.replaceState(null, "", `${path}#${hash}`);
         return;
       }
-      if (frames++ < 40) requestAnimationFrame(findAndScroll);
+      if (frames++ < 120) requestAnimationFrame(findAndScroll);
     };
     requestAnimationFrame(findAndScroll);
   }

@@ -20,6 +20,11 @@
 - Fix the agent token list naming white and black with CSS variables that do not exist.
 - Stop `npm test` from silently rewriting the generated CSS; it now fails when the file is stale.
 - Fail CI when the agent token list is out of date with the tokens.
+- Give every prototype page its own title, description, and canonical link instead of pointing all of them at the homepage.
+- Make search results land on the right section when the same heading exists on two pages, and drop a dead "Icon preview" result.
+- Stop screen readers announcing "Copy link to …" inside every section heading.
+- Make the pattern demo's category pills and date tabs respond to clicks.
+- Keep thousands separators in animated stat counters.
 
 ## [1.13.2] - 2026-10-23
 

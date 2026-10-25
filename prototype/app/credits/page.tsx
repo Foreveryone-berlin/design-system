@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Credits",
   description:
     "Contributors, tools, and license terms for the ForEveryone design system.",
+  alternates: { canonical: "/credits" },
 };
 
 const REPO_URL = "https://github.com/Foreveryone-berlin/design-system";

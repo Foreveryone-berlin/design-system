@@ -1,5 +1,8 @@
 export const metadata = {
   title: "Guidelines",
+  description:
+    "How to combine the foundations and components on-brand: colour usage, typography, and illustration.",
+  alternates: { canonical: "/guidelines" },
 };
 
 export default function GuidelinesPage() {

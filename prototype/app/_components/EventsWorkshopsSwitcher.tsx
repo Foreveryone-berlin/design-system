@@ -74,6 +74,7 @@ function CheckCircle() {
 
 export default function EventsWorkshopsSwitcher() {
   const [kind, setKind] = useState<"event" | "workshop">("workshop");
+  const [dateTab, setDateTab] = useState(0);
 
   const visible = listings.filter((item) => item.kind === kind);
 
@@ -98,8 +99,9 @@ export default function EventsWorkshopsSwitcher() {
           <button
             key={tab}
             type="button"
-            aria-pressed={i === 0}
-            className={`fe-event-tab${i === 0 ? " is-active" : ""}`}
+            aria-pressed={dateTab === i}
+            className={`fe-event-tab${dateTab === i ? " is-active" : ""}`}
+            onClick={() => setDateTab(i)}
           >
             {tab}
           </button>

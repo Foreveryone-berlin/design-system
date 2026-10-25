@@ -4,6 +4,7 @@ export const metadata = {
   title: "About & Brand",
   description:
     "Who ForEveryone is, our brand personality, and how we sound: voice, tone by context, and naming rules from the Brand Book.",
+  alternates: { canonical: "/brand" },
 };
 
 const stats = [

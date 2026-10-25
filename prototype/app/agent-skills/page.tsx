@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Agent skills",
   description:
     "Installable guides for AI agents that build or restyle UI with this design system.",
+  alternates: { canonical: "/agent-skills" },
 };
 
 const REPO_DOCS =
