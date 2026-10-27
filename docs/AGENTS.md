@@ -1,10 +1,16 @@
-# Agents — ForEveryone Berlin design system
+# Agents: ForEveryone Berlin design system
 
 Canonical narrative, documentation index, and domain rules for this repository.
 
-**Repo root [`AGENTS.md`](../AGENTS.md)** duplicates the retrieval index and condensed rules for tools that only read `AGENTS.md` at the repository root (see [Vercel: AGENTS.md vs skills](https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals)).
+**Shared entry:** [`../AGENTS.md`](../AGENTS.md) holds the mandatory reads,
+boundaries, commands, and release contract. Claude Code imports it from
+`CLAUDE.md`; Cursor and Codex read it as repository guidance. Tool-specific files
+do not repeat that contract. [Loading map](agents/README.md).
 
-**Coding agents:** [Cursor agent](https://docs.cursor.com/agent) loads repo guidance via root [`AGENTS.md`](../AGENTS.md) and [`.cursor/AGENTS.md`](../.cursor/AGENTS.md) (precedence there), and auto-attaches [`.cursor/rules/`](../.cursor/rules/) (`.mdc`) by path. [Cursor CLI](https://cursor.com/docs/cli/using) reads root [`AGENTS.md`](../AGENTS.md) and [`CLAUDE.md`](../CLAUDE.md) plus [`.cursor/rules/`](../.cursor/rules/); it does not load `.cursor/AGENTS.md`. [Claude Code](https://code.claude.com/docs) reads [`CLAUDE.md`](../CLAUDE.md) at session start and uses [`.claude/rules/`](../.claude/rules/) (Markdown). [Codex](https://learn.chatgpt.com/docs/agent-configuration/agents-md) loads root `AGENTS.md`; it does not auto-load `CLAUDE.md` or either editor rule directory. Root guidance explicitly routes Codex to the shared Markdown rules. Codex discovers consumer skills in [`.agents/skills/`](../.agents/skills/), generated from `skills/` by `npm run skills:build` ([official skill discovery](https://learn.chatgpt.com/docs/build-skills)). **Update this file** when changing shared narrative; then refresh the root mirror, `CLAUDE.md`, and `.cursor/AGENTS.md` pins if needed (see [agents/agent-contract.md](agents/agent-contract.md) Cross-tool parity).
+Shared rules live in root `AGENTS.md`. Native tool rule files reference its
+sections. Consumer skill sources live in `skills/`; the build generates
+`.claude/skills/` for Claude Code and `.agents/skills/` for Cursor and Codex.
+Do not hand-edit generated skills.
 
 Portable task contract: [agents/agent-contract.md](agents/agent-contract.md).
 
@@ -51,19 +57,8 @@ Paths are repo-relative from project root unless noted.
 
 ## Commands
 
-| Task | Command |
-| --- | --- |
-| Regenerate CSS custom properties from tokens | `node scripts/build-css.js` (repo root) |
-| Regenerate the machine-readable token spec for agents | `node scripts/build-spec.js` (repo root) — writes `spec/tokens.json` |
-| Build both (CSS + spec + skills) | `npm run build` (repo root) |
-| Build consumer agent skills payload | `npm run skills:build` → `dist/skills/` + `.agents/skills/` |
-| Install consumer skills into a project | `node bin/fe-ds.mjs skills install` |
-| Headless prototype audit with Codex | `bash scripts/optimize-run.sh --agent codex` |
-| Prototype dev server | `cd prototype && npm install && npm run dev` |
-| Prototype e2e + axe (against LOCAL, not prod) | `cd prototype` then with the dev server up: `PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e` |
-| Screenshot key pages at 3 breakpoints | `cd prototype && OUT_DIR=baseline BASE_URL=http://localhost:3100 node scripts/screenshot.mjs` |
-| Solo merge current branch to `develop` (PR + merge via `gh`) | `bash scripts/pr-and-merge.sh` (repo root) |
-| Ship a full release (develop→main→tag→Vercel) | user-level `ship` skill; triggers: "ship it", "cut release", "release X.Y.Z". Manual fallback: `docs/skills/release.md` |
+Use the [shared command table](../AGENTS.md#commands) and
+[release contract](../AGENTS.md#release). Commands are maintained there once.
 
 ---
 
@@ -77,7 +72,7 @@ Paths are repo-relative from project root unless noted.
 
 **Naming:** `{category}.{tier}.{variant}`. Categories in use: color, font, spacing, radius, shadow, motion. Figma paths use `/`; repo uses `.`, and the colour families are named differently (Figma `Primary/500` → repo `color.orange.500`). See `docs/token-naming.md`.
 
-**CSS layers:** `base.css` reset/body; `typography.css` heading/body/label/tag utilities (`.fe-h1`, `.fe-body`, …); `utilities.css` components (buttons, cards, inputs, FAQ, dropdown, header, footer, nav, sections). These three are platform-neutral. Per-target layers live in `css/integrations/` (currently `elementor.css`, low-specificity `.elementor-*` tweaks, loaded only by that target). All authored values use `var(--…)` from custom properties — no raw hex or font-family names outside generated file.
+**CSS layers:** `base.css` reset/body; `typography.css` heading/body/label/tag utilities (`.fe-h1`, `.fe-body`, …); `utilities.css` components (buttons, cards, inputs, FAQ, dropdown, header, footer, nav, sections). These three are platform-neutral. Per-target layers live in `css/integrations/` (currently `elementor.css`, low-specificity `.elementor-*` tweaks, loaded only by that target). All authored values use `var(--…)` from custom properties: no raw hex or font-family names outside generated file.
 
 **Prefix:** Public classes use `fe-` (ForEveryone). Examples in `utilities.css`: `.fe-btn-primary`, `.fe-btn-secondary`, `.fe-icon-btn`, `.fe-icon-btn--filled-brand`, `.fe-play-btn`, `.fe-card`, `.fe-card-benefit`, `.fe-card-get-involved`, `.fe-facts-card` (+ `__grid`/`__label`/`__value`), `.fe-steps` (+ `.fe-step`, `.fe-step__connector`), `.fe-split-list` (+ `__items`/`__item`), `.fe-person` (+ `__photo`/`__name`/`__role`/`__bio`, `--card`), `.fe-people-grid` (+ `--cards`), `.fe-input` (+ error/disabled), `.fe-faq-item`, `.fe-dropdown`, `.fe-nav-link`, `.fe-header`, `.fe-footer`, `.fe-tag-pill` (+ variants), `.fe-testimonial` (+ `__marks`/`__quote`/`__attribution`, `--quote`), `.fe-testimonial-grid`, `.fe-testimonial-slider` (+ `__viewport`/`__track`/`__slide`/`__dots`/`__dot`), `.fe-section`, `.fe-container`. Prototype-only documentation chrome uses `ds-` and lives in `prototype/app/globals.css`, never in `css/`. Visual rules for icons/blobs/photos: `docs/visual-styles.md`.
 
@@ -89,6 +84,6 @@ Paths are repo-relative from project root unless noted.
 
 **Git:** Branch from `develop` (not `main`). Conventional Commits. PRs use `.github/PULL_REQUEST_TEMPLATE.md`. Never add agent attribution (`Co-authored-by: Cursor`, `@cursoragent`, Made/Generated with Cursor). Solo merge to develop: `bash scripts/pr-and-merge.sh` from repo root. Detail: `docs/pr-and-merge-workflow.md`.
 
-**Workflows:** Token changes → `docs/skills/token-update.md`. Per-target sync → `integrations/README.md`. Release → `docs/skills/release.md`, driven end-to-end by the user-level `ship` skill (there is no project release skill; deploy is Vercel on push to `main`, `release.yml` only creates the GitHub Release). Prototype audit → user-level `site-audit` skill, driven by `## Audit contract` in `CLAUDE.md`.
+**Workflows:** Token changes → `docs/skills/token-update.md`. Per-target sync → `integrations/README.md`. Release → `docs/skills/release.md`, driven end-to-end by the user-level `ship` skill (there is no project release skill; deploy is Vercel on push to `main`, `release.yml` only creates the GitHub Release). Prototype audit → user-level `site-audit` skill, driven by `## Audit contract` in root `AGENTS.md` (imported by `CLAUDE.md`).
 
-**Prototype:** Next.js app under `prototype/` previews tokens/components; uses `app/globals.css` and design-system CSS patterns — consult `prototype/README.md` and match framework version in `prototype/package.json` when touching App Router/APIs.
+**Prototype:** Next.js app under `prototype/` previews tokens/components; uses `app/globals.css` and design-system CSS patterns: consult `prototype/README.md` and match framework version in `prototype/package.json` when touching App Router/APIs.

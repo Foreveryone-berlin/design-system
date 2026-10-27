@@ -31,6 +31,7 @@ Entry point: <https://raw.githubusercontent.com/Foreveryone-berlin/design-system
 
 ### Skills
 - `fe-core`: Core conventions for consuming the ForEveryone Berlin design system. Use when importing CSS variables, resolving tokens, choosing fe-* classes, or deciding whether a colour or font is allowed.
+- `fe-design-system`: Route ForEveryone UI work to the design-system sources and the matching consumer skill. Use when asked to use the ForEveryone design system, invoke fe-design-system, or locate brand rules, tokens, component contracts, and integration guidance.
 - `fe-a11y`: Accessibility rules for ForEveryone Berlin UI. Use when checking contrast, keyboard focus, skip links, motion preferences, alt text, or WCAG 2.1 AA conformance.
 - `fe-components`: Prefer documented fe-* component contracts for ForEveryone Berlin UI. Use when building or restyling buttons, cards, inputs, tags, FAQ, header, footer, or related patterns.
 - `fe-og-image`: Create on-brand ForEveryone OG images and featured-image artwork. Use for social link previews, WordPress featured images, or reusable image templates with verified copy, brand assets and export quality.

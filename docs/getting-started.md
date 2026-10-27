@@ -37,7 +37,7 @@ Welcome to the ForEveryone Berlin design system repository.
 
 ## Brand visual styles
 
-High-level rules for **icons** (line vs filled, social vs category), **blob shapes**, and **photography** in masks — with links to CSS utilities — live in [visual-styles.md](visual-styles.md). Figma stays authoritative for exact shapes and crops.
+High-level rules for **icons** (line vs filled, social vs category), **blob shapes**, and **photography** in masks: with links to CSS utilities: live in [visual-styles.md](visual-styles.md). Figma stays authoritative for exact shapes and crops.
 
 ## Team Roles
 
@@ -51,5 +51,6 @@ How to load the system from plain CSS, React/Next.js, or a CMS: [integrations/RE
 
 ## Consumer agent skills
 
-AI agents can follow this system via six installable skills, starting with `fe-core`.
+AI agents can follow this system via seven installable skills. Start with
+`fe-design-system` for source discovery, or `fe-core` for implementation rules.
 Details: [agent-skills.md](agent-skills.md).

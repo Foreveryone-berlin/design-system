@@ -37,7 +37,7 @@ value from the design system.
 
 ## Canonical docs
 
-- [`spec/tokens.json`](../../spec/tokens.json)
-- [`docs/token-naming.md`](../../docs/token-naming.md)
-- [`spec/principles.md`](../../spec/principles.md)
+- [`spec/tokens.json`](https://github.com/Foreveryone-berlin/design-system/blob/main/spec/tokens.json)
+- [`docs/token-naming.md`](https://github.com/Foreveryone-berlin/design-system/blob/main/docs/token-naming.md)
+- [`spec/principles.md`](https://github.com/Foreveryone-berlin/design-system/blob/main/spec/principles.md)
 - Tokens: <https://raw.githubusercontent.com/Foreveryone-berlin/design-system/main/dist/skills/tokens.json>

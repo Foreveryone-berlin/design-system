@@ -40,7 +40,7 @@
   cursor: not-allowed;
 }
 
-/* Secondary / Outline Button — indigo outline per the style guide. */
+/* Secondary / Outline Button: indigo outline per the style guide. */
 .fe-btn-secondary {
   display: inline-flex;
   align-items: center;
@@ -194,7 +194,7 @@
   height: 1.25rem;
 }
 
-/* Workshop / category icon chips (three size tiers — see docs/visual-styles.md) */
+/* Workshop / category icon chips (three size tiers: see docs/visual-styles.md) */
 .fe-workshop-icon {
   display: inline-flex;
   align-items: center;
@@ -273,7 +273,7 @@
   color: var(--color-white);
   cursor: not-allowed;
 }
-/* Large size — used in hero / media contexts */
+/* Large size: used in hero / media contexts */
 .fe-play-btn--lg {
   width: 4rem;
   height: 4rem;
@@ -309,7 +309,7 @@
   color: var(--color-brand-dark);
   border-color: var(--color-background-title);
 }
-/* Category variants — grey at rest (base above); colour on hover/active.
+/* Category variants: grey at rest (base above); colour on hover/active.
    Five workshop categories; Charcoal labels on light fills. Music uses pink
    (not alert blue). Full mapping pending brand-book category-colour rules. */
 .fe-tag-pill--balance.active,
@@ -567,6 +567,44 @@
   cursor: not-allowed;
 }
 
+/* Native select with an independent, non-interactive chevron. */
+.fe-select {
+  position: relative;
+  display: block;
+  inline-size: 100%;
+  min-inline-size: 0;
+}
+.fe-select > select.fe-input {
+  -webkit-appearance: none;
+  appearance: none;
+  min-block-size: var(--spacing-12);
+  padding-inline-end: var(--spacing-12);
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.fe-select > .fe-select__icon {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: var(--spacing-4);
+  inline-size: var(--spacing-4);
+  block-size: var(--spacing-4);
+  transform: translateY(-50%);
+  color: var(--color-brand-dark);
+  pointer-events: none;
+}
+.fe-select > select:disabled {
+  cursor: not-allowed;
+}
+.fe-select > select:disabled + .fe-select__icon {
+  color: var(--color-theme-4);
+}
+@media (forced-colors: active) {
+  .fe-select > select.fe-input:focus-visible {
+    outline: var(--spacing-1) solid Highlight;
+    outline-offset: var(--spacing-1);
+  }
+}
+
 /* Input group (label + input + error) */
 .fe-input-group {
   display: flex;
@@ -599,7 +637,7 @@
   margin-inline: auto;
 }
 
-/* FAQ / Accordion Item — bordered card that lifts on hover; expanded when active. */
+/* FAQ / Accordion Item: bordered card that lifts on hover; expanded when active. */
 .fe-faq-item {
   background: var(--color-white);
   border: 1px solid var(--color-theme-7);
@@ -733,7 +771,7 @@
   color: var(--color-white);
 }
 
-/* Label item cards — a small key/value group (legend, spec list). */
+/* Label item cards: a small key/value group (legend, spec list). */
 .fe-label-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
@@ -1219,7 +1257,7 @@
 
 /* ── Course / workshop detail patterns ─────────────────────────────────────── */
 
-/* Facts card — the "Course Details" block on a workshop landing page: a grid of
+/* Facts card: the "Course Details" block on a workshop landing page: a grid of
    icon + label + value tiles over a full-width booking CTA. Marked up as a <dl>
    because each tile is a label/value pair. */
 /* The tile count follows the card's own width, not the viewport: the card sits
@@ -1281,7 +1319,7 @@
   margin-block-start: var(--spacing-6);
 }
 
-/* Step progression — the "What you'll learn" week-by-week sequence. Steps
+/* Step progression: the "What you'll learn" week-by-week sequence. Steps
    alternate sides on wide screens with a doodle-arrow connector between them;
    below the tablet breakpoint they stack into a single column and the
    connectors are dropped so the vertical rhythm stays readable. */
@@ -1340,7 +1378,7 @@
   mask-size: contain;
 }
 
-/* Split list band — heading on the left, list on the right, on the decorative
+/* Split list band: heading on the left, list on the right, on the decorative
    soft background. Used for "Who is this for", "What you'll learn", and
    "Everything you need is included". */
 .fe-split-list {
@@ -1582,14 +1620,14 @@
 
 /* Centred display variant for the slider and hero pull-quotes: the glyph sits
    above a short, centred quote with no card chrome. Valid ONLY for quotes of
-   two lines or fewer — the Brand Book v1.0 p.23 ban on centred body copy starts
+   two lines or fewer: the Brand Book v1.0 p.23 ban on centred body copy starts
    at three lines, which the 32ch measure keeps us inside. Longer quotes must
    use the default card variant. */
 .fe-testimonial--quote {
   align-items: center;
   text-align: center;
   background: transparent;
-  /* Not `border: 0` — keeping the 1px box model means a quote slide and a card
+  /* Not `border: 0`: keeping the 1px box model means a quote slide and a card
      slide are the same width, so snap positions do not drift. */
   border-color: transparent;
   gap: var(--spacing-3);
@@ -1610,14 +1648,14 @@
   scroll-snap-type: x mandatory;
   /* Smooth scroll lives in CSS, not JS: dot handlers assign scrollLeft with no
      `behavior` argument, so the reduced-motion override at the end of this file
-     is the whole opt-out. Never pass behavior: "smooth" from script — it
+     is the whole opt-out. Never pass behavior: "smooth" from script: it
      bypasses both this property and the media query. */
   scroll-behavior: smooth;
   /* Stops a touch swipe from chaining into the page scroll or the browser's
      back-navigation gesture. */
   overscroll-behavior-x: contain;
   /* The dots are the visible affordance. Safe only because the viewport is
-     focusable and shows a focus ring — see the :focus-visible rule below. */
+     focusable and shows a focus ring: see the :focus-visible rule below. */
   scrollbar-width: none;
 }
 
@@ -1634,7 +1672,7 @@
 /* If a peek / multi-up variant is ever wanted, add
    `container: fe-testimonial-slider / inline-size` to .fe-testimonial-slider and
    `@container fe-testimonial-slider (inline-size >= 48rem) {
-      .fe-testimonial-slider__slide { flex-basis: 50% } }` — mirrors
+      .fe-testimonial-slider__slide { flex-basis: 50% } }`: mirrors
    .fe-facts-card. Do not reach for a viewport breakpoint here. */
 .fe-testimonial-slider__track {
   display: flex;
@@ -1650,7 +1688,7 @@
 .fe-testimonial-slider__slide {
   /* One slide at every width. A percentage basis resolves against the
      scroller's own inline size, so a narrow host column and a full-width page
-     both show exactly one quote — no container query, no breakpoint. */
+     both show exactly one quote: no container query, no breakpoint. */
   flex: 0 0 100%;
   scroll-snap-align: center;
   scroll-snap-stop: always;
@@ -1916,7 +1954,7 @@
   }
 
   /* Dot handlers assign scrollLeft with no `behavior` argument, so killing
-     smooth scroll here is the entire opt-out — there is no JS to guard. This
+     smooth scroll here is the entire opt-out: there is no JS to guard. This
      layer has no wildcard reset, so a host that loads only css/*.css gets no
      protection without this rule. */
   .fe-testimonial-slider__viewport {
