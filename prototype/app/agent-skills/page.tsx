@@ -3,195 +3,79 @@ import CodeBlock from "../_components/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Agent skills",
-  description:
-    "Installable guides for AI agents that build or restyle UI with this design system.",
+  description: "Guides for using ForEveryone tokens, components, and brand rules with Claude Code, Cursor, and Codex.",
   alternates: { canonical: "/agent-skills" },
 };
 
-const REPO_DOCS =
-  "https://github.com/Foreveryone-berlin/design-system/blob/main/docs/agent-skills.md";
-
 const RAW = "https://raw.githubusercontent.com/Foreveryone-berlin/design-system/main";
+const REPO_DOCS = "https://github.com/Foreveryone-berlin/design-system/blob/main/docs/agent-skills.md";
 
 const SKILLS = [
-  {
-    id: "fe-core",
-    summary: "Base rules for every other skill. Start here for new UI.",
-    points: [
-      <>
-        Import the CSS variables once and style with <code>var(--…)</code>.
-        Never invent hex values or font names.
-      </>,
-      <>
-        Prefer documented <code>fe-*</code> components over one-off styles.
-      </>,
-      <>
-        Charcoal body text on light backgrounds. Orange is accent only, never
-        behind text. Blue takes pure white text and stays digital.
-      </>,
-      <>
-        Keep keyboard focus visible and honour{" "}
-        <code>prefers-reduced-motion</code>.
-      </>,
-    ],
-  },
-  {
-    id: "fe-tokens",
-    summary: "Pick and extend tokens by role.",
-    points: [
-      <>
-        Resolve names from <code>tokens.json</code> and output{" "}
-        <code>var(--*)</code> only.
-      </>,
-      <>
-        Use digital tokens on the web, never <code>surface: &quot;print&quot;</code>.
-      </>,
-      <>Extend a missing shade in OKLCH instead of adding a hex value.</>,
-    ],
-  },
-  {
-    id: "fe-components",
-    summary: "Build controls from the documented fe-* contracts.",
-    points: [
-      <>
-        Follow <code>spec/components/*.md</code> before inventing a class.
-      </>,
-      <>Implement every state the contract defines, not only the default.</>,
-      <>
-        Icon and play buttons use <code>fe-icon-btn</code> and{" "}
-        <code>fe-play-btn</code>.
-      </>,
-    ],
-  },
-  {
-    id: "fe-a11y",
-    summary: "Check contrast, focus, motion, and alt text against WCAG 2.1 AA.",
-    points: [
-      <>Use approved background and text pairings only.</>,
-      <>Give icon-only controls an accessible name and keep focus visible.</>,
-      <>Write meaningful alt text for content images; leave decoration empty.</>,
-    ],
-  },
-  {
-    id: "fe-redesign",
-    summary: "Restyle an existing app onto ForEveryone.",
-    points: [
-      <>Map ad-hoc colours and fonts to the nearest token by role.</>,
-      <>
-        Rebuild controls to the <code>fe-*</code> contracts and their states.
-      </>,
-      <>Filson Pro on the web; body line-height never below 1.5.</>,
-      <>Report a token-by-token mapping of what changed.</>,
-    ],
-  },
-  {
-    id: "fe-og-image",
-    summary: "Create OG and featured images that match the page they link to.",
-    points: [
-      <>
-        Read the destination page first; one headline, one subheading, and a
-        call to action that names that page.
-      </>,
-      <>
-        Generate the photo only; set type, logo, and decorations in an editable
-        master. Export a 1200 × 630 JPEG or PNG.
-      </>,
-      <>
-        Check the image at full size and as a small card. A WordPress featured
-        image does not prove the published OG image.
-      </>,
-    ],
-  },
-] as const;
+  { id: "fe-design-system", summary: "Find the maintained sources and choose the skill for your task." },
+  { id: "fe-core", summary: "Use the shared CSS, approved colours, typography, and brand rules." },
+  { id: "fe-tokens", summary: "Resolve token names and extend the palette by role." },
+  { id: "fe-components", summary: "Build components from documented markup and state contracts." },
+  { id: "fe-a11y", summary: "Check contrast, keyboard focus, motion, and alternative text." },
+  { id: "fe-redesign", summary: "Map an existing interface onto the design system." },
+  { id: "fe-og-image", summary: "Create OG and featured images for a specific page." },
+];
 
 export default function AgentSkillsPage() {
   return (
     <>
       <h1 className="ds-page-title">Agent skills</h1>
       <p className="ds-intro">
-        Short guides that teach AI agents to build or restyle UI with this
-        system. They package the rules in{" "}
-        <a href={`${RAW}/llms.txt`}>
-          <code>llms.txt</code>
-        </a>
-        , the token list, and the component docs for use in another project.
+        Guides for using ForEveryone tokens, components, and brand rules with
+        Claude Code, Cursor, and Codex.
       </p>
 
-      <section id="what-these-are" className="ds-section">
-        <h2 className="ds-section-title">What these are</h2>
-        <p className="fe-body">
-          Each skill is a folder with a <code>SKILL.md</code> file that Claude
-          Code, Cursor, and Codex discover in their skills folders. Every other
-          skill requires <code>fe-core</code>. Maintainer workflows for this
-          repository live separately in <code>docs/skills/</code>.
-        </p>
-      </section>
-
       <section id="skills" className="ds-section">
-        <h2 className="ds-section-title">Skills</h2>
-        {SKILLS.map((skill) => (
-          <div key={skill.id} id={skill.id} className="ds-section">
-            <h3 className="ds-subsection-title">
-              <code>{skill.id}</code>
-            </h3>
-            <p className="fe-body">{skill.summary}</p>
-            <ul className="ds-rule-list">
-              {skill.points.map((point, i) => (
-                <li key={`${skill.id}-${i}`}>{point}</li>
+        <h2 className="ds-section-title">Choose a skill</h2>
+        <p className="fe-body">
+          Start with <code>fe-design-system</code> to find the sources.
+          Use <code>fe-core</code> for implementation rules; the specialist
+          skills build on that foundation.
+        </p>
+        <div className="ds-table-wrap">
+          <table className="ds-table">
+            <thead><tr><th scope="col">Skill</th><th scope="col">Use it to</th></tr></thead>
+            <tbody>
+              {SKILLS.map((skill) => (
+                <tr key={skill.id} id={skill.id}>
+                  <th scope="row"><a href={`https://github.com/Foreveryone-berlin/design-system/blob/main/skills/${skill.id}/SKILL.md`}><code>{skill.id}</code></a></th>
+                  <td>{skill.summary}</td>
+                </tr>
               ))}
-            </ul>
-          </div>
-        ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section id="install" className="ds-section">
         <h2 className="ds-section-title">Install</h2>
         <p className="fe-body">
-          Clone this repository, then run the installer from the project that
-          needs the skills. Add <code>--dry-run</code> to preview the changes.
+          Clone the repository, then run the installer from the project that
+          needs the skills. Preview the changes before installing:
         </p>
         <CodeBlock
-          code="node path/to/design-system/bin/fe-ds.mjs skills install"
+          code={"node path/to/design-system/bin/fe-ds.mjs skills install --dry-run\nnode path/to/design-system/bin/fe-ds.mjs skills install"}
           language="bash"
         />
         <p className="fe-body">
-          The installer copies the skills to <code>fe-skills/</code> and{" "}
-          <code>.agents/skills/</code>, adds a short rules block to the
-          project&apos;s <code>AGENTS.md</code>, and updates{" "}
-          <code>.claude/</code> or <code>.cursor/</code> when those folders
-          exist. It needs no network access. Options:{" "}
-          <a href={REPO_DOCS} target="_blank" rel="noopener noreferrer">
-            docs/agent-skills.md
-          </a>
-          .
+          Claude Code receives skill copies when <code>.claude/</code> exists.
+          Cursor and Codex share discovery in <code>.agents/skills/</code>. The installer
+          preserves unrelated guidance and needs no network access.
         </p>
+        <p className="fe-body"><a href={REPO_DOCS}>Installer options and file locations</a></p>
       </section>
 
       <section id="on-github" className="ds-section">
-        <h2 className="ds-section-title">On GitHub</h2>
-        <p className="fe-body">
-          Agents read these files from the public repository. This site stays
-          out of search engines and closed to AI crawlers.
-        </p>
+        <h2 className="ds-section-title">Sources for agents</h2>
+        <p className="fe-body">Agents read the public repository rather than this preview.</p>
         <ul className="ds-rule-list">
-          <li>
-            <a href={`${RAW}/llms.txt`}>
-              <code>llms.txt</code>
-            </a>
-            : entry point and hard rules
-          </li>
-          <li>
-            <a href={`${RAW}/dist/skills/index.json`}>
-              <code>dist/skills/index.json</code>
-            </a>
-            : skill list and versions
-          </li>
-          <li>
-            <a href={`${RAW}/dist/skills/tokens.json`}>
-              <code>dist/skills/tokens.json</code>
-            </a>
-            : token names, values, and CSS variables
-          </li>
+          <li><a href={`${RAW}/llms.txt`}><code>llms.txt</code></a>: entry point and shared rules</li>
+          <li><a href={`${RAW}/dist/skills/index.json`}><code>index.json</code></a>: skill list and versions</li>
+          <li><a href={`${RAW}/dist/skills/tokens.json`}><code>tokens.json</code></a>: token values and CSS variables</li>
         </ul>
       </section>
     </>

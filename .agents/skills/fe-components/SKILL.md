@@ -27,6 +27,10 @@ Any task that adds or restyles interactive UI that already has an `fe-*` contrac
    white glyph via `currentColor`). Play controls use `.fe-play-btn` with a white glyph.
 5. Header, footer, FAQ, cards, inputs, tags, and related patterns follow their spec files;
    match markup structure as well as class names.
+6. For photo masks and section waves, read `docs/visual-styles.md` before choosing
+   geometry. Reuse a catalog SVG unchanged; state its filename, edge, orientation,
+   adjacent surfaces, and responsive height. Never invent an approximate path.
+   Host-native divider controls follow the target's integration guide.
 
 ## Do not
 
@@ -36,6 +40,6 @@ Any task that adds or restyles interactive UI that already has an `fe-*` contrac
 
 ## Canonical docs
 
-- [`spec/components/README.md`](../../spec/components/README.md)
-- [`docs/visual-styles.md`](../../docs/visual-styles.md)
+- [`spec/components/README.md`](https://github.com/Foreveryone-berlin/design-system/blob/main/spec/components/README.md)
+- [`docs/visual-styles.md`](https://github.com/Foreveryone-berlin/design-system/blob/main/docs/visual-styles.md)
 - Component contracts: <https://github.com/Foreveryone-berlin/design-system/tree/main/spec/components>

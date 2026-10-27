@@ -1,4 +1,4 @@
-# Visual styles — the four visual-element families
+# Visual styles: the four visual-element families
 
 Brand guide summary for **ForEveryone Berlin**. The Brand Book v1.0 (p.24–27)
 defines four visual-element families with distinct roles that must not be used
@@ -16,7 +16,7 @@ in the prototype.
 single `FeIcon` component (`prototype/app/_components/FeIcon.tsx`) using CSS mask +
 `currentColor` inside `.fe-workshop-icon` or
 `.fe-icon-btn--filled-brand`, with orange (`var(--color-accent-icon)`) ground + white
-glyph. Per Brand Book p.24 these are **solid filled** silhouettes — never
+glyph. Per Brand Book p.24 these are **solid filled** silhouettes: never
 outline/stroke, never shadow/gradient. Add a category by dropping a **filled** SVG
 (`fill="currentColor"`) into `prototype/public/icons/categories/` and extending the
 `category` name union in `FeIcon`. Re-import from Figma with
@@ -97,18 +97,18 @@ Prototype IA split:
 
 ### Line illustrations (doodles)
 
-- **Role:** Decorative “doodle” marks — warmth, hand-drawn personality (e.g. the orange flower beside *Our Impact* and the sketched underline beneath the *SheLeads* / home headline).
+- **Role:** Decorative “doodle” marks: warmth, hand-drawn personality (e.g. the orange flower beside *Our Impact* and the sketched underline beneath the *SheLeads* / home headline).
 - **Colour:** Drawn in **brand orange** (decorative use), matching the filled-illustration family; do not recolour to blue.
 - **Shipped atmospheric set** in `prototype/public/illustrations/`: `flower.svg`, `smiley.svg`, `cloud.svg`, `sprout.svg`, plus contextual scene marks (`group.svg`, `knitting-line.svg`, `pottery-line.svg`, `movement-line.svg`, `chess.svg`). Import via `scripts/import-figma-elements.mjs` or `scripts/import-desktop-elements.mjs`. `coffee-cup.svg`, `donation-box.svg` and `megaphone.svg` ship in the same folder but are functional/UI doodles, not atmospheric line illustrations. `vase.svg` and `qr-foreveryone.svg` remain in-repo redraws; `megaphone.svg` is an in-repo vector trace of `megaphone.png`, the raster the newsletter popup ships, since no vector export of it exists. Figma remains the source of truth for any new or updated artwork.
 - **Variant catalog:** additional Canva exports live in `prototype/public/illustrations/variants/line/` and are shown on the Visual Elements page as optional alternatives.
 - **Headline underline:** `headline-underline.svg` (from `Doodle_Double_Underlines_2_2`) sits under a heading via `.ds-headline-underline` on the home hero and pattern specimens, stretched to the headline text width. The import script repairs SVGO-stripped fills on this asset automatically.
-- **Usage:** Supporting hero sections, empty states, editorial blocks, and **benefit / get-involved card leads** (`.fe-card-benefit__illustration`) — avoid competing with primary CTAs; pair with blob shapes rather than stacking on busy imagery. Do **not** substitute decorative accent marks here.
+- **Usage:** Supporting hero sections, empty states, editorial blocks, and **benefit / get-involved card leads** (`.fe-card-benefit__illustration`): avoid competing with primary CTAs; pair with blob shapes rather than stacking on busy imagery. Do **not** substitute decorative accent marks here.
 
 ### Filled icons (functional)
 
 - **Role:** Wayfinding and **categorization** (e.g. workshop types: painting, pottery).
 - **Color:** Filled functional markers **must use brand orange** (`var(--color-brand-primary)`). Icons should use `currentColor` on a control whose text/icon color is set to white on that orange ground (see `.fe-workshop-icon` in `css/utilities.css`). Orange markers are decorative, never clickable buttons.
-- **Labels:** Pair with **high-contrast** copy — default body/label text should use Charcoal (`var(--color-brand-dark)` / `var(--color-theme-2)`) on light surfaces per the color palette.
+- **Labels:** Pair with **high-contrast** copy: default body/label text should use Charcoal (`var(--color-brand-dark)` / `var(--color-theme-2)`) on light surfaces per the color palette.
 
 ### Social / neutral icon buttons
 
@@ -122,21 +122,56 @@ Brand Book v1.0 p.27 defines two graphic-shape types with distinct roles that **
 ### Blob shapes
 
 - **Role:** Organic, rounded **containers** for photos and **colour blocks** behind text; soften photography and frame imagery.
-- **Colors:** Decorative blobs use the brand accent family: **orange**, **lavender**, **lime** — map to `var(--color-brand-primary)`, `var(--color-light-purple)`, `var(--color-light-green)` (and large soft surfaces: `var(--color-soft-lavender)` where appropriate).
-- **Implementation:** Organic silhouettes via large `border-radius`, SVG masks, or clip-path. Exact paths often live in **Figma exports** or host-page image widgets + custom CSS; no single token defines every blob — keep shapes aligned with Figma components.
+- **Colors:** Decorative blobs use the brand accent family: **orange**, **lavender**, **lime**: map to `var(--color-brand-primary)`, `var(--color-light-purple)`, `var(--color-light-green)` (and large soft surfaces: `var(--color-soft-lavender)` where appropriate).
+- **Implementation:** Reuse `prototype/public/illustrations/blobs/blob-1.svg` through `blob-7.svg`. Preserve the SVG viewBox ratio with `mask-size: contain`, centred and non-repeating. Crop the photograph with `object-fit: cover`; never stretch the photograph to fit a silhouette. The prototype's Visual Elements page previews all seven on the same image. Existing page-specific rounded crops are not new canonical SVGs.
 
 ### Wave shapes
 
-- **Role:** Soft **horizontal dividers** at the top or bottom edge of a section. Not containers, not masks — only edge dividers.
+- **Role:** Soft **horizontal dividers** at the top or bottom edge of a section. Not containers, not masks: only edge dividers.
 - **Colour:** Lime green (`var(--color-light-green)`); match the section they edge.
-- **Shipped set:** `prototype/public/illustrations/waves/wave-h1.svg`, `wave-h2.svg`, and `wave-h3.svg` (full-width crests), plus `wave-corner-tr.svg` and `wave-corner-br.svg` (corner variants). Use `preserveAspectRatio="none"` and stretch full-width where appropriate.
+- **Shipped set:** choose a profile from the table below. Full-width dividers use `preserveAspectRatio="none"` to stretch the section edge, not its photographs or text. Corner waves retain their native proportions.
+
+| Profile | File under `prototype/public/illustrations/waves/` | Source and use |
+| --- | --- | --- |
+| Crest 1 | `wave-h1.svg` | Figma `Wave_1`, irregular multi-crest edge |
+| Crest 2 | `wave-h2.svg` | Figma `Wave_2`, broad rise with smaller crests |
+| Crest 3 | `wave-h3.svg` | Figma `Wave_3`, alternate organic contour |
+| Broad wave | `wave-soft.svg` | Existing website reference, fill above the contour |
+| Broad wave, inverse | `wave-soft-inverse.svg` | Existing website reference, fill below the contour |
+| Corner, top right | `wave-corner-tr.svg` | Existing corner silhouette |
+| Corner, bottom right | `wave-corner-br.svg` | Existing corner silhouette |
+
+The broad-wave files preserve the exact native divider paths captured from the
+public website on 2026-10-27; they are implementation references, not new Figma
+exports. Host-specific sources and settings are in the
+[Elementor adapter](../integrations/elementor/shapes.md). The prototype's
+`shape-assets.ts` lists the five full-width profiles used by its download catalog
+and interactive preview.
+
+**Orientation:** for a path filled below the contour, use the original at a
+section's top and rotate it 180 degrees for the bottom. Reverse those placements
+for a path filled above the contour. A horizontal mirror is an allowed
+orientation of the same asset, not a newly drawn wave. Do not redraw, simplify,
+or approximate its path.
+
+**Surface join:** the filled area belongs to the section it edges. The unfilled
+area reveals the adjacent surface. Keep both flush, reserve the divider's height
+outside the content, and check for seams at desktop and mobile widths. Shared
+specimens retain Lime Green; reproducing an existing host's neutral bridge uses
+that host's documented surface mapping, not a new global colour rule.
+
+**Agent selection:** read this catalog before implementing a photo mask or
+section divider. Specify the asset filename, role, edge, orientation, adjacent
+surfaces, and responsive height. Copy the SVG unchanged into the target's public
+assets or import it through that platform's asset workflow. Keep its viewBox;
+do not replace it with a guessed `border-radius` or an inline SVG path.
 
 ## Decorative accent marks
 
-Brand Book v1.0 p.26 — used sparingly, orange prioritised, never the focal point. Two types, shipped in `prototype/public/illustrations/accents/`:
+Brand Book v1.0 p.26: used sparingly, orange prioritised, never the focal point. Two types, shipped in `prototype/public/illustrations/accents/`:
 
-- **Doodle strokes:** `doodle-underline.svg`, `doodle-arrow.svg`, `doodle-circle.svg` — hand-drawn marks beneath headings/titles for a playful, handmade feel.
-- **Sparkle / asterisk / music note:** `sparkle.svg`, `asterisk.svg`, `music-note.svg` — small marks that add energy to titles and announcements.
+- **Doodle strokes:** `doodle-underline.svg`, `doodle-arrow.svg`, `doodle-circle.svg`: hand-drawn marks beneath headings/titles for a playful, handmade feel.
+- **Sparkle / asterisk / music note:** `sparkle.svg`, `asterisk.svg`, `music-note.svg`: small marks that add energy to titles and announcements.
 - **Variant catalog:** alternate decorative exports are stored in `prototype/public/illustrations/variants/accents/` and cataloged in the Visual Elements specimens.
 - **Do not** use accent marks (or their variants) as benefit-card leads; those slots use **line illustrations**. Accents stay on headings, titles, and announcements.
 
@@ -146,7 +181,7 @@ When placing images inside blob or rounded masks:
 
 - Prefer **dynamic, engaging** shots and **diverse** groups where relevant to the story.
 - Avoid crops that **cut off** people awkwardly or leave **large empty** areas inside the mask.
-- These are **content** guidelines for editors and designers — not enforced in CSS.
+- These are **content** guidelines for editors and designers: not enforced in CSS.
 - **Prototype assets:** photographs and social previews used by `design.foreveryone.berlin` are tracked in [`prototype/public/images/ASSETS.md`](../prototype/public/images/ASSETS.md) (hero, Open Graph card, etc.).
 
 ### Sourcing and rights

@@ -1,6 +1,6 @@
 {
   "name": "foreveryone-design-system",
-  "version": "1.14.0",
+  "version": "1.15.0",
   "docs": "https://github.com/Foreveryone-berlin/design-system",
   "tokens": "tokens.json",
   "agentsBlock": "AGENTS.foreveryone.md",
@@ -18,6 +18,22 @@
         "llms.txt",
         "spec/principles.md",
         "spec/tokens.json"
+      ],
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "fe-design-system",
+      "description": "Route ForEveryone UI work to the design-system sources and the matching consumer skill. Use when asked to use the ForEveryone design system, invoke fe-design-system, or locate brand rules, tokens, component contracts, and integration guidance.",
+      "path": "fe-design-system/SKILL.md",
+      "foreveryone": ">=1.14.0 <2.0.0",
+      "requires": [],
+      "docs": [
+        "llms.txt",
+        "docs/agent-skills.md",
+        "docs/brand-book-references.md",
+        "integrations/README.md"
       ],
       "files": [
         "SKILL.md"

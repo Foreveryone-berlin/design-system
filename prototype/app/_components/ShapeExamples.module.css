@@ -1,0 +1,31 @@
+.example { display: grid; gap: var(--spacing-6); margin-block: var(--spacing-6) var(--spacing-8); padding: var(--spacing-6); background: var(--color-background-soft); border-radius: var(--radius-card); }
+.controls { display: flex; flex-direction: column; align-items: flex-start; gap: var(--spacing-3); min-inline-size: 0; }
+.controls > label:first-child { font-weight: var(--font-weight-bold); }
+.controls select { inline-size: 100%; }
+.path { font-size: var(--font-size-xs); overflow-wrap: anywhere; }
+.controls a { font-size: var(--font-size-sm); }
+.checkbox { display: flex; align-items: center; gap: var(--spacing-2); font-size: var(--font-size-sm); line-height: var(--line-height-normal); }
+.checkbox input { accent-color: var(--color-brand-secondary); inline-size: var(--spacing-4); block-size: var(--spacing-4); }
+.photoStage { display: grid; place-items: center; min-inline-size: 0; }
+.photo { inline-size: 100%; max-inline-size: calc(var(--spacing-32) * 3); aspect-ratio: 4 / 3; mask-size: contain; mask-position: center; mask-repeat: no-repeat; -webkit-mask-size: contain; -webkit-mask-position: center; -webkit-mask-repeat: no-repeat; }
+.photo img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+.waveStage { overflow: hidden; background: var(--color-background-default); border-radius: var(--radius-card); min-inline-size: 0; }
+.before, .after { padding: var(--spacing-4); font-size: var(--font-size-xs); }
+.top, .bottom { block-size: var(--spacing-12); }
+.top img, .bottom img { inline-size: 100%; block-size: 100%; }
+.bottom { background: var(--color-background-soft); }
+.bottom img { transform: rotate(180deg); }
+.top img.mirrored { transform: scaleX(-1); }
+.bottom img.mirrored { transform: rotate(180deg) scaleX(-1); }
+.content { display: grid; gap: var(--spacing-2); background: var(--color-background-title); padding: var(--spacing-6) var(--spacing-4); }
+.content span { font-size: var(--font-size-sm); }
+.after { background: var(--color-background-soft); }
+
+@media (min-width: 640px) {
+  .example { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); align-items: center; }
+}
+
+.filledTop .top img { transform: rotate(180deg); }
+.filledTop .bottom img { transform: none; }
+.filledTop .top img.mirrored { transform: rotate(180deg) scaleX(-1); }
+.filledTop .bottom img.mirrored { transform: scaleX(-1); }

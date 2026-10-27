@@ -1,67 +1,11 @@
-# Agent contract — ForEveryone Berlin design system
+# Agent contract
 
-Portable rules for AI agents (Codex, Cursor agent, and Claude Code). Cursor path-scoped reminders under [`.cursor/rules/`](../../.cursor/rules/) stay quick enforceable reminders; this file is the narrative contract.
+Root [AGENTS.md](../../AGENTS.md) is the single source for the shared contract:
 
-## Product context
+- [General rules](../../AGENTS.md#general) and [Git workflow](../../AGENTS.md#git-workflow)
+- [Task template](../../AGENTS.md#task-template-non-trivial-work) and [verification](../../AGENTS.md#verification)
+- [Runtime policy](../../AGENTS.md#runtime-policy) and [release cycle](../../AGENTS.md#release)
+- [Prototype audit contract](../../AGENTS.md#audit-contract)
 
-- **Org:** [foreveryone.berlin](https://foreveryone.berlin/), an open, inclusive community space in Berlin.
-- **This repo:** a platform-neutral design system: **design tokens** (DTCG JSON), **generated and hand-authored CSS**, **Figma sync notes**, **per-platform integration guides** under `integrations/`, and a **Next.js prototype** under `prototype/`.
-- **Consumers:** the prototype, any framework or plain-CSS app, and host platforms listed in [`../../integrations/README.md`](../../integrations/README.md). This repo hosts none of them in production.
-- **Boundary:** `tokens/`, `spec/`, `docs/`, and the shared `css/*.css` layers carry nothing platform-specific. Host-platform selectors, slot numbers, and product names live in `integrations/<target>/` and `css/integrations/<target>.css`.
-
-## Task template (non-trivial work)
-
-1. **Goal:** one sentence.
-2. **Risk tier:** Low | Medium | High — see [runtime-policy.md](runtime-policy.md).
-3. **Scope:** paths and files; explicit non-goals.
-4. **Constraints:** stack pin and rules in [`docs/AGENTS.md`](../AGENTS.md); no drive-by refactors.
-5. **Done when:** e.g. `node scripts/build-css.js` if tokens changed; prototype builds if you touched `prototype/`; changelog updated if `tokens/` or `css/` changed.
-6. **Changelog:** follow the in-flight section in `CHANGELOG.md` (see [`docs/skills/release.md`](../skills/release.md)).
-
-## Git and PRs
-
-- Branch from **`develop`**, not `main`. Names: `feature/*`, `fix/*`, `docs/*`, `chore/*`.
-- Conventional Commits; use `.github/PULL_REQUEST_TEMPLATE.md` for PRs.
-- When the user explicitly asks to ship to develop / merge / open and merge a PR, run `bash scripts/pr-and-merge.sh` from repo root (solo workflow). See [`docs/pr-and-merge-workflow.md`](../pr-and-merge-workflow.md).
-- **No agent attribution:** never add `Co-authored-by: Cursor`, `@cursoragent`, Made/Generated with Cursor, Claude trailers, or any copy that puts an agent in GitHub Contributors. Strip injected PR footers before the PR is done.
-
-## Verification
-
-- **Tokens:** after any `tokens/*.json` edit, run `node scripts/build-css.js` and confirm `css/custom-properties.css` updated as expected.
-- **Prototype:** from `prototype/`, `npm run build` or `npm run lint` when you change app code.
-- **CSS:** no raw hex or font-family literals in authored layers (only `var(--…)`), and no host-platform selectors outside `css/integrations/`.
-- **Integrations:** if a change affects a consuming target, say which one in the PR and run [`docs/integration-checklist.md`](../integration-checklist.md) against it.
-
-## Documentation and retrieval
-
-- Prefer [`docs/AGENTS.md`](../AGENTS.md) and linked files over model memory for tokens, CSS layers, breakpoints, integration targets, and prototype layout.
-- **Figma** is the visual source of truth; **this repo** is the implementation source of truth.
-
-## Cross-tool layout
-
-- **Canonical narrative:** [`docs/AGENTS.md`](../AGENTS.md).
-- **Root mirror:** [`AGENTS.md`](../../AGENTS.md) (retrieval index + condensed rules for tools that only read repo root).
-- **Codex:** root [`AGENTS.md`](../../AGENTS.md) routes to canonical docs and shared Markdown rules; generated skills live in `.agents/skills/`.
-- **Claude Code:** [`CLAUDE.md`](../../CLAUDE.md).
-- **Cursor agent layering:** [`.cursor/AGENTS.md`](../../.cursor/AGENTS.md) (with path-scoped reminders in [`.cursor/rules/`](../../.cursor/rules/)).
-
-### Cross-tool parity
-
-When changing team-wide agent behavior, keep these surfaces aligned in the same PR:
-
-- **Commands, stack pin, prototype baseline, skill triggers:** [`docs/AGENTS.md`](../AGENTS.md), root [`AGENTS.md`](../../AGENTS.md), [`CLAUDE.md`](../../CLAUDE.md), [`.cursor/AGENTS.md`](../../.cursor/AGENTS.md).
-- **Path-scoped rules:** [`.cursor/rules/*.mdc`](../../.cursor/rules/) **and** [`.claude/rules/*.md`](../../.claude/rules/) (each `.md` file notes its `.mdc` mirror).
-- **Skills:** edit root `skills/` only. `npm run skills:build` regenerates `dist/skills/` and `.agents/skills/`. Consumer installs always include Codex discovery; Claude and Cursor layouts are selected when present or via `--target`.
-
-Optional sanity check before merge: compare substantive sections of `docs/AGENTS.md`, root `AGENTS.md`, `CLAUDE.md`, and `.cursor/AGENTS.md` (excluding the Cursor precedence block).
-
-Tool loading matrix: [README.md](README.md).
-
-Keep root `AGENTS.md`, `CLAUDE.md`, `.cursor/AGENTS.md` pins, and this contract aligned when you change team-wide behavior.
-
-## Cursor CLI
-
-- **Model:** Composer 2.5 standard (`maxMode: false`).
-- **Context:** loads root `AGENTS.md` + `CLAUDE.md` + project skills from `.claude/skills/` (not `.cursor/AGENTS.md`).
-- **Headless:** `agent -p --force` from repo root; long jobs use `bash scripts/optimize-run.sh` (sequential optimize domains; `--agent codex` selects Codex without changing its configured permissions) or repo-specific `*-fanout.sh` when file ownership overlaps.
-- **Autonomous jobs:** job-scoped merge/deploy rules come from the operator's own Cursor CLI playbook, external to this repo.
+The domain index is [docs/AGENTS.md](../AGENTS.md). Tool loading and generated
+skill maintenance are documented in the [loading map](README.md).

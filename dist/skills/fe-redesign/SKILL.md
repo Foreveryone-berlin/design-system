@@ -8,7 +8,7 @@ docs: ['llms.txt', 'spec/principles.md', 'spec/tokens.json', 'docs/agents/redesi
 
 # Redesign from this design system
 
-Installable form of [`docs/agents/redesign-from-this-system.md`](../../docs/agents/redesign-from-this-system.md).
+Installable form of [`docs/agents/redesign-from-this-system.md`](https://github.com/Foreveryone-berlin/design-system/blob/main/docs/agents/redesign-from-this-system.md).
 Requires [`fe-core`](../fe-core/SKILL.md).
 
 ## When to use
@@ -67,7 +67,7 @@ and report a token-by-token mapping of what you changed.
 
 ## Canonical docs
 
-- [`docs/agents/redesign-from-this-system.md`](../../docs/agents/redesign-from-this-system.md)
-- [`llms.txt`](../../llms.txt)
-- [`spec/principles.md`](../../spec/principles.md)
-- [`spec/tokens.json`](../../spec/tokens.json)
+- [`docs/agents/redesign-from-this-system.md`](https://github.com/Foreveryone-berlin/design-system/blob/main/docs/agents/redesign-from-this-system.md)
+- [`llms.txt`](https://github.com/Foreveryone-berlin/design-system/blob/main/llms.txt)
+- [`spec/principles.md`](https://github.com/Foreveryone-berlin/design-system/blob/main/spec/principles.md)
+- [`spec/tokens.json`](https://github.com/Foreveryone-berlin/design-system/blob/main/spec/tokens.json)

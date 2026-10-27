@@ -22,6 +22,8 @@ Creative Commons Attribution-NonCommercial 4.0 International — CC BY-NC 4.0 (s
 
 If you reuse material that spans both areas, you must comply with the terms of each license that applies. Trademarks and branding (e.g. "ForEveryone Berlin") are not granted by these licenses alone.
 
+Third-party exception: prototype/public/illustrations/waves/wave-soft.svg and wave-soft-inverse.svg are adapted from Elementor's waves.svg and waves-negative.svg. These files retain GPL-3.0-only; the full licence is in prototype/public/illustrations/waves/elementor-license.txt, and each SVG records its source and modifications.
+
 ------------------------------------------------------------------------
 
 ## MIT License

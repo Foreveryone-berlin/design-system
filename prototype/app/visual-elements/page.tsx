@@ -14,6 +14,8 @@ import FeIcon, {
   type UiGlyphName,
 } from "../_components/FeIcon";
 import AssetTile, { AssetDownloadMarker } from "../_components/AssetTile";
+import ShapeExamples from "../_components/ShapeExamples";
+import { WAVE_PROFILES } from "../_components/shape-assets";
 import { FILE_GLYPHS, SOCIAL_ICONS, UI_GLYPHS } from "../_components/ui-glyphs";
 import { UI_GLYPH_DIR } from "../_components/ui-glyph-markup";
 
@@ -75,12 +77,6 @@ const accentVariants = [
   { src: "/illustrations/variants/accents/emphasis-lines-variant-3.svg", label: "Emphasis lines variant 3" },
   { src: "/illustrations/variants/accents/emphasis-lines-variant-4.svg", label: "Emphasis lines variant 4" },
   { src: "/illustrations/variants/accents/headline-underline-variant-1.svg", label: "Headline underline variant 1" },
-];
-
-const WAVES = [
-  { file: "wave-h1", label: "Wave crest 1" },
-  { file: "wave-h2", label: "Wave crest 2" },
-  { file: "wave-h3", label: "Wave crest 3" },
 ];
 
 const WAVE_CORNERS = [
@@ -395,7 +391,7 @@ export default function VisualElementsPage() {
         <p className="fe-body">
           Organic, rounded shapes used as containers for photos or as colour
           blocks behind text. Approved fills: Soft Lavender, Lime Green, or Warm
-          White &mdash; never Orange behind the full wordmark.
+          White; never Orange behind the full wordmark.
         </p>
         <div className="ds-blob-specimens">
           {[1, 2, 3, 4, 5, 6, 7].map((n) => (
@@ -417,19 +413,28 @@ export default function VisualElementsPage() {
           ))}
         </div>
 
+        <h3 className="ds-subsection-title">Photo masks in use</h3>
+        <p className="fe-body">
+          Try the seven existing silhouettes on the same photograph. Keep the
+          mask proportional and crop the photograph with <code>object-fit: cover</code>;
+          do not stretch faces or substitute a section wave for a photo mask.
+        </p>
+        <ShapeExamples mode="mask" />
+
         <h3 className="ds-subsection-title">Wave shapes</h3>
         <p className="fe-body">
           Soft horizontal dividers used at the top or bottom edge of a section,
-          always in Lime Green. Three full-width crest patterns plus two corner
-          waves that fill a top or bottom corner of the page.
+          in Lime Green for shared brand specimens. Choose from three Figma
+          crests, the broad profile and its inverse used on existing pages, and
+          two corner waves. Reuse a named asset; do not draw an approximate path.
         </p>
         <div className="ds-wave-specimens">
-          {WAVES.map(({ file, label }) => (
+          {WAVE_PROFILES.map(({ file, label, source }) => (
             <AssetTile
               key={file}
               className="ds-wave-specimen"
               src={`/illustrations/waves/${file}.svg`}
-              label={label}
+              label={`${label} · ${source}`}
             >
               <span className="ds-wave-chip">
                 <span
@@ -465,6 +470,20 @@ export default function VisualElementsPage() {
             </AssetTile>
           ))}
         </div>
+        <h3 className="ds-subsection-title">Section edges and orientation</h3>
+        <p className="fe-body">
+          Preview each profile at both edges, including a horizontal mirror.
+          Keep the divider flush with its section and reserve its height outside
+          the text area. The surrounding surface must match the neighbouring
+          section, with no transparent gap or overlap over content.
+        </p>
+        <ShapeExamples mode="wave" />
+        <p className="fe-body">
+          The same assets work in plain HTML, React/Next.js, and design tools.
+          See <a href="https://github.com/Foreveryone-berlin/design-system/blob/main/docs/visual-styles.md#graphic-shapes-blobs-vs-waves">shape contracts</a> for
+          source paths and cropping rules, or the <a href="https://github.com/Foreveryone-berlin/design-system/blob/main/integrations/elementor/shapes.md">Elementor adapter</a> for
+          native divider settings and workshop-page references.
+        </p>
         <p className="fe-callout">
           Blobs are containers/masks; waves are section dividers. Do not swap one
           for the other.
