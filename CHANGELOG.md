@@ -8,6 +8,23 @@
 
 ## [Unreleased]
 
+## [1.15.0] - 2026-10-27
+
+### Added
+
+- Add a design-system entry skill.
+- Add interactive photo-mask and wave previews with reusable profiles.
+
+### Changed
+
+- Clarify the README, usage examples, and platform guidance.
+- Simplify the Agent skills page and link each skill to its GitHub documentation.
+- Centralize shared agent instructions in AGENTS.md, preserving tool-specific rules and workflows.
+
+### Fixed
+
+- Align select arrows, spacing, and keyboard focus across browsers.
+
 ## [1.14.0] - 2026-10-25
 
 ### Added

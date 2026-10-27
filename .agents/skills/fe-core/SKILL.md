@@ -38,7 +38,7 @@ ForEveryone consumer skill assumes these rules.
 
 ## Canonical docs
 
-- [`llms.txt`](../../llms.txt): agent entry and hard rules
-- [`spec/principles.md`](../../spec/principles.md): deterministic colour, type, layout
-- [`spec/tokens.json`](../../spec/tokens.json): flattened token list with CSS names
+- [`llms.txt`](https://github.com/Foreveryone-berlin/design-system/blob/main/llms.txt): agent entry and hard rules
+- [`spec/principles.md`](https://github.com/Foreveryone-berlin/design-system/blob/main/spec/principles.md): deterministic colour, type, layout
+- [`spec/tokens.json`](https://github.com/Foreveryone-berlin/design-system/blob/main/spec/tokens.json): flattened token list with CSS names
 - Skill index: <https://raw.githubusercontent.com/Foreveryone-berlin/design-system/main/dist/skills/index.json>

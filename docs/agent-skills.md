@@ -8,6 +8,7 @@ in another project.
 
 | Skill | Requires | Use when |
 | --- | --- | --- |
+| **`fe-design-system`** | none | Locate maintained sources and route the task to core conventions and a specialist |
 | **`fe-core`** | none | New UI: tokens, `fe-*` components, brand colour and a11y baselines |
 | **`fe-tokens`** | `fe-core` | Resolve or extend tokens by role; OKLCH extensions; naming |
 | **`fe-components`** | `fe-core` | Build controls from documented `fe-*` contracts and state matrices |
@@ -17,15 +18,22 @@ in another project.
 
 ## Sources and generated copies
 
+`fe-design-system` adapts the routing skill from the ForEveryone website
+repository. It uses portable source discovery and public GitHub endpoints,
+without carrying website-local paths or treating the human-facing prototype as
+an agent endpoint. Figma governs visual decisions; this repository governs
+implementation.
+
 | Path | Audience | Role |
 | --- | --- | --- |
 | `skills/` | Consumers | Skill sources; edit only here |
 | `dist/skills/` | Installer | Generated payload with `index.json`, `tokens.json`, and the `AGENTS.md` block |
-| `.agents/skills/` | Codex in this repo | Generated mirror; never edit |
+| `.claude/skills/` | Claude Code in this repo | Generated mirror; never edit |
+| `.agents/skills/` | Cursor and Codex in this repo | Generated mirror; never edit |
 | `docs/skills/` | Maintainers | Workflows for this repo (token update, release); not consumer skills |
 
-After editing a source, run `npm run skills:build`. It regenerates both
-generated copies. `npm test`
+After editing a source, run `npm run skills:build`. It regenerates the distribution and both native
+discovery directories. `npm test`
 fails when the Codex mirror is stale.
 
 ## Install
@@ -43,9 +51,8 @@ By default `skills install`:
 - copies the payload to `fe-skills/` (change with `--dir <path>`);
 - writes a managed `<!-- foreveryone:skills:start -->` … `end -->` block into the
   project's `AGENTS.md`, keeping everything outside it;
-- installs `.agents/skills/` for Codex, even in a new project;
-- mirrors into `.claude/skills/` or `.cursor/skills/` when `.claude/` or `.cursor/`
-  exists.
+- mirrors into `.claude/skills/` and `.cursor/skills/` when their parent directories exist;
+- installs `.agents/skills/` for Cursor and Codex, even in a new project.
 
 `--target` takes a comma-separated subset of `claude`, `cursor`, `codex`, `agents`
 (payload plus `AGENTS.md` block), and `dir` (payload only). Re-running the

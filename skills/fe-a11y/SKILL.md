@@ -40,6 +40,6 @@ that reviews a surface against the public accessibility statement.
 ## Canonical docs
 
 - Prototype statement source: <https://github.com/Foreveryone-berlin/design-system/blob/main/prototype/app/accessibility/page.tsx>
-- [`docs/a11y-conformance.md`](../../docs/a11y-conformance.md)
-- [`docs/validation.md`](../../docs/validation.md)
-- [`spec/principles.md`](../../spec/principles.md)
+- [`docs/a11y-conformance.md`](https://github.com/Foreveryone-berlin/design-system/blob/main/docs/a11y-conformance.md)
+- [`docs/validation.md`](https://github.com/Foreveryone-berlin/design-system/blob/main/docs/validation.md)
+- [`spec/principles.md`](https://github.com/Foreveryone-berlin/design-system/blob/main/spec/principles.md)

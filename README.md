@@ -2,89 +2,89 @@
 
 # ForEveryone Design System
 
-This is the shared look and feel for [foreveryone.berlin](https://foreveryone.berlin/), an open, inclusive community space in Berlin. It keeps the brand's colours, type, and reusable building blocks in one place, so everything we make looks like it belongs together, whatever it is built with. It is here for designers, developers, and anyone curious about how the brand fits together.
+The shared design system for ForEveryone, an open and inclusive community space in Berlin. It keeps the brand consistent across the WordPress [site](https://foreveryone.berlin/), the Next.js [app](https://app.foreveryone.berlin), and internal work in Claude Design.
 
-You can see it all in action on the live preview: **[design.foreveryone.berlin](https://design.foreveryone.berlin)**
+This repository holds the design tokens, reusable CSS, component contracts, and agent skills.
 
-### Tech stack
+Explore the live system: **[https://design.foreveryone.berlin](https://design.foreveryone.berlin)**.
 
-- **Tokens:** W3C DTCG JSON in `tokens/`, built into `css/custom-properties.css` by `scripts/build-css.js`.
-- **CSS:** authored layers in `css/*.css`, variables only.
-- **Prototype:** Next.js 16 + TypeScript in `prototype/`, hosted on Vercel at `design.foreveryone.berlin`.
-- **CI:** GitHub Actions for build, tests, and tag-triggered releases.
+| Task                          | Start here                                                                                                                                                                       |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Explore the visual system     | [Foundations](https://design.foreveryone.berlin/foundations), [components](https://design.foreveryone.berlin/components), [patterns](https://design.foreveryone.berlin/patterns) |
+| Implement UI                  | [Use the system](#use-the-system), then [component contracts](spec/components/README.md)                                                                                         |
+| Work with Figma               | [Style Guide](https://www.figma.com/design/U6oj7xy85cfOQV1o0XtTKC?node-id=938-7171) (requires file access), [sync guide](figma/sync-guide.md)                                    |
+| Connect a platform            | [Integration guides](integrations/README.md), including WordPress + Elementor                                                                                                    |
+| Install consumer agent skills | [Skills and installer](docs/agent-skills.md)                                                                                                                                     |
+| Contribute                    | [Contributing guide](docs/contributing.md)                                                                                                                                       |
 
-### Quick start
+## Use the system
 
-Requires **Node 24+**.
+Use the shared CSS with plain HTML, React/Next.js, or another framework. For agent-led work, including Claude Design, start with the [design-system skill](skills/fe-design-system/SKILL.md). The files are consumed from this repository, not a published npm package. Design materials use CC BY-NC 4.0; see [License](#license) before reuse.
+
+Clone the repository, then copy its `css/` directory into your project's public assets, preserving the files together:
 
 ```bash
-# Build CSS custom properties from tokens
+git clone https://github.com/Foreveryone-berlin/design-system.git
+cd design-system
+```
+
+For example, with that directory served at `/css/`, load the layers in this order:
+
+```html
+<link rel="stylesheet" href="/css/custom-properties.css" />
+<link rel="stylesheet" href="/css/base.css" />
+<link rel="stylesheet" href="/css/typography.css" />
+<link rel="stylesheet" href="/css/utilities.css" />
+
+<button type="button" class="fe-btn-primary">Book workshop</button>
+```
+
+`base.css` includes global resets and body styles. The host must load Filson Pro as `FilsonPro` to match the typography tokens; CSS alone does not load the font.
+
+The `fe-*` classes provide styles. Interactive components also need the markup and behaviour described in their [contracts](spec/components/README.md). The [Next.js preview app](prototype/README.md) has working examples; platform-specific setup lives in [integrations](integrations/README.md).
+
+## Run the preview
+
+Requires **Node 24.x**, matching [`.nvmrc`](.nvmrc). From the cloned repository root:
+
+```bash
 node scripts/build-css.js
-
-# Run the prototype locally
-cd prototype && npm install && npm run dev
-# → http://localhost:3000
+cd prototype
+npm install
+npm run dev
 ```
 
-Root `package.json` script aliases: `npm run build`, `npm test`, `npm run prototype:dev`, `npm run prototype:build`, `npm run prototype:lint`.
+Open [http://localhost:3000](http://localhost:3000). The preview uses Next.js 16 and TypeScript and is hosted on Vercel.
 
-### How design tokens work
+## Sources and structure
 
-1. Token values live in [`tokens/*.json`](tokens/) (W3C DTCG shape: `$value`, `$type`, `$description`).
-2. [`scripts/build-css.js`](scripts/build-css.js) reads [`tokens/index.json`](tokens/index.json) imports.
-3. The script generates [`css/custom-properties.css`](css/custom-properties.css) (the `:root` block). **Do not hand-edit it.**
-4. Authored layers in [`css/*.css`](css/) consume variables via `var(--…)`.
-5. Every consumer reads from the same generated file.
+Figma governs visual decisions; this repository governs implementation. Approved changes must be reflected in both. See the [brand authority matrix](docs/brand-book-references.md).
 
-`scripts/build-css.test.js` validates the DTCG shape and smoke-checks the generated CSS.
+| Source                           | Purpose                                                                     |
+| -------------------------------- | --------------------------------------------------------------------------- |
+| [`tokens/`](tokens/)             | W3C DTCG JSON tokens: colours, typography, spacing, radius, shadows, motion |
+| [`css/`](css/)                   | Generated custom properties and authored, variable-driven CSS layers        |
+| [`spec/`](spec/)                 | Component contracts, design principles, machine-readable token spec         |
+| [`prototype/`](prototype/)       | Working Next.js reference and documentation app                             |
+| [`integrations/`](integrations/) | Host-specific setup and mappings                                            |
+| [`skills/`](skills/)             | Consumer agent skill sources and shared conventions                         |
 
-### Repository layout
+Token JSON → `node scripts/build-css.js` → [`css/custom-properties.css`](css/custom-properties.css) → authored CSS and consumers. Never hand-edit generated custom properties. Root `npm run build` also generates the token spec and consumer skills.
 
-```text
-foreveryone-design-system/
-├── tokens/          # Source-of-truth token JSON (DTCG)
-├── css/             # Generated + authored CSS
-│   └── integrations/#   ↳ per-platform override layers
-├── scripts/         # Build, test, and PR helpers
-├── bin/             # fe-ds CLI (skills install, etc.)
-├── skills/          # Consumer agent skills (fe-core, fe-redesign, …)
-├── dist/skills/     # Built skill payload, read by agents from GitHub
-├── prototype/       # Next.js preview app
-├── integrations/    # Per-platform guides (see integrations/README.md)
-├── figma/           # Tokens Studio sync notes
-├── spec/            # Agent-facing principles + flattened tokens
-├── docs/            # Guides, ADRs, agent contracts
-│   ├── AGENTS.md    #   ↳ full docs index + domain rules
-│   └── skills/      #   ↳ maintainer workflows (tokens, releases)
-├── .cursor/         # Cursor agent (AGENTS.md + path-scoped rules)
-├── .claude/         # Claude Code rules, shared explicitly with Codex
-├── .agents/skills/  # Codex skill discovery (generated from skills/)
-├── AGENTS.md        # Repo-root mirror of docs/AGENTS.md
-├── CLAUDE.md        # Claude Code session entry
-├── llms.txt         # Agent entry + hard rules
-└── CHANGELOG.md
-```
+## Verification
 
-## Integrations
+[CI](.github/workflows/ci.yml) is configured to check:
 
-- **Consume the system** (plain CSS, React/Next.js, or a CMS): [`docs/getting-started.md`](docs/getting-started.md), then [`integrations/README.md`](integrations/README.md).
-- **Pre-release checks:** [`docs/integration-checklist.md`](docs/integration-checklist.md).
-- **Figma + Tokens Studio:** [`figma/sync-guide.md`](figma/sync-guide.md).
-- **Brand rules:** [`docs/brand-book-references.md`](docs/brand-book-references.md), [`docs/visual-styles.md`](docs/visual-styles.md), [`docs/logo-usage.md`](docs/logo-usage.md).
-- **For AI agents:** [`docs/agent-skills.md`](docs/agent-skills.md) (`node bin/fe-ds.mjs skills install`) and [`llms.txt`](llms.txt).
+- Token structure, generated CSS, SVG assets, and UI glyphs.
+- Drift between sources and generated CSS, token specs, and skills.
+- Production builds of the Next.js prototype.
+- Playwright interaction tests and axe accessibility scans in Chromium.
 
-## Git workflow
+Automated scans are not a complete accessibility assessment. Known gaps, documentation-specimen exclusions, and manual checks are recorded in the [accessibility register](docs/a11y-conformance.md) and [validation guide](docs/validation.md). Consuming sites follow the [integration checklist](docs/integration-checklist.md).
 
-- Branch from `develop` (`feature/*`, `fix/*`, `docs/*`, `chore/*`) with Conventional Commits; `main` is release-ready.
-- `bash scripts/pr-and-merge.sh` opens and merges the PR into `develop`; releases are tagged `vX.Y.Z` on `main` ([`docs/skills/release.md`](docs/skills/release.md)).
+## Contributing and releases
 
-## Changelog
-
-Full history in [`CHANGELOG.md`](CHANGELOG.md). GitHub Releases for each tag mirror the matching changelog section.
-
-## Contributing
-
-See [`docs/contributing.md`](docs/contributing.md) for workflow, commit conventions, and PR expectations.
+[Contributing](docs/contributing.md) covers setup, token changes, and pull requests. Branch from `develop`; `main` carries production releases. Changes to tokens or shared CSS require a [changelog](CHANGELOG.md) entry and regenerated output. [Release workflow](docs/skills/release.md).
 
 ## Acknowledgements
 
@@ -94,8 +94,9 @@ With thanks to Rie, Roxana, Marco, Pedram, Angelina, and Didem.
 
 ## License
 
-Dual-licensed in a single [LICENSE](LICENSE) file:
+Licenses apply by path, as specified in [LICENSE](LICENSE):
 
-- **Software** (`scripts/`, `bin/`, `prototype/`): MIT License. You may use, modify, and distribute the software.
-- **Design system materials** (`tokens/`, `css/`, `figma/`, `integrations/`, `docs/`, `skills/`, agent docs, `.agents/` skills, `.claude/` and `.cursor/` rules): CC BY-NC 4.0. You may share and adapt these materials for non-commercial use with attribution. See the [license summary](https://creativecommons.org/licenses/by-nc/4.0/).
-- See the [`LICENSE`](LICENSE) file for the complete terms.
+- **Software** (`scripts/`, `bin/`, `prototype/`): MIT.
+- **Design materials** (including `tokens/`, `css/`, guides, and skills): CC BY-NC 4.0, permitting non-commercial sharing and adaptation with attribution.
+
+Third-party assets retain their own terms; see [image sources and licences](prototype/public/images/ASSETS.md). Trademark rights are not granted by these licenses.

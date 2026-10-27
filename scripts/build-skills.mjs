@@ -4,7 +4,7 @@
  *   skills + _shared          → dist/skills/index.json
  *   _shared/conventions.md    → dist/skills/AGENTS.foreveryone.md
  *   spec/tokens.json          → dist/skills/tokens.json
- *   dist/skills/              → .agents/skills/
+ *   dist/skills/              → .claude/skills/ + .agents/skills/
  *
  * Run with: `npm run skills:build`, or `--out <dir>` to build somewhere else.
  */
@@ -118,14 +118,16 @@ await writeFile(
 );
 
 if (syncPublic) {
-  const codexSkills = path.join(repoRoot, '.agents', 'skills');
-  await rm(codexSkills, { recursive: true, force: true });
-  await mkdir(path.dirname(codexSkills), { recursive: true });
-  await cp(outDir, codexSkills, { recursive: true });
+  for (const parent of ['.claude', '.agents']) {
+    const discoveryDir = path.join(repoRoot, parent, 'skills');
+    await rm(discoveryDir, { recursive: true, force: true });
+    await mkdir(path.dirname(discoveryDir), { recursive: true });
+    await cp(outDir, discoveryDir, { recursive: true });
+  }
 }
 
 console.log(
   `[skills] OK - ${skills.length} skills to ${path.relative(repoRoot, outDir)}${
-    syncPublic ? ' (+ Codex sync)' : ''
+    syncPublic ? ' (+ Claude Code, Cursor, Codex discovery)' : ''
   }`
 );

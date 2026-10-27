@@ -77,16 +77,18 @@ const committed = [
 ];
 for (const rel of committed) {
   if (existsSync(path.join(repoRoot, rel))) ok(`committed ${rel}`);
-  else fail(`committed ${rel}`, 'missing — run npm run skills:build');
+  else fail(`committed ${rel}`, 'missing: run npm run skills:build');
 }
 
 for (const skill of skills) {
   for (const file of skill.files) {
     const rel = path.join(skill.dir, file);
     const source = readFileSync(path.join(skill.path, file));
-    const mirror = path.join(repoRoot, '.agents', 'skills', rel);
-    if (existsSync(mirror) && source.equals(readFileSync(mirror))) ok(`Codex mirror ${rel}`);
-    else fail(`Codex mirror ${rel}`, 'missing or stale; run npm run skills:build');
+    for (const parent of ['.claude', '.agents']) {
+      const mirror = path.join(repoRoot, parent, 'skills', rel);
+      if (existsSync(mirror) && source.equals(readFileSync(mirror))) ok(`${parent} mirror ${rel}`);
+      else fail(`${parent} mirror ${rel}`, 'missing or stale; run npm run skills:build');
+    }
   }
 }
 
@@ -150,6 +152,22 @@ if (customInstall.status === 0 && readFileSync(agentsFile, 'utf8').includes('`ve
     existsSync(path.join(consumer, 'vendor/design-skills/fe-core/SKILL.md'))) {
   ok('custom directory matches the managed guidance');
 } else fail('custom directory matches the managed guidance', customInstall.stderr);
+
+mkdirSync(path.join(consumer, '.claude'));
+mkdirSync(path.join(consumer, '.cursor'));
+const sharedInstall = install();
+if (sharedInstall.status === 0 && skills.every((skill) =>
+  readFileSync(path.join(consumer, '.claude/skills', skill.dir, 'SKILL.md'), 'utf8') === skill.text
+) && skills.every((skill) => readFileSync(path.join(consumer, '.cursor/skills', skill.dir, 'SKILL.md'), 'utf8') === skill.text)) {
+  ok('existing Claude Code and Cursor layouts receive native skills');
+} else fail('shared native discovery', sharedInstall.stderr || 'missing or stale native skill copy');
+
+const cursorInstall = spawnSync(process.execPath, [cli, 'skills', 'install', '--target', 'cursor'], {
+  cwd: consumer, encoding: 'utf8',
+});
+if (cursorInstall.status === 0 && existsSync(path.join(consumer, '.cursor/skills/fe-core/SKILL.md'))) {
+  ok('explicit Cursor layout remains supported');
+} else fail('explicit Cursor layout', cursorInstall.stderr);
 
 const isolatedPackage = path.join(consumer, 'isolated-package');
 mkdirSync(path.join(isolatedPackage, 'bin'), { recursive: true });
