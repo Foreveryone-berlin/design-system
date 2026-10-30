@@ -1,9 +1,10 @@
 ---
 name: fe-core
 description: Core conventions for consuming the ForEveryone Berlin design system. Use when importing CSS variables, resolving tokens, choosing fe-* classes, or deciding whether a colour or font is allowed.
-foreveryone: '>=1.9.0 <2.0.0'
-requires: []
-docs: ['llms.txt', 'spec/principles.md', 'spec/tokens.json']
+metadata:
+  foreveryone: ">=1.9.0 <2.0.0"
+  requires: ""
+  docs: "llms.txt, spec/principles.md, spec/tokens.json"
 ---
 
 # ForEveryone core conventions

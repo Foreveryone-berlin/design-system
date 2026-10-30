@@ -1,9 +1,10 @@
 ---
 name: fe-design-system
 description: Route ForEveryone UI work to the design-system sources and the matching consumer skill. Use when asked to use the ForEveryone design system, invoke fe-design-system, or locate brand rules, tokens, component contracts, and integration guidance.
-foreveryone: '>=1.14.0 <2.0.0'
-requires: []
-docs: ['llms.txt', 'docs/agent-skills.md', 'docs/brand-book-references.md', 'integrations/README.md']
+metadata:
+  foreveryone: ">=1.14.0 <2.0.0"
+  requires: ""
+  docs: "llms.txt, docs/agent-skills.md, docs/brand-book-references.md, integrations/README.md"
 ---
 
 # ForEveryone design-system entry point

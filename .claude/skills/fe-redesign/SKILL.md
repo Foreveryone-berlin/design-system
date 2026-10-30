@@ -1,9 +1,10 @@
 ---
 name: fe-redesign
 description: Restyle an existing web app to the ForEveryone Berlin design system. Use when replacing ad-hoc colours, fonts, and components with tokens and fe-* contracts from this repo.
-foreveryone: '>=1.9.0 <2.0.0'
-requires: [fe-core]
-docs: ['llms.txt', 'spec/principles.md', 'spec/tokens.json', 'docs/agents/redesign-from-this-system.md']
+metadata:
+  foreveryone: ">=1.9.0 <2.0.0"
+  requires: "fe-core"
+  docs: "llms.txt, spec/principles.md, spec/tokens.json, docs/agents/redesign-from-this-system.md"
 ---
 
 # Redesign from this design system
