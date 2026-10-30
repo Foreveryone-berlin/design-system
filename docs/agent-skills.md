@@ -29,12 +29,14 @@ implementation.
 | `skills/` | Consumers | Skill sources; edit only here |
 | `dist/skills/` | Installer | Generated payload with `index.json`, `tokens.json`, and the `AGENTS.md` block |
 | `.claude/skills/` | Claude Code in this repo | Generated mirror; never edit |
-| `.agents/skills/` | Cursor and Codex in this repo | Generated mirror; never edit |
+| `.agents/skills/` | Cursor and Codex in this repo | Committed links into `.claude/skills/`; one per entry |
 | `docs/skills/` | Maintainers | Workflows for this repo (token update, release); not consumer skills |
 
-After editing a source, run `npm run skills:build`. It regenerates the distribution and both native
-discovery directories. `npm test`
-fails when the Codex mirror is stale.
+After editing a source, run `npm run skills:build`. It regenerates the distribution and
+`.claude/skills/`. `npm test` fails when a mirror is stale or an `.agents/skills/` link is missing.
+Frontmatter carries `name` and `description` at the top level and `foreveryone`, `requires`, and
+`docs` under `metadata` as strings, lists comma-separated, per the
+[Agent Skills spec](https://agentskills.io/specification).
 
 ## Install
 
@@ -46,16 +48,13 @@ node path/to/design-system/bin/fe-ds.mjs skills install --dry-run
 node path/to/design-system/bin/fe-ds.mjs skills install
 ```
 
-By default `skills install`:
-
-- copies the payload to `fe-skills/` (change with `--dir <path>`);
-- writes a managed `<!-- foreveryone:skills:start -->` … `end -->` block into the
-  project's `AGENTS.md`, keeping everything outside it;
-- mirrors into `.claude/skills/` and `.cursor/skills/` when their parent directories exist;
-- installs `.agents/skills/` for Cursor and Codex, even in a new project.
+By default `skills install` writes `.claude/skills/` for Claude Code and `.agents/skills/`
+for Codex and Cursor, which reads both.
 
 `--target` takes a comma-separated subset of `claude`, `cursor`, `codex`, `agents`
-(payload plus `AGENTS.md` block), and `dir` (payload only). Re-running the
+(payload in `fe-skills/`, or `--dir <path>`, plus a managed
+`<!-- foreveryone:skills:start -->` … `end -->` block in the project's `AGENTS.md`),
+and `dir` (payload only). Re-running the
 installer replaces the payload and the managed block in place. Codex reads root
 `AGENTS.md`, not `CLAUDE.md` or editor rule folders
 ([Codex AGENTS.md guide](https://learn.chatgpt.com/docs/agent-configuration/agents-md)).

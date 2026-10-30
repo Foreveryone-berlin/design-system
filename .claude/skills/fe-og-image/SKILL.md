@@ -1,9 +1,10 @@
 ---
 name: fe-og-image
 description: Create on-brand ForEveryone OG images and featured-image artwork. Use for social link previews, WordPress featured images, or reusable image templates with verified copy, brand assets and export quality.
-foreveryone: '>=1.12.1 <2.0.0'
-requires: [fe-core]
-docs: ['spec/principles.md', 'docs/visual-styles.md', 'integrations/elementor/og-images.md']
+metadata:
+  foreveryone: ">=1.12.1 <2.0.0"
+  requires: "fe-core"
+  docs: "spec/principles.md, docs/visual-styles.md, integrations/elementor/og-images.md"
 ---
 
 # ForEveryone OG images

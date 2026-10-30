@@ -4,7 +4,10 @@
  *   skills + _shared          → dist/skills/index.json
  *   _shared/conventions.md    → dist/skills/AGENTS.foreveryone.md
  *   spec/tokens.json          → dist/skills/tokens.json
- *   dist/skills/              → .claude/skills/ + .agents/skills/
+ *   dist/skills/              → .claude/skills/
+ *
+ * .agents/skills/ holds committed per-entry links into .claude/skills/, so the
+ * build never rewrites it.
  *
  * Run with: `npm run skills:build`, or `--out <dir>` to build somewhere else.
  */
@@ -118,12 +121,10 @@ await writeFile(
 );
 
 if (syncPublic) {
-  for (const parent of ['.claude', '.agents']) {
-    const discoveryDir = path.join(repoRoot, parent, 'skills');
-    await rm(discoveryDir, { recursive: true, force: true });
-    await mkdir(path.dirname(discoveryDir), { recursive: true });
-    await cp(outDir, discoveryDir, { recursive: true });
-  }
+  const discoveryDir = path.join(repoRoot, '.claude', 'skills');
+  await rm(discoveryDir, { recursive: true, force: true });
+  await mkdir(path.dirname(discoveryDir), { recursive: true });
+  await cp(outDir, discoveryDir, { recursive: true });
 }
 
 console.log(

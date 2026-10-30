@@ -1,9 +1,10 @@
 ---
 name: fe-components
 description: Prefer documented fe-* component contracts for ForEveryone Berlin UI. Use when building or restyling buttons, cards, inputs, tags, FAQ, header, footer, or related patterns.
-foreveryone: '>=1.9.0 <2.0.0'
-requires: [fe-core]
-docs: ['llms.txt', 'spec/components/README.md', 'docs/visual-styles.md']
+metadata:
+  foreveryone: ">=1.9.0 <2.0.0"
+  requires: "fe-core"
+  docs: "llms.txt, spec/components/README.md, docs/visual-styles.md"
 ---
 
 # ForEveryone components

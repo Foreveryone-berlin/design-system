@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Load design-system skills in Claude, Cursor, and Codex from one copy, installed for Claude and Codex by default.
+
 ## [1.15.0] - 2026-10-27
 
 ### Added
