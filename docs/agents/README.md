@@ -8,8 +8,8 @@ Cursor, and Codex.
 | Tool | Project instructions | Shared rules | Skill discovery |
 | --- | --- | --- | --- |
 | Claude Code | `CLAUDE.md` imports root `AGENTS.md` | Native rule pointers to `AGENTS.md`; CSS and token path scopes | Generated `.claude/skills/` |
-| Cursor | Root `AGENTS.md`; `.cursor/AGENTS.md` points to it | `.cursor/rules/*.mdc` point to root rule sections | Generated `.agents/skills/` |
-| Codex | Root `AGENTS.md` | Shared rules in the root entry | Generated `.agents/skills/` |
+| Cursor | Root `AGENTS.md`; `.cursor/AGENTS.md` points to it | `.cursor/rules/*.mdc` point to root rule sections | `.claude/skills/`, `.agents/skills/` links |
+| Codex | Root `AGENTS.md` | Shared rules in the root entry | `.agents/skills/` links |
 
 The domain index is [docs/AGENTS.md](../AGENTS.md). The
 [task contract](agent-contract.md) defines verification and source boundaries;
@@ -21,11 +21,10 @@ user's authorization. The prototype audit contract lives in root `AGENTS.md`, im
 - Edit repository-wide instructions in root `AGENTS.md`, not three parallel entry files.
 - Edit domain documentation in `docs/AGENTS.md`; native rule files contain only references and attachment metadata.
 - Edit consumer skills in `skills/`, then run `npm run skills:build`.
-- Commit the generated `dist/skills/`, `.claude/skills/`, and `.agents/skills/` output. `npm test` and CI check drift.
+- Commit the generated `dist/skills/` and `.claude/skills/` output, and one `.agents/skills/<entry>` link to `../../.claude/skills/<entry>` per entry (`git add -f`). `npm test` and CI check drift.
 
-Other projects use the [consumer installer](../agent-skills.md). Cursor reads the shared `.agents/skills/` directory in this repository.
-The consumer installer preserves native copies when `.claude/` or `.cursor/`
-already exists; explicit `--target` layouts remain supported.
+Other projects use the [consumer installer](../agent-skills.md). It writes `.claude/skills/`
+and `.agents/skills/` by default; `--target cursor` and `--target agents` remain supported.
 
 ## Official references
 

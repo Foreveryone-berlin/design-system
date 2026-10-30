@@ -2,11 +2,14 @@
 /* Frontmatter + build artifacts + CLI dry-run checks for consumer skills. */
 
 import { spawnSync } from 'node:child_process';
-import { cpSync, existsSync, readFileSync, mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
+import {
+  cpSync, existsSync, lstatSync, readFileSync, readdirSync, readlinkSync, mkdirSync, mkdtempSync, writeFileSync,
+} from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   FRONTMATTER_SCHEMA,
+  parseFrontmatter,
   readSkills,
   repoRoot,
   validateSkill,
@@ -49,6 +52,28 @@ for (const skill of skills) {
   else ok(`${skill.dir} validates`);
 }
 
+// Spec frontmatter: metadata keys are hoisted; top-level copies are rejected.
+const fm = (lines) => `---
+name: fe-core
+description: Use for tests.
+${lines}
+---
+# T
+`;
+const hoisted = parseFrontmatter(fm(`metadata:
+  foreveryone: ">=1.0.0"
+  requires: "a, b"
+  docs: ""`));
+if (hoisted.data.foreveryone === '>=1.0.0' && hoisted.data.requires.join() === 'a,b' &&
+    hoisted.data.docs.length === 0 && hoisted.topKeys.join() === 'name,description,metadata') {
+  ok('metadata block hoists keys and splits lists');
+} else fail('metadata block hoists keys and splits lists', JSON.stringify(hoisted.data));
+const legacy = parseFrontmatter(fm("requires: [fe-core]"));
+const legacyErrors = validateSkill({ dir: 'fe-core', ...legacy }, { version: pkg.version, skillNames });
+if (legacyErrors.some((e) => e.includes('"requires" belongs under metadata'))) {
+  ok('top-level metadata keys are rejected');
+} else fail('top-level metadata keys are rejected', legacyErrors.join('; '));
+
 const tmpOut = path.join(repoRoot, '.tmp', 'skills-test-out');
 const build = spawnSync(process.execPath, [path.join(here, 'build-skills.mjs'), '--out', tmpOut], {
   cwd: repoRoot,
@@ -78,6 +103,19 @@ const committed = [
 for (const rel of committed) {
   if (existsSync(path.join(repoRoot, rel))) ok(`committed ${rel}`);
   else fail(`committed ${rel}`, 'missing: run npm run skills:build');
+}
+
+// .agents/skills holds one committed link per .claude/skills entry, never copies.
+const agentsRoot = path.join(repoRoot, '.agents', 'skills');
+for (const entry of readdirSync(path.join(repoRoot, '.claude', 'skills')).sort()) {
+  const link = path.join(agentsRoot, entry);
+  const expected = `../../.claude/skills/${entry}`;
+  let target = null;
+  try {
+    if (lstatSync(link).isSymbolicLink()) target = readlinkSync(link).replace(/\\/g, '/');
+  } catch {}
+  if (target === expected) ok(`.agents link ${entry}`);
+  else fail(`.agents link ${entry}`, `expected a symlink to ${expected}, got ${target ?? 'none'}`);
 }
 
 for (const skill of skills) {
@@ -115,6 +153,15 @@ const install = () => spawnSync(process.execPath, [cli, 'skills', 'install'], {
 const firstInstall = install();
 if (firstInstall.status !== 0) fail('fresh Codex install', firstInstall.stderr);
 else {
+  const claudeRoot = path.join(consumer, '.claude', 'skills');
+  if (skills.every((skill) => readFileSync(path.join(claudeRoot, skill.dir, 'SKILL.md'), 'utf8') === skill.text)) {
+    ok('fresh install writes Claude Code discovery');
+  } else fail('fresh install writes Claude Code discovery', 'missing or stale .claude/skills copy');
+  if (!existsSync(path.join(consumer, '.cursor')) && !existsSync(path.join(consumer, 'fe-skills'))) {
+    ok('fresh install skips Cursor and agents targets');
+  } else fail('fresh install skips Cursor and agents targets', '.cursor or fe-skills written');
+  if (readFileSync(agentsFile, 'utf8') === existingGuidance) ok('fresh install leaves AGENTS.md untouched');
+  else fail('fresh install leaves AGENTS.md untouched', 'AGENTS.md changed');
   const codexRoot = path.join(consumer, '.agents', 'skills');
   for (const skill of skills) {
     const rel = path.join(skill.dir, 'SKILL.md');
@@ -136,9 +183,8 @@ else {
   const secondInstall = install();
   const secondGuidance = readFileSync(agentsFile, 'utf8');
   if (secondInstall.status === 0 && firstGuidance === secondGuidance &&
-      secondGuidance.startsWith(existingGuidance) &&
-      secondGuidance.split('<!-- foreveryone:skills:start -->').length === 2) {
-    ok('repeat install preserves guidance and one managed block');
+      secondGuidance === existingGuidance) {
+    ok('repeat install preserves guidance without a managed block');
   } else fail('repeat install preserves guidance', secondInstall.stderr || 'guidance changed');
   if (!existsSync(staleSkillFile) && !existsSync(staleSharedFile) && existsSync(customSkillFile)) {
     ok('refresh removes obsolete packaged files and preserves consumer skills');
@@ -148,19 +194,21 @@ else {
 const customInstall = spawnSync(process.execPath, [cli, 'skills', 'install', '--target', 'agents', '--dir', 'vendor/design-skills'], {
   cwd: consumer, encoding: 'utf8',
 });
-if (customInstall.status === 0 && readFileSync(agentsFile, 'utf8').includes('`vendor/design-skills/`') &&
+const customGuidance = readFileSync(agentsFile, 'utf8');
+if (customInstall.status === 0 && customGuidance.includes('`vendor/design-skills/`') &&
+    customGuidance.startsWith(existingGuidance) &&
+    customGuidance.split('<!-- foreveryone:skills:start -->').length === 2 &&
     existsSync(path.join(consumer, 'vendor/design-skills/fe-core/SKILL.md'))) {
   ok('custom directory matches the managed guidance');
 } else fail('custom directory matches the managed guidance', customInstall.stderr);
 
-mkdirSync(path.join(consumer, '.claude'));
 mkdirSync(path.join(consumer, '.cursor'));
 const sharedInstall = install();
 if (sharedInstall.status === 0 && skills.every((skill) =>
   readFileSync(path.join(consumer, '.claude/skills', skill.dir, 'SKILL.md'), 'utf8') === skill.text
-) && skills.every((skill) => readFileSync(path.join(consumer, '.cursor/skills', skill.dir, 'SKILL.md'), 'utf8') === skill.text)) {
-  ok('existing Claude Code and Cursor layouts receive native skills');
-} else fail('shared native discovery', sharedInstall.stderr || 'missing or stale native skill copy');
+) && !existsSync(path.join(consumer, '.cursor/skills'))) {
+  ok('default install skips Cursor even when .cursor exists');
+} else fail('default install skips Cursor', sharedInstall.stderr || 'missing Claude copy or Cursor copy written');
 
 const cursorInstall = spawnSync(process.execPath, [cli, 'skills', 'install', '--target', 'cursor'], {
   cwd: consumer, encoding: 'utf8',
@@ -187,9 +235,11 @@ const codexDryRun = spawnSync(process.execPath, [cli, 'skills', 'install', '--dr
   cwd: dryConsumer, encoding: 'utf8',
 });
 if (codexDryRun.status === 0 && codexDryRun.stdout.includes('.agents/skills/fe-core') &&
-    !existsSync(path.join(dryConsumer, '.agents')) && !existsSync(path.join(dryConsumer, 'AGENTS.md'))) {
-  ok('default dry run previews Codex without writes');
-} else fail('default dry run previews Codex without writes', codexDryRun.stderr || codexDryRun.stdout);
+    codexDryRun.stdout.includes('.claude/skills/fe-core') &&
+    !existsSync(path.join(dryConsumer, '.agents')) && !existsSync(path.join(dryConsumer, '.claude')) &&
+    !existsSync(path.join(dryConsumer, 'AGENTS.md'))) {
+  ok('default dry run previews Claude Code and Codex without writes');
+} else fail('default dry run previews Claude Code and Codex without writes', codexDryRun.stderr || codexDryRun.stdout);
 
 console.log(`\n${passed} passed, ${failures} failed`);
 process.exit(failures ? 1 : 0);
