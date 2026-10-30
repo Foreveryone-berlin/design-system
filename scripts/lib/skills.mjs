@@ -11,7 +11,7 @@ export const repoRoot = path.resolve(here, '..', '..');
 export const skillsRoot = path.join(repoRoot, 'skills');
 export const sharedDirName = '_shared';
 
-/** Frontmatter keys every SKILL.md must carry. */
+/** Frontmatter keys every SKILL.md must carry, after `metadata` is hoisted. */
 export const FRONTMATTER_SCHEMA = {
   name: 'string',
   description: 'string',
@@ -19,6 +19,9 @@ export const FRONTMATTER_SCHEMA = {
   requires: 'list',
   docs: 'list',
 };
+
+/** Keys that live under `metadata` as strings, never at the top level. */
+export const METADATA_KEYS = ['foreveryone', 'requires', 'docs'];
 
 const FRONTMATTER_RE = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/;
 
@@ -34,28 +37,59 @@ function stripQuotes(value) {
 }
 
 /**
- * Tiny YAML subset: `key: scalar` and `key: [a, b]` on one line.
+ * Tiny YAML subset: `key: scalar` and `key: [a, b]` on one line, plus one
+ * indented `metadata:` block of string values. Metadata keys are hoisted to the
+ * top level; comma-separated strings become arrays for `list` schema keys.
+ * `topKeys` lists the keys written at the top level of the raw frontmatter.
  */
 export function parseFrontmatter(text) {
   const match = text.match(FRONTMATTER_RE);
-  if (!match) return { data: null, body: text, raw: '' };
+  if (!match) return { data: null, body: text, raw: '', topKeys: [] };
 
   const data = {};
+  const topKeys = [];
+  let inMetadata = false;
+  const invalid = (line) => {
+    data.__invalid = data.__invalid || [];
+    data.__invalid.push(line);
+  };
+
   for (const rawLine of match[1].split(/\r?\n/)) {
     const line = rawLine.trim();
     if (!line || line.startsWith('#')) continue;
+    const indented = /^\s/.test(rawLine);
+    if (!indented) inMetadata = false;
+    else if (!inMetadata) {
+      invalid(line);
+      continue;
+    }
 
     const sep = line.indexOf(':');
     if (sep === -1) {
-      data.__invalid = data.__invalid || [];
-      data.__invalid.push(line);
+      invalid(line);
       continue;
     }
 
     const key = line.slice(0, sep).trim();
     const value = line.slice(sep + 1).trim();
 
-    if (value.startsWith('[') && value.endsWith(']')) {
+    if (inMetadata) {
+      // Agent Skills spec: metadata maps strings to strings.
+      if (value.startsWith('[')) {
+        invalid(line);
+        continue;
+      }
+      const str = stripQuotes(value);
+      data[key] = FRONTMATTER_SCHEMA[key] === 'list'
+        ? str.split(',').map((v) => v.trim()).filter(Boolean)
+        : str;
+      continue;
+    }
+
+    topKeys.push(key);
+    if (key === 'metadata' && value === '') {
+      inMetadata = true;
+    } else if (value.startsWith('[') && value.endsWith(']')) {
       const inner = value.slice(1, -1).trim();
       data[key] = inner ? inner.split(',').map((v) => stripQuotes(v.trim())) : [];
     } else {
@@ -63,7 +97,7 @@ export function parseFrontmatter(text) {
     }
   }
 
-  return { data, body: text.slice(match[0].length), raw: match[1] };
+  return { data, body: text.slice(match[0].length), raw: match[1], topKeys };
 }
 
 function listFiles(dir, base = dir) {
@@ -89,11 +123,12 @@ export function readSkills({ root = skillsRoot } = {}) {
       return { dir, error: 'missing SKILL.md', files: [] };
     }
     const text = readFileSync(skillFile, 'utf8');
-    const { data, body } = parseFrontmatter(text);
+    const { data, body, topKeys } = parseFrontmatter(text);
     return {
       dir,
       path: path.join(root, dir),
       data: data ?? {},
+      topKeys,
       body,
       text,
       files: listFiles(path.join(root, dir)),
@@ -155,6 +190,12 @@ export function validateSkill(skill, { version, skillNames }) {
     errors.push(`${where}: unparseable frontmatter line "${data.__invalid[0]}"`);
   }
 
+  for (const key of skill.topKeys ?? []) {
+    if (METADATA_KEYS.includes(key)) {
+      errors.push(`${where}: "${key}" belongs under metadata as a string`);
+    }
+  }
+
   for (const [key, kind] of Object.entries(FRONTMATTER_SCHEMA)) {
     const value = data[key];
     if (value === undefined) {
@@ -162,7 +203,7 @@ export function validateSkill(skill, { version, skillNames }) {
       continue;
     }
     if (kind === 'list' && !Array.isArray(value)) {
-      errors.push(`${where}: "${key}" must be an inline list, for example [a, b]`);
+      errors.push(`${where}: "${key}" must be a comma-separated string under metadata`);
     }
     if (kind === 'string' && typeof value !== 'string') {
       errors.push(`${where}: "${key}" must be a scalar`);

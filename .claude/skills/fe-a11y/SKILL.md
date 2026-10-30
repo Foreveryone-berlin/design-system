@@ -1,9 +1,10 @@
 ---
 name: fe-a11y
 description: Accessibility rules for ForEveryone Berlin UI. Use when checking contrast, keyboard focus, skip links, motion preferences, alt text, or WCAG 2.1 AA conformance.
-foreveryone: '>=1.9.0 <2.0.0'
-requires: [fe-core]
-docs: ['llms.txt', 'spec/principles.md', 'docs/a11y-conformance.md', 'docs/validation.md']
+metadata:
+  foreveryone: ">=1.9.0 <2.0.0"
+  requires: "fe-core"
+  docs: "llms.txt, spec/principles.md, docs/a11y-conformance.md, docs/validation.md"
 ---
 
 # ForEveryone accessibility

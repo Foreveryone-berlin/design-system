@@ -1,9 +1,10 @@
 ---
 name: fe-tokens
 description: Resolve and apply ForEveryone Berlin design tokens. Use when mapping colours, type, spacing, radius, shadow, or motion to CSS variables, or when extending a palette in OKLCH.
-foreveryone: '>=1.9.0 <2.0.0'
-requires: [fe-core]
-docs: ['llms.txt', 'spec/tokens.json', 'spec/principles.md', 'docs/token-naming.md']
+metadata:
+  foreveryone: ">=1.9.0 <2.0.0"
+  requires: "fe-core"
+  docs: "llms.txt, spec/tokens.json, spec/principles.md, docs/token-naming.md"
 ---
 
 # ForEveryone tokens

@@ -92,9 +92,11 @@ Run from the repository root unless a command changes directories.
 ## Skills and maintenance
 
 Edit consumer skills only in `skills/`. `npm run skills:build` generates
-`dist/skills/`, `.claude/skills/` for Claude Code, and `.agents/skills/` for
-Cursor and Codex. Do not hand-edit these generated copies or create another
-Cursor skill mirror. [Loading map](docs/agents/README.md).
+`dist/skills/` and `.claude/skills/` for Claude Code. `.agents/skills/` holds
+committed per-entry links into `.claude/skills/` for Cursor and Codex; add one
+for a new skill. Keep `foreveryone`, `requires`, and `docs` under `metadata` as
+strings. Do not hand-edit generated copies or create another Cursor skill
+mirror. [Loading map](docs/agents/README.md).
 
 Keep shared instructions here and the domain index in `docs/AGENTS.md`.
 `CLAUDE.md` imports this file; native rule files reference its sections.
