@@ -8,6 +8,8 @@
 
 ## [Unreleased]
 
+## [1.17.0] - 2026-11-02
+
 ### Added
 
 - Add brief home-page entrance animations that respect reduced-motion preferences. ([#281](https://github.com/Foreveryone-berlin/design-system/pull/281))
