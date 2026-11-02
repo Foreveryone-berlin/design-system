@@ -10,7 +10,7 @@
 
 ### Added
 
-- Add brief home-page entrance animations that respect reduced-motion preferences.
+- Add brief home-page entrance animations that respect reduced-motion preferences. ([#281](https://github.com/Foreveryone-berlin/design-system/pull/281))
 
 ### Changed
 
@@ -18,9 +18,9 @@
 
 ### Fixed
 
-- Keep keyboard focus inside mobile navigation and restore focus when closing submenus. ([#280](https://github.com/Foreveryone-berlin/design-system/issues/280))
-- Correct search accessibility references and keep Escape scoped to search results.
-- Keep page transitions stable during hydration and home entrance animations.
+- Keep keyboard focus inside mobile navigation and restore focus when closing submenus. ([#281](https://github.com/Foreveryone-berlin/design-system/pull/281), [#280](https://github.com/Foreveryone-berlin/design-system/issues/280))
+- Correct search accessibility references and keep Escape scoped to search results. ([#281](https://github.com/Foreveryone-berlin/design-system/pull/281))
+- Keep page transitions stable during hydration and home entrance animations. ([#281](https://github.com/Foreveryone-berlin/design-system/pull/281))
 
 ## [1.16.0] - 2026-10-30
 
