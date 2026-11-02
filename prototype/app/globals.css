@@ -913,6 +913,40 @@ summary:focus-visible,
   margin-bottom: var(--spacing-4);
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes ds-home-enter {
+    from {
+      opacity: 0;
+      transform: translateY(var(--spacing-3));
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes ds-home-follow {
+    0%, 30% {
+      opacity: 0;
+      transform: translateY(var(--spacing-2));
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .ds-home-hero .ds-headline-with-underline {
+    animation: ds-home-enter var(--transition-base) backwards;
+  }
+
+  .ds-home-hero .ds-hero-version,
+  .ds-home-hero .ds-intro,
+  .ds-home-hero .ds-hero-image-wrap {
+    animation: ds-home-follow var(--transition-slow) backwards;
+  }
+}
+
 /* Prototype page layout */
 .ds-page {
   max-width: var(--container-max-width);

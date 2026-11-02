@@ -37,10 +37,6 @@ export default function Search({
     return () => document.removeEventListener("keydown", onKey);
   }, []);
 
-  useEffect(() => {
-    setActive(0);
-  }, [query]);
-
   function go(entry: SearchEntry | undefined) {
     if (!entry) return;
     setOpen(false);
@@ -79,6 +75,9 @@ export default function Search({
 
   function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Escape") {
+      if (!open || !query.trim()) return;
+      e.preventDefault();
+      e.stopPropagation();
       setOpen(false);
       setQuery("");
       return;
@@ -116,7 +115,7 @@ export default function Search({
         role="combobox"
         aria-haspopup="listbox"
         aria-expanded={open && results.length > 0}
-        aria-controls={listId}
+        aria-controls={open && results.length ? listId : undefined}
         aria-autocomplete="list"
         aria-activedescendant={
           open && results.length ? optionId(active) : undefined
@@ -126,6 +125,7 @@ export default function Search({
         className="ds-search__input"
         value={query}
         onChange={(e) => {
+          setActive(0);
           setQuery(e.target.value);
           setOpen(true);
         }}

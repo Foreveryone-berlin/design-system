@@ -21,7 +21,7 @@ export default function MobileNav() {
   }, [pathname]);
 
   useEffect(() => {
-    if (open) navRef.current?.querySelector<HTMLAnchorElement>("a")?.focus();
+    if (open) navRef.current?.querySelector<HTMLInputElement>("input")?.focus();
   }, [open]);
 
   useEffect(() => {
@@ -42,9 +42,34 @@ export default function MobileNav() {
   useEffect(() => {
     if (!open || !isMobile) return;
     const onKey = (e: KeyboardEvent) => {
+      if (e.defaultPrevented) return;
       if (e.key === "Escape") {
+        e.preventDefault();
         setOpen(false);
         toggleRef.current?.focus();
+      } else if (e.key === "Tab") {
+        const controls = [
+          toggleRef.current,
+          ...Array.from(
+            navRef.current?.querySelectorAll<HTMLElement>(
+              'a[href], button:not([disabled]), input:not([disabled]), summary',
+            ) ?? [],
+          ),
+        ].filter((element): element is HTMLElement => {
+          if (!element || !element.getClientRects().length) return false;
+          const closedGroup = element.closest("details:not([open])");
+          return !closedGroup || element === closedGroup.querySelector(":scope > summary");
+        });
+        const first = controls[0];
+        const last = controls[controls.length - 1];
+        const current = document.activeElement;
+        if (e.shiftKey && (current === first || !controls.includes(current as HTMLElement))) {
+          e.preventDefault();
+          last?.focus();
+        } else if (!e.shiftKey && (current === last || !controls.includes(current as HTMLElement))) {
+          e.preventDefault();
+          first?.focus();
+        }
       }
     };
     document.addEventListener("keydown", onKey);
