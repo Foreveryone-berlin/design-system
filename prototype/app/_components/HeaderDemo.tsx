@@ -61,7 +61,13 @@ export default function HeaderDemo() {
       }
     };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpenSub(null);
+      if (e.key === "Escape" && desktopNavRef.current?.contains(document.activeElement)) {
+        e.preventDefault();
+        desktopNavRef.current.querySelector<HTMLButtonElement>(
+          `button[aria-controls="${dropdownId(openSub)}"]`,
+        )?.focus();
+        setOpenSub(null);
+      }
     };
     document.addEventListener("click", handleDocumentClick);
     document.addEventListener("keydown", onKey);

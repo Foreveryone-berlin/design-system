@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <>
-      <section className="ds-hero-with-image">
+      <section className="ds-hero-with-image ds-home-hero">
         <div>
         <div className="ds-headline-with-underline">
           <h1 className="ds-hero-title">
