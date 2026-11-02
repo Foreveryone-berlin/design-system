@@ -18,8 +18,9 @@ const routes = [
 ] as const;
 
 for (const route of routes) {
-  test(`${route} has no serious WCAG 2.2 AA violations`, async ({ page }) => {
+  test(`${route} has no WCAG 2.2 AA violations`, async ({ page }) => {
     await page.goto(route, { waitUntil: "domcontentloaded" });
+    await page.locator("#main-content .ds-heading-anchor").first().waitFor({ state: "attached" });
     await page.waitForLoadState("networkidle", { timeout: 10_000 }).catch(() => {});
 
     // Exclude documentation specimens: the foundations colour-ramp swatches and
@@ -32,9 +33,7 @@ for (const route of routes) {
       .exclude(".ds-state-grid")
       .analyze();
 
-    const blocking = results.violations.filter(
-      (v) => v.impact === "serious" || v.impact === "critical",
-    );
+    const blocking = results.violations;
 
     const summary = blocking
       .map((v) => `${v.id} (${v.impact}): ${v.nodes.length} node(s)`)

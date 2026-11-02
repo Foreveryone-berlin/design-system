@@ -4,7 +4,7 @@ Tracks known gaps between the public accessibility commitment
 ([`/accessibility` on the prototype](https://design.foreveryone.berlin/accessibility))
 and current implementation. Update this file when a gap is found or closed.
 
-Last reviewed: 2026-10-08
+Last reviewed: 2026-11-02
 
 ## Open items
 
@@ -20,6 +20,8 @@ Last reviewed: 2026-10-08
 |----|--------|-------|
 | A11Y-004 | 2026-07-18 | Shared CSS now includes reduced-motion overrides for FAQ and header mobile nav. |
 | A11Y-005 | 2026-07-18 | Automated accessibility e2e runs in CI (axe, interaction flows, alt semantics). |
+| A11Y-006 | 2026-11-02 | Contain mobile-menu keyboard focus, restore submenu focus, and dismiss search before navigation. |
+| A11Y-007 | 2026-11-02 | Reference search results only while present; check all WCAG-tagged axe violations. |
 
 ## Scope
 
