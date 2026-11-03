@@ -8,6 +8,8 @@
 
 ## [Unreleased]
 
+## [1.17.1] - 2026-11-03
+
 ### Fixed
 
 - Keep header menus keyboard-contained and close them after navigation or screen-size changes. ([#285](https://github.com/Foreveryone-berlin/design-system/pull/285), [#284](https://github.com/Foreveryone-berlin/design-system/issues/284))
