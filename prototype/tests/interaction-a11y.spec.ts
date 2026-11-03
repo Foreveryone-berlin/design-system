@@ -35,6 +35,19 @@ test.describe("interactive accessibility", () => {
     await expect(trigger).toHaveAttribute("aria-expanded", "false");
   });
 
+  test("popup content scrolls within a short viewport", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 320 });
+    await openPage(page, "/components");
+    await page.getByRole("button", { name: "Open popup", exact: true }).click();
+    const dialog = page.getByRole("dialog");
+    await expect(dialog).toHaveCSS("overflow-y", "auto");
+    const email = dialog.getByRole("textbox", { name: "Email Address" });
+    await email.fill("reader@example.com");
+    await dialog.getByRole("button", { name: "Subscribe", exact: true }).click();
+    await expect(dialog).toBeHidden();
+    await expect(page.getByRole("button", { name: "Open popup", exact: true })).toBeFocused();
+  });
+
   test("mobile nav opens and sets aria-expanded", async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await openPage(page, "/");
@@ -120,6 +133,55 @@ test.describe("interactive accessibility", () => {
     await expect(dropdown).toHaveCount(0);
     await expect(trigger).toHaveAttribute("aria-expanded", "false");
     await expect(trigger).toBeFocused();
+  });
+
+  test("header demo contains mobile focus and restores it after navigation", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await openPage(page, "/patterns");
+    const header = page.locator(".fe-header");
+    const toggle = header.locator(".fe-header__menu-btn");
+    const nav = page.locator("#fe-header-mobile-nav");
+    await toggle.click();
+    await expect(nav.getByRole("link").first()).toBeFocused();
+
+    await nav.getByRole("link").last().focus();
+    await page.keyboard.press("Tab");
+    await expect(toggle).toBeFocused();
+    await page.keyboard.press("Shift+Tab");
+    await expect(nav.getByRole("link").last()).toBeFocused();
+
+    await nav.getByRole("link").first().click();
+    await expect(toggle).toHaveAttribute("aria-expanded", "false");
+    await expect(toggle).toBeFocused();
+    await expect(nav).toHaveAttribute("inert");
+  });
+
+  test("header demo clears mobile state across the desktop breakpoint", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await openPage(page, "/patterns");
+    const toggle = page.locator(".fe-header .fe-header__menu-btn");
+    await toggle.click();
+    const submenu = page.locator('#fe-header-mobile-nav button[aria-controls="fe-header-dropdown-link-2-mobile"]');
+    await submenu.click();
+    await page.setViewportSize({ width: 1920, height: 1080 });
+    await expect(toggle).toHaveAttribute("aria-expanded", "false");
+    await page.setViewportSize({ width: 390, height: 844 });
+    await expect(page.locator("#fe-header-mobile-nav")).toHaveAttribute("inert");
+    await toggle.click();
+    await expect(submenu).toHaveAttribute("aria-expanded", "false");
+  });
+
+  test("desktop header dropdown closes after selection or focus leaves navigation", async ({ page }) => {
+    await page.setViewportSize({ width: 1920, height: 1080 });
+    await openPage(page, "/patterns");
+    const trigger = page.locator('.fe-header__nav button[aria-controls="fe-header-dropdown-link-2"]');
+    const dropdown = page.locator("#fe-header-dropdown-link-2");
+    await trigger.click();
+    await dropdown.getByRole("link").first().click();
+    await expect(trigger).toHaveAttribute("aria-expanded", "false");
+    await trigger.click();
+    await page.locator(".fe-header__cta").focus();
+    await expect(trigger).toHaveAttribute("aria-expanded", "false");
   });
 
   test("home content remains visible without entrance motion when reduced motion is requested", async ({ page }) => {
