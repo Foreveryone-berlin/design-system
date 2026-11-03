@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import FeIcon from "./FeIcon";
 
 interface NavItem {
@@ -49,12 +49,36 @@ export default function HeaderDemo() {
   const dropdownId = (href: string) =>
     `fe-header-dropdown-${href.replace(/^#/, "")}`;
 
-  // Close the desktop dropdown when clicking outside the nav. Attached only
-  // while a dropdown is open, and after the opening click has completed, so it
-  // never interferes with the trigger's own toggle.
+  const closeMenu = useCallback(() => {
+    setMenuOpen(false);
+    setOpenSubMobile(null);
+    menuBtnRef.current?.focus();
+  }, []);
+
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const onChange = () => {
+      const focused = document.activeElement;
+      if (desktop.matches && (
+        mobileNavRef.current?.contains(focused) || focused === menuBtnRef.current
+      )) {
+        desktopNavRef.current?.querySelector<HTMLElement>("a, button")?.focus();
+      } else if (!desktop.matches && desktopNavRef.current?.contains(focused)) {
+        menuBtnRef.current?.focus();
+      }
+      setMenuOpen(false);
+      setOpenSub(null);
+      setOpenSubMobile(null);
+    };
+    desktop.addEventListener("change", onChange);
+    return () => desktop.removeEventListener("change", onChange);
+  }, []);
+
+  // Watch focus as well as clicks: pointer activation need not focus a button.
+  // Attach only while a dropdown is open, after its opening click completes.
   useEffect(() => {
     if (!openSub) return;
-    const handleDocumentClick = (event: MouseEvent) => {
+    const handleOutsideInteraction = (event: Event) => {
       const nav = desktopNavRef.current;
       if (nav && !nav.contains(event.target as Node)) {
         setOpenSub(null);
@@ -69,10 +93,12 @@ export default function HeaderDemo() {
         setOpenSub(null);
       }
     };
-    document.addEventListener("click", handleDocumentClick);
+    document.addEventListener("click", handleOutsideInteraction);
+    document.addEventListener("focusin", handleOutsideInteraction);
     document.addEventListener("keydown", onKey);
     return () => {
-      document.removeEventListener("click", handleDocumentClick);
+      document.removeEventListener("click", handleOutsideInteraction);
+      document.removeEventListener("focusin", handleOutsideInteraction);
       document.removeEventListener("keydown", onKey);
     };
   }, [openSub]);
@@ -87,14 +113,30 @@ export default function HeaderDemo() {
     if (!menuOpen) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setMenuOpen(false);
-        setOpenSubMobile(null);
-        menuBtnRef.current?.focus();
+        if (!mobileNavRef.current?.contains(document.activeElement) &&
+          document.activeElement !== menuBtnRef.current) return;
+        e.preventDefault();
+        closeMenu();
+      } else if (e.key === "Tab") {
+        const controls = [
+          menuBtnRef.current,
+          ...Array.from(mobileNavRef.current?.querySelectorAll<HTMLElement>("a, button") ?? []),
+        ].filter((node): node is HTMLElement => Boolean(node && node.getClientRects().length));
+        const first = controls[0];
+        const last = controls[controls.length - 1];
+        const current = document.activeElement;
+        if (e.shiftKey && (current === first || !controls.includes(current as HTMLElement))) {
+          e.preventDefault();
+          last?.focus();
+        } else if (!e.shiftKey && (current === last || !controls.includes(current as HTMLElement))) {
+          e.preventDefault();
+          first?.focus();
+        }
       }
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, [menuOpen]);
+  }, [menuOpen, closeMenu]);
 
   const toggleSub = (href: string) =>
     setOpenSub((prev) => (prev === href ? null : href));
@@ -113,7 +155,11 @@ export default function HeaderDemo() {
             height={26}
           />
         </div>
-        <nav className="fe-header__nav" aria-label="Main" ref={desktopNavRef}>
+        <nav
+          className="fe-header__nav"
+          aria-label="Main"
+          ref={desktopNavRef}
+        >
           {navLinks.map(({ href, label, children }) =>
             children ? (
               <div key={href} style={{ position: "relative" }}>
@@ -142,6 +188,12 @@ export default function HeaderDemo() {
                         key={child.href}
                         href={child.href}
                         className="fe-nav-link"
+                        onClick={() => {
+                          desktopNavRef.current?.querySelector<HTMLButtonElement>(
+                            `button[aria-controls="${dropdownId(href)}"]`,
+                          )?.focus();
+                          setOpenSub(null);
+                        }}
                       >
                         {child.label}
                       </a>
@@ -215,7 +267,7 @@ export default function HeaderDemo() {
                         key={child.href}
                         href={child.href}
                         className="fe-nav-link"
-                        onClick={() => setMenuOpen(false)}
+                        onClick={closeMenu}
                       >
                         {child.label}
                       </a>
@@ -228,7 +280,7 @@ export default function HeaderDemo() {
                 key={href}
                 href={href}
                 className="fe-nav-link"
-                onClick={() => setMenuOpen(false)}
+                onClick={closeMenu}
               >
                 {label}
               </a>
@@ -237,7 +289,7 @@ export default function HeaderDemo() {
           <a
             href="#cta"
             className="ds-btn ds-btn--primary fe-header__mobile-cta"
-            onClick={() => setMenuOpen(false)}
+            onClick={closeMenu}
           >
             Book workshop
           </a>

@@ -8,6 +8,11 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Keep header menus keyboard-contained and close them after navigation or screen-size changes. ([#285](https://github.com/Foreveryone-berlin/design-system/pull/285), [#284](https://github.com/Foreveryone-berlin/design-system/issues/284))
+- Keep popup forms reachable by scrolling on short screens. ([#285](https://github.com/Foreveryone-berlin/design-system/pull/285), [#284](https://github.com/Foreveryone-berlin/design-system/issues/284))
+
 ## [1.17.0] - 2026-11-02
 
 ### Added
