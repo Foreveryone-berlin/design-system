@@ -1803,7 +1803,7 @@
   inline-size: calc(100% - var(--spacing-8));
   padding: 0;
   background: transparent;
-  overflow: visible;
+  overflow: auto;
 }
 
 .fe-popup::backdrop {
