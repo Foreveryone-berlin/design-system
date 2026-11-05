@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Check for software dependency updates monthly instead of weekly; security fixes are not delayed.
+
 ## [1.18.0] - 2026-11-05
 
 ### Added
