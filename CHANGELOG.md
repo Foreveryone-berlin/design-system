@@ -8,13 +8,15 @@
 
 ## [Unreleased]
 
+## [1.18.0] - 2026-11-05
+
 ### Added
 
-- Show the current page and its submenu parent in bold in the header's desktop and mobile menus. ([#288](https://github.com/Foreveryone-berlin/design-system/issues/288))
+- Show the current page and its submenu parent in bold in the header's desktop and mobile menus. ([#289](https://github.com/Foreveryone-berlin/design-system/pull/289), [#288](https://github.com/Foreveryone-berlin/design-system/issues/288))
 
 ### Changed
 
-- Show the mobile header menu's hover and open items in bold, without a background fill. ([#288](https://github.com/Foreveryone-berlin/design-system/issues/288))
+- Show the mobile header menu's hover and open items in bold, without a background fill. ([#289](https://github.com/Foreveryone-berlin/design-system/pull/289), [#288](https://github.com/Foreveryone-berlin/design-system/issues/288))
 
 ## [1.17.1] - 2026-11-03
 
