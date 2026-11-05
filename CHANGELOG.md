@@ -8,6 +8,16 @@
 
 ## [Unreleased]
 
+## [1.18.1] - 2026-11-05
+
+### Changed
+
+- Check for software dependency updates monthly instead of weekly; security fixes are not delayed.
+
+### Fixed
+
+- Stop Safari's Adaptive Dark Mode from turning the light-only prototype dark. ([#293](https://github.com/Foreveryone-berlin/design-system/pull/293), [#292](https://github.com/Foreveryone-berlin/design-system/issues/292))
+
 ## [1.18.0] - 2026-11-05
 
 ### Added

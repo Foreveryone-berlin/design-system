@@ -70,7 +70,8 @@ summary:focus-visible,
 /* Prototype: light design only, Google Fonts (similar to Filson Pro / Young Serif) */
 .ds-light-only,
 .ds-light-only body {
-  color-scheme: light;
+  /* "only" opts out of Safari Adaptive Dark Mode: the design is light only. */
+  color-scheme: light only;
   background-color: var(--color-background-default);
   color: var(--color-theme-2);
 }
