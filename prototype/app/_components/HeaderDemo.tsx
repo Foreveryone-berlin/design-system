@@ -38,6 +38,14 @@ const navLinks: NavItem[] = [
   { href: "#link-5", label: "Link" },
 ];
 
+// The demo marks a submenu link as the current page.
+const currentHref = "#item-2";
+const ariaCurrent = (href: string) =>
+  href === currentHref ? ("page" as const) : undefined;
+// A submenu parent shows as active when one of its links is the current page.
+const parentActive = (children: NavItem["children"]) =>
+  children?.some((child) => child.href === currentHref) ? " is-active" : "";
+
 export default function HeaderDemo() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openSub, setOpenSub] = useState<string | null>(null);
@@ -165,7 +173,7 @@ export default function HeaderDemo() {
               <div key={href} style={{ position: "relative" }}>
                 <button
                   type="button"
-                  className="fe-nav-link fe-header__dropdown-trigger"
+                  className={`fe-nav-link fe-header__dropdown-trigger${parentActive(children)}`}
                   onClick={() => toggleSub(href)}
                   aria-expanded={openSub === href}
                   aria-controls={dropdownId(href)}
@@ -188,6 +196,7 @@ export default function HeaderDemo() {
                         key={child.href}
                         href={child.href}
                         className="fe-nav-link"
+                        aria-current={ariaCurrent(child.href)}
                         onClick={() => {
                           desktopNavRef.current?.querySelector<HTMLButtonElement>(
                             `button[aria-controls="${dropdownId(href)}"]`,
@@ -202,7 +211,12 @@ export default function HeaderDemo() {
                 )}
               </div>
             ) : (
-              <a key={href} href={href} className="fe-nav-link">
+              <a
+                key={href}
+                href={href}
+                className="fe-nav-link"
+                aria-current={ariaCurrent(href)}
+              >
                 {label}
               </a>
             ),
@@ -244,7 +258,7 @@ export default function HeaderDemo() {
               <div key={href}>
                 <button
                   type="button"
-                  className="fe-nav-link fe-header__dropdown-trigger"
+                  className={`fe-nav-link fe-header__dropdown-trigger${parentActive(children)}`}
                   onClick={() => toggleSubMobile(href)}
                   aria-expanded={openSubMobile === href}
                   aria-controls={`${dropdownId(href)}-mobile`}
@@ -267,6 +281,7 @@ export default function HeaderDemo() {
                         key={child.href}
                         href={child.href}
                         className="fe-nav-link"
+                        aria-current={ariaCurrent(child.href)}
                         onClick={closeMenu}
                       >
                         {child.label}
@@ -280,6 +295,7 @@ export default function HeaderDemo() {
                 key={href}
                 href={href}
                 className="fe-nav-link"
+                aria-current={ariaCurrent(href)}
                 onClick={closeMenu}
               >
                 {label}

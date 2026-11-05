@@ -1022,6 +1022,14 @@
     background-color var(--transition-fast),
     color var(--transition-fast);
 }
+/* A submenu parent whose link is the current page stays bold as well. */
+.fe-header__nav .fe-header__dropdown-trigger.is-active {
+  font-weight: var(--font-weight-bold);
+}
+.fe-header__dropdown .fe-nav-link[aria-current="page"] {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-dark);
+}
 .fe-header__dropdown .fe-nav-link:hover,
 .fe-header__dropdown .fe-nav-link:focus {
   background-color: var(--color-brand-secondary);
@@ -1033,8 +1041,7 @@
 }
 /* The Blue :focus fill is the visible focus indicator here, so suppress the
    gold keyboard ring on dropdown links. */
-.fe-header__dropdown .fe-nav-link:focus-visible,
-.fe-header__mobile-sub .fe-nav-link:focus-visible {
+.fe-header__dropdown .fe-nav-link:focus-visible {
   outline: none;
 }
 .fe-header__mobile-nav {
@@ -1075,20 +1082,26 @@
     background-color var(--transition-fast),
     color var(--transition-fast);
 }
-/* Mobile drawer: hover/focus uses the same fill as an open submenu, not the
-   growing underline from the shared .fe-nav-link rule. */
+/* Mobile drawer: hover, keyboard focus, an open submenu trigger, and the
+   current page switch to bold only, with no fill and no growing underline. */
 .fe-header__mobile-nav .fe-nav-link:hover,
-.fe-header__mobile-nav .fe-nav-link:focus,
+.fe-header__mobile-nav .fe-nav-link:focus-visible,
 .fe-header__mobile-nav .fe-nav-link.is-hover,
+.fe-header__mobile-nav .fe-nav-link[aria-current="page"],
 .fe-header__mobile-nav .fe-header__dropdown-trigger:hover,
-.fe-header__mobile-nav .fe-header__dropdown-trigger:focus {
-  background-color: var(--color-blush);
+.fe-header__mobile-nav .fe-header__dropdown-trigger:focus-visible,
+.fe-header__mobile-nav .fe-header__dropdown-trigger[aria-expanded="true"],
+.fe-header__mobile-nav .fe-header__dropdown-trigger.is-active {
+  font-weight: var(--font-weight-bold);
+  background-color: transparent;
   background-size: 0;
   text-decoration: none;
   color: var(--color-brand-dark);
 }
-.fe-header__mobile-nav .fe-header__dropdown-trigger[aria-expanded="true"] {
-  background-color: var(--color-blush);
+/* Full-width rows sit inside the drawer's overflow clip, so draw the gold
+   keyboard ring inside the row. */
+.fe-header__mobile-nav .fe-nav-link:focus-visible {
+  outline-offset: -0.1875rem;
 }
 .fe-header__mobile-sub {
   display: flex;
@@ -1105,14 +1118,6 @@
   border-bottom: 1px solid var(--color-theme-7);
   background-image: none;
   text-decoration: none;
-}
-.fe-header__mobile-sub .fe-nav-link:hover,
-.fe-header__mobile-sub .fe-nav-link:focus,
-.fe-header__mobile-sub .fe-nav-link.is-hover {
-  background-color: var(--color-blush);
-  background-size: 0;
-  text-decoration: none;
-  color: var(--color-brand-dark);
 }
 .fe-header__mobile-cta {
   margin: var(--spacing-4) var(--spacing-4) 0;

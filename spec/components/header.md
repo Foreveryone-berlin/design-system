@@ -16,6 +16,7 @@ menu. Mobile panel: `.fe-header__mobile-nav` toggled with `.is-open`.
   the page; restore focus to the toggle on close.
 - Dropdown triggers: `aria-expanded` + `aria-controls`; prefer plain links when
   no submenu is needed.
+- Current page: `aria-current="page"` on its link; desktop dropdowns and the mobile panel show it in bold, and its submenu parent takes `.is-active` and shows in bold too.
 - Icon-only controls: always set `aria-label`.
 
 ## Do / don't
