@@ -13,6 +13,7 @@ Composite layouts on `/patterns` in the Next.js prototype, in page order. Each p
 | `#facts-card` | Workshop facts card | `.fe-facts-card` (+ `__grid`/`__item`/`__label`/`__value`/`__cta`), line illustrations via `--fe-facts-illo`, container query |
 | `#session-chooser` | Session chooser | Separate stages, prerequisites, selection feedback |
 | `#step-progression` | Step progression (week by week) | `.fe-steps`, `.fe-step` (+ `__number`/`__body`/`__connector`), `illustrations/accents/doodle-arrow.svg` |
+| `#inclusive-pricing` | Inclusive pricing tiers | Equal experience, contribution-level selection |
 | `#split-list-band` | Split list band | `.fe-split-list` (+ `__heading`/`__lead`/`__items`/`__item`), `check` UI icon |
 | `#team-grid` | Team roster grid | `.fe-people-grid`, `.fe-person` (+ `__photo`/`__name`/`__role`), `illustrations/avatars/*.svg` |
 | `#profile-cards` | Profile cards with bio | `.fe-people-grid--cards`, `.fe-person--card` (+ `__bio`) |
