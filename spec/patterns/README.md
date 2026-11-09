@@ -16,6 +16,7 @@ Composite layouts on `/patterns` in the Next.js prototype, in page order. Each p
 | `#team-grid` | Team roster grid | `.fe-people-grid`, `.fe-person` (+ `__photo`/`__name`/`__role`), `illustrations/avatars/*.svg` |
 | `#profile-cards` | Profile cards with bio | `.fe-people-grid--cards`, `.fe-person--card` (+ `__bio`) |
 | `#facilitator-slider` | Facilitator portrait gallery | `.fe-facilitator-gallery`, `.fe-person`, paged arrow and dot navigation |
+| `#evening-agenda` | Evening agenda | Compact within-session sequence |
 
 The benefit grid (`.ds-benefit-grid` with `.fe-card-benefit`) left the Patterns page in 1.2.0; the benefit card itself stays available for the live site and is documented on `/components`.
 
