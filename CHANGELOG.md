@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Increase desktop submenu text contrast while keeping current links white on blue hover and focus states.
+
 ## [1.18.1] - 2026-11-05
 
 ### Changed
