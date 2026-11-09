@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Add previous and next circular arrow controls below the testimonial slider.
+
 ### Fixed
 
 - Increase desktop submenu contrast and keep current links white on blue hover and focus. ([#299](https://github.com/Foreveryone-berlin/design-system/pull/299), [#297](https://github.com/Foreveryone-berlin/design-system/issues/297))
