@@ -11,8 +11,8 @@
 ### Added
 
 - Add previous and next circular arrow controls below the testimonial slider.
-- Add a portrait-led facilitator gallery with responsive paging. ([#305](https://github.com/Foreveryone-berlin/design-system/pull/305), [#300](https://github.com/Foreveryone-berlin/design-system/issues/300))
 - Add a session chooser for separately bookable activity stages. ([#307](https://github.com/Foreveryone-berlin/design-system/pull/307), [#303](https://github.com/Foreveryone-berlin/design-system/issues/303))
+- Add a portrait-led facilitator gallery with responsive paging. ([#305](https://github.com/Foreveryone-berlin/design-system/pull/305), [#300](https://github.com/Foreveryone-berlin/design-system/issues/300))
 
 ### Fixed
 
