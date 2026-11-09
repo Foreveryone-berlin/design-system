@@ -10,9 +10,9 @@
 
 ### Added
 
+- Add inclusive pricing tiers with illustrative contribution amounts. ([#308](https://github.com/Foreveryone-berlin/design-system/pull/308), [#304](https://github.com/Foreveryone-berlin/design-system/issues/304))
 - Add previous and next circular arrow controls below the testimonial slider.
 - Add a portrait-led facilitator gallery with responsive paging. ([#305](https://github.com/Foreveryone-berlin/design-system/pull/305), [#300](https://github.com/Foreveryone-berlin/design-system/issues/300))
-- Add inclusive pricing tiers with illustrative contribution amounts.
 
 ### Fixed
 
