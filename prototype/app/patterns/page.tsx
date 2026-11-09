@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import HeaderDemo from "../_components/HeaderDemo";
 import FacilitatorSlider from "../_components/FacilitatorSlider";
 import CategoryFilter from "../_components/CategoryFilter";
+import PricingPattern from "./PricingPattern";
 import PhotoCredit from "../_components/PhotoCredit";
 import FeIcon, {
   type SocialIconName,
@@ -359,6 +360,8 @@ export default function PatternsPage() {
           ))}
         </ol>
       </section>
+
+      <PricingPattern />
 
       <section id="split-list-band" className="ds-section">
         <h2 className="ds-section-title">Split list band</h2>
