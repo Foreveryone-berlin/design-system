@@ -8,7 +8,7 @@ for (const width of [1440, 390]) {
     await page.goto("/patterns");
     await page.locator("#main-content .ds-heading-anchor").first().waitFor();
     await page.evaluate(() => document.fonts.ready);
-    const patterns = page.locator("[data-pattern-preview]");
+    const patterns = page.locator("#evening-agenda");
     await expect(patterns).toHaveCount(1);
     const links = page.getByRole("navigation", { name: "Pattern categories" }).getByRole("link");
     await expect(links).toHaveCount(4);
