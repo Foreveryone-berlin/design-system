@@ -11,7 +11,7 @@
 ### Added
 
 - Add previous and next circular arrow controls below the testimonial slider.
-- Add a portrait-led facilitator gallery with responsive paging.
+- Add a portrait-led facilitator gallery with responsive paging. ([#305](https://github.com/Foreveryone-berlin/design-system/pull/305), [#300](https://github.com/Foreveryone-berlin/design-system/issues/300))
 
 ## [1.18.1] - 2026-11-05
 
