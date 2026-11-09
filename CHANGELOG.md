@@ -10,7 +10,7 @@
 
 ### Fixed
 
-- Increase desktop submenu text contrast while keeping current links white on blue hover and focus states.
+- Increase desktop submenu contrast and keep current links white on blue hover and focus. ([#299](https://github.com/Foreveryone-berlin/design-system/pull/299), [#297](https://github.com/Foreveryone-berlin/design-system/issues/297))
 
 ## [1.18.1] - 2026-11-05
 
