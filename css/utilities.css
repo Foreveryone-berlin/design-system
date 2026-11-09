@@ -1695,6 +1695,28 @@
   grid-row: 2;
 }
 
+.fe-facilitator-gallery {
+  container: fe-facilitators / inline-size;
+}
+
+.fe-facilitator-gallery .fe-testimonial-slider__slide {
+  flex-basis: calc((100% - var(--spacing-6)) / 2);
+  align-items: start;
+  scroll-snap-align: start;
+}
+
+@container fe-facilitators (min-width: 640px) {
+  .fe-facilitator-gallery .fe-testimonial-slider__slide {
+    flex-basis: calc((100% - var(--spacing-6) * 2) / 3);
+  }
+}
+
+@container fe-facilitators (min-width: 880px) {
+  .fe-facilitator-gallery .fe-testimonial-slider__slide {
+    flex-basis: calc((100% - var(--spacing-6) * 3) / 4);
+  }
+}
+
 .fe-testimonial-slider__viewport {
   overflow-x: auto;
   overflow-y: hidden;

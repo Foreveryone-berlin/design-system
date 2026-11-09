@@ -1,6 +1,7 @@
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import HeaderDemo from "../_components/HeaderDemo";
+import FacilitatorSlider from "../_components/FacilitatorSlider";
 import CategoryFilter from "../_components/CategoryFilter";
 import PhotoCredit from "../_components/PhotoCredit";
 import FeIcon, {
@@ -407,6 +408,16 @@ export default function PatternsPage() {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section id="facilitator-slider" className="ds-section">
+        <h2 className="ds-section-title">Facilitator gallery</h2>
+        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
+          A photo-led gallery with names below circular portraits. Two people
+          per page on mobile, three in a medium column, four in a wide column.
+          Use the arrows, dots, or swipe to browse. Placeholder portraits.
+        </p>
+        <FacilitatorSlider items={teamRoster} />
       </section>
 
       <section id="profile-cards" className="ds-section">
