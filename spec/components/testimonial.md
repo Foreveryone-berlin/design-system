@@ -43,8 +43,11 @@ Use `__arrow--previous` and `__arrow--next` for the two directions. Each has a
 icon-button accent; keyboard focus adds a Gold outline. Arrows wrap between the first and last slides. Dots and native scrolling
 update the same current-slide state. Navigation is hidden for a single slide.
 
-The prototype's `ContentSlider` owns page navigation. Controls sit below the
-content.
+The prototype's `ContentSlider` also hosts `.fe-person` portraits and names for
+the `.fe-facilitator-gallery` pattern. It shows two, three, or four portraits per
+page as its container grows. Its item labels, viewport name, and control IDs stay
+separate from testimonials; page navigation is shared. Controls sit below the
+content in both variants.
 
 ## States
 

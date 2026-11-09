@@ -3,10 +3,11 @@
 import { type ReactNode, useEffect, useId, useRef, useState } from "react";
 import FeIcon from "./FeIcon";
 
-export default function ContentSlider({ items, label, itemLabel }: {
+export default function ContentSlider({ items, label, itemLabel, gallery = false }: {
   items: { id: string; content: ReactNode }[];
   label: string;
   itemLabel: string;
+  gallery?: boolean;
 }) {
   const viewportId = useId();
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -61,7 +62,7 @@ export default function ContentSlider({ items, label, itemLabel }: {
   };
 
   return (
-    <div className="fe-testimonial-slider fe-testimonial-slider--arrows">
+    <div className={`fe-testimonial-slider fe-testimonial-slider--arrows${gallery ? " fe-facilitator-gallery" : ""}`}>
       <div ref={viewportRef} id={viewportId} className="fe-testimonial-slider__viewport"
         role="group" aria-label={label} tabIndex={0}>
         <ul className="fe-testimonial-slider__track" role="list">

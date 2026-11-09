@@ -4,6 +4,7 @@ import AxeBuilder from "@axe-core/playwright";
 for (const width of [1440, 1024, 768, 390]) {
   for (const specimen of [
     { route: "/components", section: "#testimonial-slider", item: "Testimonial", count: 5 },
+    { route: "/patterns", section: "#facilitator-slider", item: "Facilitator page", count: width === 1440 ? 2 : width === 1024 ? 3 : 4 },
   ]) {
     test(`${specimen.item} slider navigation at ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
