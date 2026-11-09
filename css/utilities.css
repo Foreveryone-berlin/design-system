@@ -1012,7 +1012,7 @@
 }
 .fe-header__dropdown .fe-nav-link {
   padding: var(--spacing-3) var(--spacing-4);
-  color: var(--color-theme-4);
+  color: var(--color-brand-dark);
   font-weight: var(--font-weight-medium);
   white-space: nowrap;
   /* No growing-underline accent in the dropdown; hover goes straight to the
@@ -1028,7 +1028,6 @@
 }
 .fe-header__dropdown .fe-nav-link[aria-current="page"] {
   font-weight: var(--font-weight-bold);
-  color: var(--color-brand-dark);
 }
 .fe-header__dropdown .fe-nav-link:hover,
 .fe-header__dropdown .fe-nav-link:focus {
