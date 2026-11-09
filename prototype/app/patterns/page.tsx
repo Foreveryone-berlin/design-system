@@ -10,6 +10,7 @@ import FeIcon, {
   type SocialIconName,
 } from "../_components/FeIcon";
 import { hero as heroCopy } from "@/content/site-copy";
+import SessionChooserPattern from "./SessionChooserPattern";
 
 export const metadata = {
   title: "Patterns",
@@ -337,6 +338,8 @@ export default function PatternsPage() {
           </p>
         </div>
       </section>
+
+      <SessionChooserPattern />
 
       <section id="step-progression" className="ds-section">
         <h3 className="ds-subsection-title">Step progression (week by week)</h3>
