@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Add previous and next circular arrow controls below the testimonial slider.
+
 ## [1.18.1] - 2026-11-05
 
 ### Changed

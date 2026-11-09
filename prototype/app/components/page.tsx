@@ -523,7 +523,7 @@ export default function ComponentsPage() {
         <h3 className="ds-subsection-title">Testimonial slider</h3>
         <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
           One short quote at a time on a scroll-snap track: swipe, arrow-key, or
-          use the dots. Manual only, so it needs no pause control; smooth
+          use the previous/next arrows and dots. Manual only, so it needs no pause control; smooth
           scrolling turns off under <code>prefers-reduced-motion</code>.
         </p>
         <TestimonialSlider items={sliderTestimonials} />
