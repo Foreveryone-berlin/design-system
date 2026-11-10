@@ -21,10 +21,6 @@ export default function MobileNav() {
   }, [pathname]);
 
   useEffect(() => {
-    if (open) navRef.current?.querySelector<HTMLInputElement>("input")?.focus();
-  }, [open]);
-
-  useEffect(() => {
     const media = window.matchMedia(MOBILE_QUERY);
     const syncViewport = (event: MediaQueryListEvent | MediaQueryList) => {
       setIsMobile(event.matches);

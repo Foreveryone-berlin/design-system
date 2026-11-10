@@ -83,6 +83,10 @@ test.describe("interactive accessibility", () => {
     const toggle = page.locator(".ds-mobile-header .fe-header__menu-btn");
     await toggle.click();
     const nav = page.locator("#ds-mobile-nav");
+    await expect(nav.getByRole("combobox")).not.toBeFocused();
+
+    await toggle.focus();
+    await page.keyboard.press("Tab");
     await expect(nav.getByRole("combobox")).toBeFocused();
 
     await toggle.focus();
