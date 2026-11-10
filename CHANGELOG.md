@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Correct the site home overview counts and labels.
+
 ## [1.19.0] - 2026-11-10
 
 ### Added

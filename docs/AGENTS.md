@@ -86,4 +86,4 @@ Use the [shared command table](../AGENTS.md#commands) and
 
 **Workflows:** Token changes → `docs/skills/token-update.md`. Per-target sync → `integrations/README.md`. Release → `docs/skills/release.md`, driven end-to-end by the user-level `ship` skill (there is no project release skill; deploy is Vercel on push to `main`, `release.yml` only creates the GitHub Release). Prototype audit → user-level `site-audit` skill, driven by `## Audit contract` in root `AGENTS.md` (imported by `CLAUDE.md`).
 
-**Prototype:** Next.js app under `prototype/` previews tokens/components; uses `app/globals.css` and design-system CSS patterns: consult `prototype/README.md` and match framework version in `prototype/package.json` when touching App Router/APIs.
+**Prototype:** Next.js app under `prototype/` previews tokens/components; uses `app/globals.css` and design-system CSS patterns. Consult [`prototype/README.md`](../prototype/README.md) for overview inventory definitions; match the framework version in `prototype/package.json` when touching App Router/APIs.
