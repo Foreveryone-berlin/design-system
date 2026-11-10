@@ -18,7 +18,7 @@
 
 ### Changed
 
-- Show colors, components, patterns, and breakpoints in the home stats.
+- Show colors, components, patterns, and breakpoints in the home stats. ([#312](https://github.com/Foreveryone-berlin/design-system/pull/312)) ([#309](https://github.com/Foreveryone-berlin/design-system/issues/309))
 
 ### Fixed
 
