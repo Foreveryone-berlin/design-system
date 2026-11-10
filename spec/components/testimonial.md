@@ -10,7 +10,7 @@ variant, and sits inside one of two containers.
 | Quote, card display | `.fe-testimonial` | Default. Left-aligned, card chrome. Any quote length. |
 | Quote, centred display | `.fe-testimonial fe-testimonial--quote` | Short quotes only — **two lines or fewer**. Glyph above, centred, no card chrome. |
 | Several quotes at once | `.fe-testimonial-grid` | Static responsive grid, auto-fills from 280px. |
-| One quote at a time | `.fe-testimonial-slider` | Scroll-snap slider with dot pagination. Manual only. |
+| One quote at a time | `.fe-testimonial-slider fe-testimonial-slider--arrows` | Manual scroll-snap slider with arrows and dots. |
 
 The slider and the grid are alternatives, never nested. The centred variant is
 the one to use inside the slider; the card variant is the one to use in the grid.
@@ -36,6 +36,18 @@ the one to use inside the slider; the card variant is the one to use in the grid
 | `<li>` | `.fe-testimonial-slider__slide` | One per quote; the `<figure>` goes inside it |
 | `<div>` | `.fe-testimonial-slider__dots` | `role="group"`, `aria-label` |
 | `<button>` | `.fe-testimonial-slider__dot` | `type="button"`, `aria-label`, `aria-current` |
+| `<button>` | `.fe-testimonial-slider__arrow` | `type="button"`, `aria-label`, `aria-controls` targeting the viewport ID |
+
+Use `__arrow--previous` and `__arrow--next` for the two directions. Each has a
+48px target and a Charcoal chevron on a neutral circular button. Hover uses the
+icon-button accent; keyboard focus adds a Gold outline. Arrows wrap between the first and last slides. Dots and native scrolling
+update the same current-slide state. Navigation is hidden for a single slide.
+
+The prototype's `ContentSlider` also hosts `.fe-person` portraits and names for
+the `.fe-facilitator-gallery` pattern. It shows two, three, or four portraits per
+page as its container grows. Its item labels, viewport name, and control IDs stay
+separate from testimonials; page navigation is shared. Controls sit below the
+content in both variants.
 
 ## States
 

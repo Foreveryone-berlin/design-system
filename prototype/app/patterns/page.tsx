@@ -1,17 +1,22 @@
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import HeaderDemo from "../_components/HeaderDemo";
+import ActivityPatterns from "./ActivityPatterns";
+import styles from "./patterns.module.css";
+import FacilitatorSlider from "../_components/FacilitatorSlider";
 import CategoryFilter from "../_components/CategoryFilter";
+import PricingPattern from "./PricingPattern";
 import PhotoCredit from "../_components/PhotoCredit";
 import FeIcon, {
   type SocialIconName,
 } from "../_components/FeIcon";
 import { hero as heroCopy } from "@/content/site-copy";
+import SessionChooserPattern from "./SessionChooserPattern";
 
 export const metadata = {
   title: "Patterns",
   description:
-    "Composite layouts from the live ForEveryone site: headers, stats, benefit grids, event switchers, and more.",
+    "Reusable page patterns for discovery, activities, booking, and people.",
   alternates: { canonical: "/patterns" },
 };
 
@@ -131,18 +136,25 @@ export default function PatternsPage() {
     <>
       <h1 className="ds-page-title">Patterns</h1>
       <p className="ds-intro">
-        Composite UI patterns that combine tokens and components into reusable
-        layouts from the live ForEveryone site: headers, stats, benefit grids,
-        event switchers, and more.
+        Page sections composed from design-system components. Follow the flow
+        from discovery to booking, then people. New specimens use illustrative content.
       </p>
+      <nav className={styles.catalogNav} aria-label="Pattern categories">
+        <a href="#site-structure">Site structure</a>
+        <a href="#discovery-storytelling">Discovery and storytelling</a>
+        <a href="#activities-booking">Activities and booking</a>
+        <a href="#people-proof">People and proof</a>
+      </nav>
+
+      <h2 id="site-structure" className={`ds-section-title ${styles.group}`}>Site structure</h2>
 
       <section id="header-pattern" className="ds-section">
-        <h2 className="ds-section-title">Header (desktop &amp; mobile)</h2>
+        <h3 className="ds-subsection-title">Header (desktop &amp; mobile)</h3>
         <HeaderDemo />
       </section>
 
       <section id="footer-pattern" className="ds-section">
-        <h2 className="ds-section-title">Footer</h2>
+        <h3 className="ds-subsection-title">Footer</h3>
         <footer className="fe-footer">
           <div className="fe-footer__inner">
             <p className="fe-footer__brand">
@@ -226,8 +238,10 @@ export default function PatternsPage() {
         </footer>
       </section>
 
+      <h2 id="discovery-storytelling" className={`ds-section-title ${styles.group}`}>Discovery and storytelling</h2>
+      <p className="ds-intro">Introduce the offer, make activities discoverable, and explain the experience.</p>
       <section id="stats-strip" className="ds-section">
-        <h2 className="ds-section-title">Stats strip with animated counters</h2>
+        <h3 className="ds-subsection-title">Stats strip with animated counters</h3>
         <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
           Compact KPI row for home and campaign pages. Counters animate on
           scroll; reduced-motion users see the final value immediately.
@@ -245,7 +259,7 @@ export default function PatternsPage() {
       </section>
 
       <section id="category-filter" className="ds-section">
-        <h2 className="ds-section-title">Category filter bar</h2>
+        <h3 className="ds-subsection-title">Category filter bar</h3>
         <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
           Interactive category pills. Active state uses the category fill colour.
         </p>
@@ -253,7 +267,7 @@ export default function PatternsPage() {
       </section>
 
       <section id="hero-pattern" className="ds-section">
-        <h2 className="ds-section-title">Hero with blob photo</h2>
+        <h3 className="ds-subsection-title">Hero with blob photo</h3>
         <div className="ds-pattern-hero-specimen">
           <div>
             <div className="ds-headline-with-underline">
@@ -282,7 +296,7 @@ export default function PatternsPage() {
       </section>
 
       <section id="events-workshops-switcher" className="ds-section">
-        <h2 className="ds-section-title">Events and workshops switcher block</h2>
+        <h3 className="ds-subsection-title">Events and workshops switcher block</h3>
         <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
           One block with a top-level Events vs Workshops toggle and date tabs over the
           card grid.
@@ -291,8 +305,10 @@ export default function PatternsPage() {
         <PhotoCredit />
       </section>
 
+      <h2 id="activities-booking" className={`ds-section-title ${styles.group}`}>Activities and booking</h2>
+      <p className="ds-intro">Answer practical questions before asking someone to choose a session or price.</p>
       <section id="facts-card" className="ds-section">
-        <h2 className="ds-section-title">Workshop facts card</h2>
+        <h3 className="ds-subsection-title">Workshop facts card</h3>
         <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
           The &ldquo;Course Details&rdquo; block from a workshop landing page:
           six label-and-value tiles led by a line illustration, closed by a
@@ -324,8 +340,10 @@ export default function PatternsPage() {
         </div>
       </section>
 
+      <SessionChooserPattern />
+
       <section id="step-progression" className="ds-section">
-        <h2 className="ds-section-title">Step progression (week by week)</h2>
+        <h3 className="ds-subsection-title">Step progression (week by week)</h3>
         <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
           Numbered sequence for multi-week courses. Steps alternate sides on
           desktop with a doodle-arrow connector between them; below 1024px they
@@ -359,8 +377,10 @@ export default function PatternsPage() {
         </ol>
       </section>
 
+      <PricingPattern />
+
       <section id="split-list-band" className="ds-section">
-        <h2 className="ds-section-title">Split list band</h2>
+        <h3 className="ds-subsection-title">Split list band</h3>
         <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
           Heading on the left, checked list on the right, on the decorative soft
           background. Used for &ldquo;Who is this for&rdquo;, &ldquo;What you
@@ -383,8 +403,12 @@ export default function PatternsPage() {
         </div>
       </section>
 
+      <ActivityPatterns />
+
+      <h2 id="people-proof" className={`ds-section-title ${styles.group}`}>People and proof</h2>
+      <p className="ds-intro">Show who is involved and distinguish people, personal profiles, and supporter acknowledgements.</p>
       <section id="team-grid" className="ds-section">
-        <h2 className="ds-section-title">Team roster grid</h2>
+        <h3 className="ds-subsection-title">Team roster grid</h3>
         <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
           The &ldquo;Meet our team&rdquo; roster: a circular portrait over a name
           and a role, four across on desktop, two on tablet, one on a phone.
@@ -409,8 +433,18 @@ export default function PatternsPage() {
         </ul>
       </section>
 
+      <section id="facilitator-slider" className="ds-section">
+        <h3 className="ds-subsection-title">Facilitator gallery</h3>
+        <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
+          A photo-led gallery with names below circular portraits. Two people
+          per page on mobile, three in a medium column, four in a wide column.
+          Use the arrows, dots, or swipe to browse. Placeholder portraits.
+        </p>
+        <FacilitatorSlider items={teamRoster} />
+      </section>
+
       <section id="profile-cards" className="ds-section">
-        <h2 className="ds-section-title">Profile cards with bio</h2>
+        <h3 className="ds-subsection-title">Profile cards with bio</h3>
         <p className="fe-body" style={{ marginBottom: "var(--spacing-4)" }}>
           The same person block on a card surface with a short bio, as course
           pages introduce facilitators. Two columns from tablet up and no

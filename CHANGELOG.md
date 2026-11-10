@@ -8,6 +8,23 @@
 
 ## [Unreleased]
 
+## [1.19.0] - 2026-11-10
+
+### Added
+
+- Add agenda, session booking, and pricing patterns. ([#306](https://github.com/Foreveryone-berlin/design-system/pull/306), [#302](https://github.com/Foreveryone-berlin/design-system/issues/302), [#307](https://github.com/Foreveryone-berlin/design-system/pull/307), [#303](https://github.com/Foreveryone-berlin/design-system/issues/303), [#308](https://github.com/Foreveryone-berlin/design-system/pull/308), [#304](https://github.com/Foreveryone-berlin/design-system/issues/304))
+- Add previous and next circular arrow controls below the testimonial slider. ([#301](https://github.com/Foreveryone-berlin/design-system/pull/301), [#298](https://github.com/Foreveryone-berlin/design-system/issues/298))
+- Add a portrait-led facilitator gallery with responsive paging. ([#305](https://github.com/Foreveryone-berlin/design-system/pull/305), [#300](https://github.com/Foreveryone-berlin/design-system/issues/300))
+
+### Changed
+
+- Show colors, components, patterns, and breakpoints in the home stats. ([#312](https://github.com/Foreveryone-berlin/design-system/pull/312)) ([#309](https://github.com/Foreveryone-berlin/design-system/issues/309))
+
+### Fixed
+
+- Keep search unfocused when opening the mobile menu. ([#311](https://github.com/Foreveryone-berlin/design-system/pull/311)) ([#310](https://github.com/Foreveryone-berlin/design-system/issues/310))
+- Increase desktop submenu contrast and keep current links white on blue hover and focus. ([#299](https://github.com/Foreveryone-berlin/design-system/pull/299), [#297](https://github.com/Foreveryone-berlin/design-system/issues/297))
+
 ## [1.18.1] - 2026-11-05
 
 ### Changed
