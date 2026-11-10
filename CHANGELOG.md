@@ -8,13 +8,13 @@
 
 ## [Unreleased]
 
+## [1.19.0] - 2026-11-10
+
 ### Added
 
-- Add inclusive pricing tiers with illustrative contribution amounts. ([#308](https://github.com/Foreveryone-berlin/design-system/pull/308), [#304](https://github.com/Foreveryone-berlin/design-system/issues/304))
-- Add previous and next circular arrow controls below the testimonial slider.
-- Add a session chooser for separately bookable activity stages. ([#307](https://github.com/Foreveryone-berlin/design-system/pull/307), [#303](https://github.com/Foreveryone-berlin/design-system/issues/303))
+- Add agenda, session booking, and pricing patterns. ([#306](https://github.com/Foreveryone-berlin/design-system/pull/306), [#302](https://github.com/Foreveryone-berlin/design-system/issues/302), [#307](https://github.com/Foreveryone-berlin/design-system/pull/307), [#303](https://github.com/Foreveryone-berlin/design-system/issues/303), [#308](https://github.com/Foreveryone-berlin/design-system/pull/308), [#304](https://github.com/Foreveryone-berlin/design-system/issues/304))
+- Add previous and next circular arrow controls below the testimonial slider. ([#301](https://github.com/Foreveryone-berlin/design-system/pull/301), [#298](https://github.com/Foreveryone-berlin/design-system/issues/298))
 - Add a portrait-led facilitator gallery with responsive paging. ([#305](https://github.com/Foreveryone-berlin/design-system/pull/305), [#300](https://github.com/Foreveryone-berlin/design-system/issues/300))
-- Add an evening agenda to the grouped Patterns catalogue. ([#306](https://github.com/Foreveryone-berlin/design-system/pull/306), [#302](https://github.com/Foreveryone-berlin/design-system/issues/302))
 
 ### Changed
 
