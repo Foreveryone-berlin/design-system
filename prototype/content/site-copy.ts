@@ -20,9 +20,9 @@ export const mission = {
 } as const;
 
 export const stats = [
-  { label: "Colour tokens", value: "100+" },
-  { label: "Spacing scale", value: "19" },
-  { label: "Components", value: "15+" },
+  { label: "Colors", value: "11" },
+  { label: "Components", value: "15" },
+  { label: "Patterns", value: "15" },
   { label: "Breakpoints", value: "3" },
 ] as const;
 
