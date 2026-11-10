@@ -16,6 +16,10 @@
 - Add a portrait-led facilitator gallery with responsive paging. ([#305](https://github.com/Foreveryone-berlin/design-system/pull/305), [#300](https://github.com/Foreveryone-berlin/design-system/issues/300))
 - Add an evening agenda to the grouped Patterns catalogue. ([#306](https://github.com/Foreveryone-berlin/design-system/pull/306), [#302](https://github.com/Foreveryone-berlin/design-system/issues/302))
 
+### Changed
+
+- Show colors, components, patterns, and breakpoints in the home stats. ([#312](https://github.com/Foreveryone-berlin/design-system/pull/312)) ([#309](https://github.com/Foreveryone-berlin/design-system/issues/309))
+
 ### Fixed
 
 - Keep search unfocused when opening the mobile menu. ([#311](https://github.com/Foreveryone-berlin/design-system/pull/311)) ([#310](https://github.com/Foreveryone-berlin/design-system/issues/310))
