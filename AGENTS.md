@@ -6,7 +6,7 @@ and the applicable sections below before changes.
 
 ## General
 
-- This is the platform-neutral design system repo for ForEveryone Berlin (https://foreveryone.berlin/): DTCG tokens, generated CSS custom properties, `fe-*` CSS utilities, and a Next.js prototype
+- This is the platform-neutral design system repo for ForEveryone Berlin (https://foreveryone.berlin/): DTCG tokens, generated CSS custom properties, `fe-*` CSS utilities, and a Next.js prototype. Use the inventory definitions in [`prototype/README.md`](prototype/README.md) for overview statistics.
 - Canonical long-form agent context: `docs/AGENTS.md`; root `AGENTS.md` is the shared entry and routes to the detailed index
 - Consumers: the Next.js prototype in `prototype/`, any framework or plain-CSS app, and host platforms listed in `integrations/README.md`. Platform-specific code and docs go in `integrations/<target>/` and `css/integrations/<target>.css` only.
 - Never put a platform-specific selector, slot number, or product name in `tokens/`, `spec/`, `docs/`, or the shared `css/*.css`

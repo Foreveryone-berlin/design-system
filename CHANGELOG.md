@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Correct the site home overview counts and labels. ([#315](https://github.com/Foreveryone-berlin/design-system/pull/315), [#309](https://github.com/Foreveryone-berlin/design-system/issues/309))
+
 ## [1.19.0] - 2026-11-10
 
 ### Added
