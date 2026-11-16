@@ -11,7 +11,9 @@ in another project.
 | **`fe-design-system`** | none | Locate maintained sources and route the task to core conventions and a specialist |
 | **`fe-core`** | none | New UI: tokens, `fe-*` components, brand colour and a11y baselines |
 | **`fe-tokens`** | `fe-core` | Resolve or extend tokens by role; OKLCH extensions; naming |
+| **`fe-token-authoring`** | `fe-core`, `fe-tokens` | Add, change, or remove a token in this repository and regenerate CSS |
 | **`fe-components`** | `fe-core` | Build controls from documented `fe-*` contracts and state matrices |
+| **`fe-component-authoring`** | `fe-core`, `fe-components` | Add a public component contract, its CSS, and its states |
 | **`fe-a11y`** | `fe-core` | Contrast, focus, motion, alt text, WCAG 2.1 AA checks |
 | **`fe-redesign`** | `fe-core` | Restyle an existing app onto ForEveryone ([redesign-from-this-system.md](agents/redesign-from-this-system.md)) |
 | **`fe-og-image`** | `fe-core` | OG and featured images matched to the destination page, with export and metadata checks |
@@ -34,8 +36,8 @@ implementation.
 
 After editing a source, run `npm run skills:build`. It regenerates the distribution and
 `.claude/skills/`. `npm test` fails when a mirror is stale or an `.agents/skills/` link is missing.
-Frontmatter carries `name` and `description` at the top level and `foreveryone`, `requires`, and
-`docs` under `metadata` as strings, lists comma-separated, per the
+Frontmatter carries `name` and `description` at the top level and `foreveryone`, `requires`,
+`docs`, and `guide` under `metadata` as strings, lists comma-separated, per the
 [Agent Skills spec](https://agentskills.io/specification).
 
 ## Install

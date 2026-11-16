@@ -8,6 +8,19 @@
 
 ## [Unreleased]
 
+## [1.20.0] - 2026-11-16
+
+### Added
+
+- Add an agent guide for adding or changing a design token. ([#319](https://github.com/Foreveryone-berlin/design-system/pull/319), [#318](https://github.com/Foreveryone-berlin/design-system/issues/318))
+- Add an agent guide for adding a public component. ([#319](https://github.com/Foreveryone-berlin/design-system/pull/319), [#318](https://github.com/Foreveryone-berlin/design-system/issues/318))
+
+### Changed
+
+- Turn the restyle guide into ordered steps with a search after each step. ([#319](https://github.com/Foreveryone-berlin/design-system/pull/319), [#318](https://github.com/Foreveryone-berlin/design-system/issues/318))
+- Give every agent guide a check that must pass before the work is done. ([#319](https://github.com/Foreveryone-berlin/design-system/pull/319), [#318](https://github.com/Foreveryone-berlin/design-system/issues/318))
+- Build the agent skills list from the published skill index. ([#319](https://github.com/Foreveryone-berlin/design-system/pull/319), [#318](https://github.com/Foreveryone-berlin/design-system/issues/318))
+
 ## [1.19.1] - 2026-11-10
 
 ### Fixed
