@@ -63,9 +63,11 @@ ${lines}
 const hoisted = parseFrontmatter(fm(`metadata:
   foreveryone: ">=1.0.0"
   requires: "a, b"
-  docs: ""`));
+  docs: ""
+  guide: "Resolve a token."`));
 if (hoisted.data.foreveryone === '>=1.0.0' && hoisted.data.requires.join() === 'a,b' &&
-    hoisted.data.docs.length === 0 && hoisted.topKeys.join() === 'name,description,metadata') {
+    hoisted.data.docs.length === 0 && hoisted.data.guide === 'Resolve a token.' &&
+    hoisted.topKeys.join() === 'name,description,metadata') {
   ok('metadata block hoists keys and splits lists');
 } else fail('metadata block hoists keys and splits lists', JSON.stringify(hoisted.data));
 const legacy = parseFrontmatter(fm("requires: [fe-core]"));
@@ -83,6 +85,11 @@ if (build.status !== 0) {
   fail('skills:build --out', build.stderr || build.stdout || `exit ${build.status}`);
 } else {
   ok('skills:build --out');
+  const builtIndex = JSON.parse(readFileSync(path.join(tmpOut, 'index.json'), 'utf8'));
+  const guides = new Map(builtIndex.skills.map((skill) => [skill.name, skill.guide]));
+  if (skills.every((skill) => guides.get(skill.data.name) === skill.data.guide && skill.data.guide)) {
+    ok('index carries each skill guide');
+  } else fail('index carries each skill guide', JSON.stringify([...guides.entries()]));
 }
 
 for (const file of ['index.json', 'AGENTS.foreveryone.md', 'tokens.json', 'fe-core/SKILL.md']) {

@@ -5,6 +5,7 @@ metadata:
   foreveryone: ">=1.12.1 <2.0.0"
   requires: "fe-core"
   docs: "spec/principles.md, docs/visual-styles.md, integrations/elementor/og-images.md"
+  guide: "Create OG and featured images for a specific page."
 ---
 
 # ForEveryone OG images
@@ -17,6 +18,12 @@ essential digital brand rules for consumers without the repository.
 
 Create or revise an OG/social preview or featured-image composition for
 ForEveryone. Deliver an actual image file and its editable source, not only a prompt.
+
+## Workflow
+
+- [ ] Step 1: Read the destination page and the production brief
+- [ ] Step 2: Compose the master from tokens, assets, and the brief
+- [ ] Step 3: Verify
 
 ## Rules
 
@@ -65,6 +72,15 @@ ForEveryone. Deliver an actual image file and its editable source, not only a pr
    keywords. Verify message match and readability, not an assumed CTR lift.
 10. For WordPress assignment or social overrides, read the target's integration
     guide. Image creation does not authorize upload, page edits or publication.
+
+## Verify
+
+Run `window.feOgValidate()` in the composed document and correct every failure
+before export. The exported file is exactly 1200 x 630, opaque sRGB JPEG or PNG,
+and at most 300 KB unless a larger file is required to keep type readable.
+Inspect it at full size and at 300 px width: the subheading and CTA are readable,
+and the crop still matches the destination page. Record filename, media title,
+alt, `og:image:alt`, and the rights note.
 
 ## Do not
 

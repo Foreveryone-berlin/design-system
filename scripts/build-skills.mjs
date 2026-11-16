@@ -56,6 +56,7 @@ function buildIndex(skills, shared, version) {
       foreveryone: skill.data.foreveryone,
       requires: skill.data.requires,
       docs: skill.data.docs ?? [],
+      guide: skill.data.guide,
       files: skill.files,
     })),
   };

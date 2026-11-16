@@ -19,6 +19,7 @@
         "spec/principles.md",
         "spec/tokens.json"
       ],
+      "guide": "Use the shared CSS, approved colours, typography, and brand rules.",
       "files": [
         "SKILL.md"
       ]
@@ -35,6 +36,7 @@
         "docs/brand-book-references.md",
         "integrations/README.md"
       ],
+      "guide": "Find the maintained sources and choose the skill for the task.",
       "files": [
         "SKILL.md"
       ]
@@ -53,6 +55,26 @@
         "docs/a11y-conformance.md",
         "docs/validation.md"
       ],
+      "guide": "Check contrast, keyboard focus, motion, and alternative text.",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "fe-component-authoring",
+      "description": "Author a public fe-* component in this repository. Use when adding a component contract, its CSS, and its states.",
+      "path": "fe-component-authoring/SKILL.md",
+      "foreveryone": ">=1.19.1 <2.0.0",
+      "requires": [
+        "fe-core",
+        "fe-components"
+      ],
+      "docs": [
+        "spec/components/README.md",
+        "docs/validation.md",
+        "docs/visual-styles.md"
+      ],
+      "guide": "Add a public component contract, its CSS, and its states.",
       "files": [
         "SKILL.md"
       ]
@@ -70,6 +92,7 @@
         "spec/components/README.md",
         "docs/visual-styles.md"
       ],
+      "guide": "Build components from documented markup and state contracts.",
       "files": [
         "SKILL.md"
       ]
@@ -87,6 +110,7 @@
         "docs/visual-styles.md",
         "integrations/elementor/og-images.md"
       ],
+      "guide": "Create OG and featured images for a specific page.",
       "files": [
         "SKILL.md",
         "assets/SOURCES.md",
@@ -113,6 +137,26 @@
         "spec/tokens.json",
         "docs/agents/redesign-from-this-system.md"
       ],
+      "guide": "Map an existing interface onto the design system.",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "fe-token-authoring",
+      "description": "Author ForEveryone design tokens in this repository. Use when adding, changing, or removing a token and regenerating CSS variables.",
+      "path": "fe-token-authoring/SKILL.md",
+      "foreveryone": ">=1.19.1 <2.0.0",
+      "requires": [
+        "fe-core",
+        "fe-tokens"
+      ],
+      "docs": [
+        "docs/token-naming.md",
+        "docs/skills/token-update.md",
+        "spec/tokens.json"
+      ],
+      "guide": "Add or change a design token and regenerate the CSS variables.",
       "files": [
         "SKILL.md"
       ]
@@ -131,6 +175,7 @@
         "spec/principles.md",
         "docs/token-naming.md"
       ],
+      "guide": "Resolve token names and extend the palette by role.",
       "files": [
         "SKILL.md"
       ]

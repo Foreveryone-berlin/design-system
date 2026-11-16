@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import type { Metadata } from "next";
 import CodeBlock from "../_components/CodeBlock";
 
@@ -10,17 +12,39 @@ export const metadata: Metadata = {
 const RAW = "https://raw.githubusercontent.com/Foreveryone-berlin/design-system/main";
 const REPO_DOCS = "https://github.com/Foreveryone-berlin/design-system/blob/main/docs/agent-skills.md";
 
-const SKILLS = [
-  { id: "fe-design-system", summary: "Find the maintained sources and choose the skill for your task." },
-  { id: "fe-core", summary: "Use the shared CSS, approved colours, typography, and brand rules." },
-  { id: "fe-tokens", summary: "Resolve token names and extend the palette by role." },
-  { id: "fe-components", summary: "Build components from documented markup and state contracts." },
-  { id: "fe-a11y", summary: "Check contrast, keyboard focus, motion, and alternative text." },
-  { id: "fe-redesign", summary: "Map an existing interface onto the design system." },
-  { id: "fe-og-image", summary: "Create OG and featured images for a specific page." },
+const SKILL_ORDER = [
+  "fe-design-system",
+  "fe-core",
+  "fe-tokens",
+  "fe-token-authoring",
+  "fe-components",
+  "fe-component-authoring",
+  "fe-a11y",
+  "fe-redesign",
+  "fe-og-image",
 ];
 
+type SkillEntry = {
+  name: string;
+  description: string;
+  guide?: string;
+};
+
+function loadSkills(): SkillEntry[] {
+  const indexPath = path.join(process.cwd(), "..", "dist", "skills", "index.json");
+  const index = JSON.parse(readFileSync(indexPath, "utf8")) as { skills: SkillEntry[] };
+  return [...index.skills].sort((a, b) => {
+    const indexA = SKILL_ORDER.indexOf(a.name);
+    const indexB = SKILL_ORDER.indexOf(b.name);
+    if (indexA !== -1 && indexB !== -1) return indexA - indexB;
+    if (indexA !== -1) return -1;
+    if (indexB !== -1) return 1;
+    return a.name.localeCompare(b.name);
+  });
+}
+
 export default function AgentSkillsPage() {
+  const skills = loadSkills();
   return (
     <>
       <h1 className="ds-page-title">Agent skills</h1>
@@ -40,10 +64,10 @@ export default function AgentSkillsPage() {
           <table className="ds-table">
             <thead><tr><th scope="col">Skill</th><th scope="col">Use it to</th></tr></thead>
             <tbody>
-              {SKILLS.map((skill) => (
-                <tr key={skill.id} id={skill.id}>
-                  <th scope="row"><a href={`https://github.com/Foreveryone-berlin/design-system/blob/main/skills/${skill.id}/SKILL.md`}><code>{skill.id}</code></a></th>
-                  <td>{skill.summary}</td>
+              {skills.map((skill) => (
+                <tr key={skill.name} id={skill.name}>
+                  <th scope="row"><a href={`https://github.com/Foreveryone-berlin/design-system/blob/main/skills/${skill.name}/SKILL.md`}><code>{skill.name}</code></a></th>
+                  <td>{skill.guide || skill.description}</td>
                 </tr>
               ))}
             </tbody>

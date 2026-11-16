@@ -5,31 +5,66 @@ metadata:
   foreveryone: ">=1.9.0 <2.0.0"
   requires: "fe-core"
   docs: "llms.txt, spec/principles.md, docs/a11y-conformance.md, docs/validation.md"
+  guide: "Check contrast, keyboard focus, motion, and alternative text."
 ---
 
 # ForEveryone accessibility
 
-Requires [`fe-core`](../fe-core/SKILL.md). Read
-[`_shared/conventions.md`](../_shared/conventions.md) alongside this file.
+Requires [`fe-core`](../fe-core/SKILL.md). Follow the conventions in that skill.
 
 ## When to use
 
 Any task that changes interactive UI, colour pairings, motion, or content images, or
 that reviews a surface against the public accessibility statement.
 
+## Workflow
+
+- [ ] Step 1: Check the pairing
+- [ ] Step 2: Check keyboard, motion, and names
+- [ ] Step 3: Verify
+
+## Step 1: Check the pairing
+
+Target WCAG 2.1 Level AA. Text contrast is at least 4.5:1, and 3:1 for large text
+and UI boundaries. Use a pairing listed in `spec/principles.md`.
+
+## Step 2: Check keyboard, motion, and names
+
+Keep `:focus-visible`. A skip link points at `#main-content`. Icon-only controls
+have accessible names. Content images say what is happening, in one sentence.
+Decorative graphics use empty alt. Closed mobile nav and collapsed FAQ items leave
+the tab order and the accessibility tree.
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  .fe-motion {
+    animation: none;
+    transition: none;
+  }
+}
+```
+
 ## Rules
 
-1. Target **WCAG 2.1 Level AA**. Text contrast ≥ 4.5:1 (3:1 for large text and UI
-   boundaries). Use only approved pairings from `spec/principles.md`.
-2. Keep **visible keyboard focus** (`:focus-visible`). Never remove the focus ring or
-   substitute it with an invisible outline.
-3. Honour **`prefers-reduced-motion`**: reduce or remove non-essential animation.
-4. Provide a **skip link** to `#main-content` on host pages; interactive controls need
-   accessible names (especially icon-only buttons).
-5. Write **meaningful alt text** for content images (what is happening, one sentence).
-   Decorative graphics get empty alt.
-6. Content behind toggles (mobile nav, collapsed FAQ) must leave the tab order and
-   accessibility tree when closed.
+1. Target WCAG 2.1 Level AA with the contrast floors above.
+2. Keep visible keyboard focus. The focus style stays visible.
+3. Honour `prefers-reduced-motion`.
+4. Provide a skip link and accessible names.
+5. Write meaningful alt text. Decorative graphics get empty alt.
+6. Closed disclosure content leaves the tab order and the accessibility tree.
+
+## Verify
+
+Tab from the top of the page. The skip link appears on focus and moves focus to
+`#main-content`. Every interactive control shows a visible focus style. Disabled
+and closed content is skipped. With `prefers-reduced-motion: reduce`, non-essential
+animation stops.
+
+In this repository, with the prototype dev server running:
+
+```sh
+cd prototype && PLAYWRIGHT_BASE_URL=http://localhost:3100 npm run test:e2e
+```
 
 ## Do not
 

@@ -42,7 +42,7 @@ Paths are repo-relative from project root unless noted.
 |css:{custom-properties.css,base.css,typography.css,utilities.css}
 |css/integrations:{elementor.css}
 |scripts:{build-css.js,build-css.test.js,build-spec.js,build-skills.mjs,build-skills.test.mjs,pr-and-merge.sh,optimize-run.sh,import-figma-elements.mjs,import-desktop-elements.mjs,svg-normalize.mjs}
-|skills:{_shared/conventions.md,fe-core/SKILL.md,fe-redesign/SKILL.md,fe-og-image/SKILL.md}
+|skills:{_shared/conventions.md,fe-core/SKILL.md,fe-tokens/SKILL.md,fe-token-authoring/SKILL.md,fe-components/SKILL.md,fe-component-authoring/SKILL.md,fe-a11y/SKILL.md,fe-design-system/SKILL.md,fe-redesign/SKILL.md,fe-og-image/SKILL.md}
 |bin:{fe-ds.mjs}
 |prototype:{README.md,next.config.ts,package.json,tsconfig.json,playwright.config.ts}
 |prototype/app:{layout.tsx,page.tsx,globals.css,manifest.ts,FaqDemo.tsx}
