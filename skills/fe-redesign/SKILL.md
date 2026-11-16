@@ -5,34 +5,109 @@ metadata:
   foreveryone: ">=1.9.0 <2.0.0"
   requires: "fe-core"
   docs: "llms.txt, spec/principles.md, spec/tokens.json, docs/agents/redesign-from-this-system.md"
+  guide: "Map an existing interface onto the design system."
 ---
 
 # Redesign from this design system
 
-Installable form of [`docs/agents/redesign-from-this-system.md`](https://github.com/Foreveryone-berlin/design-system/blob/main/docs/agents/redesign-from-this-system.md).
-Requires [`fe-core`](../fe-core/SKILL.md).
+Requires [`fe-core`](../fe-core/SKILL.md). The rule source is
+[`docs/agents/redesign-from-this-system.md`](https://github.com/Foreveryone-berlin/design-system/blob/main/docs/agents/redesign-from-this-system.md).
 
 ## When to use
 
-A developer points an agent at this repository (or installed `fe-skills/`) and asks it to
-restyle a Next.js or other web app to ForEveryone from one careful prompt.
+A developer points an agent at this repository (or an installed skill payload) and
+asks it to restyle a web app to ForEveryone.
+
+## Workflow
+
+Work in order. After each step, search the project for leftovers before continuing.
+
+- [ ] Step 1: Read the sources and import tokens
+- [ ] Step 2: Map colours by role
+- [ ] Step 3: Rebuild components to fe-* contracts
+- [ ] Step 4: Apply type and layout rules
+- [ ] Step 5: Verify
+
+## Step 1: Read the sources and import tokens
+
+Read, in order: `llms.txt`, `tokens.json` (or `spec/tokens.json`), `spec/principles.md`,
+`spec/components/*.md`. Import `css/custom-properties.css` once at the app root.
+
+Load [`fe-core`](../fe-core/SKILL.md) before editing styles.
+
+## Step 2: Map colours by role
+
+Replace ad-hoc colours with tokens by role: background, text, accent, border.
+Use approved pairings from `spec/principles.md`. Extend a missing shade in OKLCH
+(hold hue and lightness, step chroma).
+
+Search for leftover colour literals. Ignore `node_modules` and generated
+`css/custom-properties.css`.
+
+```sh
+grep -rnE --include='*.css' --include='*.scss' --include='*.tsx' --include='*.jsx' --include='*.vue' --include='*.html' '#[0-9a-fA-F]{3,8}\b|rgb\(|hsl\(' .
+```
+
+A hit in authored UI CSS is still an ad-hoc colour.
+
+## Step 3: Rebuild components to fe-* contracts
+
+Rebuild buttons, cards, inputs, tags, and accordions to the `.fe-*` contracts,
+including default, hover, focus or pressed, and disabled. Follow
+[`fe-components`](../fe-components/SKILL.md).
+
+```sh
+grep -rnE --include='*.html' --include='*.tsx' --include='*.jsx' --include='*.vue' '<(button|input|textarea|select)\b' .
+```
+
+Each rebuilt control uses the class from its contract.
+
+## Step 4: Apply type and layout rules
+
+Filson Pro is the digital face. Body line-height is at least 1.5. Text is
+left-aligned, with the spacing scale from the tokens. Print faces and print
+colours stay off the web.
+
+```sh
+grep -rn --include='*.css' --include='*.scss' 'font-family:' .
+grep -rnE --include='*.css' --include='*.scss' --include='*.tsx' --include='*.jsx' -- '--color-(print|doc)-|--font-family-accent' .
+```
+
+Authored `font-family` is a `var(--font-family-*)` digital token. A print-token
+hit on a screen stylesheet is a failure.
+
+## Step 5: Verify
+
+Run the app. Tab through the changed screens. Focus is visible. With
+`prefers-reduced-motion: reduce`, non-essential motion stops. Contrast uses a
+documented pairing. Orange is not a text colour or a background behind text.
+Blue text is pure white.
+
+Repeat the three searches from Steps 2 to 4. Report a token-by-token mapping of
+what changed, plus any search hit left in place and why.
 
 ## Rules
 
-1. Read, in order: `llms.txt`, `tokens.json`, `spec/principles.md`, `spec/components/*.md`,
-   then import `css/custom-properties.css`.
-2. Map ad-hoc colours to tokens by role (background, text, accent). Use only approved
-   pairings.
-3. Extend missing shades in OKLCH (hold hue + lightness, step chroma). Never invent hex.
+1. Read the sources in Step 1, then import `css/custom-properties.css`.
+2. Map colours by role. Use approved pairings.
+3. Extend missing shades in OKLCH. Keep new hex values out of authored CSS.
 4. Rebuild buttons, cards, inputs, tags, and accordions to `.fe-*` contracts and states.
-5. Apply type and layout rules: Filson Pro digital only; body line-height ≥ 1.5;
-   left-aligned, generous white space.
-6. Verify: no `surface:"print"` tokens on the web, no Orange text background, documented
-   contrast holds, keyboard focus visible, `prefers-reduced-motion` respected.
+5. Apply Filson Pro on digital UI, body line-height at least 1.5, left alignment.
+6. Leave `surface: "print"` tokens off the web.
+
+## Verify
+
+The checks in Step 5 are the gate. The restyle is done when the three searches
+are clean for the files you changed, the state matrix for each rebuilt control
+is on the page, and the browser resolves the imported variables:
+
+```js
+getComputedStyle(document.documentElement).getPropertyValue("--color-brand-primary").trim()
+```
 
 ## Do not
 
-- Skip `fe-core` conventions.
+- Skip `fe-core`.
 - Invent hex values or font names.
 - Use print tokens on the web.
 - Put text on Orange, or white text on a light tint.
@@ -43,27 +118,24 @@ restyle a Next.js or other web app to ForEveryone from one careful prompt.
 ```text
 You are restyling THIS web app to the ForEveryone Berlin design system.
 
-Source of truth: the design-system repo (or fe-skills/ from fe-ds install). Read, in
-order: llms.txt, tokens.json / spec/tokens.json, spec/principles.md,
-spec/components/*.md, and css/custom-properties.css. Treat them as authoritative.
-Load the fe-core and fe-redesign skills if installed.
+Source of truth: the design-system repo (or the installed skill payload). Read, in
+order: llms.txt, tokens.json or spec/tokens.json, spec/principles.md,
+spec/components/*.md, and css/custom-properties.css. Load fe-core and fe-redesign.
 
-Do:
+Work in order. After each step, search for leftovers before continuing.
 - Import css/custom-properties.css once at the app root.
 - Replace every ad-hoc colour, font, radius, and spacing value with the nearest
-  token by ROLE.
+  token by role. Search: grep -rnE '#[0-9a-fA-F]{3,8}\b|rgb\(|hsl\('
 - Rebuild buttons, cards, inputs, tags, and accordions to the .fe-* contracts,
   including their states.
-- Apply the colour, typography, and layout rules in spec/principles.md exactly.
+- Apply the colour, typography, and layout rules in spec/principles.md.
+  Search font-family declarations and --color-print-, --color-doc-, --font-family-accent.
 
-Never:
-- Invent hex values or font names: extend palettes in OKLCH.
-- Use any token whose surface is "print" on the web.
-- Put text on an Orange background, or white text on a light tint.
-- Put any text but pure white on Blue, or use Blue in print.
+Leave print tokens off the web. Orange is never text or a background behind text.
+Blue text is pure white. Extend palettes in OKLCH.
 
 Then verify: run the app, check contrast, keyboard focus, prefers-reduced-motion,
-and report a token-by-token mapping of what you changed.
+confirm --color-brand-primary resolves, and report a token-by-token mapping.
 ```
 
 ## Canonical docs

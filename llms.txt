@@ -54,8 +54,9 @@ role, and component has one correct answer.
 
 ## Agent skills
 
-Guides for AI agents (`fe-design-system`, `fe-core`, `fe-tokens`, `fe-components`,
-`fe-a11y`, `fe-redesign`, `fe-og-image`) under `skills/`, built to
+Guides for AI agents (`fe-design-system`, `fe-core`, `fe-tokens`, `fe-token-authoring`,
+`fe-components`, `fe-component-authoring`, `fe-a11y`, `fe-redesign`, `fe-og-image`)
+under `skills/`, built to
 `dist/skills/`, `.claude/skills/` for Claude Code, and `.agents/skills/` for
 Cursor and Codex. They package the rules
 in this file and in `spec/` for use in another project.

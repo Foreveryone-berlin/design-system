@@ -8,6 +8,17 @@
 
 ## [Unreleased]
 
+### Added
+
+- Add an agent guide for adding or changing a design token.
+- Add an agent guide for adding a public component.
+
+### Changed
+
+- Turn the restyle guide into ordered steps with a search after each step.
+- Give every agent guide a check that must pass before the work is done.
+- Build the agent skills list from the published skill index.
+
 ## [1.19.1] - 2026-11-10
 
 ### Fixed

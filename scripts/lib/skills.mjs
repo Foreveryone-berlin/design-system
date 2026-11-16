@@ -18,10 +18,11 @@ export const FRONTMATTER_SCHEMA = {
   foreveryone: 'string',
   requires: 'list',
   docs: 'list',
+  guide: 'string',
 };
 
 /** Keys that live under `metadata` as strings, never at the top level. */
-export const METADATA_KEYS = ['foreveryone', 'requires', 'docs'];
+export const METADATA_KEYS = ['foreveryone', 'requires', 'docs', 'guide'];
 
 const FRONTMATTER_RE = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/;
 
@@ -224,6 +225,12 @@ export function validateSkill(skill, { version, skillNames }) {
       errors.push(`${where}: description must say when to use the skill`);
     }
   }
+  if (typeof data.guide === 'string' && !data.guide.trim()) {
+    errors.push(`${where}: guide must be a short "use it to" sentence`);
+  }
+  if (typeof data.guide === 'string' && data.guide.length > 120) {
+    errors.push(`${where}: guide is ${data.guide.length} characters, cap is 120`);
+  }
   if (typeof data.foreveryone === 'string' && !satisfies(version, data.foreveryone)) {
     errors.push(`${where}: foreveryone range "${data.foreveryone}" excludes current ${version}`);
   }
@@ -241,10 +248,14 @@ export function validateSkill(skill, { version, skillNames }) {
   if (!/^#\s+\S/m.test(skill.body)) {
     errors.push(`${where}: body needs an H1`);
   }
-  for (const heading of ['## When to use', '## Rules', '## Do not', '## Canonical docs']) {
+  for (const heading of ['## When to use', '## Workflow', '## Rules', '## Verify', '## Do not', '## Canonical docs']) {
     if (!skill.body.includes(heading)) {
       errors.push(`${where}: body is missing the "${heading}" section`);
     }
+  }
+  const source = skill.text ?? '';
+  if (source.includes('](../_shared/conventions.md)') || source.includes('](_shared/conventions.md)')) {
+    errors.push(`${where}: inline conventions via fe-core; do not link _shared/conventions.md`);
   }
 
   return errors;
