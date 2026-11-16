@@ -157,8 +157,8 @@ export default function ComponentsPage() {
           <code className="ds-code">.fe-icon-btn</code> with no network colour
           and darken on hover and press. The play button ships in two sizes
           (<code className="ds-code">.fe-play-btn</code> and{" "}
-          <code className="ds-code">--lg</code>) and now has a real hover and
-          pressed state. See{" "}
+          <code className="ds-code">--lg</code>) and has hover and pressed
+          states. See{" "}
           <code className="ds-code">docs/visual-styles.md</code>.
         </p>
         <div
@@ -453,7 +453,7 @@ export default function ComponentsPage() {
         <p className="ds-section-intro">
           Header and footer nav links: Default, Hover (Charcoal underline grows
           in), and Disabled. Orange is never used on links; the underline stays the link
-          colour. Focus is keyboard-only &mdash; Tab to the link below to see the
+          colour. Focus is keyboard-only: Tab to the link below to see the
           gold <code className="ds-code">:focus-visible</code> ring.
         </p>
         <div className="ds-state-matrix">
