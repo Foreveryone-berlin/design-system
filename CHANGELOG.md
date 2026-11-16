@@ -8,6 +8,8 @@
 
 ## [Unreleased]
 
+## [1.20.0] - 2026-11-16
+
 ### Added
 
 - Add an agent guide for adding or changing a design token. ([#319](https://github.com/Foreveryone-berlin/design-system/pull/319), [#318](https://github.com/Foreveryone-berlin/design-system/issues/318))
