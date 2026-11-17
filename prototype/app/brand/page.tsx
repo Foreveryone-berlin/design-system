@@ -56,11 +56,11 @@ const weAre = [
 const weAreNot = ["Fake", "Forceful", "Smug", "Corporate", "Preachy", "Detached"];
 
 const voiceTraits = [
-  "Lightly Playful",
+  "Lightly playful",
   "Empowering",
   "Welcoming",
   "Authentic",
-  "Emotionally Engaging",
+  "Emotionally engaging",
 ];
 
 const copyPairs = [
@@ -116,7 +116,7 @@ export default function BrandPage() {
         <h2 className="ds-section-title">Who we are</h2>
         <p className="fe-body">
           ForEveryone is a volunteer-run, community-focused non-profit social
-          enterprise in the heart of Berlin. Founded in 2022, we started with a straightforward belief: that
+          enterprise in Berlin. Founded in 2022, we started with a straightforward belief: that
           joy, belonging, and resilience through creative connection should be
           open to everyone.
         </p>
@@ -176,9 +176,8 @@ export default function BrandPage() {
       <section className="ds-section">
         <h2 className="ds-section-title">Brand personality</h2>
         <p className="fe-body">
-          ForEveryone acts as a friendly, creative host: welcoming people in,
-          helping them feel at ease, and giving them the confidence to participate
-          fully. Every word we write and every design we produce should feel like
+          ForEveryone is a friendly, creative host. It welcomes people in, helps
+          them feel at ease, and gives them the confidence to participate fully. Every word we write and every design we produce should feel like
           it came from a person who genuinely wants you there.
         </p>
         <div className="ds-personality">

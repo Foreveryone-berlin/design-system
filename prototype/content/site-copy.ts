@@ -27,4 +27,4 @@ export const stats = [
 ] as const;
 
 export const designSystemIntro =
-  "This page showcases the design system. Use the sections below to inspect tokens and components.";
+  "Use the sections below to inspect the design system's tokens and components.";

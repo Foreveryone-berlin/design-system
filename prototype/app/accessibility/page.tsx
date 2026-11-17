@@ -22,8 +22,8 @@ export default function AccessibilityPage() {
       <section className="ds-section">
         <h2 className="ds-section-title">Our commitment</h2>
         <p className="fe-body">
-          Accessibility is part of being &ldquo;for everyone&rdquo;, not an
-          afterthought. We also treat the{" "}
+          Accessibility is part of being &ldquo;for everyone&rdquo; from the
+          start. We also treat the{" "}
           <a
             href="https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/union-equality-strategy-rights-persons-disabilities-2021-2030/european-accessibility-act_en"
             target="_blank"
@@ -31,7 +31,7 @@ export default function AccessibilityPage() {
           >
             European Accessibility Act
           </a>{" "}
-          as a baseline obligation, not a ceiling. Every token, component, and
+          as a baseline obligation that we aim to exceed. Every token, component, and
           pattern in this system is designed to support an inclusive experience
           by default.
         </p>
@@ -60,8 +60,8 @@ export default function AccessibilityPage() {
         <ul className="ds-rule-list">
           <li>
             A visible <strong>keyboard focus ring</strong> on every interactive
-            element &mdash; a warm-gold outline shown only for keyboard
-            navigation (<code>:focus-visible</code>) &mdash; and a{" "}
+            element (a warm-gold outline shown only for keyboard navigation,{" "}
+            <code>:focus-visible</code>) and a{" "}
             <strong>skip link</strong> to main content.
           </li>
           <li>
@@ -107,9 +107,9 @@ export default function AccessibilityPage() {
           <li>
             The <strong>keyboard focus ring</strong> is a warm gold in the brand
             reference&rsquo;s hue, deepened so it reaches{" "}
-            <strong>3.19:1</strong> against white &mdash; clearing the{" "}
-            <strong>3:1</strong> non-text-contrast target (WCAG 1.4.11) rather
-            than relying on outline thickness alone.
+            <strong>3.19:1</strong> against white. That clears the{" "}
+            <strong>3:1</strong> non-text-contrast target (WCAG 1.4.11) without
+            relying on outline thickness alone.
           </li>
         </ul>
         <p className="fe-body" style={{ marginBlockStart: "var(--spacing-4)" }}>
@@ -192,8 +192,8 @@ export default function AccessibilityPage() {
         <h2 className="ds-section-title">Alt text</h2>
         <p className="fe-body">
           Alt text is a short written description that screen readers read aloud
-          for people who are blind or have low vision. It is a small but meaningful
-          way we make sure ForEveryone really means everyone, and it improves
+          for people who are blind or have low vision. It is one way we make
+          ForEveryone mean everyone, and it improves
           search visibility too (Brand Book v1.0 p.29, 37).
         </p>
         <div className="ds-dodont">
@@ -201,8 +201,8 @@ export default function AccessibilityPage() {
             <p className="ds-dodont__label">Do</p>
             <ul>
               <li>
-                Describe what is <em>happening</em>, not just what is in the frame
-                &mdash; mention activity and setting.
+                Describe what is <em>happening</em>, including the activity and
+                setting, as well as what is in the frame.
               </li>
               <li>Keep it to one sentence.</li>
               <li>Leave alt text empty for purely decorative graphics.</li>
@@ -222,7 +222,7 @@ export default function AccessibilityPage() {
           at No. 52 Cafe&rdquo; says more than &ldquo;people in a room&rdquo;. On
           social platforms (Instagram, Facebook, LinkedIn) add alt text in the
           post&rsquo;s advanced settings; on the website the web team manages alt
-          text in the CMS &mdash; send suggested alt text alongside each image.
+          text in the CMS, so send suggested alt text alongside each image.
         </p>
       </section>
 
