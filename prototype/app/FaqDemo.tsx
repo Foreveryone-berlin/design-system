@@ -7,7 +7,7 @@ const faqItems = [
     id: "faq-1",
     question: "Do I need experience to attend a workshop?",
     answer:
-      "Absolutely not! All our workshops are designed to be beginner-friendly. We invite everyone to just be in the moment and experience without any expectations.",
+      "No experience needed. All our workshops are designed to be beginner-friendly, and we invite everyone to be in the moment with no expectations.",
   },
   {
     id: "faq-2",

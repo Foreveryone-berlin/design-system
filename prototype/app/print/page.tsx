@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Print & Media",
   description:
-    "The digital ↔ print boundary: what is print/physical-only (Young Serif, CMYK, print purple, document greys, cafe signs) and must not be used on the web.",
+    "The boundary between digital and print: what is print or physical only (Young Serif, CMYK, print purple, document greys, cafe signs) and must not be used on the web.",
   alternates: { canonical: "/print" },
 };
 
@@ -132,7 +132,7 @@ export default function PrintPage() {
               style={{ background: "var(--color-brand-secondary)" }}
               aria-hidden="true"
             />
-            <p className="ds-print-swap__label">Digital — Blue</p>
+            <p className="ds-print-swap__label">Digital: Blue</p>
             <code>#3F00EB</code>
           </div>
           <span className="ds-print-swap__arrow" aria-hidden="true">
@@ -144,7 +144,7 @@ export default function PrintPage() {
               style={{ background: "var(--color-print-purple-home)" }}
               aria-hidden="true"
             />
-            <p className="ds-print-swap__label">Print — Purple (Home)</p>
+            <p className="ds-print-swap__label">Print: Purple (Home)</p>
             <code>#6A5AA7</code>
           </div>
           <div className="ds-print-swap__card">
@@ -153,7 +153,7 @@ export default function PrintPage() {
               style={{ background: "var(--color-print-purple-press)" }}
               aria-hidden="true"
             />
-            <p className="ds-print-swap__label">Print — Purple (Press)</p>
+            <p className="ds-print-swap__label">Print: Purple (Press)</p>
             <code>#674DA0</code>
           </div>
         </div>
@@ -163,8 +163,8 @@ export default function PrintPage() {
         <h2 className="ds-section-title">Document greys</h2>
         <p className="fe-body">
           Two warm greys (<code>#F0EDE7</code>, <code>#D7D2CB</code>) belong to the
-          Brand Book&rsquo;s own document design only &mdash; tables, callout
-          boxes, reference notes. They are <strong>not</strong> part of the
+          Brand Book&rsquo;s own document design only (tables, callout boxes,
+          reference notes). They are <strong>not</strong> part of the
           ForEveryone brand palette and must not appear in product UI.
         </p>
       </section>

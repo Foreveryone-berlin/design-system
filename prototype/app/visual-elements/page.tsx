@@ -315,9 +315,9 @@ export default function VisualElementsPage() {
         <h2 className="ds-section-title">Line illustrations</h2>
         <p className="fe-body">
           <strong>Atmospheric.</strong> Organic, hand-drawn elements that add
-          personality and warmth &mdash; a supporting touch, never the dominant
-          element. Unlike workshop icons they need no category label, giving
-          freedom to pick one that suits the mood of a post or document. Orange is
+          personality and warmth. Use them as a supporting touch, not the
+          dominant element. Unlike workshop icons they need no category label, so
+          you can pick one that suits the mood of a post or document. Orange is
           prioritised; no shadows, gradients, or outlines.
         </p>
         <div className="ds-illo-specimens">
@@ -483,10 +483,6 @@ export default function VisualElementsPage() {
           See <a href="https://github.com/Foreveryone-berlin/design-system/blob/main/docs/visual-styles.md#graphic-shapes-blobs-vs-waves">shape contracts</a> for
           source paths and cropping rules, or the <a href="https://github.com/Foreveryone-berlin/design-system/blob/main/integrations/elementor/shapes.md">Elementor adapter</a> for
           native divider settings and workshop-page references.
-        </p>
-        <p className="fe-callout">
-          Blobs are containers/masks; waves are section dividers. Do not swap one
-          for the other.
         </p>
       </section>
     </>

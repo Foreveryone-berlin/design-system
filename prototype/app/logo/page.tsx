@@ -44,7 +44,7 @@ export default function LogoPage() {
       <h1 className="ds-page-title">Logo</h1>
       <p className="ds-intro">
         The ForEveryone logo combines a stylised human-like symbol with a clean
-        wordmark, representing people, inclusivity, and community. Always use the
+        wordmark. It stands for people, inclusivity, and community. Always use the
         official files from the asset library; never recreate or alter the logo.
         Rules from the Brand Book v1.0 (p.10&ndash;15); see{" "}
         <a href="https://github.com/Foreveryone-berlin/design-system/blob/main/docs/logo-usage.md">
@@ -118,8 +118,8 @@ export default function LogoPage() {
       <section className="ds-section">
         <h2 className="ds-section-title">Background combinations</h2>
         <p className="fe-body">
-          Each approved background has exactly one correct logo colour. There are
-          no exceptions. These rules apply equally to horizontal, stacked, and
+          Each approved background has exactly one correct logo colour, with no
+          exceptions. These rules apply equally to horizontal, stacked, and
           standalone variants.
         </p>
         <div className="ds-logo-bg-grid">
@@ -160,7 +160,7 @@ export default function LogoPage() {
           </figure>
         </div>
         <p className="fe-callout">
-          Never use Lavender (<code>#D5C5FF</code>) as a logo background &mdash;
+          Never use Lavender (<code>#D5C5FF</code>) as a logo background;
           use Soft Lavender (<code>#E5DCFF</code>) instead. The White logo on Blue
           is pure white (<code>#FFFFFF</code>), not Warm White.
         </p>
@@ -191,8 +191,8 @@ export default function LogoPage() {
       <section className="ds-section">
         <h2 className="ds-section-title">Incorrect usage</h2>
         <p className="fe-body">
-          Never do any of the following to the logo. Each card below describes a
-          misuse the Brand Book (p.14) rules out.
+          Never do any of the following to the logo. The Brand Book (p.14) rules
+          out each one.
         </p>
         <ul className="ds-dont-grid">
           {donts.map((d) => (

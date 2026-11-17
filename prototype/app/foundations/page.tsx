@@ -456,7 +456,7 @@ export default function TokensPage() {
             color: "var(--color-theme-8)",
           }}
         >
-          Background ⇄ text pairs allowed by the October 2026 palette. Orange
+          Background and text pairs allowed by the October 2026 palette. Orange
           is accent only: never behind text, and never on buttons or links.
         </p>
         <div className="ds-combos">
@@ -709,8 +709,8 @@ export default function TokensPage() {
       <section id="motion" className="ds-section">
         <h2 className="ds-section-title">Motion</h2>
         <p className="ds-section-intro">
-          Motion is calm and purposeful: it confirms an action or eases a
-          transition, never performs. One shared <code className="ds-code">ease</code>{" "}
+          Motion is calm and purposeful: it only confirms an action or eases a
+          transition. One shared <code className="ds-code">ease</code>{" "}
           curve at three durations; the speed reads as proportional to the size
           of the moving surface. Every animated surface respects reduced-motion.
         </p>
@@ -740,10 +740,10 @@ export default function TokensPage() {
       <section id="layout" className="ds-section">
         <h2 className="ds-section-title">Layout</h2>
         <p className="ds-section-intro">
-          Layouts are open, warm, and well-structured: generous white space,
-          photography and community content leading, no visual clutter (Brand Book
-          v1.0 p.33). White space is an active design decision &mdash; when in
-          doubt, reduce content rather than reduce spacing.
+          Layouts are open, warm, and well structured, with generous white space,
+          photography and community content in the lead, and no visual clutter
+          (Brand Book v1.0 p.33). White space is a deliberate design decision:
+          when in doubt, reduce content rather than spacing.
         </p>
         <ul className="ds-rule-list">
           <li>
@@ -763,7 +763,7 @@ export default function TokensPage() {
         <h3 className="ds-subsection-title">QR codes</h3>
         <p className="fe-body">
           Frame each QR code in a solid <strong>Orange</strong> border with four
-          rounded corners, on a White or Warm White background &mdash; Orange in
+          rounded corners, on a White or Warm White background, with Orange in
           its approved role as a border accent. No tilt, no effects; leave even
           breathing space between the code and the border.
         </p>

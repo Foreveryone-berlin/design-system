@@ -8,6 +8,20 @@
 
 ## [Unreleased]
 
+## [1.20.1] - 2026-11-17
+
+### Changed
+
+- Site copy: Replace dashes and arrows with plain punctuation across the site pages. ([#323](https://github.com/Foreveryone-berlin/design-system/pull/323), [#322](https://github.com/Foreveryone-berlin/design-system/issues/322))
+- Site copy: Reword the accessibility, logo, components, and line illustration rules to read plainly. ([#323](https://github.com/Foreveryone-berlin/design-system/pull/323), [#322](https://github.com/Foreveryone-berlin/design-system/issues/322))
+- Site copy: Reword the home, brand, guidelines, and layout intros and the FAQ demo answer. ([#323](https://github.com/Foreveryone-berlin/design-system/pull/323), [#322](https://github.com/Foreveryone-berlin/design-system/issues/322))
+- Site copy: Use sentence case for the voice trait chips on the brand page. ([#323](https://github.com/Foreveryone-berlin/design-system/pull/323), [#322](https://github.com/Foreveryone-berlin/design-system/issues/322))
+- Other copy: Reword the Print and Media page description shown in search results. ([#323](https://github.com/Foreveryone-berlin/design-system/pull/323), [#322](https://github.com/Foreveryone-berlin/design-system/issues/322))
+
+### Removed
+
+- Site copy: Remove the repeated blob and wave callout on the visual elements page. ([#323](https://github.com/Foreveryone-berlin/design-system/pull/323), [#322](https://github.com/Foreveryone-berlin/design-system/issues/322))
+
 ## [1.20.0] - 2026-11-16
 
 ### Added
