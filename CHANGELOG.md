@@ -8,6 +8,8 @@
 
 ## [Unreleased]
 
+## [1.20.1] - 2026-11-17
+
 ### Changed
 
 - Site copy: Replace dashes and arrows with plain punctuation across the site pages. ([#323](https://github.com/Foreveryone-berlin/design-system/pull/323), [#322](https://github.com/Foreveryone-berlin/design-system/issues/322))
