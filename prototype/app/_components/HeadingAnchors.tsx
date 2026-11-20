@@ -37,8 +37,11 @@ export default function HeadingAnchors() {
       clearTimeout(announceTimer.current);
       announceTimer.current = setTimeout(() => setAnnouncement(""), 2000);
     });
+    // Hydration signal for e2e tests; set even on pages with no anchored headings.
+    main.dataset.anchorsReady = "true";
 
     return () => {
+      delete main.dataset.anchorsReady;
       timers.current.forEach((t) => clearTimeout(t));
       timers.current.clear();
       clearTimeout(announceTimer.current);

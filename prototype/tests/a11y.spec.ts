@@ -20,7 +20,7 @@ const routes = [
 for (const route of routes) {
   test(`${route} has no WCAG 2.2 AA violations`, async ({ page }) => {
     await page.goto(route, { waitUntil: "domcontentloaded" });
-    await page.locator("#main-content .ds-heading-anchor").first().waitFor({ state: "attached" });
+    await page.locator("#main-content[data-anchors-ready]").waitFor({ state: "attached" });
     await page.waitForLoadState("networkidle", { timeout: 10_000 }).catch(() => {});
 
     // Exclude documentation specimens: the foundations colour-ramp swatches and
