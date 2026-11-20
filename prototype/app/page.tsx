@@ -1,13 +1,9 @@
-import {
-  hero as heroCopy,
-  mission as missionCopy,
-  stats as statsCopy,
-  designSystemIntro,
-} from "@/content/site-copy";
+import { hero as heroCopy, stats as statsCopy } from "@/content/site-copy";
 import packageJson from "@/package.json";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
+import HomeStory from "./_components/HomeStory";
 import PhotoCredit from "./_components/PhotoCredit";
 
 export const metadata = {
@@ -15,6 +11,80 @@ export const metadata = {
 };
 
 const StatCounter = dynamic(() => import("./_components/StatCounter"));
+
+type OverviewCard = { href: string; title: string; desc: string; link: string };
+
+const chapters: { title: string; cards: OverviewCard[] }[] = [
+  {
+    title: "Meet the brand",
+    cards: [
+      {
+        href: "/brand",
+        title: "About & Brand",
+        desc: "Who we are, mission and vision, values, personality, and voice and tone.",
+        link: "View about & brand",
+      },
+      {
+        href: "/logo",
+        title: "Logo",
+        desc: "Logo variants, clear space, background combinations, and incorrect usage.",
+        link: "View logo",
+      },
+      {
+        href: "/guidelines",
+        title: "Guidelines",
+        desc: "Voice, content, and usage rules: how to combine colour, type, and illustration on-brand.",
+        link: "View guidelines",
+      },
+    ],
+  },
+  {
+    title: "Build with it",
+    cards: [
+      {
+        href: "/foundations",
+        title: "Foundations",
+        desc: "Colour, typography, spacing, radius, and shadows: the visual foundation, as design tokens.",
+        link: "View foundations",
+      },
+      {
+        href: "/components",
+        title: "Components",
+        desc: "Buttons, inputs, cards, tags, accordion, and other interactive elements.",
+        link: "View components",
+      },
+      {
+        href: "/patterns",
+        title: "Patterns",
+        desc: "Header, footer, workshop cards, events, and composite layouts that combine tokens and components.",
+        link: "View patterns",
+      },
+    ],
+  },
+  {
+    title: "Use it well",
+    cards: [
+      {
+        href: "/accessibility",
+        title: "Accessibility",
+        desc: "Our commitment, conformance target, what is built in, and how we test for an inclusive experience.",
+        link: "View accessibility",
+      },
+      {
+        href: "/agent-skills",
+        title: "Agent skills",
+        desc: "Installable guides for AI agents: core rules, tokens, components, accessibility, redesign, and OG images.",
+        link: "View agent skills",
+      },
+      {
+        href: "/governance",
+        title: "Governance",
+        desc: "Versioning, contribution, and the changelog: how the system evolves and stays consistent.",
+        link: "View governance",
+      },
+    ],
+  },
+];
 
 export default function Home() {
   const version = packageJson.version;
@@ -24,16 +94,24 @@ export default function Home() {
     <>
       <section className="ds-hero-with-image ds-home-hero">
         <div>
-        <div className="ds-headline-with-underline">
-          <h1 className="ds-hero-title">
-            {headlineFirst}
-            <br />
-            {headlineRest.join(" ")}
-          </h1>
-          <span className="ds-headline-underline" aria-hidden="true" />
-        </div>
+          <div className="ds-headline-with-underline">
+            <h1 className="ds-hero-title">
+              {headlineFirst}
+              <br />
+              {headlineRest.join(" ")}
+            </h1>
+            <span className="ds-headline-underline" aria-hidden="true" />
+          </div>
           <span className="ds-hero-version">v{version}</span>
           <p className="ds-intro">{heroCopy.tagline}</p>
+          <div className="ds-hero-actions">
+            <Link href="/foundations" className="fe-btn-primary">
+              {heroCopy.ctaPrimary}
+            </Link>
+            <a href="#story-heading" className="fe-btn-secondary">
+              {heroCopy.ctaSecondary}
+            </a>
+          </div>
         </div>
         <div className="ds-hero-image-wrap">
           <Image
@@ -41,23 +119,13 @@ export default function Home() {
             alt="Five friends sitting around a wooden table talking over coffee."
             width={1090}
             height={1094}
-            priority
+            preload
             sizes="(max-width: 1024px) 100vw, 26rem"
           />
         </div>
       </section>
 
       <PhotoCredit />
-
-      <p className="ds-intro">{designSystemIntro}</p>
-
-      <section className="ds-section" aria-label={missionCopy.title}>
-        <h2 id="mission-heading" className="ds-section-title">
-          {missionCopy.title}
-        </h2>
-        <p className="fe-body">{missionCopy.bodyLine1}</p>
-        <p className="fe-body">{missionCopy.bodyLine2}</p>
-      </section>
 
       <section className="ds-stats" aria-label="Design system at a glance">
         {statsCopy.map((stat) => (
@@ -70,118 +138,28 @@ export default function Home() {
         ))}
       </section>
 
-      <section className="ds-section">
-        <h2 className="ds-section-title">Explore the system</h2>
-        <div className="ds-overview-grid">
-          <Link href="/foundations" className="ds-overview-card">
-            <h3 className="ds-overview-card__title">Foundations</h3>
-            <p className="ds-overview-card__desc">
-              Colour, typography, spacing, radius, and shadows: the visual
-              foundation, as design tokens.
-            </p>
-            <span className="ds-overview-card__link">
-              View foundations &rarr;
-            </span>
-          </Link>
-          <Link href="/visual-elements" className="ds-overview-card">
-            <h3 className="ds-overview-card__title">Visual Elements</h3>
-            <p className="ds-overview-card__desc">
-              Workshop icons, line illustrations, accent marks, and graphic
-              shapes.
-            </p>
-            <span className="ds-overview-card__link">
-              View visual elements &rarr;
-            </span>
-          </Link>
-          <Link href="/components" className="ds-overview-card">
-            <h3 className="ds-overview-card__title">Components</h3>
-            <p className="ds-overview-card__desc">
-              Buttons, inputs, cards, tags, accordion, and other interactive
-              elements.
-            </p>
-            <span className="ds-overview-card__link">
-              View components &rarr;
-            </span>
-          </Link>
-          <Link href="/patterns" className="ds-overview-card">
-            <h3 className="ds-overview-card__title">Patterns</h3>
-            <p className="ds-overview-card__desc">
-              Header, footer, workshop cards, events, and composite layouts that
-              combine tokens and components.
-            </p>
-            <span className="ds-overview-card__link">View patterns &rarr;</span>
-          </Link>
-          <Link href="/agent-skills" className="ds-overview-card">
-            <h3 className="ds-overview-card__title">Agent skills</h3>
-            <p className="ds-overview-card__desc">
-              Installable guides for AI agents: core rules, tokens, components,
-              accessibility, redesign, and OG images.
-            </p>
-            <span className="ds-overview-card__link">
-              View agent skills &rarr;
-            </span>
-          </Link>
-          <Link href="/brand" className="ds-overview-card">
-            <h3 className="ds-overview-card__title">About &amp; Brand</h3>
-            <p className="ds-overview-card__desc">
-              Who we are, mission and vision, values, personality, and voice and
-              tone.
-            </p>
-            <span className="ds-overview-card__link">
-              View about &amp; brand &rarr;
-            </span>
-          </Link>
-          <Link href="/logo" className="ds-overview-card">
-            <h3 className="ds-overview-card__title">Logo</h3>
-            <p className="ds-overview-card__desc">
-              Logo variants, clear space, background combinations, and incorrect
-              usage.
-            </p>
-            <span className="ds-overview-card__link">View logo &rarr;</span>
-          </Link>
-          <Link href="/print" className="ds-overview-card">
-            <h3 className="ds-overview-card__title">Print &amp; Media</h3>
-            <p className="ds-overview-card__desc">
-              The digital to print boundary: Young Serif, CMYK values, document
-              greys, and cafe signs.
-            </p>
-            <span className="ds-overview-card__link">View print &rarr;</span>
-          </Link>
-          <Link href="/guidelines" className="ds-overview-card">
-            <h3 className="ds-overview-card__title">Guidelines</h3>
-            <p className="ds-overview-card__desc">
-              Voice, content, and usage rules: how to combine colour, type, and
-              illustration on-brand.
-            </p>
-            <span className="ds-overview-card__link">View guidelines &rarr;</span>
-          </Link>
-          <Link href="/accessibility" className="ds-overview-card">
-            <h3 className="ds-overview-card__title">Accessibility</h3>
-            <p className="ds-overview-card__desc">
-              Our commitment, conformance target, what is built in, and how we
-              test for an inclusive experience.
-            </p>
-            <span className="ds-overview-card__link">
-              View accessibility &rarr;
-            </span>
-          </Link>
-          <Link href="/governance" className="ds-overview-card">
-            <h3 className="ds-overview-card__title">Governance</h3>
-            <p className="ds-overview-card__desc">
-              Versioning, contribution, and the changelog: how the system
-              evolves and stays consistent.
-            </p>
-            <span className="ds-overview-card__link">View governance &rarr;</span>
-          </Link>
-          <Link href="/credits" className="ds-overview-card">
-            <h3 className="ds-overview-card__title">Credits</h3>
-            <p className="ds-overview-card__desc">
-              The people, tools, and licences behind the ForEveryone design
-              system.
-            </p>
-            <span className="ds-overview-card__link">View credits &rarr;</span>
-          </Link>
-        </div>
+      <HomeStory />
+
+      <section className="ds-section" aria-labelledby="explore-heading">
+        <h2 id="explore-heading" className="ds-home-heading">
+          Explore the system
+        </h2>
+        {chapters.map((chapter) => (
+          <div className="ds-chapter" key={chapter.title}>
+            <h3 className="ds-chapter__title">{chapter.title}</h3>
+            <div className="ds-overview-grid">
+              {chapter.cards.map((card) => (
+                <Link key={card.href} href={card.href} className="ds-overview-card">
+                  <h4 className="ds-overview-card__title">{card.title}</h4>
+                  <p className="ds-overview-card__desc">{card.desc}</p>
+                  <span className="ds-overview-card__link">
+                    {card.link} &rarr;
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        ))}
       </section>
     </>
   );

@@ -2,7 +2,7 @@ import { test, expect, type Page } from "@playwright/test";
 
 async function openPage(page: Page, path: string) {
   await page.goto(path);
-  await page.locator("#main-content .ds-heading-anchor").first().waitFor({ state: "attached" });
+  await page.locator("#main-content[data-anchors-ready]").waitFor({ state: "attached" });
 }
 
 test.describe("interactive accessibility", () => {
