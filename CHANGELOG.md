@@ -10,21 +10,21 @@
 
 ### Added
 
-- Home: Add a live demo that follows one category colour from token to component to workshop card.
-- Home: Add "View tokens" and "Discover more" buttons to the hero.
+- Home: Add a live demo that follows one category colour from token to component to workshop card. ([#328](https://github.com/Foreveryone-berlin/design-system/pull/328), [#327](https://github.com/Foreveryone-berlin/design-system/issues/327))
+- Home: Add "View tokens" and "Discover more" buttons to the hero. ([#328](https://github.com/Foreveryone-berlin/design-system/pull/328), [#327](https://github.com/Foreveryone-berlin/design-system/issues/327))
 
 ### Changed
 
-- Home: Show the stats as a highlighted band right under the hero.
-- Home: Group the explore cards into three chapters of three.
+- Home: Show the stats as a highlighted band right under the hero. ([#328](https://github.com/Foreveryone-berlin/design-system/pull/328), [#327](https://github.com/Foreveryone-berlin/design-system/issues/327))
+- Home: Group the explore cards into three chapters of three. ([#328](https://github.com/Foreveryone-berlin/design-system/pull/328), [#327](https://github.com/Foreveryone-berlin/design-system/issues/327))
 
 ### Removed
 
-- Home: Remove the "What's in this system" text and the Visual Elements, Print, and Credits cards.
+- Home: Remove the "What's in this system" text and the Visual Elements, Print, and Credits cards. ([#328](https://github.com/Foreveryone-berlin/design-system/pull/328), [#327](https://github.com/Foreveryone-berlin/design-system/issues/327))
 
 ### Fixed
 
-- Home: Paint the hero photo at once instead of fading it in, so the page shows sooner.
+- Home: Paint the hero photo at once instead of fading it in, so the page shows sooner. ([#328](https://github.com/Foreveryone-berlin/design-system/pull/328), [#327](https://github.com/Foreveryone-berlin/design-system/issues/327))
 
 ## [1.20.1] - 2026-11-17
 
