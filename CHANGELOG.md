@@ -8,6 +8,8 @@
 
 ## [Unreleased]
 
+## [1.21.0] - 2026-11-20
+
 ### Added
 
 - Home: Add a live demo that follows one category colour from token to component to workshop card. ([#328](https://github.com/Foreveryone-berlin/design-system/pull/328), [#327](https://github.com/Foreveryone-berlin/design-system/issues/327))
