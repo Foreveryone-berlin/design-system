@@ -6,7 +6,7 @@ for (const width of [1440, 390]) {
     await page.setViewportSize({ width, height: 1000 });
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/patterns");
-    await page.locator("#main-content .ds-heading-anchor").first().waitFor();
+    await page.locator("#main-content[data-anchors-ready]").waitFor({ state: "attached" });
     await page.evaluate(() => document.fonts.ready);
     const patterns = page.locator("#evening-agenda");
     await expect(patterns).toHaveCount(1);

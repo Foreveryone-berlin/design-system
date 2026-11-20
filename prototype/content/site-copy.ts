@@ -8,15 +8,33 @@ export const hero = {
   tagline:
     "Design tokens, components, and patterns for the ForEveryone digital experience.",
   ctaPrimary: "View tokens",
-  ctaSecondary: "View components",
+  ctaSecondary: "Discover more",
 } as const;
 
-export const mission = {
-  title: "What’s in this system",
-  bodyLine1:
-    "Colours, typography, spacing, radius, and shadows are defined as design tokens.",
-  bodyLine2:
-    "Buttons, cards, forms, and layout patterns use those tokens so the main site and this prototype stay consistent.",
+export const story = {
+  title: "From one token to a full page",
+  lead: "Everything here is built in three layers. Pick a workshop category and follow its colour from token to component to page pattern.",
+  layers: [
+    {
+      name: "Token",
+      href: "/foundations",
+      body: "A named value, set once in the design tokens.",
+      link: "See the foundations",
+    },
+    {
+      name: "Component",
+      href: "/components",
+      body: "The category tag reads the token. No colour is typed by hand.",
+      link: "See the components",
+    },
+    {
+      name: "Pattern",
+      href: "/patterns",
+      body: "The workshop card puts the tag next to a photo, a title, and a date.",
+      link: "See the patterns",
+    },
+  ],
+  outro: "Change the token and every layer follows, on this site and on the main ForEveryone site.",
 } as const;
 
 export const stats = [
@@ -25,6 +43,3 @@ export const stats = [
   { label: "Agent skills", value: "7" },
   { label: "Breakpoints", value: "3" },
 ] as const;
-
-export const designSystemIntro =
-  "Use the sections below to inspect the design system's tokens and components.";

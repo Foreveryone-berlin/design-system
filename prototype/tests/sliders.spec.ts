@@ -10,7 +10,7 @@ for (const width of [1440, 1024, 768, 390]) {
       await page.setViewportSize({ width, height: 900 });
       await page.emulateMedia({ reducedMotion: "reduce" });
       await page.goto(specimen.route);
-      await page.locator("#main-content .ds-heading-anchor").first().waitFor();
+      await page.locator("#main-content[data-anchors-ready]").waitFor({ state: "attached" });
       await page.evaluate(() => document.fonts.ready);
       const section = page.locator(specimen.section);
       const viewport = section.locator(".fe-testimonial-slider__viewport");
