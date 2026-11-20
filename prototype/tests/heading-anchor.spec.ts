@@ -1,12 +1,12 @@
 import { test, expect } from "@playwright/test";
 
 test("Link copied pill fully contains its label", async ({ page }) => {
-  await page.goto("/", { waitUntil: "domcontentloaded" });
+  await page.goto("/foundations", { waitUntil: "domcontentloaded" });
   await page.waitForFunction(
-    () => Boolean(document.querySelector("#mission-heading .ds-heading-anchor")),
+    () => Boolean(document.querySelector("#colors h2 .ds-heading-anchor")),
   );
 
-  const anchor = page.locator("#mission-heading .ds-heading-anchor");
+  const anchor = page.locator("#colors h2 .ds-heading-anchor");
   await expect(anchor).toBeVisible();
 
   // Force feedback state so the assertion is CSS geometry only (no clipboard flakiness).
@@ -52,12 +52,12 @@ test.describe("clipboard interaction", () => {
     );
 
     await context.grantPermissions(["clipboard-read", "clipboard-write"]);
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/foundations", { waitUntil: "domcontentloaded" });
     await page.waitForFunction(
-      () => Boolean(document.querySelector("#mission-heading .ds-heading-anchor")),
+      () => Boolean(document.querySelector("#colors h2 .ds-heading-anchor")),
     );
 
-    const anchor = page.locator("#mission-heading .ds-heading-anchor");
+    const anchor = page.locator("#colors h2 .ds-heading-anchor");
     await expect(anchor).toBeVisible();
     await anchor.click();
 

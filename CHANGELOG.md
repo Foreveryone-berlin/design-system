@@ -8,6 +8,24 @@
 
 ## [Unreleased]
 
+### Added
+
+- Home: Add a live demo that follows one category colour from token to component to workshop card.
+- Home: Add "View tokens" and "Discover more" buttons to the hero.
+
+### Changed
+
+- Home: Show the stats as a highlighted band right under the hero.
+- Home: Group the explore cards into three chapters of three.
+
+### Removed
+
+- Home: Remove the "What's in this system" text and the Visual Elements, Print, and Credits cards.
+
+### Fixed
+
+- Home: Paint the hero photo at once instead of fading it in, so the page shows sooner.
+
 ## [1.20.1] - 2026-11-17
 
 ### Changed
