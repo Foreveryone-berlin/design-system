@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+### Security
+
+- Prototype: Update Next.js to 16.4.6 for security fixes. ([#296](https://github.com/Foreveryone-berlin/design-system/pull/296))
+
 ## [1.21.0] - 2026-11-20
 
 ### Added
