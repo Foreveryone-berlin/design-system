@@ -42,6 +42,21 @@
       ]
     },
     {
+      "name": "photo-curator",
+      "description": "Review photograph collections and select ranked shortlists for websites, campaigns, and galleries. Use for photo selection, placeholder replacement, atmosphere matching, or comparing similar photographs against a supplied brief.",
+      "path": "photo-curator/SKILL.md",
+      "foreveryone": ">=1.21.0 <2.0.0",
+      "requires": [],
+      "docs": [
+        "spec/principles.md",
+        "docs/visual-styles.md"
+      ],
+      "guide": "Select photographs for a brief, with ranked shortlists, placements, crops, and consent checks.",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
       "name": "fe-a11y",
       "description": "Accessibility rules for ForEveryone Berlin UI. Use when checking contrast, keyboard focus, skip links, motion preferences, alt text, or WCAG 2.1 AA conformance.",
       "path": "fe-a11y/SKILL.md",
