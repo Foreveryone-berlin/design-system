@@ -8,6 +8,8 @@
 
 ## [Unreleased]
 
+## [1.22.0] - 2026-11-23
+
 ### Added
 
 - Brand: Add photography guidance for subjects, crops, natural treatment, and consent. ([#336](https://github.com/Foreveryone-berlin/design-system/pull/336), [#332](https://github.com/Foreveryone-berlin/design-system/issues/332))
