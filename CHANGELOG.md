@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Stats: Reduce spacing and number size while keeping overview values bold. ([#333](https://github.com/Foreveryone-berlin/design-system/issues/333))
+
 ## [1.21.0] - 2026-11-20
 
 ### Added
