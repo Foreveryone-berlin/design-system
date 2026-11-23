@@ -283,17 +283,6 @@ export default function BrandPage() {
           Foreveryone &middot; FOREVERYONE
         </p>
 
-        <h3 className="ds-subsection-title">Our cafe</h3>
-        <p className="fe-body">
-          Always write <strong>No. 52 Cafe</strong> or <strong>No. 52</strong> for
-          short. Cafe is spelled <strong>without an accent</strong>, and there is a
-          space between &lsquo;No.&rsquo; and &lsquo;52&rsquo;.
-        </p>
-        <p className="fe-body">
-          <strong>Incorrect:</strong> No.52 Caf&eacute; &middot; No52 &middot;
-          No.52 &middot; Pavillon Caf&eacute; &middot; KARUNA Pavillon
-        </p>
-
         <h3 className="ds-subsection-title">Social media &amp; digital</h3>
         <ul className="ds-rule-list">
           <li>
@@ -307,12 +296,70 @@ export default function BrandPage() {
           </li>
         </ul>
 
+        <h3 className="ds-subsection-title" id="photography">Photography</h3>
+        <p className="fe-body">
+          Show people connecting: talking around a table, smiling, listening,
+          or enjoying an activity together. Photographs should give first-time
+          visitors a sense of the people and atmosphere they can expect.
+          Prefer authentic community photographs to generic stock imagery.
+        </p>
+        <ul className="ds-rule-list">
+          <li>
+            <strong>Choose:</strong> visible faces, natural expressions, genuine
+            interaction, warm natural light, and clear subjects against
+            uncluttered backgrounds. Use varied scenes rather than several
+            photographs of the same moment.
+          </li>
+          <li>
+            <strong>Avoid:</strong> backs dominating the frame, isolated people
+            without interaction, empty tables, objects or interiors as the main
+            subject, dark lighting, busy backgrounds, and cropped heads or faces.
+          </li>
+          <li>
+            <strong>Match the activity:</strong> photographs from earlier events
+            can work when the activity fits. Do not illustrate a conversation
+            event with recognisably unrelated activities such as knitting or
+            pottery. Leave a gap for a suitable photograph instead of forcing
+            an unsuitable replacement.
+          </li>
+          <li>
+            <strong>Frame for the layout:</strong> preserve image proportions and
+            the existing image treatment. Position the focal point so faces and
+            the interaction remain visible at desktop and mobile sizes. Check
+            each crop in the rendered page and use sufficient resolution for
+            the largest displayed size.
+          </li>
+          <li>
+            <strong>Keep it natural:</strong> make only light brightness
+            corrections where needed. Avoid heavy processing, decorative
+            filters, and overlays. Use responsive, optimised images and alt
+            text that describes the visible scene without inventing identities
+            or emotions.
+          </li>
+          <li>
+            <strong>Confirm consent:</strong> a file in the media library is not
+            proof of permission to publish. Record its source filename and
+            publication approval; mark consent as unverified until confirmed.
+          </li>
+        </ul>
+
         <h3 className="ds-subsection-title">Spelling standard</h3>
         <p className="fe-body">
           We use <strong>UK English</strong> across all communications. When in
           doubt, refer to the Oxford English Dictionary. Examples: colour,
           organisation, programme, realise, recognise.
         </p>
+        <h3 className="ds-subsection-title">Our cafe</h3>
+        <p className="fe-body">
+          Always write <strong>No. 52 Cafe</strong> or <strong>No. 52</strong> for
+          short. Cafe is spelled <strong>without an accent</strong>, and there is a
+          space between &lsquo;No.&rsquo; and &lsquo;52&rsquo;.
+        </p>
+        <p className="fe-body">
+          <strong>Incorrect:</strong> No.52 Caf&eacute; &middot; No52 &middot;
+          No.52 &middot; Pavillon Caf&eacute; &middot; KARUNA Pavillon
+        </p>
+
       </section>
     </>
   );
