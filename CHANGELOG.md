@@ -14,8 +14,8 @@
 
 ### Changed
 
-- Stats: Reduce spacing and number size while keeping overview values bold. ([#333](https://github.com/Foreveryone-berlin/design-system/issues/333))
-- Overview: Show the current count of 10 installable agent skills. ([#333](https://github.com/Foreveryone-berlin/design-system/issues/333))
+- Stats: Reduce spacing and number size while keeping overview values bold. ([#337](https://github.com/Foreveryone-berlin/design-system/pull/337), [#333](https://github.com/Foreveryone-berlin/design-system/issues/333))
+- Overview: Show the current count of 10 installable agent skills. ([#337](https://github.com/Foreveryone-berlin/design-system/pull/337), [#333](https://github.com/Foreveryone-berlin/design-system/issues/333))
 
 ### Security
 
