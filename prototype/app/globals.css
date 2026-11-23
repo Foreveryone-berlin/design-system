@@ -1944,14 +1944,13 @@ a.ds-btn {
   text-underline-offset: 0.12em;
 }
 
-/* Stats strip: a lavender band so the numbers read as a highlight, each value
-   underlined with the orange doodle accent. */
+/* Stats strip: supporting numbers on a compact lavender band. */
 .ds-stats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-8) var(--spacing-6);
   margin-bottom: var(--spacing-16);
-  padding: var(--spacing-8) var(--spacing-6);
+  padding: var(--spacing-6);
   background: var(--color-background-soft);
   border-radius: var(--radius-xl);
 }
@@ -1961,7 +1960,7 @@ a.ds-btn {
 @container ds-content (min-width: 56rem) {
   .ds-stats {
     grid-template-columns: repeat(4, 1fr);
-    padding: var(--spacing-10) var(--spacing-10);
+    padding: var(--spacing-6) var(--spacing-8);
   }
 }
 .ds-stat {
@@ -1969,22 +1968,15 @@ a.ds-btn {
 }
 .ds-stat-value {
   font-family: var(--font-family-heading);
-  font-size: clamp(var(--font-size-3xl), 2rem + 3vw, var(--font-size-4xl));
-  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-medium);
   line-height: var(--line-height-tight);
   /* Charcoal, not brand blue: blue is reserved for links. */
   color: var(--color-brand-dark);
   margin: 0 0 var(--spacing-3);
 }
-.ds-stat-value::after {
-  content: "";
-  display: block;
-  inline-size: 4rem;
-  aspect-ratio: 496 / 51;
-  margin-block-start: var(--spacing-2);
-  background-color: var(--color-brand-primary);
-  -webkit-mask: url(/illustrations/accents/doodle-underline.svg) left center / contain no-repeat;
-  mask: url(/illustrations/accents/doodle-underline.svg) left center / contain no-repeat;
+.ds-home-hero ~ .ds-stats .ds-stat-value {
+  font-weight: var(--font-weight-bold);
 }
 .ds-stat-label {
   font-size: var(--font-size-base);
@@ -2014,8 +2006,17 @@ a.ds-btn {
 .ds-value-card {
   border-radius: var(--radius-lg);
   padding: var(--spacing-5);
-  background: var(--color-soft-lavender);
   color: var(--color-brand-dark);
+}
+
+.ds-mv-card {
+  background: var(--color-background-default);
+  border: 1px solid var(--color-theme-7);
+  box-shadow: var(--shadow-md);
+}
+
+.ds-value-card {
+  background: var(--color-soft-lavender);
 }
 
 .ds-mv-card__label,
