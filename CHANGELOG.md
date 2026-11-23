@@ -14,7 +14,7 @@
 
 ### Changed
 
-- Brand: Give mission and vision cards a warm-white surface, border, and shadow. ([#334](https://github.com/Foreveryone-berlin/design-system/issues/334))
+- Brand: Give mission and vision cards a warm-white surface, border, and shadow. ([#338](https://github.com/Foreveryone-berlin/design-system/pull/338), [#334](https://github.com/Foreveryone-berlin/design-system/issues/334))
 
 ### Security
 
