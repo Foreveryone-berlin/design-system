@@ -60,6 +60,7 @@ Load any prerequisites listed in a skill's frontmatter before that skill.
 | Contrast, focus, motion, and alternative text | [`fe-a11y`](../fe-a11y/SKILL.md) |
 | Restyle an existing interface | [`fe-redesign`](../fe-redesign/SKILL.md) |
 | OG images and featured artwork | [`fe-og-image`](../fe-og-image/SKILL.md) |
+| Photo selection and ranked shortlists | [`photo-curator`](../photo-curator/SKILL.md) |
 
 Resolve implementation details from `llms.txt`, `spec/tokens.json`,
 `spec/principles.md`, and the relevant component contracts. Installed payloads

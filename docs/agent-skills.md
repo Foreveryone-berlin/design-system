@@ -17,6 +17,7 @@ in another project.
 | **`fe-a11y`** | `fe-core` | Contrast, focus, motion, alt text, WCAG 2.1 AA checks |
 | **`fe-redesign`** | `fe-core` | Restyle an existing app onto ForEveryone ([redesign-from-this-system.md](agents/redesign-from-this-system.md)) |
 | **`fe-og-image`** | `fe-core` | OG and featured images matched to the destination page, with export and metadata checks |
+| **`photo-curator`** | none | Review photo collections and recommend ranked selections, placements, and crops with consent checks |
 
 ## Sources and generated copies
 

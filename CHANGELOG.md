@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Agent skills: Add photo-curator for photo selection, crops, and consent checks. ([#335](https://github.com/Foreveryone-berlin/design-system/pull/335), [#331](https://github.com/Foreveryone-berlin/design-system/issues/331))
+
 ### Security
 
 - Prototype: Update Next.js to 16.4.6 for security fixes. ([#296](https://github.com/Foreveryone-berlin/design-system/pull/296))
