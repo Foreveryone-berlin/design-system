@@ -13,6 +13,11 @@
 - Brand: Add photography guidance for subjects, crops, natural treatment, and consent. ([#336](https://github.com/Foreveryone-berlin/design-system/pull/336), [#332](https://github.com/Foreveryone-berlin/design-system/issues/332))
 - Agent skills: Add photo-curator for photo selection, crops, and consent checks. ([#335](https://github.com/Foreveryone-berlin/design-system/pull/335), [#331](https://github.com/Foreveryone-berlin/design-system/issues/331))
 
+### Changed
+
+- Stats: Reduce spacing and number size while keeping overview values bold. ([#337](https://github.com/Foreveryone-berlin/design-system/pull/337), [#333](https://github.com/Foreveryone-berlin/design-system/issues/333))
+- Overview: Show the current count of 10 installable agent skills. ([#337](https://github.com/Foreveryone-berlin/design-system/pull/337), [#333](https://github.com/Foreveryone-berlin/design-system/issues/333))
+
 ### Security
 
 - Prototype: Update Next.js to 16.4.6 for security fixes. ([#296](https://github.com/Foreveryone-berlin/design-system/pull/296))
