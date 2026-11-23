@@ -15,6 +15,7 @@
 
 ### Changed
 
+- Brand: Give mission and vision cards a warm-white surface, border, and shadow. ([#338](https://github.com/Foreveryone-berlin/design-system/pull/338), [#334](https://github.com/Foreveryone-berlin/design-system/issues/334))
 - Stats: Reduce spacing and number size while keeping overview values bold. ([#337](https://github.com/Foreveryone-berlin/design-system/pull/337), [#333](https://github.com/Foreveryone-berlin/design-system/issues/333))
 - Overview: Show the current count of 10 installable agent skills. ([#337](https://github.com/Foreveryone-berlin/design-system/pull/337), [#333](https://github.com/Foreveryone-berlin/design-system/issues/333))
 

@@ -2006,8 +2006,17 @@ a.ds-btn {
 .ds-value-card {
   border-radius: var(--radius-lg);
   padding: var(--spacing-5);
-  background: var(--color-soft-lavender);
   color: var(--color-brand-dark);
+}
+
+.ds-mv-card {
+  background: var(--color-background-default);
+  border: 1px solid var(--color-theme-7);
+  box-shadow: var(--shadow-md);
+}
+
+.ds-value-card {
+  background: var(--color-soft-lavender);
 }
 
 .ds-mv-card__label,
