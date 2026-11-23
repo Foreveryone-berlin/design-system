@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Agent skills: Add photo-curator for photo selection, placement, cropping, and publication-consent checks.
+
 ## [1.21.0] - 2026-11-20
 
 ### Added

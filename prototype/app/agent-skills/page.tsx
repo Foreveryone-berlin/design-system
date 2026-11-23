@@ -22,6 +22,7 @@ const SKILL_ORDER = [
   "fe-a11y",
   "fe-redesign",
   "fe-og-image",
+  "photo-curator",
 ];
 
 type SkillEntry = {
