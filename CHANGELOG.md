@@ -8,6 +8,8 @@
 
 ## [Unreleased]
 
+## [1.22.1] - 2026-11-23
+
 ### Fixed
 
 - Agent skills: Keep photo curation scoped to the design-system and foreveryone repositories. ([#341](https://github.com/Foreveryone-berlin/design-system/issues/341))
