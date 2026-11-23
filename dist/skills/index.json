@@ -1,6 +1,6 @@
 {
   "name": "foreveryone-design-system",
-  "version": "1.22.0",
+  "version": "1.22.1",
   "docs": "https://github.com/Foreveryone-berlin/design-system",
   "tokens": "tokens.json",
   "agentsBlock": "AGENTS.foreveryone.md",
@@ -43,7 +43,7 @@
     },
     {
       "name": "photo-curator",
-      "description": "Review photograph collections and select ranked shortlists for websites, campaigns, and galleries. Use for photo selection, placeholder replacement, atmosphere matching, or comparing similar photographs against a supplied brief.",
+      "description": "Review photo collections and select ranked shortlists only in the ForEveryone design-system and foreveryone repositories. Use there for photo selection, placeholder replacement, atmosphere matching, or comparing similar photographs.",
       "path": "photo-curator/SKILL.md",
       "foreveryone": ">=1.21.0 <2.0.0",
       "requires": [],

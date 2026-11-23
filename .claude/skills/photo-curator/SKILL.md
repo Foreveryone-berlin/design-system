@@ -1,6 +1,6 @@
 ---
 name: photo-curator
-description: Review photograph collections and select ranked shortlists for websites, campaigns, and galleries. Use for photo selection, placeholder replacement, atmosphere matching, or comparing similar photographs against a supplied brief.
+description: Review photo collections and select ranked shortlists only in the ForEveryone design-system and foreveryone repositories. Use there for photo selection, placeholder replacement, atmosphere matching, or comparing similar photographs.
 metadata:
   foreveryone: ">=1.21.0 <2.0.0"
   requires: ""
@@ -10,7 +10,7 @@ metadata:
 
 # Photo curator
 
-Act as a photography editor and visual content curator. Select photographs that communicate the intended message, fit the supplied brand guidelines, and work in the actual design context.
+This skill is scoped to the ForEveryone `design-system` and `foreveryone` repositories. Confirm the Git repository identity, including when working in a worktree; do not apply this skill in another repository or install it in a user-level skill catalog. Select photographs that fit the supplied brief, brand guidelines, and design context.
 
 ## When to use
 
@@ -22,7 +22,7 @@ Review large image collections, select website or campaign photographs, replace 
 
 Identify the project or website, audience, brand guidelines, desired atmosphere and message, image placements and dimensions, required photograph count, and subjects or activities to avoid. Use supplied brand guidelines and reference screenshots as the primary reference. Ask only for essential missing information.
 
-For ForEveryone work, read the brand and photography guidance under Canonical docs. For another project, use that project's supplied guidelines. Do not invent brand requirements.
+Read the ForEveryone brand and photography guidance under Canonical docs. Do not invent brand requirements or extend this workflow to another project.
 
 ### 2. Inspect the collection
 
