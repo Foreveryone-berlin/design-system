@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Agent skills: Add photo-curator for photo selection, crops, and consent checks. ([#335](https://github.com/Foreveryone-berlin/design-system/pull/335), [#331](https://github.com/Foreveryone-berlin/design-system/issues/331))
+
 ### Changed
 
 - Brand: Give mission and vision cards a warm-white surface, border, and shadow. ([#334](https://github.com/Foreveryone-berlin/design-system/issues/334))
