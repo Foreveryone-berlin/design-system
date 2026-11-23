@@ -10,11 +10,14 @@
 
 ### Added
 
+- Brand: Add photography guidance for subjects, crops, natural treatment, and consent. ([#336](https://github.com/Foreveryone-berlin/design-system/pull/336), [#332](https://github.com/Foreveryone-berlin/design-system/issues/332))
 - Agent skills: Add photo-curator for photo selection, crops, and consent checks. ([#335](https://github.com/Foreveryone-berlin/design-system/pull/335), [#331](https://github.com/Foreveryone-berlin/design-system/issues/331))
 
 ### Changed
 
 - Brand: Give mission and vision cards a warm-white surface, border, and shadow. ([#338](https://github.com/Foreveryone-berlin/design-system/pull/338), [#334](https://github.com/Foreveryone-berlin/design-system/issues/334))
+- Stats: Reduce spacing and number size while keeping overview values bold. ([#337](https://github.com/Foreveryone-berlin/design-system/pull/337), [#333](https://github.com/Foreveryone-berlin/design-system/issues/333))
+- Overview: Show the current count of 10 installable agent skills. ([#337](https://github.com/Foreveryone-berlin/design-system/pull/337), [#333](https://github.com/Foreveryone-berlin/design-system/issues/333))
 
 ### Security
 
