@@ -12,6 +12,10 @@
 
 - Brand: Give mission and vision cards a warm-white surface, border, and shadow. ([#334](https://github.com/Foreveryone-berlin/design-system/issues/334))
 
+### Security
+
+- Prototype: Update Next.js to 16.4.6 for security fixes. ([#296](https://github.com/Foreveryone-berlin/design-system/pull/296))
+
 ## [1.21.0] - 2026-11-20
 
 ### Added
