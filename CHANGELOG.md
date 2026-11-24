@@ -10,7 +10,7 @@
 
 ### Changed
 
-- Home: Use a smaller, left-aligned photo with credits below; remove "View tokens" and "Discover more".
+- Home: Use a smaller, left-aligned photo with credits below; remove "View tokens" and "Discover more". ([#345](https://github.com/Foreveryone-berlin/design-system/pull/345), [#344](https://github.com/Foreveryone-berlin/design-system/issues/344))
 - Home: Use smaller, unboxed stats with regular labels below the intro; rename "Component demos" to "Components".
 - Home: Add space around the stats and above "From one token to a full page".
 
