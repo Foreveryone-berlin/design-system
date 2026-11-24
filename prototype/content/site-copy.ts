@@ -39,7 +39,7 @@ export const story = {
 
 export const stats = [
   { label: "Color tokens", value: "100" },
-  { label: "Component demos", value: "15" },
+  { label: "Components", value: "15" },
   { label: "Agent skills", value: "10" },
   { label: "Breakpoints", value: "3" },
 ] as const;

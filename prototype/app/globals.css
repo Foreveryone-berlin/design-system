@@ -1883,6 +1883,15 @@ a.ds-btn {
   justify-self: start;
   min-width: 0;
 }
+.ds-home-hero {
+  margin-bottom: var(--spacing-24);
+}
+.ds-home-hero-photo {
+  min-width: 0;
+}
+.ds-home-hero-photo .ds-photo-credit {
+  margin-bottom: 0;
+}
 /* Hero photo in an organic blob mask (Brand Book v1.0 p.27). blob-4.svg
    is near-square, so the cafe crop fills without heavy letterboxing. */
 .ds-hero-image-wrap {
@@ -1910,6 +1919,11 @@ a.ds-btn {
   .ds-hero-image-wrap {
     justify-self: end;
     width: min(26rem, 100%);
+  }
+  .ds-home-hero .ds-hero-image-wrap {
+    justify-self: start;
+    width: 100%;
+    max-width: calc(var(--spacing-32) * 3);
   }
 }
 /* The photo is wider than the blob frame only by ~4%, so object-position alone
@@ -1975,8 +1989,18 @@ a.ds-btn {
   color: var(--color-brand-dark);
   margin: 0 0 var(--spacing-3);
 }
-.ds-home-hero ~ .ds-stats .ds-stat-value {
+.ds-home-hero .ds-stats {
+  margin-block: var(--spacing-16) var(--spacing-8);
+  padding: 0;
+  background: none;
+  border-radius: 0;
+}
+.ds-home-hero .ds-stats .ds-stat-value {
+  font-size: calc((var(--font-size-h2-mobile) + var(--font-size-3xl)) / 2);
   font-weight: var(--font-weight-bold);
+}
+.ds-home-hero .ds-stat-label {
+  font-weight: var(--font-weight-regular);
 }
 .ds-stat-label {
   font-size: var(--font-size-base);
