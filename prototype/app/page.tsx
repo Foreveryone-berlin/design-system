@@ -104,38 +104,30 @@ export default function Home() {
           </div>
           <span className="ds-hero-version">v{version}</span>
           <p className="ds-intro">{heroCopy.tagline}</p>
-          <div className="ds-hero-actions">
-            <Link href="/foundations" className="fe-btn-primary">
-              {heroCopy.ctaPrimary}
-            </Link>
-            <a href="#story-heading" className="fe-btn-secondary">
-              {heroCopy.ctaSecondary}
-            </a>
-          </div>
+          <section className="ds-stats" aria-label="Design system at a glance">
+            {statsCopy.map((stat) => (
+              <div key={stat.label} className="ds-stat">
+                <p className="ds-stat-value">
+                  <StatCounter value={stat.value} />
+                </p>
+                <p className="ds-stat-label">{stat.label}</p>
+              </div>
+            ))}
+          </section>
         </div>
-        <div className="ds-hero-image-wrap">
-          <Image
-            src="/images/hero-cafe.jpg"
-            alt="Five friends sitting around a wooden table talking over coffee."
-            width={1090}
-            height={1094}
-            preload
-            sizes="(max-width: 1024px) 100vw, 26rem"
-          />
-        </div>
-      </section>
-
-      <PhotoCredit />
-
-      <section className="ds-stats" aria-label="Design system at a glance">
-        {statsCopy.map((stat) => (
-          <div key={stat.label} className="ds-stat">
-            <p className="ds-stat-value">
-              <StatCounter value={stat.value} />
-            </p>
-            <p className="ds-stat-label">{stat.label}</p>
+        <div className="ds-home-hero-photo">
+          <div className="ds-hero-image-wrap">
+            <Image
+              src="/images/hero-cafe.jpg"
+              alt="Five friends sitting around a wooden table talking over coffee."
+              width={1090}
+              height={1094}
+              preload
+              sizes="(max-width: 1024px) 100vw, 24rem"
+            />
           </div>
-        ))}
+          <PhotoCredit />
+        </div>
       </section>
 
       <HomeStory />
