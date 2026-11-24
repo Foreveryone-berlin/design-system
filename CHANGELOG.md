@@ -10,7 +10,7 @@
 
 ### Changed
 
-- Home: Replace Breakpoints with Patterns; link stats and add sequential reveals, fading labels, and motion controls.
+- Home: Replace Breakpoints with linked Patterns; sequence stats with fading labels and motion controls. ([#349](https://github.com/Foreveryone-berlin/design-system/pull/349), [#348](https://github.com/Foreveryone-berlin/design-system/issues/348))
 
 ## [1.22.2] - 2026-11-24
 
