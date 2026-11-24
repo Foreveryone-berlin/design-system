@@ -8,6 +8,8 @@
 
 ## [Unreleased]
 
+## [1.22.2] - 2026-11-24
+
 ### Changed
 
 - Home: Use a smaller, left-aligned photo with credits below; remove "View tokens" and "Discover more". ([#345](https://github.com/Foreveryone-berlin/design-system/pull/345), [#344](https://github.com/Foreveryone-berlin/design-system/issues/344))
