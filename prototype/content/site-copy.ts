@@ -38,8 +38,8 @@ export const story = {
 } as const;
 
 export const stats = [
-  { label: "Color tokens", value: "100" },
-  { label: "Components", value: "15" },
-  { label: "Agent skills", value: "10" },
-  { label: "Breakpoints", value: "3" },
+  { label: "Color tokens", value: "100", href: "/foundations#colors" },
+  { label: "Components", value: "15", href: "/components" },
+  { label: "Patterns", value: "15", href: "/patterns" },
+  { label: "Agent skills", value: "10", href: "/agent-skills" },
 ] as const;

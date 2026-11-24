@@ -1,6 +1,6 @@
 # Design system prototype
 
-Next.js (React, TypeScript) app that showcases the ForEveryone Berlin design tokens and components. Live at **[design.foreveryone.berlin](https://design.foreveryone.berlin)**. Overview statistics count [color-token definitions](../tokens/colors.json), including aliases; [component demo sections](app/components/page.tsx), including state demonstrations; [installable agent skills](../skills/), excluding `_shared`; and [shared CSS breakpoints](../css/utilities.css), excluding prototype-only breakpoints. Component demos are not distinct component families.
+Next.js (React, TypeScript) app that showcases the ForEveryone Berlin design tokens and components. Live at **[design.foreveryone.berlin](https://design.foreveryone.berlin)**. Overview statistics count [color-token definitions](../tokens/colors.json), including aliases; distinct types in the [component catalogue](app/components/page.tsx), excluding variants and duplicate state demos; specimens in the [pattern catalogue](app/patterns/page.tsx); and [installable agent skills](../skills/), excluding `_shared`. The 15 component types are buttons, icon buttons, play buttons, inputs, dropdowns, category tags, chips, badges, label cards, navigation links, cards, testimonials, testimonial sliders, accordions, and popups.
 
 - **Copy and imagery** are sourced from [foreveryone.berlin](https://foreveryone.berlin) for the prototype; see `content/site-copy.ts` and `public/images/ASSETS.md`.
 - **Favicon** and **UI icons** live in `public/favicon.svg` and `public/icons/`.

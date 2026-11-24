@@ -1169,9 +1169,30 @@ summary:focus-visible,
 
   /* The hero photo is the LCP element: it paints at once instead of fading in. */
   .ds-home-hero .ds-hero-version,
-  .ds-home-hero .ds-intro,
-  .ds-home-hero .ds-hero-actions {
+  .ds-home-hero .ds-intro {
     animation: ds-home-follow var(--transition-slow) backwards;
+    animation-delay: 250ms;
+  }
+
+  .ds-home-hero .ds-stats {
+    animation: ds-home-enter var(--transition-slow) backwards;
+    animation-delay: 650ms;
+  }
+
+  .ds-home-hero .ds-stat-label {
+    opacity: 1;
+    transition: opacity var(--transition-base);
+  }
+
+  .ds-home-hero .ds-stat:has([data-counter-visible="false"]) .ds-stat-label {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .ds-home-hero .ds-stats[data-complete="true"],
+  .ds-home-hero .ds-stats[data-complete="true"] .ds-stat-label {
+    animation: none;
+    transition: none;
   }
 }
 
@@ -1994,6 +2015,23 @@ a.ds-btn {
   padding: 0;
   background: none;
   border-radius: 0;
+}
+.ds-home-hero .ds-stats-reveal {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-snug);
+  color: var(--color-theme-4);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+  cursor: pointer;
+}
+.ds-home-hero .ds-stats-reveal:disabled {
+  cursor: default;
+  text-decoration: none;
 }
 .ds-home-hero .ds-stats .ds-stat-value {
   font-size: calc((var(--font-size-h2-mobile) + var(--font-size-3xl)) / 2);
@@ -3143,6 +3181,20 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
 @media (prefers-reduced-motion: reduce) {
   .ds-light-only {
     scroll-behavior: auto;
+  }
+
+  .ds-home-hero .ds-stat-value > [aria-hidden],
+  .ds-home-hero .ds-stats-reveal {
+    display: none;
+  }
+
+  .ds-home-hero .ds-stat-value > .ds-visually-hidden {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
   }
 
   *,

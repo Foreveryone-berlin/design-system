@@ -1,16 +1,14 @@
-import { hero as heroCopy, stats as statsCopy } from "@/content/site-copy";
+import { hero as heroCopy } from "@/content/site-copy";
 import packageJson from "@/package.json";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import HomeStory from "./_components/HomeStory";
 import PhotoCredit from "./_components/PhotoCredit";
+import HomeStats from "./_components/HomeStats";
 
 export const metadata = {
   alternates: { canonical: "/" },
 };
-
-const StatCounter = dynamic(() => import("./_components/StatCounter"));
 
 type OverviewCard = { href: string; title: string; desc: string; link: string };
 
@@ -104,16 +102,7 @@ export default function Home() {
           </div>
           <span className="ds-hero-version">v{version}</span>
           <p className="ds-intro">{heroCopy.tagline}</p>
-          <section className="ds-stats" aria-label="Design system at a glance">
-            {statsCopy.map((stat) => (
-              <div key={stat.label} className="ds-stat">
-                <p className="ds-stat-value">
-                  <StatCounter value={stat.value} />
-                </p>
-                <p className="ds-stat-label">{stat.label}</p>
-              </div>
-            ))}
-          </section>
+          <HomeStats />
         </div>
         <div className="ds-home-hero-photo">
           <div className="ds-hero-image-wrap">
