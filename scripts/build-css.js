@@ -3,6 +3,12 @@
 const fs = require("fs");
 const path = require("path");
 const { loadAllTokens, resolveTokenValue } = require("./token-utils");
+const {
+  loadPalette,
+  colorLeaves,
+  classifyToken,
+  cssVarForColor,
+} = require("./lib/palette");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const OUTPUT_PATH = path.join(ROOT_DIR, "css", "custom-properties.css");
@@ -10,49 +16,6 @@ const OUTPUT_PATH = path.join(ROOT_DIR, "css", "custom-properties.css");
 function getTokenValue(tokens, tokenPath) {
   return resolveTokenValue(tokens, tokenPath);
 }
-
-const FLAT_COLOR_KEYS = [
-  "brand-primary",
-  "brand-secondary",
-  "brand-dark",
-  "accent",
-  "focus-button",
-  "light-purple",
-  "soft-lavender",
-  "lavender-official",
-  "light-green",
-  "light-orange",
-  "pink",
-  "teal",
-  "purple",
-  "very-light-gray",
-  "light-gray",
-  "teal-deep",
-  "magenta",
-  "navy",
-  "blush",
-  "yellow",
-  "red",
-  "warm-grey-light",
-  "warm-grey",
-  "theme-1",
-  "theme-2",
-  "theme-4",
-  "theme-5",
-  "theme-7",
-  "theme-8",
-];
-
-const SEMANTIC_COLOR_KEYS = [
-  "background-default",
-  "background-soft",
-  "background-title",
-  "background-alert",
-  "accent-icon",
-  "accent-border",
-  "focus-ring",
-  "focus-visible-accent",
-];
 
 const COLOR_RAMPS = {
   neutral: ["50", "100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -84,15 +47,31 @@ const SPACING_KEYS = [
   "32",
 ];
 
-function buildCss(tokens) {
-  const colorCss = FLAT_COLOR_KEYS.map(
-    (key) =>
-      `  --color-${key}: ${getTokenValue(tokens, `color.${key}`)};`,
-  ).join("\n");
+// Colour tokens of one class (see tokens/brand-palette.json), in token-file
+// order. Status, base, print, doc, and ramp tokens have their own sections.
+function colorLinesFor(tokens, palette, cls) {
+  const deprecated = new Map(palette.deprecated.map((d) => [d.token, d]));
+  return colorLeaves(tokens)
+    .filter(({ path: p, node }) => {
+      const c = classifyToken(p, node, palette);
+      if (c === null) {
+        throw new Error(`Unclassified colour token ${p}: add it to tokenClasses in tokens/brand-palette.json`);
+      }
+      return c === cls && !p.startsWith("color.base.") && !/^color\.(status|print|doc)\./.test(p);
+    })
+    .map(({ path: p }) => {
+      const d = deprecated.get(p);
+      const note = d
+        ? `  /* DEPRECATED, not brand ${d.conflictsWith}. Use ${cssVarForColor(d.approved)}; old value is ${cssVarForColor(d.replacement)} */`
+        : "";
+      return `  ${cssVarForColor(p)}: ${getTokenValue(tokens, p)};${note}`;
+    })
+    .join("\n");
+}
 
-  const semanticColorCss = SEMANTIC_COLOR_KEYS.map(
-    (key) => `  --color-${key}: ${getTokenValue(tokens, `color.${key}`)};`,
-  ).join("\n");
+function buildCss(tokens) {
+  const palette = loadPalette();
+  const section = (cls) => colorLinesFor(tokens, palette, cls);
 
   const rampCss = Object.entries(COLOR_RAMPS)
     .map(([family, steps]) => {
@@ -118,13 +97,28 @@ function buildCss(tokens) {
 
 :root {
 
-  /* ── Colors: Brand ─────────────────────────────────────────────────────── */
-${colorCss}
+  /* ── Colors: APPROVED BRAND PALETTE (October 2026) ──────────────────── */
+  /* The only brand colours. Source: tokens/brand-palette.json.            */
+  /* Orange is accent only. Charcoal and White are text and logo only.      */
+${section("brand")}
 
-  /* ── Colors: Semantic (2026 brand guide) ─────────────────────────────── */
+  /* ── Colors: Aliases of brand colours (same value, older names) ─────── */
+  /* Backward-compatible names. Prefer the --color-brand-* name above.      */
+${section("alias")}
+
+  /* ── Colors: Semantic roles (resolve to brand colours) ───────────────── */
   /* Use these instead of raw brand colors for backgrounds and accents.    */
-  /* --color-brand-primary (orange) is DECORATIVE ONLY — never a bg.       */
-${semanticColorCss}
+${section("semantic")}
+
+  /* ── Colors: Technical (NOT brand colours) ───────────────────────────── */
+  /* Focus, theme-host compatibility, and neutral UI greys.                 */
+${section("technical")}
+
+  /* ── Colors: LEGACY and DEPRECATED (NOT brand colours) ───────────────── */
+  /* Kept for existing consumers. Never offer these as the brand palette.   */
+  /* Names that clash with a brand colour are flagged DEPRECATED; removal    */
+  /* is planned for 2.0.                                                     */
+${section("legacy")}
 
   /* ── Colors: Status ──────────────────────────────────────────────────── */
   --color-status-error:   ${getTokenValue(tokens, "color.status.error")};

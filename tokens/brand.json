@@ -1,0 +1,61 @@
+{
+  "color": {
+    "brand": {
+      "orange": {
+        "$value": "oklch(0.726 0.179 43.9)",
+        "$type": "color",
+        "$description": "APPROVED BRAND COLOUR: Orange (#FF7A3A), primary. Mandatory accent in every layout, printed piece and social post. Never for text, buttons, links or full backgrounds behind text."
+      },
+      "lime": {
+        "$value": "oklch(0.896 0.083 121.2)",
+        "$type": "color",
+        "$description": "APPROVED BRAND COLOUR: Lime Green (#D4E6A8), primary. Default background. Text on it: Charcoal only. Charcoal text only."
+      },
+      "lavender": {
+        "$value": "oklch(0.912 0.048 297.2)",
+        "$type": "color",
+        "$description": "APPROVED BRAND COLOUR: Lavender (#E5DCFF), primary. Default background. Text on it: Charcoal only. Charcoal text only."
+      },
+      "warm-white": {
+        "$value": "oklch(0.99 0.007 97.3)",
+        "$type": "color",
+        "$description": "APPROVED BRAND COLOUR: Warm White (#FDFCF7), primary. Default background, replacing pure White. Text on it: Charcoal only. Charcoal text only."
+      },
+      "navy": {
+        "$value": "oklch(0.357 0.096 262.1)",
+        "$type": "color",
+        "$description": "APPROVED BRAND COLOUR: Navy (#1F3A6E), primary. Occasional background for covers and standout moments. Text on it: White only. White text only."
+      },
+      "teal": {
+        "$value": "oklch(0.4891 0.0798 194.9)",
+        "$type": "color",
+        "$description": "APPROVED BRAND COLOUR: Teal (#0F6E6E), primary. Occasional background for covers and standout moments. Text on it: White only. White text only."
+      },
+      "blue": {
+        "$value": "oklch(0.4486 0.2813 275.3)",
+        "$type": "color",
+        "$description": "APPROVED BRAND COLOUR: Blue (#3F00EB), primary. Flexible usage, including backgrounds and primary buttons. Text on it: White only. White text only. Digital only, never print."
+      },
+      "charcoal": {
+        "$value": "oklch(0.235 0 89.9)",
+        "$type": "color",
+        "$description": "APPROVED BRAND COLOUR: Charcoal (#1E1E1E), primary. Text and logo only. Never a full background."
+      },
+      "white": {
+        "$value": "oklch(1 0 89.9)",
+        "$type": "color",
+        "$description": "APPROVED BRAND COLOUR: White (#FFFFFF), primary. Text and logo only. Never a full background; use Warm White."
+      },
+      "pink": {
+        "$value": "oklch(0.917 0.036 39.3)",
+        "$type": "color",
+        "$description": "APPROVED BRAND COLOUR: Pink (#FADCD2), secondary. Occasional backgrounds, graphs, charts and supportive UI elements. Text on it: Charcoal only. Charcoal text only."
+      },
+      "yellow": {
+        "$value": "oklch(0.892 0.157 93)",
+        "$type": "color",
+        "$description": "APPROVED BRAND COLOUR: Yellow (#FFD84D), secondary. Decorative shapes, marks and accents on Navy or Teal backgrounds only. Never for text or backgrounds."
+      }
+    }
+  }
+}

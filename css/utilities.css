@@ -34,7 +34,7 @@
 }
 .fe-btn-primary:disabled,
 .fe-btn-primary.is-disabled {
-  background-color: var(--color-light-purple);
+  background-color: var(--color-legacy-light-purple);
   color: var(--color-white);
   opacity: 1;
   cursor: not-allowed;
@@ -80,8 +80,8 @@
 .fe-btn-secondary:disabled,
 .fe-btn-secondary.is-disabled {
   background-color: transparent;
-  border-color: var(--color-light-purple);
-  color: var(--color-light-purple);
+  border-color: var(--color-legacy-light-purple);
+  color: var(--color-legacy-light-purple);
   cursor: not-allowed;
 }
 
@@ -122,8 +122,8 @@
 }
 .fe-icon-btn:disabled,
 .fe-icon-btn.is-disabled {
-  background-color: var(--color-light-purple);
-  border-color: var(--color-light-purple);
+  background-color: var(--color-legacy-light-purple);
+  border-color: var(--color-legacy-light-purple);
   color: var(--color-white);
   cursor: not-allowed;
 }
@@ -269,7 +269,7 @@
 }
 .fe-play-btn:disabled,
 .fe-play-btn.is-disabled {
-  background-color: var(--color-light-purple);
+  background-color: var(--color-legacy-light-purple);
   color: var(--color-white);
   cursor: not-allowed;
 }
@@ -338,9 +338,9 @@
 }
 .fe-tag-pill--music.active,
 .fe-tag-pill--music:hover {
-  background-color: var(--color-pink);
+  background-color: var(--color-legacy-pink);
   color: var(--color-brand-dark);
-  border-color: var(--color-pink);
+  border-color: var(--color-legacy-pink);
 }
 /* Static "Focused" specimens reuse each category's coloured fill (no ring). */
 .fe-tag-pill--balance.is-focus {
@@ -361,8 +361,8 @@
   color: var(--color-white);
 }
 .fe-tag-pill--music.is-focus {
-  background-color: var(--color-pink);
-  border-color: var(--color-pink);
+  background-color: var(--color-legacy-pink);
+  border-color: var(--color-legacy-pink);
   color: var(--color-brand-dark);
 }
 

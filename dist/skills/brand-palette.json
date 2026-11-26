@@ -1,0 +1,489 @@
+{
+  "$schema": "https://foreveryone.berlin/spec/brand-palette.schema.json",
+  "generated": "node scripts/build-palette.js",
+  "source": "tokens/brand-palette.json",
+  "version": "2026-10",
+  "note": "The approved brand palette. Only the colours in `colors` are brand colours. Everything in `notBrand` is a technical, legacy, status, ramp, or print token and must not be presented as a brand colour. Use `css` of a brand colour (--color-brand-*) for brand work.",
+  "colors": [
+    {
+      "id": "orange",
+      "name": "Orange",
+      "hex": "#FF7A3A",
+      "oklch": "oklch(0.726 0.179 43.9)",
+      "token": "color.brand.orange",
+      "css": "--color-brand-orange",
+      "classification": "primary",
+      "role": "accent",
+      "background": false,
+      "textOnIt": null,
+      "surfaces": [
+        "digital",
+        "print"
+      ],
+      "usage": "Mandatory accent in every layout, printed piece and social post.",
+      "restrictions": [
+        "Never for text, buttons, links or full backgrounds behind text."
+      ],
+      "exceptions": [
+        "QR-code border",
+        "White standalone logo icon on Orange with no text"
+      ],
+      "aliases": [
+        {
+          "token": "color.accent-border",
+          "css": "--color-accent-border",
+          "class": "semantic"
+        },
+        {
+          "token": "color.accent-icon",
+          "css": "--color-accent-icon",
+          "class": "semantic"
+        },
+        {
+          "token": "color.brand-primary",
+          "css": "--color-brand-primary",
+          "class": "alias"
+        },
+        {
+          "token": "color.orange.500",
+          "css": "--color-orange-500",
+          "class": "ramp"
+        }
+      ]
+    },
+    {
+      "id": "lime",
+      "name": "Lime Green",
+      "hex": "#D4E6A8",
+      "oklch": "oklch(0.896 0.083 121.2)",
+      "token": "color.brand.lime",
+      "css": "--color-brand-lime",
+      "classification": "primary",
+      "role": "default-background",
+      "background": true,
+      "textOnIt": "charcoal",
+      "surfaces": [
+        "digital",
+        "print"
+      ],
+      "usage": "Default background.",
+      "restrictions": [
+        "Charcoal text only."
+      ],
+      "exceptions": [],
+      "aliases": [
+        {
+          "token": "color.background-title",
+          "css": "--color-background-title",
+          "class": "semantic"
+        },
+        {
+          "token": "color.green.500",
+          "css": "--color-green-500",
+          "class": "ramp"
+        },
+        {
+          "token": "color.light-green",
+          "css": "--color-light-green",
+          "class": "alias"
+        }
+      ]
+    },
+    {
+      "id": "lavender",
+      "name": "Lavender",
+      "hex": "#E5DCFF",
+      "oklch": "oklch(0.912 0.048 297.2)",
+      "token": "color.brand.lavender",
+      "css": "--color-brand-lavender",
+      "classification": "primary",
+      "role": "default-background",
+      "background": true,
+      "textOnIt": "charcoal",
+      "surfaces": [
+        "digital",
+        "print"
+      ],
+      "usage": "Default background.",
+      "restrictions": [
+        "Charcoal text only."
+      ],
+      "exceptions": [],
+      "aliases": [
+        {
+          "token": "color.background-soft",
+          "css": "--color-background-soft",
+          "class": "semantic"
+        },
+        {
+          "token": "color.soft-lavender",
+          "css": "--color-soft-lavender",
+          "class": "alias"
+        }
+      ]
+    },
+    {
+      "id": "warm-white",
+      "name": "Warm White",
+      "hex": "#FDFCF7",
+      "oklch": "oklch(0.99 0.007 97.3)",
+      "token": "color.brand.warm-white",
+      "css": "--color-brand-warm-white",
+      "classification": "primary",
+      "role": "default-background",
+      "background": true,
+      "textOnIt": "charcoal",
+      "surfaces": [
+        "digital",
+        "print"
+      ],
+      "usage": "Default background, replacing pure White.",
+      "restrictions": [
+        "Charcoal text only."
+      ],
+      "exceptions": [],
+      "aliases": [
+        {
+          "token": "color.accent",
+          "css": "--color-accent",
+          "class": "alias"
+        },
+        {
+          "token": "color.background-default",
+          "css": "--color-background-default",
+          "class": "semantic"
+        }
+      ]
+    },
+    {
+      "id": "navy",
+      "name": "Navy",
+      "hex": "#1F3A6E",
+      "oklch": "oklch(0.357 0.096 262.1)",
+      "token": "color.brand.navy",
+      "css": "--color-brand-navy",
+      "classification": "primary",
+      "role": "occasional-background",
+      "background": true,
+      "textOnIt": "white",
+      "surfaces": [
+        "digital",
+        "print"
+      ],
+      "usage": "Occasional background for covers and standout moments.",
+      "restrictions": [
+        "White text only."
+      ],
+      "exceptions": [],
+      "aliases": [
+        {
+          "token": "color.navy",
+          "css": "--color-navy",
+          "class": "alias"
+        }
+      ]
+    },
+    {
+      "id": "teal",
+      "name": "Teal",
+      "hex": "#0F6E6E",
+      "oklch": "oklch(0.4891 0.0798 194.9)",
+      "token": "color.brand.teal",
+      "css": "--color-brand-teal",
+      "classification": "primary",
+      "role": "occasional-background",
+      "background": true,
+      "textOnIt": "white",
+      "surfaces": [
+        "digital",
+        "print"
+      ],
+      "usage": "Occasional background for covers and standout moments.",
+      "restrictions": [
+        "White text only."
+      ],
+      "exceptions": [],
+      "aliases": [
+        {
+          "token": "color.teal-deep",
+          "css": "--color-teal-deep",
+          "class": "alias"
+        }
+      ]
+    },
+    {
+      "id": "blue",
+      "name": "Blue",
+      "hex": "#3F00EB",
+      "oklch": "oklch(0.4486 0.2813 275.3)",
+      "token": "color.brand.blue",
+      "css": "--color-brand-blue",
+      "classification": "primary",
+      "role": "flexible",
+      "background": true,
+      "textOnIt": "white",
+      "surfaces": [
+        "digital"
+      ],
+      "usage": "Flexible usage, including backgrounds and primary buttons.",
+      "restrictions": [
+        "White text only.",
+        "Digital only, never print."
+      ],
+      "exceptions": [],
+      "aliases": [
+        {
+          "token": "color.background-alert",
+          "css": "--color-background-alert",
+          "class": "semantic"
+        },
+        {
+          "token": "color.blue.500",
+          "css": "--color-blue-500",
+          "class": "ramp"
+        },
+        {
+          "token": "color.brand-secondary",
+          "css": "--color-brand-secondary",
+          "class": "alias"
+        }
+      ]
+    },
+    {
+      "id": "charcoal",
+      "name": "Charcoal",
+      "hex": "#1E1E1E",
+      "oklch": "oklch(0.235 0 89.9)",
+      "token": "color.brand.charcoal",
+      "css": "--color-brand-charcoal",
+      "classification": "primary",
+      "role": "text-and-logo",
+      "background": false,
+      "textOnIt": null,
+      "surfaces": [
+        "digital",
+        "print"
+      ],
+      "usage": "Text and logo only.",
+      "restrictions": [
+        "Never a full background."
+      ],
+      "exceptions": [],
+      "aliases": [
+        {
+          "token": "color.brand-dark",
+          "css": "--color-brand-dark",
+          "class": "alias"
+        },
+        {
+          "token": "color.focus-ring",
+          "css": "--color-focus-ring",
+          "class": "semantic"
+        },
+        {
+          "token": "color.neutral.900",
+          "css": "--color-neutral-900",
+          "class": "ramp"
+        }
+      ]
+    },
+    {
+      "id": "white",
+      "name": "White",
+      "hex": "#FFFFFF",
+      "oklch": "oklch(1 0 89.9)",
+      "token": "color.brand.white",
+      "css": "--color-brand-white",
+      "classification": "primary",
+      "role": "text-and-logo",
+      "background": false,
+      "textOnIt": null,
+      "surfaces": [
+        "digital",
+        "print"
+      ],
+      "usage": "Text and logo only.",
+      "restrictions": [
+        "Never a full background; use Warm White."
+      ],
+      "exceptions": [],
+      "aliases": [
+        {
+          "token": "color.base.white",
+          "css": "--color-white",
+          "class": "alias"
+        }
+      ]
+    },
+    {
+      "id": "pink",
+      "name": "Pink",
+      "hex": "#FADCD2",
+      "oklch": "oklch(0.917 0.036 39.3)",
+      "token": "color.brand.pink",
+      "css": "--color-brand-pink",
+      "classification": "secondary",
+      "role": "supportive-background",
+      "background": true,
+      "textOnIt": "charcoal",
+      "surfaces": [
+        "digital",
+        "print"
+      ],
+      "usage": "Occasional backgrounds, graphs, charts and supportive UI elements.",
+      "restrictions": [
+        "Charcoal text only."
+      ],
+      "exceptions": [],
+      "aliases": [
+        {
+          "token": "color.blush",
+          "css": "--color-blush",
+          "class": "alias"
+        }
+      ]
+    },
+    {
+      "id": "yellow",
+      "name": "Yellow",
+      "hex": "#FFD84D",
+      "oklch": "oklch(0.892 0.157 93)",
+      "token": "color.brand.yellow",
+      "css": "--color-brand-yellow",
+      "classification": "secondary",
+      "role": "decorative",
+      "background": false,
+      "textOnIt": null,
+      "surfaces": [
+        "digital",
+        "print"
+      ],
+      "usage": "Decorative shapes, marks and accents on Navy or Teal backgrounds only.",
+      "restrictions": [
+        "Never for text or backgrounds."
+      ],
+      "exceptions": [],
+      "aliases": [
+        {
+          "token": "color.yellow",
+          "css": "--color-yellow",
+          "class": "alias"
+        }
+      ]
+    }
+  ],
+  "pairings": [
+    {
+      "background": "lime",
+      "text": "charcoal",
+      "contrast": 12.45
+    },
+    {
+      "background": "lavender",
+      "text": "charcoal",
+      "contrast": 12.71
+    },
+    {
+      "background": "warm-white",
+      "text": "charcoal",
+      "contrast": 16.23
+    },
+    {
+      "background": "navy",
+      "text": "white",
+      "contrast": 11.12
+    },
+    {
+      "background": "teal",
+      "text": "white",
+      "contrast": 6.04
+    },
+    {
+      "background": "blue",
+      "text": "white",
+      "contrast": 8.71
+    },
+    {
+      "background": "pink",
+      "text": "charcoal",
+      "contrast": 12.89
+    }
+  ],
+  "deprecated": [
+    {
+      "token": "color.pink",
+      "hex": "#F39EBC",
+      "conflictsWith": "pink",
+      "replacement": "color.legacy.pink",
+      "approved": "color.brand.pink",
+      "note": "Old decorative pink. Not brand Pink (#FADCD2).",
+      "css": "--color-pink",
+      "replacementCss": "--color-legacy-pink",
+      "approvedCss": "--color-brand-pink"
+    },
+    {
+      "token": "color.teal",
+      "hex": "#03C9D3",
+      "conflictsWith": "teal",
+      "replacement": "color.legacy.teal",
+      "approved": "color.brand.teal",
+      "note": "Old bright cyan. Not brand Teal (#0F6E6E).",
+      "css": "--color-teal",
+      "replacementCss": "--color-legacy-teal",
+      "approvedCss": "--color-brand-teal"
+    },
+    {
+      "token": "color.light-purple",
+      "hex": "#D5C5FF",
+      "conflictsWith": "lavender",
+      "replacement": "color.legacy.light-purple",
+      "approved": "color.brand.lavender",
+      "note": "Old deeper lavender. Not brand Lavender (#E5DCFF).",
+      "css": "--color-light-purple",
+      "replacementCss": "--color-legacy-light-purple",
+      "approvedCss": "--color-brand-lavender"
+    }
+  ],
+  "notBrand": {
+    "legacy": [
+      "color.lavender-official",
+      "color.legacy.light-purple",
+      "color.legacy.pink",
+      "color.legacy.teal",
+      "color.light-orange",
+      "color.light-purple",
+      "color.magenta",
+      "color.pink",
+      "color.purple",
+      "color.red",
+      "color.teal",
+      "color.warm-grey",
+      "color.warm-grey-light"
+    ],
+    "technical": [
+      "color.base.black",
+      "color.focus-button",
+      "color.focus-visible-accent",
+      "color.light-gray",
+      "color.theme-1",
+      "color.theme-2",
+      "color.theme-4",
+      "color.theme-5",
+      "color.theme-7",
+      "color.theme-8",
+      "color.very-light-gray"
+    ],
+    "status": [
+      "color.status.error",
+      "color.status.success",
+      "color.status.warning"
+    ],
+    "print": [
+      "color.doc.grey-dark",
+      "color.doc.grey-light",
+      "color.print.purple-home",
+      "color.print.purple-press"
+    ],
+    "ramp": "color.{neutral,orange,green,blue,lavender}.<step>: tonal ramps. Ramp step 500 equals the brand colour only for orange, green (Lime), and blue; lavender.500 is NOT brand Lavender."
+  }
+}

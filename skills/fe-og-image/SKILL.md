@@ -4,7 +4,7 @@ description: Create on-brand ForEveryone OG images and featured-image artwork. U
 metadata:
   foreveryone: ">=1.12.1 <2.0.0"
   requires: "fe-core"
-  docs: "spec/principles.md, docs/visual-styles.md, integrations/elementor/og-images.md"
+  docs: "spec/brand-palette.json, spec/principles.md, docs/visual-styles.md, integrations/elementor/og-images.md"
   guide: "Create OG and featured images for a specific page."
 ---
 
@@ -37,7 +37,7 @@ ForEveryone. Deliver an actual image file and its editable source, not only a pr
    left-aligned headline, restrained orange underline and right-hand organic photo
    mask. Keep its hierarchy, not its long paragraph. See the observed reference in
    [production.md](references/production.md).
-3. Resolve digital tokens from `../tokens.json` in an installed payload, or
+3. Take brand colours from `../brand-palette.json` (`--color-brand-*` only). Resolve other digital tokens from `../tokens.json` in an installed payload, or
    `spec/tokens.json` in a clone. The packaged production rules apply to this
    image workflow where older consumer examples disagree with current principles.
 4. Prefer a relevant, rights-cleared image from the destination or supplied brief.

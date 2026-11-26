@@ -162,6 +162,12 @@ async function installToolLayout(index, parentDir, label, options, written) {
     options,
     written
   );
+  await writeFileIfNeeded(
+    path.join(root, '_shared', 'brand-palette.json'),
+    await readFile(path.join(skillsDir, 'brand-palette.json'), 'utf8'),
+    options,
+    written
+  );
 }
 
 async function listSkills() {
@@ -205,7 +211,7 @@ async function installSkills(options) {
         `${path.relative(cwd, localDir)}/${skill.name}/`
       );
     }
-    for (const file of ['_shared', 'tokens.json', 'index.json']) {
+    for (const file of ['_shared', 'tokens.json', 'brand-palette.json', 'index.json']) {
       await copyTree(
         path.join(skillsDir, file),
         path.join(localDir, file),

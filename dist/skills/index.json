@@ -3,6 +3,7 @@
   "version": "1.23.0",
   "docs": "https://github.com/Foreveryone-berlin/design-system",
   "tokens": "tokens.json",
+  "brandPalette": "brand-palette.json",
   "agentsBlock": "AGENTS.foreveryone.md",
   "shared": [
     "_shared/conventions.md"
@@ -17,6 +18,7 @@
       "docs": [
         "llms.txt",
         "spec/principles.md",
+        "spec/brand-palette.json",
         "spec/tokens.json"
       ],
       "guide": "Use the shared CSS, approved colours, typography, and brand rules.",
@@ -32,6 +34,7 @@
       "requires": [],
       "docs": [
         "llms.txt",
+        "spec/brand-palette.json",
         "docs/agent-skills.md",
         "docs/brand-book-references.md",
         "integrations/README.md"
@@ -121,6 +124,7 @@
         "fe-core"
       ],
       "docs": [
+        "spec/brand-palette.json",
         "spec/principles.md",
         "docs/visual-styles.md",
         "integrations/elementor/og-images.md"
@@ -149,6 +153,7 @@
       "docs": [
         "llms.txt",
         "spec/principles.md",
+        "spec/brand-palette.json",
         "spec/tokens.json",
         "docs/agents/redesign-from-this-system.md"
       ],
@@ -167,6 +172,7 @@
         "fe-tokens"
       ],
       "docs": [
+        "tokens/brand-palette.json",
         "docs/token-naming.md",
         "docs/skills/token-update.md",
         "spec/tokens.json"
@@ -186,6 +192,7 @@
       ],
       "docs": [
         "llms.txt",
+        "spec/brand-palette.json",
         "spec/tokens.json",
         "spec/principles.md",
         "docs/token-naming.md"

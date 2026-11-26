@@ -15,6 +15,16 @@ Examples:
 - `font.size.xl`
 - `motion.transition.base`
 
+## Brand colours
+
+Approved brand colours are `color.brand.{id}` (`--color-brand-{id}`), generated from
+`tokens/brand-palette.json`. No other token may use a brand colour's name (`pink`,
+`teal`, `lavender`, `lime`, ...) with a different value. Older names for brand
+colours (`color.blush`, `color.teal-deep`, `color.soft-lavender`) are aliases that
+reference the canonical token. Colours outside the palette are classed `legacy`,
+`technical`, `status`, `ramp`, or `print` (see `docs/color-audit-2026.md`), and
+`color.legacy.*` holds old values whose names clashed with a brand colour.
+
 ## Naming Principles
 
 - Ramp families are named by hue (`orange`, `green`, `blue`, `lavender`, `neutral`) with

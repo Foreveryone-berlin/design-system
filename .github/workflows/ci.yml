@@ -19,6 +19,9 @@ jobs:
 
       - run: npm ci
 
+      - name: Build brand palette artefacts
+        run: node scripts/build-palette.js
+
       - name: Build tokens to CSS
         run: node scripts/build-css.js
 
@@ -44,6 +47,14 @@ jobs:
           if ! git diff --quiet -- spec/tokens.json; then
             echo "::error::spec/tokens.json is out of sync with tokens/*.json. Run 'node scripts/build-spec.js' and commit."
             git --no-pager diff -- spec/tokens.json
+            exit 1
+          fi
+
+      - name: Detect palette drift
+        run: |
+          if ! git diff --quiet -- tokens/brand.json spec/brand-palette.json spec/brand-palette.md llms.txt spec/principles.md docs/color-audit-2026.md skills; then
+            echo "::error::Palette artefacts are out of sync with tokens/brand-palette.json. Run 'npm run build' and commit."
+            git --no-pager diff --stat
             exit 1
           fi
 

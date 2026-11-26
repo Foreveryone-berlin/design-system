@@ -4,7 +4,7 @@ description: Route ForEveryone UI work to the design-system sources and the matc
 metadata:
   foreveryone: ">=1.14.0 <2.0.0"
   requires: ""
-  docs: "llms.txt, docs/agent-skills.md, docs/brand-book-references.md, integrations/README.md"
+  docs: "llms.txt, spec/brand-palette.json, docs/agent-skills.md, docs/brand-book-references.md, integrations/README.md"
   guide: "Find the maintained sources and choose the skill for the task."
 ---
 
@@ -62,7 +62,7 @@ Load any prerequisites listed in a skill's frontmatter before that skill.
 | OG images and featured artwork | [`fe-og-image`](../fe-og-image/SKILL.md) |
 | Photo selection and ranked shortlists | [`photo-curator`](../photo-curator/SKILL.md) |
 
-Resolve implementation details from `llms.txt`, `spec/tokens.json`,
+Resolve the brand palette from `spec/brand-palette.json` (only `--color-brand-*` colours are brand; legacy `pink`, `teal`, `light-purple` are not). Resolve implementation details from `llms.txt`, `spec/tokens.json`,
 `spec/principles.md`, and the relevant component contracts. Installed payloads
 include `tokens.json`. Fetch a missing contract from
 [GitHub](https://github.com/Foreveryone-berlin/design-system).
@@ -90,7 +90,7 @@ loaded too. On a page that imports the design-system CSS, the browser resolves
 a brand variable:
 
 ```js
-getComputedStyle(document.documentElement).getPropertyValue("--color-brand-primary").trim()
+getComputedStyle(document.documentElement).getPropertyValue("--color-brand-orange").trim()
 ```
 
 A non-empty `oklch()` value means the custom properties loaded. An empty string

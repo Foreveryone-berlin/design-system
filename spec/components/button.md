@@ -2,7 +2,7 @@
 
 ## One correct class
 
-- **Primary action:** `.fe-btn-primary` — Blue (`--color-brand-secondary`) fill,
+- **Primary action:** `.fe-btn-primary` — Blue (`--color-brand-blue`) fill,
   white text, pill radius. The single default for the main action on a view.
 - **Secondary action:** `.fe-btn-secondary` — outline/quiet style for the
   lesser action beside a primary.
@@ -22,9 +22,9 @@ outline-only at rest.
 | State | Behaviour |
 |---|---|
 | Default | Primary: Blue fill, white text. Secondary: Blue outline, Blue text, transparent fill. |
-| Hover | Orange (`--color-brand-primary`, #FF7A3A) fill, white text (secondary: fill + border). |
+| Hover | Orange (`--color-brand-orange`, #FF7A3A) fill, white text (secondary: fill + border). |
 | Active / focus-visible | Pressed fill `--color-focus-button` (#CC622E), white text; no gold ring on pill buttons (outline suppressed; fill is the indicator). |
-| Disabled | Primary: `--color-light-purple` fill, white text. Secondary: light-purple border and text, transparent fill. |
+| Disabled | Primary: `--color-legacy-light-purple` fill, white text. Secondary: light-purple border and text, transparent fill. |
 
 Orange appears on hover and pressed states only, never as the resting fill. Pending brand-team confirmation that the October 2026 "never use Orange for buttons" rule allows interactive states.
 
