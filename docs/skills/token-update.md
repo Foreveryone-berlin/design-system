@@ -9,10 +9,10 @@ Use this when adding or changing design tokens (colors, typography, spacing, rad
 1. **Edit the right token file** in `tokens/`:
    - `colors.json`, `typography.json`, `spacing.json`, `radius.json`, `shadows.json`, or `motion.json`.
 2. **Follow W3C DTCG format**: each token has `$value`, `$type`, and optionally `$description`. Use existing entries as a template.
-   - New **flat** brand color (e.g. `color.soft-lavender`): add the object under `color` in `colors.json`, then add the same key string to the `FLAT_COLOR_KEYS` array in `scripts/build-css.js` so `--color-*` is emitted.
+   - New **flat** colour: add the object under `color` in `colors.json` and classify it in `tokenClasses` of `tokens/brand-palette.json` (or reference a `color.brand.*` token). `build-css.js` emits `--color-*` from that class. New brand colours go only in `colors` of `brand-palette.json`; never edit `tokens/brand.json` by hand.
 3. **Run the build**:
    ```bash
-   node scripts/build-css.js
+   npm run build
    ```
 4. **Confirm** `css/custom-properties.css` was updated and contains the new or changed variable(s).
 5. **Use the variable** in shared `css/` (e.g. `typography.css`, `utilities.css`) via `var(--name-from-build)`. Host-platform override layers live under `css/integrations/` and are maintained with that target.

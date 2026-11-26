@@ -4,7 +4,7 @@ description: Resolve and apply ForEveryone Berlin design tokens. Use when mappin
 metadata:
   foreveryone: ">=1.9.0 <2.0.0"
   requires: "fe-core"
-  docs: "llms.txt, spec/tokens.json, spec/principles.md, docs/token-naming.md"
+  docs: "llms.txt, spec/brand-palette.json, spec/tokens.json, spec/principles.md, docs/token-naming.md"
   guide: "Resolve token names and extend the palette by role."
 ---
 
@@ -31,6 +31,8 @@ role (background, text, accent, border), using the approved pairings in
 `spec/principles.md`. Names follow `{category}.{tier}.{variant}`
 (`docs/token-naming.md`).
 
+Brand colours come from `brand-palette.json` (`--color-brand-*`). In `tokens.json`, a colour is brand only when `class` is `brand`, or when it has a `brandColor` (alias or semantic). Tokens with `class` `legacy`, `technical`, `status`, `ramp`, or `print`, and any token with `deprecated: true`, are not brand colours and are never offered as the palette. Where `preferred` is set, use that name.
+
 Use digital-surface tokens on the web. Leave `surface: "print"` tokens unused
 (`--font-family-accent`, `--color-print-*`, `--color-doc-*`).
 
@@ -54,7 +56,8 @@ write a new hex literal or font name.
 2. Token names follow `{category}.{tier}.{variant}`.
 3. Digital-surface tokens only on the web.
 4. Map by role, using pairings in `spec/principles.md`.
-5. Extend a missing shade in OKLCH. Hold hue and lightness, step chroma.
+5. Never use a token with `deprecated: true`. Take brand colours from `brand-palette.json`.
+6. Extend a missing shade in OKLCH. Hold hue and lightness, step chroma.
 
 ## Verify
 
@@ -73,6 +76,7 @@ getComputedStyle(document.documentElement).getPropertyValue("--color-theme-2").t
 
 ## Do not
 
+- Treat the deprecated `--color-pink`, `--color-teal`, or `--color-light-purple` as brand colours. Brand Pink, Teal, and Lavender are `--color-brand-pink`, `--color-brand-teal`, `--color-brand-lavender`.
 - Hand-edit `css/custom-properties.css` (regenerate from `tokens/` via `build-css.js`).
 - Use Orange as text, a button fill, a link colour, or a background behind text.
 - Put white text on a light tint, or any text but pure white on Blue.

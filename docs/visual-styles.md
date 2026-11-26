@@ -107,8 +107,8 @@ Prototype IA split:
 ### Filled icons (functional)
 
 - **Role:** Wayfinding and **categorization** (e.g. workshop types: painting, pottery).
-- **Color:** Filled functional markers **must use brand orange** (`var(--color-brand-primary)`). Icons should use `currentColor` on a control whose text/icon color is set to white on that orange ground (see `.fe-workshop-icon` in `css/utilities.css`). Orange markers are decorative, never clickable buttons.
-- **Labels:** Pair with **high-contrast** copy: default body/label text should use Charcoal (`var(--color-brand-dark)` / `var(--color-theme-2)`) on light surfaces per the color palette.
+- **Color:** Filled functional markers **must use brand orange** (`var(--color-brand-orange)`). Icons should use `currentColor` on a control whose text/icon color is set to white on that orange ground (see `.fe-workshop-icon` in `css/utilities.css`). Orange markers are decorative, never clickable buttons.
+- **Labels:** Pair with **high-contrast** copy: default body/label text should use Charcoal (`var(--color-brand-charcoal)` / `var(--color-theme-2)`) on light surfaces per the color palette.
 
 ### Social / neutral icon buttons
 
@@ -122,13 +122,13 @@ Brand Book v1.0 p.27 defines two graphic-shape types with distinct roles that **
 ### Blob shapes
 
 - **Role:** Organic, rounded **containers** for photos and **colour blocks** behind text; soften photography and frame imagery.
-- **Colors:** Decorative blobs use the brand accent family: **orange**, **lavender**, **lime**: map to `var(--color-brand-primary)`, `var(--color-light-purple)`, `var(--color-light-green)` (and large soft surfaces: `var(--color-soft-lavender)` where appropriate).
+- **Colors:** Decorative blobs use the brand accent family: **orange**, **lavender**, **lime**: map to `var(--color-brand-orange)`, `var(--color-legacy-light-purple)`, `var(--color-brand-lime)` (and large soft surfaces: `var(--color-brand-lavender)` where appropriate).
 - **Implementation:** Reuse `prototype/public/illustrations/blobs/blob-1.svg` through `blob-7.svg`. Preserve the SVG viewBox ratio with `mask-size: contain`, centred and non-repeating. Crop the photograph with `object-fit: cover`; never stretch the photograph to fit a silhouette. The prototype's Visual Elements page previews all seven on the same image. Existing page-specific rounded crops are not new canonical SVGs.
 
 ### Wave shapes
 
 - **Role:** Soft **horizontal dividers** at the top or bottom edge of a section. Not containers, not masks: only edge dividers.
-- **Colour:** Lime green (`var(--color-light-green)`); match the section they edge.
+- **Colour:** Lime green (`var(--color-brand-lime)`); match the section they edge.
 - **Shipped set:** choose a profile from the table below. Full-width dividers use `preserveAspectRatio="none"` to stretch the section edge, not its photographs or text. Corner waves retain their native proportions.
 
 | Profile | File under `prototype/public/illustrations/waves/` | Source and use |

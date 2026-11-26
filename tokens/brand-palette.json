@@ -1,0 +1,232 @@
+{
+  "$description": "Canonical ForEveryone brand palette (October 2026). Single source of truth for brand colour names, hex values, roles, and usage restrictions. Generators derive tokens/brand.json, spec/brand-palette.json, spec/brand-palette.md, and the marked blocks in llms.txt, spec/principles.md, and the skills. Edit only when the brand team changes the palette, then run `npm run build`.",
+  "version": "2026-10",
+  "colors": [
+    {
+      "id": "orange",
+      "name": "Orange",
+      "hex": "#FF7A3A",
+      "oklch": "oklch(0.726 0.179 43.9)",
+      "classification": "primary",
+      "role": "accent",
+      "background": false,
+      "textOnIt": null,
+      "surfaces": ["digital", "print"],
+      "usage": "Mandatory accent in every layout, printed piece and social post.",
+      "restrictions": ["Never for text, buttons, links or full backgrounds behind text."],
+      "exceptions": ["QR-code border", "White standalone logo icon on Orange with no text"]
+    },
+    {
+      "id": "lime",
+      "name": "Lime Green",
+      "hex": "#D4E6A8",
+      "oklch": "oklch(0.896 0.083 121.2)",
+      "classification": "primary",
+      "role": "default-background",
+      "background": true,
+      "textOnIt": "charcoal",
+      "surfaces": ["digital", "print"],
+      "usage": "Default background.",
+      "restrictions": ["Charcoal text only."],
+      "exceptions": []
+    },
+    {
+      "id": "lavender",
+      "name": "Lavender",
+      "hex": "#E5DCFF",
+      "oklch": "oklch(0.912 0.048 297.2)",
+      "classification": "primary",
+      "role": "default-background",
+      "background": true,
+      "textOnIt": "charcoal",
+      "surfaces": ["digital", "print"],
+      "usage": "Default background.",
+      "restrictions": ["Charcoal text only."],
+      "exceptions": []
+    },
+    {
+      "id": "warm-white",
+      "name": "Warm White",
+      "hex": "#FDFCF7",
+      "oklch": "oklch(0.99 0.007 97.3)",
+      "classification": "primary",
+      "role": "default-background",
+      "background": true,
+      "textOnIt": "charcoal",
+      "surfaces": ["digital", "print"],
+      "usage": "Default background, replacing pure White.",
+      "restrictions": ["Charcoal text only."],
+      "exceptions": []
+    },
+    {
+      "id": "navy",
+      "name": "Navy",
+      "hex": "#1F3A6E",
+      "oklch": "oklch(0.357 0.096 262.1)",
+      "classification": "primary",
+      "role": "occasional-background",
+      "background": true,
+      "textOnIt": "white",
+      "surfaces": ["digital", "print"],
+      "usage": "Occasional background for covers and standout moments.",
+      "restrictions": ["White text only."],
+      "exceptions": []
+    },
+    {
+      "id": "teal",
+      "name": "Teal",
+      "hex": "#0F6E6E",
+      "oklch": "oklch(0.4891 0.0798 194.9)",
+      "classification": "primary",
+      "role": "occasional-background",
+      "background": true,
+      "textOnIt": "white",
+      "surfaces": ["digital", "print"],
+      "usage": "Occasional background for covers and standout moments.",
+      "restrictions": ["White text only."],
+      "exceptions": []
+    },
+    {
+      "id": "blue",
+      "name": "Blue",
+      "hex": "#3F00EB",
+      "oklch": "oklch(0.4486 0.2813 275.3)",
+      "classification": "primary",
+      "role": "flexible",
+      "background": true,
+      "textOnIt": "white",
+      "surfaces": ["digital"],
+      "usage": "Flexible usage, including backgrounds and primary buttons.",
+      "restrictions": ["White text only.", "Digital only, never print."],
+      "exceptions": []
+    },
+    {
+      "id": "charcoal",
+      "name": "Charcoal",
+      "hex": "#1E1E1E",
+      "oklch": "oklch(0.235 0 89.9)",
+      "classification": "primary",
+      "role": "text-and-logo",
+      "background": false,
+      "textOnIt": null,
+      "surfaces": ["digital", "print"],
+      "usage": "Text and logo only.",
+      "restrictions": ["Never a full background."],
+      "exceptions": []
+    },
+    {
+      "id": "white",
+      "name": "White",
+      "hex": "#FFFFFF",
+      "oklch": "oklch(1 0 89.9)",
+      "classification": "primary",
+      "role": "text-and-logo",
+      "background": false,
+      "textOnIt": null,
+      "surfaces": ["digital", "print"],
+      "usage": "Text and logo only.",
+      "restrictions": ["Never a full background; use Warm White."],
+      "exceptions": []
+    },
+    {
+      "id": "pink",
+      "name": "Pink",
+      "hex": "#FADCD2",
+      "oklch": "oklch(0.917 0.036 39.3)",
+      "classification": "secondary",
+      "role": "supportive-background",
+      "background": true,
+      "textOnIt": "charcoal",
+      "surfaces": ["digital", "print"],
+      "usage": "Occasional backgrounds, graphs, charts and supportive UI elements.",
+      "restrictions": ["Charcoal text only."],
+      "exceptions": []
+    },
+    {
+      "id": "yellow",
+      "name": "Yellow",
+      "hex": "#FFD84D",
+      "oklch": "oklch(0.892 0.157 93)",
+      "classification": "secondary",
+      "role": "decorative",
+      "background": false,
+      "textOnIt": null,
+      "surfaces": ["digital", "print"],
+      "usage": "Decorative shapes, marks and accents on Navy or Teal backgrounds only.",
+      "restrictions": ["Never for text or backgrounds."],
+      "exceptions": []
+    }
+  ],
+  "deprecated": [
+    {
+      "token": "color.pink",
+      "hex": "#F39EBC",
+      "conflictsWith": "pink",
+      "replacement": "color.legacy.pink",
+      "approved": "color.brand.pink",
+      "note": "Old decorative pink. Not brand Pink (#FADCD2)."
+    },
+    {
+      "token": "color.teal",
+      "hex": "#03C9D3",
+      "conflictsWith": "teal",
+      "replacement": "color.legacy.teal",
+      "approved": "color.brand.teal",
+      "note": "Old bright cyan. Not brand Teal (#0F6E6E)."
+    },
+    {
+      "token": "color.light-purple",
+      "hex": "#D5C5FF",
+      "conflictsWith": "lavender",
+      "replacement": "color.legacy.light-purple",
+      "approved": "color.brand.lavender",
+      "note": "Old deeper lavender. Not brand Lavender (#E5DCFF)."
+    }
+  ],
+  "tokenClasses": {
+    "semantic": [
+      "color.background-default",
+      "color.background-soft",
+      "color.background-title",
+      "color.background-alert",
+      "color.accent-icon",
+      "color.accent-border",
+      "color.focus-ring"
+    ],
+    "technical": [
+      "color.focus-button",
+      "color.focus-visible-accent",
+      "color.very-light-gray",
+      "color.light-gray",
+      "color.theme-1",
+      "color.theme-2",
+      "color.theme-4",
+      "color.theme-5",
+      "color.theme-7",
+      "color.theme-8",
+      "color.base.black"
+    ],
+    "status": ["color.status.*"],
+    "print": ["color.print.*", "color.doc.*"],
+    "legacy": [
+      "color.legacy.*",
+      "color.pink",
+      "color.teal",
+      "color.light-purple",
+      "color.lavender-official",
+      "color.light-orange",
+      "color.purple",
+      "color.magenta",
+      "color.red",
+      "color.warm-grey-light",
+      "color.warm-grey"
+    ],
+    "ramp": [
+      "color.neutral.*",
+      "color.orange.*",
+      "color.green.*",
+      "color.blue.*",
+      "color.lavender.*"
+    ]
+  }
+}

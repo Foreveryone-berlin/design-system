@@ -4,7 +4,7 @@ description: Restyle an existing web app to the ForEveryone Berlin design system
 metadata:
   foreveryone: ">=1.9.0 <2.0.0"
   requires: "fe-core"
-  docs: "llms.txt, spec/principles.md, spec/tokens.json, docs/agents/redesign-from-this-system.md"
+  docs: "llms.txt, spec/principles.md, spec/brand-palette.json, spec/tokens.json, docs/agents/redesign-from-this-system.md"
   guide: "Map an existing interface onto the design system."
 ---
 
@@ -30,7 +30,7 @@ Work in order. After each step, search the project for leftovers before continui
 
 ## Step 1: Read the sources and import tokens
 
-Read, in order: `llms.txt`, `tokens.json` (or `spec/tokens.json`), `spec/principles.md`,
+Read, in order: `llms.txt`, `brand-palette.json` (or `spec/brand-palette.json`), `tokens.json` (or `spec/tokens.json`), `spec/principles.md`,
 `spec/components/*.md`. Import `css/custom-properties.css` once at the app root.
 
 Load [`fe-core`](../fe-core/SKILL.md) before editing styles.
@@ -102,7 +102,7 @@ are clean for the files you changed, the state matrix for each rebuilt control
 is on the page, and the browser resolves the imported variables:
 
 ```js
-getComputedStyle(document.documentElement).getPropertyValue("--color-brand-primary").trim()
+getComputedStyle(document.documentElement).getPropertyValue("--color-brand-orange").trim()
 ```
 
 ## Do not
@@ -119,7 +119,7 @@ getComputedStyle(document.documentElement).getPropertyValue("--color-brand-prima
 You are restyling THIS web app to the ForEveryone Berlin design system.
 
 Source of truth: the design-system repo (or the installed skill payload). Read, in
-order: llms.txt, tokens.json or spec/tokens.json, spec/principles.md,
+order: llms.txt, brand-palette.json or spec/brand-palette.json, tokens.json or spec/tokens.json, spec/principles.md,
 spec/components/*.md, and css/custom-properties.css. Load fe-core and fe-redesign.
 
 Work in order. After each step, search for leftovers before continuing.
@@ -135,7 +135,7 @@ Leave print tokens off the web. Orange is never text or a background behind text
 Blue text is pure white. Extend palettes in OKLCH.
 
 Then verify: run the app, check contrast, keyboard focus, prefers-reduced-motion,
-confirm --color-brand-primary resolves, and report a token-by-token mapping.
+confirm --color-brand-orange resolves, and report a token-by-token mapping.
 ```
 
 ## Canonical docs

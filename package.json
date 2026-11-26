@@ -1,20 +1,21 @@
 {
   "name": "foreveryone-design-system",
-  "version": "1.23.0",
+  "version": "1.24.0",
   "private": true,
   "description": "Design system for foreveryone.berlin: DTCG tokens, generated CSS custom properties, Figma sync, per-platform integrations, and a Next.js prototype.",
   "bin": {
     "fe-ds": "bin/fe-ds.mjs"
   },
   "scripts": {
-    "build": "node scripts/build-css.js && node scripts/build-spec.js && npm run skills:build",
+    "build": "node scripts/build-palette.js && node scripts/build-css.js && node scripts/build-spec.js && npm run skills:build",
     "build:css": "node scripts/build-css.js",
     "build:spec": "node scripts/build-spec.js",
     "skills:build": "node scripts/build-skills.mjs",
-    "test": "node scripts/build-css.test.js && node scripts/svg-normalize.test.js && node scripts/svg-validate.test.js && node scripts/svg-standalone-color.mjs --check && node prototype/scripts/build-ui-glyphs.mjs --check && node scripts/build-skills.test.mjs",
+    "test": "node scripts/build-palette.js --check && node scripts/validate-palette.js && node scripts/build-css.test.js && node scripts/svg-normalize.test.js && node scripts/svg-validate.test.js && node scripts/svg-standalone-color.mjs --check && node prototype/scripts/build-ui-glyphs.mjs --check && node scripts/build-skills.test.mjs",
     "prototype:dev": "npm --prefix prototype run dev",
     "prototype:build": "npm --prefix prototype run build",
-    "prototype:lint": "npm --prefix prototype run lint"
+    "prototype:lint": "npm --prefix prototype run lint",
+    "build:palette": "node scripts/build-palette.js"
   },
   "dependencies": {
     "svg-path-bbox": "^2.1.0"

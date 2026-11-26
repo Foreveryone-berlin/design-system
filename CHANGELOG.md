@@ -8,6 +8,23 @@
 
 ## [Unreleased]
 
+## [1.24.0] - 2026-11-26
+
+### Added
+
+- Brand palette: Define the eleven approved colours once, with a brand name and a generated guide. ([#353](https://github.com/Foreveryone-berlin/design-system/pull/353), [#352](https://github.com/Foreveryone-berlin/design-system/issues/352))
+- Agent skills: Ship the palette with installed skills so agents pick approved colours. ([#353](https://github.com/Foreveryone-berlin/design-system/pull/353), [#352](https://github.com/Foreveryone-berlin/design-system/issues/352))
+- Validation: Fail the test run when the palette, CSS, docs, skills, or code disagree. ([#353](https://github.com/Foreveryone-berlin/design-system/pull/353), [#352](https://github.com/Foreveryone-berlin/design-system/issues/352))
+
+### Changed
+
+- Colour tokens: Tag each colour brand, alias, semantic, technical, status, ramp, legacy, or print. ([#353](https://github.com/Foreveryone-berlin/design-system/pull/353), [#352](https://github.com/Foreveryone-berlin/design-system/issues/352))
+- Docs and skills: Rewrite palette guidance around the canonical names and shorten the colour audit. ([#353](https://github.com/Foreveryone-berlin/design-system/pull/353), [#352](https://github.com/Foreveryone-berlin/design-system/issues/352))
+
+### Deprecated
+
+- Colour tokens: Mark old pink, teal, and light-purple names as not brand. Previous values stay. ([#353](https://github.com/Foreveryone-berlin/design-system/pull/353), [#352](https://github.com/Foreveryone-berlin/design-system/issues/352))
+
 ## [1.23.0] - 2026-11-24
 
 ### Changed

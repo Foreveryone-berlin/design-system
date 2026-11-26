@@ -20,11 +20,11 @@ Elementor reference: <https://elementor.com/help/theme-style-global-settings/>
 ## Custom Color Slot Mapping
 
 - **Custom 1 — Focus Button** -> `color.focus-button` -> `#CC622E`
-- **Custom 2 — Light Purple** -> `color.light-purple` -> `#D5C5FF` (Lavender)
+- **Custom 2 — Light Purple** -> `color.light-purple` -> `#D5C5FF` (deprecated legacy value, not brand Lavender; brand Lavender is `color.brand.lavender` `#E5DCFF`)
 - **Custom 3: Light Green** -> `color.light-green` -> `#D4E6A8` (Lime green)
 - **Custom 4 — Light Orange** -> `color.light-orange` -> `#FFD7C4`
-- **Custom 5 — Pink** -> `color.pink` -> `#F39EBC`
-- **Custom 6 — Teal** -> `color.teal` -> `#03C9D3`
+- **Custom 5 — Pink** -> `color.pink` -> `#F39EBC` (deprecated legacy value, not brand Pink; brand Pink is `color.brand.pink` `#FADCD2`)
+- **Custom 6 — Teal** -> `color.teal` -> `#03C9D3` (deprecated legacy value, not brand Teal; brand Teal is `color.brand.teal` `#0F6E6E`)
 - **Custom 7 — Purple** -> `color.purple` -> `#DA83DA`
 - **Custom 8 — Very Light Gray** -> `color.very-light-gray` -> `#F7F7F7`
 - **Custom 9 — Light Gray** -> `color.light-gray` -> `#D9D9D9`

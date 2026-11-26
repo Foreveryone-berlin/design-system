@@ -24,7 +24,7 @@ implementation gap-fill until brand-book category-colour rules exist.
 | Movement | `--color-orange-300` (Peach) | Charcoal |
 | Arts and Crafts | `--color-lavender-500` | Charcoal |
 | Expression | `--color-light-orange` | Charcoal |
-| Music | `--color-pink` | Charcoal |
+| Music | `--color-legacy-pink` | Charcoal |
 
 Alert blue (`--color-blue-500`) is reserved for announcements only, not category tags.
 

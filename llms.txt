@@ -21,6 +21,38 @@ role, and component has one correct answer.
 3. Build UI from the component contracts in `spec/components/*.md`.
 4. Obey the hard rules in `spec/principles.md`.
 
+## Brand palette (approved, single source)
+
+<!-- palette:llms:start -->
+Approved brand palette (2026-10), machine-readable in `spec/brand-palette.json`. Only these are brand colours; use the `--color-brand-*` names:
+
+| Colour | HEX | CSS variable | Class | Approved usage |
+|---|---|---|---|---|
+| Orange | `#FF7A3A` | `--color-brand-orange` | primary | Mandatory accent in every layout, printed piece and social post. Never for text, buttons, links or full backgrounds behind text. |
+| Lime Green | `#D4E6A8` | `--color-brand-lime` | primary | Default background. Charcoal text only. |
+| Lavender | `#E5DCFF` | `--color-brand-lavender` | primary | Default background. Charcoal text only. |
+| Warm White | `#FDFCF7` | `--color-brand-warm-white` | primary | Default background, replacing pure White. Charcoal text only. |
+| Navy | `#1F3A6E` | `--color-brand-navy` | primary | Occasional background for covers and standout moments. White text only. |
+| Teal | `#0F6E6E` | `--color-brand-teal` | primary | Occasional background for covers and standout moments. White text only. |
+| Blue | `#3F00EB` | `--color-brand-blue` | primary | Flexible usage, including backgrounds and primary buttons. White text only. Digital only, never print. |
+| Charcoal | `#1E1E1E` | `--color-brand-charcoal` | primary | Text and logo only. Never a full background. |
+| White | `#FFFFFF` | `--color-brand-white` | primary | Text and logo only. Never a full background; use Warm White. |
+| Pink | `#FADCD2` | `--color-brand-pink` | secondary | Occasional backgrounds, graphs, charts and supportive UI elements. Charcoal text only. |
+| Yellow | `#FFD84D` | `--color-brand-yellow` | secondary | Decorative shapes, marks and accents on Navy or Teal backgrounds only. Never for text or backgrounds. |
+
+Deprecated names that look like brand colours but are not:
+
+| Deprecated name | Old value | Meaning |
+|---|---|---|
+| `--color-pink` | `#F39EBC` | Not brand pink. Use `--color-brand-pink` for brand work. Old value kept as `--color-legacy-pink`. |
+| `--color-teal` | `#03C9D3` | Not brand teal. Use `--color-brand-teal` for brand work. Old value kept as `--color-legacy-teal`. |
+| `--color-light-purple` | `#D5C5FF` | Not brand lavender. Use `--color-brand-lavender` for brand work. Old value kept as `--color-legacy-light-purple`. |
+
+Technical, status, ramp, legacy, and print tokens are not brand colours. Do not offer them as the palette.
+<!-- palette:llms:end -->
+
+Source: `tokens/brand-palette.json`. Resolved form: [spec/brand-palette.json](spec/brand-palette.json). Guide: [spec/brand-palette.md](spec/brand-palette.md).
+
 ## Hard rules (never break)
 
 - **Never invent hex values or font names.** Use existing tokens. To extend a
@@ -28,11 +60,11 @@ role, and component has one correct answer.
   new shade already belongs to the system.
 - **Never use `surface: "print"` tokens on the web** (Young Serif
   `--font-family-accent`, `--color-print-*`, `--color-doc-*`).
-- **Orange (`--color-brand-primary`) is accent only**: never text, buttons, or
+- **Orange (`--color-brand-orange`) is accent only**: never text, buttons, or
   links, and never a full background behind text. The only structural
   exceptions are the QR-code border and the white standalone logo icon on
   orange (no text). Orange icons always carry a label.
-- **Blue (`--color-brand-secondary`) is flexible on digital surfaces**, always
+- **Blue (`--color-brand-blue`) is flexible on digital surfaces**, always
   with pure white text; never print.
 - **White and Charcoal are text and logo only**; use Warm White for full
   backgrounds.
@@ -41,7 +73,8 @@ role, and component has one correct answer.
 
 ## Files
 
-- Tokens (machine-readable): [spec/tokens.json](spec/tokens.json)
+- Brand palette (machine-readable, canonical): [spec/brand-palette.json](spec/brand-palette.json)
+- Tokens (machine-readable, includes non-brand tokens): [spec/tokens.json](spec/tokens.json)
 - Principles (deterministic rules): [spec/principles.md](spec/principles.md)
 - Component contracts: [spec/components/](spec/components/)
 - Generated CSS: [css/custom-properties.css](css/custom-properties.css)

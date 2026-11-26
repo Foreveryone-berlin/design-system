@@ -16,6 +16,8 @@ Portable task contract: [agents/agent-contract.md](agents/agent-contract.md).
 
 **IMPORTANT: Prefer retrieval-led reasoning over pre-training-led reasoning** for any design-system, token, CSS, integration, Figma, or prototype (Next.js) tasks. Open the indexed files below instead of guessing APIs, token paths, or host-platform behavior.
 
+**Brand palette:** the approved colours are defined once in `tokens/brand-palette.json` and published as `spec/brand-palette.json` (see `spec/brand-palette.md`). Brand colours are the `--color-brand-*` tokens only; every other colour token is legacy, technical, status, ramp, or print. Resolve brand colours from the palette, never by guessing a token name.
+
 **What this repo is:** a platform-neutral design system. `tokens/`, `spec/`, `docs/`, and the shared `css/*.css` layers carry no platform-specific selectors, slot numbers, or product names. Everything that targets one host platform lives in `integrations/<target>/` and `css/integrations/<target>.css`. Current targets: the Next.js prototype in `prototype/`, any framework or plain-CSS consumer, and the host platforms in [integrations/README.md](../integrations/README.md).
 
 ---
@@ -27,7 +29,8 @@ Paths are repo-relative from project root unless noted.
 |root:{README.md,CHANGELOG.md,AGENTS.md,CLAUDE.md,llms.txt}
 |docs:{AGENTS.md,a11y-conformance.md,agent-skills.md,brand-book-references.md,canva-icon-gap-audit.md,color-audit-2026.md,contributing.md,figma-final-design-audit.md,getting-started.md,integration-checklist.md,logo-usage.md,pr-and-merge-workflow.md,prototype-deploy.md,token-naming.md,validation.md,visual-styles.md}
 |docs/agents:{README.md,agent-contract.md,runtime-policy.md,redesign-from-this-system.md}
-|spec:{tokens.json,principles.md}
+|spec:{brand-palette.json,brand-palette.md,tokens.json,principles.md}
+|tokens:{brand-palette.json (canonical brand palette source),brand.json (generated),colors.json,typography.json,spacing.json,radius.json,shadows.json,motion.json}
 |spec/components:{README.md,button.md,tag-pill.md,card.md,input.md,faq.md,header.md,footer.md,dropdown.md,popup.md,testimonial.md}
 |spec/patterns:{README.md}
 |docs/decisions:{001-token-format.md}

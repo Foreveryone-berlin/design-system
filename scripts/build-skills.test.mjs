@@ -92,7 +92,7 @@ if (build.status !== 0) {
   } else fail('index carries each skill guide', JSON.stringify([...guides.entries()]));
 }
 
-for (const file of ['index.json', 'AGENTS.foreveryone.md', 'tokens.json', 'fe-core/SKILL.md']) {
+for (const file of ['index.json', 'AGENTS.foreveryone.md', 'tokens.json', 'brand-palette.json', 'fe-core/SKILL.md']) {
   const full = path.join(tmpOut, file);
   if (existsSync(full)) ok(`artifact ${file}`);
   else fail(`artifact ${file}`, 'missing');
@@ -106,6 +106,7 @@ const committed = [
   'dist/skills/index.json',
   'dist/skills/AGENTS.foreveryone.md',
   'dist/skills/tokens.json',
+  'dist/skills/brand-palette.json',
 ];
 for (const rel of committed) {
   if (existsSync(path.join(repoRoot, rel))) ok(`committed ${rel}`);
@@ -175,7 +176,7 @@ else {
     if (readFileSync(path.join(codexRoot, rel), 'utf8') === skill.text) ok(`Codex discovery ${skill.dir}`);
     else fail(`Codex discovery ${skill.dir}`, 'source differs');
   }
-  for (const rel of ['_shared/conventions.md', '_shared/tokens.json']) {
+  for (const rel of ['_shared/conventions.md', '_shared/tokens.json', '_shared/brand-palette.json']) {
     if (existsSync(path.join(codexRoot, rel))) ok(`Codex dependency ${rel}`);
     else fail(`Codex dependency ${rel}`, 'missing');
   }

@@ -10,26 +10,28 @@ this system. Tokens are in [tokens.json](tokens.json); CSS variables are in
 
 ### Approved background ⇄ text pairings (use only these)
 
+<!-- palette:pairings:start -->
 | Background | CSS var | Text | Contrast |
 |---|---|---|---|
-| Warm White `#FDFCF7` | `--color-background-default` | Charcoal | 16.23:1 |
-| Lavender `#E5DCFF` | `--color-background-soft` | Charcoal | 12.71:1 |
-| Lime Green `#D4E6A8` | `--color-background-title` | Charcoal | 12.45:1 |
-| Pink `#FADCD2` | `--color-blush` | Charcoal | 12.89:1 |
-| Navy `#1F3A6E` | `--color-navy` | White `#FFFFFF` | 11.12:1 |
-| Teal `#0F6E6E` | `--color-teal-deep` | White `#FFFFFF` | 6.04:1 |
-| Blue `#3F00EB` | `--color-background-alert` | White `#FFFFFF` | 8.71:1 |
+| Lime Green `#D4E6A8` | `--color-brand-lime` | Charcoal `#1E1E1E` | 12.45:1 |
+| Lavender `#E5DCFF` | `--color-brand-lavender` | Charcoal `#1E1E1E` | 12.71:1 |
+| Warm White `#FDFCF7` | `--color-brand-warm-white` | Charcoal `#1E1E1E` | 16.23:1 |
+| Navy `#1F3A6E` | `--color-brand-navy` | White `#FFFFFF` | 11.12:1 |
+| Teal `#0F6E6E` | `--color-brand-teal` | White `#FFFFFF` | 6.04:1 |
+| Blue `#3F00EB` | `--color-brand-blue` | White `#FFFFFF` | 8.71:1 |
+| Pink `#FADCD2` | `--color-brand-pink` | Charcoal `#1E1E1E` | 12.89:1 |
+<!-- palette:pairings:end -->
 
 ### Never use (fails contrast)
 
 - Orange background + White text (2.59:1)
 - Lime Green background + White text (1.33:1)
-- Soft Lavender background + White text (1.31:1)
+- Lavender background + White text (1.31:1)
 - Blue background + Charcoal text (1.91:1)
 
 ### Colour rules
 
-- **Orange** (`--color-brand-primary`) is **accent only** and must appear in
+- **Orange** (`--color-brand-orange`) is **accent only** and must appear in
   every layout: filled icons, blobs, marks, borders. Never text, buttons, or
   links, and never a full background behind text. Only structural exceptions:
   the QR-code border, and the white standalone logo icon on orange (no text).
@@ -37,17 +39,17 @@ this system. Tokens are in [tokens.json](tokens.json); CSS variables are in
   text only.
 - **Navy, Teal** are occasional backgrounds for covers and standout moments;
   white text only.
-- **Blue** (`--color-brand-secondary`) is flexible: backgrounds and primary
+- **Blue** (`--color-brand-blue`) is flexible: backgrounds and primary
   buttons, white text only. Digital only, never print. Button hover and pressed
-  states use Orange (`--color-brand-primary`, `--color-focus-button`), pending brand-team confirmation.
-- **Pink** (`--color-blush`) is for occasional backgrounds and supportive UI
+  states use Orange (`--color-brand-orange`, `--color-focus-button`), pending brand-team confirmation.
+- **Pink** (`--color-brand-pink`) is for occasional backgrounds and supportive UI
   (charts, tags, chips, active states); Charcoal text only.
-- **Yellow** (`--color-yellow`) is decorative shapes and marks on Navy or Teal
+- **Yellow** (`--color-brand-yellow`) is decorative shapes and marks on Navy or Teal
   only; never text or a background.
-- **Charcoal** (`--color-brand-dark`) and **White** (`--color-white`) are text
+- **Charcoal** (`--color-brand-charcoal`) and **White** (`--color-brand-white`) are text
   and logo only; never a full background. Use Warm White for page backgrounds.
-- `--color-light-purple` (`#D5C5FF`) and other colours outside this list are
-  pending Brand Book v2.0; do not use them in new work.
+- The brand palette is exactly the eleven colours in
+  [brand-palette.md](brand-palette.md). Deprecated `--color-light-purple`, `--color-pink`, and `--color-teal` and every other colour outside it are legacy or technical, not brand; do not use them in new work.
 - **Extending the palette:** work in OKLCH — hold hue and lightness, step the
   chroma. Never invent hex values.
 
