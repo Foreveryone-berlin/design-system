@@ -4,7 +4,7 @@ description: Author ForEveryone design tokens in this repository. Use when addin
 metadata:
   foreveryone: ">=1.19.1 <2.0.0"
   requires: "fe-core, fe-tokens"
-  docs: "docs/token-naming.md, docs/skills/token-update.md, spec/tokens.json"
+  docs: "tokens/brand-palette.json, docs/token-naming.md, docs/skills/token-update.md, spec/tokens.json"
   guide: "Add or change a design token and regenerate the CSS variables."
 ---
 
@@ -46,8 +46,11 @@ A value may reference another token: `{color.orange.500}`.
 }
 ```
 
-A new flat brand colour also needs its key added to `FLAT_COLOR_KEYS` in
-`scripts/build-css.js`, or the build will not emit `--color-*` for it.
+Every colour token must be classified in `tokens/brand-palette.json`
+(`tokenClasses`, or a reference to a `color.brand.*` token); an unclassified colour
+fails the build. A new brand colour is added only to `colors` in that file, by the
+brand team's decision, then `npm run build` generates `tokens/brand.json`, the CSS
+variable, and the palette docs. Never add a non-brand colour with a brand colour's name.
 `docs/skills/token-update.md` lists the token file for each category.
 
 ## Step 2: Name it `{category}.{tier}.{variant}`
@@ -70,7 +73,7 @@ Before removing a token, search for its name and CSS variable:
 
 ```sh
 grep -rn -- 'color.orange.500' css prototype integrations spec
-grep -rn -- '--color-brand-primary' css prototype integrations
+grep -rn -- '--color-brand-orange' css prototype integrations
 ```
 
 Replace those uses, or keep the token.
@@ -93,7 +96,7 @@ Authored CSS still uses `var(--*)`.
 
 ```sh
 node scripts/build-css.js
-grep -n -- '--color-brand-primary' css/custom-properties.css
+grep -n -- '--color-brand-orange' css/custom-properties.css
 ```
 
 The build exits 0. The variable you added or changed is present. `git diff`

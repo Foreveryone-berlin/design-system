@@ -116,7 +116,7 @@ h1 { font-size:${titleSize}px; font-weight:900; line-height:.84; letter-spacing:
   <h1>Design<br>System</h1>
   <p class="sub">Design tokens, components &amp; patterns.</p>
   <div class="ramp">
-    <span style="background:var(--color-light-purple)"></span>
+    <span style="background:var(--color-legacy-light-purple)"></span>
     <span style="background:var(--color-light-green)"></span>
     <span style="background:var(--color-orange-150)"></span>
     <span style="background:var(--color-orange-300)"></span>

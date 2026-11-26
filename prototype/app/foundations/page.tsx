@@ -118,15 +118,15 @@ const colorSwatches = [
   { token: "theme-7", var: "var(--color-theme-7)" },
   { token: "light-orange", var: "var(--color-light-orange)" },
   { token: "light-gray", var: "var(--color-light-gray)" },
-  { token: "light-purple", var: "var(--color-light-purple)" },
+  { token: "legacy-light-purple", var: "var(--color-legacy-light-purple)" },
   { token: "soft-lavender", var: "var(--color-soft-lavender)" },
   { token: "status-success", var: "var(--color-status-success)" },
   { token: "status-warning", var: "var(--color-status-warning)" },
-  { token: "pink", var: "var(--color-pink)" },
+  { token: "legacy-pink", var: "var(--color-legacy-pink)" },
   { token: "purple", var: "var(--color-purple)" },
   { token: "focus-button", var: "var(--color-focus-button)" },
   { token: "status-error", var: "var(--color-status-error)" },
-  { token: "teal", var: "var(--color-teal)" },
+  { token: "legacy-teal", var: "var(--color-legacy-teal)" },
   { token: "teal-deep", var: "var(--color-teal-deep)" },
   { token: "magenta", var: "var(--color-magenta)" },
   { token: "navy", var: "var(--color-navy)" },
@@ -212,12 +212,12 @@ const colorCode = `/* Brand */
 --color-focus-button: oklch(0.616 0.149 44.3);     /* #CC622E */
 
 /* Tints & Accents */
---color-light-purple: oklch(0.856 0.081 297.3);    /* #D5C5FF */
+--color-legacy-light-purple: oklch(0.856 0.081 297.3); /* #D5C5FF, legacy, not brand Lavender */
 --color-soft-lavender: oklch(0.912 0.048 297.2);   /* #E5DCFF */
 --color-light-green: oklch(0.896 0.083 121.2);      /* #D4E6A8 */
 --color-light-orange: oklch(0.908 0.052 46.9);     /* #FFD7C4 */
---color-pink: oklch(0.792 0.107 357.1);            /* #F39EBC */
---color-teal: oklch(0.7606 0.1291 201.2);          /* #03C9D3 */
+--color-legacy-pink: oklch(0.792 0.107 357.1);   /* #F39EBC, legacy, not brand Pink */
+--color-legacy-teal: oklch(0.7606 0.1291 201.2); /* #03C9D3, legacy, not brand Teal */
 --color-purple: oklch(0.732 0.153 327);            /* #DA83DA */
 --color-very-light-gray: oklch(0.976 0 89.9);      /* #F7F7F7 */
 --color-light-gray: oklch(0.885 0 89.9);           /* #D9D9D9 */

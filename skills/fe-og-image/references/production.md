@@ -7,11 +7,11 @@ reflects `spec/principles.md` in design system 1.12.1, October 20, 2026.
 
 | Role | Token | Pairing |
 | --- | --- | --- |
-| Default canvas | `--color-background-default` | `--color-brand-dark` text |
-| Soft canvas | `--color-background-soft` | `--color-brand-dark` text |
-| Title canvas | `--color-background-title` | `--color-brand-dark` text |
-| Occasional cover | `--color-navy`, `--color-teal-deep`, `--color-background-alert` | `--color-white` text |
-| Decoration | `--color-brand-primary` | Orange underline or atmospheric mark, not text or a text ground |
+| Default canvas | `--color-background-default` | `--color-brand-charcoal` text |
+| Soft canvas | `--color-background-soft` | `--color-brand-charcoal` text |
+| Title canvas | `--color-background-title` | `--color-brand-charcoal` text |
+| Occasional cover | `--color-brand-navy`, `--color-brand-teal`, `--color-background-alert` | `--color-brand-white` text |
+| Decoration | `--color-brand-orange` | Orange underline or atmospheric mark, not text or a text ground |
 | Heading and body | `--font-family-heading`, `--font-family-body` | Licensed Filson Pro, digital only |
 
 Use a flat ground, left alignment, zero letter spacing, Bold headings and Regular

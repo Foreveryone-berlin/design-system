@@ -98,7 +98,7 @@ alone (WCAG 1.4.1).
   use the default card variant.
 - **Don't** add autoplay without a visible pause control, plus pause on hover and
   focus-within (WCAG 2.2.2). The shipped slider is manual for this reason.
-- **Don't** use `--color-brand-primary` as the dot fill: it is decorative-only
+- **Don't** use `--color-brand-orange` as the dot fill: it is decorative-only
   and never a background. Use `--color-accent-icon`.
 - **Don't** add `-webkit-overflow-scrolling: touch`. It is obsolete and breaks
   scroll snap on iOS.

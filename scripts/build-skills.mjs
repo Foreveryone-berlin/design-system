@@ -4,6 +4,7 @@
  *   skills + _shared          → dist/skills/index.json
  *   _shared/conventions.md    → dist/skills/AGENTS.foreveryone.md
  *   spec/tokens.json          → dist/skills/tokens.json
+ *   spec/brand-palette.json   → dist/skills/brand-palette.json
  *   dist/skills/              → .claude/skills/
  *
  * .agents/skills/ holds committed per-entry links into .claude/skills/, so the
@@ -47,6 +48,7 @@ function buildIndex(skills, shared, version) {
     version,
     docs: homepage,
     tokens: 'tokens.json',
+    brandPalette: 'brand-palette.json',
     agentsBlock: 'AGENTS.foreveryone.md',
     shared: shared.map((s) => `${sharedDirName}/${s.file}`),
     skills: skills.map((skill) => ({
@@ -111,6 +113,10 @@ await cp(path.join(skillsRoot, sharedDirName), path.join(outDir, sharedDirName),
 });
 
 await cp(path.join(repoRoot, 'spec', 'tokens.json'), path.join(outDir, 'tokens.json'));
+await cp(
+  path.join(repoRoot, 'spec', 'brand-palette.json'),
+  path.join(outDir, 'brand-palette.json')
+);
 
 const index = buildIndex(skills, shared, pkg.version);
 await writeFile(path.join(outDir, 'index.json'), `${JSON.stringify(index, null, 2)}\n`, 'utf8');

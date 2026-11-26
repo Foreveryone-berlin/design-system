@@ -8,6 +8,34 @@
 const fs = require("fs");
 const path = require("path");
 const { loadAllTokens, resolveTokenValue } = require("./token-utils");
+const {
+  loadPalette,
+  classifyToken,
+  referenceOf,
+  cssVarForColor,
+} = require("./lib/palette");
+
+const PALETTE = loadPalette();
+const DEPRECATED = new Map(PALETTE.deprecated.map((d) => [d.token, d]));
+
+// Extra fields for colour tokens: class, canonical brand colour, deprecation.
+function colorFields(dotted, node) {
+  const cls = classifyToken(dotted, node, PALETTE);
+  if (!cls) throw new Error(`Unclassified colour token ${dotted}: add it to tokens/brand-palette.json`);
+  const fields = { class: cls, canonicalBrand: cls === "brand" };
+  const ref = referenceOf(node.$value);
+  if (ref && ref.startsWith("color.brand.")) {
+    fields.brandColor = ref;
+    fields.preferred = cssVarForColor(ref);
+  }
+  const dep = DEPRECATED.get(dotted);
+  if (dep) {
+    fields.deprecated = true;
+    fields.replacement = cssVarForColor(dep.replacement);
+    fields.approved = cssVarForColor(dep.approved);
+  }
+  return fields;
+}
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const OUTPUT_PATH = path.join(ROOT_DIR, "spec", "tokens.json");
@@ -64,6 +92,7 @@ function walk(node, group, trail, out, tokens) {
       type: node.$type ?? null,
       surface: surfaceFor(dotted, node.$description),
       description: node.$description ?? null,
+      ...(group === "color" ? colorFields(dotted, node) : {}),
     });
     return;
   }
@@ -83,7 +112,7 @@ function main() {
   const spec = {
     $schema: "https://foreveryone.berlin/spec/tokens.schema.json",
     generated: "node scripts/build-spec.js",
-    note: "Flattened, resolved design tokens. surface=print tokens must NOT be used on the web. Extend the palette in OKLCH: hold hue and lightness, step chroma.",
+    note: "Flattened, resolved design tokens. Colour tokens carry class: only class \"brand\" tokens (and alias/semantic tokens with brandColor) are brand colours; the approved palette is spec/brand-palette.json. deprecated tokens must not be used. surface=print tokens must NOT be used on the web. Extend the palette in OKLCH: hold hue and lightness, step chroma.",
     count: out.length,
     tokens: out.sort((a, b) => a.name.localeCompare(b.name)),
   };

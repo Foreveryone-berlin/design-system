@@ -1696,7 +1696,7 @@ a.ds-btn {
 }
 
 .ds-btn--outline:hover {
-  background: var(--color-light-purple);
+  background: var(--color-legacy-light-purple);
 }
 
 .ds-btn--orange {
@@ -1722,7 +1722,7 @@ a.ds-btn {
   background: var(--color-light-orange);
 }
 .ds-btn--outline.is-hover {
-  background: var(--color-light-purple);
+  background: var(--color-legacy-light-purple);
 }
 /* Focused fill: keyboard focus reuses this fill (no gold outline); .is-focus is
    the static demo of the same fill. */
@@ -1740,7 +1740,7 @@ a.ds-btn {
 }
 .ds-btn--outline.is-focus,
 .ds-btn--outline:focus-visible {
-  background: var(--color-light-purple);
+  background: var(--color-legacy-light-purple);
 }
 .ds-btn:disabled,
 .ds-btn.is-disabled {
@@ -1846,7 +1846,7 @@ a.ds-btn {
 .ds-input:focus {
   outline: none;
   border-color: var(--color-brand-secondary);
-  box-shadow: 0 0 0 0.1875rem var(--color-light-purple);
+  box-shadow: 0 0 0 0.1875rem var(--color-legacy-light-purple);
 }
 
 .ds-input::placeholder {
@@ -2618,7 +2618,7 @@ a.ds-btn {
   display: inline-block;
   width: 160px;
   height: 160px;
-  background-color: var(--color-light-purple);
+  background-color: var(--color-legacy-light-purple);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
@@ -3084,7 +3084,7 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
 .ds-code-block-wrap .token.regex,
 .ds-code-block-wrap .token.important,
 .ds-code-block-wrap .token.variable {
-  color: var(--color-pink);
+  color: var(--color-legacy-pink);
 }
 
 .ds-code-block-wrap {
