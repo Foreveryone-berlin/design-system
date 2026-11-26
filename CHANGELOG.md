@@ -8,6 +8,8 @@
 
 ## [Unreleased]
 
+## [1.24.0] - 2026-11-26
+
 ### Added
 
 - Brand palette: Define the eleven approved colours once, with a brand name and a generated guide. ([#353](https://github.com/Foreveryone-berlin/design-system/pull/353), [#352](https://github.com/Foreveryone-berlin/design-system/issues/352))
