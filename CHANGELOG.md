@@ -10,19 +10,18 @@
 
 ### Added
 
-- Brand palette: Define the eleven approved colours once in a single source file that agents and tools can read.
-- Brand palette: Add `--color-brand-*` names for every approved colour, plus a generated palette guide and JSON.
-- Agent skills: Ship the brand palette to installed skills, so agents pick approved colours without extra prompts.
-- Validation: Fail the test run when the palette, CSS, docs, skills, or code disagree on a brand colour.
+- Brand palette: Define the eleven approved colours once, with a brand name and a generated guide. ([#353](https://github.com/Foreveryone-berlin/design-system/pull/353), [#352](https://github.com/Foreveryone-berlin/design-system/issues/352))
+- Agent skills: Ship the palette with installed skills so agents pick approved colours. ([#353](https://github.com/Foreveryone-berlin/design-system/pull/353), [#352](https://github.com/Foreveryone-berlin/design-system/issues/352))
+- Validation: Fail the test run when the palette, CSS, docs, skills, or code disagree. ([#353](https://github.com/Foreveryone-berlin/design-system/pull/353), [#352](https://github.com/Foreveryone-berlin/design-system/issues/352))
 
 ### Changed
 
-- Colour tokens: Tag each colour as brand, alias, semantic, technical, status, ramp, legacy, or print in the token spec.
-- Docs and skills: Rewrite palette guidance around the canonical names; shorten the colour audit.
+- Colour tokens: Tag each colour brand, alias, semantic, technical, status, ramp, legacy, or print. ([#353](https://github.com/Foreveryone-berlin/design-system/pull/353), [#352](https://github.com/Foreveryone-berlin/design-system/issues/352))
+- Docs and skills: Rewrite palette guidance around the canonical names and shorten the colour audit. ([#353](https://github.com/Foreveryone-berlin/design-system/pull/353), [#352](https://github.com/Foreveryone-berlin/design-system/issues/352))
 
 ### Deprecated
 
-- Colour tokens: Mark `--color-pink`, `--color-teal`, and `--color-light-purple` as not brand; old values live on as `--color-legacy-*`.
+- Colour tokens: Mark old pink, teal, and light-purple names as not brand. Previous values stay. ([#353](https://github.com/Foreveryone-berlin/design-system/pull/353), [#352](https://github.com/Foreveryone-berlin/design-system/issues/352))
 
 ## [1.23.0] - 2026-11-24
 
