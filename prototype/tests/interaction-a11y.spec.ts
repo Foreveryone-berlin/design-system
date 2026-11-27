@@ -198,10 +198,21 @@ test.describe("interactive accessibility", () => {
     await expect(hero.locator("h1")).toBeVisible();
     await expect(hero.locator("h1")).toHaveCSS("animation-name", "none");
     await expect(hero.locator(".ds-headline-underline")).toHaveCSS("animation-name", "none");
+    await expect(hero.locator(".ds-headline-underline")).toHaveCSS("mask-image", "none");
+    await expect(hero.locator(".ds-headline-underline__mark")).toBeVisible();
     await expect(hero.locator(".ds-stats")).toHaveCSS("animation-name", "none");
-    await expect(hero.locator(".ds-stat-value [aria-hidden]")).toHaveText(["100", "15", "15", "10"]);
+    await expect(hero.locator(".ds-stat-value [aria-hidden]")).toHaveText(["100", "27", "15", "10"]);
     await expect(hero.locator(".ds-stat-value [aria-hidden]").first()).toBeHidden();
     await expect(hero.locator(".ds-stat-value .ds-visually-hidden").first()).toBeVisible();
+  });
+
+  test("home underline paints on after the headline", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+    await openPage(page, "/");
+    const line = page.locator(".ds-home-hero .ds-headline-underline");
+    await expect(line).toHaveCSS("animation-name", "ds-home-brush");
+    await expect(line).toHaveCSS("animation-delay", "0.4s");
+    await expect(line.locator(".ds-headline-underline__mark")).toBeVisible();
   });
 
   test("home counters wait for the stats reveal and labels link to their sections", async ({ page }) => {
@@ -232,7 +243,7 @@ test.describe("interactive accessibility", () => {
         await expect(labels.nth(later)).toBeHidden();
       }
     }
-    await expect(counters).toHaveText(["100", "15", "15", "10"]);
+    await expect(counters).toHaveText(["100", "27", "15", "10"]);
     for (const [name, href] of [["Color tokens", "/foundations#colors"], ["Components", "/components"], ["Patterns", "/patterns"], ["Agent skills", "/agent-skills"]]) {
       await expect(stats.getByRole("link", { name, exact: true })).toHaveAttribute("href", href);
     }
@@ -244,7 +255,7 @@ test.describe("interactive accessibility", () => {
     const stats = page.locator(".ds-home-hero .ds-stats");
     await page.getByRole("button", { name: "Skip animation" }).click();
     await expect(stats).toHaveAttribute("data-complete", "true");
-    await expect(stats.locator(".ds-stat-value [aria-hidden]")).toHaveText(["100", "15", "15", "10"]);
+    await expect(stats.locator(".ds-stat-value [aria-hidden]")).toHaveText(["100", "27", "15", "10"]);
     for (const label of await stats.locator(".ds-stat-label").all()) {
       await expect(label).toBeVisible();
       await expect(label).toHaveCSS("opacity", "1");
@@ -258,7 +269,7 @@ test.describe("interactive accessibility", () => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     const stats = page.locator(".ds-home-hero .ds-stats");
     await expect(stats).toHaveAttribute("data-complete", "true");
-    await expect(stats.locator(".ds-stat-value [aria-hidden]")).toHaveText(["100", "15", "15", "10"]);
+    await expect(stats.locator(".ds-stat-value [aria-hidden]")).toHaveText(["100", "27", "15", "10"]);
     await expect(page.getByRole("button", { name: "Skip animation", includeHidden: true })).toBeHidden();
     await expect(stats).toHaveCSS("animation-name", "none");
   });

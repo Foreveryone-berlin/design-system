@@ -8,6 +8,13 @@
 
 ## [Unreleased]
 
+## [1.24.1] - 2026-11-27
+
+### Changed
+
+- Home: Put the skip control under the stats, remove it without shifting the page, and count 27 controls. ([#357](https://github.com/Foreveryone-berlin/design-system/pull/357), [#356](https://github.com/Foreveryone-berlin/design-system/issues/356))
+- Home: Paint the orange headline underline on with a brush stroke. ([#357](https://github.com/Foreveryone-berlin/design-system/pull/357), [#356](https://github.com/Foreveryone-berlin/design-system/issues/356))
+
 ## [1.24.0] - 2026-11-26
 
 ### Added
