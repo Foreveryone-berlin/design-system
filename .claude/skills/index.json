@@ -1,6 +1,6 @@
 {
   "name": "foreveryone-design-system",
-  "version": "1.24.0",
+  "version": "1.24.1",
   "docs": "https://github.com/Foreveryone-berlin/design-system",
   "tokens": "tokens.json",
   "brandPalette": "brand-palette.json",
