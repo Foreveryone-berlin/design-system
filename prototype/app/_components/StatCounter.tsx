@@ -20,17 +20,21 @@ export default function StatCounter({
   delay = 0,
   hideUntilStart = false,
   complete = false,
+  onDone,
 }: {
   value: string;
   duration?: number;
   delay?: number;
   hideUntilStart?: boolean;
   complete?: boolean;
+  onDone?: () => void;
 }) {
   const { prefix, target, suffix, grouped } = parse(value);
   const [display, setDisplay] = useState(0);
   const [visible, setVisible] = useState(!hideUntilStart);
   const ref = useRef<HTMLSpanElement>(null);
+  const onDoneRef = useRef(onDone);
+  onDoneRef.current = onDone;
 
   useEffect(() => {
     if (target === null || complete) return;
@@ -62,6 +66,7 @@ export default function StatCounter({
               const eased = 1 - Math.pow(1 - t, 3);
               setDisplay(Math.round(eased * target));
               if (t < 1) frame = requestAnimationFrame(tick);
+              else onDoneRef.current?.();
             };
             frame = requestAnimationFrame(tick);
           }, delay);

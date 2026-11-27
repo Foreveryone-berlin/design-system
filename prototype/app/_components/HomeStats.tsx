@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
+import { useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { stats } from "@/content/site-copy";
 import StatCounter from "./StatCounter";
@@ -24,6 +24,16 @@ export default function HomeStats() {
     getServerSnapshot,
   );
   const complete = showAll || reducedMotion;
+  const finished = useRef(new Set<number>());
+  const [counted, setCounted] = useState(0);
+  const sequenceDone = counted >= stats.length;
+  const settled = complete || sequenceDone;
+
+  function markDone(index: number) {
+    if (finished.current.has(index)) return;
+    finished.current.add(index);
+    setCounted(finished.current.size);
+  }
 
   return (
     <>
@@ -42,6 +52,7 @@ export default function HomeStats() {
                 delay={index * counterDuration}
                 hideUntilStart
                 complete={complete}
+                onDone={() => markDone(index)}
               />
             </p>
             <p className="ds-stat-label">
@@ -53,7 +64,8 @@ export default function HomeStats() {
       <button
         type="button"
         className="ds-stats-reveal"
-        disabled={complete}
+        data-settled={settled ? "" : undefined}
+        tabIndex={settled ? -1 : undefined}
         onClick={() => setShowAll(true)}
       >
         Skip animation

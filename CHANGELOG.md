@@ -8,6 +8,11 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Home: Put the skip control under the stats, remove it without shifting the page, and count 27 controls.
+- Home: Paint the orange headline underline on with a brush stroke.
+
 ## [1.24.0] - 2026-11-26
 
 ### Added
