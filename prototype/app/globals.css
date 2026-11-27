@@ -1107,11 +1107,17 @@ summary:focus-visible,
 /* Sketched brand underline tucked under a headline (see SheLeads).
    Stretches to the headline text width; height follows the SVG aspect (500×54). */
 .ds-headline-underline {
+  position: relative;
   display: block;
   width: 100%;
   aspect-ratio: 500 / 54;
-  height: auto;
   margin: var(--spacing-2) 0 0;
+}
+
+.ds-headline-underline__mark {
+  position: absolute;
+  inset: 0;
+  display: block;
   background-color: var(--color-brand-primary);
   -webkit-mask-image: url(/illustrations/headline-underline.svg);
   mask-image: url(/illustrations/headline-underline.svg);
@@ -1165,6 +1171,38 @@ summary:focus-visible,
 
   .ds-home-hero .ds-headline-with-underline {
     animation: ds-home-enter var(--transition-base) backwards;
+  }
+
+  /* 200% + 1.5rem mask: solid, a fixed soft tip, then empty. Sliding it paints the sketch. */
+  .ds-home-hero .ds-headline-underline {
+    --ds-brush-mask: linear-gradient(
+      90deg,
+      white 0,
+      white calc(50% - 0.75rem),
+      transparent calc(50% + 0.75rem),
+      transparent 100%
+    );
+    -webkit-mask-image: var(--ds-brush-mask);
+    mask-image: var(--ds-brush-mask);
+    mask-mode: alpha;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: calc(200% + 1.5rem) 100%;
+    mask-size: calc(200% + 1.5rem) 100%;
+    -webkit-mask-position: 100% center;
+    mask-position: 100% center;
+    animation: ds-home-brush 560ms cubic-bezier(0.16, 0.72, 0.24, 1) 400ms both;
+  }
+
+  @keyframes ds-home-brush {
+    from {
+      -webkit-mask-position: 100% center;
+      mask-position: 100% center;
+    }
+    to {
+      -webkit-mask-position: 0% center;
+      mask-position: 0% center;
+    }
   }
 
   /* The hero photo is the LCP element: it paints at once instead of fading in. */
@@ -2016,8 +2054,13 @@ a.ds-btn {
   background: none;
   border-radius: 0;
 }
+.ds-home-hero .ds-stats:has(+ .ds-stats-reveal) {
+  margin-bottom: 0;
+}
 .ds-home-hero .ds-stats-reveal {
   display: block;
+  margin-top: var(--spacing-5);
+  margin-bottom: var(--spacing-8);
   padding: 0;
   border: 0;
   background: none;
@@ -2029,9 +2072,9 @@ a.ds-btn {
   text-underline-offset: 0.12em;
   cursor: pointer;
 }
-.ds-home-hero .ds-stats-reveal:disabled {
-  cursor: default;
-  text-decoration: none;
+.ds-home-hero .ds-stats-reveal[data-settled] {
+  visibility: hidden;
+  pointer-events: none;
 }
 .ds-home-hero .ds-stats .ds-stat-value {
   font-size: calc((var(--font-size-h2-mobile) + var(--font-size-3xl)) / 2);
@@ -3183,9 +3226,12 @@ pre.ds-code-block[class*="language-"] code[class*="language-"] {
     scroll-behavior: auto;
   }
 
-  .ds-home-hero .ds-stat-value > [aria-hidden],
-  .ds-home-hero .ds-stats-reveal {
+  .ds-home-hero .ds-stat-value > [aria-hidden] {
     display: none;
+  }
+
+  .ds-home-hero .ds-stats-reveal {
+    visibility: hidden;
   }
 
   .ds-home-hero .ds-stat-value > .ds-visually-hidden {
